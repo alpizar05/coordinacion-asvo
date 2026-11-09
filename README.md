@@ -1,17 +1,23 @@
 # Coordinación de Voluntariado de ASVO
 
-Primera entrega local con datos ficticios. El orden de trabajo es registro y permisos, convocatoria fija, verificación y cupos, luego fechas flexibles y comunicado. El segundo hito incorpora logística privada, 70, informes y cierre.
+Plataforma de coordinación e inscripción de voluntariado. La beta está desplegada en [coordinacion-asvo.vercel.app](https://coordinacion-asvo.vercel.app), con autenticación institucional, PostgreSQL en Neon, fotos en SharePoint y correo mediante Exchange Online.
+
+## Manual de despliegue y configuración
+
+Consultá el **[How to: desplegar y configurar la plataforma](docs/despliegue-y-configuracion.md)**. Incluye GitHub, Vercel, Neon, Entra ID, SharePoint, Microsoft Graph, Exchange Online, PowerShell, variables de entorno, permisos, diagnóstico de errores y el procedimiento futuro para dominio y remitente definitivo.
+
+El manual también registra qué se verificó en la beta y los pendientes: reintentos programados de correo, pruebas de aceptación, separación de bases por entorno y preparación del lanzamiento. El subdominio `voluntariado.asvocr.org` queda reservado para esa etapa.
 
 ## Arquitectura
 
-Next.js App Router y PostgreSQL. Las mutaciones pasan por acciones de servidor y las asignaciones se serializan por convocatoria. Para el piloto, Auth.js con Microsoft Entra ID de un solo directorio y permisos operativos en PostgreSQL vinculados al identificador del objeto Entra. Vercel ejecutará Node.js y usará una URL de PostgreSQL con pooling. Exchange Online será el transporte de correo mediante Graph. Los futuros archivos se guardarán en la biblioteca privada de SharePoint y se referenciarán por identificadores de sitio, unidad y elemento. Cada descarga requerirá autorización en el servidor.
+Next.js App Router y PostgreSQL. Las mutaciones pasan por acciones de servidor y las asignaciones se serializan por convocatoria. Auth.js usa Microsoft Entra ID de un solo directorio y permisos operativos en PostgreSQL vinculados al identificador del objeto del usuario. Vercel ejecuta Node.js y se conecta a Neon. Exchange Online transporta el correo mediante Graph con autorización limitada al buzón de beta. Los originales de fotos se guardan en una biblioteca privada de SharePoint; PostgreSQL conserva sus referencias y las versiones optimizadas que entrega la aplicación.
 
 El módulo futuro de capacitaciones vinculará cada curso completado al UUID de la persona y a un catálogo. Guardará fecha, entidad, evidencia en SharePoint, verificador y vigencia. SCI y CBF de BRIF son ejemplos pendientes de confirmar con las unidades.
 
 ## Decisiones del piloto
 
-- Definir proveedor PostgreSQL, copias de seguridad y prueba de restauración, retención y exportaciones.
-- Confirmar objeto Entra de la primera cuenta administradora, cuentas autorizables, buzón y permisos Graph.
+- Definir copias de seguridad, prueba de restauración, retención y exportaciones de Neon, y separar Preview de Production.
+- Preparar dominio y buzón definitivos para lanzamiento; el acceso institucional y el buzón de beta ya están configurados.
 - Confirmar vencimiento y datos accesibles para el 70, relevos y permisos de las administraciones de estación.
 - Confirmar regla de traslape, cupo diario o por salida, cómputo de cancelación y excepciones de póliza.
 - Revisar muestras anonimizadas del registro, Polizas y fuente de vigencias. Nombre Completo BD será derivado. Column 13 queda pendiente.
@@ -136,7 +142,7 @@ Después ejecutá `npm run db:setup -- --demo`, cargá los ejemplos necesarios y
 
 Cada recepción y actualización genera un correo con estado, mensaje y enlace privado. En modo demo se consulta en **Bandeja de prueba · Demo**. En producción se usa Exchange Online mediante Graph. Los mensajes quedan en una cola persistente dentro de la misma transacción que cambia la inscripción.
 
-La aplicación intenta enviarlos después de cada operación. Si falla Graph, quedan pendientes de reintento. Para procesar la cola cada minuto, mantené un proceso de correo activo con `npm run mail:worker`, usando las variables de entorno del despliegue. En un servicio que ya inyecta las variables, usá `node scripts/mail-outbox.mjs --watch`. En Vercel, un proceso permanente necesita un servicio aparte o una ejecución programada que invoque `node scripts/mail-outbox.mjs`. Para un reintento local puntual, usá `npm run mail:retry`. Los mensajes de una misma inscripción se entregan en orden. Una interrupción después de la aceptación por Graph y antes de registrar el envío puede producir un correo duplicado.
+La aplicación intenta enviarlos después de cada operación. Si falla Graph, quedan pendientes de reintento. Para procesar la cola cada minuto, mantené un proceso de correo activo con `npm run mail:worker`, usando las variables de entorno del despliegue. En un servicio que ya inyecta las variables, usá `node scripts/mail-outbox.mjs --watch`. En Vercel, `vercel.json` programa `/api/cron/correos` diariamente a las 12:00 UTC (6:00 a. m. de Costa Rica), compatible con Hobby. Para activarlo, configurá `CRON_SECRET` en Production y desplegá el código. La ruta exige autorización Bearer y rechaza demo/Preview. Consultá la [configuración y verificación del cron](docs/despliegue-y-configuracion.md#10-cola-y-reintentos-de-correo). La ejecución diaria es de respaldo; un envío fallido puede esperar al siguiente día. Para un reintento local puntual, usá `npm run mail:retry`. Los mensajes de una misma inscripción se entregan en orden. Una interrupción después de la aceptación por Graph y antes de registrar el envío puede producir un correo duplicado.
 
 `npm run db:setup` adapta las solicitudes existentes al nuevo reparto por orden de recepción, conserva las confirmaciones y genera sus avisos una sola vez. La prueba local `npm run test:registration` comprueba concurrencia, reservas, promociones, motivos, correos demo y enlaces privados, y elimina sus propios datos al terminar. Requiere Node.js 22.18 o posterior con soporte de TypeScript nativo.
 
@@ -144,7 +150,7 @@ La aplicación intenta enviarlos después de cada operación. Si falla Graph, qu
 
 El cupo se cuenta por salida. Las solicitudes en revisión y confirmadas ocupan cupo. Las solicitudes en espera, rechazadas o canceladas quedan fuera del contador. Las sugerencias enlazan periodos inclusivos por cadena de traslapes. El registro de decisiones de agrupación guarda una nota auditada. La advertencia de cancelación usa horas hacia atrás desde la medianoche de la fecha de llegada solicitada en Costa Rica. Una póliza solo habilita confirmación si su verificación cubre ambas fechas. Los enlaces de gestión duran al menos 72 horas y permanecen vigentes hasta siete días después del fin de participación o de la salida, lo que sea posterior.
 
-La importación inicial usa CSV de identidad básica. La ficha tiene campos adicionales para ampliar el mapeo con la muestra de ASVO. La hoja Polizas se concilia a partir de un CSV con encabezados provisionales. Los grupos pueden separarse en salidas propias. Si una persona cambia las fechas de una inscripción confirmada, vuelve a revisión y conserva su reserva. SharePoint, 70, gastos, informes y cierres corresponden al segundo hito.
+La importación inicial usa CSV de identidad básica. La ficha tiene campos adicionales para ampliar el mapeo con la muestra de ASVO. La hoja Polizas se concilia a partir de un CSV con encabezados provisionales. Los grupos pueden separarse en salidas propias. Si una persona cambia las fechas de una inscripción confirmada, vuelve a revisión y conserva su reserva. La plataforma incluye fotos en SharePoint, asignación del 70, resumen privado e informe de salida; las pruebas de aceptación pendientes se registran en el manual.
 
 ## Identidad visual
 
