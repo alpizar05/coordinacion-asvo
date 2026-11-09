@@ -139,8 +139,13 @@ try {
       assert.equal(pending.sent_at,null,'Un fallo de Graph conserva el correo pendiente');
       assert.equal(pending.attempts,1);
       await tx`update registration_mail_outbox set retry_at=now() where id=${pending.id}`;
-      globalThis.fetch = async url => String(url).includes('/token')
-        ? Response.json({ access_token: 'mock' }) : new Response('',{status:202});
+      globalThis.fetch = async (url, options) => {
+        if (String(url).includes('/token')) return Response.json({ access_token: 'mock' });
+        const { message } = JSON.parse(options.body);
+        assert.equal(message.body.contentType,'HTML');
+        assert.match(message.body.content,/Ver mi inscripción/);
+        return new Response('',{status:202});
+      };
       await flushRegistrationMail(tx);
       const [sent] = await tx`select sent_at from registration_mail_outbox where id=${pending.id}`;
       assert.ok(sent.sent_at,'Un reintento exitoso registra la entrega');

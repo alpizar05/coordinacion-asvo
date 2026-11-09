@@ -344,6 +344,8 @@ Confirmá `GRAPH_SENDER` y las tres credenciales Graph en el despliegue vigente.
 
 ## 10. Cola y reintentos de correo
 
+Los nuevos mensajes guardan `html_body` además del texto. La plantilla incorpora el logo público `/logo-asvo.png`, paleta ASVO, nombre, estado, lugar, unidad, fechas y enlace privado. La columna se agrega de forma compatible al aplicar `schema.sql`; debe existir antes de desplegar el nuevo código. Los mensajes ya pendientes sin HTML conservan su formato de texto. La bandeja demo muestra el texto. No se adjunta el PDF del formulario anterior ni se promete crear automáticamente un grupo de WhatsApp.
+
 Los mensajes se guardan en `registration_mail_outbox` dentro de la transacción de la inscripción. La aplicación intenta enviarlos después de cada operación. Los fallidos quedan pendientes; un intento reserva el mensaje durante cinco minutos y cada ejecución procesa hasta 30 mensajes respetando el orden por inscripción.
 
 Consultar conteos en Neon sin exponer contenidos ni enlaces privados:

@@ -212,6 +212,7 @@ create table if not exists registration_mail_outbox (
   retry_at timestamptz not null default now()
 );
 create index if not exists registration_mail_pending on registration_mail_outbox(retry_at,id) where sent_at is null;
+alter table registration_mail_outbox add column if not exists html_body text;
 create table if not exists app_migrations (name text primary key, applied_at timestamptz not null default now());
 
 create table if not exists registration_receipts (
