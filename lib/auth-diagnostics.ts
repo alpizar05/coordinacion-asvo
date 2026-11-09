@@ -16,21 +16,26 @@ export function authDiagnostics(error: Error) {
   };
 }
 
+export async function inspectEntraTokenResponse(response: Response) {
+  try {
+    const payload: unknown = await response.clone().json();
+    if (payload && typeof payload === 'object' && 'error' in payload) {
+      const error = Object.assign(new Error('Entra token exchange failed'), {
+        type: 'OAuthCallbackError', cause: { ...payload, providerId: 'microsoft-entra-id' },
+      });
+      console.error('[auth][entra-token]', JSON.stringify(authDiagnostics(error)));
+    }
+  } catch { /* Diagnostics must not modify the authentication response. */ }
+  return response;
+}
+
 /** Inspect only the Entra token error before Auth.js discards its cause. */
 export function withEntraDiagnostics(fetcher: typeof fetch): typeof fetch {
   return async (input, init) => {
     const response = await fetcher(input, init);
     const url = new URL(input instanceof Request ? input.url : String(input));
     if (url.hostname === 'login.microsoftonline.com' && url.pathname.endsWith('/oauth2/v2.0/token')) {
-      try {
-        const payload: unknown = await response.clone().json();
-        if (payload && typeof payload === 'object' && 'error' in payload) {
-          const error = Object.assign(new Error('Entra token exchange failed'), {
-            type: 'OAuthCallbackError', cause: { ...payload, providerId: 'microsoft-entra-id' },
-          });
-          console.error('[auth][entra-token]', JSON.stringify(authDiagnostics(error)));
-        }
-      } catch { /* Diagnostics must not modify the authentication response. */ }
+      await inspectEntraTokenResponse(response);
     }
     return response;
   };

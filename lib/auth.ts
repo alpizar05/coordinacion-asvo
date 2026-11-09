@@ -1,18 +1,17 @@
-import NextAuth, { customFetch } from 'next-auth';
+import NextAuth from 'next-auth';
 import MicrosoftEntraID from 'next-auth/providers/microsoft-entra-id';
 import { cookies } from 'next/headers';
 import { demo, demoAdmin, demoCoordinator, sql } from './db';
-import { authDiagnostics, withEntraDiagnostics } from './auth-diagnostics';
+import { authDiagnostics, inspectEntraTokenResponse } from './auth-diagnostics';
 
 const issuer = process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER;
 const tenant = issuer?.match(/^https:\/\/login\.microsoftonline\.com\/([0-9a-f-]{36})\/v2\.0$/i)?.[1];
-const entra = tenant ? MicrosoftEntraID({ issuer }) : null;
-if (entra) entra[customFetch] = withEntraDiagnostics(entra[customFetch] ?? fetch);
+const entra = tenant ? MicrosoftEntraID({ issuer, token: { conform: inspectEntraTokenResponse } }) : null;
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   logger: {
     error(error) {
-      console.error('[auth][diagnostic]', JSON.stringify(authDiagnostics(error)));
+      console.error('[auth][diagnostic]', JSON.stringify({ version: 'entra-v3', ...authDiagnostics(error) }));
     },
   },
   providers: entra ? [entra] : [],
