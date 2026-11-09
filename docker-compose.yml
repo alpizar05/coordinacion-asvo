@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: asvo
+      POSTGRES_PASSWORD: asvo
+      POSTGRES_DB: asvo
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - asvo-data:/var/lib/postgresql/data
+volumes:
+  asvo-data:

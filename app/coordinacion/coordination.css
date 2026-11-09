@@ -1,0 +1,75 @@
+/* Shared visual language for staff pages; public pages keep their own styles. */
+.coordination-content {
+  --coord-primary: #526a3d;
+  --coord-primary-hover: #40552e;
+  --coord-soft: #f3f5ef;
+  --coord-danger: #852f24;
+  --coord-danger-soft: #fbefec;
+  --coord-radius: .625rem;
+}
+.coordination-content h1 { font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.2; letter-spacing: -.025em; margin-block: .5rem 1.25rem; overflow-wrap: anywhere; }
+.coordination-content h2 { font-size: 1.25rem; line-height: 1.3; }
+.coordination-content h3 { font-size: 1rem; line-height: 1.4; }
+.coordination-content .breadcrumb { font-size: .875rem; color: var(--gray); margin-block: 1.25rem .5rem; }
+.coordination-content .breadcrumb a { color: var(--coord-primary); }
+.coordination-content > .card, .coordination-content section.card, .coordination-content form.card {
+  border-radius: var(--coord-radius); border-color: var(--line); background: var(--paper);
+}
+.coordination-content .card h2 { margin-top: 0; }
+.coordination-content .card .card { border-radius: .4rem; box-shadow: none; }
+.coordination-content .outings-table-heading { gap: .75rem 1.25rem; }
+.coordination-content .coordination-header { margin-bottom: .5rem; }
+.coordination-content .coordination-nav-desktop { margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.coordination-content .coordination-nav-desktop ul { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.coordination-content .coordination-nav-desktop a {
+  display: flex; min-height: 48px; padding: .75rem .4rem; border: 0; border-bottom: 3px solid transparent;
+  border-radius: 0; background: transparent; color: var(--gray);
+}
+.coordination-content .coordination-nav-desktop a span { display: none; }
+.coordination-content .coordination-nav-desktop a:hover { background: var(--coord-soft); color: var(--ink); }
+.coordination-content .coordination-nav-desktop a[aria-current] { color: var(--coord-primary); border-bottom-color: var(--coord-primary); background: transparent; }
+/* Secondary is the default; primary/destructive actions opt in explicitly. */
+.coordination-content :is(button, .button) { background: var(--paper); color: var(--ink); border-color: var(--line); font-weight: 600; box-shadow: none; }
+.coordination-content :is(button, .button):hover { background: var(--coord-soft); color: var(--ink); border-color: var(--moss); }
+.coordination-content :is(button, .button).coord-button-primary { background: var(--coord-primary); color: var(--paper); border-color: var(--coord-primary); }
+.coordination-content :is(button, .button).coord-button-primary:hover { background: var(--coord-primary-hover); border-color: var(--coord-primary-hover); color: var(--paper); }
+.coordination-content :is(button, .button).coord-button-danger { background: var(--coord-danger-soft); color: var(--coord-danger); border-color: #d9b3ac; }
+.coordination-content :is(button, .button).coord-button-danger:hover { background: var(--coord-danger); border-color: var(--coord-danger); color: var(--paper); }
+.coordination-content button:disabled { opacity: .5; cursor: not-allowed; }
+.coordination-content :is(input:not([type=checkbox]), select, textarea) { border-color: var(--line); border-radius: .4rem; background: var(--paper); color: var(--ink); }
+.coordination-content :is(input:not([type=checkbox]), select) { min-height: 44px; }
+.coordination-content label { font-size: .9375rem; gap: .35rem; }
+.coordination-content input[type=checkbox] { accent-color: var(--coord-primary); }
+.coordination-content fieldset { padding: 1rem; border-color: var(--line); border-radius: var(--coord-radius); }
+.coordination-content legend { padding-inline: .35rem; font-weight: 600; }
+.coordination-content .outings-filters { gap: 1rem; }
+.coordination-content .outings-scroll { border: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; }
+.coordination-content .outings-table :is(th, td) { padding: .8rem .85rem; line-height: 1.45; vertical-align: middle; }
+.coordination-content .outings-table thead th { font-size: .8125rem; font-weight: 600; color: #535b4b; }
+.coordination-content .outings-table thead button { background: transparent; color: inherit; border-color: transparent; min-height: 36px; padding-block: .2rem; }
+.coordination-content .outings-table tbody :is(th, td) > a { color: var(--coord-primary); }
+.coordination-content .outings-table .pill { font-size: .8125rem; }
+.coordination-content .pill { background: var(--coord-soft); color: #46503d; border-color: var(--line); line-height: 1.4; }
+.coordination-content .pill[data-status="confirmada"], .coordination-content .pill[data-status="abierta"] { background: #edf4e7; color: #36562a; border-color: #c5d7ba; }
+.coordination-content .pill[data-status="revisión"], .coordination-content .pill[data-status="espera"], .coordination-content .pill[data-status="validación"] { background: #fff6dc; color: #745519; border-color: #e6d6a5; }
+.coordination-content .pill[data-status="rechazada"], .coordination-content .pill[data-status^="cancelada"] { background: var(--coord-danger-soft); color: var(--coord-danger); border-color: #e7c9c2; }
+.coordination-content .pill.coord-role-label { background: var(--ink); color: var(--paper); border-color: var(--ink); border-radius: .3rem; }
+/* Preserve compact menus, tabs, and close controls within the shared button system. */
+.coordination-content :is(.registration-manage-trigger, .registration-sheet-back, .registration-sheet-close, .registration-sheet-actions button) { background: transparent; border-color: transparent; }
+.coordination-content .registration-sheet-actions button { justify-content: flex-start; }
+.coordination-content .registration-sheet-danger { color: var(--coord-danger); }
+.coordination-content .registration-sheet-danger:hover { color: var(--coord-danger); background: var(--coord-danger-soft); border-color: transparent; }
+.coordination-content .outing-tab-list button { border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--gray); }
+.coordination-content .outing-tab-list button[aria-selected=true] { color: var(--coord-primary); border-bottom-color: var(--coord-primary); }
+.coordination-content .coordination-outing-tabs > [role=tabpanel] > .card { border: 0; border-radius: 0; }
+.coordination-content .coordination-outing-tabs > [role=tabpanel] > .card + .card { border-top: 1px solid var(--line); }
+.coordination-content .outing-danger-zone { border-color: #e7c9c2; }
+.coordination-content .note[role=alert] { background: #fff6dc; border-inline-start-color: #90661b; }
+/* The mobile navigation is portalled into the global header. */
+.coordination-nav-mobile .coordination-nav a[aria-current] { background: #eff3e8; border-color: var(--moss); border-inline-start-color: #526a3d; color: #40552e; }
+@media (max-width: 700px) {
+  .coordination-content :is(input, select, textarea) { font-size: 1rem; }
+  .coordination-content .coordination-nav-desktop { display: none; }
+  .coordination-content .outings-table :is(th, td) { padding: .7rem .6rem; }
+  .coordination-content h1 { margin-bottom: 1rem; }
+}

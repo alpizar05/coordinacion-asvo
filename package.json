@@ -1,0 +1,33 @@
+{
+  "name": "coordinacion-asvo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check": "tsc --noEmit",
+    "db:setup": "node --env-file=.env.local scripts/db.mjs",
+    "db:start": "node --env-file=.env.local scripts/local-postgres.mjs",
+    "mail:retry": "node --env-file=.env.local scripts/mail-outbox.mjs",
+    "mail:worker": "node --env-file=.env.local scripts/mail-outbox.mjs --watch",
+    "test:registration": "node --env-file=.env.local scripts/test-registration-workflow.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "csv-parse": "^7.0.3",
+    "next": "^16.4.5",
+    "next-auth": "^5.0.0-beta.32",
+    "postgres": "^4.1.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}
