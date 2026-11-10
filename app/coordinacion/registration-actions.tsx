@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { EditRegistration } from './edit-registration';
 import { RowActionPanel } from './row-action-panel';
 import { manageEntry } from '../staff-actions';
 
@@ -36,6 +37,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   details?: ReactNode;
   canManage?: boolean;
 }) {
+  const [editing,setEditing] = useState(false);
   const managed = useSearchParams().get('gestionada') === entry.id;
   const [selected, setSelected] = useState<Action | 'ver' | null>(null);
   const baseActions = canManage ? actionsByStatus[entry.status] : undefined;
@@ -49,10 +51,10 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
 
   if (!available && !details) return error ? <p className="note" role="alert">{error}</p> : null;
 
-  return <RowActionPanel title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
+  return <><EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
     triggerLabel={personName ? `Gestionar inscripción de ${personName}` : undefined}
     openOnError={error} managed={managed} onClose={() => setSelected(null)}>
-    {() => <>
+    {close => <>
         {error && <p className="note" role="alert">{error}</p>}
         {viewing ? <>
           <button className="registration-sheet-back" type="button" onClick={() => setSelected(null)}>Volver a gestionar</button>
@@ -76,11 +78,12 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
           </div>
         </form> : <ul className="registration-sheet-actions">
           {details && <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>}
+          {canManage && ['revisión','espera','confirmada'].includes(entry.status) && <li><button type="button" onClick={() => { close(); setEditing(true); }}>Editar inscripción</button></li>}
           {available?.map(option => <li key={option}>
             <button type="button" className={option === 'rechazar' || option === 'cancelar' ? 'registration-sheet-danger' : undefined}
               onClick={() => setSelected(option)}>{labels[option]}</button>
           </li>)}
         </ul>}
     </>}
-  </RowActionPanel>;
+  </RowActionPanel></>;
 }

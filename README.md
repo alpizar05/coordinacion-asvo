@@ -183,3 +183,9 @@ El modo de prueba conserva en PostgreSQL las versiones WebP para tarjeta y ficha
 En el detalle de una salida abierta o confirmada, elegí **Inscripciones → Agregar persona**. Buscá por nombre, identificación o correo, seleccioná la persona y completá sus fechas y logística. Las fechas se precargan con el periodo de la salida y se pueden ajustar cuando es flexible.
 
 La incorporación verifica unidad, correo, póliza vigente para todo el periodo y ausencia de otra inscripción activa. Se registra en revisión cuando hay cupo o en lista de espera cuando está completo, respetando el orden de recepción. Se envía el correo habitual con el enlace privado y se registra al coordinador responsable. La confirmación posterior se realiza desde **Gestionar**. Coordinación puede incorporar personas después de la fecha límite pública mientras la salida esté abierta o confirmada.
+
+### Editar una inscripción desde Coordinación
+
+En **Gestionar → Editar inscripción**, abrí el modal para modificar fechas y datos de transporte, alimentación, interés en ser 70 y observaciones. Disponible en el detalle de la salida y en Solicitudes de inscripción para registros en revisión, espera o confirmados de salidas abiertas o confirmadas. La identidad y el estado se gestionan por separado.
+
+Si cambian las fechas de una inscripción confirmada, conserva su cupo y vuelve a revisión; se retira la asignación de 70 y se revoca su enlace de resumen hasta que se vuelva a confirmar y asignar. La edición verifica unidad y cobertura de póliza, conserva el orden en lista de espera, registra al coordinador y notifica por correo. No permite sobrescribir una inscripción modificada mientras el modal estaba abierto.

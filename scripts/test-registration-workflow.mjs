@@ -18,6 +18,7 @@ registerHooks({ resolve(specifier, context, nextResolve) {
   return nextResolve(specifier, context);
 } });
 const { sql } = await import('../lib/db.ts');
+const { editStaffRegistration, registrationVersion } = await import('../lib/edit-registration.ts');
 const { receiveStaffRegistration } = await import('../lib/staff-registration.ts');
 const { assignRegistration70, receiveRegistration, changeRegistrationStatus, occupiedSeats } = await import('../lib/registration-workflow.ts');
 const { saveOutingReport, readOutingReports, validateReport } = await import('../lib/outing-report.ts');
@@ -80,6 +81,21 @@ try {
   assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','2030-01-10/2030-01-12')),undefined);
   assert.ok(await locked(tx => assignRegistration70(tx,firstWaiter.id,'prueba',true)), 'No se asigna 70 a una inscripción en espera');
   assert.equal(await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true)),undefined);
+  const editDetails = { transporte: true, ofreceTransporte: 3, alimentacion: 'Sin gluten', interes70: true, otro: 'Observación de prueba' };
+  const editVersion = async () => registrationVersion((await sql`select starts::text,ends::text,status,details from registrations where id=${reserved[0].id}`)[0]);
+  const originalVersion = await editVersion();
+  assert.ok((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-02-03',editDetails))).error,'Rechaza fechas sin cobertura');
+  assert.equal((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-01-12',editDetails))).saved,true);
+  assert.equal((await sql`select status,details from registrations where id=${reserved[0].id}`)[0].details.assigned70,true,'Editar logística conserva asignación 70');
+  assert.ok((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-01-12',{}))).error,'No sobrescribe una versión desactualizada');
+  assert.equal((await locked(async tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',await editVersion(),'2030-01-11','2030-01-12',editDetails))).saved,true);
+  assert.equal((await sql`select status from registrations where id=${reserved[0].id}`)[0].status,'revisión','Cambiar fechas confirmadas exige nueva revisión');
+  assert.equal(await locked(tx => occupiedSeats(tx,outingId)),2,'Cambiar fechas conserva el cupo');
+  await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','',''));
+  await locked(async tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',await editVersion(),'2030-01-10','2030-01-12',editDetails));
+  await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','',''));
+  await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true));
+
   assert.equal((await sql`select details from registrations where id=${reserved[0].id}`)[0].details.assigned70,true);
   const briefToken = randomBytes(32).toString('base64url');
   await sql`insert into outing_brief_links(digest,outing_id,lead_registration_id,created_by)
@@ -120,6 +136,7 @@ try {
   assert.equal(rows.find(row => row.id === reserved[0].id).status,'espera','La persona movida no recupera inmediatamente su cupo');
   assert.equal(rows.find(row => row.id === firstWaiter.id).status,'revisión','La siguiente persona ocupa el cupo');
   assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[1].id,'prueba','rechazar','Rechazo de prueba','')),undefined);
+  assert.ok((await locked(tx => editStaffRegistration(tx,reserved[1].id,'coordinador-prueba','anterior','2030-01-10','2030-01-12',{}))).error,'No edita inscripciones rechazadas');
   rows = await sql`select id,status from registrations where outing_id=${outingId}`;
   assert.equal(rows.find(row => row.id === reserved[0].id).status,'revisión','La lista conserva su prioridad por recepción');
   assert.equal(await locked(tx => occupiedSeats(tx,outingId)),2);
@@ -144,6 +161,7 @@ try {
   assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),undefined,
     'Coordinación puede confirmar una inscripción cancelada por voluntariado');
   assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Prueba de nueva cancelación','')),undefined);
+  assert.ok((await locked(tx => editStaffRegistration(tx,firstWaiter.id,'coordinador-prueba','anterior','2030-01-10','2030-01-12',{}))).error,'No edita inscripciones canceladas');
   await sql`update policies set verified_at=null where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
   assert.match(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),/póliza/);
   await sql`update policies set verified_at=now() where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
