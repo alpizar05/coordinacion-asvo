@@ -18,6 +18,7 @@ registerHooks({ resolve(specifier, context, nextResolve) {
   return nextResolve(specifier, context);
 } });
 const { sql } = await import('../lib/db.ts');
+const { receiveStaffRegistration } = await import('../lib/staff-registration.ts');
 const { assignRegistration70, receiveRegistration, changeRegistrationStatus, occupiedSeats } = await import('../lib/registration-workflow.ts');
 const { saveOutingReport, readOutingReports, validateReport } = await import('../lib/outing-report.ts');
 const { briefAccess, outingBrief } = await import('../lib/outing-brief.ts');
@@ -55,7 +56,21 @@ try {
         values (${person.id},'Prueba',${person.id},'2030-01-01','2030-02-01',now())`;
     }
   });
-  const results = await Promise.all(people.slice(0,3).map(receive));
+  const staffOuting = { id: outingId, unit: 'Voluntariado General', status: 'abierta', flexible: true, first_day: '2030-01-10', last_day: '2030-01-15' };
+  const staffReceive = (person, overrides = {}, starts = '2030-01-10', ends = '2030-01-12') => locked(tx =>
+    receiveStaffRegistration(tx,{ ...staffOuting,...overrides },'coordinador-prueba',person.id,starts,ends,{ transporte: true, ofreceTransporte: 2, alimentacion: 'Vegetariana' }));
+  assert.ok((await staffReceive(people[0],{ status: 'cancelada' })).error);
+  assert.ok((await staffReceive(people[0],{},'2030-02-01','2030-02-02')).error);
+  assert.ok((await staffReceive(people[0],{ flexible: false })).error);
+  assert.ok((await staffReceive(people[0],{ unit: 'BRIF' })).error);
+  assert.ok((await staffReceive(people[0],{},'2029-12-31','2030-01-12')).error,'No incorpora sin cobertura para todo el periodo');
+  const staffEntry = await staffReceive(people[0]);
+  assert.equal(staffEntry.status,'revisión');
+  assert.ok((await staffReceive(people[0])).error,'Coordinación tampoco duplica inscripciones');
+  const [staffAudit] = await sql`select actor from audit where target=${staffEntry.id} and action='Agregó inscripción desde Coordinación'`;
+  assert.equal(staffAudit.actor,'coordinador-prueba');
+  assert.equal((await sql`select details from registrations where id=${staffEntry.id}`)[0].details.ofreceTransporte,2);
+  const results = [staffEntry,...await Promise.all([receive(people[1]),staffReceive(people[2])])];
   assert.equal(results.filter(row => row.status === 'revisión').length,2,'Dos reservas para dos cupos, aun con recepción concurrente');
   assert.equal(results.filter(row => row.status === 'espera').length,1);
   assert.equal((await receive(people[0])).duplicate,true,'La repetición no crea otra reserva');

@@ -1,3 +1,4 @@
+import { AddRegistration } from '../../add-registration';
 import { compactParticipationDates } from '../../../../lib/participation-dates';
 import { ActionModal } from '../../action-modal';
 import { OutingTabs } from './outing-tabs';
@@ -90,7 +91,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   {!editing && <section className="card outing-registrations" aria-labelledby="inscripciones">
     <div className="outings-table-heading">
       <h2 id="inscripciones">Inscripciones</h2>
-      <OutingRegistrationFilter value={registrationStatus} />
+      <div className="actions">{['abierta','confirmada'].includes(outing.status) && <AddRegistration outing={{ id, starts: outing.first_day, ends: outing.last_day, flexible: outing.flexible, general: outing.unit === 'Voluntariado General' }} />}<OutingRegistrationFilter value={registrationStatus} /></div>
     </div>
     <p className="registration-count" role="status">{visibleEntries.length === entries.length
       ? `${entries.length} ${entries.length === 1 ? 'inscripción' : 'inscripciones'}`

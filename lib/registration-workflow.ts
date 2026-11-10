@@ -89,6 +89,7 @@ export async function changeRegistrationStatus(tx: Transaction, id: string, acto
 export async function receiveRegistration(tx: Transaction, input: {
   outingId: string;
   volunteerId: string;
+  actor?: string;
   identification: string;
   starts: string;
   ends: string;
@@ -104,7 +105,7 @@ export async function receiveRegistration(tx: Transaction, input: {
   const [entry] = await tx<{ id: string }[]>`insert into registrations
     (outing_id,volunteer_id,identification,starts,ends,details,status)
     values (${outingId},${volunteerId},${identification},${starts},${ends},${tx.json(details)},${status}) returning id`;
-  await audit(tx,'voluntariado','Recibió inscripción',entry.id,status);
+  await audit(tx,input.actor || 'voluntariado','Recibió inscripción',entry.id,status);
   await notifyRegistration(tx,entry.id,status === 'revisión'
     ? 'Recibimos tu inscripción y reservamos un cupo. Coordinación debe confirmar tu participación.'
     : 'Recibimos tu inscripción. Los cupos están cubiertos y quedaste en lista de espera. Te avisaremos si se libera un cupo.');

@@ -10,7 +10,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 
 ## Prioridad alta
 
-- [ ] **Agregar una persona voluntaria a una salida desde Coordinación.** Permitir buscar y seleccionar una persona del registro, indicar sus fechas de participación y crear la inscripción desde el detalle de la salida. Verificar permisos de Coordinación, unidad, póliza, fechas, duplicados y cupos; respetar la lista de espera y las reglas del flujo vigente. Registrar quién realizó la incorporación y notificar a la persona voluntaria. Definir si la incorporación queda en revisión o confirmada antes de implementar.
+- [x] **Agregar una persona voluntaria a una salida desde Coordinación.** Botón «Agregar persona» en Inscripciones, con modal de búsqueda por nombre, identificación o correo y detalles de fechas, transporte, alimentación, interés en ser 70 y observaciones. Verifica permisos, unidad, póliza, fechas y duplicados; asigna revisión o espera según cupos, respeta la cola, registra al coordinador y notifica por correo. Verificado con pruebas de integración y revisión del modal en desktop y celular.
 
 - [x] **Buscar personas voluntarias y paginar el registro.** Buscar por nombre, identificación o correo; filtrar por unidad; paginar desde el servidor para evitar cargar todo el registro. Conservar los criterios al cambiar de página. Implementado con 25 registros por página, búsqueda sin distinción de tildes o mayúsculas, filtros móviles en modal y pruebas de integración locales.
 - [ ] **Mostrar pendientes de Coordinación.** Incorporar accesos con conteos de inscripciones en revisión, próximas salidas sin 70 e informes pendientes. Cada indicador debe abrir los registros correspondientes, respetando los permisos del usuario.

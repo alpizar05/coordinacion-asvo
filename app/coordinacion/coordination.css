@@ -297,3 +297,7 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
   .coordination-content .outing-registration-table .registration-state { grid-column: 1; grid-row: 3; align-self: center; }
   .coordination-content .outing-registration-table .registration-actions { grid-column: 2; grid-row: 3; }
 }
+
+.registration-person-results { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; max-height: 18rem; overflow: auto; }
+.registration-person-results button { width: 100%; text-align: start; display: grid; gap: .25rem; }
+.registration-person-results button span { color: var(--muted, #666); font-size: .875rem; }
