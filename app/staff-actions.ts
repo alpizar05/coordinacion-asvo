@@ -55,7 +55,7 @@ export async function grant(form: FormData) {
       await audit(tx,user.subject,'Asignó permiso',subject,`${role} ${unit}`);
     }
   });
-  redirect('/coordinacion');
+  redirect('/coordinacion/administracion?permisos=1');
 }
 
 class OutingCreationError extends Error {
@@ -531,7 +531,7 @@ export async function applyImport(form: FormData) {
       }
     }
   });
-  redirect('/coordinacion/registro');
+  redirect('/coordinacion/administracion?registro=1');
 }
 
 export async function editProfile(id: string, form: FormData) {
@@ -607,7 +607,7 @@ export async function applyPolicies(form: FormData) {
       if (policy) await audit(tx,user.subject,'Importó póliza pendiente',policy.id);
     }
   });
-  redirect('/coordinacion/registro');
+  redirect('/coordinacion/administracion?polizas=1');
 }
 
 export async function recordVolunteerIncident(volunteerId: string, form: FormData) {

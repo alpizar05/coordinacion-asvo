@@ -164,6 +164,10 @@ La importación inicial usa CSV de identidad básica. La ficha tiene campos adic
 
 La interfaz usa la paleta principal ASVO del libro de marca, página 1. Los colores se centralizan en `app/style.css`. El logotipo, la fotografía de portada y el tratamiento tipográfico toman como referencia el portal de pólizas. El gris verdoso de superficies secundarias es una adaptación de interfaz.
 
+## Administración
+
+La pestaña **Administración** (`/coordinacion/administracion`) aparece únicamente para usuarios con rol `admin` y concentra accesos del personal, importación del registro y conciliación de pólizas. Está separada de Convocatorias de salida y Voluntariado. Las cuentas solo administradoras se redirigen allí desde `/coordinacion`; las que también coordinan conservan ambas opciones de navegación.
+
 ## Modales de Coordinación
 
 Actualizar unidades, Corregir ficha, Verificar póliza y Crear salida para un grupo usan modales en desktop y celular, con Cancelar y Guardar, confirmación al descartar cambios y conservación de datos ante errores. Corregir ficha agrupa identidad/contacto, ubicación, emergencia y trayectoria. Los permisos se verifican en el servidor. Transporte, restricciones, informes y solicitud de apoyo conservan el desplegable en desktop y el modal en celular; los filtros y acciones de tablas mantienen su presentación por dispositivo.

@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import { StatusRibbon } from '../status-ribbon';
 import { CollectionsTable, type CollectionRow } from './collections-table';
 import CoordinationBreadcrumb from './breadcrumb';
@@ -6,7 +7,7 @@ import Link from 'next/link';
 import { staff } from '../../lib/auth';
 import { registrationToday } from '../../lib/outing-invitations';
 import { demo, sql } from '../../lib/db';
-import { grant, login } from '../staff-actions';
+import { login } from '../staff-actions';
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ creadas?: string }> }) {
   const { creadas } = await searchParams;
@@ -16,6 +17,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
   const general = user.grants.some(item => item.role === 'general');
   const scopes = user.grants.filter(item => item.role === 'unidad').map(item => item.unit);
   const operates = general || scopes.length > 0;
+  if (admin && !operates) redirect('/coordinacion/administracion');
   const units = await sql`select name from units order by name`;
   const available = units.filter(unit => general || scopes.includes(unit.name));
   const outings = await sql<OutingRow[]>`select id,title,location,unit,status,listed,starts::text,ends::text from outings
@@ -39,15 +41,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
       (min(o.starts) filter (where o.public))::text
     from scoped_outings o join requests r on r.id=o.request_id
     group by r.id having count(*) > 1` : [];
-  const grants = admin ? await sql`select * from grants order by subject,role` : [];
   return <>{operates && <CoordinationBreadcrumb current="Convocatorias de salida" />}<h1>{operates ? "Convocatorias de salida" : "Coordinación"}</h1>
   {!user.grants.length && <p>Tu cuenta está a la espera de permisos de ASVO.</p>}
-  {admin && <section className="card"><h2>Accesos del personal</h2><ul>{grants.map(row => <li key={row.subject+row.role+row.unit}>{row.subject} · {row.role} {row.unit}</li>)}</ul><form action={grant}>
-    <label>Identificador de objeto Entra<input name="subject" defaultValue={demo ? 'local-coordination' : undefined} required/></label>
-    <label>Rol<select name="role"><option value="general">Coordinación general</option><option value="unidad">Coordinación de unidad</option><option value="admin">Administración de permisos</option></select></label>
-    <label>Unidad para coordinación de unidad<select name="unit">{units.map(unit => <option key={unit.name}>{unit.name}</option>)}</select></label>
-    <div className="actions"><button name="action" value="asignar">Asignar</button><button name="action" value="revocar">Revocar</button></div>
-  </form></section>}
   {!!available.length && <section className="card" id="salidas">
     <div className="outings-table-heading">
       <Link href="#colecciones">Ver convocatorias en serie</Link>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import { createPortal } from 'react-dom';
 import { TableFilters } from '../table-filters';
 
 export function VolunteerFilters({ query, unit, units }: { query: string; unit: string; units: string[] }) {
@@ -11,6 +12,8 @@ export function VolunteerFilters({ query, unit, units }: { query: string; unit: 
   const input = useRef<HTMLInputElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
+  const [resetSlot,setResetSlot] = useState<HTMLElement | null>(null);
+  useEffect(() => { setResetSlot(document.getElementById('volunteer-registry-reset')); }, []);
   useEffect(() => {
     if (document.activeElement !== input.current) setSearch(query);
     setSelectedUnit(unit);
@@ -25,7 +28,11 @@ export function VolunteerFilters({ query, unit, units }: { query: string; unit: 
       router.replace(`/coordinacion/registro${params.size ? `?${params}` : ''}`, { scroll: false });
     }),delay);
   }
-  return <TableFilters title="Buscar personas voluntarias" active={!!(search || selectedUnit)}>
+  return <>
+    {resetSlot && (search || selectedUnit) && createPortal(<button type="button" onClick={() => {
+      setSearch(''); setSelectedUnit(''); navigate('','');
+    }}>Restablecer</button>,resetSlot)}
+    <TableFilters title="Buscar personas voluntarias" active={!!(search || selectedUnit)}>
     <div className="outings-filters" aria-busy={pending}>
       <label>Buscar persona<input ref={input} type="search" maxLength={120} value={search}
         placeholder="Nombre, identificación o correo" onChange={event => {
@@ -34,10 +41,7 @@ export function VolunteerFilters({ query, unit, units }: { query: string; unit: 
       <label>Unidad<select value={selectedUnit} onChange={event => {
         setSelectedUnit(event.target.value); navigate(search,event.target.value);
       }}><option value="">Todas</option>{units.map(name => <option key={name}>{name}</option>)}</select></label>
-      {(search || selectedUnit) && <button type="button" onClick={() => {
-        setSearch(''); setSelectedUnit(''); navigate('','');
-      }}>Restablecer</button>}
       {pending && <span role="status">Buscando…</span>}
     </div>
-  </TableFilters>;
+  </TableFilters></>;
 }

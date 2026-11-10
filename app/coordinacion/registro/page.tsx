@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { canAdminister, canOperate, staff } from '../../../lib/auth';
 import { sql } from '../../../lib/db';
-import { Importer, PolicyImporter } from './importer';
 
 export default async function Volunteers({ searchParams }: { searchParams: Promise<{ buscar?: string; unidad?: string; pagina?: string }> }) {
   const user = await staff();
@@ -21,7 +20,9 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
     <CoordinationBreadcrumb current="Voluntariado" />
     <h1>Voluntariado</h1>
     <section className="card">
-      <h2>Registro maestro</h2>
+      <div className="outings-table-heading volunteer-registry-heading">
+        <h2>Registro maestro</h2><div id="volunteer-registry-reset" />
+      </div>
       <div className="coordination-table-toolbar">
         <VolunteerFilters query={query} unit={unit} units={units} />
         <p role="status">{total > pageSize ? `${(page-1)*pageSize+1}–${Math.min(page*pageSize,total)} de ${total}` : total} {total === 1 ? 'persona voluntaria' : 'personas voluntarias'}</p>
@@ -50,6 +51,5 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
         {page<pages ? <Link href={volunteerListUrl(query,unit,page+1)} scroll={false}>Siguiente</Link> : <span aria-disabled="true">Siguiente</span>}
       </nav>}
     </section>
-    {admin && <><Importer /><PolicyImporter /></>}
   </>;
 }

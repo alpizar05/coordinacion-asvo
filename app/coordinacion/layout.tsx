@@ -16,7 +16,7 @@ export default async function CoordinationLayout({ children }: { children: React
       <p className="coordination-nav-label">Coordinación</p>
       <form className={operates || admin ? "coordination-logout-desktop" : undefined} action={logout}><button type="submit">Cerrar sesión</button></form>
     </header>}
-    {(operates || admin) && <CoordinationNav showOperations={operates} showVolunteers={general || admin} showDemoInbox={demo && general} />}
+    {(operates || admin) && <CoordinationNav showAdministration={admin} showOperations={operates} showVolunteers={general || admin} showDemoInbox={demo && general} />}
     {children}
   </div>;
 }

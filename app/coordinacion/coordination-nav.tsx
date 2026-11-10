@@ -13,20 +13,19 @@ const operations = [
   { path: '/coordinacion/inscripciones', title: 'Solicitudes de inscripción', detail: 'Revisá y resolvé las solicitudes.' },
 ];
 
-export default function CoordinationNav({ showOperations, showVolunteers, showDemoInbox }: {
-  showOperations: boolean; showVolunteers: boolean; showDemoInbox: boolean;
+export default function CoordinationNav({ showOperations, showVolunteers, showDemoInbox, showAdministration }: {
+  showOperations: boolean; showVolunteers: boolean; showDemoInbox: boolean; showAdministration: boolean;
 }) {
   const pathname = usePathname();
   const [menuSlot, setMenuSlot] = useState<HTMLElement | null>(null);
   useEffect(() => {
     setMenuSlot(document.getElementById('coordination-mobile-menu-slot'));
   }, []);
-  const sections = showOperations ? [...operations] : [
-    { path: '/coordinacion', title: 'Administración', detail: 'Gestioná los accesos del personal.' },
-  ];
+  const sections = showOperations ? [...operations] : [];
   if (showVolunteers) sections.push({
     path: '/coordinacion/registro', title: 'Voluntariado', detail: 'Consultá el registro de personas voluntarias.',
   });
+  if (showAdministration) sections.push({ path: '/coordinacion/administracion', title: 'Administración', detail: 'Gestioná accesos e importaciones.' });
   const items = <ul>
       {sections.map(({ path, title, detail }) => {
         const active = pathname === path || pathname.startsWith(path === '/coordinacion' ? '/coordinacion/salidas/' : path + '/') ||
