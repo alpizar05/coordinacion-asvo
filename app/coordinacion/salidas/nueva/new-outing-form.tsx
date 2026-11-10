@@ -1,6 +1,7 @@
 'use client';
 
 import { MobileDisclosure } from '../../mobile-disclosure';
+import { FlexibleDatesHelp } from '../../flexible-dates-help';
 
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -143,8 +144,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     <OutingPeriods limit={24} periods={periods} onChange={setPeriods} renderError={id => showError(`period-${id}`)} />
     <label>Cupos por bloque<input name="capacity" value={capacity} onChange={event => setCapacity(event.target.value)} type="number" min="1" max="10000" required /></label>
     {showError('capacity')}
-    <label><input type="checkbox" name="flexible" defaultChecked={template?.flexible}/> Fechas flexibles</label>
-    <p>Las personas pueden solicitar menos días o proponer llegar antes o salir después. Coordinación confirma las fechas solicitadas.</p>
+    <FlexibleDatesHelp><label><input type="checkbox" name="flexible" defaultChecked={template?.flexible}/> Fechas flexibles</label></FlexibleDatesHelp>
     </section>
     <section className="new-outing-section">
     <h2>Información para voluntariado</h2>

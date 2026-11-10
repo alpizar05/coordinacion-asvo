@@ -712,6 +712,7 @@ button.registration-sheet-close, .mobile-nav button.drawer-close { font-size: 1.
   font-size: 1.15rem;
 }
 .full-capacity-help button:hover { background: #e3e6dd; }
+button.tooltip-trigger, button.tooltip-trigger:hover { border: 0; box-shadow: none; }
 .capacity-tooltip {
   position: absolute;
   z-index: 2;

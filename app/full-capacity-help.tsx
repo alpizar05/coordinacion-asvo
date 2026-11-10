@@ -24,7 +24,7 @@ export function FullCapacityHelp() {
         event.stopPropagation();
       }
     }}>
-    <button type="button" aria-label="Información sobre la lista de espera" aria-describedby={open ? id : undefined}
+    <button type="button" className="tooltip-trigger" aria-label="Información sobre la lista de espera" aria-describedby={open ? id : undefined}
       onFocus={() => setOpen(true)} onBlur={() => setOpen(false)}
       onClick={() => setOpen(true)}>ⓘ</button>
     {open && <span className="capacity-tooltip" role="tooltip" id={id}>

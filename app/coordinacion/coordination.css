@@ -1,4 +1,8 @@
 /* Shared visual language for staff pages; public pages keep their own styles. */
+.flexible-dates-help { display: flex; align-items: center; gap: .25rem; position: relative; }
+.flexible-dates-help > label { margin: 0; }
+.coordination-content .flexible-dates-help-trigger { width: 44px; height: 44px; padding: 0; background: transparent; border-color: transparent; color: var(--coord-primary); font-size: 1.1rem; }
+.flexible-dates-tooltip { position: absolute; z-index: 3; left: 0; bottom: 100%; box-sizing: border-box; width: min(20rem,100%); padding: .75rem; border-radius: .5rem; background: var(--ink); color: var(--paper); font-size: .875rem; box-shadow: 0 .25rem .75rem rgb(8 9 7 / 20%); }
 .coordination-modal {
   box-sizing: border-box; width: calc(100% - 2rem); max-width: 36rem;
   max-height: calc(100dvh - 3rem); margin: auto; padding: 1.5rem;
@@ -61,6 +65,7 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 /* Secondary is the default; primary/destructive actions opt in explicitly. */
 .coordination-content :is(button, .button) { background: var(--paper); color: var(--ink); border-color: var(--line); font-weight: 600; box-shadow: none; }
 .coordination-content :is(button, .button):hover { background: var(--coord-soft); color: var(--ink); border-color: var(--moss); }
+.coordination-content button.tooltip-trigger, .coordination-content button.tooltip-trigger:hover { border: 0; box-shadow: none; background: transparent; color: var(--coord-primary); }
 .coordination-content :is(button, .button).coord-button-primary { background: var(--coord-primary); color: var(--paper); border-color: var(--coord-primary); }
 .coordination-content :is(button, .button).coord-button-primary:hover { background: var(--coord-primary-hover); border-color: var(--coord-primary-hover); color: var(--paper); }
 .coordination-content :is(button, .button).coord-button-danger { background: var(--coord-danger-soft); color: var(--coord-danger); border-color: #d9b3ac; }
