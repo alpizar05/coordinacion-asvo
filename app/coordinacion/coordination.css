@@ -383,3 +383,14 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .registration-mail-history li { padding: 1rem 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
 .registration-mail-history strong { display: block; margin-bottom: .5rem; }
 .registration-mail-history p { margin: .4rem 0; }
+.volunteer-trajectory-summary { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .75rem; margin-block: 1rem; }
+.volunteer-trajectory-summary > div { padding: 1rem; background: var(--coord-soft); border-radius: .4rem; }
+.volunteer-trajectory-summary dt { font-size: .8125rem; color: var(--gray); }
+.volunteer-trajectory-summary dd { margin: .5rem 0 0; font-size: 1.15rem; font-weight: 600; }
+.volunteer-trajectory-summary small, .trajectory-unit { display: block; margin-top: .4rem; font-size: .8125rem; color: var(--gray); font-weight: 400; }
+@media (max-width: 1000px) { .volunteer-trajectory-summary { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 700px) {
+  .coordination-content .volunteer-participations :is(th,td) { grid-column: 1 / -1; }
+  .coordination-content .volunteer-participations td[data-label="Acciones"] { justify-self: end; }
+}
+@media (max-width: 380px) { .volunteer-trajectory-summary { grid-template-columns: minmax(0,1fr); } }

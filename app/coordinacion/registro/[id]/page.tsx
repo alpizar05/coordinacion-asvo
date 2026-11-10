@@ -1,3 +1,5 @@
+import { volunteerParticipations } from '../../../../lib/volunteer-participation';
+import { Participations } from '../participations';
 import { ActionModal } from '../../action-modal';
 import { VolunteerUnits } from '../volunteer-units';
 import { StatusRibbon } from '../../../status-ribbon';
@@ -33,6 +35,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
       where exists (select 1 from registrations r where r.volunteer_id = ${id} and r.outing_id = o.id)
       order by o.starts desc, o.title, o.id`,
   ]);
+  const participations = await volunteerParticipations(id);
   return <>
     <CoordinationBreadcrumb current={`${person.name} ${person.surname} ${person.second_surname ?? ""}`.trim()} parent={{ href: "/coordinacion/registro", label: "Voluntariado" }} />
     <header className="card">
@@ -44,6 +47,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
       </ul>
       <VolunteerUnits volunteerId={id} units={units.map(unit => unit.name)} selected={person.units} />
     </header>
+    <Participations rows={participations} canManage={coordinates} name={`${person.name} ${person.surname} ${person.second_surname ?? ""}`.trim()} />
     <div className="profile-overview">
       <section className="card">
         <h2>Contacto y datos personales</h2>

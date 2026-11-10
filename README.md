@@ -231,3 +231,13 @@ Esta versión agrega `outings.transport_details`, `food_details` y `lodging_deta
 La línea de tiempo reutiliza auditoría: fecha/hora de Costa Rica, responsable registrado, acción, motivo y cambios anteriores/nuevos para ediciones posteriores a esta versión. Los correos se presentan por separado con destinatario, fecha, estado pendiente/enviado/cancelado e intentos. «Enviado» significa aceptación de Microsoft, no lectura. El historial no devuelve cuerpos de correo, enlaces privados ni tokens.
 
 Los datos antiguos no se reconstruyen por suposición. Los correos demo nuevos quedan vinculados por `demo_mail.registration_id` y `created_at`; los anteriores pueden no tener vínculo o fecha. Antes de desplegar aplicar `schema.sql` en Neon. La base local ya cuenta con las columnas y los índices de consulta.
+
+### Trayectoria y participaciones de voluntariado
+
+La ficha incluye salidas, fechas inscritas, estado de inscripción, asistencia según informes finalizados y responsabilidad como integrante o 70. Presenta totales por salida única: participación confirmada, salidas con informe finalizado como 70, informes pendientes a su cargo y última salida con participación acreditada. Los borradores no acreditan asistencia ni completan informes pendientes. Las asignaciones actuales de 70 se distinguen de responsabilidades documentadas en informes finalizados.
+
+Si los informes discrepan para una misma persona y salida, se muestra «Asistencia por conciliar» y la salida se excluye del total acreditado. Varias inscripciones o informes coincidentes no duplican el conteo. Las fechas inscritas y publicadas no se presentan como fechas reales individuales ni se convierten en horas o días trabajados.
+
+Coordinación general puede abrir la salida y consultar la inscripción e historial desde la ficha. Administración conserva la consulta de trayectoria sin enlaces a operaciones para las que no tenga permiso. La tabla se convierte en lista compacta en celular. La ausencia de registros históricos no equivale a ausencia de participación previa en ASVO. Esta función no requiere migración de base de datos.
+
+Prueba local: `node --env-file=.env.local scripts/test-volunteer-participation.mjs`.
