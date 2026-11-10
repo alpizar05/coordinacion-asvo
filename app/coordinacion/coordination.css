@@ -1,4 +1,7 @@
 /* Shared visual language for staff pages; public pages keep their own styles. */
+.volunteer-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; padding-top: 1rem; margin-top: .75rem; border-top: 1px solid var(--line); font-size: .875rem; }
+.volunteer-pagination a { display: inline-flex; align-items: center; min-height: 44px; }
+.volunteer-pagination [aria-disabled=true] { color: var(--gray); }
 .coordination-table-toolbar { display: contents; }
 .overview-compact-dates, .overview-compact-status { display: none; }
 .compact-mobile-only { display: none; }

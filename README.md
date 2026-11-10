@@ -4,6 +4,8 @@ Plataforma de coordinación e inscripción de voluntariado. La beta está desple
 
 ## Manual de despliegue y configuración
 
+Las recomendaciones de producto y experiencia de uso están en la **[lista de mejoras pendientes](TODO.md)**, ordenadas por prioridad.
+
 Consultá el **[How to: desplegar y configurar la plataforma](docs/despliegue-y-configuracion.md)**. Incluye GitHub, Vercel, Neon, Entra ID, SharePoint, Microsoft Graph, Exchange Online, PowerShell, variables de entorno, permisos, diagnóstico de errores y el procedimiento futuro para dominio y remitente definitivo.
 
 El manual también registra qué se verificó en la beta y los pendientes: reintentos programados de correo, pruebas de aceptación, separación de bases por entorno y preparación del lanzamiento. El subdominio `voluntariado.asvocr.org` queda reservado para esa etapa.
