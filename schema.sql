@@ -252,3 +252,17 @@ create table if not exists outing_reports (
 );
 
 alter table outing_reports add column if not exists labour_types text[] not null default '{}';
+
+alter table registration_mail_outbox add column if not exists cancelled_at timestamptz;
+create table if not exists report_reminders (
+  id bigint generated always as identity primary key,
+  registration_id uuid not null references registrations on delete cascade,
+  link_digest text not null references outing_brief_links(digest) on delete cascade,
+  actor text not null,
+  recipient text not null,
+  created_at timestamptz not null default clock_timestamp(),
+  mail_id bigint references registration_mail_outbox(id),
+  demo_mail_id bigint references demo_mail(id),
+  check ((mail_id is null) <> (demo_mail_id is null))
+);
+create index if not exists report_reminders_registration on report_reminders(registration_id,id desc);

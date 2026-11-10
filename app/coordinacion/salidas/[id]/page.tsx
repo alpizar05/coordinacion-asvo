@@ -334,7 +334,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     </form>
   </section>}
   </>;
-  return <><CoordinationBreadcrumb current={outing.title} parent={{ href: "/coordinacion#salidas", label: "Convocatorias de salida" }} />
+  return <><CoordinationBreadcrumb current={outing.title} parent={{ href: "/coordinacion/convocatorias#salidas", label: "Convocatorias de salida" }} />
   <header className={`card coordination-outing-summary${editing ? '' : ' outing-tabbed-summary'}`}>
     <div className="outings-table-heading">
       <div className="actions">

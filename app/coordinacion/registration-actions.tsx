@@ -27,12 +27,13 @@ const actionsByStatus: Record<string, Action[]> = {
   'cancelada por voluntariado': ['confirmar'],
 };
 
-export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', details, canManage = true }: {
+export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, details, canManage = true }: {
   entry: { id: string; status: string; identification: string; starts: string; ends: string; assigned70?: boolean };
   outing: { flexible: boolean; first_day: string; last_day: string };
   personName?: string;
   error?: string;
   fromList?: boolean;
+  fromSummary?: boolean;
   filter?: string;
   details?: ReactNode;
   canManage?: boolean;
@@ -61,6 +62,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
           {details}
         </> : action ? <form key={action} action={manageEntry.bind(null,entry.id,fromList,filter)}>
           <h3>{labels[action]}</h3>
+          {fromSummary && <input type="hidden" name="fromSummary" value="1" />}
           {action === 'validar' && <label>Identificación para conciliar
             <input name="identification" defaultValue={entry.identification} />
           </label>}

@@ -49,7 +49,7 @@ export default async function AutomaticCollection({ params, searchParams }: {
     where o.request_id=${id} order by o.starts,o.id` : [];
   const [photos] = await sql`select count(*)::int as total from request_outing_photos where request_id=${id}`;
   return <>
-    <CoordinationBreadcrumb current={title} parent={{ href: '/coordinacion#colecciones', label: 'Convocatorias de salida' }} />
+    <CoordinationBreadcrumb current={title} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
     <header className="card coordination-outing-summary">
       <div className="outings-table-heading">
         <span className="eyebrow">Convocatoria en serie · Automática</span>

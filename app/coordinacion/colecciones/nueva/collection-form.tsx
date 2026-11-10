@@ -53,7 +53,7 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
     {error && <p role="alert" className="note">{error}</p>}
     <div className="actions">
       <button className="coord-button-primary" type="submit" disabled={pending || !selected.length}>{pending ? 'Guardando…' : 'Guardar y abrir vista pública'}</button>
-      <Link href="/coordinacion#colecciones">Cancelar</Link>
+      <Link href="/coordinacion/convocatorias#colecciones">Cancelar</Link>
     </div>
   </form>;
 }

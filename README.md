@@ -189,3 +189,21 @@ La incorporación verifica unidad, correo, póliza vigente para todo el periodo 
 En **Gestionar → Editar inscripción**, abrí el modal para modificar fechas y datos de transporte, alimentación, interés en ser 70 y observaciones. Disponible en el detalle de la salida y en Solicitudes de inscripción para registros en revisión, espera o confirmados de salidas abiertas o confirmadas. La identidad y el estado se gestionan por separado.
 
 Si cambian las fechas de una inscripción confirmada, conserva su cupo y vuelve a revisión; se retira la asignación de 70 y se revoca su enlace de resumen hasta que se vuelva a confirmar y asignar. La edición verifica unidad y cobertura de póliza, conserva el orden en lista de espera, registra al coordinador y notifica por correo. No permite sobrescribir una inscripción modificada mientras el modal estaba abierto.
+
+### Resumen de Coordinación
+
+`/coordinacion` es la entrada principal para personas con permisos de coordinación. **Convocatorias de salida** se encuentra en `/coordinacion/convocatorias`; Administración conserva su acceso independiente.
+
+Resumen reúne **Requiere atención** (inscripciones en revisión, próximas salidas sin 70 e informes pendientes) y **Próximas salidas**. Las acciones de inscripción regresan al dashboard conservando filtros. El filtro por unidad respeta los permisos; el periodo de 7, 14 o 30 días afecta las salidas próximas y sin 70. Las revisiones y los informes incluyen todos los pendientes, con hasta 100 registros visibles por categoría y conteo total. La pestaña inicial prioriza salidas que comienzan hoy/mañana y luego informes; si hay preferencias guardadas, se restaura la selección del coordinador.
+
+Los informes se consideran pendientes desde el día siguiente al final de la salida, sin calificarlos como atrasados: se espera un informe por cada 70 confirmado asignado, conforme al modelo actual. Las salidas finalizadas sin 70 ni informes señalan que falta definir responsable. Se excluyen canceladas y borradores. Las preferencias de unidad, periodo y pestaña se guardan en este navegador por usuario, sin almacenar datos de voluntariado.
+
+Prueba local del dashboard: `node --env-file=.env.local scripts/test-coordination-summary.mjs`. Usa registros temporales y verifica permisos, periodos, estados, asignación de 70 e informes.
+
+### Seguimiento de informes y recordatorios
+
+En **Resumen → Informes pendientes** se muestran los 70 confirmados de cada salida, quién presentó el informe, vigencia del enlace y último recordatorio (fecha, identificador del coordinador y estado enviado/pendiente/cancelado). Las salidas sin responsable se distinguen y no ofrecen envío. **Enviar recordatorio** abre un modal con destinatario, asunto y mensaje para revisión; no envía nada hasta confirmar.
+
+La cola habitual registra los correos y reintenta los fallidos. No se permite otro recordatorio mientras uno esté pendiente. Antes del envío se comprueba que la salida terminó, el 70 y su correo continúan vigentes, el enlace sigue habilitado y el informe no se presentó. Si dejó de corresponder, el correo se marca cancelado sin enviarlo. Un recordatorio posterior puede reutilizar un enlace recuperable con más de un día de vigencia; de lo contrario crea uno de siete días sin revocar otros enlaces válidos. En demo se registra en Bandeja de prueba, sin enviar correos reales.
+
+**Antes de desplegar esta versión:** aplicar `schema.sql` con `node --env-file=.env.production.local scripts/db.mjs`. Agrega `report_reminders` y `registration_mail_outbox.cancelled_at`; es una migración aditiva. La base local ya se actualizó. No se actualiza Neon automáticamente desde la aplicación.

@@ -27,7 +27,7 @@ export default async function ManualCollectionDetail({ params }: { params: Promi
     order by o.starts,o.id`;
 
   return <>
-    <CoordinationBreadcrumb current={collection.name} parent={{ href: '/coordinacion#colecciones', label: 'Convocatorias de salida' }} />
+    <CoordinationBreadcrumb current={collection.name} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
     <header className="card coordination-outing-summary">
       <span className="eyebrow">Convocatoria en serie · Manual</span>
       <h1>{collection.name}</h1>

@@ -47,7 +47,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
   return <>
     <CoordinationBreadcrumb current={title} parent={collection
       ? { href: collection, label: 'Convocatoria general' }
-      : { href: '/coordinacion#salidas', label: 'Convocatorias de salida' }} />
+      : { href: '/coordinacion/convocatorias#salidas', label: 'Convocatorias de salida' }} />
     <h1>{title}</h1>
     <section className="card">
       {error && <p className="note" role="alert">{error}</p>}

@@ -222,7 +222,7 @@ async function saveOuting(form: FormData) {
     return created;
   });
   if (cloneId) return `/coordinacion/colecciones/automaticas/${field(form,'request')}?creados=${ids.length}#bloques`;
-  return ids.length === 1 ? `/coordinacion/salidas/${ids[0]}` : `/coordinacion?creadas=${ids.length}#salidas`;
+  return ids.length === 1 ? `/coordinacion/salidas/${ids[0]}` : `/coordinacion/convocatorias?creadas=${ids.length}#salidas`;
 }
 
 export async function manageOuting(id: string, form: FormData) {
@@ -347,7 +347,7 @@ export async function manageOuting(id: string, form: FormData) {
     }
   });
   await dispatchRegistrationUpdates();
-  if (result === 'eliminada') redirect('/coordinacion#salidas');
+  if (result === 'eliminada') redirect('/coordinacion/convocatorias#salidas');
   const back = `/coordinacion/salidas/${id}`;
   const action = field(form, 'action');
   if (result === 'completada') redirect(`${back}?completada=1`);
@@ -435,17 +435,18 @@ export async function manageEntry(id: string, fromList: boolean, filter: string,
     if (!entry || entry.outing_id !== outing.id) return {
       back: `/coordinacion/salidas/${outing.id}?error=${encodeURIComponent('La inscripción se trasladó a otra salida. Volvé a abrirla antes de gestionarla.')}`,
     };
-    const back = fromList ? '/coordinacion/inscripciones' : `/coordinacion/salidas/${outing.id}`;
+    const summary = fromList && field(form,'fromSummary') === '1';
+    const back = summary ? '/coordinacion' : fromList ? '/coordinacion/inscripciones' : `/coordinacion/salidas/${outing.id}`;
     const filters = new URLSearchParams(filter);
     const filterQuery = new URLSearchParams();
     if (fromList) {
-      for (const key of ['estado','unidad','desde','hasta']) {
+      for (const key of (summary ? ['unidad','dias','pestana'] : ['estado','unidad','desde','hasta'])) {
         const value = filters.get(key);
         if (value) filterQuery.set(key,value);
       }
     }
     const previousFilters = filterQuery.size ? `&${filterQuery}` : '';
-    if (fromList) filterQuery.set('estado','todos');
+    if (fromList && !summary) filterQuery.set('estado','todos');
     const anchor = `#inscripcion-${id}`;
     filterQuery.set('gestionada', id);
     const success = `${back}?${filterQuery}${anchor}`;

@@ -9,7 +9,8 @@ import { siteNavigationLinks } from '../navigation';
 import { usePathname } from 'next/navigation';
 
 const operations = [
-  { path: '/coordinacion', title: 'Convocatorias de salida', detail: 'Creá y gestioná las salidas.' },
+  { path: '/coordinacion', title: 'Resumen', detail: 'Pendientes y próximas salidas.' },
+  { path: '/coordinacion/convocatorias', title: 'Convocatorias de salida', detail: 'Creá y gestioná las salidas.' },
   { path: '/coordinacion/inscripciones', title: 'Solicitudes de inscripción', detail: 'Revisá y resolvé las solicitudes.' },
 ];
 
@@ -28,8 +29,8 @@ export default function CoordinationNav({ showOperations, showVolunteers, showDe
   if (showAdministration) sections.push({ path: '/coordinacion/administracion', title: 'Administración', detail: 'Gestioná accesos e importaciones.' });
   const items = <ul>
       {sections.map(({ path, title, detail }) => {
-        const active = pathname === path || pathname.startsWith(path === '/coordinacion' ? '/coordinacion/salidas/' : path + '/') ||
-          (path === '/coordinacion' && pathname.startsWith('/coordinacion/colecciones/'));
+        const active = pathname === path || (path !== '/coordinacion' && pathname.startsWith(path + '/')) ||
+          (path === '/coordinacion/convocatorias' && (pathname.startsWith('/coordinacion/salidas/') || pathname.startsWith('/coordinacion/colecciones/')));
         return <li key={path}>
           <Link href={path} aria-current={active ? (pathname === path ? 'page' : 'true') : undefined}>
             <strong>{title}</strong>

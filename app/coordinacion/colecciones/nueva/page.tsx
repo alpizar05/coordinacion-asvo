@@ -16,7 +16,7 @@ export default async function NewCollection() {
     where ${general} or unit=any(${scopes}::text[]) order by starts desc,title,id`;
 
   return <>
-    <CoordinationBreadcrumb current="Crear convocatoria en serie" parent={{ href: '/coordinacion#colecciones', label: 'Convocatorias de salida' }} />
+    <CoordinationBreadcrumb current="Crear convocatoria en serie" parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
     <h1>Crear convocatoria en serie</h1>
     <p>Agrupá salidas existentes. En la serie pública solo se muestran las convocatorias abiertas y públicas.</p>
     <CollectionForm outings={outings} />

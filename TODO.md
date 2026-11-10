@@ -13,7 +13,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 - [x] **Agregar una persona voluntaria a una salida desde Coordinación.** Botón «Agregar persona» en Inscripciones, con modal de búsqueda por nombre, identificación o correo y detalles de fechas, transporte, alimentación, interés en ser 70 y observaciones. Verifica permisos, unidad, póliza, fechas y duplicados; asigna revisión o espera según cupos, respeta la cola, registra al coordinador y notifica por correo. Verificado con pruebas de integración y revisión del modal en desktop y celular.
 
 - [x] **Buscar personas voluntarias y paginar el registro.** Buscar por nombre, identificación o correo; filtrar por unidad; paginar desde el servidor para evitar cargar todo el registro. Conservar los criterios al cambiar de página. Implementado con 25 registros por página, búsqueda sin distinción de tildes o mayúsculas, filtros móviles en modal y pruebas de integración locales.
-- [ ] **Mostrar pendientes de Coordinación.** Incorporar accesos con conteos de inscripciones en revisión, próximas salidas sin 70 e informes pendientes. Cada indicador debe abrir los registros correspondientes, respetando los permisos del usuario.
+- [x] **Mostrar pendientes de Coordinación.** Resumen es la entrada principal: pestañas con conteos de revisión, salidas próximas sin 70 e informes pendientes por cada 70 asignado. Incluye gestión directa, filtros por unidad, periodos de 7/14/30 días, preferencias por usuario y próximas salidas con logística. Se excluyen canceladas y se respetan los permisos por unidad.
 - [ ] **Mostrar filtros activos en celular.** Debajo del contador, presentar etiquetas removibles con los criterios aplicados y una opción para restablecer los filtros de la vista. Mantener el modal de filtros y actualizar etiquetas, resultados y contador conjuntamente.
 - [ ] **Presentar el historial de cada inscripción.** Mostrar recepción, confirmación, cancelación, reactivación y notificaciones, con fecha, responsable y motivo cuando corresponda. Distinguir correos pendientes de mensajes enviados, usando auditoría y cola existentes donde sea posible.
 
@@ -36,3 +36,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 - Respetar roles y unidades tanto en consultas como en acciones de servidor.
 - Verificar estados vacíos, filtros sin resultados, nombres largos y uso con teclado.
 - Marcar cada tarea como completada únicamente después de implementarla y verificarla.
+
+## Seguimiento implementado
+
+- [x] Recordatorios manuales de informes desde Resumen: seguimiento por 70, enlace vigente, vista previa, auditoría y cola con bloqueo de duplicados pendientes. Los reintentos descartan recordatorios que ya no corresponden. Recordatorios automáticos quedan por definir cuando exista un plazo para presentar informes.
