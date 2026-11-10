@@ -1,13 +1,16 @@
 'use client';
 
-import { useId, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { CoordinationModal } from './coordination-modal';
 
-export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios' }: {
+export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', open: controlledOpen, onClose }: {
+  open?: boolean; onClose?: () => void;
   title: string; action: (form: FormData) => Promise<unknown>; children: ReactNode; wide?: boolean; id?: string; saveLabel?: string;
 }) {
-  const [open, setOpen] = useState(false);
+  const [localOpen, setLocalOpen] = useState(false);
+  const open = controlledOpen ?? localOpen;
+  const setOpen = (value: boolean) => { setLocalOpen(value); if (!value) onClose?.(); };
   const [dirty, setDirty] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
@@ -15,10 +18,13 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
   const errorRef = useRef<HTMLParagraphElement>(null);
   const formId = useId();
   const router = useRouter();
-  return <div id={id} className="mobile-disclosure">
-    <button type="button" aria-haspopup="dialog" onClick={() => {
+  useEffect(() => {
+    if (controlledOpen) { form.current?.reset(); setError(''); setDirty(false); }
+  },[controlledOpen]);
+  return <div id={id} className={controlledOpen === undefined ? "mobile-disclosure" : undefined}>
+    {controlledOpen === undefined && <button type="button" aria-haspopup="dialog" onClick={() => {
       form.current?.reset(); setError(''); setDirty(false); setOpen(true);
-    }}>{title}</button>
+    }}>{title}</button>}
     <CoordinationModal open={open} onClose={() => setOpen(false)} title={title} dirty={dirty} pending={pending} wide={wide}
       footer={<button type="submit" form={formId} disabled={pending} className="coord-button-primary">{pending ? 'Guardando…' : saveLabel}</button>}>
       <form ref={form} id={formId} onChange={() => setDirty(true)} onSubmit={async event => {

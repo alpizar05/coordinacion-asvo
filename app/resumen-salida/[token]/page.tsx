@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { readOutingReports } from '../../../lib/outing-report';
 import { notFound } from 'next/navigation';
 import { briefAccess, outingBrief } from '../../../lib/outing-brief';
 import { OutingBriefView } from '../../outing-brief-view';
@@ -12,5 +12,7 @@ export default async function Page({ params }: { params: Promise<{ token: string
   if (!access) return <section className="card"><h1>Resumen no disponible</h1><p>Este enlace venció, fue revocado o la asignación de 70 cambió. Pedile a Coordinación un enlace actualizado.</p></section>;
   const brief = await outingBrief(access.outing_id);
   if (!brief) notFound();
-  return <><div className="actions"><Link className="button" href={`/resumen-salida/${token}/informe`}>Rendir informe de salida</Link></div><OutingBriefView brief={brief} /></>;
+  const ownReport = (await readOutingReports(access.outing_id)).find(report => report.lead_registration_id === access.lead_registration_id);
+  return <OutingBriefView brief={brief} leadRegistrationId={access.lead_registration_id}
+    report={{ href: `/resumen-salida/${token}/informe`, submitted: ownReport?.status === 'finalizado', draft: ownReport?.status === 'borrador' }} />;
 }

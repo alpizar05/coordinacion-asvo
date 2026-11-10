@@ -1,3 +1,4 @@
+import { OutingLogistics } from '../../outing-logistics';
 import { SaveRegistrationPreferences, RememberRegistrationForm } from '../../remember-registration';
 import { RegistrationResultModal } from '../../registration-result-modal';
 import { readRegistrationReceipt } from '../../../lib/registration-receipt';
@@ -32,7 +33,7 @@ export default async function Page({ params, searchParams }: {
 }) {
   const { id } = await params;
   if (!uuid(id)) notFound();
-  const [outing] = await sql`select o.title,o.location,o.unit,o.flexible,o.starts::text,o.ends::text,o.requirements,o.logistics,o.request_id,
+  const [outing] = await sql`select o.title,o.location,o.unit,o.flexible,o.starts::text,o.ends::text,o.requirements,o.logistics,o.transport_details,o.food_details,o.lodging_details,o.request_id,
     o.capacity,(select count(*)::int from registrations where outing_id=o.id and status in ('revisión','confirmada')) as occupied,
     o.status,coalesce(o.registration_deadline,o.starts)::text as deadline,
     coalesce(o.registration_deadline,o.starts) >= ${registrationToday} as accepting,
@@ -127,7 +128,7 @@ export default async function Page({ params, searchParams }: {
       <div className="outing-details">
         <PhotoGallery photos={photos} invitation={token} />
         <section className="card"><h2>Requisitos</h2><p className="copy">{outing.requirements || 'Consultá los requisitos con coordinación.'}</p></section>
-        <section className="card"><h2>Logística</h2><p className="copy">{outing.logistics || 'Consultá los detalles logísticos con coordinación.'}</p></section>
+        <section className="card"><h2>Logística</h2><OutingLogistics outing={outing} /><>{outing.logistics && <><h3>Otras indicaciones</h3><p className="copy">{outing.logistics}</p></>}</></section>
       </div>
     </div>
   </>;

@@ -72,6 +72,11 @@ try {
 
   await sql`insert into outing_reports(outing_id,lead_registration_id,lead_name,lead_email,labour,location,activity,starts,ends,actions,host,participants)
     select id,${lead.id},'Persona Resumen','summary@example.test','Prueba','Local','Prueba',starts,ends,'Prueba','Prueba','[]'::jsonb from outings where id=${ids[2]}`;
+  await sql`update outing_reports set status='borrador',submitted_at=null where lead_registration_id=${lead.id}`;
+  assert.equal((await coordinationSummary(false,[scope],scope,7)).reports.length,2,'El borrador mantiene la tarea pendiente');
+  const [latestDraftMail] = await sql`select mail_id from report_reminders where registration_id=${lead.id} order by id desc limit 1`;
+  assert.equal(await reportReminderIsCurrent(sql,latestDraftMail.mail_id),true,'El borrador no suspende recordatorios');
+  await sql`update outing_reports set status='finalizado',submitted_at=now() where lead_registration_id=${lead.id}`;
   assert.equal((await coordinationSummary(false,[scope],scope,7)).reports.length,1,'Presentar el informe elimina el pendiente del 70');
   assert.ok((await remind()).error,'No recuerda un informe ya presentado');
   const [latest] = await sql`select mail_id from report_reminders where registration_id=${lead.id} order by id desc limit 1`;

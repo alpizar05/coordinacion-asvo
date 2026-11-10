@@ -2,6 +2,8 @@
 
 import { useState, type ReactNode } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { ReportReminder } from './report-reminder';
 import { EditRegistration } from './edit-registration';
 import { RowActionPanel } from './row-action-panel';
 import { manageEntry } from '../staff-actions';
@@ -27,9 +29,10 @@ const actionsByStatus: Record<string, Action[]> = {
   'cancelada por voluntariado': ['confirmar'],
 };
 
-export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, details, canManage = true }: {
+export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, details, canManage = true, reportFollowup }: {
   entry: { id: string; status: string; identification: string; starts: string; ends: string; assigned70?: boolean };
   outing: { flexible: boolean; first_day: string; last_day: string };
+  reportFollowup?: { outingId: string; title: string; starts: string; ends: string; email: string | null; activeLink: boolean; pending: boolean; finalized: boolean; demo: boolean };
   personName?: string;
   error?: string;
   fromList?: boolean;
@@ -38,6 +41,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   details?: ReactNode;
   canManage?: boolean;
 }) {
+  const [reminding,setReminding] = useState(false);
   const [editing,setEditing] = useState(false);
   const managed = useSearchParams().get('gestionada') === entry.id;
   const [selected, setSelected] = useState<Action | 'ver' | null>(null);
@@ -50,9 +54,13 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   const approveDates = action === 'confirmar' && outing.flexible &&
     (entry.starts < outing.first_day || entry.ends > outing.last_day);
 
-  if (!available && !details) return error ? <p className="note" role="alert">{error}</p> : null;
+  if (!available && !details && !reportFollowup) return error ? <p className="note" role="alert">{error}</p> : null;
 
-  return <><EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
+  return <>
+    {reportFollowup && !reportFollowup.finalized && reportFollowup.email && <ReportReminder open={reminding} onClose={() => setReminding(false)}
+      outingId={reportFollowup.outingId} registrationId={entry.id} name={personName || 'Persona asignada como 70'} email={reportFollowup.email}
+      title={reportFollowup.title} starts={reportFollowup.starts} ends={reportFollowup.ends} activeLink={reportFollowup.activeLink} demo={reportFollowup.demo} />}
+    <EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
     triggerLabel={personName ? `Gestionar inscripción de ${personName}` : undefined}
     openOnError={error} managed={managed} onClose={() => setSelected(null)}>
     {close => <>
@@ -81,6 +89,11 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
         </form> : <ul className="registration-sheet-actions">
           {details && <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>}
           {canManage && ['revisión','espera','confirmada'].includes(entry.status) && <li><button type="button" onClick={() => { close(); setEditing(true); }}>Editar inscripción</button></li>}
+          {reportFollowup && <li>{reportFollowup.finalized
+            ? <Link href={`/coordinacion/salidas/${reportFollowup.outingId}/resumen?informe=${entry.id}#informe-${entry.id}`}>Ver informe finalizado</Link>
+            : reportFollowup.pending ? <button type="button" disabled>Recordatorio pendiente de envío</button>
+              : !reportFollowup.email ? <p className="muted">Sin correo registrado para recordar el informe.</p>
+                : <button type="button" onClick={() => { close(); setReminding(true); }}>Recordar informe de salida</button>}</li>}
           {available?.map(option => <li key={option}>
             <button type="button" className={option === 'rechazar' || option === 'cancelar' ? 'registration-sheet-danger' : undefined}
               onClick={() => setSelected(option)}>{labels[option]}</button>

@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
   if (bloque && !uuid(bloque)) notFound();
   const templates = bloque ? await sql<OutingTemplate[]>`
     select o.id,o.request_id,o.title,o.location,o.unit,o.starts::text,o.ends::text,o.flexible,o.capacity,
-      o.requirements,o.logistics,o.listed,o.registration_deadline::text,r.organization,r.contact,r.area,r.activity,r.plan,
+      o.requirements,o.logistics,o.transport_details,o.food_details,o.lodging_details,o.listed,o.registration_deadline::text,r.organization,r.contact,r.area,r.activity,r.plan,
       coalesce((select json_agg(json_build_object('id',p.id,'alt',p.alt,'credit',p.credit) order by p.position)
         from outing_photos p where p.outing_id=o.id and p.position is not null),'[]'::json) as photos
     from outings o join requests r on r.id=o.request_id
@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
       then coalesce(r.outing_defaults->>'unit',o.unit) else o.unit end as unit,
     o.starts::text,o.ends::text,o.flexible,o.capacity,
     coalesce(r.outing_defaults->>'requirements',o.requirements) as requirements,
-    coalesce(r.outing_defaults->>'logistics',o.logistics) as logistics,o.listed,o.registration_deadline::text,
+    coalesce(r.outing_defaults->>'logistics',o.logistics) as logistics,o.transport_details,o.food_details,o.lodging_details,o.listed,o.registration_deadline::text,
     r.organization,r.contact,r.area,r.activity,r.plan,
     coalesce((select json_agg(json_build_object('id',p.id,'alt',p.alt,'credit',p.credit) order by p.position)
       from outing_photos p where p.outing_id=coalesce((

@@ -12,7 +12,7 @@ export async function queueReportReminder(tx: Transaction, outingId: string, reg
     where r.id=${registrationId} and o.id=${outingId} for update of r`;
   if (!entry || !entry.ended || !['abierta','confirmada','completada'].includes(entry.outing_status) || entry.status !== 'confirmada' || entry.details?.assigned70 !== true) return { error: 'La salida o la asignación de 70 cambió. Actualizá el seguimiento.' };
   if (!entry.email || entry.email !== expectedEmail) return { error: 'El correo de la ficha cambió o no está registrado. Volvé a abrir el recordatorio.' };
-  if ((await tx`select 1 from outing_reports where outing_id=${outingId} and lead_registration_id=${registrationId}`).length) return { error: 'Esta persona ya presentó el informe.' };
+  if ((await tx`select 1 from outing_reports where status='finalizado' and outing_id=${outingId} and lead_registration_id=${registrationId}`).length) return { error: 'Esta persona ya presentó el informe.' };
   const [pending] = await tx`select 1 from report_reminders q join registration_mail_outbox m on m.id=q.mail_id
     where q.registration_id=${registrationId} and m.sent_at is null and m.cancelled_at is null limit 1`;
   if (pending) return { error: 'Ya hay un recordatorio pendiente de envío. Se reintentará automáticamente.' };

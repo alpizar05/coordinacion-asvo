@@ -207,3 +207,19 @@ En **Resumen → Informes pendientes** se muestran los 70 confirmados de cada sa
 La cola habitual registra los correos y reintenta los fallidos. No se permite otro recordatorio mientras uno esté pendiente. Antes del envío se comprueba que la salida terminó, el 70 y su correo continúan vigentes, el enlace sigue habilitado y el informe no se presentó. Si dejó de corresponder, el correo se marca cancelado sin enviarlo. Un recordatorio posterior puede reutilizar un enlace recuperable con más de un día de vigencia; de lo contrario crea uno de siete días sin revocar otros enlaces válidos. En demo se registra en Bandeja de prueba, sin enviar correos reales.
 
 **Antes de desplegar esta versión:** aplicar `schema.sql` con `node --env-file=.env.production.local scripts/db.mjs`. Agrega `report_reminders` y `registration_mail_outbox.cancelled_at`; es una migración aditiva. La base local ya se actualizó. No se actualiza Neon automáticamente desde la aplicación.
+
+### Borrador y finalización del informe del 70
+
+**Guardar borrador** conserva campos incompletos y la selección provisional de asistentes para retomarlos con un enlace privado vigente. No confirma asistencia ni completa la tarea: el dashboard y los recordatorios siguen considerando pendiente el informe. **Finalizar informe** exige todos los campos obligatorios y la confirmación de asistencia, registra la fecha definitiva y bloquea futuras ediciones, incluso desde pestañas antiguas o con `?editar=1`. En la guía del 70 aparece «Continuar borrador» o «Consultar informe», según el estado.
+
+La migración de `schema.sql` incorpora `outing_reports.status` y permite fechas vacías solo durante el borrador. Los informes existentes se conservan como finalizados. Para aplicar esta actualización debe ejecutarse `node --env-file=.env.production.local scripts/db.mjs` en la base beta. Los informes previos a esta migración quedan finalizados y bloqueados para edición.
+
+En el detalle de una salida terminada, **Inscripciones → Gestionar** ofrece **Recordar informe de salida** para una persona confirmada y asignada como 70 cuyo informe aún no esté finalizado. Reutiliza el modal y el envío de Resumen; bloquea duplicados cuando hay correo pendiente y muestra el acceso **Ver informe finalizado** cuando corresponde. Funciona también para salidas completadas sin habilitar la edición de inscripciones cerradas.
+
+### Logística específica de cada bloque
+
+Crear y editar una convocatoria incluye **Transporte**, **Alimentación** y **Hospedaje**: textos opcionales de hasta 5000 caracteres cada uno, públicos para las personas voluntarias. Se guardan por bloque y se copian al clonar o separar una agrupación. No se sobrescriben al editar datos comunes de la serie. La logística general existente se conserva como indicaciones adicionales.
+
+Los campos se muestran en la convocatoria pública, en Logística e Información de Coordinación, en la guía privada del 70 y en el comunicado para WhatsApp. Las condiciones de la salida se distinguen de las ofertas de transporte y restricciones alimentarias personales. Los campos no completados indican «Por confirmar con Coordinación».
+
+Esta versión agrega `outings.transport_details`, `food_details` y `lodging_details`. Antes de desplegar debe aplicarse `schema.sql` en Neon junto con la migración pendiente de borradores de informes.

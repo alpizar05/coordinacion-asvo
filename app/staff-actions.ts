@@ -2,6 +2,7 @@
 
 import { assignRegistration70, changeRegistrationStatus, dispatchRegistrationUpdates, notifyRegistration, occupiedSeats, promoteWaitlist } from '../lib/registration-workflow';
 
+import { outingLogisticsFields } from '../lib/outing-logistics';
 import { randomBytes } from 'node:crypto';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
@@ -96,6 +97,7 @@ async function saveOuting(form: FormData) {
   }
   const capacity = Number(field(form,'capacity'));
   if (!Number.isSafeInteger(capacity) || capacity < 1 || capacity > 10000) invalid('Ingresá entre 1 y 10 000 cupos.', 'capacity');
+  if (outingLogisticsFields.some(item => field(form,item.name).length > 5000)) invalid('Usá hasta 5000 caracteres en cada campo de logística.', 'logistics');
   const title = field(form,'title'), location = field(form,'location');
   if (!title) invalid('Completá el título.', 'title');
   if (!location) invalid('Completá el lugar.', 'location');
@@ -184,9 +186,9 @@ async function saveOuting(form: FormData) {
     const status = publish ? 'abierta' : 'borrador';
     const created: string[] = [];
     for (const {start,end} of periods) {
-      const [outing] = await tx`insert into outings(request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,status,listed,registration_deadline,outing_overrides)
+      const [outing] = await tx`insert into outings(request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,transport_details,food_details,lodging_details,status,listed,registration_deadline,outing_overrides)
         values (${requestId},${title},${location},${unit},${start},${end},${field(form,'flexible') === 'on'},
-        ${capacity},${field(form,'requirements')},${field(form,'logistics')},${status},${listed},${deadline || start},${newRequest ? [] : [...overrides, 'photos']}) returning id`;
+        ${capacity},${field(form,'requirements')},${field(form,'logistics')},${field(form,'transport_details')},${field(form,'food_details')},${field(form,'lodging_details')},${status},${listed},${deadline || start},${newRequest ? [] : [...overrides, 'photos']}) returning id`;
       if (photoIds.length) {
         await tx`insert into outing_photos(outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
           select ${outing.id}::uuid,selection.position,
@@ -268,6 +270,12 @@ export async function manageOuting(id: string, form: FormData) {
       const updates = Object.fromEntries(keys.map(item => [
         item.name, personal.has(item.name) ? field(form,item.name) : defaults[item.name] ?? '',
       ]));
+      if (action === 'informacion') {
+        for (const item of outingLogisticsFields) {
+          if (field(form,item.name).length > 5000) return 'Usá hasta 5000 caracteres en cada campo de logística.';
+          updates[item.name] = field(form,item.name);
+        }
+      }
       if (keys.some(item => item.required && !updates[item.name])) return 'Completá los campos obligatorios.';
       const unit = updates.unit;
       if (unit && unit !== outing.unit) {
@@ -396,9 +404,9 @@ export async function splitOutingGroup(id: string, start: string, end: string, f
     if (capacity < occupied) return { error: `Asigná al menos ${occupied} cupos para conservar las reservas.` };
 
     const [created] = await tx<{ id: string }[]>`
-      insert into outings (request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,status,listed,registration_deadline,outing_overrides)
+      insert into outings (request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,transport_details,food_details,lodging_details,status,listed,registration_deadline,outing_overrides)
       values (${outing.request_id},${title},${outing.location},${outing.unit},${start},${end},true,${capacity},
-        ${outing.requirements},${outing.logistics},${outing.status},false,least(${start}::date,${outing.registration_deadline}::date),${Array.from(new Set([...outing.outing_overrides, 'title']))})
+        ${outing.requirements},${outing.logistics},${outing.transport_details},${outing.food_details},${outing.lodging_details},${outing.status},false,least(${start}::date,${outing.registration_deadline}::date),${Array.from(new Set([...outing.outing_overrides, 'title']))})
       returning id`;
     await tx`insert into outing_photos (outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
       select ${created.id},position,alt,credit,original_item,original_drive,thumbnail,display_image

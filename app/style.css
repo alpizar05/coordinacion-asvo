@@ -837,3 +837,46 @@ body:has(.outing-brief) { --content-max-width: 90rem; }
 .outing-report-form button:disabled { opacity: .5; cursor: not-allowed; }
 .outing-report-view .copy { overflow-wrap: anywhere; }
 .outing-report-view .profile-facts { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+
+/* Private, practical guide for the assigned 70. */
+.outing-brief { min-width: 0; }
+.brief-place { color: var(--gray); }
+.brief-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; margin-block: 1.25rem; }
+.brief-summary a { display: flex; flex-direction: column; gap: .35rem; padding: 1rem; background: var(--mist); border: 1px solid var(--line); border-radius: .5rem; color: var(--ink); text-decoration: none; }
+.brief-summary a:hover { border-color: var(--moss); }
+.brief-summary strong { font-size: 1.6rem; color: var(--moss); }
+.brief-summary span { font-size: .875rem; }
+.brief-update { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+.brief-update p { margin: 0; font-size: .8125rem; }
+.brief-jump-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 1rem 0; }
+.brief-jump-links a { padding-block: .65rem; }
+.outing-brief section[id] { scroll-margin-top: 7rem; }
+.brief-roster-region { overflow-x: auto; }
+.brief-roster { width: 100%; border-collapse: collapse; text-align: start; }
+.brief-roster :is(th,td) { padding: .9rem .6rem; vertical-align: top; border-bottom: 1px solid var(--line); }
+.brief-roster thead { background: var(--mist); }
+.brief-role { display: inline-block; margin-inline-start: .5rem; font-size: .75rem; }
+.brief-participation { min-width: 13rem; }
+.brief-date-note { display: block; margin-top: .35rem; font-size: .8125rem; color: var(--moss); }
+.brief-contact a { display: inline-flex; padding-block: .25rem; }
+.brief-transport-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap: .75rem; list-style: none; padding: 0; }
+.brief-transport-list li { padding: 1rem; border: 1px solid var(--line); border-radius: .5rem; }
+.brief-transport-list p { margin: .45rem 0; }
+.brief-report-callout { border-inline-start: 4px solid var(--moss); }
+@media (max-width: 700px) {
+  .brief-summary { grid-template-columns: minmax(0,1fr); gap: .5rem; }
+  .brief-summary a { flex-direction: row; align-items: center; gap: 1rem; padding: .75rem; }
+  .brief-summary strong { min-width: 1.5rem; text-align: center; font-size: 1.35rem; }
+  .brief-jump-links { gap: .25rem 1rem; font-size: .875rem; }
+  .brief-roster, .brief-roster tbody { display: block; }
+  .brief-roster thead { display: none; }
+  .brief-roster tr { display: grid; grid-template-columns: minmax(0,1fr); gap: .3rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+  .brief-roster :is(th,td) { display: block; padding: 0; border: 0; overflow-wrap: anywhere; }
+  .brief-participation { min-width: 0; font-size: .875rem; }
+  .brief-contact { font-size: .875rem; }
+}
+.outing-brief .brief-update button { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+.brief-report-callout .button { background: var(--moss); color: white; border-color: var(--moss); }
+.outing-logistics-details { display: grid; gap: 1rem; margin-block: 1rem; }
+.outing-logistics-details dt { font-weight: 600; }
+.outing-logistics-details dd { margin: .35rem 0 0; }

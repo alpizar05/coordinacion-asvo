@@ -1,3 +1,5 @@
+import { OutingLogistics } from '../../../outing-logistics';
+import { outingLogisticsFields, outingLogisticsMessage } from '../../../../lib/outing-logistics';
 import { AddRegistration } from '../../add-registration';
 import { compactParticipationDates } from '../../../../lib/participation-dates';
 import { ActionModal } from '../../action-modal';
@@ -22,7 +24,7 @@ import { managePhoto } from '../../../photo-actions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { canOperate, staff } from '../../../../lib/auth';
-import { appUrl, sql } from '../../../../lib/db';
+import { appUrl, demo, sql } from '../../../../lib/db';
 import { displayDate, outingIsEditable, suggestedGroups, uuid } from '../../../../lib/registration';
 import { manageOuting, splitOutingGroup } from '../../../staff-actions';
 import { CopyMessage } from './message';
@@ -46,7 +48,10 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     where outing_id=${id} and position is not null order by position`;
   const entries = await sql`select r.id,r.identification,r.status,r.received_at,r.starts::text,r.ends::text,r.details,
     (r.status='confirmada' and r.details->'assigned70'='true'::jsonb) as assigned70,
-    v.id as volunteer_id,concat_ws(' ',v.name,v.surname,v.second_surname) as volunteer,exists(select 1 from policies p where p.volunteer_id=v.id and p.verified_at is not null
+    exists(select 1 from outing_reports p where p.lead_registration_id=r.id and p.outing_id=r.outing_id and p.status='finalizado') as report_finalized,
+    exists(select 1 from outing_brief_links l where l.lead_registration_id=r.id and l.outing_id=r.outing_id and l.revoked_at is null and l.expires_at>clock_timestamp()) as report_link,
+    exists(select 1 from report_reminders q join registration_mail_outbox m on m.id=q.mail_id where q.registration_id=r.id and m.sent_at is null and m.cancelled_at is null) as reminder_pending,
+    v.email as volunteer_email,v.id as volunteer_id,concat_ws(' ',v.name,v.surname,v.second_surname) as volunteer,exists(select 1 from policies p where p.volunteer_id=v.id and p.verified_at is not null
       and p.starts<=r.starts and p.ends>=r.ends) as covered,
     (${outing.unit}='Voluntariado General' or ${outing.unit}=any(v.units)) as eligible
     from registrations r left join volunteers v on v.id=r.volunteer_id where r.outing_id=${id} order by r.received_at,r.id`;
@@ -84,7 +89,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   const waiting = entries.filter(entry => ['revisión','espera'].includes(entry.status));
   const next = waiting.find(entry => entry.status === 'espera' && entry.eligible);
   const groups = !editing && outing.flexible ? suggestedGroups(entries.filter(row => ['revisión','espera','confirmada'].includes(row.status)).map(row => ({id:String(row.id),status:String(row.status),starts:String(row.starts),ends:String(row.ends),name:String(row.volunteer || "Ficha pendiente de conciliar")}))) : [];
-  const message = [outing.title,outing.location,`${displayDate(outing.first_day)} al ${displayDate(outing.last_day)}`,outing.requirements,outing.logistics,`${appUrl()}/convocatorias/${id}`].filter(Boolean).join('\n');
+  const message = [outing.title,outing.location,`${displayDate(outing.first_day)} al ${displayDate(outing.last_day)}`,outing.requirements,outingLogisticsMessage(outing),outing.logistics,`${appUrl()}/convocatorias/${id}`].filter(Boolean).join('\n');
   const decisions = !editing && outing.flexible ? await sql`select id,reason,happened_at from audit
     where target=${id} and action='Decidió agrupación' order by id desc` : [];
   const registrations = <>
@@ -121,6 +126,10 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
             <td className="table-date registration-received">{receivedFormat.format(entry.received_at)}</td>
             <td className="registration-actions">
               <RegistrationActions canManage={editable} personName={entry.volunteer}
+                reportFollowup={outing.has_ended && ['abierta','confirmada','completada'].includes(outing.status) && entry.assigned70 ? {
+                  outingId: id,title: outing.title,starts: displayDate(outing.first_day),ends: displayDate(outing.last_day),
+                  email: entry.volunteer_email,activeLink: !!entry.report_link,pending: !!entry.reminder_pending,finalized: !!entry.report_finalized,demo,
+                } : undefined}
                 entry={{ id: entry.id, status: entry.status, identification: entry.identification, starts: entry.starts, ends: entry.ends, assigned70: !!entry.assigned70 }}
                 outing={{ flexible: outing.flexible, first_day: outing.first_day, last_day: outing.last_day }}
                 error={entry.id === inscripcion ? error : undefined}
@@ -138,6 +147,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   </section>}
   </>;
   const logisticsPanel = <>
+  {!editing && <section className="card"><h2>Condiciones de la salida</h2><OutingLogistics outing={outing} />{outing.logistics && <p className="copy">{outing.logistics}</p>}</section>}
   {!editing && <section className="card" aria-labelledby="logistica-participacion">
     <h2 id="logistica-participacion">Logística de participación</h2>
     <TransportSummary entries={entries.map(entry => ({ id: entry.id, status: entry.status, volunteer: entry.volunteer,
@@ -160,7 +170,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       <div className="grid">
         {commonOutingFields.slice(0, 3).map(inheritedField)}
       </div>
-      <p>Sin marcar Personalizar, se usa el dato general. Unidad general: {defaults.unit}.</p>
+      <p>Sin marcar Personalizar, se usa el dato general. Transporte, alimentación y hospedaje son específicos de este bloque. Unidad general: {defaults.unit}.</p>
       <button className="coord-button-primary" name="action" value="datos">Guardar datos de la salida</button>
     </form>
   </section>}
@@ -171,12 +181,13 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     {editing ? <form action={manageOuting.bind(null,id)}>
       <div className="grid">
         {commonOutingFields.slice(3).map(inheritedField)}
+        {outingLogisticsFields.map(item => <label key={item.name}>{item.label} del bloque<textarea name={item.name} defaultValue={outing[item.name] ?? ''} placeholder={item.placeholder} maxLength={5000} /></label>)}
       </div>
-      <p>Sin marcar Personalizar, se usa el dato general.</p>
+      <p>Sin marcar Personalizar, se usa el dato general. Transporte, alimentación y hospedaje son específicos de este bloque.</p>
       <button className="coord-button-primary" name="action" value="informacion">Guardar requisitos y logística</button>
     </form> : <div className="grid">
       <div><h3>Requisitos</h3><p className="copy">{outing.requirements || 'Sin requisitos registrados.'}</p></div>
-      <div><h3>Logística</h3><p className="copy">{outing.logistics || 'Sin información logística registrada.'}</p></div>
+      <div><h3>Condiciones del bloque</h3><OutingLogistics outing={outing} /><h3>Otras indicaciones logísticas</h3><p className="copy">{outing.logistics || 'Sin otras indicaciones registradas.'}</p></div>
     </div>}
   </section>
   <section className="card" id="solicitud-apoyo">

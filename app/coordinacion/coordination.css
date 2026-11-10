@@ -368,3 +368,8 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .summary-report-people { list-style: none; margin: .75rem 0; padding: 0; }
 .summary-report-people > li { padding: .85rem; margin: .5rem 0; background: #f5f7f1; border-radius: .4rem; }
 .summary-report-people .muted { overflow-wrap: anywhere; }
+
+.coordination-content fieldset.outing-photo-field { border: 0; padding: 0; margin: 0; min-width: 0; }
+.coordination-content .outing-photo-field > legend { padding: 0; margin-bottom: .35rem; font-size: .9375rem; font-weight: 600; }
+.coordination-content .outing-photo-selection { border: 1px solid var(--line); border-radius: var(--coord-radius); padding: 1rem; margin: .35rem 0 0; }
+.coordination-content .outing-photo-selection > legend { padding-inline: .4rem; font-size: .875rem; color: var(--coord-primary); }

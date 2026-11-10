@@ -66,7 +66,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
             <p>{displayDate(row.starts || row.ends)} al {displayDate(row.ends)} · Finalizó hace {row.age} {row.age === 1 ? 'día' : 'días'}</p>
             {!row.missing && <p className="muted">Falta definir quién presentará el informe. No hay una persona asignada como 70.</p>}
             <ul className="summary-report-people">{reportPeople.filter(person => person.outing_id === row.id).map(person => <li key={person.id}>
-              <p><strong>70: {person.name}</strong> · {person.submitted ? 'Informe presentado' : 'Informe sin presentar'}</p>
+              <p><strong>70: {person.name}</strong> · {person.submitted ? 'Informe finalizado' : person.draft ? 'Borrador guardado · Sin finalizar' : 'Informe sin presentar'}</p>
               {!person.submitted && <>
                 <p className="muted">Enlace del informe: {person.active_link ? 'Vigente' : 'Sin enlace vigente'}</p>
                 <p className="muted">Último recordatorio: {person.reminded_at ? new Intl.DateTimeFormat('es-CR',{timeZone:'America/Costa_Rica',dateStyle:'short',timeStyle:'short'}).format(person.reminded_at) : 'Todavía no enviado'}

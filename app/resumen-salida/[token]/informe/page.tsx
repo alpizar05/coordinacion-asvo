@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Informe de salida del 70 | ASVO', robots: { index: false, follow: false }, referrer: 'no-referrer' as const };
 
 export default async function Page({ params, searchParams }: {
-  params: Promise<{ token: string }>; searchParams: Promise<{ enviado?: string; editar?: string }>;
+  params: Promise<{ token: string }>; searchParams: Promise<{ enviado?: string; borrador?: string; editar?: string }>;
 }) {
   const { token } = await params;
   const access = await briefAccess(token);
@@ -25,17 +25,19 @@ export default async function Page({ params, searchParams }: {
   const defaults = reportDefaults(String(brief.outing.unit));
   const savedLabour = report ? report.labour_types.length ? report.labour_types : labourOptions.filter(option => option === report.labour) : defaults.labour;
   const query = await searchParams;
-  const editing = !report || query.editar === '1';
+  const editing = !report || report.status === 'borrador';
   return <div className="outing-report-page">
     <Link href={`/resumen-salida/${token}`}>‹ Volver al resumen de la salida</Link>
     <h1>Informe de salida</h1><p>{brief.outing.title}</p>
-    {query.enviado === '1' && <StatusRibbon message="Informe recibido. Coordinación ya puede consultarlo." />}
+    {query.enviado === '1' && <StatusRibbon message="Informe finalizado. La tarea está completada y el informe ya no se puede editar." />}
+    {query.borrador === '1' && editing && <StatusRibbon message="Borrador guardado. Podés continuar después; el informe sigue pendiente." />}
+    {report?.status === 'borrador' && <p className="note">Borrador · Sin finalizar. Los cambios guardados se precargan a continuación.</p>}
     {editing ? <ReportForm token={token} lead={{ name: String(lead.name), email: String(lead.email || '') }}
       initial={{ labour: savedLabour, location: report?.location ?? brief.outing.location,
         activity: report ? activityOptions.find(option => option === report.activity) ?? '' : defaults.activity, starts: report?.starts ?? brief.outing.starts, ends: report?.ends ?? brief.outing.ends,
         actions: report?.actions ?? '', host: report?.host ?? '', observations: report?.observations ?? '' }}
       participants={brief.people.map(person => ({ id: person.id, name: person.name }))}
       selected={report?.participants.filter(person => person.attended && brief.people.some(current => current.id === person.id)).map(person => person.id)} />
-      : <section className="card"><h2>Informe presentado</h2><OutingReportView report={report} /><Link className="button" href={`/resumen-salida/${token}/informe?editar=1`}>Editar informe</Link></section>}
+      : <section className="card"><h2>Informe finalizado</h2><p>Este informe es definitivo y ya no se puede editar.</p><OutingReportView report={report} /></section>}
   </div>;
 }

@@ -266,3 +266,14 @@ create table if not exists report_reminders (
   check ((mail_id is null) <> (demo_mail_id is null))
 );
 create index if not exists report_reminders_registration on report_reminders(registration_id,id desc);
+
+-- Existing submitted reports remain finalized; only newly saved drafts are editable.
+alter table outing_reports add column if not exists status text not null default 'finalizado' check (status in ('borrador','finalizado'));
+alter table outing_reports alter column starts drop not null;
+alter table outing_reports alter column ends drop not null;
+alter table outing_reports alter column submitted_at drop not null;
+
+-- Logistics are specific to each dated outing block.
+alter table outings add column if not exists transport_details text not null default '';
+alter table outings add column if not exists food_details text not null default '';
+alter table outings add column if not exists lodging_details text not null default '';

@@ -20,7 +20,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 ## Prioridad media
 
 - [ ] **Buscar y filtrar convocatorias públicas.** Agregar búsqueda por lugar y filtros por fechas, unidad y modalidad flexible en «Más convocatorias». Definir cómo se aplican a las series y sus bloques, sin perder el orden por próxima fecha.
-- [ ] **Estructurar la logística de las salidas.** Incorporar campos de encuentro, transporte, hospedaje, alimentación y equipo. Identificar información pendiente y reutilizar los datos en el resumen para el 70, conservando los textos existentes durante la transición.
+- [ ] **Estructurar la logística de las salidas.** Implementados campos por bloque de transporte, alimentación y hospedaje, con copia y visualización en logística, portal público y resumen del 70. Pendiente completar campos específicos de encuentro y equipo. Incorporar campos de encuentro, transporte, hospedaje, alimentación y equipo. Identificar información pendiente y reutilizar los datos en el resumen para el 70, conservando los textos existentes durante la transición.
 - [ ] **Consultar y gestionar las notificaciones de correo.** Mostrar estado enviado/pendiente y último intento, con reintento manual autorizado. Reutilizar la cola y sus controles de concurrencia y orden; no duplicar mensajes ya enviados.
 - [ ] **Facilitar el cierre de salida.** Reunir informe del 70, asistencia real e incidentes antes de completar la salida. Mostrar qué información está registrada y definir cuáles pendientes bloquean el cierre y cuáles solo generan una advertencia.
 

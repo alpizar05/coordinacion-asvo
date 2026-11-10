@@ -28,16 +28,17 @@ export async function coordinationSummary(general: boolean, scopes: string[], un
     group by o.id order by o.starts,o.id`;
   const reports = await sql`select o.id,o.title,o.unit,o.starts::text,o.ends::text,(${registrationToday}-o.ends)::int as age,
     (select count(*)::int from registrations r where r.outing_id=o.id and r.status='confirmada'
-      and r.details->'assigned70'='true'::jsonb and not exists(select 1 from outing_reports p where p.outing_id=o.id and p.lead_registration_id=r.id)) as missing,
+      and r.details->'assigned70'='true'::jsonb and not exists(select 1 from outing_reports p where p.status='finalizado' and p.outing_id=o.id and p.lead_registration_id=r.id)) as missing,
     count(*) over()::int as total
     from outings o where ${allowed} and o.status in ('abierta','confirmada','completada') and o.ends<${registrationToday}
       and (exists(select 1 from registrations r where r.outing_id=o.id and r.status='confirmada'
-        and r.details->'assigned70'='true'::jsonb and not exists(select 1 from outing_reports p where p.outing_id=o.id and p.lead_registration_id=r.id))
+        and r.details->'assigned70'='true'::jsonb and not exists(select 1 from outing_reports p where p.status='finalizado' and p.outing_id=o.id and p.lead_registration_id=r.id))
         or (not exists(select 1 from registrations r where r.outing_id=o.id and r.status='confirmada' and r.details->'assigned70'='true'::jsonb)
-          and not exists(select 1 from outing_reports p where p.outing_id=o.id)))
+          and not exists(select 1 from outing_reports p where p.status='finalizado' and p.outing_id=o.id)))
     order by o.ends,o.id limit 100`;
   const reportPeople = reports.length ? await sql`select o.id as outing_id,r.id,concat_ws(' ',v.name,v.surname,v.second_surname) as name,v.email,
-    exists(select 1 from outing_reports p where p.outing_id=o.id and p.lead_registration_id=r.id) as submitted,
+    exists(select 1 from outing_reports p where p.status='finalizado' and p.outing_id=o.id and p.lead_registration_id=r.id) as submitted,
+    exists(select 1 from outing_reports p where p.status='borrador' and p.outing_id=o.id and p.lead_registration_id=r.id) as draft,
     exists(select 1 from outing_brief_links l where l.outing_id=o.id and l.lead_registration_id=r.id
       and l.revoked_at is null and l.expires_at>clock_timestamp()) as active_link,
     q.created_at as reminded_at,q.actor as reminded_by,m.sent_at,m.cancelled_at,m.id as mail_id,q.demo_mail_id,

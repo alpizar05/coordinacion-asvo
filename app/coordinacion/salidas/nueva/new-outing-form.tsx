@@ -1,6 +1,6 @@
 'use client';
 
-import { MobileDisclosure } from '../../mobile-disclosure';
+import { outingLogisticsFields } from '../../../../lib/outing-logistics';
 import { FlexibleDatesHelp } from '../../flexible-dates-help';
 
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
@@ -14,7 +14,7 @@ import { OutingPeriods, type OutingPeriod } from '../../outing-periods';
 export type OutingTemplate = {
   id: string; request_id: string; title: string; location: string; unit: string;
   starts: string; ends: string; flexible: boolean; capacity: number; listed: boolean;
-  requirements: string | null; logistics: string | null; registration_deadline: string | null;
+  requirements: string | null; logistics: string | null; transport_details: string; food_details: string; lodging_details: string; registration_deadline: string | null;
   organization: string | null; contact: string | null; area: string | null; activity: string | null; plan: string | null;
   photos: { id: string; alt: string; credit?: string }[];
 };
@@ -114,7 +114,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
       <input type="hidden" name="request" value={clone.request_id} />
       <input type="hidden" name="cloneBlock" value={clone.id} />
       <p>Basado en <strong>{clone.title}</strong>. Elegí las fechas del nuevo bloque y ajustá los datos si hace falta.</p>
-    </> : <label>Copiar una convocatoria anterior (opcional)<select name="request" value={selected} onChange={event => {
+    </> : <><label>Convocatoria de origen (opcional)<select name="request" aria-describedby={selected ? "outing-origin-help" : undefined} value={selected} onChange={event => {
       const value = event.target.value;
       setSelected(value);
       const source = templates.find(row => row.request_id === value);
@@ -128,15 +128,22 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
       setCover('');
       setPhotos(source?.photos ?? []);
     }}>
-      <option value="">Empezar desde cero</option>
+      <option value="">Crear una convocatoria independiente</option>
       {templates.map(row => <option key={row.request_id} value={row.request_id}>
         {[row.organization, row.activity, row.title, row.starts].filter(Boolean).join(' · ')}
       </option>)}
-    </select></label>}
+    </select></label>
+    {selected && <p id="outing-origin-help" className="muted">Se copiarán sus datos y fotos. La nueva salida quedará como un bloque de la misma convocatoria en serie. Podés ajustar los detalles antes de publicarla.</p>}
+    </>}
     </section>
     <div key={selected} className="new-outing-fields">
     <section className="new-outing-section">
     <div className="grid"><div><label>Título<input name="title" value={title} onChange={event => setTitle(event.target.value)} required/></label>{showError('title')}</div><div><label>Estación o lugar<input name="location" defaultValue={template?.location} required/></label>{showError('location')}</div><label>Unidad<select name="unit" value={unit} onChange={event => setUnit(event.target.value)}>{units.map(unit => <option key={unit}>{unit}</option>)}</select></label></div>
+    </section>
+    <section className="new-outing-section" aria-labelledby="support-request-title">
+    <h2 id="support-request-title">Solicitud de apoyo</h2>
+    {template && <p>Los datos del pedido se muestran como referencia. Los datos de la salida se pueden editar.</p>}
+    <div className="grid"><label>Organización solicitante<input name="organization" defaultValue={template?.organization ?? ""} readOnly={!!template}/></label><label>Contacto solicitante<input name="contact" defaultValue={template?.contact ?? ""} readOnly={!!template}/></label><label>Área silvestre protegida<input name="area" defaultValue={template?.area ?? ""} readOnly={!!template}/></label><label>Tipo de actividad<input name="activity" defaultValue={template?.activity ?? ""} readOnly={!!template}/></label></div>
     </section>
     <section className="new-outing-section">
     <h2>Fechas y cupos</h2>
@@ -148,12 +155,17 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </section>
     <section className="new-outing-section">
     <h2>Información para voluntariado</h2>
-    <label>Requisitos públicos<textarea name="requirements" defaultValue={template?.requirements ?? ""}/></label><label>Logística pública<textarea name="logistics" defaultValue={template?.logistics ?? ""} placeholder="Hospedaje, instalaciones, alimentación, transporte y herramientas"/></label>
-    <fieldset>
+    <label>Plan de trabajo<textarea name="plan" defaultValue={template?.plan ?? ""} readOnly={!!template}/></label>
+    <label>Requisitos públicos<textarea name="requirements" defaultValue={template?.requirements ?? ""}/></label><label>Logística pública<textarea name="logistics" defaultValue={template?.logistics ?? ""} placeholder="Otras indicaciones: instalaciones, herramientas y aspectos adicionales"/></label>
+    <h3>Logística del bloque</h3><p className="muted">Información pública para preparar la participación. Cada bloque puede tener sus propias condiciones.</p>
+    {showError('logistics')}
+    {outingLogisticsFields.map(item => <label key={item.name}>{item.label}<textarea name={item.name} maxLength={5000} defaultValue={template?.[item.name] ?? ''} placeholder={item.placeholder} /></label>)}
+    <fieldset className="outing-photo-field">
       <legend>Fotos de la convocatoria</legend>
+      <fieldset className="outing-photo-selection">
+        <legend aria-live="polite">{photoCount} de {outingPhotoLimit} fotos</legend>
       {showError('photos')}
       <p>Elegí hasta seis fotos de la galería o de tu dispositivo y marcá cuál será la portada.</p>
-      <p aria-live="polite"><strong>{photoCount} de {outingPhotoLimit} fotos</strong></p>
       {selectedPhotos.length > 0 && <ul className="photo-admin-list" aria-label="Fotos seleccionadas">
         {selectedPhotos.map(item => {
           const { photo } = item;
@@ -198,13 +210,10 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
           if (choice.kind === 'upload') setNewPhotos(current => [...current, { id: nextPhotoId.current++, file: choice.file, alt: choice.alt, credit: choice.credit }]);
           else if (choice.kind === 'gallery') setPhotos(current => [...current, { id: choice.id, alt: choice.alt, credit: choice.credit }]);
         }} />
+      </fieldset>
     </fieldset>
     </section>
-    <MobileDisclosure className="new-outing-section" title={`Solicitud de apoyo${template ? ` · ${template.organization || template.title}` : ''}`}>
-    {template && <p>Los datos del pedido se muestran como referencia. Los datos de la salida se pueden editar.</p>}
-    <div className="grid"><label>Organización solicitante<input name="organization" defaultValue={template?.organization ?? ""} readOnly={!!template}/></label><label>Contacto solicitante<input name="contact" defaultValue={template?.contact ?? ""} readOnly={!!template}/></label><label>Área silvestre protegida<input name="area" defaultValue={template?.area ?? ""} readOnly={!!template}/></label><label>Tipo de actividad<input name="activity" defaultValue={template?.activity ?? ""} readOnly={!!template}/></label></div>
-    <label>Plan de trabajo<textarea name="plan" defaultValue={template?.plan ?? ""} readOnly={!!template}/></label>
-    </MobileDisclosure>
+
     <section className="new-outing-section">
       <h2>Visibilidad y publicación</h2>
       <label>Visibilidad<select name="visibility" value={visibility} onChange={event => setVisibility(event.target.value)}>

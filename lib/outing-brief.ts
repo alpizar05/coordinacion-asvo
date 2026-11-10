@@ -2,7 +2,7 @@ import { sql } from './db';
 import { digest } from './registration';
 
 export async function outingBrief(id: string) {
-  const [outing] = await sql`select id,title,location,unit,status,starts::text,ends::text,requirements,logistics,flexible
+  const [outing] = await sql`select id,title,location,unit,status,starts::text,ends::text,requirements,logistics,transport_details,food_details,lodging_details,flexible
     from outings where id=${id}`;
   if (!outing) return;
   const people = await sql<{ id: string; starts: string; ends: string; details: Record<string, unknown>;

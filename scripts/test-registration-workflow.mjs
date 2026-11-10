@@ -107,6 +107,15 @@ try {
   assert.ok(validateReport(reportValues,[],true).participants,'No se supone asistencia sin confirmarla');
   assert.ok(validateReport({ ...reportValues, ends: '2029-01-01' },[reserved[0].id],true).ends);
   assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[]))).errors?.participants,'Detecta un cambio de lista');
+  const incomplete = { labour: [], location: '', activity: '', starts: '', ends: '', actions: 'Avance guardado', host: '', observations: '' };
+  const draft = await locked(tx => saveOutingReport(tx,briefToken,incomplete,[],false,[reserved[0].id],'borrador'));
+  assert.ok(draft.id,'Guarda un borrador incompleto sin confirmar asistencia');
+  const [draftReport] = await readOutingReports(outingId);
+  assert.equal(draftReport.status,'borrador');
+  assert.equal(draftReport.submitted_at,null);
+  assert.equal(draftReport.starts,'');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,incomplete,[],false,[reserved[0].id],'finalizar'))).errors,'No finaliza campos incompletos');
+  assert.equal((await locked(tx => saveOutingReport(tx,briefToken,{...incomplete,observations:'Nuevo avance'},[],false,[reserved[0].id],'borrador'))).id,draft.id,'Retoma el mismo borrador');
   const savedReport = await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[reserved[0].id]));
   assert.ok(savedReport.id,'El 70 presenta su informe mediante el enlace privado');
   const [report] = await readOutingReports(outingId);
@@ -116,8 +125,11 @@ try {
   assert.ok(validateReport({ ...reportValues, labour: ['Inventado'] },[reserved[0].id],true).labour);
   assert.ok(validateReport({ ...reportValues, activity: 'Inventado' },[reserved[0].id],true).activity);
   assert.equal(report.lead_registration_id,reserved[0].id,'La identidad proviene del enlace y no del formulario');
-  await locked(tx => saveOutingReport(tx,briefToken,{ ...reportValues, observations: 'Corrección del 70' },[reserved[0].id],true,[reserved[0].id]));
-  assert.equal((await readOutingReports(outingId)).length,1,'Reenviar actualiza el mismo informe');
+  assert.equal(report.status,'finalizado');
+  assert.ok(report.submitted_at);
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,{ ...reportValues, observations: 'Corrección del 70' },[reserved[0].id],true,[reserved[0].id]))).errors?.form,'No edita informes finalizados');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[],false,[reserved[0].id],'borrador'))).errors?.form,'No convierte un informe finalizado en borrador');
+  assert.equal((await readOutingReports(outingId))[0].observations,'','El informe finalizado queda intacto');
 
   assert.equal(await briefAccess('token-invalido'),undefined);
   await sql`update outing_brief_links set expires_at=now()-interval '1 second' where digest=${digest(briefToken)}`;

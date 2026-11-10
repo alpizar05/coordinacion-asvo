@@ -29,11 +29,11 @@ export function ReportForm({ token, initial, lead, participants, selected = [] }
     {participants.map(person => <input key={person.id} type="hidden" name="roster" value={person.id} />)}
     <section className="card"><h2>Persona responsable del equipo (70)</h2>
       <p><strong>{lead.name}</strong><br />{lead.email || 'Correo pendiente de registrar'}</p>
-      <p className="muted">Estos datos provienen de tu ficha. La fecha y hora de presentación se registran automáticamente al enviar.</p>
+      <p className="muted">Estos datos provienen de tu ficha. La fecha y hora de finalización se registran al finalizar el informe.</p>
       {state.errors?.email && <p className="note" role="alert">{state.errors.email}</p>}
     </section>
     <section className="card"><h2>Informe de la actividad</h2>
-      <p>Revisá los datos precargados y completá la información de lo que realmente ocurrió. Todos los campos son obligatorios salvo Observaciones.</p>
+      <p>Revisá los datos precargados y completá la información de lo que realmente ocurrió. Podés guardar un borrador incompleto y retomarlo después. Para finalizar, todos los campos son obligatorios salvo Observaciones.</p>
       <div className="report-fields">
         <fieldset tabIndex={-1} aria-invalid={!!state.errors?.labour} aria-describedby="report-help-labour">
           <legend>Tipo de labor realizada</legend>
@@ -70,8 +70,8 @@ export function ReportForm({ token, initial, lead, participants, selected = [] }
       </label>)}</div>
     </section>
     <section className="card"><h2>Participación real del equipo</h2>
-      <p>La lista proviene de las inscripciones confirmadas. Marcá únicamente a quienes participaron realmente. Las personas sin marcar quedarán registradas como no participantes en este informe.</p>
-      <p role="status"><strong>{attended.length} de {participants.length}</strong> personas con participación confirmada por vos.</p>
+      <p>La lista proviene de las inscripciones confirmadas. Marcá únicamente a quienes participaron realmente. Al finalizar, las personas sin marcar quedarán registradas como no participantes. El borrador no confirma la asistencia.</p>
+      <p role="status"><strong>{attended.length} de {participants.length}</strong> personas seleccionadas provisionalmente.</p>
       <fieldset aria-invalid={!!state.errors?.participants} tabIndex={-1}>
         <legend>Confirmación de asistencia</legend>
         {participants.map(person => <label key={person.id}>
@@ -89,7 +89,9 @@ export function ReportForm({ token, initial, lead, participants, selected = [] }
         onChange={event => setAccuracy(event.target.checked)} />Confirmo que revisé las personas que participaron y que este informe refleja lo realizado.</label>
       {state.errors?.accuracy && <p role="alert" className="report-error">{state.errors.accuracy}</p>}
       {state.errors?.form && <p className="note" role="alert">{state.errors.form}</p>}
-      <button type="submit" disabled={pending || !lead.email || !participants.length}>{pending ? 'Enviando…' : 'Enviar informe de salida'}</button>
+      <p className="muted">Guardar borrador mantiene el informe pendiente. Finalizar guarda el informe definitivo y bloquea cualquier edición posterior.</p>
+      <div className="actions"><button type="submit" name="intent" value="borrador" formNoValidate disabled={pending || !lead.email}>{pending ? 'Guardando…' : 'Guardar borrador'}</button>
+        <button type="submit" name="intent" value="finalizar" disabled={pending || !lead.email || !participants.length}>{pending ? 'Guardando…' : 'Finalizar informe'}</button></div>
     </section>
   </form>;
 }
