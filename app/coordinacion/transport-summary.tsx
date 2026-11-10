@@ -28,14 +28,14 @@ export function TransportSummary({ entries, canViewProfile }: {
       <summary><span className="transport-summary-show">Ver transporte</span><span className="transport-summary-hide">Ocultar transporte</span></summary>
       <h4>Transporte ofrecido</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de transporte ofrecido">
-        <table className="outings-table"><thead><tr>
+        <table className="outings-table coordination-compact-table"><thead><tr>
           <th scope="col">Persona voluntaria</th><th scope="col">Inscripción</th><th scope="col">Personas que puede llevar</th>
         </tr></thead><tbody>{transport.map(entry => <tr key={entry.id}>
           <th scope="row">{canViewProfile && entry.volunteer_id
             ? <Link href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</Link>
             : entry.volunteer || 'Ficha pendiente de conciliar'}</th>
-          <td>{statusLabels.get(entry.status) ?? entry.status}</td>
-          <td>{entry.logistics.legacySeats ? 'Cantidad no indicada' : entry.logistics.seats}</td>
+          <td data-label="Inscripción">{statusLabels.get(entry.status) ?? entry.status}</td>
+          <td data-label="Personas que puede llevar">{entry.logistics.legacySeats ? 'Cantidad no indicada' : entry.logistics.seats}</td>
         </tr>)}</tbody></table>
       </div>
       <p className="muted">Los {seats} espacios corresponden a personas confirmadas. No representan traslados asignados.</p>

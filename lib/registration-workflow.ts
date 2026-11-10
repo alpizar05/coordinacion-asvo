@@ -47,7 +47,8 @@ export async function assignRegistration70(tx: Transaction, id: string, actor: s
 
 export async function changeRegistrationStatus(tx: Transaction, id: string, actor: string, action: string, reason: string, approveDates: string) {
   const [entry] = await tx`select *,starts::text as first_day,ends::text as last_day from registrations where id=${id}`;
-  if (!entry || !['revisión','espera','confirmada'].includes(entry.status)) return 'Esta inscripción ya no está activa.';
+  const reopening = entry && ['cancelada por coordinación','cancelada por voluntariado'].includes(entry.status) && action === 'confirmar';
+  if (!entry || (!['revisión','espera','confirmada'].includes(entry.status) && !reopening)) return 'Esta inscripción ya no está activa.';
   const [outing] = await tx`select *,starts::text as first_day,ends::text as last_day from outings where id=${entry.outing_id}`;
   if (!outing || !['abierta','confirmada'].includes(outing.status)) return 'La salida debe estar abierta o confirmada.';
   if (!['confirmar','espera','rechazar','cancelar'].includes(action)) return 'Elegí una acción válida.';
@@ -59,14 +60,19 @@ export async function changeRegistrationStatus(tx: Transaction, id: string, acto
     if (outside && (!outing.flexible || approveDates !== `${entry.first_day}/${entry.last_day}`)) {
       return 'Revisá y aprobá las fechas fuera del rango publicado.';
     }
-    if (entry.status === 'espera' && await occupiedSeats(tx,outing.id) >= outing.capacity) return 'Todos los cupos están ocupados.';
+    if (reopening) {
+      if ((await tx`select 1 from registrations where outing_id=${outing.id} and volunteer_id=${entry.volunteer_id}
+        and id<>${id} and status in ('validación','revisión','espera','confirmada')`).length) return 'La persona ya tiene otra inscripción activa en esta salida.';
+      await promoteWaitlist(tx,outing.id,actor);
+    }
+    if ((entry.status === 'espera' || reopening) && await occupiedSeats(tx,outing.id) >= outing.capacity) return 'Todos los cupos están ocupados.';
     const [person] = await tx`select units from volunteers where id=${entry.volunteer_id}`;
     if (!person || (outing.unit !== 'Voluntariado General' && !person.units.includes(outing.unit))) return 'La ficha no pertenece a la unidad requerida.';
     const [policy] = await tx`select id from policies where volunteer_id=${entry.volunteer_id} and verified_at is not null
       and starts<=${entry.first_day}::date and ends>=${entry.last_day}::date order by verified_at desc limit 1`;
     if (!policy) return 'Falta una póliza vigente para todo el periodo.';
-    await tx`update registrations set status='confirmada',policy_id=${policy.id} where id=${id}`;
-    await audit(tx,actor,'Confirmó cupo',id);
+    await tx`update registrations set status='confirmada',policy_id=${policy.id},details=case when ${!!reopening} then details-'assigned70' else details end where id=${id}`;
+    await audit(tx,actor,reopening ? 'Reactivó y confirmó inscripción cancelada' : 'Confirmó cupo',id);
     if (outside) await audit(tx,actor,'Aprobó fechas fuera del rango',id,`${entry.first_day} al ${entry.last_day}`);
     await notifyRegistration(tx,id,'Coordinación confirmó tu participación. Tu cupo está confirmado.');
     return;

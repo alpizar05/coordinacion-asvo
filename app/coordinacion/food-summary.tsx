@@ -20,13 +20,13 @@ export function FoodSummary({ entries, canViewProfile }: {
       <summary><span className="transport-summary-show">Ver restricciones</span><span className="transport-summary-hide">Ocultar restricciones</span></summary>
       <h4>Restricciones alimentarias indicadas</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de restricciones alimentarias">
-        <table className="outings-table"><thead><tr>
+        <table className="outings-table coordination-compact-table"><thead><tr>
           <th scope="col">Persona voluntaria</th><th scope="col">Restricciones alimentarias</th>
         </tr></thead><tbody>{restrictions.map(entry => <tr key={entry.id}>
           <th scope="row">{canViewProfile && entry.volunteer_id
             ? <Link href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</Link>
             : entry.volunteer || 'Ficha pendiente de conciliar'}</th>
-          <td className="copy">{entry.food}</td>
+          <td data-label="Restricciones alimentarias" className="copy">{entry.food}</td>
         </tr>)}</tbody></table>
       </div>
     </details>

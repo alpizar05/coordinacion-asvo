@@ -66,6 +66,94 @@
 .coordination-content .outing-danger-zone { border-color: #e7c9c2; }
 .coordination-content .note[role=alert] { background: #fff6dc; border-inline-start-color: #90661b; }
 /* The mobile navigation is portalled into the global header. */
+.coordination-mobile-sort { display: none; }
+.table-filters-desktop { display: contents; }
+@media (max-width: 700px) {
+  .coordination-content .table-filters-mobile { display: flex; justify-content: flex-end; margin-inline-start: auto; }
+  .coordination-content .table-filter-trigger { display: inline-flex; align-items: center; justify-content: center; position: relative; width: 44px; height: 44px; padding: .5rem; background: var(--paper); border: 1px solid var(--line); color: var(--coord-primary); }
+  .coordination-content .table-filter-active { position: absolute; top: 5px; right: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--coord-primary); }
+  .coordination-content .table-filter-modal {
+    box-sizing: border-box; width: calc(100% - 2rem); max-width: 28rem;
+    max-height: calc(100dvh - 3rem); margin: auto; padding: 1.25rem;
+    border: 1px solid var(--line); border-radius: var(--coord-radius);
+    background: var(--paper); color: var(--ink); overflow-y: auto;
+  }
+  .coordination-content .table-filter-modal::backdrop { background: rgb(8 9 7 / .45); }
+  .coordination-content .table-filter-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .coordination-content .table-filter-heading h2 { margin: 0; }
+  .coordination-content .table-filter-close { flex: 0 0 44px; width: 44px; height: 44px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--ink); font-size: 1.8rem; line-height: 1; }
+  .coordination-content .table-filter-fields .outings-filters { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; margin: 0; }
+  .coordination-content .table-filter-fields label { width: 100%; margin-bottom: 1rem; }
+  .coordination-content .table-filter-fields :is(input,select) { width: 100%; min-width: 0; }
+  .coordination-content .table-filter-modal footer { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .coordination-content .table-filter-modal footer button { width: 100%; }
+}
+@media (max-width: 700px) {
+  .coordination-content .coordination-mobile-sort { display: block; margin-block: 1rem; }
+  .coordination-content .coordination-mobile-sort select { width: 100%; }
+  .coordination-content .outings-scroll:has(> .coordination-compact-table) { overflow: visible; }
+  .coordination-content .coordination-compact-table { display: block; width: 100%; min-width: 0; }
+  .coordination-content .coordination-compact-table thead { display: none; }
+  .coordination-content .coordination-compact-table tbody { display: block; }
+  .coordination-content .coordination-compact-table tbody tr {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem 1rem; padding-block: 1.15rem; border-bottom: 1px solid var(--line);
+  }
+  .coordination-content .coordination-compact-table tbody tr:last-child { border-bottom: 0; }
+  .coordination-content .coordination-compact-table tbody tr:hover { background: transparent; }
+  .coordination-content .coordination-compact-table tbody tr > :is(th,td) {
+    grid-area: auto; min-width: 0; width: auto; padding: 0; border: 0;
+    text-align: start; white-space: normal; overflow-wrap: anywhere; word-break: normal;
+  }
+  .coordination-content .coordination-compact-table tbody th {
+    grid-column: 1 / -1; font-weight: 600; overflow-wrap: normal;
+  }
+  .coordination-content .coordination-compact-table tbody th a { overflow-wrap: normal; word-break: normal; }
+  .coordination-content .coordination-compact-table td[data-label] { font-size: .875rem; }
+  .coordination-content .coordination-compact-table td[data-label]::before {
+    content: attr(data-label); display: block; color: var(--gray); font-size: .75rem;
+    margin-bottom: .2rem; font-weight: 400;
+  }
+  .coordination-content .coordination-compact-table td:is([data-label="Lugar"], [data-label="Unidad"],
+    [data-label="Unidades"], [data-label="Correo"], [data-label="Convocatoria"], [data-label="Fechas"],
+    [data-label="Fechas solicitadas"], [data-label="Excepciones"], [data-label="Restricciones alimentarias"], [colspan]) { grid-column: 1 / -1; }
+  .coordination-content .coordination-compact-table td[data-label="Acciones"] { grid-column: 1 / -1; justify-self: end; }
+  .coordination-content .coordination-compact-table td[data-label="Acciones"]::before { display: none; }
+  .coordination-content .coordination-compact-table td[data-label="Incluir"] { grid-column: 2; grid-row: 1; justify-self: end; }
+  .coordination-content .coordination-compact-table tr:has([data-label="Incluir"]) > th { grid-column: 1; grid-row: 1; }
+  .coordination-content .coordination-compact-table td[data-label="Incluir"] input { min-width: 24px; min-height: 24px; }
+  .coordination-content .coordination-compact-table .registration-manage-trigger { min-height: 44px; }
+}
+.registration-state-mobile, .registration-date-mobile { display: none; }
+@media (max-width: 700px) {
+  .coordination-content .outing-registrations .outings-table-heading { align-items: stretch; }
+  .coordination-content .outing-registrations .outings-table-heading > label { width: 100%; }
+  .coordination-content .outing-registrations select { width: 100%; }
+  .coordination-content .outing-registrations .registration-count { font-size: .875rem; color: var(--gray); margin-block: .75rem 0; }
+  .coordination-content .outing-registrations .outings-scroll { overflow: visible; }
+  .coordination-content .outing-registration-table { display: block; min-width: 0; width: 100%; }
+  .coordination-content .outing-registration-table thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .coordination-content .outing-registration-table tbody { display: block; }
+  .coordination-content .outing-registration-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .65rem .75rem; padding-block: 1.15rem; border-bottom: 1px solid var(--line); }
+  .coordination-content .outing-registration-table tbody tr:last-child { border-bottom: 0; }
+  .coordination-content .outing-registration-table tbody tr:hover { background: transparent; }
+  .coordination-content .outing-registration-table tbody :is(th, td) { border: 0; padding: 0; min-width: 0; }
+  .coordination-content .outing-registration-table .registration-person,
+  .coordination-content .outing-registration-table .registration-state { grid-column: 1 / -1; }
+  .coordination-content .outing-registration-table .registration-person { font-weight: 600; overflow-wrap: normal; word-break: normal; }
+  .coordination-content .outing-registration-table .registration-person a { overflow-wrap: normal; word-break: normal; }
+  .coordination-content .outing-registration-table .registration-policy,
+  .coordination-content .outing-registration-table .registration-received,
+  .coordination-content .outing-registration-table .registration-state-desktop,
+  .coordination-content .outing-registration-table .registration-date-desktop { display: none; }
+  .coordination-content .outing-registration-table .registration-state-mobile { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .8rem; }
+  .coordination-content .outing-registration-table .registration-cancelled-by { color: var(--gray); }
+  .coordination-content .outing-registration-table .registration-date-mobile { display: inline; }
+  .coordination-content .outing-registration-table .registration-dates { align-self: center; white-space: normal; font-size: .875rem; }
+  .coordination-content .outing-registration-table .registration-actions { justify-self: end; align-self: center; }
+  .coordination-content .outing-registration-table .registration-manage-trigger { min-height: 44px; padding: .4rem .25rem .4rem .6rem; }
+  .coordination-content .outing-registration-table .registration-empty td { grid-column: 1 / -1; }
+}
 .coordination-nav-mobile .coordination-nav a[aria-current] { background: #eff3e8; border-color: var(--moss); border-inline-start-color: #526a3d; color: #40552e; }
 @media (max-width: 700px) {
   .coordination-content :is(input, select, textarea) { font-size: 1rem; }

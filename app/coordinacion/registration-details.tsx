@@ -4,7 +4,7 @@ import { statusLabels } from './registration-statuses';
 
 export function RegistrationDetails({ entry, general }: {
   entry: { volunteer: string; identification: string; status: string; starts: string; ends: string;
-    covered: boolean; assigned70: boolean | null; details: Record<string, unknown> | null };
+    received?: string; covered: boolean; assigned70: boolean | null; details: Record<string, unknown> | null };
   general: boolean;
 }) {
   const data = registrationLogistics(entry.details);
@@ -15,6 +15,7 @@ export function RegistrationDetails({ entry, general }: {
       <dl className="profile-facts">
         <div><dt>Identificación</dt><dd>{entry.identification}</dd></div>
         <div><dt>Estado</dt><dd>{statusLabels.get(entry.status) ?? entry.status}</dd></div>
+        {entry.received && <div><dt>Recepción</dt><dd>{entry.received}</dd></div>}
         <div><dt>Llegada</dt><dd>{displayDate(entry.starts)}</dd></div>
         <div><dt>Regreso</dt><dd>{displayDate(entry.ends)}</dd></div>
         <div><dt>Póliza para las fechas solicitadas</dt><dd>{entry.covered ? 'Comprobada' : 'Pendiente'}</dd></div>

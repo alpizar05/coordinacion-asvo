@@ -28,6 +28,15 @@ const receivedFormat = new Intl.DateTimeFormat('es-CR', {
   timeZone: 'America/Costa_Rica', dateStyle: 'short', timeStyle: 'short',
 });
 
+function compactParticipationDates(starts: string, ends: string) {
+  const [year,month,day] = starts.split('-');
+  const [endYear,endMonth,endDay] = ends.split('-');
+  const months = ['ene.','feb.','mar.','abr.','may.','jun.','jul.','ago.','sep.','oct.','nov.','dic.'];
+  if (starts === ends) return `${Number(day)} ${months[Number(month)-1]} ${year}`;
+  if (year === endYear && month === endMonth) return `${Number(day)}–${Number(endDay)} ${months[Number(month)-1]} ${year}`;
+  return `${Number(day)} ${months[Number(month)-1]}${year !== endYear ? ` ${year}` : ''} – ${Number(endDay)} ${months[Number(endMonth)-1]} ${endYear}`;
+}
+
 export default async function Page({params,searchParams}: {params:Promise<{id:string}>;searchParams:Promise<{error?:string;inscripcion?:string;gestion?:string;editar?:string;estado?:string;unidadPropuesta?:string;grupoCreado?:string;errorGrupo?:string;destacadaError?:string;gestionada?:string;completada?:string;pestana?:string}>}) {
   const {id} = await params;
   const user = await staff();
@@ -85,14 +94,16 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   const decisions = !editing && outing.flexible ? await sql`select id,reason,happened_at from audit
     where target=${id} and action='Decidió agrupación' order by id desc` : [];
   const registrations = <>
-  {!editing && <section className="card" aria-labelledby="inscripciones">
+  {!editing && <section className="card outing-registrations" aria-labelledby="inscripciones">
     <div className="outings-table-heading">
       <h2 id="inscripciones">Inscripciones</h2>
       <OutingRegistrationFilter value={registrationStatus} />
     </div>
-    <p role="status">{visibleEntries.length} de {entries.length} inscripciones</p>
-    <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de inscripciones de la salida">
-      <table className="outings-table">
+    <p className="registration-count" role="status">{visibleEntries.length === entries.length
+      ? `${entries.length} ${entries.length === 1 ? 'inscripción' : 'inscripciones'}`
+      : `${visibleEntries.length} de ${entries.length} inscripciones`}</p>
+    <div className="outings-scroll" tabIndex={0} role="region" aria-label="Inscripciones de la salida">
+      <table className="outings-table outing-registration-table" role="table">
         <thead><tr>
           <th scope="col">Persona voluntaria</th>
           <th scope="col">Estado</th>
@@ -103,25 +114,28 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
         </tr></thead>
         <tbody>
           {visibleEntries.map(entry => <tr id={`inscripcion-${entry.id}`} key={entry.id}>
-            <th scope="row">{canViewProfile && entry.volunteer_id
+            <th scope="row" className="registration-person">{canViewProfile && entry.volunteer_id
               ? <Link href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</Link>
               : entry.volunteer || 'Ficha pendiente de conciliar'}
               {entry.assigned70 && <> <span className="pill coord-role-label">70</span></>}</th>
-            <td><span className="pill" data-status={entry.status}>{statusLabels.get(entry.status) ?? entry.status}</span></td>
-            <td className="table-date">{displayDate(entry.starts)} al {displayDate(entry.ends)}</td>
-            <td>{entry.covered ? 'Comprobada' : 'Pendiente'}</td>
-            <td className="table-date">{receivedFormat.format(entry.received_at)}</td>
-            <td>
+            <td className="registration-state"><span className="pill registration-state-desktop" data-status={entry.status}>{statusLabels.get(entry.status) ?? entry.status}</span>
+              <span className="registration-state-mobile"><span className="pill" data-status={entry.status}>{entry.status.startsWith('cancelada') ? 'Cancelada' : statusLabels.get(entry.status) ?? entry.status}</span>
+                {entry.status.startsWith('cancelada') && <span className="registration-cancelled-by">{entry.status === 'cancelada por coordinación' ? 'Por Coordinación' : 'Por voluntariado'}</span>}</span></td>
+            <td className="table-date registration-dates"><span className="registration-date-desktop">{displayDate(entry.starts)} al {displayDate(entry.ends)}</span>
+              <span className="registration-date-mobile">{compactParticipationDates(entry.starts,entry.ends)}</span></td>
+            <td className="registration-policy">{entry.covered ? 'Comprobada' : 'Pendiente'}</td>
+            <td className="table-date registration-received">{receivedFormat.format(entry.received_at)}</td>
+            <td className="registration-actions">
               <RegistrationActions canManage={editable} personName={entry.volunteer}
                 entry={{ id: entry.id, status: entry.status, identification: entry.identification, starts: entry.starts, ends: entry.ends, assigned70: !!entry.assigned70 }}
                 outing={{ flexible: outing.flexible, first_day: outing.first_day, last_day: outing.last_day }}
                 error={entry.id === inscripcion ? error : undefined}
                 details={<RegistrationDetails entry={{ volunteer: entry.volunteer, identification: entry.identification, status: entry.status,
-                  starts: entry.starts, ends: entry.ends, covered: entry.covered, assigned70: entry.assigned70, details: entry.details }}
+                  starts: entry.starts, ends: entry.ends, covered: entry.covered, assigned70: entry.assigned70, details: entry.details, received: receivedFormat.format(entry.received_at) }}
                   general={outing.unit === 'Voluntariado General'} />} />
             </td>
           </tr>)}
-          {!visibleEntries.length && <tr><td colSpan={6}>
+          {!visibleEntries.length && <tr className="registration-empty"><td colSpan={6}>
             {entries.length ? 'No hay inscripciones con este estado.' : 'Todavía no hay inscripciones para esta salida.'}
           </td></tr>}
         </tbody>

@@ -6,7 +6,8 @@ import { randomUUID } from 'node:crypto';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { activeOutingInvitation, registrationToday } from '../lib/outing-invitations';
-import { sql } from '../lib/db';
+import { sql, appUrl, demo } from '../lib/db';
+import { queueCoordinationCancellationMail } from '../lib/registration-mail.mjs';
 import { createRegistrationReceipt, receiptCookie } from '../lib/registration-receipt';
 import { audit, cancellationWarning, date, digest, eligible, field, identification, uuid } from '../lib/registration';
 
@@ -103,6 +104,7 @@ export async function privateAction(token: string, form: FormData) {
       await tx`update registrations set status='cancelada por voluntariado' where id=${entry.id}`;
       await audit(tx,'voluntariado','Canceló inscripción',entry.id,field(form,'reason'));
       await notifyRegistration(tx,entry.id,`Cancelaste tu inscripción. Motivo: ${field(form,'reason')}`);
+      await queueCoordinationCancellationMail(tx,entry.id,field(form,'reason'),{ origin: appUrl(), demo });
       await promoteWaitlist(tx,entry.outing_id,'sistema');
     } else if (action === 'editar' && active) {
       const starts = outing.flexible ? field(form,'starts') : outing.first_day;

@@ -19,7 +19,7 @@ export default async function Volunteers() {
       <h2>Registro maestro</h2>
       <p>{people.length} {people.length === 1 ? 'persona voluntaria' : 'personas voluntarias'}</p>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de voluntariado">
-        <table className="outings-table">
+        <table className="outings-table coordination-compact-table">
           <thead><tr>
             <th scope="col">Nombre</th><th scope="col">Identificación</th>
             <th scope="col">Correo</th><th scope="col">Unidades</th>
@@ -29,8 +29,8 @@ export default async function Volunteers() {
               <th scope="row"><Link href={`/coordinacion/registro/${person.id}`}>
                 {person.name} {person.surname} {person.second_surname}
               </Link></th>
-              <td>{person.identification}</td><td>{person.email || 'Pendiente'}</td>
-              <td>{person.units.join(', ') || 'Pendientes'}</td>
+              <td data-label="Identificación">{person.identification}</td><td data-label="Correo">{person.email || 'Pendiente'}</td>
+              <td data-label="Unidades">{person.units.join(', ') || 'Pendientes'}</td>
             </tr>)}
             {!people.length && <tr><td colSpan={4}>Todavía no hay personas voluntarias registradas.</td></tr>}
           </tbody>

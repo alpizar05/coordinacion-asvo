@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { TableFilters } from './table-filters';
 import { useState } from 'react';
 
 export type OutingRow = {
@@ -42,7 +43,7 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
   });
 
   return <>
-    <div className="outings-filters">
+    <TableFilters title="Filtrar convocatorias" active={!!(query || unit || status || access)}><div className="outings-filters">
       <label>Buscar<input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Título o lugar" /></label>
       <label>Unidad<select value={unit} onChange={event => setUnit(event.target.value)}>
         <option value="">Todas</option>{units.map(value => <option key={value}>{value}</option>)}
@@ -54,9 +55,20 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
         <option value="">Todas</option><option>Pública</option><option>Privada por enlace</option>
       </select></label>
     </div>
+    <label className="coordination-mobile-sort">Ordenar por
+      <select value={`${sort.column}:${sort.ascending ? 'asc' : 'desc'}`} onChange={event => {
+        const [column,direction] = event.target.value.split(':');
+        setSort({ column: column as Column, ascending: direction === 'asc' });
+      }}>
+        {columns.flatMap(([column,label]) => [
+          <option key={`${column}:asc`} value={`${column}:asc`}>{label} · ascendente</option>,
+          <option key={`${column}:desc`} value={`${column}:desc`}>{label} · descendente</option>,
+        ])}
+      </select>
+    </label></TableFilters>
     <p role="status">{rows.length} de {outings.length} convocatorias</p>
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de convocatorias">
-      <table className="outings-table">
+      <table className="outings-table coordination-compact-table">
         <thead><tr>{columns.map(([column,label]) => {
           const active = sort.column === column;
           return <th key={column} scope="col" aria-sort={active ? sort.ascending ? 'ascending' : 'descending' : undefined}>
@@ -67,8 +79,8 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
         })}</tr></thead>
         <tbody>{rows.map(row => <tr key={row.id}>
           <th scope="row"><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></th>
-          <td>{row.location}</td><td>{row.unit}</td><td className="table-date">{date(row.starts)}</td><td className="table-date">{date(row.ends)}</td>
-          <td><span className="pill" data-status={row.status}>{row.status}</span></td><td>{visibility(row.listed)}</td>
+          <td data-label="Lugar">{row.location}</td><td data-label="Unidad">{row.unit}</td><td data-label="Inicio" className="table-date">{date(row.starts)}</td><td data-label="Fin" className="table-date">{date(row.ends)}</td>
+          <td data-label="Estado"><span className="pill" data-status={row.status}>{row.status}</span></td><td data-label="Visibilidad">{visibility(row.listed)}</td>
         </tr>)}
         {!rows.length && <tr><td colSpan={columns.length}>{outings.length ? 'Ninguna convocatoria coincide con los filtros.' : 'Todavía no hay convocatorias.'}</td></tr>}
         </tbody>

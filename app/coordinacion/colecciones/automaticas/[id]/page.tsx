@@ -142,24 +142,24 @@ export default async function AutomaticCollection({ params, searchParams }: {
       {!editing && <p>Elegí <strong>Clonar bloque</strong> en la fila que querés usar como punto de partida.</p>}
       {creados && /^[1-9]\d?$/.test(creados) && <StatusRibbon message={creados === '1' ? 'Se agregó un bloque.' : `Se agregaron ${creados} bloques.`} />}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Bloques de convocatoria asociados">
-        <table className="outings-table">
+        <table className="outings-table coordination-compact-table">
           <thead><tr>
             <th scope="col">Convocatoria</th><th scope="col">Unidad</th><th scope="col">Fechas</th>
             <th scope="col">Excepciones</th><th scope="col">Modalidad</th><th scope="col">Cupos</th><th scope="col">Estado</th><th scope="col">Visibilidad</th>{!editing && <th scope="col">Acciones</th>}
           </tr></thead>
           <tbody>{blocks.map(block => <tr key={block.id}>
             <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link><br />{block.location}</th>
-            <td>{block.unit}</td>
-            <td className="table-date">{displayDate(block.starts)} al {displayDate(block.ends)}</td>
-            <td>{[
+            <td data-label="Unidad">{block.unit}</td>
+            <td data-label="Fechas" className="table-date">{displayDate(block.starts)} al {displayDate(block.ends)}</td>
+            <td data-label="Excepciones">{[
               ...commonOutingFields.filter(item => block.outing_overrides.includes(item.name)).map(item => item.label),
               ...(block.outing_overrides.includes('photos') ? ['Fotos'] : []),
             ].join(', ') || 'Hereda los datos generales'}</td>
-            <td>{block.flexible ? 'Flexible' : 'Fija'}</td>
-            <td><CapacitySummary capacity={block.capacity} occupied={block.occupied} detail /></td>
-            <td>{block.status}</td>
-            <td>{block.public ? 'En catálogo' : 'Fuera del catálogo'}</td>
-            {!editing && <td><Link href={`/coordinacion/salidas/nueva?bloque=${block.id}`}
+            <td data-label="Modalidad">{block.flexible ? 'Flexible' : 'Fija'}</td>
+            <td data-label="Cupos"><CapacitySummary capacity={block.capacity} occupied={block.occupied} detail /></td>
+            <td data-label="Estado">{block.status}</td>
+            <td data-label="Visibilidad">{block.public ? 'En catálogo' : 'Fuera del catálogo'}</td>
+            {!editing && <td data-label="Acciones"><Link href={`/coordinacion/salidas/nueva?bloque=${block.id}`}
               aria-label={`Clonar bloque de ${block.title} del ${displayDate(block.starts)}`}>Clonar bloque</Link></td>}
           </tr>)}</tbody>
         </table>

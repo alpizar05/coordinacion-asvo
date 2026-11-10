@@ -115,9 +115,29 @@ try {
     join registrations r on r.volunteer_id=v.id where r.id=${firstWaiter.id} order by d.id desc limit 1`;
   const token = new URL(privateMail.url).pathname.split('/').at(-1);
   const cancel = new FormData(); cancel.set('action','cancelar'); cancel.set('reason','Cancelación de prueba');
+  const [beforeCancel] = await sql`select count(*)::int as count from links where registration_id=${firstWaiter.id}`;
   await redirectAction(token,cancel);
+  const [coordinationMail] = await sql`select * from demo_mail where recipient=${process.env.GRAPH_SENDER || 'coordinacion@example.test'}
+    and subject like 'ASVO · Cancelación por voluntariado%' order by id desc limit 1`;
+  assert.ok(coordinationMail.body.includes('Cancelación de prueba'));
+  assert.ok(coordinationMail.url.includes('/coordinacion/salidas/'));
+  const [afterCancel] = await sql`select count(*)::int as count from links where registration_id=${firstWaiter.id}`;
+  assert.equal(afterCancel.count,beforeCancel.count,'Cancelar no genera enlaces privados nuevos');
+  const [volunteerCancellation] = await sql`select * from demo_mail where recipient like ${emailPrefix + '%'} order by id desc limit 1`;
+  assert.equal(volunteerCancellation.url,'');
+  assert.doesNotMatch(volunteerCancellation.body,/\/privado\//);
+  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),undefined,
+    'Coordinación puede confirmar una inscripción cancelada por voluntariado');
+  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Prueba de nueva cancelación','')),undefined);
+  await sql`update policies set verified_at=null where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
+  assert.match(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),/póliza/);
+  await sql`update policies set verified_at=now() where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
+  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),undefined,
+    'También puede confirmar una inscripción cancelada por coordinación');
+  await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Restablecer escenario',''));
   assert.equal(await locked(tx => occupiedSeats(tx,outingId)),1,'La cancelación libera el cupo');
   assert.equal((await receive(people[3])).status,'revisión','El cupo liberado queda disponible para otra persona');
+  assert.match(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),/cupos están ocupados/);
 
   assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','')),undefined);
   const [editMail] = await sql`select d.url from demo_mail d join volunteers v on v.email=d.recipient

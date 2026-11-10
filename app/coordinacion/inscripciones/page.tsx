@@ -59,7 +59,7 @@ export default async function Registrations({ searchParams }: {
       {invalidRange && <p className="note" role="alert">La fecha Desde debe ser anterior o igual a la fecha Hasta.</p>}
       <p>{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de solicitudes de inscripción">
-        <table className="outings-table">
+        <table className="outings-table coordination-compact-table">
           <thead><tr>
             <th scope="col">Persona voluntaria</th><th scope="col">Convocatoria</th><th scope="col">Unidad</th>
             <th scope="col">Fechas solicitadas</th><th scope="col">Recibida</th><th scope="col">Estado</th><th scope="col">Acciones</th>
@@ -69,13 +69,13 @@ export default async function Registrations({ searchParams }: {
               <th scope="row">{general && row.volunteer_id
                 ? <Link href={`/coordinacion/registro/${row.volunteer_id}`}>{row.volunteer}</Link>
                 : row.volunteer || 'Ficha pendiente de conciliar'}</th>
-              <td><Link href={`/coordinacion/salidas/${row.outing_id}#inscripcion-${row.id}`}>{row.title}</Link>
+              <td data-label="Convocatoria"><Link href={`/coordinacion/salidas/${row.outing_id}#inscripcion-${row.id}`}>{row.title}</Link>
                 <br /><span className="table-date">{displayDate(row.outing_start)} al {displayDate(row.outing_end)}</span></td>
-              <td>{row.unit}</td>
-              <td className="table-date">{displayDate(row.starts)} al {displayDate(row.ends)}</td>
-              <td className="table-date">{receivedFormat.format(row.received_at)}</td>
-              <td><span className="pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span></td>
-              <td>{outingIsEditable(row.outing_status) && <RegistrationActions personName={row.volunteer} entry={row} outing={{ flexible: row.flexible, first_day: row.outing_start, last_day: row.outing_end }}
+              <td data-label="Unidad">{row.unit}</td>
+              <td data-label="Fechas solicitadas" className="table-date">{displayDate(row.starts)} al {displayDate(row.ends)}</td>
+              <td data-label="Recibida" className="table-date">{receivedFormat.format(row.received_at)}</td>
+              <td data-label="Estado"><span className="pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span></td>
+              <td data-label="Acciones">{outingIsEditable(row.outing_status) && <RegistrationActions personName={row.volunteer} entry={row} outing={{ flexible: row.flexible, first_day: row.outing_start, last_day: row.outing_end }}
                 error={row.id === inscripcion ? error : undefined} fromList filter={filters} />}</td>
             </tr>)}
             {!rows.length && <tr><td colSpan={7}>No hay solicitudes que coincidan con los filtros.</td></tr>}

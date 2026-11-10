@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { TableFilters } from '../table-filters';
 
 export function StatusFilter({ value, statuses, units, unit, from, to }: {
   value: string;
@@ -12,7 +13,7 @@ export function StatusFilter({ value, statuses, units, unit, from, to }: {
 }) {
   const router = useRouter();
 
-  return <form className="outings-filters" onSubmit={event => event.preventDefault()} onChange={event => {
+  return <TableFilters title="Filtrar inscripciones" active={!!(value !== 'todos' || unit || from || to)}><form className="outings-filters" onSubmit={event => event.preventDefault()} onChange={event => {
     const data = new FormData(event.currentTarget);
     const query = new URLSearchParams();
     for (const [name, field] of data) {
@@ -30,5 +31,5 @@ export function StatusFilter({ value, statuses, units, unit, from, to }: {
     </select></label>
     <label>Desde<input type="date" name="desde" defaultValue={from} /></label>
     <label>Hasta<input type="date" name="hasta" defaultValue={to} /></label>
-  </form>;
+  </form></TableFilters>;
 }

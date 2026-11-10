@@ -11,8 +11,16 @@ for (const status of Object.keys(registrationStatusLabels)) {
   assert.ok(result.html.includes(registrationStatusLabels[status]));
   assert.ok(result.html.includes('14/11/2026'));
   assert.ok(result.html.includes('https://example.test/logo-asvo.png'));
-  assert.ok(result.html.includes('https://example.test/privado/test-token'));
-  assert.ok(result.body.includes('Ver mi inscripción:'));
+  if (status.startsWith('cancelada')) {
+    assert.doesNotMatch(result.html + result.body, /\/privado\/|Ver mi inscripción|Este enlace es personal|desde el enlace privado/);
+    assert.match(result.body, /La cancelación quedó registrada/);
+    assert.match(result.html, /Motivo:/);
+    const noLink = registrationMailTemplate({ ...options, url: '', entry: { ...options.entry, status } });
+    assert.doesNotMatch(noLink.html, /Ver mi inscripción/);
+  } else {
+    assert.ok(result.html.includes('https://example.test/privado/test-token'));
+    assert.ok(result.body.includes('Ver mi inscripción:'));
+  }
   assert.doesNotMatch(result.html, /<script>|Ana <img>/);
   assert.match(result.html, /&lt;script&gt;/);
   if (status === 'espera') assert.match(result.body, /no tenés un cupo reservado/);

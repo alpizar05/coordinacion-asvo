@@ -22,6 +22,8 @@ const actionsByStatus: Record<string, Action[]> = {
   'revisión': ['confirmar', 'espera', 'rechazar', 'cancelar'],
   espera: ['confirmar', 'rechazar', 'cancelar'],
   confirmada: ['espera', 'rechazar', 'cancelar'],
+  'cancelada por coordinación': ['confirmar'],
+  'cancelada por voluntariado': ['confirmar'],
 };
 
 export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', details, canManage = true }: {
