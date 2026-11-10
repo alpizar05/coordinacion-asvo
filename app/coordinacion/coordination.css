@@ -394,3 +394,8 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
   .coordination-content .volunteer-participations td[data-label="Acciones"] { justify-self: end; }
 }
 @media (max-width: 380px) { .volunteer-trajectory-summary { grid-template-columns: minmax(0,1fr); } }
+.attendance-cases, .attendance-reports { list-style: none; padding: 0; }
+.attendance-cases > li { padding-block: 1rem; border-top: 1px solid var(--line); }
+.attendance-reports > li { padding: .85rem; margin-bottom: .65rem; background: var(--coord-soft); border-radius: .4rem; }
+.attendance-history li { padding-block: .5rem; border-bottom: 1px solid var(--line); }
+#asistencia { scroll-margin-top: 7rem; }

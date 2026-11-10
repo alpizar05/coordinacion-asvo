@@ -17,13 +17,14 @@ registerHooks({ resolve(specifier, context, nextResolve) {
   }
   return nextResolve(specifier, context);
 } });
+const { attendanceCases,saveAttendanceResolution } = await import('../lib/attendance-reconciliation.ts');
 const { sql } = await import('../lib/db.ts');
 const { volunteerParticipations,participationSummary,participationResult } = await import('../lib/volunteer-participation.ts');
-const requestId=randomUUID(), person=randomUUID(), other=randomUUID();
-const outings=Array.from({length:4},()=>randomUUID()), registrations=Array.from({length:6},()=>randomUUID());
+const requestId=randomUUID(), person=randomUUID(), other=randomUUID(), third=randomUUID(),fourth=randomUUID();
+const outings=Array.from({length:4},()=>randomUUID()), registrations=Array.from({length:8},()=>randomUUID());
 try {
   await sql`insert into requests(id,organization,activity) values (${requestId},'Prueba trayectoria','Prueba')`;
-  for (const id of [person,other]) await sql`insert into volunteers(id,identification,name,surname,email) values (${id},${randomUUID()},'Prueba','Trayectoria','trajectory@example.test')`;
+  for (const id of [person,other,third,fourth]) await sql`insert into volunteers(id,identification,name,surname,email) values (${id},${randomUUID()},'Prueba','Trayectoria','trajectory@example.test')`;
   for (const [index,id] of outings.entries()) {
     const offset=[-3,2,-2,-1][index];
     await sql`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,listed)
@@ -32,9 +33,9 @@ try {
       (clock_timestamp() at time zone 'America/Costa_Rica')::date+${offset}::int,false,10,${index===3 ? 'cancelada' : 'completada'},false)`;
   }
   for (const [index,id] of registrations.entries()) {
-    const outing=outings[[0,0,1,2,3,0][index]];
+    const outing=outings[[0,0,1,2,3,0,0,0][index]];
     await sql`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)
-      select ${id},o.id,${index===5 ? other : person},'TRAYECTORIA',o.starts,o.ends,${index===0 ? 'cancelada por voluntariado' : 'confirmada'},'{"assigned70":true}'::jsonb from outings o where o.id=${outing}`;
+      select ${id},o.id,${index===7 ? fourth : index===6 ? third : index===5 ? other : person},'TRAYECTORIA',o.starts,o.ends,${index===0 ? 'cancelada por voluntariado' : 'confirmada'},'{"assigned70":true}'::jsonb from outings o where o.id=${outing}`;
   }
   async function report(outing,lead,status,attended) {
     const participants=[{id:registrations[1],name:'Prueba Trayectoria',attended}];
@@ -58,13 +59,40 @@ try {
   assert.equal(participationResult(rows.find(row=>row.outing_id===outings[0])),'Asistencia por conciliar');
   await sql`update outing_reports set participants=${sql.json([{id:registrations[1],name:'Prueba',attended:true}])} where lead_registration_id=${registrations[5]}`;
   assert.equal(participationSummary(await volunteerParticipations(person)).attended,1,'Varios informes concordantes cuentan una salida');
+  await sql`update outing_reports set participants=${sql.json([{id:registrations[1],name:'Prueba',attended:false}])} where lead_registration_id=${registrations[5]}`;
+  const reconcile = (decision,reason='Se revisaron las versiones con los responsables',version) => sql.begin(async tx=>{
+    await tx`select id from outings where id=${outings[0]} for update`;
+    const item=(await attendanceCases(outings[0],tx)).find(row=>row.volunteer_id===person);
+    return saveAttendanceResolution(tx,outings[0],person,version || item.version,decision,reason,'coordinador-prueba');
+  });
+  assert.ok((await reconcile('participo','')).error,'Exige motivo');
+  assert.ok((await reconcile('inventado')).error);
+  assert.ok((await reconcile('participo','Motivo','desactualizada')).error,'No resuelve evidencia que cambió mientras se revisaba');
+  assert.ok((await reconcile('pendiente')).saved);
+  assert.equal(participationSummary(await volunteerParticipations(person)).attended,0);
+  assert.ok((await reconcile('participo')).saved);
+  assert.equal(participationSummary(await volunteerParticipations(person)).attended,1);
+  assert.equal(participationResult((await volunteerParticipations(person)).find(row=>row.outing_id===outings[0])),'Participación confirmada · Conciliada');
+  await report(outings[0],registrations[6],'finalizado',true);
+  assert.equal(participationSummary(await volunteerParticipations(person)).attended,1,'Nuevo informe concordante conserva la resolución');
+  await report(outings[0],registrations[7],'finalizado',false);
+  let afterNew = await volunteerParticipations(person);
+  assert.equal(participationSummary(afterNew).conflicts,1,'Un nuevo informe contrario reabre revisión');
+  assert.ok(afterNew.find(row=>row.outing_id===outings[0]).resolution_stale);
+  assert.ok((await reconcile('no_participo')).saved);
+  assert.equal(participationSummary(await volunteerParticipations(person)).attended,0);
+  const resolved=(await attendanceCases(outings[0])).find(row=>row.volunteer_id===person);
+  assert.equal(resolved.history.length,3,'Conserva todas las versiones de la resolución');
+  assert.equal((await sql`select participants from outing_reports where lead_registration_id=${registrations[5]}`)[0].participants[0].attended,false,'No modifica los informes originales');
   assert.equal((await volunteerParticipations(randomUUID())).length,0);
-  console.log('OK: trayectoria sin duplicados, evidencia finalizada, borradores, discrepancias y pendientes de 70.');
+  console.log('OK: trayectoria, conciliación versionada, motivos, evidencia desactualizada y reapertura por informes contradictorios.');
 } finally {
+  await sql`delete from attendance_resolutions where outing_id=any(${outings}::uuid[])`;
+  await sql`delete from audit where target=any(${[...outings,...registrations]}::text[])`;
   await sql`delete from outing_reports where outing_id=any(${outings}::uuid[])`;
   await sql`delete from registrations where outing_id=any(${outings}::uuid[])`;
   await sql`delete from outings where request_id=${requestId}`;
   await sql`delete from requests where id=${requestId}`;
-  await sql`delete from volunteers where id=any(${[person,other]}::uuid[])`;
+  await sql`delete from volunteers where id=any(${[person,other,third,fourth]}::uuid[])`;
   await sql.end();
 }

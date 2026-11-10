@@ -284,3 +284,41 @@ alter table demo_mail add column if not exists created_at timestamptz;
 alter table demo_mail alter column created_at set default clock_timestamp();
 create index if not exists demo_mail_registration on demo_mail(registration_id);
 create index if not exists audit_target_history on audit(target,happened_at,id);
+
+create table if not exists attendance_resolutions (
+  id bigint generated always as identity primary key,
+  outing_id uuid not null references outings on delete cascade,
+  volunteer_id uuid not null references volunteers,
+  decision text not null check (decision in ('participo','no_participo','pendiente')),
+  reason text not null check (length(trim(reason)) between 1 and 4000),
+  actor text not null,
+  evidence jsonb not null check (jsonb_typeof(evidence)='array'),
+  created_at timestamptz not null default clock_timestamp()
+);
+create index if not exists attendance_resolution_latest on attendance_resolutions(outing_id,volunteer_id,id desc);
+
+create or replace view volunteer_attendance_evidence as
+select p.outing_id,r.volunteer_id,p.id as report_id,p.lead_name,p.starts,p.ends,p.observations,p.submitted_at,
+  bool_or(member.value->'attended'='true'::jsonb) as attended,
+  bool_or(member.value->'attended'='false'::jsonb) as absent,
+  jsonb_build_object('id',p.id,'version',md5(p.updated_at::text || p.participants::text),
+    'attended',bool_or(member.value->'attended'='true'::jsonb),
+    'absent',bool_or(member.value->'attended'='false'::jsonb)) as evidence_entry
+from outing_reports p cross join lateral jsonb_array_elements(p.participants) member(value)
+join registrations r on r.id::text=member.value->>'id' and r.outing_id=p.outing_id
+where p.status='finalizado'
+group by p.outing_id,r.volunteer_id,p.id;
+
+create or replace function attendance_resolution_is_current(decision text, reviewed jsonb, current_evidence jsonb)
+returns boolean language sql immutable as $$
+  select decision in ('participo','no_participo','pendiente') and reviewed is not null and not exists (
+    select 1 from jsonb_array_elements(reviewed) old
+    where not coalesce(current_evidence,'[]'::jsonb) @> jsonb_build_array(old)
+  ) and not exists (
+    select 1 from jsonb_array_elements(coalesce(current_evidence,'[]'::jsonb)) fresh
+    where not reviewed @> jsonb_build_array(fresh)
+      and (decision='pendiente' or
+        (decision='participo' and (fresh->>'attended' is distinct from 'true' or fresh->>'absent' is distinct from 'false')) or
+        (decision='no_participo' and (fresh->>'attended' is distinct from 'false' or fresh->>'absent' is distinct from 'true')))
+  )
+$$;

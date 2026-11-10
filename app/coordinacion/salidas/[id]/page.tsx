@@ -1,3 +1,4 @@
+import { AttendanceReconciliation } from '../../attendance-reconciliation';
 import { OutingLogistics } from '../../../outing-logistics';
 import { outingLogisticsFields, outingLogisticsMessage } from '../../../../lib/outing-logistics';
 import { AddRegistration } from '../../add-registration';
@@ -264,11 +265,12 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   </section>
   </>;
   const tools = <>
+  {!editing && <AttendanceReconciliation outingId={id} canResolve={['abierta','confirmada','completada'].includes(outing.status)} />}
   {!editing && <section className="card"><h2>Resumen para el 70</h2>
     <p>Consultá las personas confirmadas, sus fechas, contactos y logística. Generá un enlace privado para la persona asignada como 70.</p>
     <Link className="button" href={`${back}/resumen`}>Ver resumen e informes de la salida</Link>
   </section>}
-  {!editing && !outing.flexible && !['abierta','confirmada'].includes(outing.status) && <section className="card"><h2>Herramientas de coordinación</h2><p>No hay herramientas disponibles para esta salida en su estado actual.</p></section>}
+  {!editing && !outing.flexible && !['abierta','confirmada'].includes(outing.status) && <section className="card"><h2>Herramientas de coordinación</h2><p>No hay otras herramientas disponibles para esta salida en su estado actual.</p></section>}
   {(editing || (outing.capacity > occupied && next)) && <section className="card" id="cupos"><h2>Gestión de cupos</h2>
     {!editing && outing.capacity > occupied && next && <p className="note">Siguiente solicitud elegible: {next.volunteer} · {next.covered ? 'Póliza comprobada' : 'Póliza pendiente'}</p>}
     {editing && <form action={manageOuting.bind(null,id)}><div className="grid"><label>Cupo total<input name="capacity" type="number" min="1" max="10000" defaultValue={outing.capacity}/></label><label>Motivo del ajuste<input name="reason" required /></label></div>

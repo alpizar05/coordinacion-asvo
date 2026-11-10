@@ -241,3 +241,11 @@ Si los informes discrepan para una misma persona y salida, se muestra «Asistenc
 Coordinación general puede abrir la salida y consultar la inscripción e historial desde la ficha. Administración conserva la consulta de trayectoria sin enlaces a operaciones para las que no tenga permiso. La tabla se convierte en lista compacta en celular. La ausencia de registros históricos no equivale a ausencia de participación previa en ASVO. Esta función no requiere migración de base de datos.
 
 Prueba local: `node --env-file=.env.local scripts/test-volunteer-participation.mjs`.
+
+### Conciliación de asistencia
+
+En **Salida → Herramientas → Asistencia**, Coordinación revisa los casos con informes finalizados contradictorios. El modal muestra responsables de los informes, sus periodos, fechas de finalización y observaciones. Permite **Participó**, **No participó** o **Mantener pendiente**, con motivo obligatorio. Se puede revisar una resolución previa: se agrega una versión nueva y se conserva el historial de decisiones, motivos, responsables y fechas.
+
+La resolución se guarda por persona y salida, con la evidencia revisada, sin modificar informes originales. Participó acredita una sola salida; No participó no la acredita; Mantener pendiente la deja fuera del total. Si llega otro informe finalizado concordante, se conserva la resolución. Un informe nuevo contradictorio o una modificación de la evidencia revisada vuelve a exigir revisión. Se comprueba también que los informes no hayan cambiado mientras el modal estaba abierto. La resolución queda auditada en la salida y en sus inscripciones.
+
+Requiere aplicar `schema.sql` antes del despliegue: agrega `attendance_resolutions`, la vista `volunteer_attendance_evidence` y la función de vigencia de resoluciones. Aplicar la migración antes de desplegar. Las pruebas están en `scripts/test-volunteer-participation.mjs`.
