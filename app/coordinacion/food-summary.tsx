@@ -1,3 +1,4 @@
+import { MobileDisclosure } from './mobile-disclosure';
 import Link from 'next/link';
 import { registrationLogistics } from '../../lib/registration-logistics';
 
@@ -16,8 +17,7 @@ export function FoodSummary({ entries, canViewProfile }: {
     <div className="transport-summary-totals">
       <p><strong>{restrictions.length}</strong> {restrictions.length === 1 ? 'persona indicó' : 'personas indicaron'} restricciones alimentarias</p>
     </div>
-    <details className="transport-summary-detail">
-      <summary><span className="transport-summary-show">Ver restricciones</span><span className="transport-summary-hide">Ocultar restricciones</span></summary>
+    <MobileDisclosure title="Ver restricciones" className="transport-summary-detail" desktopSummary={<><span className="transport-summary-show">Ver restricciones</span><span className="transport-summary-hide">Ocultar restricciones</span></>}>
       <h4>Restricciones alimentarias indicadas</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de restricciones alimentarias">
         <table className="outings-table coordination-compact-table"><thead><tr>
@@ -29,6 +29,6 @@ export function FoodSummary({ entries, canViewProfile }: {
           <td data-label="Restricciones alimentarias" className="copy">{entry.food}</td>
         </tr>)}</tbody></table>
       </div>
-    </details>
+    </MobileDisclosure>
   </section>;
 }

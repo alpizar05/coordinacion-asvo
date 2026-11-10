@@ -1,5 +1,7 @@
 'use client';
 
+import { MobileDisclosure } from '../../mobile-disclosure';
+
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createOuting } from '../../../staff-actions';
@@ -173,8 +175,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
               {showError(`${item.kind}-${photo.id}`)}
               {isCover && <span className="outing-photo-cover">Portada</span>}
               <strong>{photo.alt || (item.kind === 'new' ? item.photo.file.name : '')}</strong>
-              {item.kind === 'new' && <details>
-                <summary>Editar descripción o crédito</summary>
+              {item.kind === 'new' && <MobileDisclosure title="Editar descripción o crédito">
                 <label>Descripción de la foto
                   <input value={item.photo.alt} maxLength={240} onChange={event => {
                     const alt = event.currentTarget.value;
@@ -187,7 +188,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
                     setNewPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, credit } : entry));
                   }} />
                 </label>
-              </details>}
+              </MobileDisclosure>}
               <div className="actions">
                 {!isCover && <button type="button" onClick={() => setCover(identity)}>Hacer portada</button>}
                 <button type="button" onClick={() => {
@@ -241,12 +242,11 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
       </div>
     </fieldset>
     </section>
-    <details className="new-outing-section">
-      <summary>Solicitud de apoyo{template ? ` · ${template.organization || template.title}` : ''}</summary>
+    <MobileDisclosure className="new-outing-section" title={`Solicitud de apoyo${template ? ` · ${template.organization || template.title}` : ''}`}>
     {template && <p>Los datos del pedido se muestran como referencia. Los datos de la salida se pueden editar.</p>}
     <div className="grid"><label>Organización solicitante<input name="organization" defaultValue={template?.organization ?? ""} readOnly={!!template}/></label><label>Contacto solicitante<input name="contact" defaultValue={template?.contact ?? ""} readOnly={!!template}/></label><label>Área silvestre protegida<input name="area" defaultValue={template?.area ?? ""} readOnly={!!template}/></label><label>Tipo de actividad<input name="activity" defaultValue={template?.activity ?? ""} readOnly={!!template}/></label></div>
     <label>Plan de trabajo<textarea name="plan" defaultValue={template?.plan ?? ""} readOnly={!!template}/></label>
-    </details>
+    </MobileDisclosure>
     <section className="new-outing-section">
       <h2>Visibilidad y publicación</h2>
       <label>Visibilidad<select name="visibility" value={visibility} onChange={event => setVisibility(event.target.value)}>

@@ -68,7 +68,17 @@
 /* The mobile navigation is portalled into the global header. */
 .coordination-mobile-sort { display: none; }
 .table-filters-desktop { display: contents; }
+.coordination-content .volunteer-unit-options label { display: flex; align-items: center; gap: .65rem; min-height: 44px; }
+.coordination-content .volunteer-unit-options input[type=checkbox] { flex: 0 0 auto; width: 1.15rem; height: 1.15rem; margin: 0; }
 @media (max-width: 700px) {
+  .coordination-content .mobile-disclosure { margin-block: .75rem; }
+  .coordination-content .coordination-section-modal .table-filter-heading { align-items: flex-start; }
+  .coordination-content .coordination-section-modal .table-filter-heading h2 { overflow-wrap: anywhere; }
+  .coordination-content .coordination-section-modal-content .grid { grid-template-columns: minmax(0, 1fr); }
+  .coordination-content .coordination-section-modal-content :is(input:not([type=checkbox]):not([type=radio]), select, textarea) { box-sizing: border-box; max-width: 100%; min-width: 0; }
+  .coordination-content .coordination-section-modal-content form > button[type=submit] { width: 100%; }
+  .coordination-content .coordination-section-modal .outings-scroll { overflow: visible; }
+  .coordination-content .volunteer-units-modal form > button { width: 100%; margin-top: 1rem; }
   .coordination-content .table-filters-mobile { display: flex; justify-content: flex-end; margin-inline-start: auto; }
   .coordination-content .table-filter-trigger { display: inline-flex; align-items: center; justify-content: center; position: relative; width: 44px; height: 44px; padding: .5rem; background: var(--paper); border: 1px solid var(--line); color: var(--coord-primary); }
   .coordination-content .table-filter-active { position: absolute; top: 5px; right: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--coord-primary); }

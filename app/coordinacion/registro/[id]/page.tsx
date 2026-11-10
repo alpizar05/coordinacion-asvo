@@ -1,3 +1,5 @@
+import { MobileDisclosure } from '../../mobile-disclosure';
+import { VolunteerUnits } from '../volunteer-units';
 import { StatusRibbon } from '../../../status-ribbon';
 import Link from 'next/link';
 import CoordinationBreadcrumb from '../../breadcrumb';
@@ -5,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { canAdminister, canOperate, staff } from '../../../../lib/auth';
 import { sql } from '../../../../lib/db';
 import { displayDate, uuid } from '../../../../lib/registration';
-import { editProfile, recordVolunteerIncident, updateVolunteerUnits, verifyPolicy } from '../../../staff-actions';
+import { editProfile, recordVolunteerIncident, verifyPolicy } from '../../../staff-actions';
 
 export default async function VolunteerProfile({ params, searchParams }: {
   params: Promise<{ id: string }>;
@@ -40,19 +42,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
         <li><strong>Voluntariado General</strong> · Obligatorio</li>
         {person.units.filter((unit: string) => unit !== 'Voluntariado General').map((unit: string) => <li key={unit}>{unit}</li>)}
       </ul>
-      <details id="unidades"><summary>Actualizar unidades</summary>
-        <form action={updateVolunteerUnits.bind(null, id)}>
-          <fieldset>
-            <legend>Unidades</legend>
-            <label><input type="checkbox" checked disabled /> Voluntariado General (obligatorio)</label>
-            {units.filter(unit => unit.name !== 'Voluntariado General').map(unit => <label key={unit.name}>
-              <input type="checkbox" name="units" value={unit.name} defaultChecked={person.units.includes(unit.name)} />
-              {unit.name}
-            </label>)}
-          </fieldset>
-          <button className="coord-button-primary" type="submit">Guardar unidades</button>
-        </form>
-      </details>
+      <VolunteerUnits volunteerId={id} units={units.map(unit => unit.name)} selected={person.units} />
     </header>
     <div className="profile-overview">
       <section className="card">
@@ -65,7 +55,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <div><dt>Voluntariado desde</dt><dd>{person.volunteer_year || 'Año pendiente'}</dd></div>
           <div><dt>Persona asociada</dt><dd>{person.member == null ? 'Por confirmar' : person.member ? `Sí · ${person.member_year || 'Año pendiente'}` : 'No'}</dd></div>
         </dl>
-        {admin && <details><summary>Corregir ficha</summary><form action={editProfile.bind(null,person.id)}>
+        {admin && <MobileDisclosure title="Corregir ficha" closeOnSubmit><form action={editProfile.bind(null,person.id)}>
           <div className="grid">{[
             ['name','Nombre'],['surname','Primer apellido'],['second_surname','Segundo apellido'],
             ['email','Correo','email'],['birth','Fecha de nacimiento','date'],['whatsapp','WhatsApp','tel'],
@@ -80,7 +70,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
             </select></label>)}</div>
           <label>Detalle médico<textarea name="medical_detail" defaultValue={person.medical_detail ?? ''}/></label>
           <button className="coord-button-primary">Guardar correcciones</button>
-        </form></details>}
+        </form></MobileDisclosure>}
       </section>
       <section className="card">
         <h2>Emergencias y salud</h2>
@@ -100,11 +90,11 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <p>{policy.verified_at ? `${displayDate(policy.starts)} al ${displayDate(policy.ends)} · ${policy.source}` : 'Vigencia pendiente'}</p>
         </li>)}
       </ul> : <p>Todavía no hay pólizas registradas.</p>}
-      {admin && <details><summary>Verificar póliza</summary><form action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
+      {admin && <MobileDisclosure title="Verificar póliza" closeOnSubmit><form action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
         <label>Tipo<input name="kind" required/></label><label>Número de póliza<input name="number" required/></label>
         <label>Fuente de verificación<input name="source" required/></label>
         <label>Vigente desde<input name="starts" type="date" required/></label><label>Vigente hasta<input name="ends" type="date" required/></label>
-      </div><button className="coord-button-primary">Registrar verificación</button></form></details>}
+      </div><button className="coord-button-primary">Registrar verificación</button></form></MobileDisclosure>}
     </section>
     <section className="card" id="incidentes" aria-labelledby="incidents-title">
       <div className="outings-table-heading">

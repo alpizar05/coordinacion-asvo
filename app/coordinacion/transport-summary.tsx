@@ -1,3 +1,4 @@
+import { MobileDisclosure } from './mobile-disclosure';
 import Link from 'next/link';
 import { registrationLogistics } from '../../lib/registration-logistics';
 import { statusLabels } from './registration-statuses';
@@ -24,8 +25,7 @@ export function TransportSummary({ entries, canViewProfile }: {
     </div>
     {pending > 0 && <p className="muted">{pending} {pending === 1 ? 'espacio adicional pendiente' : 'espacios adicionales pendientes'} de confirmación</p>}
     {unknown > 0 && <p className="muted">{unknown} {unknown === 1 ? 'persona ofreció' : 'personas ofrecieron'} transporte sin indicar cantidad; esos espacios no se incluyen en los totales.</p>}
-    <details className="transport-summary-detail">
-      <summary><span className="transport-summary-show">Ver transporte</span><span className="transport-summary-hide">Ocultar transporte</span></summary>
+    <MobileDisclosure title="Ver transporte" className="transport-summary-detail" desktopSummary={<><span className="transport-summary-show">Ver transporte</span><span className="transport-summary-hide">Ocultar transporte</span></>}>
       <h4>Transporte ofrecido</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de transporte ofrecido">
         <table className="outings-table coordination-compact-table"><thead><tr>
@@ -39,6 +39,6 @@ export function TransportSummary({ entries, canViewProfile }: {
         </tr>)}</tbody></table>
       </div>
       <p className="muted">Los {seats} espacios corresponden a personas confirmadas. No representan traslados asignados.</p>
-    </details>
+    </MobileDisclosure>
   </section>;
 }

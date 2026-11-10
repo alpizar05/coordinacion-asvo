@@ -1,3 +1,4 @@
+import { MobileDisclosure } from '../../../mobile-disclosure';
 import { readOutingReports } from '../../../../../lib/outing-report';
 import { OutingReportView } from '../../../../outing-report-view';
 import Link from 'next/link';
@@ -28,7 +29,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     <div className="actions brief-controls"><Link className="button" href={`/coordinacion/salidas/${id}?pestana=herramientas`}>Volver a la salida</Link></div>
     <ShareBrief id={id} leads={leads} />
     <section className="card" id="informes"><h2>Informes de salida del 70</h2>
-      {reports.length ? reports.map(report => <details key={report.id}><summary>Informe de {report.lead_name}</summary><OutingReportView report={report} /></details>) : <p>Todavía no se ha presentado un informe para esta salida.</p>}
+      {reports.length ? reports.map(report => <MobileDisclosure key={report.id} title={`Informe de ${report.lead_name}`}><OutingReportView report={report} /></MobileDisclosure>) : <p>Todavía no se ha presentado un informe para esta salida.</p>}
     </section>
     <OutingBriefView brief={brief} />
   </>;
