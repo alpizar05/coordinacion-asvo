@@ -19,7 +19,7 @@ export default async function Volunteers() {
       <h2>Registro maestro</h2>
       <p>{people.length} {people.length === 1 ? 'persona voluntaria' : 'personas voluntarias'}</p>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de voluntariado">
-        <table className="outings-table coordination-compact-table">
+        <table className="outings-table coordination-compact-table compact-volunteers">
           <thead><tr>
             <th scope="col">Nombre</th><th scope="col">Identificación</th>
             <th scope="col">Correo</th><th scope="col">Unidades</th>

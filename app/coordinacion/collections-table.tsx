@@ -4,6 +4,7 @@ import { StatusRibbon } from '../status-ribbon';
 
 import Link from 'next/link';
 import { TableFilters } from './table-filters';
+import { compactParticipationDates } from '../../lib/participation-dates';
 import { RowActionPanel } from './row-action-panel';
 import { useState } from 'react';
 
@@ -32,7 +33,7 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
       || a.name.localeCompare(b.name, 'es'));
 
   return <>
-    <TableFilters title="Filtrar convocatorias en serie" active={!!(search || kind || availability)}><div className="outings-filters">
+    <div className="coordination-table-toolbar"><TableFilters title="Filtrar convocatorias en serie" active={!!(search || kind || availability)}><div className="outings-filters">
       <label>Buscar por nombre<input type="search" value={search} onChange={event => setSearch(event.target.value)} /></label>
       <label>Tipo<select value={kind} onChange={event => setKind(event.target.value)}>
         <option value="">Todos</option><option value="automaticas">Automáticas</option><option value="manuales">Manuales</option>
@@ -41,9 +42,9 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
         <option value="">Todas</option><option value="public">Con salidas en el catálogo</option><option value="closed">Sin salidas en el catálogo</option>
       </select></label>
     </div></TableFilters>
-    <p role="status">{rows.length} de {collections.length} convocatorias en serie</p>
+    <p role="status">{rows.length} de {collections.length} convocatorias en serie</p></div>
     <StatusRibbon message={copyStatus} onExpire={setCopyStatus} />
-    {rows.length ? <table className="outings-table collections-table coordination-compact-table" aria-label="Convocatorias en serie">
+    {rows.length ? <table className="outings-table collections-table coordination-compact-table compact-series" aria-label="Convocatorias en serie">
       <thead><tr><th scope="col">Convocatoria en serie</th><th scope="col">Tipo</th><th scope="col">Próximo inicio</th><th scope="col">Salidas</th><th scope="col">Acciones</th></tr></thead>
       <tbody>{rows.map(row => {
         const publicPath = row.kind === 'automaticas' ? `/colecciones/${row.id}` : `/colecciones/manuales/${row.id}`;
@@ -51,7 +52,7 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
           <th className="collection-name" scope="row"><Link href={`/coordinacion/colecciones/${row.kind}/${row.id}`}>{row.name}</Link></th>
           <td data-label="Tipo" className="collection-kind"><span className="pill">{labels[row.kind]}</span></td>
           <td data-label="Próximo inicio" className="collection-next">{row.next_start
-            ? <time dateTime={row.next_start}>{row.next_start.split('-').reverse().join('/')}</time>
+            ? <time dateTime={row.next_start}><span className="compact-desktop-only">{row.next_start.split('-').reverse().join('/')}</span><span className="compact-mobile-only">Próxima salida: {compactParticipationDates(row.next_start,row.next_start)}</span></time>
             : 'Sin fecha pública'}</td>
           <td data-label="Salidas" className="collection-count">{row.public_outings} de {row.outings} en el catálogo</td>
           <td data-label="Acciones" className="collection-actions">

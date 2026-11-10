@@ -28,13 +28,13 @@ export function TransportSummary({ entries, canViewProfile }: {
     <MobileDisclosure title="Ver transporte" className="transport-summary-detail" desktopSummary={<><span className="transport-summary-show">Ver transporte</span><span className="transport-summary-hide">Ocultar transporte</span></>}>
       <h4>Transporte ofrecido</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de transporte ofrecido">
-        <table className="outings-table coordination-compact-table"><thead><tr>
+        <table className="outings-table coordination-compact-table compact-transport"><thead><tr>
           <th scope="col">Persona voluntaria</th><th scope="col">Inscripción</th><th scope="col">Personas que puede llevar</th>
         </tr></thead><tbody>{transport.map(entry => <tr key={entry.id}>
           <th scope="row">{canViewProfile && entry.volunteer_id
             ? <Link href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</Link>
             : entry.volunteer || 'Ficha pendiente de conciliar'}</th>
-          <td data-label="Inscripción">{statusLabels.get(entry.status) ?? entry.status}</td>
+          <td data-label="Inscripción"><span className="pill" data-status={entry.status}>{statusLabels.get(entry.status) ?? entry.status}</span></td>
           <td data-label="Personas que puede llevar">{entry.logistics.legacySeats ? 'Cantidad no indicada' : entry.logistics.seats}</td>
         </tr>)}</tbody></table>
       </div>

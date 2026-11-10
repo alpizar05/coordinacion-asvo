@@ -1,5 +1,8 @@
 'use client';
 
+import { compactParticipationDates } from '../../../../lib/participation-dates';
+
+
 import Link from 'next/link';
 import { TableFilters } from '../../table-filters';
 import { useActionState, useState } from 'react';
@@ -32,7 +35,7 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
     <p role="status">{selected.length} {selected.length === 1 ? 'salida seleccionada' : 'salidas seleccionadas'}</p>
     {selected.map(id => <input key={id} type="hidden" name="outing" value={id} />)}
     {matches.length ? <div className="outings-scroll" tabIndex={0} role="region" aria-label="Salidas disponibles para agrupar">
-      <table className="outings-table coordination-compact-table">
+      <table className="outings-table coordination-compact-table compact-select-outings">
         <thead><tr><th scope="col">Incluir</th><th scope="col">Salida</th><th scope="col">Unidad</th><th scope="col">Fechas</th><th scope="col">Estado</th></tr></thead>
         <tbody>{matches.map(outing => <tr key={outing.id}>
           <td data-label="Incluir"><input type="checkbox" aria-labelledby={`outing-${outing.id} dates-${outing.id}`}
@@ -42,7 +45,7 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
             }} /></td>
           <th scope="row" id={`outing-${outing.id}`}>{outing.title} · {outing.location}</th>
           <td data-label="Unidad">{outing.unit}</td>
-          <td data-label="Fechas" id={`dates-${outing.id}`}>{formatDate(outing.starts)} al {formatDate(outing.ends)}</td>
+          <td data-label="Fechas" id={`dates-${outing.id}`}><span className="compact-desktop-only">{formatDate(outing.starts)} al {formatDate(outing.ends)}</span><span className="compact-mobile-only">{compactParticipationDates(outing.starts,outing.ends)}</span></td>
           <td data-label="Estado">{outing.status} · {outing.listed ? 'pública' : 'privada'}</td>
         </tr>)}</tbody>
       </table>

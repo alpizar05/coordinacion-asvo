@@ -20,7 +20,7 @@ export function FoodSummary({ entries, canViewProfile }: {
     <MobileDisclosure title="Ver restricciones" className="transport-summary-detail" desktopSummary={<><span className="transport-summary-show">Ver restricciones</span><span className="transport-summary-hide">Ocultar restricciones</span></>}>
       <h4>Restricciones alimentarias indicadas</h4>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Detalle de restricciones alimentarias">
-        <table className="outings-table coordination-compact-table"><thead><tr>
+        <table className="outings-table coordination-compact-table compact-food"><thead><tr>
           <th scope="col">Persona voluntaria</th><th scope="col">Restricciones alimentarias</th>
         </tr></thead><tbody>{restrictions.map(entry => <tr key={entry.id}>
           <th scope="row">{canViewProfile && entry.volunteer_id

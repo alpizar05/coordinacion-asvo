@@ -1,5 +1,8 @@
 'use client';
 
+import { compactParticipationDates } from '../../lib/participation-dates';
+
+
 import Link from 'next/link';
 import { TableFilters } from './table-filters';
 import { useState } from 'react';
@@ -43,7 +46,7 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
   });
 
   return <>
-    <TableFilters title="Filtrar convocatorias" active={!!(query || unit || status || access)}><div className="outings-filters">
+    <div className="coordination-table-toolbar"><TableFilters title="Filtrar convocatorias" active={!!(query || unit || status || access)}><div className="outings-filters">
       <label>Buscar<input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Título o lugar" /></label>
       <label>Unidad<select value={unit} onChange={event => setUnit(event.target.value)}>
         <option value="">Todas</option>{units.map(value => <option key={value}>{value}</option>)}
@@ -66,9 +69,9 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
         ])}
       </select>
     </label></TableFilters>
-    <p role="status">{rows.length} de {outings.length} convocatorias</p>
+    <p role="status">{rows.length} de {outings.length} convocatorias</p></div>
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de convocatorias">
-      <table className="outings-table coordination-compact-table">
+      <table className="outings-table coordination-compact-table compact-outings">
         <thead><tr>{columns.map(([column,label]) => {
           const active = sort.column === column;
           return <th key={column} scope="col" aria-sort={active ? sort.ascending ? 'ascending' : 'descending' : undefined}>
@@ -79,7 +82,7 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
         })}</tr></thead>
         <tbody>{rows.map(row => <tr key={row.id}>
           <th scope="row"><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></th>
-          <td data-label="Lugar">{row.location}</td><td data-label="Unidad">{row.unit}</td><td data-label="Inicio" className="table-date">{date(row.starts)}</td><td data-label="Fin" className="table-date">{date(row.ends)}</td>
+          <td data-label="Lugar" className={row.location === row.title ? 'compact-duplicate-location' : undefined}>{row.location}</td><td data-label="Unidad">{row.unit}</td><td data-label="Inicio" className="table-date"><span className="compact-desktop-only">{date(row.starts)}</span><span className="compact-mobile-only">{compactParticipationDates(row.starts,row.ends)}</span></td><td data-label="Fin" className="table-date">{date(row.ends)}</td>
           <td data-label="Estado"><span className="pill" data-status={row.status}>{row.status}</span></td><td data-label="Visibilidad">{visibility(row.listed)}</td>
         </tr>)}
         {!rows.length && <tr><td colSpan={columns.length}>{outings.length ? 'Ninguna convocatoria coincide con los filtros.' : 'Todavía no hay convocatorias.'}</td></tr>}

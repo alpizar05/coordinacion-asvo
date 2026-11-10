@@ -1,4 +1,7 @@
 /* Shared visual language for staff pages; public pages keep their own styles. */
+.coordination-table-toolbar { display: contents; }
+.overview-compact-dates, .overview-compact-status { display: none; }
+.compact-mobile-only { display: none; }
 .flexible-dates-help { display: flex; align-items: center; gap: .25rem; position: relative; }
 .flexible-dates-help > label { margin: 0; }
 .coordination-content .flexible-dates-help-trigger { width: 44px; height: 44px; padding: 0; background: transparent; border-color: transparent; color: var(--coord-primary); font-size: 1.1rem; }
@@ -205,4 +208,86 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
   .coordination-content .coordination-nav-desktop { display: none; }
   .coordination-content .outings-table :is(th, td) { padding: .7rem .6rem; }
   .coordination-content h1 { margin-bottom: 1rem; }
+}
+
+/* Mobile lists: one reading order, compact metadata and a shared action baseline. */
+@media (max-width: 700px) {
+  .coordination-content .coordination-table-toolbar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; }
+  .coordination-content .coordination-table-toolbar > p { order: 1; margin: 0; font-size: .875rem; color: var(--gray); }
+  .coordination-content .coordination-table-toolbar > .table-filters-mobile { order: 2; }
+  .coordination-content .coordination-compact-table tbody tr { gap: .55rem .85rem; padding-block: 1rem; }
+  .coordination-content .registrations-overview-table tbody tr {
+    grid-template-areas: 'person person' 'outing outing' 'unit unit' 'dates dates' 'received received' 'state actions';
+    grid-template-columns: minmax(0,1fr) auto;
+    gap: .4rem .65rem;
+  }
+  .coordination-content .registrations-overview-table .overview-person { grid-area: person; }
+  .coordination-content .registrations-overview-table td[data-label="Convocatoria"] { grid-area: outing; }
+  .coordination-content .registrations-overview-table td[data-label="Unidad"] { grid-area: unit; color: var(--gray); }
+  .coordination-content .registrations-overview-table td[data-label="Fechas solicitadas"] { grid-area: dates; }
+  .coordination-content .registrations-overview-table td[data-label="Recibida"] { grid-area: received; color: var(--gray); font-size: .75rem; }
+  .coordination-content .registrations-overview-table td[data-label="Estado"] { grid-area: state; align-self: center; }
+  .coordination-content .registrations-overview-table td[data-label="Acciones"] { grid-area: actions; align-self: center; justify-self: end; }
+  .coordination-content .registrations-overview-table td[data-label]::before { display: none; }
+  .coordination-content .registrations-overview-table td[data-label="Recibida"]::before { content: 'Recibida '; display: inline; }
+  .coordination-content .registrations-overview-table .overview-outing-dates,
+  .coordination-content .registrations-overview-table .overview-full-dates,
+  .coordination-content .registrations-overview-table .overview-full-status { display: none; }
+  .coordination-content .registrations-overview-table .overview-compact-dates { display: inline; }
+  .coordination-content .registrations-overview-table .overview-compact-status { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+  .coordination-content .registrations-overview-table .overview-cancelled-by { font-size: .75rem; color: var(--gray); }
+  .coordination-content .registrations-overview-table .registration-manage-trigger { min-height: 44px; padding: .35rem .15rem .35rem .5rem; }
+  .coordination-content .collections-table.coordination-compact-table .collection-kind { grid-column: 1; grid-row: 2; align-self: center; }
+  .coordination-content .collections-table.coordination-compact-table .collection-actions { grid-column: 2; grid-row: 2; align-self: center; }
+  .coordination-content .collections-table.coordination-compact-table .collection-kind::before { display: none; }
+}
+
+/* Tailor compact rows to the meaning of each list instead of stacking column labels. */
+@media (max-width: 700px) {
+  .coordination-content .coordination-compact-table .compact-desktop-only { display: none; }
+  .coordination-content .coordination-compact-table .compact-mobile-only { display: inline; }
+  .coordination-content .coordination-compact-table tbody tr { gap: .4rem .75rem; }
+  .coordination-content .coordination-compact-table tbody tr:has(td[colspan]) { display: block; }
+  .coordination-content :is(.compact-outings,.compact-series,.compact-volunteers,.compact-blocks,.compact-select-outings,.compact-food) td[data-label]::before { display: none; }
+  .coordination-content :is(.compact-outings,.compact-series,.compact-volunteers,.compact-blocks,.compact-select-outings) td[data-label="Unidad"],
+  .coordination-content .compact-volunteers td:is([data-label="Unidades"],[data-label="Correo"]),
+  .coordination-content .compact-outings td[data-label="Lugar"] { color: var(--gray); }
+  .coordination-content .compact-outings tbody tr { grid-template-columns: minmax(0,1fr) auto; }
+  .coordination-content .compact-outings td[data-label="Inicio"] { grid-column: 1 / -1; }
+  .coordination-content .compact-outings td[data-label="Fin"],
+  .coordination-content .compact-outings td.compact-duplicate-location { display: none; }
+  .coordination-content .compact-outings td[data-label="Estado"] { align-self: center; }
+  .coordination-content .compact-outings td[data-label="Visibilidad"] { align-self: center; justify-self: end; color: var(--gray); font-size: .75rem; }
+  .coordination-content .compact-series tbody tr {
+    grid-template-areas: 'name name' 'next next' 'count count' 'kind actions';
+    grid-template-columns: minmax(0,1fr) auto;
+  }
+  .coordination-content .compact-series .collection-name { grid-area: name; }
+  .coordination-content .compact-series .collection-next { grid-area: next; }
+  .coordination-content .compact-series .collection-count { grid-area: count; color: var(--gray); }
+  .coordination-content .compact-series.coordination-compact-table .collection-kind { grid-area: kind; }
+  .coordination-content .compact-series.coordination-compact-table .collection-actions { grid-area: actions; }
+  .coordination-content .compact-volunteers td[data-label="Identificación"] { grid-column: 1 / -1; font-size: .75rem; color: var(--gray); }
+  .coordination-content .compact-volunteers td[data-label="Identificación"]::before { content: 'Identificación: '; display: inline; }
+  .coordination-content .compact-volunteers td[data-label="Unidades"] { font-size: .75rem; }
+  .coordination-content .compact-blocks td:is([data-label="Cupos"],[data-label="Excepciones"]) { grid-column: 1 / -1; }
+  .coordination-content .compact-blocks .compact-block-duplicate-location { display: none; }
+  .coordination-content .compact-blocks td[data-label="Excepciones"] { color: var(--gray); font-size: .75rem; }
+  .coordination-content .compact-blocks td[data-label="Excepciones"]::before { content: 'Excepciones: '; display: inline; }
+  .coordination-content .compact-blocks td[data-label="Modalidad"] { color: var(--gray); }
+  .coordination-content .compact-blocks td[data-label="Visibilidad"],
+  .coordination-content .compact-blocks td[data-label="Disponibilidad"] { color: var(--gray); font-size: .75rem; }
+  .coordination-content .compact-blocks td[data-label="Estado"] { grid-column: 1; align-self: center; }
+  .coordination-content .compact-blocks td[data-label="Acciones"] { grid-column: 2; align-self: center; }
+  .coordination-content .compact-blocks .capacity-summary { margin: .2rem 0; }
+  .coordination-content .compact-select-outings td[data-label="Estado"] { grid-column: 1 / -1; color: var(--gray); font-size: .75rem; }
+  .coordination-content .compact-select-outings td[data-label="Incluir"]::before { content: 'Incluir'; display: block; }
+  .coordination-content .compact-transport td[data-label="Inscripción"] { align-self: center; }
+  .coordination-content .compact-transport td[data-label="Inscripción"]::before { display: none; }
+  .coordination-content .compact-transport td[data-label="Personas que puede llevar"] { justify-self: end; text-align: end; }
+  .coordination-content .compact-transport td[data-label="Personas que puede llevar"]::before { content: 'Espacios ofrecidos'; }
+  .coordination-content .outing-registration-table tbody tr { gap: .4rem .65rem; padding-block: 1rem; }
+  .coordination-content .outing-registration-table .registration-dates { grid-column: 1 / -1; grid-row: 2; }
+  .coordination-content .outing-registration-table .registration-state { grid-column: 1; grid-row: 3; align-self: center; }
+  .coordination-content .outing-registration-table .registration-actions { grid-column: 2; grid-row: 3; }
 }

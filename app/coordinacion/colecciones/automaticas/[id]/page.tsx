@@ -1,3 +1,4 @@
+import { compactParticipationDates } from '../../../../../lib/participation-dates';
 import { CapacitySummary } from '../../../../capacity-summary';
 import { StatusRibbon } from '../../../../status-ribbon';
 import { HomepageFeatureControl } from '../../../homepage-feature-control';
@@ -142,15 +143,15 @@ export default async function AutomaticCollection({ params, searchParams }: {
       {!editing && <p>Elegí <strong>Clonar bloque</strong> en la fila que querés usar como punto de partida.</p>}
       {creados && /^[1-9]\d?$/.test(creados) && <StatusRibbon message={creados === '1' ? 'Se agregó un bloque.' : `Se agregaron ${creados} bloques.`} />}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Bloques de convocatoria asociados">
-        <table className="outings-table coordination-compact-table">
+        <table className="outings-table coordination-compact-table compact-blocks">
           <thead><tr>
             <th scope="col">Convocatoria</th><th scope="col">Unidad</th><th scope="col">Fechas</th>
             <th scope="col">Excepciones</th><th scope="col">Modalidad</th><th scope="col">Cupos</th><th scope="col">Estado</th><th scope="col">Visibilidad</th>{!editing && <th scope="col">Acciones</th>}
           </tr></thead>
           <tbody>{blocks.map(block => <tr key={block.id}>
-            <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link><br />{block.location}</th>
+            <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link><span className={block.location === block.title ? 'compact-block-duplicate-location' : undefined}><br />{block.location}</span></th>
             <td data-label="Unidad">{block.unit}</td>
-            <td data-label="Fechas" className="table-date">{displayDate(block.starts)} al {displayDate(block.ends)}</td>
+            <td data-label="Fechas" className="table-date"><span className="compact-desktop-only">{displayDate(block.starts)} al {displayDate(block.ends)}</span><span className="compact-mobile-only">{compactParticipationDates(block.starts,block.ends)}</span></td>
             <td data-label="Excepciones">{[
               ...commonOutingFields.filter(item => block.outing_overrides.includes(item.name)).map(item => item.label),
               ...(block.outing_overrides.includes('photos') ? ['Fotos'] : []),

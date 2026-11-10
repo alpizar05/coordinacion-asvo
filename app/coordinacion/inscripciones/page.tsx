@@ -1,3 +1,4 @@
+import { compactParticipationDates } from '../../../lib/participation-dates';
 import { StatusRibbon } from '../../status-ribbon';
 import { statuses, statusLabels } from '../registration-statuses';
 import CoordinationBreadcrumb from '../breadcrumb';
@@ -55,26 +56,28 @@ export default async function Registrations({ searchParams }: {
     <h1>Solicitudes de inscripción</h1>
     {gestionada && uuid(gestionada) && <StatusRibbon key={gestionada} message="Inscripción actualizada." />}
     <section className="card">
-      <StatusFilter value={filter} statuses={statuses} units={units} unit={unit} from={from} to={to} />
+      <div className="coordination-table-toolbar"><StatusFilter value={filter} statuses={statuses} units={units} unit={unit} from={from} to={to} />
+      <p>{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p></div>
       {invalidRange && <p className="note" role="alert">La fecha Desde debe ser anterior o igual a la fecha Hasta.</p>}
-      <p>{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p>
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de solicitudes de inscripción">
-        <table className="outings-table coordination-compact-table">
+        <table className="outings-table coordination-compact-table registrations-overview-table">
           <thead><tr>
             <th scope="col">Persona voluntaria</th><th scope="col">Convocatoria</th><th scope="col">Unidad</th>
             <th scope="col">Fechas solicitadas</th><th scope="col">Recibida</th><th scope="col">Estado</th><th scope="col">Acciones</th>
           </tr></thead>
           <tbody>
             {rows.map(row => <tr id={`inscripcion-${row.id}`} key={row.id}>
-              <th scope="row">{general && row.volunteer_id
+              <th scope="row" className="overview-person">{general && row.volunteer_id
                 ? <Link href={`/coordinacion/registro/${row.volunteer_id}`}>{row.volunteer}</Link>
                 : row.volunteer || 'Ficha pendiente de conciliar'}</th>
               <td data-label="Convocatoria"><Link href={`/coordinacion/salidas/${row.outing_id}#inscripcion-${row.id}`}>{row.title}</Link>
-                <br /><span className="table-date">{displayDate(row.outing_start)} al {displayDate(row.outing_end)}</span></td>
+                <br className="overview-outing-dates" /><span className="table-date overview-outing-dates">{displayDate(row.outing_start)} al {displayDate(row.outing_end)}</span></td>
               <td data-label="Unidad">{row.unit}</td>
-              <td data-label="Fechas solicitadas" className="table-date">{displayDate(row.starts)} al {displayDate(row.ends)}</td>
+              <td data-label="Fechas solicitadas" className="table-date"><span className="overview-full-dates">{displayDate(row.starts)} al {displayDate(row.ends)}</span><span className="overview-compact-dates">{compactParticipationDates(row.starts,row.ends)}</span></td>
               <td data-label="Recibida" className="table-date">{receivedFormat.format(row.received_at)}</td>
-              <td data-label="Estado"><span className="pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span></td>
+              <td data-label="Estado"><span className="overview-full-status pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span>
+                <span className="overview-compact-status"><span className="pill" data-status={row.status}>{row.status.startsWith('cancelada') ? 'Cancelada' : statusLabels.get(row.status) ?? row.status}</span>
+                {row.status.startsWith('cancelada') && <span className="overview-cancelled-by">{row.status === 'cancelada por coordinación' ? 'Por Coordinación' : 'Por voluntariado'}</span>}</span></td>
               <td data-label="Acciones">{outingIsEditable(row.outing_status) && <RegistrationActions personName={row.volunteer} entry={row} outing={{ flexible: row.flexible, first_day: row.outing_start, last_day: row.outing_end }}
                 error={row.id === inscripcion ? error : undefined} fromList filter={filters} />}</td>
             </tr>)}

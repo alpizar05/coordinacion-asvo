@@ -1,3 +1,4 @@
+import { compactParticipationDates } from '../../../../../lib/participation-dates';
 import { CapacitySummary } from '../../../../capacity-summary';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
@@ -36,12 +37,12 @@ export default async function ManualCollectionDetail({ params }: { params: Promi
     <section className="card">
       <h2>Salidas asociadas</h2>
       {blocks.length ? <div className="outings-scroll" tabIndex={0} role="region" aria-label="Salidas asociadas">
-        <table className="outings-table coordination-compact-table">
+        <table className="outings-table coordination-compact-table compact-blocks">
           <thead><tr><th scope="col">Salida</th><th scope="col">Unidad</th><th scope="col">Fechas</th><th scope="col">Cupos</th><th scope="col">Estado</th><th scope="col">Disponibilidad</th></tr></thead>
           <tbody>{blocks.map(block => <tr key={block.id}>
             <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link></th>
             <td data-label="Unidad">{block.unit}</td>
-            <td data-label="Fechas" className="table-date">{displayDate(block.starts)} al {displayDate(block.ends)}</td>
+            <td data-label="Fechas" className="table-date"><span className="compact-desktop-only">{displayDate(block.starts)} al {displayDate(block.ends)}</span><span className="compact-mobile-only">{compactParticipationDates(block.starts,block.ends)}</span></td>
             <td data-label="Cupos"><CapacitySummary capacity={block.capacity} occupied={block.occupied} detail /></td>
             <td data-label="Estado">{block.status}</td>
             <td data-label="Disponibilidad">{block.public ? 'En catálogo' : 'Fuera del catálogo'}</td>
