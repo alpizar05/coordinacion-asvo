@@ -1,4 +1,4 @@
-import { MobileDisclosure } from '../../mobile-disclosure';
+import { ActionModal } from '../../action-modal';
 import { OutingTabs } from './outing-tabs';
 import { FoodSummary } from '../../food-summary';
 import { TransportSummary } from '../../transport-summary';
@@ -243,6 +243,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       <div>
         <strong>{index === 0 ? 'Portada · ' : ''}{photo.alt}</strong>
         {photo.credit && <p>{photo.credit}</p>}
+        {editing && <AttachPhotos id={id} gallery={[]} initial={{ id: photo.id, alt: photo.alt, credit: photo.credit }} />}
         {editing && <form action={managePhoto.bind(null,id)} className="actions">
           <input type="hidden" name="photoId" value={photo.id} />
           {index > 0 && <><button name="action" value="portada">Hacer portada</button><button name="action" value="subir">Subir una posición</button></>}
@@ -295,8 +296,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
           <a href={`${back}#inscripcion-${person.id}`}>{person.name}</a> · {displayDate(person.starts)} al {displayDate(person.ends)}
           {' · '}{statusLabels.get(person.status) ?? person.status}
         </li>)}</ul>
-        {['abierta', 'confirmada'].includes(outing.status) && <MobileDisclosure title="Crear salida para este grupo" closeOnSubmit>
-          <form action={splitOutingGroup.bind(null,id,group.starts,group.ends)}>
+        {['abierta', 'confirmada'].includes(outing.status) && <ActionModal title="Crear salida para este grupo" saveLabel="Crear salida y trasladar grupo" action={splitOutingGroup.bind(null,id,group.starts,group.ends)}>
             {group.people.map(person => <input key={person.id} type="hidden" name="member" value={person.id} />)}
             <div className="grid">
               <label>Título de la nueva salida<input name="title" required maxLength={200}
@@ -305,9 +305,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
                 defaultValue={Math.min(10000,group.people.length)} /></label>
             </div>
             <p>Se crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.</p>
-            <button className="coord-button-primary" type="submit">Crear salida y trasladar grupo</button>
-          </form>
-        </MobileDisclosure>}
+        </ActionModal>}
       </div>;
     })}
     {decisions.map(decision => <p className="copy" key={decision.id}>{decision.reason}</p>)}

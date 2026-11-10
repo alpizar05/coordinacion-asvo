@@ -15,7 +15,7 @@ export async function managePhoto(id: string, form: FormData) {
 }
 
 export async function attachOutingPhoto(id: string, form: FormData) {
-  if (!['agregar', 'galeria'].includes(field(form, 'action'))) return 'Elegí cómo agregar la foto.';
+  if (!['agregar', 'galeria', 'editar'].includes(field(form, 'action'))) return 'Elegí cómo agregar la foto.';
   const error = await updatePhoto(id, form);
   if (!error) {
     revalidatePath(`/coordinacion/salidas/${id}`);
@@ -36,6 +36,8 @@ async function updatePhoto(id: string, form: FormData) {
     const alt = field(form,'alt');
     const credit = field(form,'credit');
     const file = form.get('photo');
+    if (action === 'editar' && (!alt || alt.length > 240 || credit.length > 150)) throw new Error('Elegí una descripción de hasta 240 caracteres y un crédito de hasta 150.');
+    if (action === 'galeria' && (form.has('alt') && (!alt || alt.length > 240) || credit.length > 150)) throw new Error('Elegí una descripción válida y revisá el crédito de la foto.');
     if (action === 'agregar' && (!(file instanceof File) || !alt || alt.length > 240 || credit.length > 150)) {
       throw new Error('Elegí una foto y completá su descripción.');
     }
@@ -65,7 +67,7 @@ async function updatePhoto(id: string, form: FormData) {
         if (!source || !canOperate(user, source.unit)) throw new Error('Elegí una foto disponible de la galería.');
         const [photo] = await tx`insert into outing_photos
           (outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-          select ${id},${photos.length + 1},alt,credit,original_item,original_drive,thumbnail,display_image
+          select ${id},${photos.length + 1},coalesce(${form.has('alt') ? alt : null}::text,alt),coalesce(${form.has('credit') ? credit : null}::text,credit),original_item,original_drive,thumbnail,display_image
           from outing_photos where id=${source.id} returning id`;
         await markPersonal();
         await audit(tx, user.subject, 'Adjuntó foto de la galería', photo.id);
@@ -81,7 +83,13 @@ async function updatePhoto(id: string, form: FormData) {
         return;
       }
       const index = photos.findIndex(photo => photo.id === photoId);
-      if (index < 0) return;
+      if (index < 0) throw new Error('Elegí una foto que siga disponible en la convocatoria.');
+      if (action === 'editar') {
+        await tx`update outing_photos set alt=${alt},credit=${credit} where id=${photoId} and outing_id=${id}`;
+        await markPersonal();
+        await audit(tx,user.subject,'Actualizó descripción y crédito de foto',photoId);
+        return;
+      }
       if (action === 'retirar') {
         if (outing.status === 'abierta' && photos.length === 1) throw new Error('Agregá otra foto antes de retirar la única portada.');
         await tx`update outing_photos set position=null where id=${photoId}`;

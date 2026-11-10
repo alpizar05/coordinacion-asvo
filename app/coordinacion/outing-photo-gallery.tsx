@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import type { GalleryPhoto } from '../../lib/outing-photo-gallery';
 
-export function OutingPhotoGallery({ gallery, selected = [], disabled, onAdd }: {
+export function OutingPhotoGallery({ gallery, selected = [], disabled, onAdd, actionLabel }: {
   gallery: GalleryPhoto[];
   selected?: string[];
   disabled: boolean;
   onAdd: (photo: GalleryPhoto) => void;
+  actionLabel?: string;
 }) {
   const [search, setSearch] = useState('');
   const query = search.trim().toLocaleLowerCase('es');
@@ -29,7 +30,7 @@ export function OutingPhotoGallery({ gallery, selected = [], disabled, onAdd }: 
           <strong>{photo.alt}</strong>
           <p>{photo.location} · {photo.title}</p>
           <button type="button" disabled={added || disabled} onClick={() => onAdd(photo)}>
-            {added ? 'Agregada' : 'Agregar a la convocatoria'}
+            {added ? 'Agregada' : actionLabel || 'Agregar a la convocatoria'}
           </button>
         </div>
       </li>;

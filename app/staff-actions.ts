@@ -126,6 +126,9 @@ async function saveOuting(form: FormData) {
   const coverIndex = order.indexOf(cover);
   if (coverIndex > 0) order.unshift(...order.splice(coverIndex, 1));
   const copiedPositions = photoIds.map(id => order.indexOf(id) + 1);
+  for (const id of photoIds) {
+    if ((form.has(`copyAlt-${id}`) && (!field(form,`copyAlt-${id}`) || field(form,`copyAlt-${id}`).length > 240)) || field(form,`copyCredit-${id}`).length > 150) invalid('Revisá descripción y crédito de la foto.',`existing-${id}`);
+  }
   const prepared: { key: string; alt: string; credit: string; position: number; image: Awaited<ReturnType<typeof preparePhoto>> }[] = [];
   for (const photo of uploads) {
     const position = order.indexOf(photo.key) + 1;
@@ -190,6 +193,13 @@ async function saveOuting(form: FormData) {
             photo.alt,photo.credit,photo.original_item,photo.original_drive,photo.thumbnail,photo.display_image
           from unnest(${photoIds}::uuid[], ${copiedPositions}::smallint[]) as selection(id,position)
           join outing_photos photo on photo.id=selection.id`;
+        for (const sourceId of photoIds) {
+          if (!form.has(`copyAlt-${sourceId}`) && !form.has(`copyCredit-${sourceId}`)) continue;
+          await tx`update outing_photos set
+            alt=coalesce(${form.has(`copyAlt-${sourceId}`) ? field(form,`copyAlt-${sourceId}`) : null}::text,alt),
+            credit=coalesce(${form.has(`copyCredit-${sourceId}`) ? field(form,`copyCredit-${sourceId}`) : null}::text,credit)
+            where outing_id=${outing.id} and position=${copiedPositions[photoIds.indexOf(sourceId)]}`;
+        }
       }
       for (const { position, alt, credit, original, image } of newPhotos) {
         await tx`insert into outing_photos(outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
@@ -359,7 +369,7 @@ export async function manageOuting(id: string, form: FormData) {
 }
 
 export async function splitOutingGroup(id: string, start: string, end: string, form: FormData) {
-  if (!uuid(id)) return;
+  if (!uuid(id)) return { error: 'La salida no está disponible.' };
   const user = await staff();
   const back = `/coordinacion/salidas/${id}`;
   const members = form.getAll('member').map(String);
@@ -406,8 +416,9 @@ export async function splitOutingGroup(id: string, start: string, end: string, f
     return { id: created.id };
   });
   await dispatchRegistrationUpdates();
-  if (result.error) redirect(`${back}?errorGrupo=${encodeURIComponent(result.error)}#agrupaciones`);
-  redirect(`${back}?grupoCreado=${result.id}#agrupaciones`);
+  if (result.error) return { error: result.error };
+  revalidatePath(back);
+  return { saved: true, destination: `${back}?grupoCreado=${result.id}#agrupaciones` };
 }
 
 export async function manageEntry(id: string, fromList: boolean, filter: string, form: FormData) {
@@ -471,13 +482,14 @@ export async function verifyPolicy(form: FormData) {
   const id = field(form,'volunteer');
   const starts = field(form,'starts'), ends = field(form,'ends');
   const kind = field(form,'kind'), number = field(form,'number'), source = field(form,'source');
-  if (!uuid(id) || !number || !kind || !source || !date(starts) || !date(ends) || ends < starts) return;
+  if (!uuid(id) || !number || !kind || !source || !date(starts) || !date(ends) || ends < starts) return { error: 'Completá los datos de la póliza y revisá las fechas de cobertura.' };
   await sql.begin(async tx => {
     const [policy] = await tx`insert into policies(volunteer_id,kind,number,starts,ends,source,verified_by,verified_at)
       values (${id},${kind},${number},${starts},${ends},${source},${user.subject},now()) returning id`;
     await audit(tx,user.subject,'Verificó póliza',policy.id);
   });
-  redirect(`/coordinacion/registro/${id}`);
+  revalidatePath(`/coordinacion/registro/${id}`);
+  return { saved: true };
 }
 
 export async function importPreview(csv: string) {
@@ -525,7 +537,7 @@ export async function applyImport(form: FormData) {
 export async function editProfile(id: string, form: FormData) {
   const user = await staff();
   requireStaff(user,canAdminister(user));
-  if (!uuid(id)) return;
+  if (!uuid(id)) return { error: 'La persona no está disponible.' };
   const name = field(form,'name'), surname = field(form,'surname');
   const birth = field(form,'birth'), email = field(form,'email');
   const volunteerYear = field(form,'volunteer_year'), memberYear = field(form,'member_year');
@@ -536,7 +548,7 @@ export async function editProfile(id: string, form: FormData) {
   const member = boolean('member'), medical = boolean('medical');
   if (!name || !surname || (birth && !date(birth)) || (volunteerYear && !/^[1-9][0-9]{3}$/.test(volunteerYear)) ||
       (memberYear && !/^[1-9][0-9]{3}$/.test(memberYear)) || (medical && !field(form,'medical_detail')) ||
-      (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) return;
+      (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) return { error: 'Revisá nombre, apellidos, correo, fechas y detalle médico.' };
   await sql.begin(async tx => {
     await tx`update volunteers set name=${name},surname=${surname},second_surname=${field(form,'second_surname') || null},
       birth=${birth || null}, email=${email || null}, whatsapp=${field(form,'whatsapp') || null},
@@ -547,13 +559,14 @@ export async function editProfile(id: string, form: FormData) {
       member=${member},member_year=${member ? memberYear || null : null} where id=${id}`;
     await audit(tx,user.subject,'Corrigió ficha',id);
   });
-  redirect(`/coordinacion/registro/${id}`);
+  revalidatePath(`/coordinacion/registro/${id}`);
+  return { saved: true };
 }
 
 export async function updateVolunteerUnits(id: string, form: FormData) {
   const user = await staff();
   requireStaff(user, canOperate(user) || canAdminister(user));
-  if (!uuid(id)) return;
+  if (!uuid(id)) return { error: 'La persona no está disponible.' };
   const selected = form.getAll('units').filter((value): value is string => typeof value === 'string');
   await sql.begin(async tx => {
     const [person] = await tx`update volunteers set units = array(
@@ -563,7 +576,8 @@ export async function updateVolunteerUnits(id: string, form: FormData) {
     ) where id = ${id} returning id`;
     if (person) await audit(tx, user.subject, 'Actualizó unidades de voluntariado', id);
   });
-  redirect(`/coordinacion/registro/${id}#unidades`);
+  revalidatePath(`/coordinacion/registro/${id}`);
+  return { saved: true };
 }
 
 export async function previewPolicies(csv: string) {

@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { createOuting } from '../../../staff-actions';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit, outingPhotoMaxBytes } from '../../../../lib/outing-photo-limits';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
-import { OutingPhotoGallery } from '../../outing-photo-gallery';
+import { PhotoDialog } from '../../photo-dialog';
 import { OutingPeriods, type OutingPeriod } from '../../outing-periods';
 
 export type OutingTemplate = {
@@ -15,11 +15,10 @@ export type OutingTemplate = {
   starts: string; ends: string; flexible: boolean; capacity: number; listed: boolean;
   requirements: string | null; logistics: string | null; registration_deadline: string | null;
   organization: string | null; contact: string | null; area: string | null; activity: string | null; plan: string | null;
-  photos: { id: string; alt: string }[];
+  photos: { id: string; alt: string; credit?: string }[];
 };
 
 type NewPhoto = { id: number; file: File; alt: string; credit: string };
-const emptyPhoto = { file: null as File | null, alt: '', credit: '', permission: false };
 
 function LocalPhotoThumbnail({ file, alt }: { file: File; alt: string }) {
   const image = useRef<HTMLImageElement>(null);
@@ -77,9 +76,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   const [selected, setSelected] = useState(clone?.request_id ?? '');
   const nextPhotoId = useRef(1);
   const [newPhotos, setNewPhotos] = useState<NewPhoto[]>([]);
-  const [draftPhoto, setDraftPhoto] = useState(emptyPhoto);
   const [cover, setCover] = useState<string | File>('');
-  const [photoPanel, setPhotoPanel] = useState<'gallery' | 'upload' | null>(null);
   const [photos, setPhotos] = useState<OutingTemplate['photos']>(clone?.photos ?? []);
   const template = templates.find(row => row.request_id === selected);
 
@@ -127,9 +124,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
       setDeadline(source?.registration_deadline ?? '');
       setVisibility(source && !source.listed ? 'privada' : 'publica');
       setNewPhotos([]);
-      setDraftPhoto(emptyPhoto);
       setCover('');
-      setPhotoPanel(null);
       setPhotos(source?.photos ?? []);
     }}>
       <option value="">Empezar desde cero</option>
@@ -169,26 +164,21 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
               ? <LocalPhotoThumbnail file={item.photo.file} alt={photo.alt} />
               : <>
                 <input type="hidden" name="copyPhoto" value={photo.id} />
+                <input type="hidden" name={`copyAlt-${photo.id}`} value={photo.alt} />
+                {photo.credit !== undefined && <input type="hidden" name={`copyCredit-${photo.id}`} value={photo.credit} />}
                 <img src={`/api/fotos/${photo.id}?v=tarjeta`} alt={photo.alt} />
               </>}
             <div>
               {showError(`${item.kind}-${photo.id}`)}
               {isCover && <span className="outing-photo-cover">Portada</span>}
               <strong>{photo.alt || (item.kind === 'new' ? item.photo.file.name : '')}</strong>
-              {item.kind === 'new' && <MobileDisclosure title="Editar descripción o crédito">
-                <label>Descripción de la foto
-                  <input value={item.photo.alt} maxLength={240} onChange={event => {
-                    const alt = event.currentTarget.value;
-                    setNewPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, alt } : entry));
-                  }} />
-                </label>
-                <label>Crédito de la foto
-                  <input value={item.photo.credit} maxLength={150} onChange={event => {
-                    const credit = event.currentTarget.value;
-                    setNewPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, credit } : entry));
-                  }} />
-                </label>
-              </MobileDisclosure>}
+              <PhotoDialog initial={item.kind === 'new'
+                ? { kind: 'upload', file: item.photo.file, alt: item.photo.alt, credit: item.photo.credit }
+                : { kind: 'edit', id: item.photo.id, alt: item.photo.alt, credit: item.photo.credit || '' }}
+                onSave={choice => {
+                  if (item.kind === 'new') setNewPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, alt: choice.alt, credit: choice.credit } : entry));
+                  else setPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, alt: choice.alt, credit: choice.credit } : entry));
+                }} />
               <div className="actions">
                 {!isCover && <button type="button" onClick={() => setCover(identity)}>Hacer portada</button>}
                 <button type="button" onClick={() => {
@@ -201,45 +191,13 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
           </li>;
         })}
       </ul>}
-      <div className="actions">
-        <button type="button" aria-expanded={photoPanel === 'gallery'} aria-controls="outing-photo-gallery"
-          onClick={() => setPhotoPanel(current => current === 'gallery' ? null : 'gallery')}>Elegir de la galería</button>
-        <button type="button" disabled={!hasPhotoSpace} aria-expanded={photoPanel === 'upload'} aria-controls="outing-photo-upload"
-          onClick={() => setPhotoPanel(current => current === 'upload' ? null : 'upload')}>Subir una foto nueva</button>
-      </div>
-      <div id="outing-photo-upload" hidden={photoPanel !== 'upload'}>
-        {photoPanel === 'upload' && <fieldset>
-          <legend>Subir una foto nueva</legend>
-          <p>JPG, PNG o WebP. Máximo 3 MB por foto y 3,75 MB en total para las fotos nuevas.</p>
-          <label>Archivo<input type="file" accept="image/jpeg,image/png,image/webp" onChange={event => {
-            const file = event.currentTarget.files?.[0] ?? null;
-            setDraftPhoto(current => ({ ...current, file }));
-          }} /></label>
-          {draftPhoto.file && <p>Archivo elegido: {draftPhoto.file.name}</p>}
-          <label>Descripción de la foto<input value={draftPhoto.alt} maxLength={240} onChange={event =>
-            setDraftPhoto({ ...draftPhoto, alt: event.target.value })
-          } /></label>
-          <label>Crédito de la foto<input value={draftPhoto.credit} maxLength={150} onChange={event =>
-            setDraftPhoto({ ...draftPhoto, credit: event.target.value })
-          } /></label>
-          <label><input type="checkbox" checked={draftPhoto.permission} onChange={event =>
-            setDraftPhoto({ ...draftPhoto, permission: event.target.checked })
-          } /> La foto está autorizada para publicación.</label>
-          <button type="button" disabled={!hasPhotoSpace || !draftPhoto.file || !draftPhoto.alt.trim() || !draftPhoto.permission} onClick={() => {
-            if (!draftPhoto.file) return;
-            setNewPhotos([...newPhotos, { id: nextPhotoId.current++, file: draftPhoto.file, alt: draftPhoto.alt, credit: draftPhoto.credit }]);
-            setDraftPhoto(emptyPhoto);
-            setPhotoPanel(null);
-          }}>Agregar foto</button>
-        </fieldset>}
-      </div>
-      <div id="outing-photo-gallery" hidden={photoPanel !== 'gallery'}>
-        {photoPanel === 'gallery' && <OutingPhotoGallery gallery={gallery} selected={photos.map(photo => photo.id)}
-          disabled={!hasPhotoSpace} onAdd={photo => {
-            setPhotos(current => [...current, photo]);
-            setPhotoPanel(null);
-          }} />}
-      </div>
+      <PhotoDialog gallery={gallery} selected={photos.map(photo => photo.id)} disabled={!hasPhotoSpace || pending}
+        maxUploadBytes={outingPhotoBatchMaxBytes - newPhotos.reduce((sum,photo) => sum + photo.file.size,0)}
+        onSave={choice => {
+          if (!hasPhotoSpace) return 'La convocatoria admite hasta seis fotos.';
+          if (choice.kind === 'upload') setNewPhotos(current => [...current, { id: nextPhotoId.current++, file: choice.file, alt: choice.alt, credit: choice.credit }]);
+          else if (choice.kind === 'gallery') setPhotos(current => [...current, { id: choice.id, alt: choice.alt, credit: choice.credit }]);
+        }} />
     </fieldset>
     </section>
     <MobileDisclosure className="new-outing-section" title={`Solicitud de apoyo${template ? ` · ${template.organization || template.title}` : ''}`}>
