@@ -1,3 +1,4 @@
+import { ActiveRegistrationFilters } from './active-filters';
 import { compactParticipationDates } from '../../../lib/participation-dates';
 import { StatusRibbon } from '../../status-ribbon';
 import { statuses, statusLabels } from '../registration-statuses';
@@ -57,7 +58,8 @@ export default async function Registrations({ searchParams }: {
     {gestionada && uuid(gestionada) && <StatusRibbon key={gestionada} message="Inscripción actualizada." />}
     <section className="card">
       <div className="coordination-table-toolbar"><StatusFilter value={filter} statuses={statuses} units={units} unit={unit} from={from} to={to} />
-      <p>{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p></div>
+      <p role="status" aria-live="polite" aria-atomic="true">{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p></div>
+      <ActiveRegistrationFilters status={filter} unit={unit} from={from} to={to} />
       {invalidRange && <p className="note" role="alert">La fecha Desde debe ser anterior o igual a la fecha Hasta.</p>}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de solicitudes de inscripción">
         <table className="outings-table coordination-compact-table registrations-overview-table">

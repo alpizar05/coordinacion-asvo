@@ -4,6 +4,7 @@ import { compactParticipationDates } from '../../../../lib/participation-dates';
 
 
 import Link from 'next/link';
+import { ActiveFilters } from '../../active-filters';
 import { TableFilters } from '../../table-filters';
 import { useActionState, useState } from 'react';
 import { createOutingCollection } from '../../../staff-actions';
@@ -33,6 +34,7 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
       <input type="search" value={search} onChange={event => setSearch(event.target.value)} />
     </label></TableFilters>
     <p role="status">{selected.length} {selected.length === 1 ? 'salida seleccionada' : 'salidas seleccionadas'}</p>
+    <ActiveFilters chips={search.trim() ? [{key:'search',label:`Búsqueda: ${search.trim()}`,description:'Búsqueda',remove:() => setSearch('')}] : []} />
     {selected.map(id => <input key={id} type="hidden" name="outing" value={id} />)}
     {matches.length ? <div className="outings-scroll" tabIndex={0} role="region" aria-label="Salidas disponibles para agrupar">
       <table className="outings-table coordination-compact-table compact-select-outings">

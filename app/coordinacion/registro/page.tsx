@@ -27,6 +27,7 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
         <VolunteerFilters query={query} unit={unit} units={units} />
         <p role="status">{total > pageSize ? `${(page-1)*pageSize+1}–${Math.min(page*pageSize,total)} de ${total}` : total} {total === 1 ? 'persona voluntaria' : 'personas voluntarias'}</p>
       </div>
+      <div id="volunteer-registry-active-filters" />
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de voluntariado">
         <table className="outings-table coordination-compact-table compact-volunteers">
           <thead><tr>

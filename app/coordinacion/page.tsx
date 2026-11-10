@@ -45,6 +45,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
       <div className="actions summary-actions"><SummaryRefresh /><Link className="button coord-button-primary" href="/coordinacion/salidas/nueva">Nueva convocatoria</Link></div>
       <div className="summary-filter-toolbar"><SummaryFilters unit={unit} days={days} tab={tab} units={units.map(item => item.name)} /></div>
     </div>
+    <div id="summary-active-filters" />
     {params.gestionada && <StatusRibbon message="Inscripción gestionada. Los pendientes se actualizaron." />}
     <div className="summary-dashboard">
       <section className="card" aria-labelledby="summary-attention"><h2 id="summary-attention">Requiere atención</h2>

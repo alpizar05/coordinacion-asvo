@@ -101,6 +101,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     <p className="registration-count" role="status">{visibleEntries.length === entries.length
       ? `${entries.length} ${entries.length === 1 ? 'inscripción' : 'inscripciones'}`
       : `${visibleEntries.length} de ${entries.length} inscripciones`}</p>
+    <div id="outing-registration-active-filters" />
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Inscripciones de la salida">
       <table className="outings-table outing-registration-table" role="table">
         <thead><tr>

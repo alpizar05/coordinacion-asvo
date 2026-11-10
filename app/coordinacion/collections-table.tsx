@@ -3,6 +3,7 @@
 import { StatusRibbon } from '../status-ribbon';
 
 import Link from 'next/link';
+import { ActiveFilters } from './active-filters';
 import { TableFilters } from './table-filters';
 import { compactParticipationDates } from '../../lib/participation-dates';
 import { RowActionPanel } from './row-action-panel';
@@ -43,6 +44,11 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
       </select></label>
     </div></TableFilters>
     <p role="status">{rows.length} de {collections.length} convocatorias en serie</p></div>
+    <ActiveFilters label="Filtros activos de convocatorias en serie" chips={[
+      ...(search.trim() ? [{key:'search',label:`Búsqueda: ${search.trim()}`,description:'Búsqueda',remove:() => setSearch('')}] : []),
+      ...(kind ? [{key:'kind',label:kind === 'automaticas' ? 'Automáticas' : 'Manuales',description:'Tipo',remove:() => setKind('')}] : []),
+      ...(availability ? [{key:'availability',label:availability === 'public' ? 'Con salidas en el catálogo' : 'Sin salidas en el catálogo',description:'Disponibilidad pública',remove:() => setAvailability('')}] : []),
+    ]} reset={search || kind || availability ? () => { setSearch(''); setKind(''); setAvailability(''); } : undefined} />
     <StatusRibbon message={copyStatus} onExpire={setCopyStatus} />
     {rows.length ? <table className="outings-table collections-table coordination-compact-table compact-series" aria-label="Convocatorias en serie">
       <thead><tr><th scope="col">Convocatoria en serie</th><th scope="col">Tipo</th><th scope="col">Próximo inicio</th><th scope="col">Salidas</th><th scope="col">Acciones</th></tr></thead>

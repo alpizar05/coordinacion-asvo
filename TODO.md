@@ -4,9 +4,8 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 
 ## Orden sugerido para comenzar
 
-1. Filtros activos visibles en las listas móviles.
-2. Historial de cada convocatoria.
-3. Historial de cambios de la ficha de voluntariado.
+1. Historial de cada convocatoria.
+2. Historial de cambios de la ficha de voluntariado.
 
 ## Prioridad alta
 
@@ -14,7 +13,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 
 - [x] **Buscar personas voluntarias y paginar el registro.** Buscar por nombre, identificación o correo; filtrar por unidad; paginar desde el servidor para evitar cargar todo el registro. Conservar los criterios al cambiar de página. Implementado con 25 registros por página, búsqueda sin distinción de tildes o mayúsculas, filtros móviles en modal y pruebas de integración locales.
 - [x] **Mostrar pendientes de Coordinación.** Resumen es la entrada principal: pestañas con conteos de revisión, salidas próximas sin 70 e informes pendientes por cada 70 asignado. Incluye gestión directa, filtros por unidad, periodos de 7/14/30 días, preferencias por usuario y próximas salidas con logística. Se excluyen canceladas y se respetan los permisos por unidad.
-- [ ] **Mostrar filtros activos en celular.** Debajo del contador, presentar etiquetas removibles con los criterios aplicados y una opción para restablecer los filtros de la vista. Mantener el modal de filtros y actualizar etiquetas, resultados y contador conjuntamente.
+- [x] **Mostrar filtros activos en celular.** Etiquetas sutiles removibles en Solicitudes de inscripción, Convocatorias de salida, Convocatorias en serie, Voluntariado, Resumen, inscripciones de una salida y selección de salidas para una serie. Mantienen los demás criterios y sincronizan el modal. Restablecer recupera los valores iniciales de cada vista; en Registro maestro se conserva la acción del encabezado. Verificado con TypeScript y navegación móvil local.
 - [x] **Presentar el historial de cada inscripción.** Mostrar recepción, confirmación, cancelación, reactivación y notificaciones, con fecha, responsable y motivo cuando corresponda. Distinguir correos pendientes de mensajes enviados, usando auditoría y cola existentes donde sea posible.
 
 ## Prioridad media

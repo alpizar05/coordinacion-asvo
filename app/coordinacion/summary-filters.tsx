@@ -1,11 +1,15 @@
 'use client';
 
 import { useEffect, useState, useTransition } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
+import { ActiveFilters } from './active-filters';
 import { TableFilters } from './table-filters';
 
 export function SummaryFilters({ unit, days, tab, units }: { unit: string; days: number; tab: string; units: string[] }) {
   const router = useRouter();
+  const [chipSlot,setChipSlot] = useState<HTMLElement | null>(null);
+  useEffect(() => { setChipSlot(document.getElementById('summary-active-filters')); }, []);
   const [selectedUnit,setSelectedUnit] = useState(unit);
   const [selectedDays,setSelectedDays] = useState(days);
   const [pending,startTransition] = useTransition();
@@ -14,7 +18,7 @@ export function SummaryFilters({ unit, days, tab, units }: { unit: string; days:
     setSelectedUnit(nextUnit); setSelectedDays(nextDays);
     startTransition(() => router.replace(`/coordinacion?${new URLSearchParams({ unidad:nextUnit,dias:String(nextDays),pestana:tab })}`,{scroll:false}));
   }
-  return <TableFilters title="Filtros de Resumen" active={!!selectedUnit || selectedDays !== 7}>
+  return <><TableFilters title="Filtros de Resumen" active={!!selectedUnit || selectedDays !== 7}>
     <div className="outings-filters" aria-busy={pending}>
       <label>Unidad<select value={selectedUnit} onChange={event => update(event.target.value,selectedDays)}>
         <option value="">Todas mis unidades</option>{units.map(name => <option key={name}>{name}</option>)}
@@ -25,5 +29,10 @@ export function SummaryFilters({ unit, days, tab, units }: { unit: string; days:
       {(selectedUnit || selectedDays !== 7) && <button type="button" onClick={() => update('',7)}>Restablecer</button>}
       {pending && <span role="status">Actualizando…</span>}
     </div>
-  </TableFilters>;
+  </TableFilters>
+    {chipSlot && createPortal(<ActiveFilters label="Filtros activos de Resumen" chips={[
+      ...(selectedUnit ? [{key:'unit',label:selectedUnit,description:'Unidad',remove:() => update('',selectedDays)}] : []),
+      ...(selectedDays !== 7 ? [{key:'days',label:`Próximas salidas: ${selectedDays} días`,description:'Periodo',remove:() => update(selectedUnit,7)}] : []),
+    ]} reset={selectedUnit || selectedDays !== 7 ? () => update('',7) : undefined} />,chipSlot)}
+  </>;
 }

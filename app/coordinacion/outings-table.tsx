@@ -4,6 +4,7 @@ import { compactParticipationDates } from '../../lib/participation-dates';
 
 
 import Link from 'next/link';
+import { ActiveFilters } from './active-filters';
 import { TableFilters } from './table-filters';
 import { useState } from 'react';
 
@@ -70,6 +71,14 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
       </select>
     </label></TableFilters>
     <p role="status">{rows.length} de {outings.length} convocatorias</p></div>
+    <ActiveFilters label="Filtros activos de convocatorias" chips={[
+      ...(query.trim() ? [{key:'search',label:`Búsqueda: ${query.trim()}`,description:'Búsqueda',remove:() => setQuery('')}] : []),
+      ...(unit ? [{key:'unit',label:unit,description:'Unidad',remove:() => setUnit('')}] : []),
+      ...(status ? [{key:'status',label:status,description:'Estado',remove:() => setStatus('')}] : []),
+      ...(access ? [{key:'access',label:access,description:'Visibilidad',remove:() => setAccess('')}] : []),
+    ]} reset={query || unit || access || status !== 'abierta' ? () => {
+      setQuery(''); setUnit(''); setAccess(''); setStatus('abierta');
+    } : undefined} />
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de convocatorias">
       <table className="outings-table coordination-compact-table compact-outings">
         <thead><tr>{columns.map(([column,label]) => {

@@ -399,3 +399,17 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .attendance-reports > li { padding: .85rem; margin-bottom: .65rem; background: var(--coord-soft); border-radius: .4rem; }
 .attendance-history li { padding-block: .5rem; border-bottom: 1px solid var(--line); }
 #asistencia { scroll-margin-top: 7rem; }
+.registration-active-filters { display: none; }
+@media (max-width: 700px) {
+  .registration-active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .4rem; margin: -.25rem 0 .65rem; }
+  .coordination-content .registration-active-filters :is(a, button), .coordination-content .registration-active-filters :is(a, button):hover { border: 0; background: transparent; padding: 0; font-weight: 400; font-family: inherit; cursor: pointer; text-align: left; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-size: .75rem; color: #535b4b; }
+  .active-filter-chip-content { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .55rem; border-radius: 1rem; background: #f1f3ee; }
+  .active-filter-chip-content > span { font-size: 1rem; line-height: 1; color: #687062; }
+  .active-filter-chip:hover .active-filter-chip-content { background: #e7ebe2; }
+  .registration-active-filters .active-filter-reset { padding-inline: .35rem; text-decoration: underline; text-underline-offset: .15rem; }
+}
+
+@media (max-width: 700px) {
+  .active-filter-chip-content { overflow-wrap: anywhere; }
+
+}
