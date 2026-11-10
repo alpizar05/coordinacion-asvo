@@ -78,8 +78,8 @@ export default async function Registrations({ searchParams }: {
               <td data-label="Estado"><span className="overview-full-status pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span>
                 <span className="overview-compact-status"><span className="pill" data-status={row.status}>{row.status.startsWith('cancelada') ? 'Cancelada' : statusLabels.get(row.status) ?? row.status}</span>
                 {row.status.startsWith('cancelada') && <span className="overview-cancelled-by">{row.status === 'cancelada por coordinación' ? 'Por Coordinación' : 'Por voluntariado'}</span>}</span></td>
-              <td data-label="Acciones">{outingIsEditable(row.outing_status) && <RegistrationActions personName={row.volunteer} entry={row} outing={{ flexible: row.flexible, first_day: row.outing_start, last_day: row.outing_end }}
-                error={row.id === inscripcion ? error : undefined} fromList filter={filters} />}</td>
+              <td data-label="Acciones"><RegistrationActions canManage={outingIsEditable(row.outing_status)} personName={row.volunteer} entry={row} outing={{ flexible: row.flexible, first_day: row.outing_start, last_day: row.outing_end }}
+                error={row.id === inscripcion ? error : undefined} fromList filter={filters} /></td>
             </tr>)}
             {!rows.length && <tr><td colSpan={7}>No hay solicitudes que coincidan con los filtros.</td></tr>}
           </tbody>

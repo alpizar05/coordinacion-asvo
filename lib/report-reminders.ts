@@ -32,7 +32,7 @@ export async function queueReportReminder(tx: Transaction, outingId: string, reg
   const mail = reportReminderTemplate({name:entry.name,title:entry.title,starts:entry.starts,ends:entry.ends,url,origin:appUrl()});
   let mailId = null, demoId = null;
   if (options.isDemo ?? demo) {
-    const [row] = await tx`insert into demo_mail(recipient,url,subject,body) values (${entry.email},${url},${mail.subject},${mail.body}) returning id`; demoId = row.id;
+    const [row] = await tx`insert into demo_mail(registration_id,recipient,url,subject,body) values (${registrationId},${entry.email},${url},${mail.subject},${mail.body}) returning id`; demoId = row.id;
   } else {
     const [row] = await tx`insert into registration_mail_outbox(registration_id,recipient,url,subject,body,html_body)
       values (${registrationId},${entry.email},${url},${mail.subject},${mail.body},${mail.html}) returning id`; mailId = row.id;

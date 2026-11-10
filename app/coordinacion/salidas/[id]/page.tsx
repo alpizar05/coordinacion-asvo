@@ -6,7 +6,6 @@ import { ActionModal } from '../../action-modal';
 import { OutingTabs } from './outing-tabs';
 import { FoodSummary } from '../../food-summary';
 import { TransportSummary } from '../../transport-summary';
-import { RegistrationDetails } from '../../registration-details';
 import { StatusRibbon } from '../../../status-ribbon';
 import { HomepageFeatureControl } from '../../homepage-feature-control';
 import { InheritedField } from './inherited-field';
@@ -133,9 +132,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
                 entry={{ id: entry.id, status: entry.status, identification: entry.identification, starts: entry.starts, ends: entry.ends, assigned70: !!entry.assigned70 }}
                 outing={{ flexible: outing.flexible, first_day: outing.first_day, last_day: outing.last_day }}
                 error={entry.id === inscripcion ? error : undefined}
-                details={<RegistrationDetails entry={{ volunteer: entry.volunteer, identification: entry.identification, status: entry.status,
-                  starts: entry.starts, ends: entry.ends, covered: entry.covered, assigned70: entry.assigned70, details: entry.details, received: receivedFormat.format(entry.received_at) }}
-                  general={outing.unit === 'Voluntariado General'} />} />
+                />
             </td>
           </tr>)}
           {!visibleEntries.length && <tr className="registration-empty"><td colSpan={6}>

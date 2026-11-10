@@ -1,5 +1,6 @@
 'use server';
 
+import { registrationChanges } from '../lib/registration-changes';
 import { dispatchRegistrationUpdates, notifyRegistration, promoteWaitlist, receiveRegistration } from '../lib/registration-workflow';
 
 import { randomUUID } from 'node:crypto';
@@ -95,7 +96,7 @@ export async function privateAction(token: string, form: FormData) {
     if (!['gestionar','validar'].includes(link.purpose)) return;
     const [outing] = await tx`select unit,status,flexible,starts::text as first_day,ends::text as last_day
       from outings where id=${entry.outing_id} for update`;
-    const [current] = await tx`select status, outing_id, starts::text as first_day,ends::text as last_day,volunteer_id from registrations where id=${entry.id} for update`;
+    const [current] = await tx`select status, outing_id, starts::text as first_day,ends::text as last_day,volunteer_id,details from registrations where id=${entry.id} for update`;
     if (!outing || !current || current.outing_id !== entry.outing_id || !['abierta','confirmada'].includes(outing.status)) return;
     const active = ['revisión','espera','confirmada'].includes(current.status);
     if (action === 'cancelar' && active) {
@@ -116,10 +117,10 @@ export async function privateAction(token: string, form: FormData) {
       const datesChanged = current.first_day !== starts || current.last_day !== ends;
       const status = current.status === 'confirmada' && datesChanged ? 'revisión' : current.status;
       const details = { ...registrationDetails(form,outing.unit === 'Voluntariado General'),
-        ...(status === 'confirmada' && entry.details?.assigned70 === true ? { assigned70: true } : {}) };
+        ...(status === 'confirmada' && current.details?.assigned70 === true ? { assigned70: true } : {}) };
       await tx`update registrations set details=${tx.json(details)},starts=${starts},ends=${ends},status=${status} where id=${entry.id}`;
       if (status !== 'confirmada') await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${entry.id} and revoked_at is null`;
-      await audit(tx,'voluntariado','Editó inscripción',entry.id);
+      await audit(tx,'voluntariado','Editó inscripción',entry.id,registrationChanges({starts:current.first_day,ends:current.last_day,status:current.status,details:current.details},{starts,ends,status,details}));
       await notifyRegistration(tx,entry.id,datesChanged && current.status === 'confirmada'
         ? 'Actualizaste tus fechas. Conservás el cupo reservado y Coordinación debe confirmar las fechas nuevas.'
         : 'Guardamos los cambios de tu inscripción.');

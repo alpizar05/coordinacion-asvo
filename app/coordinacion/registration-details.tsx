@@ -1,4 +1,4 @@
-import { displayDate } from '../../lib/registration';
+const displayDate = (value: string) => value.split('-').reverse().join('/');
 import { registrationLogistics } from '../../lib/registration-logistics';
 import { statusLabels } from './registration-statuses';
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { RegistrationDetailPanel } from './registration-detail-panel';
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ReportReminder } from './report-reminder';
@@ -29,7 +30,7 @@ const actionsByStatus: Record<string, Action[]> = {
   'cancelada por voluntariado': ['confirmar'],
 };
 
-export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, details, canManage = true, reportFollowup }: {
+export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, canManage = true, reportFollowup }: {
   entry: { id: string; status: string; identification: string; starts: string; ends: string; assigned70?: boolean };
   outing: { flexible: boolean; first_day: string; last_day: string };
   reportFollowup?: { outingId: string; title: string; starts: string; ends: string; email: string | null; activeLink: boolean; pending: boolean; finalized: boolean; demo: boolean };
@@ -38,7 +39,6 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   fromList?: boolean;
   fromSummary?: boolean;
   filter?: string;
-  details?: ReactNode;
   canManage?: boolean;
 }) {
   const [reminding,setReminding] = useState(false);
@@ -48,13 +48,12 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   const baseActions = canManage ? actionsByStatus[entry.status] : undefined;
   const available = baseActions && entry.status === 'confirmada' && !fromList
     ? [entry.assigned70 ? 'quitar70' as const : 'asignar70' as const, ...baseActions] : baseActions;
-  const viewing = selected === 'ver' && !!details;
+  const viewing = selected === 'ver';
   const action = selected && selected !== 'ver' && available?.includes(selected) ? selected : null;
   const needsReason = action === 'espera' || action === 'rechazar' || action === 'cancelar';
   const approveDates = action === 'confirmar' && outing.flexible &&
     (entry.starts < outing.first_day || entry.ends > outing.last_day);
 
-  if (!available && !details && !reportFollowup) return error ? <p className="note" role="alert">{error}</p> : null;
 
   return <>
     {reportFollowup && !reportFollowup.finalized && reportFollowup.email && <ReportReminder open={reminding} onClose={() => setReminding(false)}
@@ -67,7 +66,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
         {error && <p className="note" role="alert">{error}</p>}
         {viewing ? <>
           <button className="registration-sheet-back" type="button" onClick={() => setSelected(null)}>Volver a gestionar</button>
-          {details}
+          <RegistrationDetailPanel id={entry.id} />
         </> : action ? <form key={action} action={manageEntry.bind(null,entry.id,fromList,filter)}>
           <h3>{labels[action]}</h3>
           {fromSummary && <input type="hidden" name="fromSummary" value="1" />}
@@ -87,7 +86,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
             <button className={action === 'rechazar' || action === 'cancelar' ? 'coord-button-danger' : 'coord-button-primary'} type="submit">{labels[action]}</button>
           </div>
         </form> : <ul className="registration-sheet-actions">
-          {details && <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>}
+          <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>
           {canManage && ['revisión','espera','confirmada'].includes(entry.status) && <li><button type="button" onClick={() => { close(); setEditing(true); }}>Editar inscripción</button></li>}
           {reportFollowup && <li>{reportFollowup.finalized
             ? <Link href={`/coordinacion/salidas/${reportFollowup.outingId}/resumen?informe=${entry.id}#informe-${entry.id}`}>Ver informe finalizado</Link>

@@ -223,3 +223,11 @@ Crear y editar una convocatoria incluye **Transporte**, **Alimentación** y **Ho
 Los campos se muestran en la convocatoria pública, en Logística e Información de Coordinación, en la guía privada del 70 y en el comunicado para WhatsApp. Las condiciones de la salida se distinguen de las ofertas de transporte y restricciones alimentarias personales. Los campos no completados indican «Por confirmar con Coordinación».
 
 Esta versión agrega `outings.transport_details`, `food_details` y `lodging_details`. Antes de desplegar debe aplicarse `schema.sql` en Neon junto con la migración pendiente de borradores de informes.
+
+### Historial de inscripción
+
+**Gestionar → Ver inscripción** muestra el detalle y su historial desde la salida, Solicitudes de inscripción y Resumen. Está disponible también en registros cancelados y salidas cerradas, como consulta sin habilitar edición. Se carga al abrir el panel, verificando permisos de la unidad en el servidor.
+
+La línea de tiempo reutiliza auditoría: fecha/hora de Costa Rica, responsable registrado, acción, motivo y cambios anteriores/nuevos para ediciones posteriores a esta versión. Los correos se presentan por separado con destinatario, fecha, estado pendiente/enviado/cancelado e intentos. «Enviado» significa aceptación de Microsoft, no lectura. El historial no devuelve cuerpos de correo, enlaces privados ni tokens.
+
+Los datos antiguos no se reconstruyen por suposición. Los correos demo nuevos quedan vinculados por `demo_mail.registration_id` y `created_at`; los anteriores pueden no tener vínculo o fecha. Antes de desplegar aplicar `schema.sql` en Neon. La base local ya cuenta con las columnas y los índices de consulta.

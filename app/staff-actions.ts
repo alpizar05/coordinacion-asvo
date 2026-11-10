@@ -414,7 +414,7 @@ export async function splitOutingGroup(id: string, start: string, end: string, f
     const ids = group.people.map(person => person.id);
     await tx`update registrations set outing_id=${created.id} where id=any(${ids}::uuid[])`;
     for (const registrationId of ids) {
-      await audit(tx, user.subject, 'Trasladó inscripción a otra salida', registrationId, `${id} → ${created.id}`);
+      await audit(tx, user.subject, 'Trasladó inscripción a otra salida', registrationId, `Salida de origen: ${outing.title} (${id}) → ${title} (${created.id})`);
       await notifyRegistration(tx,registrationId,'Coordinación trasladó tu grupo a su propia salida. Conservás las fechas y el estado de tu inscripción.');
     }
     await promoteWaitlist(tx,id,user.subject);

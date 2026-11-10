@@ -17,6 +17,7 @@ registerHooks({ resolve(specifier, context, nextResolve) {
   }
   return nextResolve(specifier, context);
 } });
+const { registrationHistory } = await import('../lib/registration-history.ts');
 const { sql } = await import('../lib/db.ts');
 const { editStaffRegistration, registrationVersion } = await import('../lib/edit-registration.ts');
 const { receiveStaffRegistration } = await import('../lib/staff-registration.ts');
@@ -70,6 +71,10 @@ try {
   assert.ok((await staffReceive(people[0])).error,'Coordinación tampoco duplica inscripciones');
   const [staffAudit] = await sql`select actor from audit where target=${staffEntry.id} and action='Agregó inscripción desde Coordinación'`;
   assert.equal(staffAudit.actor,'coordinador-prueba');
+  const receivedHistory = await registrationHistory(staffEntry.id);
+  assert.ok(receivedHistory.events.some(event=>event.action==='Recibió inscripción'));
+  assert.ok(receivedHistory.mail.some(mail=>mail.source==='demo'),'Vincula correos de prueba sin adivinar por destinatario');
+  assert.ok(!JSON.stringify(receivedHistory).includes('/privado/'),'No expone enlaces privados en el historial');
   assert.equal((await sql`select details from registrations where id=${staffEntry.id}`)[0].details.ofreceTransporte,2);
   const results = [staffEntry,...await Promise.all([receive(people[1]),staffReceive(people[2])])];
   assert.equal(results.filter(row => row.status === 'revisión').length,2,'Dos reservas para dos cupos, aun con recepción concurrente');
@@ -87,6 +92,8 @@ try {
   assert.ok((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-02-03',editDetails))).error,'Rechaza fechas sin cobertura');
   assert.equal((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-01-12',editDetails))).saved,true);
   assert.equal((await sql`select status,details from registrations where id=${reserved[0].id}`)[0].details.assigned70,true,'Editar logística conserva asignación 70');
+  const editedHistory = await registrationHistory(reserved[0].id);
+  assert.ok(editedHistory.events.some(event=>event.reason?.includes('Personas que puede llevar:') && event.reason?.includes('3')),'Registra valores anteriores y nuevos de logística');
   assert.ok((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-01-12',{}))).error,'No sobrescribe una versión desactualizada');
   assert.equal((await locked(async tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',await editVersion(),'2030-01-11','2030-01-12',editDetails))).saved,true);
   assert.equal((await sql`select status from registrations where id=${reserved[0].id}`)[0].status,'revisión','Cambiar fechas confirmadas exige nueva revisión');

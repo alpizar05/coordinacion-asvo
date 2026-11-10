@@ -373,3 +373,13 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .coordination-content .outing-photo-field > legend { padding: 0; margin-bottom: .35rem; font-size: .9375rem; font-weight: 600; }
 .coordination-content .outing-photo-selection { border: 1px solid var(--line); border-radius: var(--coord-radius); padding: 1rem; margin: .35rem 0 0; }
 .coordination-content .outing-photo-selection > legend { padding-inline: .4rem; font-size: .875rem; color: var(--coord-primary); }
+.registration-history { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.registration-timeline { list-style: none; padding: 0 0 0 1rem; border-left: 2px solid var(--line); }
+.registration-timeline li { padding: 0 0 1.25rem .5rem; }
+.registration-timeline strong, .registration-timeline time { display: block; }
+.registration-timeline time { font-size: .8125rem; color: var(--gray); margin-bottom: .35rem; }
+.registration-timeline p { margin: .4rem 0; }
+.registration-mail-history { list-style: none; padding: 0; }
+.registration-mail-history li { padding: 1rem 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.registration-mail-history strong { display: block; margin-bottom: .5rem; }
+.registration-mail-history p { margin: .4rem 0; }

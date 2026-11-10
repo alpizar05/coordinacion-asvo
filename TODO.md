@@ -15,7 +15,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 - [x] **Buscar personas voluntarias y paginar el registro.** Buscar por nombre, identificación o correo; filtrar por unidad; paginar desde el servidor para evitar cargar todo el registro. Conservar los criterios al cambiar de página. Implementado con 25 registros por página, búsqueda sin distinción de tildes o mayúsculas, filtros móviles en modal y pruebas de integración locales.
 - [x] **Mostrar pendientes de Coordinación.** Resumen es la entrada principal: pestañas con conteos de revisión, salidas próximas sin 70 e informes pendientes por cada 70 asignado. Incluye gestión directa, filtros por unidad, periodos de 7/14/30 días, preferencias por usuario y próximas salidas con logística. Se excluyen canceladas y se respetan los permisos por unidad.
 - [ ] **Mostrar filtros activos en celular.** Debajo del contador, presentar etiquetas removibles con los criterios aplicados y una opción para restablecer los filtros de la vista. Mantener el modal de filtros y actualizar etiquetas, resultados y contador conjuntamente.
-- [ ] **Presentar el historial de cada inscripción.** Mostrar recepción, confirmación, cancelación, reactivación y notificaciones, con fecha, responsable y motivo cuando corresponda. Distinguir correos pendientes de mensajes enviados, usando auditoría y cola existentes donde sea posible.
+- [x] **Presentar el historial de cada inscripción.** Mostrar recepción, confirmación, cancelación, reactivación y notificaciones, con fecha, responsable y motivo cuando corresponda. Distinguir correos pendientes de mensajes enviados, usando auditoría y cola existentes donde sea posible.
 
 ## Prioridad media
 
@@ -29,6 +29,20 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 - [ ] **Confirmar las operaciones guardadas.** Mostrar una franja temporal con un mensaje específico al guardar en modales, por ejemplo «Unidades actualizadas» o «Póliza registrada».
 - [ ] **Señalar errores por campo.** Asociar los errores administrativos al campo correspondiente, llevar el foco a la primera corrección necesaria y conservar los datos para reintentar.
 - [ ] **Conservar el contexto al regresar a una lista.** Recuperar filtros, página y posición de desplazamiento después de consultar una persona, convocatoria o inscripción.
+
+## Historiales y trayectoria del voluntariado
+
+Orden propuesto: historial de inscripción y participaciones de la persona voluntaria primero; después historial de convocatoria y cambios de ficha.
+
+- [x] **Ampliar el historial de cada inscripción.** Integrarlo en Gestionar → Ver inscripción como línea de tiempo con fecha, responsable, motivo y detalle de qué cambió (fechas y datos logísticos). Incluir recepción, cupo, lista de espera, confirmación, cancelación y reactivación. Mostrar los correos vinculados con estado pendiente/enviado/cancelado, distinguiendo la acción del resultado de su notificación. Complementa la tarea de prioridad alta ya registrada.
+- [ ] **Mostrar la trayectoria de cada persona voluntaria.** Agregar Participaciones a su ficha, con tabla en desktop y lista compacta en celular: salida, fechas, resultado y responsabilidad como integrante o 70. Incluir resumen de salidas con participación real confirmada, veces como 70, última participación e informes pendientes a su cargo. Permitir consultar la salida e inscripción asociadas según permisos.
+- [ ] **Definir y conciliar la evidencia de asistencia.** Distinguir inscripción recibida, cupo confirmado, cancelación y participación real. Usar únicamente informes finalizados del 70 para acreditar asistencia; un borrador no completa la tarea ni confirma participación. Si varios informes discrepan para la misma persona y salida, mostrar «Asistencia por conciliar» y permitir resolverla a Coordinación con auditoría. Evitar duplicar participaciones cuando varios 70 informen sobre la misma salida.
+- [ ] **Agregar historial de cada convocatoria.** En Herramientas → Historial de la salida, registrar creación, cambios relevantes de fechas, cupos, visibilidad, fecha límite, logística, asignaciones de 70, separación de grupos y cierre. Enlazar los historiales de inscripción sin repetir todos sus eventos individuales.
+- [ ] **Mostrar historial de cambios de la ficha de voluntariado.** Registrar correcciones de identidad/contacto, pertenencia a unidades y pólizas, indicando responsable, fecha y cambios. Respetar las atribuciones de Administración y Coordinación y evitar exponer datos fuera del alcance del rol.
+- [ ] **Conectar los historiales existentes de incidentes y comunicaciones.** Mantener incidentes como sección separada con su contexto y permisos; vincular correos y recordatorios a la inscripción o informe correspondiente. Reutilizar auditoría y cola existentes antes de crear registros duplicados.
+- [ ] **Definir métricas de días y horas de voluntariado antes de incorporarlas.** Establecer cómo registrar fechas reales individuales y duración efectiva. No calcular horas ni días acumulados a partir de una inscripción o del periodo general sin evidencia suficiente.
+
+Criterios para todos los historiales: reutilizar evidencia existente, ampliar la auditoría para cambios nuevos y señalar información histórica no disponible. No inventar fechas, responsables ni participaciones. Mostrar únicamente lo autorizado por el rol y la unidad.
 
 ## Criterios comunes de implementación
 

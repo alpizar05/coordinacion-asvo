@@ -277,3 +277,10 @@ alter table outing_reports alter column submitted_at drop not null;
 alter table outings add column if not exists transport_details text not null default '';
 alter table outings add column if not exists food_details text not null default '';
 alter table outings add column if not exists lodging_details text not null default '';
+
+-- Link new demo messages to registrations without inventing historical timestamps.
+alter table demo_mail add column if not exists registration_id uuid references registrations on delete cascade;
+alter table demo_mail add column if not exists created_at timestamptz;
+alter table demo_mail alter column created_at set default clock_timestamp();
+create index if not exists demo_mail_registration on demo_mail(registration_id);
+create index if not exists audit_target_history on audit(target,happened_at,id);

@@ -1,3 +1,4 @@
+import { registrationChanges } from './registration-changes';
 import { audit, date, digest, eligible, type Transaction } from './registration';
 import { notifyRegistration } from './registration-workflow';
 
@@ -25,7 +26,7 @@ export async function editStaffRegistration(tx: Transaction, id: string, actor: 
   if (status !== 'confirmada') delete updated.assigned70;
   await tx`update registrations set starts=${starts},ends=${ends},status=${status},policy_id=${policy.id},details=${tx.json(updated)} where id=${id}`;
   if (status !== 'confirmada') await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${id} and revoked_at is null`;
-  await audit(tx,actor,'Editó inscripción desde Coordinación',id,changedDates ? `Fechas: ${entry.starts} al ${entry.ends} → ${starts} al ${ends}` : 'Actualizó datos de participación');
+  await audit(tx,actor,'Editó inscripción desde Coordinación',id,registrationChanges({starts:entry.starts,ends:entry.ends,status:entry.status,details:entry.details},{starts,ends,status,details:updated}));
   await notifyRegistration(tx,id,changedDates && entry.status === 'confirmada'
     ? 'Coordinación actualizó tus fechas de participación. Conservás el cupo reservado; las fechas nuevas están en revisión.'
     : 'Coordinación actualizó los datos de tu inscripción. Podés consultar el detalle en tu enlace privado.');
