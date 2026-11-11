@@ -129,6 +129,10 @@ try{
    const record=(entity,source_key,target_id,state,payload,notes={})=>records.push({batch_id:plan.batch,entity,source_key:String(source_key),target_id,state,payload:tx.json(payload),notes:tx.json(notes)});
    const newPeople=data.volunteers.filter(v=>!byIdentification.has(v.identification)).map(v=>({id:v.id,identification:v.identification,name:v.name,surname:v.surname,second_surname:v.second_surname||null,email:safeBetaEmail(v.email,v.identification),whatsapp:v.whatsapp||null}));
    if(newPeople.length)await tx`insert into volunteers ${tx(newPeople,'id','identification','name','surname','second_surname','email','whatsapp')}`;
+   const contacts=data.volunteers.map(v=>({identification:v.identification,email:safeBetaEmail(v.email,v.identification),whatsapp:v.whatsapp||null}));
+   await tx`update volunteers v set email=coalesce(nullif(btrim(v.email),''),c.email),whatsapp=coalesce(nullif(btrim(v.whatsapp),''),c.whatsapp)
+    from jsonb_to_recordset(${tx.json(contacts)}) as c(identification text,email text,whatsapp text)
+    where v.identification=c.identification`;
    for(const v of data.volunteers)record('volunteer',v.id,personMap.get(v.id),'importado',v,{reused:byIdentification.has(v.identification),previous:byIdentification.get(v.identification)||null,contact_not_verified:true});
    // Existing registry data and beta email masking take precedence; don't silently overwrite it.
    const existingPolicies=await tx`select * from policies where volunteer_id in ${tx([...personMap.values()])}`;
