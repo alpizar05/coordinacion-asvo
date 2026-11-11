@@ -34,7 +34,7 @@ export default async function Registrations({ searchParams }: {
   const invalidRange = !!from && !!to && from > to;
   const filters = new URLSearchParams({ estado: filter, unidad: unit, desde: from, hasta: to }).toString();
   const rows = await sql<{
-    id: string; outing_id: string; identification: string; status: string; received_at: Date;
+    id: string; outing_id: string; identification: string; status: string; received_at: Date | null;
     starts: string; ends: string; title: string; unit: string; flexible: boolean;
     outing_status: string; outing_start: string; outing_end: string; volunteer: string; volunteer_id: string | null;
   }[]>`
@@ -76,7 +76,7 @@ export default async function Registrations({ searchParams }: {
                 <br className="overview-outing-dates" /><span className="table-date overview-outing-dates">{displayDate(row.outing_start)} al {displayDate(row.outing_end)}</span></td>
               <td data-label="Unidad">{row.unit}</td>
               <td data-label="Fechas solicitadas" className="table-date"><span className="overview-full-dates">{displayDate(row.starts)} al {displayDate(row.ends)}</span><span className="overview-compact-dates">{compactParticipationDates(row.starts,row.ends)}</span></td>
-              <td data-label="Recibida" className="table-date">{receivedFormat.format(row.received_at)}</td>
+              <td data-label="Recibida" className="table-date">{row.received_at ? receivedFormat.format(row.received_at) : 'Sin fecha original'}</td>
               <td data-label="Estado"><span className="overview-full-status pill" data-status={row.status}>{statusLabels.get(row.status) ?? row.status}</span>
                 <span className="overview-compact-status"><span className="pill" data-status={row.status}>{row.status.startsWith('cancelada') ? 'Cancelada' : statusLabels.get(row.status) ?? row.status}</span>
                 {row.status.startsWith('cancelada') && <span className="overview-cancelled-by">{row.status === 'cancelada por coordinación' ? 'Por Coordinación' : 'Por voluntariado'}</span>}</span></td>

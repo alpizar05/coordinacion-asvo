@@ -124,7 +124,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
             <td className="table-date registration-dates"><span className="registration-date-desktop">{displayDate(entry.starts)} al {displayDate(entry.ends)}</span>
               <span className="registration-date-mobile">{compactParticipationDates(entry.starts,entry.ends)}</span></td>
             <td className="registration-policy">{entry.covered ? 'Comprobada' : 'Pendiente'}</td>
-            <td className="table-date registration-received">{receivedFormat.format(entry.received_at)}</td>
+            <td className="table-date registration-received">{entry.received_at ? receivedFormat.format(entry.received_at) : 'Sin fecha original'}</td>
             <td className="registration-actions">
               <RegistrationActions canManage={editable} personName={entry.volunteer}
                 reportFollowup={outing.has_ended && ['abierta','confirmada','completada'].includes(outing.status) && entry.assigned70 ? {

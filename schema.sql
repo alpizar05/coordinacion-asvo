@@ -322,3 +322,6 @@ returns boolean language sql immutable as $$
         (decision='no_participo' and (fresh->>'attended' is distinct from 'false' or fresh->>'absent' is distinct from 'true')))
   )
 $$;
+
+-- Historical demo registrations may have no source reception timestamp.
+alter table registrations alter column received_at drop not null;

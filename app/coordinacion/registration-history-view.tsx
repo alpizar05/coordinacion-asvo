@@ -4,12 +4,13 @@ type History = Awaited<ReturnType<typeof registrationHistory>>;
 const timestamp = (value: string) => new Intl.DateTimeFormat('es-CR',{timeZone:'America/Costa_Rica',dateStyle:'medium',timeStyle:'short'}).format(new Date(value));
 const actorLabel = (actor: string) => actor === 'voluntariado' ? 'Persona voluntaria' : actor === 'sistema' ? 'Sistema' : actor === 'local-coordination' ? 'Coordinación de prueba' : `Responsable registrado: ${actor}`;
 
-export function RegistrationHistoryView({ history, received }: { history: History; received: string }) {
+export function RegistrationHistoryView({ history, received }: { history: History; received: string | null }) {
   return <section className="registration-history" aria-label="Historial de la inscripción">
     <h3>Historial de la inscripción</h3>
     <p className="muted">Hora de Costa Rica. Se muestra la evidencia registrada; algunos eventos antiguos no incluyen el detalle de los cambios o el nombre de quien los realizó.</p>
+    {!received && <p className="muted">Fecha de recepción original no disponible.</p>}
     <ol className="registration-timeline">
-      {!history.events.some(event=>event.action === 'Recibió inscripción') && <li>
+      {received && !history.events.some(event=>event.action === 'Recibió inscripción') && <li>
         <time dateTime={received}>{timestamp(received)}</time><strong>Fecha de recepción registrada</strong><p className="muted">Responsable no registrado para este evento.</p>
       </li>}
       {history.events.map(event => <li key={event.id}><time dateTime={event.happened_at}>{timestamp(event.happened_at)}</time>

@@ -2,6 +2,10 @@
 
 Plataforma de coordinación e inscripción de voluntariado. La beta está desplegada en [coordinacion-asvo.vercel.app](https://coordinacion-asvo.vercel.app), con autenticación institucional, PostgreSQL en Neon, fotos en SharePoint y correo mediante Exchange Online.
 
+## Migración histórica de la beta
+
+La [guía de migración histórica 2026](docs/migracion-historica-2026.md) documenta el contrato de importación, los supuestos del demo, los informes pendientes, la asignación de portadas y las comprobaciones de integridad. Los archivos de datos originales se mantienen privados y fuera del repositorio.
+
 ## Manual de despliegue y configuración
 
 Las recomendaciones de producto y experiencia de uso están en la **[lista de mejoras pendientes](TODO.md)**, ordenadas por prioridad.

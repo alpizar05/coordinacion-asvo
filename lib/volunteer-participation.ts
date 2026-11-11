@@ -4,6 +4,7 @@ import { registrationToday } from './outing-invitations';
 export type ParticipationRow = {
   id:string; outing_id:string; title:string; unit:string; starts:string; ends:string;
   outing_start:string; outing_end:string; status:string; outing_status:string; flexible:boolean;
+  historical_participation?: string | null;
   resolution?:string | null; resolution_stale?:boolean; assigned70:boolean; lead_report:boolean; pending_report:boolean; attended:boolean; absent:boolean;
 };
 export function participationResult(row: ParticipationRow) {
@@ -17,6 +18,8 @@ export function participationResult(row: ParticipationRow) {
   if (row.status === 'rechazada') return 'Inscripción rechazada';
   if (row.status === 'espera') return 'En lista de espera';
   if (row.status === 'revisión' || row.status === 'validación') return 'Inscripción pendiente';
+  if (row.historical_participation === 'completada') return 'Participación registrada · Histórico';
+  if (row.historical_participation === 'completada_asumida_demo') return 'Participación asumida · Demo';
   return 'Asistencia pendiente de confirmar';
 }
 export function participationSummary(rows: ParticipationRow[]) {
@@ -38,7 +41,7 @@ export async function volunteerParticipations(volunteerId: string) {
       from volunteer_attendance_evidence e where e.volunteer_id=${volunteerId} group by e.outing_id
     )
     select r.id,r.outing_id,o.title,o.unit,r.starts::text,r.ends::text,o.starts::text as outing_start,o.ends::text as outing_end,
-      r.status,o.status as outing_status,o.flexible,
+      r.status,o.status as outing_status,o.flexible,r.details->>'historical_participation' as historical_participation,
       (r.status='confirmada' and r.details->'assigned70'='true'::jsonb) is true as assigned70,
       exists(select 1 from outing_reports p join registrations lead on lead.id=p.lead_registration_id
         where p.outing_id=o.id and lead.volunteer_id=${volunteerId} and p.status='finalizado') as lead_report,

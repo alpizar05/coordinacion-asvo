@@ -16,6 +16,6 @@ export function RegistrationDetailPanel({ id }: { id: string }) {
   },[id,attempt]);
   if (error) return <div><p role="alert" className="note">{error}</p><button type="button" onClick={()=>setAttempt(value=>value+1)}>Reintentar</button></div>;
   if (!data) return <p role="status">Cargando inscripción e historial…</p>;
-  return <><RegistrationDetails entry={{...data.entry,received:new Intl.DateTimeFormat('es-CR',{timeZone:'America/Costa_Rica',dateStyle:'short',timeStyle:'short'}).format(new Date(data.entry.received))}} general={data.general} />
+  return <><RegistrationDetails entry={{...data.entry,received:data.entry.received ? new Intl.DateTimeFormat('es-CR',{timeZone:'America/Costa_Rica',dateStyle:'short',timeStyle:'short'}).format(new Date(data.entry.received)) : 'Sin fecha original'}} general={data.general} />
     <RegistrationHistoryView history={data.history} received={data.entry.received} /></>;
 }

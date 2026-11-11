@@ -15,7 +15,7 @@ export async function loadRegistrationDetail(id: string) {
   if (!row || !canOperate(user,row.unit)) return { error: 'No tenés permiso para consultar esta inscripción.' };
   const history = await registrationHistory(id);
   return { data: { entry: { volunteer:String(row.volunteer || 'Ficha pendiente de conciliar'),identification:String(row.identification),
-    status:String(row.status),starts:String(row.starts),ends:String(row.ends),received:row.received_at.toISOString(),
+    status:String(row.status),starts:String(row.starts),ends:String(row.ends),received:row.received_at?.toISOString() ?? null,
     covered:!!row.covered,assigned70:row.status === 'confirmada' && row.details?.assigned70 === true,details:row.details as Record<string,unknown>|null },
     general:row.unit === 'Voluntariado General',history } };
 }
