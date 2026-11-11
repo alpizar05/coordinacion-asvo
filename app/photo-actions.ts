@@ -11,7 +11,7 @@ import { audit, field, outingIsEditable, uuid } from '../lib/registration';
 export async function managePhoto(id: string, form: FormData) {
   const error = await updatePhoto(id, form);
   const back = `/coordinacion/salidas/${id}`;
-  redirect(error ? `${back}?editar=1&error=${encodeURIComponent(error)}#fotos` : `${back}?editar=1#fotos`);
+  redirect(error ? `${back}?editar=1&error=${encodeURIComponent(error)}#fotos` : `${back}?editar=1&confirmacion=foto#fotos`);
 }
 
 export async function attachOutingPhoto(id: string, form: FormData) {

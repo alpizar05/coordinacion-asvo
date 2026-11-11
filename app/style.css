@@ -689,7 +689,7 @@ button.registration-sheet-close, .mobile-nav button.drawer-close { font-size: 1.
   border-radius: 0 0 .5rem .5rem;
   box-shadow: 0 .25rem .65rem rgb(8 9 7 / 20%);
   text-align: center;
-  animation: status-ribbon 4.5s both;
+  animation: status-ribbon 5s both;
 }
 @keyframes status-ribbon {
   0% { opacity: 0; transform: translateY(-.5rem); }

@@ -59,7 +59,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <div><dt>Voluntariado desde</dt><dd>{person.volunteer_year || 'Año pendiente'}</dd></div>
           <div><dt>Persona asociada</dt><dd>{person.member == null ? 'Por confirmar' : person.member ? `Sí · ${person.member_year || 'Año pendiente'}` : 'No'}</dd></div>
         </dl>
-        {admin && <ActionModal title="Corregir ficha" saveLabel="Guardar correcciones" wide action={editProfile.bind(null,person.id)}>
+        {admin && <ActionModal title="Corregir ficha" successMessage="Datos de la persona voluntaria actualizados." saveLabel="Guardar correcciones" wide action={editProfile.bind(null,person.id)}>
           {[
             { title: 'Identidad y contacto', fields: [
               ['name','Nombre'],['surname','Primer apellido'],['second_surname','Segundo apellido'],
@@ -103,7 +103,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <p>{policy.verified_at ? `${displayDate(policy.starts)} al ${displayDate(policy.ends)} · ${policy.source}` : 'Vigencia pendiente'}</p>
         </li>)}
       </ul> : <p>Todavía no hay pólizas registradas.</p>}
-      {admin && <ActionModal title="Verificar póliza" saveLabel="Guardar póliza" action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
+      {admin && <ActionModal title="Verificar póliza" successMessage="Póliza registrada y verificada." saveLabel="Guardar póliza" action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
         <label>Tipo<input name="kind" required/></label><label>Número de póliza<input name="number" required/></label>
         <label>Fuente de verificación<input name="source" required/></label>
         <label>Vigente desde<input name="starts" type="date" required/></label><label>Vigente hasta<input name="ends" type="date" required/></label>

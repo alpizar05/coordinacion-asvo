@@ -1,19 +1,15 @@
 'use client';
 
-import { useState } from 'react';
 import { ActionModal } from './action-modal';
-import { StatusRibbon } from '../status-ribbon';
 import { sendReportReminder } from './report-reminder-actions';
 
 export function ReportReminder({ outingId, registrationId, name, email, title, starts, ends, activeLink, demo, open, onClose }: {
   open?: boolean; onClose?: () => void;
   outingId:string; registrationId:string; name:string; email:string; title:string; starts:string; ends:string; activeLink:boolean; demo:boolean;
 }) {
-  const [message,setMessage] = useState('');
-  return <><StatusRibbon message={message} onExpire={setMessage} />
-    <ActionModal open={open} onClose={onClose} title={activeLink ? 'Enviar recordatorio' : 'Preparar enlace y recordar'} saveLabel="Enviar recordatorio" action={async form => {
+  return <>
+    <ActionModal open={open} onClose={onClose} title={activeLink ? 'Enviar recordatorio' : 'Preparar enlace y recordar'} saveLabel="Enviar recordatorio" successMessage={demo ? 'Recordatorio disponible en Bandeja de prueba.' : 'Recordatorio registrado. Consultá su estado de envío en el seguimiento.'} action={async form => {
       const result = await sendReportReminder(outingId,registrationId,form);
-      if (result.saved) setMessage(demo ? 'Recordatorio disponible en Bandeja de prueba.' : 'Recordatorio registrado. Consultá su estado de envío en el seguimiento.');
       return result;
     }}>
       <p><strong>Destinatario:</strong> {name}<br />{email}</p>

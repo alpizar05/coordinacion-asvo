@@ -2,9 +2,11 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
+import { StatusRibbon } from '../status-ribbon';
 import { CoordinationModal } from './coordination-modal';
 
-export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', open: controlledOpen, onClose }: {
+export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', successMessage = 'Cambios guardados.', open: controlledOpen, onClose }: {
+  successMessage?: string;
   open?: boolean; onClose?: () => void;
   title: string; action: (form: FormData) => Promise<unknown>; children: ReactNode; wide?: boolean; id?: string; saveLabel?: string;
 }) {
@@ -14,6 +16,7 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
   const [dirty, setDirty] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
+  const [confirmation,setConfirmation] = useState({id:0,message:''});
   const form = useRef<HTMLFormElement>(null);
   const errorRef = useRef<HTMLParagraphElement>(null);
   const formId = useId();
@@ -22,6 +25,7 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
     if (controlledOpen) { form.current?.reset(); setError(''); setDirty(false); }
   },[controlledOpen]);
   return <div id={id} className={controlledOpen === undefined ? "mobile-disclosure" : undefined}>
+    <StatusRibbon key={confirmation.id} message={confirmation.message} />
     {controlledOpen === undefined && <button type="button" aria-haspopup="dialog" onClick={() => {
       form.current?.reset(); setError(''); setDirty(false); setOpen(true);
     }}>{title}</button>}
@@ -40,7 +44,7 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
           } else {
             setDirty(false); setOpen(false);
             if (result.destination) router.push(result.destination);
-            else router.refresh();
+            else { setConfirmation(previous=>({id:previous.id+1,message:successMessage})); router.refresh(); }
           }
         } catch {
           setError('No se pudo guardar. Tus datos se conservan para reintentar.');

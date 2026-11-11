@@ -224,7 +224,7 @@ async function saveOuting(form: FormData) {
     return created;
   });
   if (cloneId) return `/coordinacion/colecciones/automaticas/${field(form,'request')}?creados=${ids.length}#bloques`;
-  return ids.length === 1 ? `/coordinacion/salidas/${ids[0]}` : `/coordinacion/convocatorias?creadas=${ids.length}#salidas`;
+  return ids.length === 1 ? `/coordinacion/salidas/${ids[0]}?confirmacion=${publish ? 'creada' : 'borrador'}` : `/coordinacion/convocatorias?creadas=${ids.length}#salidas`;
 }
 
 export async function manageOuting(id: string, form: FormData) {
@@ -355,13 +355,14 @@ export async function manageOuting(id: string, form: FormData) {
     }
   });
   await dispatchRegistrationUpdates();
-  if (result === 'eliminada') redirect('/coordinacion/convocatorias#salidas');
+  if (result === 'eliminada') redirect('/coordinacion/convocatorias?confirmacion=eliminada#salidas');
   const back = `/coordinacion/salidas/${id}`;
   const action = field(form, 'action');
   if (result === 'completada') redirect(`${back}?completada=1`);
-  if (action === 'agrupación') redirect(`${back}${result ? `?error=${encodeURIComponent(result)}` : ''}#agrupaciones`);
-  if (!result && action === 'cancelar-salida') redirect(back);
+  if (action === 'agrupación') redirect(`${back}${result ? `?error=${encodeURIComponent(result)}` : '?confirmacion=agrupacion'}#agrupaciones`);
+  if (!result && action === 'cancelar-salida') redirect(`${back}?confirmacion=cancelada`);
   const query = new URLSearchParams({ editar: '1' });
+  if (!result) query.set('confirmacion','salida');
   if (result === 'unidad-incompatible') {
     query.set('error', 'El cambio de unidad afectaría inscripciones activas o pendientes.');
     query.set('unidadPropuesta', field(form, 'unit'));
@@ -682,7 +683,7 @@ export async function createOutingCollection(_previous: string, form: FormData) 
     return collection.id;
   });
   if (!id) return 'Una de las salidas seleccionadas ya no está disponible para tu rol. Revisá la selección.';
-  redirect(`/colecciones/manuales/${id}`);
+  redirect(`/coordinacion/colecciones/manuales/${id}?confirmacion=serie`);
 }
 
 export async function createOutingInvitation(id: string, _previous: { link?: string; error?: string }, form: FormData): Promise<{ link?: string; error?: string }> {
@@ -822,5 +823,5 @@ export async function setHomepageFeature(kind: 'outing' | 'request', id: string,
     }
   });
   if (!error) revalidatePath('/');
-  redirect(`${back}${error ? `?destacadaError=${encodeURIComponent(error)}` : ''}#destacada`);
+  redirect(`${back}${error ? `?destacadaError=${encodeURIComponent(error)}` : `?confirmacion=${field(form,'action') === 'retirar' ? 'automatica' : 'destacada'}`}#destacada`);
 }

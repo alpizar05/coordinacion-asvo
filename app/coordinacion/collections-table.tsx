@@ -25,6 +25,7 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
   const [kind, setKind] = useState('');
   const [availability, setAvailability] = useState('');
   const [copyStatus, setCopyStatus] = useState('');
+  const [copyError,setCopyError] = useState('');
   const normalize = (value: string) => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLocaleLowerCase('es');
   const query = normalize(search.trim());
   const rows = collections.filter(row => normalize(row.name).includes(query) &&
@@ -49,6 +50,7 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
       ...(kind ? [{key:'kind',label:kind === 'automaticas' ? 'Automáticas' : 'Manuales',description:'Tipo',remove:() => setKind('')}] : []),
       ...(availability ? [{key:'availability',label:availability === 'public' ? 'Con salidas en el catálogo' : 'Sin salidas en el catálogo',description:'Disponibilidad pública',remove:() => setAvailability('')}] : []),
     ]} reset={search || kind || availability ? () => { setSearch(''); setKind(''); setAvailability(''); } : undefined} />
+    {copyError && <p className="note" role="alert">{copyError}</p>}
     <StatusRibbon message={copyStatus} onExpire={setCopyStatus} />
     {rows.length ? <table className="outings-table collections-table coordination-compact-table compact-series" aria-label="Convocatorias en serie">
       <thead><tr><th scope="col">Convocatoria en serie</th><th scope="col">Tipo</th><th scope="col">Próximo inicio</th><th scope="col">Salidas</th><th scope="col">Acciones</th></tr></thead>
@@ -67,11 +69,11 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
               {close => <ul className="registration-sheet-actions collection-action-links">
                 <li><Link href={publicPath} onClick={close}>Ver serie pública</Link></li>
                 <li><button type="button" onClick={async () => {
-                  try {
+                  try { setCopyError('');
                     await navigator.clipboard.writeText(new URL(publicPath, window.location.origin).href);
                     setCopyStatus(`Enlace de ${row.name} copiado.`);
                   } catch {
-                    setCopyStatus('Abrí la serie pública y copiá el enlace desde la barra de direcciones.');
+                    setCopyError('No se pudo copiar. Abrí la serie pública y copiá el enlace desde la barra de direcciones.');
                   }
                   close();
                 }}>Copiar enlace</button></li>

@@ -6,7 +6,7 @@ import { updateVolunteerUnits } from '../../staff-actions';
 export function VolunteerUnits({ volunteerId, units, selected }: {
   volunteerId: string; units: string[]; selected: string[];
 }) {
-  return <ActionModal id="unidades" title="Actualizar unidades" saveLabel="Guardar unidades" action={updateVolunteerUnits.bind(null,volunteerId)}>
+  return <ActionModal id="unidades" title="Actualizar unidades" successMessage="Unidades actualizadas." saveLabel="Guardar unidades" action={updateVolunteerUnits.bind(null,volunteerId)}>
     <fieldset className="volunteer-unit-options">
       <legend>Unidades de voluntariado</legend>
       <label><input type="checkbox" checked disabled /> Voluntariado General (obligatorio)</label>

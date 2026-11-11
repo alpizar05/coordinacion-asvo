@@ -17,7 +17,7 @@ export async function AttendanceReconciliation({ outingId, canResolve }: {outing
       return <li key={item.volunteer_id}><h3>{item.name}</h3>
         <p>Fechas inscritas: {(item.dates as {starts:string;ends:string}[]).map(date=>`${displayDate(date.starts)} al ${displayDate(date.ends)}`).join(' · ')}</p>
         <p><strong>{resolved ? `Conciliado: ${attendanceDecisionLabels[item.decision as AttendanceDecision]}` : item.resolution_id && !item.current_resolution ? 'Nuevos informes o evidencia modificada: requiere revisión' : 'Asistencia por conciliar'}</strong></p>
-        {canResolve && <ActionModal title={item.resolution_id ? 'Revisar resolución de asistencia' : 'Revisar asistencia'} saveLabel="Guardar resolución" action={reconcileAttendance.bind(null,outingId,item.volunteer_id)} wide>
+        {canResolve && <ActionModal title={item.resolution_id ? 'Revisar resolución de asistencia' : 'Revisar asistencia'} saveLabel="Guardar resolución" successMessage="Resolución de asistencia guardada." action={reconcileAttendance.bind(null,outingId,item.volunteer_id)} wide>
           <p><strong>{item.name}</strong></p>
           <input type="hidden" name="version" value={item.version} />
           <ul className="attendance-reports">{reports.map(report=><li key={report.id}>

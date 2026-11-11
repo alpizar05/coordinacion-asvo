@@ -51,7 +51,7 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 
 ## Consistencia de interacción
 
-- [ ] **Confirmar las operaciones guardadas.** Mostrar una franja temporal con un mensaje específico al guardar en modales, por ejemplo «Unidades actualizadas» o «Póliza registrada».
+- [x] **Confirmar las operaciones guardadas.** Una sola franja global de Coordinación reutiliza StatusRibbon y dura cinco segundos. Mensajes específicos para unidades, ficha, póliza, asistencia, inscripciones, fotos, series, convocatorias, portada y enlaces del 70. Los errores permanecen visibles. Verificados guardado repetido de una ficha ficticia, cierre del modal, una sola región, expiración y conservación de datos ante error en desktop/celular; TypeScript y compilación correctos.
 - [ ] **Señalar errores por campo.** Asociar los errores administrativos al campo correspondiente, llevar el foco a la primera corrección necesaria y conservar los datos para reintentar.
 - [ ] **Conservar el contexto al regresar a una lista.** Recuperar filtros, página y posición de desplazamiento después de consultar una persona, convocatoria o inscripción.
 

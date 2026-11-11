@@ -275,3 +275,14 @@ El patrón de secciones se replica en la edición de datos comunes de una convoc
 - **Informe del 70:** datos de la gira, labores/acciones, asistencia, observaciones y revisión final. La barra fija conserva Guardar borrador y Finalizar informe. Los errores abren su sección. Un borrador sigue pendiente y no acredita asistencia; el informe finalizado conserva el bloqueo de edición.
 
 Estos cambios no requieren migración de base de datos. Se verificaron navegación desktop/celular, conservación de campos tras errores y cambio de sección, un borrador del 70, y previsualización/aplicación de un CSV ficticio en la base demo local.
+
+
+## Confirmaciones de Coordinación
+
+El layout monta `ConfirmationProvider`, que mantiene una sola franja superior durante cinco segundos. Los componentes existentes publican mensajes mediante `StatusRibbon`; fuera de Coordinación conserva su funcionamiento independiente. Una confirmación nueva reemplaza la anterior y reinicia el temporizador. El proveedor permanece montado al cerrar modales o navegar dentro del portal.
+
+`ActionModal` acepta `successMessage` y muestra la confirmación únicamente al recibir `saved: true`. Los modales de ficha, unidades, póliza y asistencia tienen mensajes específicos. Los flujos existentes de inscripciones, importaciones, fotos y recordatorios reutilizan la misma franja. Las acciones con redirección pueden usar el parámetro `confirmacion`, interpretado por `ConfirmationFromUrl` mediante una lista cerrada de mensajes; se consume conservando los demás parámetros y el ancla. Los resultados de redirección ya existentes mantienen sus confirmaciones.
+
+Se revisaron creación individual y por periodos, clonación, edición individual/común, fotos, agrupaciones, completar/cancelar/eliminar, portada, gestión/edición/alta de inscripciones, ficha, unidades, pólizas, incidentes, permisos, importaciones, recordatorios y enlaces privados. La creación de una serie manual vuelve a su vista de Coordinación para mostrar la confirmación. Los mensajes de correo distinguen registro para envío de entrega efectiva. Los fallos de guardado o copia permanecen como errores; no se convierten en confirmaciones temporales. No se notifican como guardado los cambios locales de fotos que todavía requieren guardar la convocatoria.
+
+Verificación local: guardado de ficha ficticia sin cambiar sus datos, modal cerrado tras éxito, una sola región de confirmación, ocultamiento automático y repetición del mismo mensaje. Un año inválido conserva el modal y su valor, sin confirmación de éxito. Revisado en desktop y celular; TypeScript y compilación de producción correctos. No se enviaron correos reales ni se modificó la base beta durante estas pruebas.

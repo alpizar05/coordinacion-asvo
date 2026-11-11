@@ -1,4 +1,7 @@
 import './coordination.css';
+import { ConfirmationProvider } from '../status-ribbon';
+import { ConfirmationFromUrl } from './confirmation-from-url';
+import { Suspense } from 'react';
 import type { ReactNode } from 'react';
 import CoordinationNav from './coordination-nav';
 import { canAdminister, staff } from '../../lib/auth';
@@ -11,12 +14,12 @@ export default async function CoordinationLayout({ children }: { children: React
   const admin = canAdminister(user);
   const operates = general || (user?.grants.some(grant => grant.role === 'unidad') ?? false);
 
-  return <div className="coordination-content">
+  return <ConfirmationProvider><Suspense fallback={null}><ConfirmationFromUrl /></Suspense><div className="coordination-content">
     {user && <header className="coordination-header">
       <p className="coordination-nav-label">Coordinación</p>
       <form className={operates || admin ? "coordination-logout-desktop" : undefined} action={logout}><button type="submit">Cerrar sesión</button></form>
     </header>}
     {(operates || admin) && <CoordinationNav showAdministration={admin} showOperations={operates} showVolunteers={general || admin} showDemoInbox={demo && general} />}
     {children}
-  </div>;
+  </div></ConfirmationProvider>;
 }
