@@ -3,7 +3,8 @@
 import { compactParticipationDates } from '../../../../lib/participation-dates';
 
 
-import Link from 'next/link';
+import { SectionWorkspace } from '../../section-workspace';
+import { useEffect } from 'react';
 import { ActiveFilters } from '../../active-filters';
 import { TableFilters } from '../../table-filters';
 import { useActionState, useState } from 'react';
@@ -16,6 +17,8 @@ function formatDate(value: string) {
 
 export function CollectionForm({ outings }: { outings: OutingRow[] }) {
   const [error, action, pending] = useActionState(createOutingCollection, '');
+  const [step,setStep]=useState('general');
+  useEffect(()=>{if(error)setStep('review');},[error]);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [search, setSearch] = useState('');
@@ -27,9 +30,16 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
     return terms.every(term => text.includes(term));
   });
 
-  return <form className="card" action={action}>
+  return <form action={action} noValidate>
+    <SectionWorkspace title="Nueva convocatoria en serie" active={step} onSelect={setStep} trackChanges discardHref="/coordinacion/convocatorias#colecciones" pending={pending}
+      notice={pending?'Guardando…':`${selected.length} ${selected.length===1?'salida seleccionada':'salidas seleccionadas'}`}
+      toolbar={<button type="submit" className="coord-button-primary" disabled={pending||!selected.length}>{pending?'Guardando…':'Crear serie'}</button>}
+      sections={[
+      {key:'general',label:'Información de la serie',content:<section className="card"><h2>Información de la serie</h2>
     <label>Nombre de la convocatoria en serie<input name="name" required maxLength={120} value={name} onChange={event => setName(event.target.value)} /></label>
     <label>Descripción (opcional)<textarea name="description" maxLength={2000} value={description} onChange={event => setDescription(event.target.value)} /></label>
+    </section>},
+    {key:'outings',label:'Seleccionar salidas',content:<section className="card"><h2>Seleccionar salidas</h2><p className="muted">La selección se conserva al buscar y cambiar de sección.</p>
     <TableFilters title="Buscar salidas" active={!!search}><label>Buscar por nombre, lugar, unidad o fecha
       <input type="search" value={search} onChange={event => setSearch(event.target.value)} />
     </label></TableFilters>
@@ -52,10 +62,10 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
         </tr>)}</tbody>
       </table>
     </div> : <p>No hay salidas que coincidan con la búsqueda.</p>}
+    </section>},
+    {key:'review',label:'Revisión final',content:<section className="card"><h2>Revisión de la serie</h2><h3>{name||'Nombre pendiente'}</h3>{description&&<p>{description}</p>}<p>{selected.length} {selected.length===1?'salida seleccionada':'salidas seleccionadas'}</p><ul>{outings.filter(o=>selected.includes(o.id)).map(o=><li key={o.id}>{o.title} · {compactParticipationDates(o.starts,o.ends)}</li>)}</ul><p className="muted">En la serie pública aparecerán solo salidas abiertas y públicas con inscripción vigente.</p>
     {error && <p role="alert" className="note">{error}</p>}
-    <div className="actions">
-      <button className="coord-button-primary" type="submit" disabled={pending || !selected.length}>{pending ? 'Guardando…' : 'Guardar y abrir vista pública'}</button>
-      <Link href="/coordinacion/convocatorias#colecciones">Cancelar</Link>
-    </div>
+    </section>},
+    ]}/>
   </form>;
 }

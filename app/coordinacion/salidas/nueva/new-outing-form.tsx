@@ -4,6 +4,7 @@ import { outingLogisticsFields } from '../../../../lib/outing-logistics';
 import { FlexibleDatesHelp } from '../../flexible-dates-help';
 
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
+import { CoordinationModal } from '../../coordination-modal';
 import { useRouter } from 'next/navigation';
 import { createOuting } from '../../../staff-actions';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit, outingPhotoMaxBytes } from '../../../../lib/outing-photo-limits';
@@ -37,6 +38,12 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   clone?: OutingTemplate; gallery: GalleryPhoto[]; templates: OutingTemplate[]; units: string[];
 }) {
   const router = useRouter();
+  const editorSections=[['general','Información general'],['dates','Fechas y cupos'],['logistics','Participación y logística'],['photos','Fotos'],['publication','Publicación']] as const;
+  const [section,setSection]=useState('general');
+  const [selector,setSelector]=useState(false);
+  const [dirty,setDirty]=useState(false);
+  const [discard,setDiscard]=useState<string|null>(null);
+  const back=clone ? `/coordinacion/colecciones/automaticas/${clone.request_id}#bloques` : '/coordinacion/convocatorias#salidas';
   const errorFocus = useRef<HTMLParagraphElement>(null);
   const [error, submit, pending] = useActionState(async (
     _previous: { message: string; target?: string } | null,
@@ -53,6 +60,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     try {
       const result = await createOuting(form);
       if (result.destination) {
+        setDirty(false);
         router.push(result.destination);
         return null;
       }
@@ -65,7 +73,11 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     }
   }, null);
   useEffect(() => {
-    if (error) errorFocus.current?.focus();
+    if (error) {
+      const target=error.target||'';
+      setSection(target.startsWith('new-')||target.startsWith('existing-')||target==='photos'?'photos':target==='dates'||target.startsWith('period-')||target==='capacity'?'dates':target==='deadline'?'publication':target==='logistics'?'logistics':target ? 'general' : 'publication');
+      requestAnimationFrame(()=>errorFocus.current?.focus());
+    }
   }, [error]);
   const defaultUnit = units.includes('Voluntariado General') ? 'Voluntariado General' : units[0] ?? '';
   const [periods, setPeriods] = useState<OutingPeriod[]>([{ id: 1, start: '', end: '' }]);
@@ -89,12 +101,21 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   ];
   const currentCover = cover || photos[0]?.id || (newPhotos.length ? newPhotos[0].file : '');
 
+  const initialized=useRef(false);
+  useEffect(()=>{if(initialized.current)setDirty(true);else initialized.current=true;},[photos,newPhotos,cover,periods]);
+  useEffect(()=>{
+    const unload=(event:BeforeUnloadEvent)=>{if(dirty){event.preventDefault();event.returnValue='';}};
+    const navigate=(event:MouseEvent)=>{const link=(event.target as Element)?.closest?.('a');if(dirty&&!pending&&link?.href&&link.origin===location.origin&&!event.ctrlKey&&!event.metaKey&&event.button===0){event.preventDefault();setDiscard(link.href);}};
+    window.addEventListener('beforeunload',unload);document.addEventListener('click',navigate,true);
+    return()=>{window.removeEventListener('beforeunload',unload);document.removeEventListener('click',navigate,true);};
+  },[dirty,pending]);
+
   function showError(target?: string) {
     if (!error || error.target !== target) return null;
     return <p className="note outing-field-error" role="alert" tabIndex={-1} ref={errorFocus}>{error.message}</p>;
   }
 
-  return <form method="post" noValidate onSubmit={event => {
+  return <form className="outing-editor new-outing-editor" method="post" noValidate onChange={()=>setDirty(true)} onSubmit={event => {
     event.preventDefault();
     if (pending) return;
     const form = new FormData(event.currentTarget, (event.nativeEvent as SubmitEvent).submitter);
@@ -108,8 +129,12 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     form.set('photoCover', coverSlot < 0 ? String(currentCover) : `new-${coverSlot}`);
     startTransition(() => submit({ form, periodIds: periods.map(period => period.id), photoIds: newPhotos.map(photo => photo.id) }));
   }}>
-    <section className="new-outing-section">
-    <h2>Datos de la salida</h2>
+    <div className="outing-editor-bar" role="region" aria-label="Acciones de nueva convocatoria"><div><strong>{clone?'Nuevo bloque':'Nueva convocatoria'}</strong><span role="status">{pending?'Guardando…':dirty?'Cambios sin publicar':'Completá los datos de la salida'}</span></div><div className="actions"><button type="button" disabled={pending} onClick={()=>dirty?setDiscard(back):router.push(back)}>Descartar</button><button type="submit" name="action" value="publicar" disabled={pending} className="coord-button-primary">{pending?'Guardando…':clone?'Publicar bloque':'Publicar convocatoria'}</button></div></div>
+    <div className="outing-editor-layout"><nav className="outing-editor-nav" aria-label="Secciones de nueva convocatoria">{editorSections.map(([key,label],i)=><button key={key} type="button" aria-current={section===key?'step':undefined} onClick={()=>setSection(key)}><span aria-hidden="true">{i+1}</span>{label}</button>)}</nav><div className="outing-editor-content">
+    <button type="button" className="outing-editor-section-trigger" aria-haspopup="dialog" onClick={()=>setSelector(true)}>Sección: {editorSections.find(([key])=>key===section)?.[1]} <span aria-hidden="true">⌄</span></button>
+    <fieldset disabled={pending} className="editor-fields">
+    <section className="new-outing-section" hidden={section!=='general'}>
+    <h2>Información general</h2>
     {clone ? <>
       <input type="hidden" name="request" value={clone.request_id} />
       <input type="hidden" name="cloneBlock" value={clone.id} />
@@ -137,15 +162,15 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </>}
     </section>
     <div key={selected} className="new-outing-fields">
-    <section className="new-outing-section">
+    <section className="new-outing-section" hidden={section!=='general'}>
     <div className="grid"><div><label>Título<input name="title" value={title} onChange={event => setTitle(event.target.value)} required/></label>{showError('title')}</div><div><label>Estación o lugar<input name="location" defaultValue={template?.location} required/></label>{showError('location')}</div><label>Unidad<select name="unit" value={unit} onChange={event => setUnit(event.target.value)}>{units.map(unit => <option key={unit}>{unit}</option>)}</select></label></div>
     </section>
-    <section className="new-outing-section" aria-labelledby="support-request-title">
+    <section className="new-outing-section" hidden={section!=='general'} aria-labelledby="support-request-title">
     <h2 id="support-request-title">Solicitud de apoyo</h2>
     {template && <p>Los datos del pedido se muestran como referencia. Los datos de la salida se pueden editar.</p>}
     <div className="grid"><label>Organización solicitante<input name="organization" defaultValue={template?.organization ?? ""} readOnly={!!template}/></label><label>Contacto solicitante<input name="contact" defaultValue={template?.contact ?? ""} readOnly={!!template}/></label><label>Área silvestre protegida<input name="area" defaultValue={template?.area ?? ""} readOnly={!!template}/></label><label>Tipo de actividad<input name="activity" defaultValue={template?.activity ?? ""} readOnly={!!template}/></label></div>
     </section>
-    <section className="new-outing-section">
+    <section className="new-outing-section" hidden={section!=='dates'}>
     <h2>Fechas y cupos</h2>
     {showError('dates')}
     <OutingPeriods limit={24} periods={periods} onChange={setPeriods} renderError={id => showError(`period-${id}`)} />
@@ -153,15 +178,17 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     {showError('capacity')}
     <FlexibleDatesHelp><label><input type="checkbox" name="flexible" defaultChecked={template?.flexible}/> Fechas flexibles</label></FlexibleDatesHelp>
     </section>
-    <section className="new-outing-section">
-    <h2>Información para voluntariado</h2>
+    <section className="new-outing-section" hidden={section!=='logistics'}>
+    <h2>Participación y logística</h2>
     <label>Plan de trabajo<textarea name="plan" defaultValue={template?.plan ?? ""} readOnly={!!template}/></label>
     <label>Requisitos públicos<textarea name="requirements" defaultValue={template?.requirements ?? ""}/></label><label>Logística pública<textarea name="logistics" defaultValue={template?.logistics ?? ""} placeholder="Otras indicaciones: instalaciones, herramientas y aspectos adicionales"/></label>
     <h3>Logística del bloque</h3><p className="muted">Información pública para preparar la participación. Cada bloque puede tener sus propias condiciones.</p>
     {showError('logistics')}
     {outingLogisticsFields.map(item => <label key={item.name}>{item.label}<textarea name={item.name} maxLength={5000} defaultValue={template?.[item.name] ?? ''} placeholder={item.placeholder} /></label>)}
+    </section>
+    <section className="new-outing-section" hidden={section!=='photos'}>
+    <h2>Fotos</h2>
     <fieldset className="outing-photo-field">
-      <legend>Fotos de la convocatoria</legend>
       <fieldset className="outing-photo-selection">
         <legend aria-live="polite">{photoCount} de {outingPhotoLimit} fotos</legend>
       {showError('photos')}
@@ -214,8 +241,8 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </fieldset>
     </section>
 
-    <section className="new-outing-section">
-      <h2>Visibilidad y publicación</h2>
+    <section className="new-outing-section" hidden={section!=='publication'}>
+      <h2>Publicación</h2>
       <label>Visibilidad<select name="visibility" value={visibility} onChange={event => setVisibility(event.target.value)}>
       <option value="publica">Pública · visible en el catálogo</option>
       <option value="privada">Privada · solo por enlace directo</option>
@@ -247,10 +274,12 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
       </section>
       {showError()}
       <div className="actions">
-        <button className="coord-button-primary" disabled={pending} name="action" value="publicar">{pending ? "Guardando…" : clone ? "Publicar bloque" : "Publicar convocatoria"}</button>
         <button disabled={pending} className="outing-draft" name="action" value="borrador">Guardar como borrador</button>
       </div>
     </section>
     </div>
+    </fieldset></div></div>
+    <CoordinationModal open={selector} onClose={()=>setSelector(false)} title="Sección de nueva convocatoria"><div className="editor-section-options">{editorSections.map(([key,label])=><button type="button" key={key} aria-pressed={section===key} onClick={()=>{setSection(key);setSelector(false);}}>{label}</button>)}</div></CoordinationModal>
+    <CoordinationModal open={!!discard} onClose={()=>setDiscard(null)} title="Descartar convocatoria" footer={<button type="button" className="coord-button-danger" onClick={()=>{const href=discard||back;setDirty(false);setDiscard(null);router.push(href);}}>Descartar y salir</button>}><p>Los datos ingresados todavía no se guardaron. ¿Querés descartarlos?</p></CoordinationModal>
   </form>;
 }

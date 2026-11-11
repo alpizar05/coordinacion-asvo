@@ -32,7 +32,7 @@ export default async function Page({ params, searchParams }: {
     {query.enviado === '1' && <StatusRibbon message="Informe finalizado. La tarea está completada y el informe ya no se puede editar." />}
     {query.borrador === '1' && editing && <StatusRibbon message="Borrador guardado. Podés continuar después; el informe sigue pendiente." />}
     {report?.status === 'borrador' && <p className="note">Borrador · Sin finalizar. Los cambios guardados se precargan a continuación.</p>}
-    {editing ? <ReportForm token={token} lead={{ name: String(lead.name), email: String(lead.email || '') }}
+    {editing ? <ReportForm key={`${report?.id??'new'}:${report?.updated_at?.toISOString()??'new'}`} token={token} lead={{ name: String(lead.name), email: String(lead.email || '') }}
       initial={{ labour: savedLabour, location: report?.location ?? brief.outing.location,
         activity: report ? activityOptions.find(option => option === report.activity) ?? '' : defaults.activity, starts: report?.starts ?? brief.outing.starts, ends: report?.ends ?? brief.outing.ends,
         actions: report?.actions ?? '', host: report?.host ?? '', observations: report?.observations ?? '' }}

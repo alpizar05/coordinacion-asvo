@@ -522,6 +522,11 @@ export async function importPreview(csv: string) {
 }
 
 export async function applyImport(form: FormData) {
+  await applyImportRows(form);
+  redirect('/coordinacion/administracion?registro=1');
+}
+
+export async function applyImportRows(form: FormData) {
   const user = await staff();
   requireStaff(user,canAdminister(user));
   const rows = await importPreview(field(form,'csv'));
@@ -540,7 +545,8 @@ export async function applyImport(form: FormData) {
       }
     }
   });
-  redirect('/coordinacion/administracion?registro=1');
+  revalidatePath('/coordinacion/registro'); revalidatePath('/coordinacion/administracion');
+  return {applied:true};
 }
 
 export async function editProfile(id: string, form: FormData) {
@@ -605,6 +611,11 @@ export async function previewPolicies(csv: string) {
 }
 
 export async function applyPolicies(form: FormData) {
+  await applyPolicyRows(form);
+  redirect('/coordinacion/administracion?polizas=1');
+}
+
+export async function applyPolicyRows(form: FormData) {
   const user = await staff();
   requireStaff(user,canAdminister(user));
   const rows = await previewPolicies(field(form,'csv'));
@@ -616,7 +627,8 @@ export async function applyPolicies(form: FormData) {
       if (policy) await audit(tx,user.subject,'Importó póliza pendiente',policy.id);
     }
   });
-  redirect('/coordinacion/administracion?polizas=1');
+  revalidatePath('/coordinacion/registro'); revalidatePath('/coordinacion/administracion');
+  return {applied:true};
 }
 
 export async function recordVolunteerIncident(volunteerId: string, form: FormData) {
@@ -703,7 +715,14 @@ async function outingUnitHasConflict(tx: import('../lib/registration').Transacti
 }
 
 export async function updateAutomaticCollection(id: string, form: FormData) {
-  if (!uuid(id)) return;
+  const result=await saveAutomaticCollection(id,form);
+  const back=`/coordinacion/colecciones/automaticas/${id}`;
+  if(result.error) redirect(`${back}?editar=1&error=${encodeURIComponent(result.error)}#datos-comunes`);
+  redirect(`${back}?guardado=1`);
+}
+
+export async function saveAutomaticCollection(id: string, form: FormData): Promise<{error?:string;saved?:boolean}> {
+  if (!uuid(id)) return {error:'Convocatoria inválida.'};
   const user = await staff();
   requireStaff(user, !!user?.grants.some(grant => grant.role === 'general' || grant.role === 'unidad'));
   const back = `/coordinacion/colecciones/automaticas/${id}`;
@@ -771,8 +790,9 @@ export async function updateAutomaticCollection(id: string, form: FormData) {
       await audit(tx,user.subject,'Actualizó fotos generales de convocatoria',id);
     }
   });
-  if (error) redirect(`${back}?editar=1&error=${encodeURIComponent(error)}#datos-comunes`);
-  redirect(`${back}?guardado=1`);
+  if (error) return {error};
+  revalidatePath(back); revalidatePath(`/colecciones/${id}`); revalidatePath('/');
+  return {saved:true};
 }
 
 export async function setHomepageFeature(kind: 'outing' | 'request', id: string, form: FormData) {

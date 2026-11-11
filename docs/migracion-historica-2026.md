@@ -83,3 +83,11 @@ Pruebas: `node scripts/test-historical-import-plan.mjs`; importación real en un
 Carga confirmada el 10 de noviembre de 2026 (Costa Rica). Se reutilizaron las 167 personas y 166 pólizas: no se duplicaron fichas ni se añadieron verificaciones de póliza. Se crearon 329 solicitudes organizativas DEMO, 329 convocatorias privadas, 837 inscripciones (820 originales y 17 DEMO), 79 informes operativos y 50 informes pendientes íntegros en staging. Los 105 responsables quedaron enlazados a su inscripción. Se subieron seis imágenes a SharePoint y se asignaron 329 portadas. Validación transaccional: cero inscripciones activas duplicadas; cero correos, recordatorios o enlaces privados creados; los 50 vínculos probables permanecen pendientes.
 
 Para consultar las convocatorias migradas, entrar en Coordinación → Convocatorias de salida y cambiar el filtro Estado de «abierta» a «Todos» o «completada». Las convocatorias históricas no aparecen en el catálogo público. Los pendientes de informes y participantes requieren revisión posterior; no se convirtieron en asistencias verificadas.
+
+### Cambio posterior de visibilidad
+
+Por solicitud posterior, las 329 convocatorias se marcaron públicas (`listed=true`), conservando las 292 completadas, 25 canceladas y 12 confirmadas. El catálogo sigue mostrando únicamente convocatorias abiertas con inscripción vigente: este cambio de visibilidad no reabre inscripciones ni modifica fechas. El importador conserva el valor inicial privado al crear el lote, pero al verificar un lote ya cargado respeta cambios posteriores de visibilidad y no los sobrescribe.
+
+### Apertura posterior de convocatorias
+
+El 11 de noviembre de 2026, por solicitud expresa, las 12 convocatorias migradas en estado Confirmada pasaron a Abierta, conservando sus fechas, fecha límite, visibilidad pública e inscripciones. Las 12 cumplen los criterios del catálogo al realizar el cambio. Las 292 completadas y 25 canceladas no se modificaron. La salida `235ecbc1-960a-5d32-94a4-7306bbd24038` quedó abierta, pública y con fecha límite 13/11/2026. Los valores técnicos de cupos y modalidad del demo siguen documentados en los supuestos de esta guía. La verificación del importador respeta estos cambios posteriores y no vuelve a cerrar ni privatizar el lote.

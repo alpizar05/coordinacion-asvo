@@ -1,3 +1,4 @@
+import { SectionWorkspace } from '../../section-workspace';
 import { volunteerParticipations } from '../../../../lib/volunteer-participation';
 import { Participations } from '../participations';
 import { ActionModal } from '../../action-modal';
@@ -45,10 +46,9 @@ export default async function VolunteerProfile({ params, searchParams }: {
         <li><strong>Voluntariado General</strong> · Obligatorio</li>
         {person.units.filter((unit: string) => unit !== 'Voluntariado General').map((unit: string) => <li key={unit}>{unit}</li>)}
       </ul>
-      <VolunteerUnits volunteerId={id} units={units.map(unit => unit.name)} selected={person.units} />
     </header>
-    <Participations rows={participations} canManage={coordinates} name={`${person.name} ${person.surname} ${person.second_surname ?? ""}`.trim()} />
-    <div className="profile-overview">
+    <SectionWorkspace initial={incidente?'incidents':'information'} sections={[
+      {key:'information',label:'Información personal',content:<>    <div className="profile-overview">
       <section className="card">
         <h2>Contacto y datos personales</h2>
         <dl className="profile-facts">
@@ -91,7 +91,11 @@ export default async function VolunteerProfile({ params, searchParams }: {
         </dl>
       </section>
     </div>
-    <section className="card">
+</>},
+      {key:'participations',label:'Participaciones',content:<>    <Participations rows={participations} canManage={coordinates} name={`${person.name} ${person.surname} ${person.second_surname ?? ""}`.trim()} />
+</>},
+      {key:'units',label:'Unidades',content:<section className="card"><h2>Unidades de voluntariado</h2><p>Voluntariado General es obligatorio y no puede removerse.</p><ul>{person.units.map((unit:string)=><li key={unit}>{unit}</li>)}</ul>{coordinates&&<VolunteerUnits volunteerId={id} units={units.map(unit=>unit.name)} selected={person.units}/>}</section>},
+      {key:'policies',label:'Pólizas',content:<>    <section className="card">
       <h2>Historial de pólizas</h2>
       {policies.length ? <ul className="profile-history">
         {policies.map(policy => <li key={policy.id}>
@@ -105,7 +109,8 @@ export default async function VolunteerProfile({ params, searchParams }: {
         <label>Vigente desde<input name="starts" type="date" required/></label><label>Vigente hasta<input name="ends" type="date" required/></label>
       </div></ActionModal>}
     </section>
-    <section className="card" id="incidentes" aria-labelledby="incidents-title">
+</>},
+      {key:'incidents',label:'Incidentes',content:<>    <section className="card" id="incidentes" aria-labelledby="incidents-title">
       <div className="outings-table-heading">
         <h2 id="incidents-title">Historial de incidentes</h2>
         {coordinates && !showIncidentForm && <Link className="button" href={`${incidentSection}?incidente=nuevo#registro-incidente`}>Agregar incidente</Link>}
@@ -141,5 +146,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
         </li>)}
       </ul> : <p>Todavía no hay incidentes registrados.</p>}
     </section>
+</>},
+    ]}/>
   </>;
 }

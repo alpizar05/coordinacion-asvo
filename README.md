@@ -253,3 +253,25 @@ En **Salida → Herramientas → Asistencia**, Coordinación revisa los casos co
 La resolución se guarda por persona y salida, con la evidencia revisada, sin modificar informes originales. Participó acredita una sola salida; No participó no la acredita; Mantener pendiente la deja fuera del total. Si llega otro informe finalizado concordante, se conserva la resolución. Un informe nuevo contradictorio o una modificación de la evidencia revisada vuelve a exigir revisión. Se comprueba también que los informes no hayan cambiado mientras el modal estaba abierto. La resolución queda auditada en la salida y en sus inscripciones.
 
 Requiere aplicar `schema.sql` antes del despliegue: agrega `attendance_resolutions`, la vista `volunteer_attendance_evidence` y la función de vigencia de resoluciones. Aplicar la migración antes de desplegar. Las pruebas están en `scripts/test-volunteer-participation.mjs`.
+
+## Editor de un bloque de convocatoria
+
+«Editar salida» abre un editor de cinco secciones: Información general, Fechas y cupos, Participación y logística, Fotos y Publicación. En desktop se navega desde la columna lateral; en celular, desde un selector en modal. La barra fija permite guardar o descartar el conjunto de cambios.
+
+Los campos heredados indican su origen y pueden personalizarse por bloque. La solicitud de apoyo y el plan de trabajo son datos comunes; si afectan varios bloques, requieren confirmación y permiso sobre todos ellos. Las fotos nuevas, selección de galería, portada y metadatos permanecen pendientes hasta guardar. Completar, cancelar o eliminar se encuentran en Publicación → Acciones de la convocatoria y requieren guardar o descartar antes los cambios pendientes.
+
+El servidor valida conjuntamente fechas, cierre, cupos, motivos, permisos, herencia y fotos antes de actualizar la base en una transacción. Una versión de la ficha detecta ediciones concurrentes. Los errores conservan el formulario y seleccionan la sección que requiere corrección. No requiere una migración de base de datos. Prueba local: `node --env-file=.env.local scripts/test-outing-editor.mjs`.
+
+El formulario de nueva convocatoria y de nuevo bloque utiliza las mismas cinco secciones, navegación lateral/selector móvil y barra fija para publicar o descartar. Conserva la vinculación a convocatoria de origen, los periodos múltiples, las fotos y el resumen de publicación. Los errores abren su sección y conservan los datos. Guardar como borrador permanece como alternativa opcional dentro de Publicación.
+
+## Navegación por secciones en Coordinación y el informe del 70
+
+El patrón de secciones se replica en la edición de datos comunes de una convocatoria en serie, la creación de series manuales, Administración y la ficha de voluntariado. En desktop se usa navegación lateral (pasos compactos en las importaciones); en celular, un selector en modal. Las secciones permanecen montadas para conservar los datos y las selecciones al navegar.
+
+- **Convocatoria en serie:** información general, solicitud de apoyo, participación/logística, fotos y bloques/revisión. Guardado único con selección explícita de campos y alcance de herencia. Los errores mantienen el formulario.
+- **Serie manual nueva:** información de la serie, selección de salidas y revisión. Conserva búsqueda y selección entre secciones.
+- **Administración:** accesos, importación de voluntariado y conciliación de pólizas. Cada importación separa cargar, revisar y confirmar; no escribe datos en la previsualización. Tras aplicar, limpia la carga y muestra una franja de confirmación. Los permisos se verifican en servidor.
+- **Ficha de voluntariado:** información personal, participaciones, unidades, pólizas e incidentes. Conserva los permisos y acciones existentes; no agrega un guardado global a una ficha de consulta.
+- **Informe del 70:** datos de la gira, labores/acciones, asistencia, observaciones y revisión final. La barra fija conserva Guardar borrador y Finalizar informe. Los errores abren su sección. Un borrador sigue pendiente y no acredita asistencia; el informe finalizado conserva el bloqueo de edición.
+
+Estos cambios no requieren migración de base de datos. Se verificaron navegación desktop/celular, conservación de campos tras errores y cambio de sección, un borrador del 70, y previsualización/aplicación de un CSV ficticio en la base demo local.

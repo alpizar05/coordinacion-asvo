@@ -1,3 +1,4 @@
+import { AutomaticCollectionEditor } from './collection-editor';
 import { compactParticipationDates } from '../../../../../lib/participation-dates';
 import { CapacitySummary } from '../../../../capacity-summary';
 import { StatusRibbon } from '../../../../status-ribbon';
@@ -48,96 +49,7 @@ export default async function AutomaticCollection({ params, searchParams }: {
     from outings o join outing_photos p on p.outing_id=o.id and p.position=1
     where o.request_id=${id} order by o.starts,o.id` : [];
   const [photos] = await sql`select count(*)::int as total from request_outing_photos where request_id=${id}`;
-  return <>
-    <CoordinationBreadcrumb current={title} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
-    <header className="card coordination-outing-summary">
-      <div className="outings-table-heading">
-        <span className="eyebrow">Convocatoria en serie · Automática</span>
-        {access.allowed && !editing && <Link className="button" href={`${path}?editar=1`}>Editar datos comunes</Link>}
-      </div>
-      <h1>{title}</h1>
-      <p>{blocks.length} {blocks.length === 1 ? 'bloque asociado' : 'bloques asociados'}</p>
-      {!editing && blocks.some(block => block.public) && <Link href={`/colecciones/${id}`}>Ver serie pública</Link>}
-      {!editing && access.allowed && <HomepageFeatureControl kind="request" id={id}
-        available={blocks.some(block => block.public)} error={destacadaError} />}
-    </header>
-    {guardado === '1' && <StatusRibbon message="Datos comunes actualizados." />}
-    {editing && <div className="outing-edit-banner">
-      <div><strong>Modo edición</strong><p>Elegí los campos que querés aplicar a los bloques.</p></div>
-      <Link className="button" href={path}>Salir del modo edición</Link>
-    </div>}
-    {editing ? <form className="card" id="datos-comunes" action={updateAutomaticCollection.bind(null, id)}>
-      {error && <p className="note" role="alert">{error}</p>}
-      {blocks.map(block => <input key={block.id} type="hidden" name="block" value={block.id} />)}
-      {editableBlocks.map(block => <input key={block.id} type="hidden" name="editableBlock" value={block.id} />)}
-      <fieldset disabled={!editableBlocks.length}>
-        <legend>Datos de la salida</legend>
-        <div className="grid">{commonOutingFields.slice(0, 3).map(item => <div key={item.name}>
-          <label><input type="checkbox" name="apply" value={item.name} /> Actualizar {item.label.toLowerCase()}</label>
-          <label>{item.label}{item.name === 'unit'
-            ? <select name="unit" defaultValue={defaults.unit}>{units.map(unit => <option key={unit.name}>{unit.name}</option>)}</select>
-            : <input name={item.name} defaultValue={defaults[item.name] ?? ''} />}
-          </label>
-        </div>)}</div>
-      </fieldset>
-      <fieldset disabled={!editableBlocks.length}>
-        <legend>Información para voluntariado</legend>
-        <div className="grid">{commonOutingFields.slice(3).map(item => <div key={item.name}>
-          <label><input type="checkbox" name="apply" value={item.name} /> Actualizar {item.label.toLowerCase()}</label>
-          <label>{item.label}<textarea name={item.name} defaultValue={defaults[item.name] ?? ''} /></label>
-        </div>)}</div>
-      </fieldset>
-      <fieldset disabled={!photoSources.length}>
-        <legend>Fotos generales</legend>
-        <p>{photos.total} fotos generales. Podés usar la galería de un bloque como referencia para los que heredan las fotos.</p>
-        <label><input type="checkbox" name="apply" value="photos" /> Actualizar fotos generales</label>
-        <label>Copiar fotos desde un bloque
-          <select name="photoSource" defaultValue="">
-            <option value="">Elegí un bloque</option>
-            {photoSources.map(block => <option key={block.id} value={block.id}>
-              {block.title} · {displayDate(block.starts)}
-            </option>)}
-          </select>
-        </label>
-      </fieldset>
-      <fieldset>
-        <legend>Solicitud de apoyo</legend>
-        <label><input type="checkbox" name="apply" value="support" /> Actualizar la solicitud compartida por todos los bloques</label>
-        <div className="grid">{supportRequestFields.map(item => <label key={item.name}>{item.label}
-          {item.multiline ? <textarea name={item.name} defaultValue={request[item.name] ?? ''} />
-            : <input name={item.name} defaultValue={request[item.name] ?? ''} />}
-        </label>)}</div>
-      </fieldset>
-      <fieldset>
-        <legend>Revisá el alcance de los cambios</legend>
-        <ul>{blocks.map(block => <li key={block.id}>
-          {block.title} · {displayDate(block.starts)} al {displayDate(block.ends)}
-          {' · '}{outingIsEditable(block.status) ? 'Hereda los datos generales salvo las excepciones del bloque' : 'Solo solicitud de apoyo'}
-        </li>)}</ul>
-        <label><input type="checkbox" name="confirm" required /> Confirmo los cambios para los bloques indicados.</label>
-      </fieldset>
-      <button className="coord-button-primary" type="submit">Guardar datos comunes</button>
-    </form> : <>
-      <section className="card">
-        <h2>Datos de la salida</h2>
-        <dl className="profile-facts">{commonOutingFields.slice(0, 3).map(item =>
-          <div key={item.name}><dt>{item.label}</dt><dd>{defaults[item.name] || 'Pendiente'}</dd></div>
-        )}</dl>
-      </section>
-      <section className="card">
-        <h2>Información para voluntariado</h2>
-        <dl className="profile-facts">{commonOutingFields.slice(3).map(item =>
-          <div key={item.name}><dt>{item.label}</dt><dd className="copy">{defaults[item.name] || 'Pendiente'}</dd></div>
-        )}</dl>
-        <p>Fotos generales: {photos.total}</p>
-      </section>
-      <section className="card">
-        <h2>Solicitud de apoyo</h2>
-        <dl className="profile-facts">{supportRequestFields.map(item =>
-          <div key={item.name}><dt>{item.label}</dt><dd className="copy">{request[item.name] || 'Pendiente'}</dd></div>
-        )}</dl>
-      </section>
-    </>}
+  const blocksPanel = <>
     <section className="card" id="bloques">
       <h2>Bloques de convocatoria</h2>
       {!editing && <p>Elegí <strong>Clonar bloque</strong> en la fila que querés usar como punto de partida.</p>}
@@ -166,5 +78,95 @@ export default async function AutomaticCollection({ params, searchParams }: {
         </table>
       </div>
     </section>
+  </>;
+  return <>
+    <CoordinationBreadcrumb current={title} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
+    <header className="card coordination-outing-summary">
+      <div className="outings-table-heading">
+        <span className="eyebrow">Convocatoria en serie · Automática</span>
+        {access.allowed && !editing && <Link className="button" href={`${path}?editar=1`}>Editar datos comunes</Link>}
+      </div>
+      <h1>{title}</h1>
+      <p>{blocks.length} {blocks.length === 1 ? 'bloque asociado' : 'bloques asociados'}</p>
+      {!editing && blocks.some(block => block.public) && <Link href={`/colecciones/${id}`}>Ver serie pública</Link>}
+      {!editing && access.allowed && <HomepageFeatureControl kind="request" id={id}
+        available={blocks.some(block => block.public)} error={destacadaError} />}
+    </header>
+    {guardado === '1' && <StatusRibbon message="Datos comunes actualizados." />}
+    {editing ? <AutomaticCollectionEditor id={id} initialError={error} hidden={<>
+      {blocks.map(block => <input key={block.id} type="hidden" name="block" value={block.id} />)}
+      {editableBlocks.map(block => <input key={block.id} type="hidden" name="editableBlock" value={block.id} />)}
+
+    </>} sections={[
+      {key:'general',label:'Información general',content:<section className="card">      <fieldset disabled={!editableBlocks.length}>
+        <legend>Datos de la salida</legend>
+        <div className="grid">{commonOutingFields.slice(0, 3).map(item => <div key={item.name}>
+          <label><input type="checkbox" name="apply" value={item.name} /> Actualizar {item.label.toLowerCase()}</label>
+          <label>{item.label}{item.name === 'unit'
+            ? <select name="unit" defaultValue={defaults.unit}>{units.map(unit => <option key={unit.name}>{unit.name}</option>)}</select>
+            : <input name={item.name} defaultValue={defaults[item.name] ?? ''} />}
+          </label>
+        </div>)}</div>
+      </fieldset></section>},
+      {key:'support',label:'Solicitud de apoyo',content:<section className="card">      <fieldset>
+        <legend>Solicitud de apoyo</legend>
+        <label><input type="checkbox" name="apply" value="support" /> Actualizar la solicitud compartida por todos los bloques</label>
+        <div className="grid">{supportRequestFields.filter(item=>item.name!=='plan').map(item => <label key={item.name}>{item.label}
+          {item.multiline ? <textarea name={item.name} defaultValue={request[item.name] ?? ''} />
+            : <input name={item.name} defaultValue={request[item.name] ?? ''} />}
+        </label>)}</div>
+      </fieldset></section>},
+      {key:'information',label:'Participación y logística',content:<section className="card">      <fieldset >
+        <legend>Información para voluntariado</legend>
+        <div className="grid">{commonOutingFields.slice(3).map(item => <div key={item.name}>
+          <label><input type="checkbox" name="apply" value={item.name} /> Actualizar {item.label.toLowerCase()}</label>
+          <label>{item.label}<textarea name={item.name} defaultValue={defaults[item.name] ?? ''} /></label>
+        </div>)}</div>
+        <label>Plan de trabajo · Solicitud compartida<textarea name="plan" defaultValue={request.plan ?? ''}/></label><p className="muted">Para aplicar cambios al plan, seleccioná «Actualizar la solicitud compartida» en Solicitud de apoyo.</p>
+      </fieldset></section>},
+      {key:'photos',label:'Fotos',content:<section className="card">      <fieldset disabled={!photoSources.length}>
+        <legend>Fotos generales</legend>
+        <p>{photos.total} fotos generales. Podés usar la galería de un bloque como referencia para los que heredan las fotos.</p>
+        <label><input type="checkbox" name="apply" value="photos" /> Actualizar fotos generales</label>
+        <label>Copiar fotos desde un bloque
+          <select name="photoSource" defaultValue="">
+            <option value="">Elegí un bloque</option>
+            {photoSources.map(block => <option key={block.id} value={block.id}>
+              {block.title} · {displayDate(block.starts)}
+            </option>)}
+          </select>
+        </label>
+      </fieldset></section>},
+      {key:'review',label:'Bloques y revisión',content:<section className="card">      <fieldset>
+        <legend>Revisá el alcance de los cambios</legend>
+        <ul>{blocks.map(block => <li key={block.id}>
+          {block.title} · {displayDate(block.starts)} al {displayDate(block.ends)}
+          {' · '}{outingIsEditable(block.status) ? 'Hereda los datos generales salvo las excepciones del bloque' : 'Solo solicitud de apoyo'}
+        </li>)}</ul>
+        <label><input type="checkbox" name="confirm" required /> Confirmo los cambios para los bloques indicados.</label>
+      </fieldset>{blocksPanel}</section>},
+    ]} /> : <>
+      <section className="card">
+        <h2>Datos de la salida</h2>
+        <dl className="profile-facts">{commonOutingFields.slice(0, 3).map(item =>
+          <div key={item.name}><dt>{item.label}</dt><dd>{defaults[item.name] || 'Pendiente'}</dd></div>
+        )}</dl>
+      </section>
+      <section className="card">
+        <h2>Información para voluntariado</h2>
+        <dl className="profile-facts">{commonOutingFields.slice(3).map(item =>
+          <div key={item.name}><dt>{item.label}</dt><dd className="copy">{defaults[item.name] || 'Pendiente'}</dd></div>
+        )}</dl>
+        <p>Fotos generales: {photos.total}</p>
+      </section>
+      <section className="card">
+        <h2>Solicitud de apoyo</h2>
+        <dl className="profile-facts">{supportRequestFields.map(item =>
+          <div key={item.name}><dt>{item.label}</dt><dd className="copy">{request[item.name] || 'Pendiente'}</dd></div>
+        )}</dl>
+      </section>
+    </>}
+    {!editing && blocksPanel}
+
   </>;
 }

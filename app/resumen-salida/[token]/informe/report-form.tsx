@@ -1,97 +1,41 @@
 'use client';
-
-import { useActionState, useEffect, useRef, useState } from 'react';
-import { labourOptions, activityOptions } from '../../../../lib/outing-report-options';
+import { useActionState,useEffect,useRef,useState } from 'react';
+import { labourOptions,activityOptions } from '../../../../lib/outing-report-options';
 import { submitReport } from './actions';
 import type { ReportValues } from '../../../../lib/outing-report';
-
-export function ReportForm({ token, initial, lead, participants, selected = [] }: {
-  token: string; initial: ReportValues; lead: { name: string; email: string };
-  participants: { id: string; name: string }[]; selected?: string[];
-}) {
-  const [values, setValues] = useState(initial);
-  const [attended, setAttended] = useState(selected);
-  const [accuracy, setAccuracy] = useState(false);
-  const [state, action, pending] = useActionState(submitReport.bind(null,token), {});
-  const form = useRef<HTMLFormElement>(null);
-  useEffect(() => {
-    if (state.errors) form.current?.querySelector<HTMLElement>('[aria-invalid=true]')?.focus();
-  }, [state]);
-  const fields: { name: Exclude<keyof ReportValues, 'labour' | 'activity'>; label: string; multiline?: boolean; max?: number; optional?: boolean; type?: string; help?: string }[] = [
-    { name: 'location', label: 'Área silvestre protegida o lugar visitado', help: 'Precargado con el lugar de la convocatoria.' },
-    { name: 'starts', label: 'Fecha de inicio real de la gira', type: 'date' },
-    { name: 'ends', label: 'Fecha de finalización real de la gira', type: 'date' },
-    { name: 'actions', label: 'Describí las acciones realizadas', multiline: true, max: 10000 },
-    { name: 'host', label: 'Persona funcionaria del SINAC a cargo o responsable de la actividad' },
-    { name: 'observations', label: 'Observaciones o recomendaciones', multiline: true, max: 5000, optional: true },
-  ];
-  return <form ref={form} action={action} className="outing-report-form">
-    {participants.map(person => <input key={person.id} type="hidden" name="roster" value={person.id} />)}
-    <section className="card"><h2>Persona responsable del equipo (70)</h2>
-      <p><strong>{lead.name}</strong><br />{lead.email || 'Correo pendiente de registrar'}</p>
-      <p className="muted">Estos datos provienen de tu ficha. La fecha y hora de finalización se registran al finalizar el informe.</p>
-      {state.errors?.email && <p className="note" role="alert">{state.errors.email}</p>}
-    </section>
-    <section className="card"><h2>Informe de la actividad</h2>
-      <p>Revisá los datos precargados y completá la información de lo que realmente ocurrió. Podés guardar un borrador incompleto y retomarlo después. Para finalizar, todos los campos son obligatorios salvo Observaciones.</p>
-      <div className="report-fields">
-        <fieldset tabIndex={-1} aria-invalid={!!state.errors?.labour} aria-describedby="report-help-labour">
-          <legend>Tipo de labor realizada</legend>
-          {labourOptions.map(option => <label key={option}>
-            <input type="checkbox" name="labour" value={option} checked={values.labour.includes(option)}
-              onChange={event => setValues(current => ({ ...current, labour: event.target.checked ? [...current.labour,option] : current.labour.filter(value => value !== option) }))} />
-            {option}
-          </label>)}
-          <p id="report-help-labour" className={state.errors?.labour ? 'report-error' : 'muted'}>
-            {state.errors?.labour || 'Podés seleccionar varias opciones. La sugerencia inicial se basa en la unidad de la convocatoria; revisala según la labor realizada.'}
-          </p>
-        </fieldset>
-        <label>Tipo de gira según la actividad realizada
-          <select name="activity" required value={values.activity} aria-invalid={!!state.errors?.activity} aria-describedby="report-help-activity"
-            onChange={event => setValues({ ...values, activity: event.target.value })}>
-            <option value="">Seleccioná una opción</option>
-            {activityOptions.map(option => <option key={option} value={option}>{option}</option>)}
-          </select>
-          <span id="report-help-activity" className={state.errors?.activity ? 'report-error' : 'muted'}>
-            {state.errors?.activity || 'Seleccioná la opción que mejor describe las actividades más destacadas o el objetivo de la gira.'}
-          </span>
-        </label>
-        {fields.map(item => <label key={item.name}>
-        {item.label}{item.optional ? ' (opcional)' : ''}
-        {item.multiline ? <textarea name={item.name} value={values[item.name]} required={!item.optional} maxLength={item.max}
-          aria-invalid={!!state.errors?.[item.name]} aria-describedby={`report-help-${item.name}`}
-          onChange={event => setValues({ ...values, [item.name]: event.target.value })} />
-          : <input name={item.name} type={item.type || 'text'} value={values[item.name]} required={!item.optional} maxLength={item.type ? undefined : 500}
-            aria-invalid={!!state.errors?.[item.name]} aria-describedby={`report-help-${item.name}`}
-            onChange={event => setValues({ ...values, [item.name]: event.target.value })} />}
-        <span id={`report-help-${item.name}`} className={state.errors?.[item.name] ? 'report-error' : 'muted'}>
-          {state.errors?.[item.name] || item.help || (item.type ? 'Precargada con las fechas de la convocatoria; podés corregirla.' : '')}
-        </span>
-      </label>)}</div>
-    </section>
-    <section className="card"><h2>Participación real del equipo</h2>
-      <p>La lista proviene de las inscripciones confirmadas. Marcá únicamente a quienes participaron realmente. Al finalizar, las personas sin marcar quedarán registradas como no participantes. El borrador no confirma la asistencia.</p>
-      <p role="status"><strong>{attended.length} de {participants.length}</strong> personas seleccionadas provisionalmente.</p>
-      <fieldset aria-invalid={!!state.errors?.participants} tabIndex={-1}>
-        <legend>Confirmación de asistencia</legend>
-        {participants.map(person => <label key={person.id}>
-          <input type="checkbox" name="attended" value={person.id} checked={attended.includes(person.id)}
-            onChange={event => setAttended(current => event.target.checked ? [...current,person.id] : current.filter(id => id !== person.id))} />
-          {person.name}
-        </label>)}
-        {!participants.length && <p>No hay inscripciones confirmadas. Contactá a Coordinación.</p>}
-      </fieldset>
-      {state.errors?.participants && <p role="alert" className="report-error">{state.errors.participants}</p>}
-      <p className="muted">Si falta una persona que sí participó, contactá a Coordinación para conciliar su inscripción antes de enviar el informe.</p>
-    </section>
-    <section className="card">
-      <label><input type="checkbox" name="accuracy" checked={accuracy} required aria-invalid={!!state.errors?.accuracy}
-        onChange={event => setAccuracy(event.target.checked)} />Confirmo que revisé las personas que participaron y que este informe refleja lo realizado.</label>
-      {state.errors?.accuracy && <p role="alert" className="report-error">{state.errors.accuracy}</p>}
-      {state.errors?.form && <p className="note" role="alert">{state.errors.form}</p>}
-      <p className="muted">Guardar borrador mantiene el informe pendiente. Finalizar guarda el informe definitivo y bloquea cualquier edición posterior.</p>
-      <div className="actions"><button type="submit" name="intent" value="borrador" formNoValidate disabled={pending || !lead.email}>{pending ? 'Guardando…' : 'Guardar borrador'}</button>
-        <button type="submit" name="intent" value="finalizar" disabled={pending || !lead.email || !participants.length}>{pending ? 'Guardando…' : 'Finalizar informe'}</button></div>
-    </section>
-  </form>;
+import { SectionWorkspace } from '../../../coordinacion/section-workspace';
+export function ReportForm({token,initial,lead,participants,selected=[]}:{token:string;initial:ReportValues;lead:{name:string;email:string};participants:{id:string;name:string}[];selected?:string[]}){
+ const [values,setValues]=useState(initial),[attended,setAttended]=useState(selected),[accuracy,setAccuracy]=useState(false),[active,setActive]=useState('data');
+ const [state,action,pending]=useActionState(submitReport.bind(null,token),{});
+ const form=useRef<HTMLFormElement>(null),errorRef=useRef<HTMLParagraphElement>(null);
+ useEffect(()=>{
+  if(!state.errors)return;
+  const first=Object.keys(state.errors)[0];
+  setActive(['labour','activity','actions'].includes(first)?'work':first==='participants'?'attendance':first==='observations'?'observations':['email','location','starts','ends','host'].includes(first)?'data':'review');
+  requestAnimationFrame(()=>{const field=Array.from(form.current?.querySelectorAll<HTMLElement>('[aria-invalid=true]')||[]).find(el=>!el.closest('[hidden]'));if(field)field.focus();else errorRef.current?.focus();});
+ },[state]);
+ const fields:{name:Exclude<keyof ReportValues,'labour'|'activity'>;label:string;multiline?:boolean;max?:number;optional?:boolean;type?:string}[]=[
+  {name:'location',label:'Área silvestre protegida o lugar visitado'},
+  {name:'starts',label:'Fecha de inicio real',type:'date'},{name:'ends',label:'Fecha de finalización real',type:'date'},
+  {name:'host',label:'Persona funcionaria del SINAC a cargo o responsable de la actividad'},
+  {name:'actions',label:'Acciones realizadas',multiline:true,max:10000},
+  {name:'observations',label:'Observaciones o recomendaciones',multiline:true,max:5000,optional:true},
+ ];
+ const renderField=(name:typeof fields[number]['name'])=>{const item=fields.find(f=>f.name===name)!;return <label key={name} className={name==='location'||name==='host'?'report-field-wide':undefined}>{item.label}{item.optional?' (opcional)':''}
+  {item.multiline?<textarea name={name} value={values[name]} maxLength={item.max} required={!item.optional} aria-invalid={!!state.errors?.[name]} aria-describedby={`report-help-${name}`} onChange={e=>setValues(v=>({...v,[name]:e.target.value}))}/>
+   :<input name={name} type={item.type||'text'} value={values[name]} maxLength={item.type?undefined:500} required={!item.optional} aria-invalid={!!state.errors?.[name]} aria-describedby={`report-help-${name}`} onChange={e=>setValues(v=>({...v,[name]:e.target.value}))}/>}
+  <span id={`report-help-${name}`} className={state.errors?.[name]?'report-error':'muted'}>{state.errors?.[name]||(item.type?'Revisá las fechas reales de participación.':'')}</span></label>;};
+ return <form ref={form} action={action} noValidate className="outing-report-form">
+  {participants.map(p=><input key={p.id} name="roster" type="hidden" value={p.id}/>)}
+  <SectionWorkspace compactDiscard title="Informe de salida" active={active} onSelect={setActive} trackChanges pending={pending} notice={pending?'Guardando…':'Guardá un borrador o finalizá el informe'}
+   toolbar={<><button type="submit" name="intent" value="borrador" formNoValidate disabled={pending||!lead.email}>Guardar borrador</button><button type="submit" name="intent" value="finalizar" className="workspace-primary" disabled={pending||!lead.email||!participants.length}>Finalizar informe</button></>}
+   sections={[
+    {key:'data',label:'Datos de la gira',content:<section className="card"><h2>Datos de la gira</h2><h3>Persona responsable (70)</h3><p><strong>{lead.name}</strong><br/>{lead.email||'Correo pendiente de registrar'}</p><p className="muted">Los datos del 70 provienen de su ficha. Revisá los datos precargados de la gira.</p>{state.errors?.email&&<p role="alert" className="note">{state.errors.email}</p>}<fieldset disabled={pending} className="section-workspace-fields"><div className="report-fields">{['location','starts','ends','host'].map(name=>renderField(name as typeof fields[number]['name']))}</div></fieldset></section>},
+    {key:'work',label:'Labores y acciones',content:<section className="card"><h2>Labores y acciones</h2><fieldset disabled={pending} className="section-workspace-fields"><fieldset tabIndex={-1} aria-invalid={!!state.errors?.labour} aria-describedby="report-help-labour"><legend>Tipo de labor realizada</legend>{labourOptions.map(option=><label key={option}><input type="checkbox" name="labour" value={option} checked={values.labour.includes(option)} onChange={e=>setValues(v=>({...v,labour:e.target.checked?[...v.labour,option]:v.labour.filter(x=>x!==option)}))}/>{option}</label>)}<p id="report-help-labour" className={state.errors?.labour?'report-error':'muted'}>{state.errors?.labour||'Podés seleccionar varias opciones.'}</p></fieldset>
+     <label>Tipo de gira según la actividad realizada<select name="activity" value={values.activity} aria-invalid={!!state.errors?.activity} onChange={e=>setValues(v=>({...v,activity:e.target.value}))}><option value="">Seleccioná una opción</option>{activityOptions.map(option=><option key={option}>{option}</option>)}</select>{state.errors?.activity&&<span className="report-error">{state.errors.activity}</span>}</label>{renderField('actions')}</fieldset></section>},
+    {key:'attendance',label:'Asistencia',content:<section className="card"><h2>Participación real del equipo</h2><p>Marcá únicamente a quienes participaron realmente. Al finalizar, las personas sin marcar quedarán registradas como no participantes. El borrador no confirma asistencia.</p><p role="status"><strong>{attended.length} de {participants.length}</strong> personas seleccionadas provisionalmente.</p><fieldset disabled={pending} aria-invalid={!!state.errors?.participants} tabIndex={-1}><legend>Confirmación de asistencia</legend>{participants.map(p=><label key={p.id}><input name="attended" type="checkbox" value={p.id} checked={attended.includes(p.id)} onChange={e=>setAttended(v=>e.target.checked?[...v,p.id]:v.filter(id=>id!==p.id))}/>{p.name}</label>)}</fieldset>{!participants.length&&<p>No hay inscripciones confirmadas. Contactá a Coordinación.</p>}{state.errors?.participants&&<p className="report-error" role="alert">{state.errors.participants}</p>}<p className="muted">Si falta una persona que participó, contactá a Coordinación para conciliar su inscripción antes de finalizar.</p></section>},
+    {key:'observations',label:'Observaciones',content:<section className="card"><h2>Observaciones y recomendaciones</h2><fieldset disabled={pending} className="section-workspace-fields">{renderField('observations')}</fieldset></section>},
+    {key:'review',label:'Revisión final',content:<section className="card"><h2>Revisión del informe</h2><dl className="profile-facts"><div><dt>Lugar</dt><dd>{values.location||'Pendiente'}</dd></div><div><dt>Fechas reales</dt><dd>{values.starts||'Pendiente'} — {values.ends||'Pendiente'}</dd></div><div><dt>Labores</dt><dd>{values.labour.join(', ')||'Pendiente'}</dd></div><div><dt>Asistencia</dt><dd>{attended.length} de {participants.length} personas</dd></div></dl><label><input name="accuracy" type="checkbox" checked={accuracy} disabled={pending} required aria-invalid={!!state.errors?.accuracy} onChange={e=>setAccuracy(e.target.checked)}/>Confirmo que revisé la asistencia y que este informe refleja lo realizado.</label>{state.errors?.accuracy&&<p role="alert" className="report-error">{state.errors.accuracy}</p>}{state.errors?.form&&<p ref={errorRef} className="note" role="alert" tabIndex={-1}>{state.errors.form}</p>}<p className="muted">Guardar borrador permite continuar después y mantiene la tarea pendiente. Finalizar guarda el informe definitivo y bloquea la edición.</p></section>},
+   ]}/>
+ </form>;
 }

@@ -49,7 +49,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ e
       ? { href: collection, label: 'Convocatoria general' }
       : { href: '/coordinacion/convocatorias#salidas', label: 'Convocatorias de salida' }} />
     <h1>{title}</h1>
-    <section className="card">
+    <section className="new-outing-editor-shell">
       {error && <p className="note" role="alert">{error}</p>}
       <NewOutingForm key={clone?.id ?? "new"} clone={clone} gallery={gallery} templates={templates} units={available.map(row => row.name)} />
     </section>

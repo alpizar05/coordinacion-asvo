@@ -97,10 +97,11 @@ async function validate(tx){
  count(*) filter(where not (v.identification=any(${[...BETA_IDENTIFICATIONS]}::text[])) and v.email is not null and lower(btrim(v.email)) not like '%.test')::int as unsafe_emails
  from historical_import_records h join volunteers v on v.id=h.target_id where h.batch_id=${plan.batch} and h.entity='volunteer'`;
  if(people.people!==167||people.general!==167||people.unsafe_emails)throw new Error('Personas o protección de correo inválidas');
- const [privateOutings]=await tx`select count(*)::int as total from historical_import_records h join outings o on o.id=h.target_id
- where h.batch_id=${plan.batch} and h.entity='outing' and not o.listed and o.status<>'abierta'`;
- if(privateOutings.total!==329)throw new Error('Una convocatoria histórica está abierta al público');
- return {records:counts,relations,reports,links,photos,communications:mail,activeDuplicates:dupes.total,people,privateOutings:privateOutings.total};
+ const [visibility]=await tx`select count(*)::int as total,count(*) filter(where not o.listed)::int as private,
+ count(*) filter(where o.listed)::int as public from historical_import_records h join outings o on o.id=h.target_id
+ where h.batch_id=${plan.batch} and h.entity='outing'`;
+ if(visibility.total!==329)throw new Error('Faltan convocatorias del lote');
+ return {records:counts,relations,reports,links,photos,communications:mail,activeDuplicates:dupes.total,people,privateOutings:visibility.private,publicOutings:visibility.public};
 }
 try{
  if(process.env.IMPORT_TEST_SCHEMA){

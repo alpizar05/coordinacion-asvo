@@ -1,3 +1,4 @@
+import { OutingEditor } from './outing-editor';
 import { AttendanceReconciliation } from '../../attendance-reconciliation';
 import { OutingLogistics } from '../../../outing-logistics';
 import { outingLogisticsFields, outingLogisticsMessage } from '../../../../lib/outing-logistics';
@@ -33,15 +34,16 @@ const receivedFormat = new Intl.DateTimeFormat('es-CR', {
   timeZone: 'America/Costa_Rica', dateStyle: 'short', timeStyle: 'short',
 });
 
-export default async function Page({params,searchParams}: {params:Promise<{id:string}>;searchParams:Promise<{error?:string;inscripcion?:string;gestion?:string;editar?:string;estado?:string;unidadPropuesta?:string;grupoCreado?:string;errorGrupo?:string;destacadaError?:string;gestionada?:string;completada?:string;pestana?:string}>}) {
+export default async function Page({params,searchParams}: {params:Promise<{id:string}>;searchParams:Promise<{error?:string;inscripcion?:string;gestion?:string;editar?:string;estado?:string;unidadPropuesta?:string;grupoCreado?:string;errorGrupo?:string;destacadaError?:string;gestionada?:string;completada?:string;guardada?:string;pestana?:string}>}) {
   const {id} = await params;
   const user = await staff();
   if (!uuid(id)) notFound();
-  const [outing] = await sql`select *,starts::text as first_day,ends::text as last_day,
+  const [outing] = await sql`select o.*,starts::text as first_day,ends::text as last_day,
+    md5(to_jsonb(o)::text || (select to_jsonb(r)::text from requests r where r.id=o.request_id) || coalesce((select jsonb_agg(jsonb_build_array(p.id,p.position,p.alt,p.credit) order by p.position)::text from outing_photos p where p.outing_id=o.id and p.position is not null),'[]')) as edit_version,
     ends < ${registrationToday} as has_ended,
     coalesce(registration_deadline,starts)::text as deadline,
     coalesce(registration_deadline,starts) >= ${registrationToday} as accepting
-    from outings where id=${id}`;
+    from outings o where id=${id}`;
   if (!outing || !canOperate(user,outing.unit)) notFound();
   const canViewProfile = canOperate(user);
   const photos = await sql`select id,alt,credit from outing_photos
@@ -55,14 +57,14 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       and p.starts<=r.starts and p.ends>=r.ends) as covered,
     (${outing.unit}='Voluntariado General' or ${outing.unit}=any(v.units)) as eligible
     from registrations r left join volunteers v on v.id=r.volunteer_id where r.outing_id=${id} order by r.received_at,r.id`;
-  const { error, inscripcion, gestion, editar, estado, unidadPropuesta, grupoCreado, errorGrupo, destacadaError, gestionada, completada, pestana } = await searchParams;
+  const { error, inscripcion, gestion, editar, estado, unidadPropuesta, grupoCreado, errorGrupo, destacadaError, gestionada, completada, guardada, pestana } = await searchParams;
   const registrationStatus = estado && statusLabels.has(estado) ? estado : 'todos';
   const visibleEntries = registrationStatus === 'todos' ? entries : entries.filter(entry => entry.status === registrationStatus);
   const editable = outingIsEditable(outing.status);
   const editing = editable && editar === '1';
   const back = `/coordinacion/salidas/${id}`;
   const canAttachPhotos = editing && photos.length < outingPhotoLimit;
-  const gallery = canAttachPhotos ? await outingPhotoGallery(user, id) : [];
+  const gallery = editing ? await outingPhotoGallery(user, id) : [];
   const [request] = await sql`select organization,contact,area,activity,plan,outing_defaults,outing_photos_initialized from requests where id=${outing.request_id}`;
   const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
   const units = editing ? await sql`select name from units where ${canViewProfile} or name=any(${scopes}::text[]) order by name` : [];
@@ -326,7 +328,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       <p>Al completar este bloque, su ficha queda en solo lectura y las inscripciones se conservan en el historial.</p>
       <label><input type="checkbox" name="confirmCompleted" required /> Confirmo que la actividad se realizó.</label>
       <button type="submit" name="action" value="completar">Marcar como completada</button>
-    </form> : <p>Podés completar esta salida a partir del día siguiente al regreso.</p>}
+    </form> : <p className="muted">Disponible a partir del día siguiente al regreso.</p>}
   </section>}
   {editing && <section className="card outing-danger-zone" id="gestionar-salida" aria-labelledby="gestionar-salida-titulo">
     {error && gestion && <p className="note" role="alert">{error}</p>}
@@ -356,7 +358,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       {editable && !editing && <Link className="button" href={`${back}?editar=1`}>Editar salida</Link>}
     </div>
     <h1>{outing.title}</h1>
-    <dl className="profile-facts">
+    <dl className="profile-facts" hidden={editing}>
       <div><dt>Lugar</dt><dd>{outing.location}</dd></div>
       <div><dt>Unidad</dt><dd>{outing.unit}</dd></div>
       <div><dt>Fechas</dt><dd>{displayDate(outing.first_day)} al {displayDate(outing.last_day)}</dd></div>
@@ -364,21 +366,24 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       <div><dt>Visibilidad</dt><dd>{!outing.accepting ? 'Solo con invitación' : outing.listed ? 'Pública' : 'Privada por enlace'}</dd></div>
       <div><dt>Fecha límite de inscripción</dt><dd>{displayDate(outing.deadline)}</dd></div>
     </dl>
+    {editing && <p className="muted">Editando este bloque · {displayDate(outing.first_day)} al {displayDate(outing.last_day)}</p>}
     {!editing && <HomepageFeatureControl kind="outing" id={id}
       available={outing.status === 'abierta' && outing.listed && outing.accepting} error={destacadaError} />}
   </header>
-    {editing && <div className="outing-edit-banner" id="modo-edicion">
-      <div>
-        <strong>Modo edición</strong>
-        <p>Guardá los cambios en cada sección.</p>
-      </div>
-      <Link className="button" href={back}>Salir del modo edición</Link>
-    </div>}
   {gestionada && uuid(gestionada) && <StatusRibbon key={gestionada} message="Inscripción actualizada." />}
   {completada === '1' && outing.status === 'completada' && <StatusRibbon message="Salida completada." />}
   {!editable && <p className="note">Convocatoria de solo lectura.</p>}
   {error && (!editable || (!gestion && !entries.some(entry => entry.id === inscripcion))) && <p className="note" role="alert">{error}</p>}
-  {editing ? <>{editData}{information}{tools}{editEnd}</> : <OutingTabs
+  {guardada === '1' && <StatusRibbon message="Cambios de la convocatoria guardados." />}
+  {editing ? <OutingEditor id={id} version={String(outing.edit_version)}
+    initial={Object.fromEntries([...commonOutingFields.map(f=>[f.name,String(outing[f.name]??'')]),...outingLogisticsFields.map(f=>[f.name,String(outing[f.name]??'')]),['starts',outing.first_day],['ends',outing.last_day],['mode',outing.flexible?'flexible':'fija'],['capacity',String(outing.capacity)],['visibility',outing.listed?'publica':'privada'],['registrationDeadline',outing.deadline]])}
+    defaults={Object.fromEntries(commonOutingFields.map(f=>[f.name,String(defaults[f.name]??'')]))}
+    overrides={outing.outing_overrides} units={units.map(u=>u.name)}
+    photos={photos.map(p=>({id:String(p.id),alt:String(p.alt),credit:String(p.credit)}))} gallery={gallery}
+    request={Object.fromEntries(requestFields.map(([key])=>[key,String(request[key]??'')]))}
+    canEditRequest={canEditRequest} related={related.map(b=>({id:String(b.id),title:String(b.title),starts:String(b.starts),ends:String(b.ends)}))}
+    inheritsPhotos={!outing.outing_overrides.includes('photos')} hasGeneralPhotos={!!request.outing_photos_initialized} actions={editEnd}
+  /> : <OutingTabs
     initial={errorGrupo || grupoCreado ? 'herramientas' : pestana === 'logistica' || pestana === 'informacion' || pestana === 'herramientas' ? pestana : 'inscripciones'}
     panels={{ inscripciones: registrations, logistica: logisticsPanel, informacion: information, herramientas: tools }} />}
   </>;
