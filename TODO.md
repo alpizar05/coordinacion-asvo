@@ -23,6 +23,12 @@ Recomendaciones de la evaluación del 10 de noviembre de 2026. Las casillas indi
 - [ ] **Consultar y gestionar las notificaciones de correo.** Mostrar estado enviado/pendiente y último intento, con reintento manual autorizado. Reutilizar la cola y sus controles de concurrencia y orden; no duplicar mensajes ya enviados.
 - [ ] **Facilitar el cierre de salida.** Reunir informe del 70, asistencia real e incidentes antes de completar la salida. Mostrar qué información está registrada y definir cuáles pendientes bloquean el cierre y cuáles solo generan una advertencia.
 
+## Módulos de gestión y análisis
+
+- [ ] **Crear un módulo de funcionarios y contactos.** Registrar nombre, institución, cargo, medios de contacto e información adicional relevante. Permitir asociar funcionarios a lugares y convocatorias, conservando la referencia del contacto responsable de cada salida.
+- [ ] **Crear un módulo de lugares.** Incluir áreas silvestres protegidas (ASP), sectores, escuelas y otros lugares de apoyo. Mantener descripción, ficha técnica, ubicación, información logística, fotografías predeterminadas y funcionarios asociados. Permitir seleccionar el lugar al crear una convocatoria y reutilizar sus datos y fotos, definiendo qué información se hereda y qué puede personalizarse por salida sin alterar el registro del lugar ni el historial.
+- [ ] **Crear un módulo de reportes y estadísticas.** Consultar convocatorias, inscripciones, participación real, informes y actividad por unidad, lugar y periodo, con filtros y exportación. Distinguir solicitudes de participación de asistencia confirmada; reutilizar las reglas de conciliación y definir las métricas de días y horas antes de mostrarlas. Respetar los permisos y señalar los datos históricos pendientes de revisión.
+
 ## Portal público de convocatorias
 
 - [ ] **Agregar búsqueda y filtros en «Más convocatorias».** Desarrollar la tarea de búsqueda pública ya registrada: nombre o lugar, rango de fechas de participación, unidad y modalidad flexible o posibilidad de apoyar un solo día. En celular, usar modal y etiquetas sutiles removibles; mostrar contador de resultados y un estado sin coincidencias con opción de restablecer. Conservar el orden por próxima fecha y definir el comportamiento de series y bloques.

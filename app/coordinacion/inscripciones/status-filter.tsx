@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TableFilters } from '../table-filters';
 
-export function StatusFilter({ value, statuses, units, unit, from, to }: {
+export function StatusFilter({ value, statuses, units, unit, from, to, path = '/coordinacion/inscripciones', title = 'Filtrar inscripciones' }: {
+  path?: string;
+  title?: string;
   value: string;
   statuses: readonly (readonly [string, string])[];
   units: string[];
@@ -21,9 +23,9 @@ export function StatusFilter({ value, statuses, units, unit, from, to }: {
     setSelection(next);
     const query = new URLSearchParams();
     for (const [name,field] of Object.entries(next)) if (field) query.set(name,field);
-    router.replace(`/coordinacion/inscripciones?${query}`,{scroll:false});
+    router.replace(`${path}?${query}`,{scroll:false});
   }
-  return <TableFilters title="Filtrar inscripciones" active={!!(value !== 'todos' || unit || from || to)}><form className="outings-filters" onSubmit={event => event.preventDefault()}>
+  return <TableFilters title={title} active={!!(value !== 'todos' || unit || from || to)}><form className="outings-filters" onSubmit={event => event.preventDefault()}>
     <label>Estado<select name="estado" value={selection.estado} onChange={event=>update('estado',event.target.value)}>
       <option value="todos">Todos</option>
       {statuses.map(([status, label]) => <option key={status} value={status}>{label}</option>)}

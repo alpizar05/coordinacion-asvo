@@ -11,6 +11,7 @@ import { usePathname } from 'next/navigation';
 const operations = [
   { path: '/coordinacion', title: 'Resumen', detail: 'Pendientes y próximas salidas.' },
   { path: '/coordinacion/convocatorias', title: 'Convocatorias de salida', detail: 'Creá y gestioná las salidas.' },
+  { path: '/coordinacion/informes', title: 'Informes de salida', detail: 'Consultá borradores e informes finalizados.' },
   { path: '/coordinacion/inscripciones', title: 'Solicitudes de inscripción', detail: 'Revisá y resolvé las solicitudes.' },
 ];
 

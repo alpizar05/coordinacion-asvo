@@ -475,3 +475,12 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 @media (max-width:700px) {
  .new-outing-editor .new-outing-section .grid { grid-template-columns: minmax(0,1fr); }
 }
+
+@media (max-width: 700px) {
+  .coordination-content .reports-overview-table td[data-label="Unidad"] { color: var(--gray); }
+  .coordination-content .reports-overview-table td[data-label="Actualizado"] { grid-column: 1 / -1; font-size: .75rem; color: var(--gray); }
+  .coordination-content .reports-overview-table td[data-label="Estado"] { grid-column: 1; align-self: center; }
+  .coordination-content .reports-overview-table td[data-label="Acciones"] { grid-column: 2; align-self: center; }
+  .coordination-content .reports-overview-table td[data-label]::before { display: none; }
+  .coordination-content .reports-overview-table td[data-label="Actualizado"]::before { display: inline; content: 'Actualizado '; }
+}
