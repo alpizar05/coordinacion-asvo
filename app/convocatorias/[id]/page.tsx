@@ -54,6 +54,7 @@ export default async function Page({ params, searchParams }: {
     ? 'Quedaste en lista de espera. Te avisaremos por correo si se libera un cupo.'
     : 'Reservamos un cupo. Coordinación debe confirmar tu participación.';
   const errors: Record<string,string> = {
+    'identificacion-invalida': 'Ingresá tu número de identificación con exactamente 9 dígitos, sin espacios ni guiones. Ejemplo: 102340567.',
     'identificacion-no-encontrada': 'No encontramos esa identificación en nuestra base de personas voluntarias. Revisá el número ingresado. Si es correcto, contactá a Coordinación para registrar o actualizar tus datos.',
     duplicada: 'Ya tenés una inscripción activa para esta salida. Usá el enlace privado de tu correo para consultarla o editarla.',
     limite: 'Se alcanzó el límite de intentos. Esperá unos minutos antes de volver a enviar.',
@@ -119,7 +120,7 @@ export default async function Page({ params, searchParams }: {
             <p>Coordinación debe confirmar tu participación{outing.occupied >= outing.capacity ? '. Los cupos están cubiertos; tu inscripción se recibirá en lista de espera.' : '.'}</p>
             <p>{participation}</p>
             <RememberRegistrationForm outingId={id} action={register.bind(null, id, schedule, token)}>
-              <label>Número de identificación<input name="identification" required maxLength={40} autoComplete="off" /></label>
+              <label>Número de identificación<input name="identification" type="text" inputMode="numeric" required minLength={9} maxLength={9} pattern="[0-9]{9}" placeholder="102340567" title="Ingresá 9 dígitos, sin espacios ni guiones. Ejemplo: 102340567." aria-describedby="identification-help" autoComplete="off" /><span id="identification-help" className="muted">9 dígitos, sin espacios ni guiones. Ejemplo: 102340567.</span></label>
               <RegistrationFields flexible={outing.flexible} general={outing.unit === 'Voluntariado General'}
                 starts={outing.starts} ends={outing.ends} />
             </RememberRegistrationForm>

@@ -10,13 +10,13 @@ import { activeOutingInvitation, registrationToday } from '../lib/outing-invitat
 import { sql, appUrl, demo } from '../lib/db';
 import { queueCoordinationCancellationMail } from '../lib/registration-mail.mjs';
 import { createRegistrationReceipt, receiptCookie } from '../lib/registration-receipt';
-import { audit, cancellationWarning, date, digest, eligible, field, identification, uuid } from '../lib/registration';
+import { audit, cancellationWarning, date, digest, eligible, field, uuid } from '../lib/registration';
 
 export async function register(outingId: string, schedule: string, token: string, form: FormData) {
   if (!uuid(outingId)) return;
   const header = await headers();
   const ip = header.get('x-vercel-forwarded-for')?.split(',')[0]?.trim() || 'local';
-  const idNumber = identification(field(form,'identification'));
+  const idNumber = String(form.get('identification') ?? '');
   const slot = Math.floor(Date.now() / 900000);
   const message = await sql.begin(async tx => {
     const buckets = [[digest('ip:' + ip), 30], [digest('id:' + idNumber), 8]] as const;
@@ -30,7 +30,7 @@ export async function register(outingId: string, schedule: string, token: string
       from outings where id=${outingId} and status in ('abierta','confirmada') for update`;
     const invitation = await activeOutingInvitation(outingId, token, tx);
     if (!outing || (token && !invitation) || (!invitation && (outing.status !== 'abierta' || !outing.accepting))) return 'cerrada';
-    if (!/^[A-Z0-9]{4,30}$/.test(idNumber)) return 'datos-invalidos';
+    if (!/^[0-9]{9}$/.test(idNumber)) return 'identificacion-invalida';
     if (schedule !== `${outing.first_day}/${outing.last_day}/${outing.flexible}`) return 'fechas-actualizadas';
     const starts = outing.flexible ? field(form,'starts') : outing.first_day;
     const ends = outing.flexible ? field(form,'ends') : outing.last_day;

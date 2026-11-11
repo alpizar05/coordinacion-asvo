@@ -9,7 +9,7 @@ type Preferences = { identification: string; transport: boolean; rides: number; 
 function valid(value: unknown): value is Preferences {
   if (!value || typeof value !== 'object') return false;
   const p = value as Preferences;
-  return typeof p.identification === 'string' && p.identification.length <= 40 &&
+  return typeof p.identification === 'string' && /^[0-9]{9}$/.test(p.identification) &&
     typeof p.food === 'string' && p.food.length <= 500 && typeof p.transport === 'boolean' && Number.isSafeInteger(p.rides) && p.rides >= 0;
 }
 
@@ -47,7 +47,31 @@ export function RememberRegistrationForm({ action, outingId, children }: {
     setRemember(false);
     setMessage('Los datos guardados en este navegador se eliminaron.');
   }
-  return <form ref={form} action={action} onSubmit={event => {
+  return <form ref={form} action={action} onPaste={event => {
+    const input = event.target;
+    if (input instanceof HTMLInputElement && input.name === 'identification') {
+      event.preventDefault();
+      const digits = event.clipboardData.getData('text').replace(/[^0-9]/g, '');
+      if (!digits) return;
+      const start = input.selectionStart ?? input.value.length;
+      const end = input.selectionEnd ?? start;
+      input.value = (input.value.slice(0,start) + digits + input.value.slice(end)).slice(0,9);
+      const cursor = Math.min(start + digits.length,input.value.length);
+      input.setSelectionRange(cursor,cursor);
+      input.dispatchEvent(new Event('input',{bubbles:true}));
+    }
+  }} onInput={event => {
+    const input = event.target;
+    if (input instanceof HTMLInputElement && input.name === 'identification') {
+      const cleaned = input.value.replace(/[^0-9]/g, '').slice(0,9);
+      if (cleaned !== input.value) {
+        const cursor = input.selectionStart ?? input.value.length;
+        const position = input.value.slice(0,cursor).replace(/[^0-9]/g, '').length;
+        input.value = cleaned;
+        input.setSelectionRange(Math.min(position,9),Math.min(position,9));
+      }
+    }
+  }} onSubmit={event => {
     try {
       sessionStorage.removeItem(pendingKey);
       if (!remember) return;
