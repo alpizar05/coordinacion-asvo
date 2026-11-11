@@ -42,7 +42,8 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     md5(to_jsonb(o)::text || (select to_jsonb(r)::text from requests r where r.id=o.request_id) || coalesce((select jsonb_agg(jsonb_build_array(p.id,p.position,p.alt,p.credit) order by p.position)::text from outing_photos p where p.outing_id=o.id and p.position is not null),'[]')) as edit_version,
     ends < ${registrationToday} as has_ended,
     coalesce(registration_deadline,starts)::text as deadline,
-    coalesce(registration_deadline,starts) >= ${registrationToday} as accepting
+    coalesce(registration_deadline,starts) >= ${registrationToday} as accepting,
+    exists(select 1 from outings sibling where sibling.request_id=o.request_id and sibling.id<>o.id) as in_series
     from outings o where id=${id}`;
   if (!outing || !canOperate(user,outing.unit)) notFound();
   const canViewProfile = canOperate(user);
@@ -79,6 +80,10 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
         and (v.id is null or not (${unidadPropuesta}=any(v.units)))
       order by r.received_at,r.id` : [];
   const defaults = request.outing_defaults ?? outing;
+  const series = outing.in_series ? {
+    href: `/coordinacion/colecciones/automaticas/${outing.request_id}`,
+    label: String(defaults.title || outing.title),
+  } : null;
   const inheritedField = (item: typeof commonOutingFields[number]) => <InheritedField key={item.name}
     name={item.name} label={item.label} general={defaults[item.name] ?? ''} current={outing[item.name] ?? ''}
     overridden={outing.outing_overrides.includes(item.name)} multiline={item.multiline}
@@ -347,7 +352,8 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     </form>
   </section>}
   </>;
-  return <><CoordinationBreadcrumb current={outing.title} parent={{ href: "/coordinacion/convocatorias#salidas", label: "Convocatorias de salida" }} />
+  return <><CoordinationBreadcrumb current={series ? compactParticipationDates(outing.first_day,outing.last_day) : outing.title}
+    parents={[{ href: '/coordinacion/convocatorias#salidas', label: 'Convocatorias de salida' },...(series ? [series] : [])]} />
   <header className={`card coordination-outing-summary${editing ? '' : ' outing-tabbed-summary'}`}>
     <div className="outings-table-heading">
       <div className="actions">
@@ -358,6 +364,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       {editable && !editing && <Link className="button" href={`${back}?editar=1`}>Editar salida</Link>}
     </div>
     <h1>{outing.title}</h1>
+    {series && <p className="outing-parent-series"><span>Convocatoria en serie</span><Link href={series.href}>{series.label} <span aria-hidden="true">→</span></Link></p>}
     <dl className="profile-facts" hidden={editing}>
       <div><dt>Lugar</dt><dd>{outing.location}</dd></div>
       <div><dt>Unidad</dt><dd>{outing.unit}</dd></div>
@@ -366,7 +373,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       <div><dt>Visibilidad</dt><dd>{!outing.accepting ? 'Solo con invitación' : outing.listed ? 'Pública' : 'Privada por enlace'}</dd></div>
       <div><dt>Fecha límite de inscripción</dt><dd>{displayDate(outing.deadline)}</dd></div>
     </dl>
-    {editing && <p className="muted">Editando este bloque · {displayDate(outing.first_day)} al {displayDate(outing.last_day)}</p>}
+    {editing && <p className="muted">Editando {series?'este bloque':'la convocatoria'} · {displayDate(outing.first_day)} al {displayDate(outing.last_day)}</p>}
     {!editing && <HomepageFeatureControl kind="outing" id={id}
       available={outing.status === 'abierta' && outing.listed && outing.accepting} error={destacadaError} />}
   </header>
@@ -375,7 +382,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   {!editable && <p className="note">Convocatoria de solo lectura.</p>}
   {error && (!editable || (!gestion && !entries.some(entry => entry.id === inscripcion))) && <p className="note" role="alert">{error}</p>}
   {guardada === '1' && <StatusRibbon message="Cambios de la convocatoria guardados." />}
-  {editing ? <OutingEditor id={id} version={String(outing.edit_version)}
+  {editing ? <OutingEditor isSeries={!!series} id={id} version={String(outing.edit_version)}
     initial={Object.fromEntries([...commonOutingFields.map(f=>[f.name,String(outing[f.name]??'')]),...outingLogisticsFields.map(f=>[f.name,String(outing[f.name]??'')]),['starts',outing.first_day],['ends',outing.last_day],['mode',outing.flexible?'flexible':'fija'],['capacity',String(outing.capacity)],['visibility',outing.listed?'publica':'privada'],['registrationDeadline',outing.deadline]])}
     defaults={Object.fromEntries(commonOutingFields.map(f=>[f.name,String(defaults[f.name]??'')]))}
     overrides={outing.outing_overrides} units={units.map(u=>u.name)}

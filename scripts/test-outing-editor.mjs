@@ -20,7 +20,8 @@ try{
   await tx`insert into requests(id,organization,activity,outing_defaults)values(${request},'DEMO prueba editor','Actividad',${tx.json({title:'Original',location:'Lugar',unit:'Voluntariado General',requirements:'',logistics:''})})`;
   await tx`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,registration_deadline)values(${id},${request},'Original','Lugar','Voluntariado General','2027-01-10','2027-01-11',true,2,'confirmada','2027-01-10')`;
   const options={actor:'local-admin',canOperate:()=>true,upload:async()=>{throw new Error('foto-fallida');}};
-  async function form(){const f=new FormData();for(const[k,v]of Object.entries({version:await outingEditVersion(tx,id),starts:'2027-01-10',ends:'2027-01-11',mode:'flexible',capacity:'2',visibility:'publica',registrationDeadline:'2027-01-10',photoMode:'keep',title:'Nuevo'}))f.set(k,v);f.append('personal','title');return f;}
+  async function form(){const f=new FormData();for(const[k,v]of Object.entries({version:await outingEditVersion(tx,id),starts:'2027-01-10',ends:'2027-01-11',mode:'flexible',capacity:'2',visibility:'publica',registrationDeadline:'2027-01-10',photoMode:'keep',title:'Nuevo',location:'Lugar',unit:'Voluntariado General',requirements:'',logistics:''}))f.set(k,v);f.append('personal','title');return f;}
+  const individual=await form();individual.delete('personal');await saveOutingEditor(tx,id,individual,options);assert.equal((await tx`select title from outings where id=${id}`)[0].title,'Nuevo');await tx`update outings set title='Original' where id=${id}`;
   const failed=await form();failed.set('capacity','0');
   await assert.rejects(()=>saveOutingEditor(tx,id,failed,options),e=>e instanceof OutingEditError&&e.target==='capacity');
   assert.equal((await tx`select title from outings where id=${id}`)[0].title,'Original');

@@ -24,7 +24,9 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  if(!outing||!options.canOperate(outing.unit))invalid('form','No tenés permiso para editar esta salida.');
  if(!outingIsEditable(outing.status))invalid('form','Esta convocatoria está cerrada para edición.');
  if(field(form,'version')!==await outingEditVersion(tx,id))invalid('form','La salida cambió desde que abriste el editor. Recargá la página antes de guardar.');
- const personal=new Set(form.getAll('personal').map(String));
+ const [membership]=await tx`select exists(select 1 from outings where request_id=${outing.request_id} and id<>${id}) as is_series`;
+ const isSeries=membership.is_series;
+ const personal=new Set(isSeries?form.getAll('personal').map(String):commonOutingFields.map(item=>item.name));
  const defaults=request.outing_defaults??outing;
  const updates:Record<string,string|number|boolean|null>={};
  for(const item of commonOutingFields){
@@ -65,7 +67,7 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  }
  const photoMode=field(form,'photoMode');
  let photos:EditorPhoto[]=[];
- if(!['keep','personal','inherit'].includes(photoMode))invalid('photos','Revisá la selección de fotos.');
+ if(!['keep','personal','inherit'].includes(photoMode)||(!isSeries&&photoMode==='inherit'))invalid('photos','Revisá la selección de fotos.');
  if(photoMode==='personal'){
   try{photos=JSON.parse(field(form,'photos'));}catch{invalid('photos','Revisá las fotos.');}
   if(!Array.isArray(photos)||photos.length>6||new Set(photos.map(p=>p.key)).size!==photos.length)invalid('photos','Elegí hasta seis fotos sin repetir.');
