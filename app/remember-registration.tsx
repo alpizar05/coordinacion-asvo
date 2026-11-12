@@ -1,6 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from './form-feedback/form-feedback';
+import { RegistrationResultModal } from './registration-result-modal';
+import { validateParticipation,registrationFieldLabels,type RegistrationActionResult,type RegistrationSchedule } from '../lib/registration-validation';
+import { fieldErrorMessages } from '../lib/form-result';
 
 const savedKey = 'asvo-registration-preferences-v1';
 const pendingKey = 'asvo-registration-preferences-pending-v1';
@@ -13,10 +18,16 @@ function valid(value: unknown): value is Preferences {
     typeof p.food === 'string' && p.food.length <= 500 && typeof p.transport === 'boolean' && Number.isSafeInteger(p.rides) && p.rides >= 0;
 }
 
-export function RememberRegistrationForm({ action, outingId, children }: {
-  action: (data: FormData) => Promise<void>; outingId: string; children: ReactNode;
+export function RememberRegistrationForm({ action, outingId, schedule, children }: {
+  action: (data: FormData) => Promise<RegistrationActionResult>; outingId: string; schedule: RegistrationSchedule; children: ReactNode;
 }) {
   const form = useRef<HTMLFormElement>(null);
+  const router=useRouter();
+  const helpId=useId();
+  const [pending,setPending]=useState(false);
+  const inFlight=useRef(false);
+  const [issue,setIssue]=useState<(NonNullable<RegistrationActionResult['issue']>&{id:number})|null>(null);
+  const feedback=useFormFeedback({form,validate:data=>validateParticipation(data,schedule,true),labels:registrationFieldLabels,dependencies:{starts:['ends'],ends:['starts'],transport:['rides']}});
   const [remember, setRemember] = useState(false);
   const [available, setAvailable] = useState(true);
   const [message, setMessage] = useState('');
@@ -47,7 +58,7 @@ export function RememberRegistrationForm({ action, outingId, children }: {
     setRemember(false);
     setMessage('Los datos guardados en este navegador se eliminaron.');
   }
-  return <form ref={form} action={action} onPaste={event => {
+  return <FormFeedbackProvider feedback={feedback}><form ref={form} noValidate onChange={event=>{const input=event.target;if(input instanceof HTMLInputElement||input instanceof HTMLTextAreaElement)feedback.changed(input.name);}} onPaste={event => {
     const input = event.target;
     if (input instanceof HTMLInputElement && input.name === 'identification') {
       event.preventDefault();
@@ -59,6 +70,7 @@ export function RememberRegistrationForm({ action, outingId, children }: {
       const cursor = Math.min(start + digits.length,input.value.length);
       input.setSelectionRange(cursor,cursor);
       input.dispatchEvent(new Event('input',{bubbles:true}));
+      feedback.changed('identification');
     }
   }} onInput={event => {
     const input = event.target;
@@ -71,17 +83,34 @@ export function RememberRegistrationForm({ action, outingId, children }: {
         input.setSelectionRange(Math.min(position,9),Math.min(position,9));
       }
     }
-  }} onSubmit={event => {
-    try {
+    if(input instanceof HTMLInputElement && input.name==='identification')feedback.changed('identification');
+  }} onSubmit={async event => {
+    event.preventDefault();
+    if(inFlight.current)return;
+    const data=new FormData(event.currentTarget);
+    const errors=validateParticipation(data,schedule,true);
+    if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
+    inFlight.current=true;setPending(true);setIssue(null);
+    try{
+      const result=await action(data);
+      if(!result.saved){feedback.showErrors(result.fieldErrors,result.error);if(result.issue)setIssue({...result.issue,id:Date.now()});return;}
+      try {
       sessionStorage.removeItem(pendingKey);
-      if (!remember) return;
-      const data = new FormData(event.currentTarget);
-      sessionStorage.setItem(pendingKey, JSON.stringify({ outingId, created: Date.now(), data: {
-        identification: String(data.get('identification') || ''), transport: data.get('transport') === 'on',
-        rides: data.get('transport') === 'on' ? Number(data.get('rides') || 0) : 0, food: String(data.get('food') || ''),
-      } }));
-    } catch { setMessage('Este navegador no permite recordar los datos. Podés enviar tu inscripción igualmente.'); }
+      if (remember) {
+        sessionStorage.setItem(pendingKey, JSON.stringify({ outingId, created: Date.now(), data: {
+          identification: String(data.get('identification') || ''), transport: data.get('transport') === 'on',
+          rides: data.get('transport') === 'on' ? Number(data.get('rides') || 0) : 0, food: String(data.get('food') || ''),
+        } }));
+      }
+      } catch { setMessage('Este navegador no permite recordar los datos. Tu inscripción fue recibida igualmente.'); }
+      if(result.destination)router.replace(result.destination,{scroll:false});
+    }catch{feedback.showErrors({},'No se pudo completar el envío. Tus datos se conservan para reintentar.');}
+    finally{inFlight.current=false;setPending(false);}
   }}>
+    <FormErrorSummary />
+    <fieldset disabled={pending} className="registration-form-fields">
+    <FormField name="identification" label="Número de identificación"><input name="identification" type="text" inputMode="numeric" required minLength={9} maxLength={9} pattern="[0-9]{9}" placeholder="102340567" aria-describedby={helpId} autoComplete="off" /></FormField>
+    <p id={helpId} className="muted">9 dígitos, sin espacios ni guiones. Ejemplo: 102340567.</p>
     {children}
     <div className="remember-registration">
       <label><input type="checkbox" checked={remember} disabled={!available} onChange={event => {
@@ -90,8 +119,10 @@ export function RememberRegistrationForm({ action, outingId, children }: {
       <p className="muted">Usá esta opción solo en un dispositivo personal.</p>
       <p role="status">{message || (!available ? 'El almacenamiento de este navegador no está disponible.' : '')}</p>
     </div>
-    <button type="submit">Enviar inscripción</button>
-  </form>;
+    </fieldset>
+    <button type="submit" disabled={pending}>{pending?'Enviando…':'Enviar inscripción'}</button>
+    {issue&&<RegistrationResultModal key={issue.id} title={issue.title} paragraphs={[issue.message]} keepRegistrationOpen onDismiss={()=>{setIssue(null);if(feedback.fieldErrors.identification)void feedback.focus('identification');else requestAnimationFrame(()=>feedback.summary.current?.focus());}} />}
+  </form></FormFeedbackProvider>;
 }
 
 export function SaveRegistrationPreferences({ outingId }: { outingId: string }) {

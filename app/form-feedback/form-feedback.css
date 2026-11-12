@@ -1,0 +1,19 @@
+.form-feedback-field { display: grid; gap: .35rem; min-width: 0; }
+.form-feedback-field > label { margin: 0; }
+.form-feedback-field [aria-invalid=true] { border-color: #852f24; }
+.form-field-error { color: #852f24; font-size: .875rem; font-weight: 400; }
+.form-error-summary { padding: .9rem 1rem; margin-bottom: 1rem; border-inline-start: 3px solid #852f24; background: #fff6f3; color: #54231b; }
+.form-error-summary p { margin-block: 0 .35rem; }
+.form-error-summary ul { margin-block: .35rem 0; padding-inline-start: 1.2rem; }
+.form-error-summary button { border: 0; background: transparent; color: inherit; text-decoration: underline; text-align: start; padding: .3rem 0; font-weight: 400; }
+.form-error-summary button:hover { background: transparent; }
+@media (pointer: coarse) { .form-error-summary button { min-height: 44px; } }
+
+.form-field-error-message { display: block; }
+
+.form-binding-error { display: block; margin-block: .3rem .6rem; overflow-wrap: anywhere; }
+.form-error-summary, .form-field-error { overflow-wrap: anywhere; }
+
+.coordination-content [aria-invalid=true][aria-describedby] { border-color: #852f24; }
+.coordination-content .form-error-summary button,
+.coordination-content .form-error-summary button:hover { border: 0; background: transparent; color: inherit; font-weight: 400; }

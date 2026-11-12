@@ -2,10 +2,16 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
+import { fieldErrorMessages, type FieldErrors, type FormResult } from '../../lib/form-result';
+import { FormFeedbackProvider, FormErrorSummary, useFormFeedback } from '../form-feedback/form-feedback';
 import { StatusRibbon } from '../status-ribbon';
 import { CoordinationModal } from './coordination-modal';
 
-export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', successMessage = 'Cambios guardados.', open: controlledOpen, onClose }: {
+export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', successMessage = 'Cambios guardados.', validate, fieldLabels, fieldDependencies, revealField, open: controlledOpen, onClose }: {
+  validate?: (data: FormData) => FieldErrors;
+  fieldLabels?: Record<string,string>;
+  fieldDependencies?: Record<string,string[]>;
+  revealField?: (name: string) => void | Promise<void>;
   successMessage?: string;
   open?: boolean; onClose?: () => void;
   title: string; action: (form: FormData) => Promise<unknown>; children: ReactNode; wide?: boolean; id?: string; saveLabel?: string;
@@ -15,46 +21,45 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
   const setOpen = (value: boolean) => { setLocalOpen(value); if (!value) onClose?.(); };
   const [dirty, setDirty] = useState(false);
   const [pending, setPending] = useState(false);
-  const [error, setError] = useState('');
   const [confirmation,setConfirmation] = useState({id:0,message:''});
-  const form = useRef<HTMLFormElement>(null);
-  const errorRef = useRef<HTMLParagraphElement>(null);
+  const form = useRef<HTMLFormElement>(null),inFlight=useRef(false);
+  const feedback = useFormFeedback({form,validate,labels:fieldLabels,dependencies:fieldDependencies,revealField});
   const formId = useId();
   const router = useRouter();
   useEffect(() => {
-    if (controlledOpen) { form.current?.reset(); setError(''); setDirty(false); }
+    if (controlledOpen) { form.current?.reset(); feedback.reset(); setDirty(false); }
   },[controlledOpen]);
   return <div id={id} className={controlledOpen === undefined ? "mobile-disclosure" : undefined}>
     <StatusRibbon key={confirmation.id} message={confirmation.message} />
     {controlledOpen === undefined && <button type="button" aria-haspopup="dialog" onClick={() => {
-      form.current?.reset(); setError(''); setDirty(false); setOpen(true);
+      form.current?.reset(); feedback.reset(); setDirty(false); setOpen(true);
     }}>{title}</button>}
     <CoordinationModal open={open} onClose={() => setOpen(false)} title={title} dirty={dirty} pending={pending} wide={wide}
       footer={<button type="submit" form={formId} disabled={pending} className="coord-button-primary">{pending ? 'Guardando…' : saveLabel}</button>}>
-      <form ref={form} id={formId} onChange={() => setDirty(true)} onSubmit={async event => {
+      <FormFeedbackProvider feedback={feedback}><form ref={form} id={formId} noValidate={!!validate} onChange={event => { setDirty(true); const target=event.target; if(target instanceof HTMLInputElement || target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement) feedback.changed(target.name); }} onSubmit={async event => {
         event.preventDefault();
-        if (pending) return;
+        if (inFlight.current) return;
         const data = new FormData(event.currentTarget, (event.nativeEvent as SubmitEvent).submitter);
-        setPending(true); setError('');
+        const clientErrors = validate?.(data) || {};
+        if (Object.values(clientErrors).some(value=>fieldErrorMessages(value).length)) { feedback.showErrors(clientErrors); return; }
+        inFlight.current=true;setPending(true);
         try {
-          const result = await action(data) as { error?: string; saved?: boolean; destination?: string } | undefined;
-          if (result?.error || !result?.saved) {
-            setError(result?.error || 'No se pudo guardar. Revisá los datos e intentá de nuevo.');
-            setTimeout(() => errorRef.current?.focus(), 0);
+          const result = await action(data) as FormResult | undefined;
+          if (!result?.saved) {
+            feedback.showErrors(result?.fieldErrors,result?.error || (Object.values(result?.fieldErrors || {}).some(value=>fieldErrorMessages(value).length) ? '' : 'No se pudo guardar. Revisá los datos e intentá de nuevo.'));
           } else {
             setDirty(false); setOpen(false);
-            if (result.destination) router.push(result.destination);
+            if (result.destination) router.push(result.destination,{scroll:false});
             else { setConfirmation(previous=>({id:previous.id+1,message:successMessage})); router.refresh(); }
           }
         } catch {
-          setError('No se pudo guardar. Tus datos se conservan para reintentar.');
-          setTimeout(() => errorRef.current?.focus(), 0);
-        } finally { setPending(false); }
+          feedback.showErrors({},'No se pudo guardar. Tus datos se conservan para reintentar.');
+        } finally { inFlight.current=false;setPending(false); }
       }}>
-        {error && <p ref={errorRef} tabIndex={-1} className="note" role="alert">{error}</p>}
+        <FormErrorSummary />
         <fieldset disabled={pending} className="coordination-modal-form-fields">{children}</fieldset>
         {pending && <p role="status">Guardando…</p>}
-      </form>
+      </form></FormFeedbackProvider>
     </CoordinationModal>
   </div>;
 }

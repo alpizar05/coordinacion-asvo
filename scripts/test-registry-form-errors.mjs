@@ -1,0 +1,48 @@
+import {registerHooks}from'node:module';import{existsSync}from'node:fs';import{fileURLToPath}from'node:url';import{randomUUID}from'node:crypto';import assert from'node:assert/strict';
+const url=new URL(process.env.DATABASE_URL);if(process.env.ASVO_DEMO!=='1'||!['localhost','127.0.0.1','[::1]'].includes(url.hostname))throw Error('Solo demo local');process.env.NODE_ENV='development';
+registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const p=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(p)))return n(p.href,c);}return n(s,c);}});
+const {sql}=await import('../lib/db.ts');const {validateRegistryForm}=await import('../lib/registry-validation.ts');const {validateProfile}=await import('../lib/profile-validation.ts');
+const {prepareRegistryImport,applyRegistryImport}=await import('../lib/registry-import.ts');const {verifyRegistryPolicy,saveRegistryUnits,saveRegistryIncident,saveRegistryGrant}=await import('../lib/registry-mutations.ts');const {attendanceCases,saveAttendanceResolution}=await import('../lib/attendance-reconciliation.ts');
+const form=(values={})=>{const f=new FormData();for(const[k,v]of Object.entries(values))for(const item of Array.isArray(v)?v:[v])f.append(k,item);return f;};
+assert.equal(Object.keys(validateRegistryForm(form(),'policy')).length,5);assert.equal(Object.keys(validateRegistryForm(form(),'incident')).length,2);assert.equal(Object.keys(validateRegistryForm(form(),'attendance')).length,2);
+assert.ok(validateProfile(form({name:'',surname:'',email:'mal'})).email);
+const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};const rollback=Error('rollback');
+try{await sql.begin(async tx=>{
+ const person=randomUUID(),ident='T'+person.replaceAll('-','').slice(0,20).toUpperCase(),actor='test-'+randomUUID();
+ await tx`insert into volunteers(id,identification,name,surname,email)values(${person},${ident},'Persona','Ficticia','persona@example.test')`;
+ const count=async table=>Number((await tx.unsafe(`select count(*)::int as n from ${table}`))[0].n);
+ const before=await count('volunteers'),audits=await count('audit');
+ assert.ok((await prepareRegistryImport(tx,'nombre\nPrueba','volunteers')).fieldErrors.csv);
+ assert.ok((await prepareRegistryImport(tx,'identificacion,tipo,numero\n"mal','policies')).fieldErrors.csv);
+ const csv=`identificacion,nombre,primer_apellido,correo\n${ident},Persona nueva,Ficticia,persona@example.test\nINVALIDA,,Prueba,mal\n${ident},Duplicada,Prueba,correo@example.test\n`;
+ const preview=await prepareRegistryImport(tx,csv,'volunteers');assert.equal(preview.rows.length,3);assert.equal(preview.rows[1].line,3);assert.ok(preview.rows[1].issues.some(i=>i.column==='nombre'));assert.ok(preview.rows[1].issues.some(i=>i.column==='correo'));assert.equal(preview.rows[2].valid,false);
+ assert.equal(await count('volunteers'),before);assert.equal(await count('audit'),audits,'Previsualizar no escribe');
+ const applyForm=form({csv,selected:['0'],preview:preview.token,versions:JSON.stringify(preview.rows.map(r=>r.version))});
+ assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.confirm);
+ applyForm.set('confirm','on');applyForm.append('selected','1');assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.selected);assert.equal(await count('audit'),audits);
+ applyForm.delete('selected');applyForm.append('selected','0');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);const after=await count('audit');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);assert.equal(await count('audit'),after);
+ const stale=await prepareRegistryImport(tx,csv,'volunteers');applyForm.set('preview',stale.token);applyForm.set('versions',JSON.stringify(stale.rows.map(r=>r.version)));await tx`update volunteers set name='Cambio concurrente'where id=${person}`;assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).error.includes('cambió'));
+ const pcsv=`identificacion,tipo,numero\n${ident},DEMO,PRUEBA\nNOEXISTE,DEMO,OTRA\n`,pp=await prepareRegistryImport(tx,pcsv,'policies');assert.equal(pp.rows[1].valid,false);
+ const pf=form({csv:pcsv,selected:['0'],preview:pp.token,versions:JSON.stringify(pp.rows.map(r=>r.version)),confirm:'on'});assert.equal((await applyRegistryImport(tx,pf,'policies',actor)).saved,true);const policies=await count('policies');assert.equal((await applyRegistryImport(tx,pf,'policies',actor)).saved,true);assert.equal(await count('policies'),policies);
+ assert.equal(Object.keys((await verifyRegistryPolicy(tx,person,form(),actor)).fieldErrors).length,5);
+ const policy=form({kind:'DEMO',number:'DEMO-VALIDA',starts:'2035-01-01',ends:'2035-01-31',source:'Ficticia'});assert.equal((await verifyRegistryPolicy(tx,person,policy,actor)).saved,true);const verified=await count('policies');assert.equal((await verifyRegistryPolicy(tx,person,policy,actor)).saved,true);assert.equal(await count('policies'),verified);
+ assert.ok((await saveRegistryUnits(tx,person,form({units:['NO ES UNIDAD']}),actor)).fieldErrors.units);assert.equal((await saveRegistryUnits(tx,person,form(),actor)).saved,true);assert.deepEqual((await tx`select units from volunteers where id=${person}`)[0].units,['Voluntariado General']);
+ assert.equal(Object.keys((await saveRegistryIncident(tx,person,form(),actor)).fieldErrors).length,2);const incident=form({occurred_on:'2035-01-10',description:'Incidente ficticio'});assert.equal((await saveRegistryIncident(tx,person,incident,actor)).saved,true);const incidents=await count('volunteer_incidents');assert.equal((await saveRegistryIncident(tx,person,incident,actor)).saved,true);assert.equal(await count('volunteer_incidents'),incidents);
+ const newIdent='N'+randomUUID().replaceAll('-','').slice(0,20).toUpperCase(),newCsv=`identificacion,nombre,primer_apellido,correo\n${newIdent},Nueva,Ficticia,nueva@example.test\n`;
+ const newPreview=await prepareRegistryImport(tx,newCsv,'volunteers');const newForm=form({csv:newCsv,selected:['0'],preview:newPreview.token,versions:JSON.stringify(newPreview.rows.map(r=>r.version)),confirm:'on'});
+ assert.equal((await applyRegistryImport(tx,newForm,'volunteers',actor)).saved,true);assert.equal((await applyRegistryImport(tx,newForm,'volunteers',actor)).saved,true);
+ const added=await tx`select units from volunteers where identification=${newIdent}`;assert.equal(added.length,1);assert.ok(added[0].units.includes('Voluntariado General'));
+ assert.ok((await prepareRegistryImport(tx,'x'.repeat(150001),'volunteers')).fieldErrors.csv);
+ const subject=randomUUID();assert.ok((await saveRegistryGrant(tx,form({subject:'?',role:'unidad',unit:'NO EXISTE',action:'asignar'}),actor,true)).fieldErrors.unit);const grant=form({subject,role:'general',action:'asignar'});assert.equal((await saveRegistryGrant(tx,grant,actor,true)).saved,true);const grantAudit=await count('audit');assert.equal((await saveRegistryGrant(tx,grant,actor,true)).saved,true);assert.equal(await count('audit'),grantAudit);assert.equal((await saveRegistryGrant(tx,form({subject,role:'admin',action:'revocar'}),subject,true)).fieldErrors,undefined);
+ // Independent evidence fixture: two finalized reports disagree about the same participant.
+ const request=randomUUID(),outing=randomUUID(),lead=randomUUID(),entry=randomUUID(),leadEntry=randomUUID();
+ await tx`insert into requests(id,organization,activity)values(${request},'DEMO errores','Prueba')`;await tx`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,listed)values(${outing},${request},'DEMO errores','Local','Voluntariado General','2035-01-10','2035-01-12',true,3,'completada',false)`;
+ await tx`insert into volunteers(id,identification,name,surname,email)values(${lead},${lead},'Responsable','Ficticio','responsable@example.test')`;
+ for(const[id,v]of[[entry,person],[leadEntry,lead]])await tx`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)values(${id},${outing},${v},${v},'2035-01-10','2035-01-12','confirmada','{}'::jsonb)`;
+ for(const[l,name,attended]of[[entry,'Persona',true],[leadEntry,'Responsable',false]])await tx`insert into outing_reports(outing_id,lead_registration_id,lead_name,lead_email,labour,location,activity,starts,ends,actions,host,observations,participants,status)values(${outing},${l},${name},'demo@example.test','Mantenimiento','Local','Prueba','2035-01-10','2035-01-12','Prueba','Ficticio','',${tx.json([{id:entry,name:'Persona',attended}])},'finalizado')`;
+ const [item]=await attendanceCases(outing,tx);assert.ok(item);
+ assert.equal(Object.keys((await saveAttendanceResolution(tx,outing,person,item.version,'','','prueba')).fieldErrors).length,2);
+ assert.ok((await saveAttendanceResolution(tx,outing,person,'obsoleta','participo','Motivo ficticio',actor)).error.includes('cambiaron'));
+ assert.equal((await saveAttendanceResolution(tx,outing,person,item.version,'participo','Motivo ficticio',actor)).saved,true);const resolutions=await count('attendance_resolutions');assert.equal((await saveAttendanceResolution(tx,outing,person,item.version,'participo','Motivo ficticio',actor)).saved,true);assert.equal(await count('attendance_resolutions'),resolutions);
+ throw rollback;
+});}catch(e){if(e!==rollback)throw e;console.log('OK: errores múltiples, ficha, unidades obligatorias, pólizas, incidentes, permisos ficticios, evidencia, CSV por fila/columna, preview sin escritura, confirmación, conflictos y reintentos sin duplicados; rollback local y cero red real.');}finally{globalThis.fetch=originalFetch;await sql.end();}

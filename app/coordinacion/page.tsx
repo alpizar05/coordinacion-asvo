@@ -55,7 +55,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
           {tab === 'revision' && reviews.map(row => <li key={row.id} id={`inscripcion-${row.id}`}>
             <div><strong>{row.volunteer || 'Ficha pendiente de conciliar'}</strong><p><Link href={`/coordinacion/salidas/${row.outing_id}`}>{row.title}</Link></p>
               <p>{displayDate(row.starts)} al {displayDate(row.ends)}</p><p className="muted">{row.age === 0 ? 'Recibida hoy' : `Recibida hace ${row.age} días`} · {startLabel(row.days_to_start)}</p></div>
-            <RegistrationActions personName={row.volunteer} entry={{id:row.id,status:row.status,identification:row.identification,starts:row.starts,ends:row.ends}}
+            <RegistrationActions personName={row.volunteer} entry={{version:row.version,id:row.id,status:row.status,identification:row.identification,starts:row.starts,ends:row.ends}}
               outing={{flexible:row.flexible,first_day:row.outing_start,last_day:row.outing_end}} fromList filter={filters.toString()} fromSummary
               error={params.inscripcion === row.id ? params.error : undefined} />
           </li>)}

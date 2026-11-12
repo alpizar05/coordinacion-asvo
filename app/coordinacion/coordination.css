@@ -488,3 +488,10 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .coordination-content .outing-parent-series { display: grid; gap: .25rem; margin-block: -.25rem 1.25rem; }
 .coordination-content .outing-parent-series > span { font-size: .8rem; color: var(--gray); }
 .coordination-content .outing-parent-series > a { width: fit-content; max-width: 100%; overflow-wrap: anywhere; }
+
+/* Date-filter errors stay in the toolbar and remain reachable outside the mobile dialog. */
+.coordination-table-toolbar > .form-error-summary { min-width: 0; }
+@media (max-width: 700px) {
+ .coordination-content .coordination-table-toolbar { flex-wrap: wrap; }
+ .coordination-content .coordination-table-toolbar > .form-error-summary { order: 3; flex-basis: 100%; margin: 0; }
+}

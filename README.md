@@ -286,3 +286,22 @@ El layout monta `ConfirmationProvider`, que mantiene una sola franja superior du
 Se revisaron creación individual y por periodos, clonación, edición individual/común, fotos, agrupaciones, completar/cancelar/eliminar, portada, gestión/edición/alta de inscripciones, ficha, unidades, pólizas, incidentes, permisos, importaciones, recordatorios y enlaces privados. La creación de una serie manual vuelve a su vista de Coordinación para mostrar la confirmación. Los mensajes de correo distinguen registro para envío de entrega efectiva. Los fallos de guardado o copia permanecen como errores; no se convierten en confirmaciones temporales. No se notifican como guardado los cambios locales de fotos que todavía requieren guardar la convocatoria.
 
 Verificación local: guardado de ficha ficticia sin cambiar sus datos, modal cerrado tras éxito, una sola región de confirmación, ocultamiento automático y repetición del mismo mensaje. Un año inválido conserva el modal y su valor, sin confirmación de éxito. Revisado en desktop y celular; TypeScript y compilación de producción correctos. No se enviaron correos reales ni se modificó la base beta durante estas pruebas.
+
+
+## Base compartida de errores por campo
+
+Implementada la primera etapa en **Corregir ficha**, con validación compartida entre navegador y servidor, errores múltiples, mensajes accesibles junto al control, resumen navegable y conservación de datos. `ActionModal` mantiene compatibilidad con los demás formularios. El contrato, la integración y las comprobaciones se documentan en [Errores de formularios](docs/errores-de-formularios.md). Prueba: `node scripts/test-form-feedback.mjs`. Los demás formularios se migrarán en etapas posteriores.
+
+La segunda etapa extiende los errores por campo a inscripción pública, edición y cancelación mediante enlace privado. Conserva datos ante errores y los avisos importantes de identificación/póliza, mantiene la recepción en modal sobre la PDP y evita nuevas notificaciones ante reintentos idénticos de edición o cancelación. Prueba local con rollback y sin red real: `node --env-file=.env.local scripts/test-public-registration.mjs`. Ver detalles en la misma guía.
+
+Errores por campo en Coordinación: agregar/editar inscripciones, decisiones, recuperación y creación desde agrupaciones usan la base compartida. Patrón y pruebas locales en [Errores de formularios](docs/errores-de-formularios.md).
+
+Registro y Administración también usan errores por campo: pólizas, unidades, incidentes, conciliación de asistencia, permisos e importaciones CSV. Las importaciones requieren previsualización y confirmación explícita; ver el [patrón y comprobaciones](docs/errores-de-formularios.md).
+
+Los editores de convocatorias, bloques, series, fotos, informe del 70 e invitaciones también comparten los errores por campo y el resumen navegable. Ver [patrón y pruebas de formularios](docs/errores-de-formularios.md).
+
+### Revisión de formularios y errores
+
+El [inventario de formularios activos y auditoría integral](docs/auditoria-errores-formularios.md) registra qué se verificó, las correcciones de teclado/foco/celular, los filtros de fechas y las limitaciones pendientes. El [patrón compartido](docs/errores-de-formularios.md) explica cómo integrar formularios nuevos.
+
+Verificación local de esta revisión: `node --env-file=.env.local scripts/test-form-audit.mjs`. Exige una base demo en localhost, bloquea red real y revierte sus cambios. Complementar con las regresiones enumeradas en la auditoría, `npm run check` y `npm run build`. No ejecutar estas pruebas contra beta/producción.

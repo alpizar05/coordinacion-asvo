@@ -1,4 +1,6 @@
 'use server';
+import {validatePhoto} from '../lib/outing-form-validation';
+import type {FormResult} from '../lib/form-result';
 
 import { revalidatePath } from 'next/cache';
 import { outingPhotoLimit } from '../lib/outing-photo-limits';
@@ -14,14 +16,16 @@ export async function managePhoto(id: string, form: FormData) {
   redirect(error ? `${back}?editar=1&error=${encodeURIComponent(error)}#fotos` : `${back}?editar=1&confirmacion=foto#fotos`);
 }
 
-export async function attachOutingPhoto(id: string, form: FormData) {
-  if (!['agregar', 'galeria', 'editar'].includes(field(form, 'action'))) return 'Elegí cómo agregar la foto.';
+export async function attachOutingPhoto(id: string, form: FormData):Promise<FormResult> {
+  if (!['agregar', 'galeria', 'editar'].includes(field(form, 'action'))) return {error:'Elegí cómo agregar la foto.'};
+  const action=field(form,'action');const errors=validatePhoto(form,{mode:action==='agregar'?'upload':action==='galeria'?'gallery':'edit'});if(Object.keys(errors).length)return {fieldErrors:errors};
+  if(action==='agregar'){const file=form.get('photo');try{await preparePhoto(file as File);}catch{return {fieldErrors:{photo:'El archivo no es una imagen válida de hasta 3 MB y 24 megapíxeles.'}};}}
   const error = await updatePhoto(id, form);
   if (!error) {
     revalidatePath(`/coordinacion/salidas/${id}`);
     revalidatePath(`/convocatorias/${id}`);
   }
-  return error;
+  return error?{error}:{saved:true};
 }
 
 async function updatePhoto(id: string, form: FormData) {
@@ -30,6 +34,7 @@ async function updatePhoto(id: string, form: FormData) {
   const [ref] = await sql`select unit from outings where id=${id}`;
   requireStaff(user,!!ref && canOperate(user,ref.unit));
   const action = field(form,'action');
+  if(!['agregar','galeria','editar','retirar','portada','subir','bajar'].includes(action))return 'La acción de foto no está disponible.';
   const photoId = field(form,'photoId');
   let error: string | undefined;
   try {

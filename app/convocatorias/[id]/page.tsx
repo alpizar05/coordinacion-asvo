@@ -106,7 +106,7 @@ export default async function Page({ params, searchParams }: {
         {query.fechas === '1' && <RegistrationResultModal key={query.resultado} title="Las fechas de la salida cambiaron"
           paragraphs={['Revisá las fechas y la modalidad antes de volver a enviar tu inscripción.']} />}
         {submitted && <>
-          <SaveRegistrationPreferences outingId={id} />
+          <SaveRegistrationPreferences key={query.resultado} outingId={id} />
           <RegistrationResultModal key={query.resultado ?? 'recibido'} success title="Inscripción recibida"
             greeting={receipt?.firstName?.trim() ? `¡Gracias, ${receipt.firstName.trim()}!` : '¡Gracias!'}
             paragraphs={['Recibimos tu solicitud de inscripción.',
@@ -119,8 +119,7 @@ export default async function Page({ params, searchParams }: {
             <CapacitySummary capacity={outing.capacity} occupied={outing.occupied} detail />
             <p>Coordinación debe confirmar tu participación{outing.occupied >= outing.capacity ? '. Los cupos están cubiertos; tu inscripción se recibirá en lista de espera.' : '.'}</p>
             <p>{participation}</p>
-            <RememberRegistrationForm outingId={id} action={register.bind(null, id, schedule, token)}>
-              <label>Número de identificación<input name="identification" type="text" inputMode="numeric" required minLength={9} maxLength={9} pattern="[0-9]{9}" placeholder="102340567" title="Ingresá 9 dígitos, sin espacios ni guiones. Ejemplo: 102340567." aria-describedby="identification-help" autoComplete="off" /><span id="identification-help" className="muted">9 dígitos, sin espacios ni guiones. Ejemplo: 102340567.</span></label>
+            <RememberRegistrationForm schedule={{flexible:outing.flexible,starts:outing.starts,ends:outing.ends}} outingId={id} action={register.bind(null, id, schedule, token)}>
               <RegistrationFields flexible={outing.flexible} general={outing.unit === 'Voluntariado General'}
                 starts={outing.starts} ends={outing.ends} />
             </RememberRegistrationForm>

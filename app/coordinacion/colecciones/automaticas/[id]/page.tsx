@@ -1,3 +1,4 @@
+import {outingSeriesVersion} from '../../../../../lib/outing-editor';
 import { AutomaticCollectionEditor } from './collection-editor';
 import { compactParticipationDates } from '../../../../../lib/participation-dates';
 import { CapacitySummary } from '../../../../capacity-summary';
@@ -94,6 +95,7 @@ export default async function AutomaticCollection({ params, searchParams }: {
     </header>
     {guardado === '1' && <StatusRibbon message="Datos comunes actualizados." />}
     {editing ? <AutomaticCollectionEditor id={id} initialError={error} hidden={<>
+      <input type="hidden" name="version" value={await outingSeriesVersion(sql,id)}/>
       {blocks.map(block => <input key={block.id} type="hidden" name="block" value={block.id} />)}
       {editableBlocks.map(block => <input key={block.id} type="hidden" name="editableBlock" value={block.id} />)}
 

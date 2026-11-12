@@ -19,8 +19,8 @@ export function AttachPhotos({ id, gallery, initial }: {
     } else {
       form.set('action',photo.kind === 'edit' ? 'editar' : 'galeria'); form.set('photoId',photo.id);
     }
-    const error = await attachOutingPhoto(id,form);
-    if (error) return error;
+    const result = await attachOutingPhoto(id,form);
+    if (!result.saved) return result;
     if (photo.kind === 'gallery') setAdded(current => [...current,photo.id]);
     setSaved(initial ? 'Datos de foto actualizados.' : 'Foto agregada.');
   }

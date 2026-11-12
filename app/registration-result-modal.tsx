@@ -2,7 +2,9 @@
 
 import { useEffect, useId, useRef } from 'react';
 
-export function RegistrationResultModal({ title, paragraphs, greeting, success = false }: {
+export function RegistrationResultModal({ title, paragraphs, greeting, success = false, keepRegistrationOpen = false, onDismiss }: {
+  keepRegistrationOpen?: boolean;
+  onDismiss?: () => void;
   title: string;
   paragraphs: string[];
   greeting?: string;
@@ -12,14 +14,16 @@ export function RegistrationResultModal({ title, paragraphs, greeting, success =
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const result = dialog.current;
-    document.querySelector<HTMLDialogElement>('.registration-drawer dialog[open]')?.close();
+    if (!keepRegistrationOpen) document.querySelector<HTMLDialogElement>('.registration-drawer dialog[open]')?.close();
     if (result && !result.open) result.showModal();
     return () => result?.close();
   }, []);
 
   return <dialog ref={dialog} className={`registration-result-modal${success ? ' registration-result-success' : ''}`}
     role={success ? 'dialog' : 'alertdialog'} aria-labelledby={`${id}-title`} aria-describedby={`${id}-description`}
+    onCancel={event=>{if(onDismiss){event.preventDefault();dialog.current?.close();onDismiss();}}}
     onClose={() => {
+      if(onDismiss)return;
       const url = new URL(window.location.href);
       for (const key of ['recibido','estado','registroError','poliza','fechas','invitacionError','resultado']) url.searchParams.delete(key);
       window.history.replaceState(window.history.state,'',url.href);
@@ -27,6 +31,6 @@ export function RegistrationResultModal({ title, paragraphs, greeting, success =
     }}>
     <h2 id={`${id}-title`}>{title}</h2>
     <div id={`${id}-description`}>{greeting && <p className="registration-result-greeting"><strong>{greeting}</strong></p>}{paragraphs.map((paragraph,index) => <p key={index}>{paragraph}</p>)}</div>
-    <button type="button" autoFocus onClick={() => dialog.current?.close()}>Entendido</button>
+    <button type="button" autoFocus onClick={() => { dialog.current?.close(); onDismiss?.(); }}>Entendido</button>
   </dialog>;
 }

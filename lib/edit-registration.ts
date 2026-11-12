@@ -1,3 +1,5 @@
+import type { FormResult } from './form-result';
+import { registrationLogistics } from './registration-logistics';
 import { registrationChanges } from './registration-changes';
 import { audit, date, digest, eligible, type Transaction } from './registration';
 import { notifyRegistration } from './registration-workflow';
@@ -8,7 +10,7 @@ export function registrationVersion(entry: { starts: string; ends: string; statu
 
 // Caller locks the outing first and authorizes the coordinator for its current unit.
 export async function editStaffRegistration(tx: Transaction, id: string, actor: string, version: string,
-  starts: string, ends: string, details: Record<string,string | boolean | number>) {
+  starts: string, ends: string, details: Record<string,string | boolean | number>): Promise<FormResult> {
   const [entry] = await tx`select *,starts::text,ends::text from registrations where id=${id} for update`;
   if (!entry || !['revisión','espera','confirmada'].includes(entry.status)) return { error: 'Solo se pueden editar inscripciones activas.' };
   const [outing] = await tx`select unit,status,flexible,starts::text,ends::text from outings where id=${entry.outing_id}`;
@@ -24,6 +26,7 @@ export async function editStaffRegistration(tx: Transaction, id: string, actor: 
   const status = entry.status === 'confirmada' && changedDates ? 'revisión' : entry.status;
   const updated = { ...entry.details,...details };
   if (status !== 'confirmada') delete updated.assigned70;
+  if(!changedDates&&status===entry.status&&entry.policy_id===policy.id&&JSON.stringify(registrationLogistics(entry.details))===JSON.stringify(registrationLogistics(updated))&&(entry.details?.assigned70===true)===(updated.assigned70===true))return {saved:true};
   await tx`update registrations set starts=${starts},ends=${ends},status=${status},policy_id=${policy.id},details=${tx.json(updated)} where id=${id}`;
   if (status !== 'confirmada') await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${id} and revoked_at is null`;
   await audit(tx,actor,'Editó inscripción desde Coordinación',id,registrationChanges({starts:entry.starts,ends:entry.ends,status:entry.status,details:entry.details},{starts,ends,status,details:updated}));

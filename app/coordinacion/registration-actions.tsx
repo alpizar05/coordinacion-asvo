@@ -7,7 +7,9 @@ import Link from 'next/link';
 import { ReportReminder } from './report-reminder';
 import { EditRegistration } from './edit-registration';
 import { RowActionPanel } from './row-action-panel';
-import { manageEntry } from '../staff-actions';
+import { ManageRegistrationForm } from './manage-registration-form';
+import { StatusRibbon } from '../status-ribbon';
+import { useRouter } from 'next/navigation';
 
 const labels = {
   asignar70: 'Asignar como 70',
@@ -31,7 +33,7 @@ const actionsByStatus: Record<string, Action[]> = {
 };
 
 export function RegistrationActions({ entry, outing, personName, error, fromList = false, filter = '', fromSummary = false, canManage = true, reportFollowup }: {
-  entry: { id: string; status: string; identification: string; starts: string; ends: string; assigned70?: boolean };
+  entry: { version: string; id: string; status: string; identification: string; starts: string; ends: string; assigned70?: boolean };
   outing: { flexible: boolean; first_day: string; last_day: string };
   reportFollowup?: { outingId: string; title: string; starts: string; ends: string; email: string | null; activeLink: boolean; pending: boolean; finalized: boolean; demo: boolean };
   personName?: string;
@@ -41,6 +43,8 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   filter?: string;
   canManage?: boolean;
 }) {
+  const router=useRouter();
+  const [pending,setPending]=useState(false),[success,setSuccess]=useState({id:0,message:''});
   const [reminding,setReminding] = useState(false);
   const [editing,setEditing] = useState(false);
   const managed = useSearchParams().get('gestionada') === entry.id;
@@ -49,17 +53,17 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
   const available = baseActions && entry.status === 'confirmada' && !fromList
     ? [entry.assigned70 ? 'quitar70' as const : 'asignar70' as const, ...baseActions] : baseActions;
   const viewing = selected === 'ver';
-  const action = selected && selected !== 'ver' && available?.includes(selected) ? selected : null;
-  const needsReason = action === 'espera' || action === 'rechazar' || action === 'cancelar';
-  const approveDates = action === 'confirmar' && outing.flexible &&
-    (entry.starts < outing.first_day || entry.ends > outing.last_day);
+  // Keep the chosen action mounted even if a background refresh changes the available actions.
+  // The server detects the stale version and returns a general conflict.
+  const action = selected && selected !== 'ver' ? selected : null;
 
 
   return <>
+    <StatusRibbon key={success.id} message={success.message}/>
     {reportFollowup && !reportFollowup.finalized && reportFollowup.email && <ReportReminder open={reminding} onClose={() => setReminding(false)}
       outingId={reportFollowup.outingId} registrationId={entry.id} name={personName || 'Persona asignada como 70'} email={reportFollowup.email}
       title={reportFollowup.title} starts={reportFollowup.starts} ends={reportFollowup.ends} activeLink={reportFollowup.activeLink} demo={reportFollowup.demo} />}
-    <EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
+    <EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel pending={pending} title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
     triggerLabel={personName ? `Gestionar inscripción de ${personName}` : undefined}
     openOnError={error} managed={managed} onClose={() => setSelected(null)}>
     {close => <>
@@ -67,25 +71,11 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
         {viewing ? <>
           <button className="registration-sheet-back" type="button" onClick={() => setSelected(null)}>Volver a gestionar</button>
           <RegistrationDetailPanel id={entry.id} />
-        </> : action ? <form key={action} action={manageEntry.bind(null,entry.id,fromList,filter)}>
-          <h3>{labels[action]}</h3>
-          {fromSummary && <input type="hidden" name="fromSummary" value="1" />}
-          {action === 'validar' && <label>Identificación para conciliar
-            <input name="identification" defaultValue={entry.identification} />
-          </label>}
-          {approveDates && <label className="note">
-            <input type="checkbox" name="approveDates" value={`${entry.starts}/${entry.ends}`} required />
-            Apruebo las fechas solicitadas fuera del rango publicado.
-          </label>}
-          {needsReason && <label>Motivo
-            <input name="reason" required={needsReason} />
-          </label>}
-          <input type="hidden" name="action" value={action} />
-          <div className="actions">
-            <button className="registration-sheet-back" type="button" onClick={() => setSelected(null)}>Volver</button>
-            <button className={action === 'rechazar' || action === 'cancelar' ? 'coord-button-danger' : 'coord-button-primary'} type="submit">{labels[action]}</button>
-          </div>
-        </form> : <ul className="registration-sheet-actions">
+        </> : action ? <ManageRegistrationForm key={action} entry={entry} outing={outing} action={action} title={labels[action]}
+          onPending={setPending} onBack={()=>setSelected(null)} onSaved={()=>{
+            const messages={asignar70:'Persona asignada como 70.',quitar70:'Asignación de 70 retirada.',validar:'Inscripción anterior recuperada.',confirmar:'Inscripción confirmada.',espera:'Inscripción trasladada a lista de espera.',rechazar:'Inscripción rechazada.',cancelar:'Inscripción cancelada.'};
+            setSuccess(previous=>({id:previous.id+1,message:messages[action]}));close();router.refresh();
+          }}/> : <ul className="registration-sheet-actions">
           <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>
           {canManage && ['revisión','espera','confirmada'].includes(entry.status) && <li><button type="button" onClick={() => { close(); setEditing(true); }}>Editar inscripción</button></li>}
           {reportFollowup && <li>{reportFollowup.finalized

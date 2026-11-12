@@ -1,3 +1,5 @@
+import {RegistryForm} from '../registry-form';
+import {FormField,FormFieldGroup} from '../../form-feedback/form-feedback';
 import { SectionWorkspace } from '../section-workspace';
 import { notFound, redirect } from 'next/navigation';
 import { canAdminister, staff } from '../../../lib/auth';
@@ -30,12 +32,12 @@ export default async function Administration({ searchParams }: {
       {key:'access',label:'Accesos del personal',content:<section className="card" aria-labelledby="accesos-personal">
       <h2 id="accesos-personal">Accesos del personal</h2>
       <ul>{grants.map(row => <li key={row.subject+row.role+row.unit}>{row.subject} · {row.role} {row.unit}</li>)}</ul>
-      <form action={grant}>
-        <label>Identificador de objeto Entra<input name="subject" defaultValue={demo ? 'local-coordination' : undefined} required /></label>
-        <label>Rol<select name="role"><option value="general">Coordinación general</option><option value="unidad">Coordinación de unidad</option><option value="admin">Administración de permisos</option></select></label>
-        <label>Unidad para coordinación de unidad<select name="unit">{units.map(unit => <option key={unit.name}>{unit.name}</option>)}</select></label>
-        <div className="actions"><button name="action" value="asignar">Asignar</button><button name="action" value="revocar">Revocar</button></div>
-      </form>
+      <RegistryForm kind="grant" action={grant} successMessage="Permisos actualizados.">
+        <FormField name="subject" label="Identificador de objeto Entra"><input name="subject" defaultValue={demo ? 'local-coordination' : undefined} required /></FormField>
+        <FormField name="role" label="Rol"><select name="role"><option value="general">Coordinación general</option><option value="unidad">Coordinación de unidad</option><option value="admin">Administración de permisos</option></select></FormField>
+        <FormField name="unit" label="Unidad para coordinación de unidad"><select name="unit">{units.map(unit => <option key={unit.name}>{unit.name}</option>)}</select></FormField>
+        <FormFieldGroup name="action" label="Acción de permiso"><div className="actions"><button name="action" value="asignar">Asignar</button><button name="action" value="revocar">Revocar</button></div></FormFieldGroup>
+      </RegistryForm>
     </section>},
       {key:'volunteers',label:'Importar voluntariado',content:<Importer />},
       {key:'policies',label:'Conciliar pólizas',content:<PolicyImporter />},

@@ -3,13 +3,16 @@
 import { outingLogisticsFields } from '../../../../lib/outing-logistics';
 import { FlexibleDatesHelp } from '../../flexible-dates-help';
 
-import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CoordinationModal } from '../../coordination-modal';
 import { useRouter } from 'next/navigation';
 import { createOuting } from '../../../staff-actions';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit, outingPhotoMaxBytes } from '../../../../lib/outing-photo-limits';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
 import { PhotoDialog } from '../../photo-dialog';
+import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedback} from '../../../form-feedback/form-feedback';
+import {validateNewOuting} from '../../../../lib/outing-form-validation';
+import type {FieldErrors} from '../../../../lib/form-result';
 import { OutingPeriods, type OutingPeriod } from '../../outing-periods';
 
 export type OutingTemplate = {
@@ -44,41 +47,8 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   const [dirty,setDirty]=useState(false);
   const [discard,setDiscard]=useState<string|null>(null);
   const back=clone ? `/coordinacion/colecciones/automaticas/${clone.request_id}#bloques` : '/coordinacion/convocatorias#salidas';
-  const errorFocus = useRef<HTMLParagraphElement>(null);
-  const [error, submit, pending] = useActionState(async (
-    _previous: { message: string; target?: string } | null,
-    { form, periodIds, photoIds }: { form: FormData; periodIds: number[]; photoIds: number[] },
-  ) => {
-    const files = photoIds.map((_, index) => form.get(`photo-${index}`));
-    const invalidPhoto = files.findIndex(file => !(file instanceof File) || file.size === 0 || file.size > outingPhotoMaxBytes);
-    if (invalidPhoto >= 0) {
-      return { message: 'Elegí un archivo de imagen válido de hasta 3 MB.', target: `new-${photoIds[invalidPhoto]}` };
-    }
-    if (files.reduce((total, file) => total + (file instanceof File ? file.size : 0), 0) > outingPhotoBatchMaxBytes) {
-      return { message: 'Las fotos nuevas deben pesar como máximo 3,75 MB en conjunto.', target: 'photos' };
-    }
-    try {
-      const result = await createOuting(form);
-      if (result.destination) {
-        setDirty(false);
-        router.push(result.destination);
-        return null;
-      }
-      let target = result.target;
-      if (target?.startsWith('period-')) target = `period-${periodIds[Number(target.slice(7))]}`;
-      if (target?.startsWith('new-')) target = `new-${photoIds[Number(target.slice(4))]}`;
-      return { message: result.error || 'No se pudo crear la convocatoria.', target };
-    } catch {
-      return { message: 'No se pudo enviar la convocatoria. Intentá de nuevo.' };
-    }
-  }, null);
-  useEffect(() => {
-    if (error) {
-      const target=error.target||'';
-      setSection(target.startsWith('new-')||target.startsWith('existing-')||target==='photos'?'photos':target==='dates'||target.startsWith('period-')||target==='capacity'?'dates':target==='deadline'?'publication':target==='logistics'?'logistics':target ? 'general' : 'publication');
-      requestAnimationFrame(()=>errorFocus.current?.focus());
-    }
-  }, [error]);
+  const formRef=useRef<HTMLFormElement>(null),busy=useRef(false);
+  const [pending,setPending]=useState(false);
   const defaultUnit = units.includes('Voluntariado General') ? 'Voluntariado General' : units[0] ?? '';
   const [periods, setPeriods] = useState<OutingPeriod[]>([{ id: 1, start: '', end: '' }]);
   const [title, setTitle] = useState(clone?.title ?? '');
@@ -110,25 +80,21 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     return()=>{window.removeEventListener('beforeunload',unload);document.removeEventListener('click',navigate,true);};
   },[dirty,pending]);
 
-  function showError(target?: string) {
-    if (!error || error.target !== target) return null;
-    return <p className="note outing-field-error" role="alert" tabIndex={-1} ref={errorFocus}>{error.message}</p>;
-  }
-
-  return <form className="outing-editor new-outing-editor" method="post" noValidate onChange={()=>setDirty(true)} onSubmit={event => {
-    event.preventDefault();
-    if (pending) return;
-    const form = new FormData(event.currentTarget, (event.nativeEvent as SubmitEvent).submitter);
-    newPhotos.forEach((photo, index) => {
-      form.set(`photo-${index}`, photo.file);
-      form.set(`alt-${index}`, photo.alt);
-      form.set(`credit-${index}`, photo.credit);
-      form.set(`permission-${index}`, 'on');
-    });
-    const coverSlot = newPhotos.findIndex(photo => currentCover === photo.file);
-    form.set('photoCover', coverSlot < 0 ? String(currentCover) : `new-${coverSlot}`);
-    startTransition(() => submit({ form, periodIds: periods.map(period => period.id), photoIds: newPhotos.map(photo => photo.id) }));
+  const reveal=(target:string)=>setSection(target.startsWith('new-')||target.startsWith('existing-')||target==='photos'?'photos':target==='dates'||target.startsWith('period-')||target==='capacity'?'dates':target==='registrationDeadline'||target==='visibility'?'publication':target==='plan'||outingLogisticsFields.some(f=>f.name===target)||['requirements','logistics'].includes(target)?'logistics':'general');
+  const feedback=useFormFeedback({form:formRef,dependencies:Object.fromEntries(periods.flatMap(p=>[[`period-${p.id}-starts`,[`period-${p.id}-ends`,'registrationDeadline']],[`period-${p.id}-ends`,[`period-${p.id}-starts`]]])),revealField:reveal,validate:data=>{newPhotos.forEach((photo,index)=>{data.set(`photo-${index}`,photo.file);data.set(`alt-${index}`,photo.alt);data.set(`credit-${index}`,photo.credit);data.set(`permission-${index}`,'on');});data.set('action','publicar');return mapErrors(validateNewOuting(data));}});
+  useEffect(()=>{for(const name of Object.keys(feedback.fieldErrors))if(name==='photos'||name.startsWith('new-')||name.startsWith('existing-'))feedback.changed(name);},[photos,newPhotos]);
+  const mapErrors=(errors:FieldErrors)=>Object.fromEntries(Object.entries(errors).map(([key,value])=>[key.replace(/^new-(\d+)(?=-|$)/,(_,index)=>`new-${newPhotos[Number(index)]?.id??index}`),value]));
+  return <FormFeedbackProvider feedback={feedback}><form ref={formRef} className="outing-editor new-outing-editor" method="post" noValidate onChange={e=>{setDirty(true);const t=e.target;if(t instanceof HTMLInputElement||t instanceof HTMLSelectElement||t instanceof HTMLTextAreaElement)requestAnimationFrame(()=>feedback.changed(t.name));}} onSubmit={async event=>{
+    event.preventDefault();if(busy.current)return;
+    const data=new FormData(event.currentTarget,(event.nativeEvent as SubmitEvent).submitter);
+    newPhotos.forEach((photo,index)=>{data.set(`photo-${index}`,photo.file);data.set(`alt-${index}`,photo.alt);data.set(`credit-${index}`,photo.credit);data.set(`permission-${index}`,'on');});
+    const coverSlot=newPhotos.findIndex(photo=>currentCover===photo.file);data.set('photoCover',coverSlot<0?String(currentCover):`new-${coverSlot}`);
+    const errors=validateNewOuting(data);if(Object.keys(errors).length){feedback.showErrors(mapErrors(errors));return;}
+    busy.current=true;setPending(true);
+    try{const result=await createOuting(data);if(result.saved&&result.destination){setDirty(false);router.push(result.destination);}else feedback.showErrors(mapErrors(result.fieldErrors||{}),result.error);}
+    catch{feedback.showErrors({},'No se pudo guardar. Los datos y archivos se conservan para reintentar.');}finally{busy.current=false;setPending(false);}
   }}>
+    <FormErrorSummary/><FormFeedbackBindings form={formRef}/>
     <div className="outing-editor-bar" role="region" aria-label="Acciones de nueva convocatoria"><div><strong>{clone?'Nuevo bloque':'Nueva convocatoria'}</strong><span role="status">{pending?'Guardando…':dirty?'Cambios sin publicar':'Completá los datos de la salida'}</span></div><div className="actions"><button type="button" disabled={pending} onClick={()=>dirty?setDiscard(back):router.push(back)}>Descartar</button><button type="submit" name="action" value="publicar" disabled={pending} className="coord-button-primary">{pending?'Guardando…':clone?'Publicar bloque':'Publicar convocatoria'}</button></div></div>
     <div className="outing-editor-layout"><nav className="outing-editor-nav" aria-label="Secciones de nueva convocatoria">{editorSections.map(([key,label],i)=><button key={key} type="button" aria-current={section===key?'step':undefined} onClick={()=>setSection(key)}><span aria-hidden="true">{i+1}</span>{label}</button>)}</nav><div className="outing-editor-content">
     <button type="button" className="outing-editor-section-trigger" aria-haspopup="dialog" onClick={()=>setSelector(true)}>Sección: {editorSections.find(([key])=>key===section)?.[1]} <span aria-hidden="true">⌄</span></button>
@@ -163,7 +129,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </section>
     <div key={selected} className="new-outing-fields">
     <section className="new-outing-section" hidden={section!=='general'}>
-    <div className="grid"><div><label>Título<input name="title" value={title} onChange={event => setTitle(event.target.value)} required/></label>{showError('title')}</div><div><label>Estación o lugar<input name="location" defaultValue={template?.location} required/></label>{showError('location')}</div><label>Unidad<select name="unit" value={unit} onChange={event => setUnit(event.target.value)}>{units.map(unit => <option key={unit}>{unit}</option>)}</select></label></div>
+    <div className="grid"><div><label>Título<input name="title" value={title} onChange={event => setTitle(event.target.value)} required/></label></div><div><label>Estación o lugar<input name="location" defaultValue={template?.location} required/></label></div><label>Unidad<select name="unit" value={unit} onChange={event => setUnit(event.target.value)}>{units.map(unit => <option key={unit}>{unit}</option>)}</select></label></div>
     </section>
     <section className="new-outing-section" hidden={section!=='general'} aria-labelledby="support-request-title">
     <h2 id="support-request-title">Solicitud de apoyo</h2>
@@ -172,10 +138,10 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </section>
     <section className="new-outing-section" hidden={section!=='dates'}>
     <h2>Fechas y cupos</h2>
-    {showError('dates')}
-    <OutingPeriods limit={24} periods={periods} onChange={setPeriods} renderError={id => showError(`period-${id}`)} />
+
+    <OutingPeriods limit={24} periods={periods} onChange={setPeriods} renderError={()=>null} />
     <label>Cupos por bloque<input name="capacity" value={capacity} onChange={event => setCapacity(event.target.value)} type="number" min="1" max="10000" required /></label>
-    {showError('capacity')}
+
     <FlexibleDatesHelp><label><input type="checkbox" name="flexible" defaultChecked={template?.flexible}/> Fechas flexibles</label></FlexibleDatesHelp>
     </section>
     <section className="new-outing-section" hidden={section!=='logistics'}>
@@ -183,15 +149,15 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     <label>Plan de trabajo<textarea name="plan" defaultValue={template?.plan ?? ""} readOnly={!!template}/></label>
     <label>Requisitos públicos<textarea name="requirements" defaultValue={template?.requirements ?? ""}/></label><label>Logística pública<textarea name="logistics" defaultValue={template?.logistics ?? ""} placeholder="Otras indicaciones: instalaciones, herramientas y aspectos adicionales"/></label>
     <h3>Logística del bloque</h3><p className="muted">Información pública para preparar la participación. Cada bloque puede tener sus propias condiciones.</p>
-    {showError('logistics')}
+
     {outingLogisticsFields.map(item => <label key={item.name}>{item.label}<textarea name={item.name} maxLength={5000} defaultValue={template?.[item.name] ?? ''} placeholder={item.placeholder} /></label>)}
     </section>
     <section className="new-outing-section" hidden={section!=='photos'}>
     <h2>Fotos</h2>
     <fieldset className="outing-photo-field">
-      <fieldset className="outing-photo-selection">
+      <fieldset className="outing-photo-selection" tabIndex={-1} data-feedback-fields="photos" data-feedback-label="Fotos de la convocatoria">
         <legend aria-live="polite">{photoCount} de {outingPhotoLimit} fotos</legend>
-      {showError('photos')}
+
       <p>Elegí hasta seis fotos de la galería o de tu dispositivo y marcá cuál será la portada.</p>
       {selectedPhotos.length > 0 && <ul className="photo-admin-list" aria-label="Fotos seleccionadas">
         {selectedPhotos.map(item => {
@@ -208,10 +174,10 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
                 <img src={`/api/fotos/${photo.id}?v=tarjeta`} alt={photo.alt} />
               </>}
             <div>
-              {showError(`${item.kind}-${photo.id}`)}
+
               {isCover && <span className="outing-photo-cover">Portada</span>}
               <strong>{photo.alt || (item.kind === 'new' ? item.photo.file.name : '')}</strong>
-              <PhotoDialog initial={item.kind === 'new'
+              <PhotoDialog feedbackLabel={`Foto ${selectedPhotos.indexOf(item)+1}${item.kind==='new'?` · ${item.photo.file.name}`:''}`} feedbackFields={item.kind==='new'?`new-${photo.id} new-${photo.id}-photo new-${photo.id}-alt new-${photo.id}-credit new-${photo.id}-permission`:`existing-${photo.id} existing-${photo.id}-alt existing-${photo.id}-credit`} initial={item.kind === 'new'
                 ? { kind: 'upload', file: item.photo.file, alt: item.photo.alt, credit: item.photo.credit }
                 : { kind: 'edit', id: item.photo.id, alt: item.photo.alt, credit: item.photo.credit || '' }}
                 onSave={choice => {
@@ -230,7 +196,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
           </li>;
         })}
       </ul>}
-      <PhotoDialog gallery={gallery} selected={photos.map(photo => photo.id)} disabled={!hasPhotoSpace || pending}
+      <PhotoDialog feedbackFields="photos" feedbackLabel="Fotos de la convocatoria" gallery={gallery} selected={photos.map(photo => photo.id)} disabled={!hasPhotoSpace || pending}
         maxUploadBytes={outingPhotoBatchMaxBytes - newPhotos.reduce((sum,photo) => sum + photo.file.size,0)}
         onSave={choice => {
           if (!hasPhotoSpace) return 'La convocatoria admite hasta seis fotos.';
@@ -251,7 +217,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
         <input type="date" name="registrationDeadline" value={deadline} onChange={event => setDeadline(event.target.value)} aria-describedby="registration-deadline-help" />
       </label>
       <p id="registration-deadline-help">Las inscripciones cierran al terminar ese día, hora de Costa Rica. Si dejás el campo vacío, cada bloque cierra el día de su llegada.</p>
-      {showError('deadline')}
+
       <section className="card" aria-labelledby="publication-summary">
         <h3 id="publication-summary">Resumen de publicación</h3>
         <dl className="profile-facts">
@@ -272,7 +238,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
           </li>)}
         </ol>
       </section>
-      {showError()}
+
       <div className="actions">
         <button disabled={pending} className="outing-draft" name="action" value="borrador">Guardar como borrador</button>
       </div>
@@ -281,5 +247,5 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     </fieldset></div></div>
     <CoordinationModal open={selector} onClose={()=>setSelector(false)} title="Sección de nueva convocatoria"><div className="editor-section-options">{editorSections.map(([key,label])=><button type="button" key={key} aria-pressed={section===key} onClick={()=>{setSection(key);setSelector(false);}}>{label}</button>)}</div></CoordinationModal>
     <CoordinationModal open={!!discard} onClose={()=>setDiscard(null)} title="Descartar convocatoria" footer={<button type="button" className="coord-button-danger" onClick={()=>{const href=discard||back;setDirty(false);setDiscard(null);router.push(href);}}>Descartar y salir</button>}><p>Los datos ingresados todavía no se guardaron. ¿Querés descartarlos?</p></CoordinationModal>
-  </form>;
+  </form></FormFeedbackProvider>;
 }

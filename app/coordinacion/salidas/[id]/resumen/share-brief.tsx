@@ -1,32 +1,29 @@
 'use client';
 
-import { useActionState, useEffect, useState } from 'react';
-import { generateBrief, revokeBrief } from './actions';
+import { useState } from 'react';
+import {PrivateLinkForm} from '../../../private-link-form';
+import { revokeBrief } from './actions';
 import { StatusRibbon } from '../../../../status-ribbon';
 
 export function ShareBrief({ id, leads }: { id: string; leads: { id: string; name: string }[] }) {
-  const [result, action, pending] = useActionState(generateBrief.bind(null,id), {});
+  const[link,setLink]=useState(''),[pending,setPending]=useState(false);
   const [message, setMessage] = useState('');
   const [revoked, setRevoked] = useState(false);
   const [revoking, setRevoking] = useState(false);
   const [error,setError] = useState('');
-  useEffect(()=>{if(result.link)setMessage('Enlace privado para el 70 generado.');},[result.link]);
+
   return <section className="card brief-share">
     <h2>Compartir con el 70</h2>
     <p>El enlace permite consultar este resumen y presentar el informe de salida durante siete días. Mostrará la información actualizada y dejará de funcionar si se retira la asignación de 70. Compartilo únicamente con la persona asignada.</p>
-    {leads.length ? <form action={action} onSubmit={() => setRevoked(false)}>
-      <label>Persona asignada como 70<select name="lead" required>{leads.map(lead => <option key={lead.id} value={lead.id}>{lead.name}</option>)}</select></label>
-      <button className="coord-button-primary" type="submit" disabled={pending || revoking}>{pending ? 'Generando…' : 'Generar enlace privado'}</button>
-    </form> : <p>Primero confirmá una inscripción y asigná a esa persona como 70 desde Gestionar.</p>}
-    {result.error && <p role="alert" className="note">{result.error}</p>}
-    {result.link && !revoked && <div className="brief-share-result">
-      <label>Enlace privado<input value={result.link} readOnly onFocus={event => event.currentTarget.select()} /></label>
-      <div className="actions"><a className="button" href={result.link} target="_blank" rel="noreferrer">Abrir resumen</a>
+    {leads.length?<PrivateLinkForm id={id} kind="brief" leads={leads} disabled={revoking} onPending={setPending} onGenerated={value=>{setLink(value);setRevoked(false);setMessage('Enlace privado para el 70 generado.');}}/>:<p>Primero confirmá una inscripción y asigná a esa persona como 70 desde Gestionar.</p>}
+    {link && !revoked && <div className="brief-share-result">
+      <label>Enlace privado<input value={link} readOnly onFocus={event => event.currentTarget.select()} /></label>
+      <div className="actions"><a className="button" href={link} target="_blank" rel="noreferrer">Abrir resumen</a>
         <button type="button" onClick={async () => {
-          try { await navigator.clipboard.writeText(result.link!); setMessage('Enlace del resumen copiado.'); }
+          try { await navigator.clipboard.writeText(link!); setMessage('Enlace del resumen copiado.'); }
           catch { setError('No se pudo copiar. Seleccioná el enlace para copiarlo manualmente.'); }
         }}>Copiar enlace</button>
-        <a className="button" href={`https://wa.me/?text=${encodeURIComponent('Resumen privado de la salida para el 70: ' + result.link)}`} target="_blank" rel="noreferrer">Compartir por WhatsApp</a>
+        <a className="button" href={`https://wa.me/?text=${encodeURIComponent('Resumen privado de la salida para el 70: ' + link)}`} target="_blank" rel="noreferrer">Compartir por WhatsApp</a>
       </div>
     </div>}
     <button type="button" className="coord-button-danger" disabled={revoking || pending} onClick={async () => {

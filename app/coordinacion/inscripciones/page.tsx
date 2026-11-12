@@ -34,11 +34,11 @@ export default async function Registrations({ searchParams }: {
   const invalidRange = !!from && !!to && from > to;
   const filters = new URLSearchParams({ estado: filter, unidad: unit, desde: from, hasta: to }).toString();
   const rows = await sql<{
-    id: string; outing_id: string; identification: string; status: string; received_at: Date | null;
+    version:string; id: string; outing_id: string; identification: string; status: string; received_at: Date | null;
     starts: string; ends: string; title: string; unit: string; flexible: boolean;
     outing_status: string; outing_start: string; outing_end: string; volunteer: string; volunteer_id: string | null;
   }[]>`
-    select r.id,r.outing_id,r.identification,r.status,r.received_at,r.starts::text,r.ends::text,
+    select r.id,r.outing_id,md5(to_jsonb(r)::text) as version,r.identification,r.status,r.received_at,r.starts::text,r.ends::text,
       o.title,o.unit,o.flexible,o.status as outing_status,o.starts::text as outing_start,o.ends::text as outing_end,
       v.id as volunteer_id, concat_ws(' ',v.name,v.surname,v.second_surname) as volunteer
     from registrations r
@@ -60,7 +60,6 @@ export default async function Registrations({ searchParams }: {
       <div className="coordination-table-toolbar"><StatusFilter value={filter} statuses={statuses} units={units} unit={unit} from={from} to={to} />
       <p role="status" aria-live="polite" aria-atomic="true">{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p></div>
       <ActiveRegistrationFilters status={filter} unit={unit} from={from} to={to} />
-      {invalidRange && <p className="note" role="alert">La fecha Desde debe ser anterior o igual a la fecha Hasta.</p>}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de solicitudes de inscripción">
         <table className="outings-table coordination-compact-table registrations-overview-table">
           <thead><tr>

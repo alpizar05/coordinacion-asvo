@@ -1,7 +1,10 @@
+import { RegistryModal,RegistryForm } from '../../registry-form';
+import { FormField } from '../../../form-feedback/form-feedback';
+import { ProfileEditor } from '../profile-editor';
+import { profileFieldLabels, type ProfileInitial } from '../../../../lib/profile-validation';
 import { SectionWorkspace } from '../../section-workspace';
 import { volunteerParticipations } from '../../../../lib/volunteer-participation';
 import { Participations } from '../participations';
-import { ActionModal } from '../../action-modal';
 import { VolunteerUnits } from '../volunteer-units';
 import { StatusRibbon } from '../../../status-ribbon';
 import Link from 'next/link';
@@ -10,7 +13,7 @@ import { notFound } from 'next/navigation';
 import { canAdminister, canOperate, staff } from '../../../../lib/auth';
 import { sql } from '../../../../lib/db';
 import { displayDate, uuid } from '../../../../lib/registration';
-import { editProfile, recordVolunteerIncident, verifyPolicy } from '../../../staff-actions';
+import { recordVolunteerIncident, verifyPolicy } from '../../../staff-actions';
 
 export default async function VolunteerProfile({ params, searchParams }: {
   params: Promise<{ id: string }>;
@@ -59,27 +62,9 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <div><dt>Voluntariado desde</dt><dd>{person.volunteer_year || 'Año pendiente'}</dd></div>
           <div><dt>Persona asociada</dt><dd>{person.member == null ? 'Por confirmar' : person.member ? `Sí · ${person.member_year || 'Año pendiente'}` : 'No'}</dd></div>
         </dl>
-        {admin && <ActionModal title="Corregir ficha" successMessage="Datos de la persona voluntaria actualizados." saveLabel="Guardar correcciones" wide action={editProfile.bind(null,person.id)}>
-          {[
-            { title: 'Identidad y contacto', fields: [
-              ['name','Nombre'],['surname','Primer apellido'],['second_surname','Segundo apellido'],
-              ['email','Correo','email'],['birth','Fecha de nacimiento','date'],['whatsapp','WhatsApp','tel'],
-            ] },
-            { title: 'Ubicación', fields: [['province','Provincia'],['canton','Cantón'],['district','Distrito']] },
-            { title: 'Contacto de emergencia', fields: [
-              ['emergency_name','Nombre'],['emergency_phone','Teléfono','tel'],['emergency_relation','Parentesco'],
-            ] },
-            { title: 'Trayectoria', fields: [['volunteer_year','Inicio del voluntariado (AAAA)'],['member_year','Ingreso como persona asociada (AAAA)']] },
-          ].map(group => <fieldset key={group.title}><legend>{group.title}</legend><div className="grid">
-            {group.fields.map(([key,label,type]) => <label key={key}>{label}<input type={type || 'text'} name={key}
-              defaultValue={person[key] ?? ''} required={['name','surname'].includes(key)} /></label>)}
-          </div></fieldset>)}
-          <div className="grid">{[['medical','Condición médica'],['member','Persona asociada']].map(([key,label]) =>
-            <label key={key}>{label}<select name={key} defaultValue={person[key] == null ? '' : person[key] ? 'sí' : 'no'}>
-              <option value="">Por confirmar</option><option value="sí">Sí</option><option value="no">No</option>
-            </select></label>)}</div>
-          <label>Detalle médico<textarea name="medical_detail" defaultValue={person.medical_detail ?? ''}/></label>
-        </ActionModal>}
+        {admin && <ProfileEditor id={String(person.id)} initial={Object.fromEntries(Object.keys(profileFieldLabels).map(name=>[name,
+          ['medical','member'].includes(name) ? person[name] == null ? '' : person[name] ? 'sí' : 'no' : String(person[name] ?? ''),
+        ])) as ProfileInitial} />}
       </section>
       <section className="card">
         <h2>Emergencias y salud</h2>
@@ -103,11 +88,11 @@ export default async function VolunteerProfile({ params, searchParams }: {
           <p>{policy.verified_at ? `${displayDate(policy.starts)} al ${displayDate(policy.ends)} · ${policy.source}` : 'Vigencia pendiente'}</p>
         </li>)}
       </ul> : <p>Todavía no hay pólizas registradas.</p>}
-      {admin && <ActionModal title="Verificar póliza" successMessage="Póliza registrada y verificada." saveLabel="Guardar póliza" action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
-        <label>Tipo<input name="kind" required/></label><label>Número de póliza<input name="number" required/></label>
-        <label>Fuente de verificación<input name="source" required/></label>
-        <label>Vigente desde<input name="starts" type="date" required/></label><label>Vigente hasta<input name="ends" type="date" required/></label>
-      </div></ActionModal>}
+      {admin && <RegistryModal kind="policy" title="Verificar póliza" successMessage="Póliza registrada y verificada." saveLabel="Guardar póliza" action={verifyPolicy}><input type="hidden" name="volunteer" value={person.id}/><div className="grid">
+        <FormField name="kind" label="Tipo"><input name="kind" required/></FormField><FormField name="number" label="Número de póliza"><input name="number" required/></FormField>
+        <FormField name="source" label="Fuente de verificación"><input name="source" required/></FormField>
+        <FormField name="starts" label="Vigente desde"><input name="starts" type="date" required/></FormField><FormField name="ends" label="Vigente hasta"><input name="ends" type="date" required/></FormField>
+      </div></RegistryModal>}
     </section>
 </>},
       {key:'incidents',label:'Incidentes',content:<>    <section className="card" id="incidentes" aria-labelledby="incidents-title">
@@ -120,22 +105,22 @@ export default async function VolunteerProfile({ params, searchParams }: {
         <h3 id="incident-form-title">Registro de incidentes</h3>
         {incidente === 'datos' && <p role="alert">Revisá la fecha y la descripción del incidente.</p>}
         {incidente === 'vinculo' && <p role="alert">No se pudo registrar el incidente. Revisá la ficha y la salida seleccionada.</p>}
-        <form action={recordVolunteerIncident.bind(null, id)}>
-          <label>Fecha del incidente<input name="occurred_on" type="date" required /></label>
-          <label>Salida relacionada
+        <RegistryForm kind="incident" action={recordVolunteerIncident.bind(null, id)} successMessage="Incidente registrado.">
+          <FormField name="occurred_on" label="Fecha del incidente"><input name="occurred_on" type="date" required /></FormField>
+          <FormField name="outing" label="Salida relacionada">
             <select name="outing" defaultValue="">
               <option value="">Incidente general</option>
               {outings.map(outing => <option key={outing.id} value={outing.id}>
                 {outing.title} · {displayDate(outing.starts)} al {displayDate(outing.ends)}
               </option>)}
             </select>
-          </label>
-          <label>Descripción<textarea name="description" required maxLength={4000} rows={4} /></label>
+          </FormField>
+          <FormField name="description" label="Descripción"><textarea name="description" required maxLength={4000} rows={4} /></FormField>
           <div className="actions">
             <button className="coord-button-primary" type="submit">Registrar incidente</button>
             <Link href={`${incidentSection}#incidentes`}>Cancelar</Link>
           </div>
-        </form>
+        </RegistryForm>
       </section>}
       {incidents.length ? <ul className="profile-history">
         {incidents.map(incident => <li key={incident.id}>

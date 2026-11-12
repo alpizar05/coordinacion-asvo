@@ -4,15 +4,20 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CoordinationModal } from './coordination-modal';
 import { StatusRibbon } from '../status-ribbon';
+import { StaffParticipationFields } from './staff-participation-fields';
+import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from '../form-feedback/form-feedback';
+import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
+import { fieldErrorMessages } from '../../lib/form-result';
 import { addRegistration, findRegistrationVolunteers } from './add-registration-actions';
 
 type Person = { id: string; name: string; identification: string };
 export function AddRegistration({ outing }: { outing: { id: string; starts: string; ends: string; flexible: boolean; general: boolean } }) {
   const [open,setOpen] = useState(false), [dirty,setDirty] = useState(false), [pending,setPending] = useState(false);
   const [query,setQuery] = useState(''), [people,setPeople] = useState<Person[]>([]), [selected,setSelected] = useState<Person | null>(null);
-  const [searching,setSearching] = useState(false), [searchMessage,setSearchMessage] = useState(''), [error,setError] = useState('');
+  const [searching,setSearching] = useState(false), [searchMessage,setSearchMessage] = useState('');
   const [transport,setTransport] = useState(false), [success,setSuccess] = useState('');
-  const errorRef = useRef<HTMLParagraphElement>(null);
+  const form=useRef<HTMLFormElement>(null),inFlight=useRef(false);
+  const feedback=useFormFeedback({form,validate:data=>({...validateStaffParticipation(data,outing,true),...(!selected?{volunteer:'Seleccioná una persona del registro de voluntariado.'}:{})}),labels:staffRegistrationLabels,dependencies:{starts:['ends'],ends:['starts'],transport:['rides']}});
   const formId = useId(), router = useRouter();
   useEffect(() => {
     if (!open || selected || query.trim().length < 2) { setPeople([]); setSearching(false); return; }
@@ -32,49 +37,43 @@ export function AddRegistration({ outing }: { outing: { id: string; starts: stri
   return <>
     <StatusRibbon message={success} onExpire={setSuccess} />
     <button type="button" aria-haspopup="dialog" onClick={() => {
-      setSelected(null); setQuery(''); setPeople([]); setError(''); setSearchMessage(''); setDirty(false); setTransport(false); setOpen(true);
+      setSelected(null); setQuery(''); setPeople([]); feedback.reset(); setSearchMessage(''); setDirty(false); setTransport(false); setOpen(true);
     }}>Agregar persona</button>
     <CoordinationModal title="Agregar persona a la salida" open={open} onClose={() => setOpen(false)} dirty={dirty} pending={pending}
-      footer={<button type="submit" form={formId} disabled={pending || !selected} className="coord-button-primary">{pending ? 'Agregando…' : 'Agregar inscripción'}</button>}>
-      {open && <form id={formId} onChange={() => setDirty(true)} onSubmit={async event => {
-        event.preventDefault(); if (pending || !selected) return;
-        const data = new FormData(event.currentTarget); setPending(true); setError('');
+      footer={<button type="submit" form={formId} disabled={pending} className="coord-button-primary">{pending ? 'Agregando…' : 'Agregar inscripción'}</button>}>
+      {open && <FormFeedbackProvider feedback={feedback}><form ref={form} id={formId} noValidate onChange={event=>{setDirty(true);const input=event.target;if(input instanceof HTMLInputElement||input instanceof HTMLTextAreaElement)feedback.changed(input.name);}} onSubmit={async event => {
+        event.preventDefault(); if (inFlight.current) return;
+        const data = new FormData(event.currentTarget);
+        const errors={...validateStaffParticipation(data,outing,true),...(!selected?{volunteer:'Seleccioná una persona del registro de voluntariado.'}:{})};
+        if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
+        inFlight.current=true;setPending(true);
         try {
           const result = await addRegistration(outing.id,data);
-          if (result.error) { setError(result.error); setTimeout(() => errorRef.current?.focus(),0); }
+          if (!result.saved) { feedback.showErrors(result.fieldErrors,result.fieldErrors?undefined:result.error); }
           else {
             setDirty(false); setOpen(false);
-            setSuccess(`${selected.name}: inscripción agregada ${result.status === 'espera' ? 'a lista de espera' : 'en revisión'}. Se notificará por correo.`);
+            setSuccess(`${selected?.name}: inscripción agregada ${result.status === 'espera' ? 'a lista de espera' : 'en revisión'}. Se notificará por correo.`);
             router.refresh();
           }
-        } catch { setError('No se pudo agregar la inscripción. Los datos se conservan para reintentar.'); setTimeout(() => errorRef.current?.focus(),0); }
-        finally { setPending(false); }
+        } catch { feedback.showErrors({},'No se pudo agregar la inscripción. Los datos se conservan para reintentar.'); }
+        finally { inFlight.current=false;setPending(false); }
       }}>
-        {error && <p role="alert" tabIndex={-1} ref={errorRef} className="note">{error}</p>}
+        <FormErrorSummary/>
         <fieldset disabled={pending} className="coordination-modal-form-fields">
           <input type="hidden" name="schedule" value={`${outing.starts}/${outing.ends}/${outing.flexible}`} />
           {selected ? <div className="card"><strong>{selected.name}</strong><p>Identificación: {selected.identification}</p>
             <input type="hidden" name="volunteer" value={selected.id} />
-            <button type="button" onClick={() => { setSelected(null); setDirty(true); }}>Cambiar persona</button></div>
-            : <><label>Buscar persona voluntaria<input type="search" value={query} maxLength={120} autoComplete="off"
-              placeholder="Nombre, identificación o correo" onChange={e => { setQuery(e.target.value); setDirty(true); }} /></label>
+            <FormField name="volunteer" label="Persona seleccionada"><button name="volunteer" type="button" onClick={() => { setSelected(null); setDirty(true); }}>Cambiar persona</button></FormField></div>
+            : <><FormField name="volunteer" label="Buscar persona voluntaria"><input name="volunteer" type="search" value={query} maxLength={120} autoComplete="off"
+              placeholder="Nombre, identificación o correo" onChange={e => { setQuery(e.target.value); setDirty(true); }} /></FormField>
               <p className="muted" role="status">{searching ? 'Buscando…' : query.trim().length < 2 ? 'Escribí al menos 2 caracteres.' : searchMessage}</p>
-              <ul className="registration-person-results">{people.map(person => <li key={person.id}><button type="button" onClick={() => { setSelected(person); setDirty(true); }}>
+              <ul className="registration-person-results">{people.map(person => <li key={person.id}><button type="button" onClick={() => { setSelected(person); setDirty(true); requestAnimationFrame(()=>feedback.changed('volunteer')); }}>
                 <strong>{person.name}</strong><span>{person.identification}</span></button></li>)}</ul></>}
-          <div className="form-grid">
-            <label>Llegada<input name="starts" type="date" required defaultValue={outing.starts} readOnly={!outing.flexible} /></label>
-            <label>Regreso<input name="ends" type="date" required defaultValue={outing.ends} readOnly={!outing.flexible} /></label>
-          </div>
-          {outing.flexible && <p className="muted">Podés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.</p>}
-          <label><input type="checkbox" name="transport" checked={transport} onChange={e => setTransport(e.target.checked)} /> Tiene transporte propio</label>
-          {transport && <label>Personas que puede llevar<input type="number" name="rides" min="0" max="100" defaultValue="0" required /></label>}
-          {!transport && <input type="hidden" name="rides" value="0" />}
-          <label>Restricciones alimentarias<textarea name="food" maxLength={500} /></label>
-          {outing.general && <label><input type="checkbox" name="lead" /> Tiene interés en ser 70</label>}
-          <label>Otras observaciones<textarea name="other" maxLength={500} /></label>
+          <StaffParticipationFields starts={outing.starts} ends={outing.ends} flexible={outing.flexible} general={outing.general} transport={transport} onTransport={setTransport}/>
+          {outing.flexible&&<p className="muted">Podés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.</p>}
           <p className="muted">La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.</p>
         </fieldset>
-      </form>}
+      </form></FormFeedbackProvider>}
     </CoordinationModal>
   </>;
 }

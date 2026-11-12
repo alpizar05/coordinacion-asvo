@@ -888,3 +888,6 @@ body:has(.outing-brief) { --content-max-width: 90rem; }
 .outing-logistics-details { display: grid; gap: 1rem; margin-block: 1rem; }
 .outing-logistics-details dt { font-weight: 600; }
 .outing-logistics-details dd { margin: .35rem 0 0; }
+
+.registration-form-fields { display: grid; gap: 1rem; border: 0; margin: 0; padding: 0; min-width: 0; }
+.registration-form-fields > [hidden] { display: none; }

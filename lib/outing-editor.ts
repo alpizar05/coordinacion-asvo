@@ -1,3 +1,5 @@
+import {validateOutingEdit} from './outing-form-validation';
+import type {FieldErrors} from './form-result';
 import type { Transaction } from './registration';
 import { audit,date,field,outingIsEditable,uuid } from './registration';
 import { commonOutingFields,supportRequestFields } from './collection-fields';
@@ -9,14 +11,14 @@ async function outingUnitHasConflict(tx:Transaction,ids:string[],unit:string){
 import { occupiedSeats,promoteWaitlist } from './registration-workflow';
 import { inheritGeneralPhotos } from './outing-inheritance';
 
-export class OutingEditError extends Error { target:string; constructor(target:string,message:string){super(message);this.target=target;} }
+export class OutingEditError extends Error { target:string; fieldErrors?:FieldErrors; constructor(target:string,message:string,fieldErrors?:FieldErrors){super(message);this.target=target;this.fieldErrors=fieldErrors;} }
 const invalid=(target:string,message:string):never=>{throw new OutingEditError(target,message);};
 export async function outingEditVersion(tx:Transaction | import('postgres').Sql,id:string){
  const [row]=await tx`select md5(to_jsonb(o)::text || to_jsonb(r)::text || coalesce((select jsonb_agg(jsonb_build_array(p.id,p.position,p.alt,p.credit) order by p.position)::text from outing_photos p where p.outing_id=o.id and p.position is not null),'[]')) as version from outings o join requests r on r.id=o.request_id where o.id=${id}`;
  return String(row?.version || '');
 }
-export type EditorPhoto={key:string;kind:'existing'|'gallery'|'upload';id?:string;alt:string;credit:string};
-export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,options:{actor:string;canOperate:(unit:string)=>boolean;upload:(key:string)=>Promise<{item:string|null;drive:string|null;thumbnail:Buffer;display:Buffer}>}){
+export type EditorPhoto={key:string;kind:'existing'|'gallery'|'upload';id?:string;permission?:boolean;alt:string;credit:string};
+export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,options:{photoErrors?:FieldErrors;actor:string;canOperate:(unit:string)=>boolean;upload:(key:string)=>Promise<{item:string|null;drive:string|null;thumbnail:Buffer;display:Buffer}>}){
  const [ref]=await tx`select request_id from outings where id=${id}`;
  if(!ref)invalid('form','La convocatoria no está disponible.');
  const [request]=await tx`select * from requests where id=${ref.request_id} for update`;
@@ -26,6 +28,9 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  if(field(form,'version')!==await outingEditVersion(tx,id))invalid('form','La salida cambió desde que abriste el editor. Recargá la página antes de guardar.');
  const [membership]=await tx`select exists(select 1 from outings where request_id=${outing.request_id} and id<>${id}) as is_series`;
  const isSeries=membership.is_series;
+ const usedForValidation=await occupiedSeats(tx,id);
+ const errors={...validateOutingEdit(form,{starts:outing.first_day,ends:outing.last_day,mode:outing.flexible?'flexible':'fija',capacity:String(outing.capacity)},request.outing_defaults??outing,isSeries,usedForValidation,request,isSeries),...options.photoErrors};
+ if(Object.keys(errors).length)throw new OutingEditError('form','',errors);
  const personal=new Set(isSeries?form.getAll('personal').map(String):commonOutingFields.map(item=>item.name));
  const defaults=request.outing_defaults??outing;
  const updates:Record<string,string|number|boolean|null>={};
@@ -36,8 +41,9 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
   updates[item.name]=value;
  }
  const unit=String(updates.unit);
- if(!options.canOperate(unit)||!(await tx`select 1 from units where name=${unit}`).length)invalid('unit','Elegí una unidad que podás gestionar.');
- if(unit!==outing.unit&&unit!=='Voluntariado General'&&await outingUnitHasConflict(tx,[id],unit))invalid('unit','Hay inscripciones incompatibles con esta unidad. Revisalas antes de cambiarla.');
+ if(!options.canOperate(unit))invalid('form','No tenés permiso para gestionar la unidad seleccionada.');
+ if(!(await tx`select 1 from units where name=${unit}`).length)invalid('unit','Seleccioná una unidad disponible.');
+ if(unit!==outing.unit&&unit!=='Voluntariado General'&&await outingUnitHasConflict(tx,[id],unit))invalid('form','Hay inscripciones incompatibles con esta unidad. Revisalas antes de cambiarla.');
  for(const item of outingLogisticsFields){const value=field(form,item.name);if(value.length>5000)invalid(item.name,'Usá hasta 5000 caracteres.');updates[item.name]=value;}
  const starts=field(form,'starts'),ends=field(form,'ends'),mode=field(form,'mode');
  if(!date(starts))invalid('starts','Elegí una fecha de inicio válida.');
@@ -47,7 +53,7 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  if(dateChanged){
   if(!field(form,'dateReason'))invalid('dateReason','Indicá el motivo del cambio de fechas o modalidad.');
   const [conflict]=await tx`select 1 from registrations where outing_id=${id} and status in ('validación','revisión','espera','confirmada') and (starts<${starts}::date or ends>${ends}::date or (not ${mode==='flexible'} and (starts<>${starts}::date or ends<>${ends}::date))) limit 1`;
-  if(conflict)invalid('starts','Hay inscripciones con fechas incompatibles. Revisalas antes de cambiar el periodo.');
+  if(conflict)invalid('form','Hay inscripciones con fechas incompatibles. Revisalas antes de cambiar el periodo.');
  }
  const capacity=Number(field(form,'capacity')),used=await occupiedSeats(tx,id);
  if(!Number.isSafeInteger(capacity)||capacity<Math.max(1,used)||capacity>10000)invalid('capacity',`Ingresá un cupo entre ${Math.max(1,used)} y 10 000.`);
@@ -62,7 +68,7 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
   if(!shared.organization||!shared.activity)invalid('request-organization','Completá organización y actividad.');
   for(const item of supportRequestFields)if(shared[item.name].length>5000)invalid(`request-${item.name}`,'Usá hasta 5000 caracteres.');
   const blocks=await tx`select unit from outings where request_id=${outing.request_id}`;
-  if(blocks.some(block=>!options.canOperate(block.unit)))invalid('request-organization','Necesitás gestionar todos los bloques para editar los datos comunes.');
+  if(blocks.some(block=>!options.canOperate(block.unit)))invalid('form','Necesitás gestionar todos los bloques para editar los datos comunes.');
   if(blocks.length>1&&field(form,'confirmShared')!=='on')invalid('confirmShared','Confirmá el cambio para todos los bloques.');
  }
  const photoMode=field(form,'photoMode');
@@ -79,7 +85,7 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
    else{
     if(!photo.id||!uuid(photo.id!)||ids.has(photo.id!))invalid('photos','La foto no es válida o está repetida.');ids.add(photo.id!);
     const [source]=await tx`select o.unit,p.outing_id from outing_photos p join outings o on o.id=p.outing_id where p.id=${photo.id!} and p.position is not null for share of p,o`;
-    if(!source||!options.canOperate(source.unit)||(photo.kind==='existing'&&source.outing_id!==id)||!['existing','gallery'].includes(photo.kind))invalid('photos','Una foto ya no está disponible o no tenés permiso para usarla.');
+    if(!source||!options.canOperate(source.unit)||(photo.kind==='existing'&&source.outing_id!==id)||!['existing','gallery'].includes(photo.kind))invalid('form','Una foto ya no está disponible o no tenés permiso para usarla.');
    }
   }
  }
@@ -103,4 +109,9 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  await audit(tx,options.actor,'Editó convocatoria de salida',id);
  if(dateChanged)await audit(tx,options.actor,'Cambió fechas o modalidad',id,`${outing.first_day} a ${outing.last_day} → ${starts} a ${ends} (${mode}). ${field(form,'dateReason')}`);
  if(capacityChanged){await audit(tx,options.actor,'Cambió cupo',id,`${outing.capacity} → ${capacity}. ${field(form,'capacityReason')}`);await promoteWaitlist(tx,id,options.actor);}
+}
+
+export async function outingSeriesVersion(tx:Transaction | import('postgres').Sql,id:string){
+ const [row]=await tx`select md5(to_jsonb(r)::text||coalesce((select jsonb_agg(to_jsonb(o) order by o.id)::text from outings o where o.request_id=r.id),'[]')||coalesce((select jsonb_agg(jsonb_build_array(p.id,p.position,p.alt,p.credit) order by p.id)::text from outing_photos p join outings o on o.id=p.outing_id where o.request_id=r.id and p.position is not null),'[]')) as version from requests r where r.id=${id}`;
+ return String(row?.version||'');
 }

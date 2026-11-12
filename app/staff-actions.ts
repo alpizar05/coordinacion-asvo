@@ -1,13 +1,21 @@
 'use server';
+import {outingSeriesVersion} from '../lib/outing-editor';
+import {validateNewOuting,validateCommonSeries,validateManualSeries} from '../lib/outing-form-validation';
+import type {FieldErrors} from '../lib/form-result';
+import {prepareRegistryImport,applyRegistryImport} from '../lib/registry-import';
+import {verifyRegistryPolicy,saveRegistryUnits,saveRegistryIncident,saveRegistryGrant} from '../lib/registry-mutations';
 
 import { assignRegistration70, changeRegistrationStatus, dispatchRegistrationUpdates, notifyRegistration, occupiedSeats, promoteWaitlist } from '../lib/registration-workflow';
 
 import { outingLogisticsFields } from '../lib/outing-logistics';
 import { randomBytes } from 'node:crypto';
+import { splitStaffGroup } from '../lib/staff-group';
+import { validateProfile } from '../lib/profile-validation';
+import type { ProfileField } from '../lib/profile-validation';
+import type { FormResult } from '../lib/form-result';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { parse } from 'csv-parse/sync';
 import { canAdminister, canOperate, requireStaff, signIn, signOut, staff } from '../lib/auth';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit } from '../lib/outing-photo-limits';
 import { preparePhoto, storeOriginal } from '../lib/outing-photos';
@@ -37,39 +45,23 @@ export async function logout() {
   await signOut({redirectTo:'/'});
 }
 
-export async function grant(form: FormData) {
-  const user = await staff();
-  requireStaff(user,!!user?.grants.some(item => item.role === 'admin'));
-  const subject = field(form,'subject');
-  const role = field(form,'role');
-  const unit = role === 'unidad' ? field(form,'unit') : '';
-  if ((!uuid(subject) && !(demo && subject === 'local-coordination')) ||
-      !['admin','general','unidad'].includes(role)) return;
-  await sql.begin(async tx => {
-    if (role === 'unidad' && !(await tx`select 1 from units where name=${unit}`).length) return;
-    if (field(form,'action') === 'revocar') {
-      if (subject === user.subject && role === 'admin') return;
-      await tx`delete from grants where subject=${subject} and role=${role} and unit=${unit}`;
-      await audit(tx,user.subject,'Revocó permiso',subject,`${role} ${unit}`);
-    } else {
-      await tx`insert into grants values (${subject},${role},${unit}) on conflict do nothing`;
-      await audit(tx,user.subject,'Asignó permiso',subject,`${role} ${unit}`);
-    }
-  });
-  redirect('/coordinacion/administracion?permisos=1');
+export async function grant(form: FormData):Promise<FormResult> {
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para administrar accesos.'};
+ const result=await sql.begin(tx=>saveRegistryGrant(tx,form,user.subject,demo));
+ if(result.saved)revalidatePath('/coordinacion/administracion');return result;
 }
 
 class OutingCreationError extends Error {
-  constructor(message: string, readonly target?: string) {
+  constructor(message: string, readonly target?: string, readonly fieldErrors?:FieldErrors) {
     super(message);
   }
 }
 
-export async function createOuting(form: FormData): Promise<{ error?: string; target?: string; destination?: string }> {
+export async function createOuting(form: FormData): Promise<FormResult & {target?:string}> {
   try {
-    return { destination: await saveOuting(form) };
+    return { saved:true,destination: await saveOuting(form) };
   } catch (error) {
-    if (error instanceof OutingCreationError) return { error: error.message, target: error.target };
+    if (error instanceof OutingCreationError) return error.fieldErrors?{fieldErrors:error.fieldErrors}:{error:error.target?undefined:error.message,fieldErrors:error.target?{[error.target]:error.message}:undefined,target:error.target};
     console.error('Falló la creación de la convocatoria.', error);
     return { error: 'No se pudo crear la convocatoria. Revisá los datos e intentá de nuevo.' };
   }
@@ -79,6 +71,9 @@ async function saveOuting(form: FormData) {
   const user = await staff();
   const unit = field(form,'unit');
   requireStaff(user,canOperate(user,unit));
+  const fieldErrors=validateNewOuting(form);
+  if(unit&&!(await sql`select 1 from units where name=${unit}`).length)fieldErrors.unit='Seleccioná una unidad disponible.';
+  if(Object.keys(fieldErrors).length)throw new OutingCreationError('',undefined,fieldErrors);
   const starts = form.getAll('starts').map(String);
   const ends = form.getAll('ends').map(String);
   const periods = starts.map((start,index) => ({ start, end: ends[index] ?? '' }));
@@ -132,14 +127,15 @@ async function saveOuting(form: FormData) {
     if ((form.has(`copyAlt-${id}`) && (!field(form,`copyAlt-${id}`) || field(form,`copyAlt-${id}`).length > 240)) || field(form,`copyCredit-${id}`).length > 150) invalid('Revisá descripción y crédito de la foto.',`existing-${id}`);
   }
   const prepared: { key: string; alt: string; credit: string; position: number; image: Awaited<ReturnType<typeof preparePhoto>> }[] = [];
+  const imageErrors:FieldErrors={};
   for (const photo of uploads) {
     const position = order.indexOf(photo.key) + 1;
     if (!photo.alt || photo.alt.length > 240 || photo.credit.length > 150 || !photo.permission) {
       invalid(`Completá la descripción y confirmá la autorización de la foto ${position}.`, photo.key);
     }
-    const image = await preparePhoto(photo.file).catch(() => invalid(`La foto ${position} debe ser JPG, PNG o WebP y pesar hasta 3 MB.`, photo.key));
-    prepared.push({ ...photo, image, position });
+    try{const image=await preparePhoto(photo.file);prepared.push({...photo,image,position});}catch{imageErrors[`${photo.key}-photo`]=`Foto ${position}: el archivo no es una imagen JPG, PNG o WebP válida.`;}
   }
+  if(Object.keys(imageErrors).length)throw new OutingCreationError('',undefined,imageErrors);
   const cloneId = field(form,'cloneBlock');
   if (cloneId && !uuid(cloneId)) invalid('El bloque de origen no está disponible.');
   const ids = await sql.begin(async tx => {
@@ -166,19 +162,19 @@ async function saveOuting(form: FormData) {
         for share of p,o`;
       const unavailable = photoIds.find(id => !matches.some(photo => photo.id === id && canOperate(user, photo.unit)));
       if (unavailable) {
-        invalid('Esta foto ya no está disponible. Quitala y elegí otra.', `existing-${unavailable}`);
+        invalid('Una foto seleccionada ya no está disponible o no tenés permiso para usarla. Revisá la galería.');
       }
-    }
-    const newPhotos = [];
-    for (const photo of prepared) {
-      const original = await storeOriginal(photo.image).catch(() => invalid(`No se pudo guardar la foto ${photo.position} en SharePoint.`, photo.key));
-      newPhotos.push({ ...photo, original });
     }
     const [general] = await tx`select outing_defaults from requests where id=${requestId} for update`;
     if (cloneId) {
       const existing = await tx`select starts::text,ends::text from outings where request_id=${requestId}`;
       const duplicate = periods.findIndex(period => existing.some(block => block.starts === period.start && block.ends === period.end));
-      if (duplicate >= 0) invalid('Ya existe un bloque con estas fechas en la convocatoria general.', `period-${duplicate}`);
+      if (duplicate >= 0) invalid('Ya existe un bloque con estas fechas en la convocatoria general.', `period-${form.getAll('periodId')[duplicate]||duplicate}-starts`);
+    }
+    const newPhotos = [];
+    for (const photo of prepared) {
+      const original = await storeOriginal(photo.image).catch(() => invalid(`No se pudo guardar la foto ${photo.position} en SharePoint. Conservamos los archivos para reintentar.`));
+      newPhotos.push({ ...photo, original });
     }
     const overrides = commonOutingFields.filter(item =>
       source?.outing_overrides.includes(item.name) || general.outing_defaults?.[item.name] !== values[item.name]
@@ -236,6 +232,8 @@ export async function manageOuting(id: string, form: FormData) {
     if (!outingIsEditable(outing.status)) return 'Esta convocatoria está cerrada para edición.';
     const action = field(form,'action');
     const reason = field(form,'reason');
+    if(!['completar','eliminar','cancelar-salida','datos','informacion','solicitud','visibilidad','fechas','publicar','cupo','agrupación','heredar-fotos'].includes(action))return 'La acción no está disponible.';
+    if(action==='agrupación'&&!reason)return 'Indicá la decisión de coordinación.';
     if (action === 'completar') {
       if (!['abierta', 'confirmada'].includes(outing.status)) return 'Solo se puede completar una salida abierta o confirmada.';
       const [{ finished }] = await tx`select ${outing.last_day}::date < ${registrationToday} as finished`;
@@ -377,57 +375,15 @@ export async function manageOuting(id: string, form: FormData) {
   redirect(`${back}?${query}${anchor}`);
 }
 
-export async function splitOutingGroup(id: string, start: string, end: string, form: FormData) {
-  if (!uuid(id)) return { error: 'La salida no está disponible.' };
-  const user = await staff();
-  const back = `/coordinacion/salidas/${id}`;
-  const members = form.getAll('member').map(String);
-  const title = field(form, 'title');
-  const capacity = Number(field(form, 'capacity'));
-  const result = await sql.begin(async tx => {
-    const [outing] = await tx`select * from outings where id=${id} for update`;
-    requireStaff(user, !!outing && canOperate(user, outing.unit));
-    if (!outing.flexible || !['abierta', 'confirmada'].includes(outing.status)) {
-      return { error: 'La salida debe estar abierta o confirmada y tener fechas flexibles.' };
-    }
-    if (!title || title.length > 200 || !Number.isInteger(capacity) || capacity < 1 || capacity > 10000) {
-      return { error: 'Completá el título e ingresá entre 1 y 10 000 cupos.' };
-    }
-    const entries = await tx<{ id: string; starts: string; ends: string; status: string }[]>`
-      select id,starts::text,ends::text,status from registrations where outing_id=${id}
-      and status in ('revisión','espera','confirmada') order by id for update`;
-    const group = suggestedGroups(entries).find(group => group.starts === start && group.ends === end);
-    const submitted = new Set(members);
-    if (!group || group.people.length !== submitted.size || group.people.some(person => !submitted.has(person.id))) {
-      return { error: 'La agrupación cambió. Revisá quiénes la integran antes de volver a separarla.' };
-    }
-    const occupied = group.people.filter(person => ['revisión','confirmada'].includes(person.status)).length;
-    if (capacity < occupied) return { error: `Asigná al menos ${occupied} cupos para conservar las reservas.` };
-
-    const [created] = await tx<{ id: string }[]>`
-      insert into outings (request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,transport_details,food_details,lodging_details,status,listed,registration_deadline,outing_overrides)
-      values (${outing.request_id},${title},${outing.location},${outing.unit},${start},${end},true,${capacity},
-        ${outing.requirements},${outing.logistics},${outing.transport_details},${outing.food_details},${outing.lodging_details},${outing.status},false,least(${start}::date,${outing.registration_deadline}::date),${Array.from(new Set([...outing.outing_overrides, 'title']))})
-      returning id`;
-    await tx`insert into outing_photos (outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-      select ${created.id},position,alt,credit,original_item,original_drive,thumbnail,display_image
-      from outing_photos where outing_id=${id} and position is not null`;
-    const ids = group.people.map(person => person.id);
-    await tx`update registrations set outing_id=${created.id} where id=any(${ids}::uuid[])`;
-    for (const registrationId of ids) {
-      await audit(tx, user.subject, 'Trasladó inscripción a otra salida', registrationId, `Salida de origen: ${outing.title} (${id}) → ${title} (${created.id})`);
-      await notifyRegistration(tx,registrationId,'Coordinación trasladó tu grupo a su propia salida. Conservás las fechas y el estado de tu inscripción.');
-    }
-    await promoteWaitlist(tx,id,user.subject);
-    await promoteWaitlist(tx,created.id,user.subject);
-    await audit(tx, user.subject, 'Separó agrupación', id, `Nueva salida: ${title} · ${ids.length} inscripciones`);
-    await audit(tx, user.subject, 'Creó salida desde agrupación', created.id, `Salida original: ${id}`);
-    return { id: created.id };
-  });
+export async function splitOutingGroup(id: string, start: string, end: string, form: FormData): Promise<FormResult> {
+  if (!uuid(id)) return {error:'La salida no está disponible.'};
+  const user=await staff();
+  if(!user)return {error:'No tenés permiso para gestionar esta salida.'};
+  const result=await sql.begin(tx=>splitStaffGroup(tx,id,start,end,form,{actor:user.subject,canOperate:unit=>canOperate(user,unit)}));
+  if(!result.saved)return result;
   await dispatchRegistrationUpdates();
-  if (result.error) return { error: result.error };
-  revalidatePath(back);
-  return { saved: true, destination: `${back}?grupoCreado=${result.id}#agrupaciones` };
+  revalidatePath(`/coordinacion/salidas/${id}`);
+  return {saved:true,destination:`/coordinacion/salidas/${id}?grupoCreado=${result.id}#agrupaciones`};
 }
 
 export async function manageEntry(id: string, fromList: boolean, filter: string, form: FormData) {
@@ -486,73 +442,26 @@ export async function manageEntry(id: string, fromList: boolean, filter: string,
   redirect(result?.back || '/coordinacion');
 }
 
-export async function verifyPolicy(form: FormData) {
-  const user = await staff();
-  requireStaff(user,canAdminister(user));
-  const id = field(form,'volunteer');
-  const starts = field(form,'starts'), ends = field(form,'ends');
-  const kind = field(form,'kind'), number = field(form,'number'), source = field(form,'source');
-  if (!uuid(id) || !number || !kind || !source || !date(starts) || !date(ends) || ends < starts) return { error: 'Completá los datos de la póliza y revisá las fechas de cobertura.' };
-  await sql.begin(async tx => {
-    const [policy] = await tx`insert into policies(volunteer_id,kind,number,starts,ends,source,verified_by,verified_at)
-      values (${id},${kind},${number},${starts},${ends},${source},${user.subject},now()) returning id`;
-    await audit(tx,user.subject,'Verificó póliza',policy.id);
-  });
-  revalidatePath(`/coordinacion/registro/${id}`);
-  return { saved: true };
+export async function verifyPolicy(form: FormData):Promise<FormResult> {
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para verificar pólizas.'};
+ const id=field(form,'volunteer');if(!uuid(id))return {error:'La persona no está disponible.'};
+ const result=await sql.begin(tx=>verifyRegistryPolicy(tx,id,form,user.subject));
+ if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
 }
 
-export async function importPreview(csv: string) {
-  const user = await staff();
-  requireStaff(user,canAdminister(user));
-  if (csv.length > 150000) throw new Error('El archivo es demasiado grande.');
-  const rows: Record<string,string>[] = parse(csv,{ columns:true, bom:true, skip_empty_lines:true, trim:true });
-  const seen = new Set<string>();
-  const ids = rows.map(row => identification(row.identificacion || ''));
-  const known = await sql`select identification,name,surname,email from volunteers where identification in ${sql(ids.length ? ids : [''])}`;
-  return rows.map((row,index) => {
-    const id = ids[index];
-    const current = known.find(person => person.identification === id);
-    const valid = /^[A-Z0-9]{4,30}$/.test(id) && !!row.nombre && !!row.primer_apellido &&
-      (!row.correo || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(row.correo));
-    const duplicate = seen.has(id);
-    seen.add(id);
-    return { id, name:row.nombre || '', surname:row.primer_apellido || '', email:row.correo || '', current,
-      state: !valid ? 'Incompleta' : duplicate ? 'Duplicada' : current ? 'Coincidencia' : 'Alta' };
-  });
+export async function importPreview(csv:string){
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar voluntariado.'};
+ return sql.begin(tx=>prepareRegistryImport(tx,csv,'volunteers'));
+}
+export async function applyImportRows(form:FormData):Promise<FormResult>{
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar voluntariado.'};
+ const result=await sql.begin(tx=>applyRegistryImport(tx,form,'volunteers',user.subject));
+ if(result.saved){revalidatePath('/coordinacion/registro');revalidatePath('/coordinacion/administracion');}return result;
 }
 
-export async function applyImport(form: FormData) {
-  await applyImportRows(form);
-  redirect('/coordinacion/administracion?registro=1');
-}
-
-export async function applyImportRows(form: FormData) {
+export async function editProfile(id: string, form: FormData): Promise<FormResult<ProfileField>> {
   const user = await staff();
-  requireStaff(user,canAdminister(user));
-  const rows = await importPreview(field(form,'csv'));
-  await sql.begin(async tx => {
-    for (const row of rows) {
-      if (['Incompleta','Duplicada'].includes(row.state) || !form.has(`usar-${row.id}`)) continue;
-      if (row.current) {
-        const updated = await tx`update volunteers set name=${row.name},surname=${row.surname},email=${row.email || null}
-          where identification=${row.id} and name=${row.current.name} and surname=${row.current.surname}
-          and email is not distinct from ${row.current.email} returning id`;
-        if (updated.length) await audit(tx,user.subject,'Actualizó ficha',updated[0].id);
-      } else {
-        const added = await tx`insert into volunteers(identification,name,surname,email)
-          values (${row.id},${row.name},${row.surname},${row.email || null}) on conflict do nothing returning id`;
-        if (added.length) await audit(tx,user.subject,'Importó ficha',added[0].id);
-      }
-    }
-  });
-  revalidatePath('/coordinacion/registro'); revalidatePath('/coordinacion/administracion');
-  return {applied:true};
-}
-
-export async function editProfile(id: string, form: FormData) {
-  const user = await staff();
-  requireStaff(user,canAdminister(user));
+  if (!user || !canAdminister(user)) return { error: 'No tenés permiso para corregir esta ficha.' };
   if (!uuid(id)) return { error: 'La persona no está disponible.' };
   const name = field(form,'name'), surname = field(form,'surname');
   const birth = field(form,'birth'), email = field(form,'email');
@@ -562,105 +471,50 @@ export async function editProfile(id: string, form: FormData) {
     return value === 'sí' ? true : value === 'no' ? false : null;
   };
   const member = boolean('member'), medical = boolean('medical');
-  if (!name || !surname || (birth && !date(birth)) || (volunteerYear && !/^[1-9][0-9]{3}$/.test(volunteerYear)) ||
-      (memberYear && !/^[1-9][0-9]{3}$/.test(memberYear)) || (medical && !field(form,'medical_detail')) ||
-      (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) return { error: 'Revisá nombre, apellidos, correo, fechas y detalle médico.' };
-  await sql.begin(async tx => {
-    await tx`update volunteers set name=${name},surname=${surname},second_surname=${field(form,'second_surname') || null},
+  const fieldErrors = validateProfile(form);
+  if (Object.keys(fieldErrors).length) return { fieldErrors };
+  const saved = await sql.begin(async tx => {
+    const [updated] = await tx`update volunteers set name=${name},surname=${surname},second_surname=${field(form,'second_surname') || null},
       birth=${birth || null}, email=${email || null}, whatsapp=${field(form,'whatsapp') || null},
       province=${field(form,'province') || null},canton=${field(form,'canton') || null},district=${field(form,'district') || null},
       medical=${medical},medical_detail=${medical ? field(form,'medical_detail') : null},
       emergency_name=${field(form,'emergency_name') || null},emergency_phone=${field(form,'emergency_phone') || null},
       emergency_relation=${field(form,'emergency_relation') || null},volunteer_year=${volunteerYear || null},
-      member=${member},member_year=${member ? memberYear || null : null} where id=${id}`;
+      member=${member},member_year=${member ? memberYear || null : null} where id=${id} returning id`;
+    if (!updated) return false;
     await audit(tx,user.subject,'Corrigió ficha',id);
-  });
-  revalidatePath(`/coordinacion/registro/${id}`);
-  return { saved: true };
-}
-
-export async function updateVolunteerUnits(id: string, form: FormData) {
-  const user = await staff();
-  requireStaff(user, canOperate(user) || canAdminister(user));
-  if (!uuid(id)) return { error: 'La persona no está disponible.' };
-  const selected = form.getAll('units').filter((value): value is string => typeof value === 'string');
-  await sql.begin(async tx => {
-    const [person] = await tx`update volunteers set units = array(
-      select name from units
-      where name = 'Voluntariado General' or name = any(${selected}::text[])
-      order by name
-    ) where id = ${id} returning id`;
-    if (person) await audit(tx, user.subject, 'Actualizó unidades de voluntariado', id);
-  });
-  revalidatePath(`/coordinacion/registro/${id}`);
-  return { saved: true };
-}
-
-export async function previewPolicies(csv: string) {
-  const user = await staff();
-  requireStaff(user,canAdminister(user));
-  if (csv.length > 150000) throw new Error('El archivo es demasiado grande.');
-  const rows: Record<string,string>[] = parse(csv,{ columns:true,bom:true,skip_empty_lines:true,trim:true });
-  const ids = rows.map(row => identification(row.identificacion || ''));
-  const known = await sql`select id,identification,name,surname from volunteers where identification in ${sql(ids.length ? ids : [''])}`;
-  return rows.map((row,index) => {
-    const person = known.find(item => item.identification === ids[index]);
-    const kind = row.tipo || '';
-    const number = row.numero || '';
-    return { identification:ids[index], person, kind, number, valid:!!(person && kind && number) };
-  });
-}
-
-export async function applyPolicies(form: FormData) {
-  await applyPolicyRows(form);
-  redirect('/coordinacion/administracion?polizas=1');
-}
-
-export async function applyPolicyRows(form: FormData) {
-  const user = await staff();
-  requireStaff(user,canAdminister(user));
-  const rows = await previewPolicies(field(form,'csv'));
-  await sql.begin(async tx => {
-    for (const [index,row] of rows.entries()) {
-      if (!row.valid || !row.person || !form.has(`usar-${index}`)) continue;
-      const [policy] = await tx`insert into policies(volunteer_id,kind,number)
-        values (${row.person.id},${row.kind},${row.number}) on conflict do nothing returning id`;
-      if (policy) await audit(tx,user.subject,'Importó póliza pendiente',policy.id);
-    }
-  });
-  revalidatePath('/coordinacion/registro'); revalidatePath('/coordinacion/administracion');
-  return {applied:true};
-}
-
-export async function recordVolunteerIncident(volunteerId: string, form: FormData) {
-  const user = await staff();
-  requireStaff(user, canOperate(user));
-  if (!uuid(volunteerId)) return;
-  const path = `/coordinacion/registro/${volunteerId}`;
-  const outingId = field(form, 'outing');
-  const occurredOn = field(form, 'occurred_on');
-  const description = field(form, 'description');
-  if (!date(occurredOn) || !description || description.length > 4000 || (outingId && !uuid(outingId))) {
-    redirect(`${path}?incidente=datos#incidentes`);
-  }
-  const saved = await sql.begin(async tx => {
-    const [incident] = await tx`
-      insert into volunteer_incidents (volunteer_id, outing_id, occurred_on, description, recorded_by)
-      select v.id, ${outingId || null}::uuid, ${occurredOn}::date, ${description}, ${user.subject}
-      from volunteers v
-      where v.id = ${volunteerId}
-        and (${!outingId} or exists (
-          select 1 from registrations r where r.volunteer_id = v.id and r.outing_id = ${outingId || null}::uuid
-        ))
-      returning id`;
-    if (!incident) return false;
-    await audit(tx, user.subject, 'Registró incidente de voluntariado', incident.id);
     return true;
   });
-  redirect(`${path}?incidente=${saved ? 'guardado' : 'vinculo'}#incidentes`);
+  if (!saved) return { error: 'La persona ya no está disponible. Actualizá el registro antes de continuar.' };
+  revalidatePath(`/coordinacion/registro/${id}`);
+  return { saved: true };
 }
 
-export async function createOutingCollection(_previous: string, form: FormData) {
+export async function updateVolunteerUnits(id:string,form:FormData):Promise<FormResult>{
+ const user=await staff();if(!user||!(canOperate(user)||canAdminister(user)))return {error:'No tenés permiso para actualizar unidades.'};
+ if(!uuid(id))return {error:'La persona no está disponible.'};
+ const result=await sql.begin(tx=>saveRegistryUnits(tx,id,form,user.subject));
+ if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
+}
+
+export async function previewPolicies(csv:string){
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar pólizas.'};
+ return sql.begin(tx=>prepareRegistryImport(tx,csv,'policies'));
+}
+export async function applyPolicyRows(form:FormData):Promise<FormResult>{
+ const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar pólizas.'};
+ const result=await sql.begin(tx=>applyRegistryImport(tx,form,'policies',user.subject));
+ if(result.saved){revalidatePath('/coordinacion/registro');revalidatePath('/coordinacion/administracion');}return result;
+}
+
+export async function recordVolunteerIncident(id:string,form:FormData):Promise<FormResult>{
+ const user=await staff();if(!user||!canOperate(user))return {error:'No tenés permiso para registrar incidentes.'};
+ if(!uuid(id))return {error:'La persona no está disponible.'};
+ const result=await sql.begin(tx=>saveRegistryIncident(tx,id,form,user.subject));
+ if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
+}
+
+export async function createOutingCollection(_previous: FormResult, form: FormData):Promise<FormResult> {
   const user = await staff();
   const general = canOperate(user);
   const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
@@ -668,8 +522,7 @@ export async function createOutingCollection(_previous: string, form: FormData) 
   const name = field(form, 'name');
   const description = field(form, 'description');
   const selected = [...new Set(form.getAll('outing').map(String))];
-  if (!name || name.length > 120 || description.length > 2000) return 'Revisá el nombre y la descripción.';
-  if (!selected.length || selected.some(id => !uuid(id))) return 'Seleccioná al menos una salida válida.';
+  const errors=validateManualSeries(form);if(selected.some(id=>!uuid(id)))errors.outing='Seleccioná salidas válidas.';if(Object.keys(errors).length)return {fieldErrors:errors};
 
   const id = await sql.begin(async tx => {
     const outings = await tx`select id from outings where id = any(${selected}::uuid[])
@@ -682,14 +535,15 @@ export async function createOutingCollection(_previous: string, form: FormData) 
     await audit(tx, user.subject, 'Creó colección de salidas', collection.id);
     return collection.id;
   });
-  if (!id) return 'Una de las salidas seleccionadas ya no está disponible para tu rol. Revisá la selección.';
-  redirect(`/coordinacion/colecciones/manuales/${id}?confirmacion=serie`);
+  if (!id) return {error:'Una de las salidas seleccionadas ya no está disponible para tu rol. Revisá la selección.'};
+  return {saved:true,destination:`/coordinacion/colecciones/manuales/${id}?confirmacion=serie`};
 }
 
-export async function createOutingInvitation(id: string, _previous: { link?: string; error?: string }, form: FormData): Promise<{ link?: string; error?: string }> {
+export async function createOutingInvitation(id: string, _previous: FormResult & {link?:string}, form: FormData): Promise<FormResult & {link?:string}> {
   if (!uuid(id)) return { error: 'La convocatoria no está disponible.' };
   const user = await staff();
   const number = identification(field(form, 'identification'));
+  if(!/^[A-Z0-9]{4,30}$/.test(number))return {fieldErrors:{identification:'Ingresá una identificación válida del registro.'}};
   const token = randomBytes(32).toString('base64url');
   const link = `${appUrl()}/convocatorias/${id}?invitacion=${token}`;
   return sql.begin(async tx => {
@@ -697,13 +551,14 @@ export async function createOutingInvitation(id: string, _previous: { link?: str
     requireStaff(user, !!outing && canOperate(user, outing.unit));
     if (!['abierta','confirmada'].includes(outing.status)) return { error: 'La salida debe estar abierta o confirmada.' };
     const [person] = await tx`select id,email from volunteers where identification=${number}`;
-    if (!person?.email || !await eligible(tx, person.id, outing.unit)) {
+    if(!person)return {fieldErrors:{identification:'No encontramos esa identificación en el registro de voluntariado.'}};
+    if (!person.email || !await eligible(tx, person.id, outing.unit)) {
       return { error: 'Revisá la identificación, el correo y la unidad de la persona voluntaria.' };
     }
     await tx`insert into outing_invitations(digest,outing_id,volunteer_id,expires_at)
       values (${digest(token)},${id},${person.id},now() + interval '7 days')`;
     await audit(tx, user.subject, 'Generó invitación a salida', id, person.id);
-    return { link };
+    return { saved:true,link };
   });
 }
 
@@ -718,14 +573,15 @@ async function outingUnitHasConflict(tx: import('../lib/registration').Transacti
 export async function updateAutomaticCollection(id: string, form: FormData) {
   const result=await saveAutomaticCollection(id,form);
   const back=`/coordinacion/colecciones/automaticas/${id}`;
-  if(result.error) redirect(`${back}?editar=1&error=${encodeURIComponent(result.error)}#datos-comunes`);
+  if(!result.saved)return result;
   redirect(`${back}?guardado=1`);
 }
 
-export async function saveAutomaticCollection(id: string, form: FormData): Promise<{error?:string;saved?:boolean}> {
+export async function saveAutomaticCollection(id: string, form: FormData): Promise<FormResult> {
   if (!uuid(id)) return {error:'Convocatoria inválida.'};
   const user = await staff();
   requireStaff(user, !!user?.grants.some(grant => grant.role === 'general' || grant.role === 'unidad'));
+  const validation=validateCommonSeries(form);if(Object.keys(validation).length)return {fieldErrors:validation};
   const back = `/coordinacion/colecciones/automaticas/${id}`;
   const selected = new Set(form.getAll('apply').map(String));
   const support = selected.has('support');
@@ -735,39 +591,39 @@ export async function saveAutomaticCollection(id: string, form: FormData): Promi
   const expected = new Set(form.getAll('block').map(String));
   const editableExpected = new Set(form.getAll('editableBlock').map(String));
 
-  const error = await sql.begin(async tx => {
+  const outcome = await sql.begin(async (tx):Promise<FormResult> => {
     if ((!support && !photos && !fields.length) || field(form, 'confirm') !== 'on') {
-      return 'Elegí qué datos querés actualizar y confirmá el cambio.';
+      return {error:'Elegí qué datos querés actualizar y confirmá el cambio.'};
     }
     if (fields.some(item => item.required && !field(form, item.name))) {
-      return 'Completá el título y el lugar si los seleccionaste para actualizar.';
+      return {error:'Completá el título y el lugar si los seleccionaste para actualizar.'};
     }
-    await tx`select id from outings where request_id=${id} order by id for update`;
     const [request] = await tx`select id from requests where id=${id} for update`;
-    if (!request) return 'La solicitud de apoyo ya no está disponible.';
+    await tx`select id from outings where request_id=${id} order by id for update`;
+    if (!request) return {error:'La solicitud de apoyo ya no está disponible.'};
+    if(field(form,'version')!==await outingSeriesVersion(tx,id))return {error:'Los datos comunes o sus bloques cambiaron. Recargá antes de guardar.'};
     const blocks = await tx<{ id: string; unit: string; status: string; outing_overrides: string[] }[]>`
       select id,unit,status,outing_overrides from outings where request_id=${id}`;
     if (!blocks.length || blocks.some(block => !canOperate(user, block.unit))) {
-      return 'Necesitás permiso para gestionar todos los bloques.';
+      return {error:'Necesitás permiso para gestionar todos los bloques.'};
     }
     const editable = blocks.filter(block => outingIsEditable(block.status));
     if (expected.size !== blocks.length || blocks.some(block => !expected.has(block.id)) ||
         editableExpected.size !== editable.length || editable.some(block => !editableExpected.has(block.id))) {
-      return 'Los bloques cambiaron. Revisá la lista antes de guardar.';
+      return {error:'Los bloques cambiaron. Revisá la lista antes de guardar.'};
     }
-    if (fields.length && !editable.length) return 'No hay bloques abiertos para editar sus datos.';
+    if (fields.length && !editable.length) return {error:'No hay bloques abiertos para editar sus datos.'};
     const unit = fields.some(item => item.name === 'unit') ? field(form,'unit') : '';
     if (unit) {
-      if (!canOperate(user,unit) || !(await tx`select 1 from units where name=${unit}`).length) return 'Elegí una unidad que podás gestionar.';
+      if(!canOperate(user,unit))return {error:'No tenés permiso para gestionar la unidad seleccionada.'};
+      if(!(await tx`select 1 from units where name=${unit}`).length)return {fieldErrors:{unit:'Seleccioná una unidad disponible.'}};
       const inheriting = editable.filter(block => !block.outing_overrides.includes('unit') && block.unit !== unit);
       if (await outingUnitHasConflict(tx,inheriting.map(block => block.id),unit)) {
-        return 'El cambio de unidad afectaría inscripciones activas o pendientes en un bloque que hereda la unidad.';
+        return {error:'El cambio de unidad afectaría inscripciones activas o pendientes en un bloque que hereda la unidad.'};
       }
     }
-    if (photos && (!blocks.some(block => block.id === photoSource) ||
-        !(await tx`select 1 from outing_photos where outing_id=${photoSource} and position=1`).length)) {
-      return 'Elegí un bloque que tenga foto de portada.';
-    }
+    if(photos&&!blocks.some(block=>block.id===photoSource))return {fieldErrors:{photoSource:'Elegí un bloque de esta serie con portada.'}};
+    if(photos&&!(await tx`select 1 from outing_photos where outing_id=${photoSource} and position=1`).length)return {error:'La portada del bloque seleccionado ya no está disponible. Actualizá la serie.'};
     if (support) {
       await tx`update requests set organization=${field(form,'organization')},contact=${field(form,'contact')},
         area=${field(form,'area')},activity=${field(form,'activity')},plan=${field(form,'plan')} where id=${id}`;
@@ -790,8 +646,9 @@ export async function saveAutomaticCollection(id: string, form: FormData): Promi
       }
       await audit(tx,user.subject,'Actualizó fotos generales de convocatoria',id);
     }
+    return {saved:true};
   });
-  if (error) return {error};
+  if (!outcome.saved) return outcome;
   revalidatePath(back); revalidatePath(`/colecciones/${id}`); revalidatePath('/');
   return {saved:true};
 }

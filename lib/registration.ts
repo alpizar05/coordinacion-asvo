@@ -6,9 +6,7 @@ export const digest = (value: string) => createHash('sha256').update(value).dige
 export const identification = (value: string) => value.trim().toUpperCase().replace(/[\s-]/g, '');
 export const field = (form: FormData, key: string) => String(form.get(key) ?? '').trim();
 export const uuid = (value: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
-export function date(value: string) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(value) && new Date(value).toJSON()?.slice(0,10) === value;
-}
+export {validFormDate as date} from './form-dates.mjs';
 export const displayDate = (value: string) => value.split('-').reverse().join('/');
 export function hours(name: string, fallback: number) {
   const value = Number(process.env[name]);

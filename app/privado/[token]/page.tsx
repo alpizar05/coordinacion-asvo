@@ -2,8 +2,7 @@ import { StatusRibbon } from '../../status-ribbon';
 import { statusLabels } from '../../coordinacion/registration-statuses';
 import { sql } from '../../../lib/db';
 import { cancellationWarning, digest, displayDate } from '../../../lib/registration';
-import { RegistrationFields } from '../../fields';
-import { privateAction } from '../../public-actions';
+import { PrivateRegistrationForms } from '../private-registration-forms';
 
 export default async function Page({params,searchParams}: {params:Promise<{token:string}>;searchParams:Promise<{error?:string;actualizada?:string}>}) {
   const {token} = await params;
@@ -21,8 +20,9 @@ export default async function Page({params,searchParams}: {params:Promise<{token
   <p>Estado <strong>{statusLabels.get(entry.status) ?? entry.status}</strong></p>
   {entry.status === 'revisión' && <p>Tenés un cupo reservado. Coordinación debe confirmar tu participación.</p>}
   {entry.status === 'espera' && <p>Estás en lista de espera. Si se libera un cupo, se asigna por orden de recepción y te avisamos por correo.</p>}
-  {active && <form className="card" action={privateAction.bind(null,token)}><h2>Editar inscripción</h2>{entry.flexible && <p>Para apoyar un solo día, elegí la misma fecha de llegada y regreso. Las fechas fuera del rango publicado requieren aprobación de Coordinación.</p>}<RegistrationFields flexible={entry.flexible} general={entry.unit === 'Voluntariado General'} starts={entry.first_day} ends={entry.last_day} details={entry.details} arrival={entry.starts} departure={entry.ends}/><button name="action" value="editar">Guardar cambios</button></form>}
   {active && entry.status === 'confirmada' && <p>Si cambiás tus fechas, la inscripción vuelve a revisión y conserva el cupo reservado.</p>}
-  {active && <form className="card" action={privateAction.bind(null,token)}>{warning && <label className="note"><input type="checkbox" name="acknowledge" required/> Entiendo que deberé cubrir los gastos ya incurridos según el reglamento.</label>}<label>Motivo de la cancelación<textarea name="reason" required maxLength={2000} /></label><button name="action" value="cancelar">Cancelar mi inscripción</button></form>}
+  <PrivateRegistrationForms token={token} active={active} warning={warning} general={entry.unit === 'Voluntariado General'}
+    schedule={{flexible:entry.flexible,starts:entry.first_day,ends:entry.last_day}} arrival={entry.starts} departure={entry.ends} details={entry.details}/>
+
   </>;
 }

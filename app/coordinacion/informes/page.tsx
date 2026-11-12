@@ -58,7 +58,6 @@ export default async function Reports({ searchParams }: { searchParams: Promise<
         {chips.map(chip=><Link key={chip.key} href={url(chip.key)} scroll={false} className="active-filter-chip" aria-label={`Quitar filtro: ${chip.label}`}><span className="active-filter-chip-content">{chip.label}<span aria-hidden="true">×</span></span></Link>)}
         <Link href="/coordinacion/informes" className="active-filter-reset" scroll={false}>Restablecer</Link>
       </nav>}
-      {invalidRange && <p className="note" role="alert">La fecha Desde debe ser anterior o igual a la fecha Hasta.</p>}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de informes de salida">
         <table className="outings-table coordination-compact-table reports-overview-table">
           <thead><tr><th scope="col">Responsable (70)</th><th scope="col">Convocatoria</th><th scope="col">Unidad</th><th scope="col">Fechas de la gira</th><th scope="col">Última actualización</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead>

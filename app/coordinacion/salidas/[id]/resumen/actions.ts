@@ -1,4 +1,5 @@
 'use server';
+import type {FormResult} from '../../../../../lib/form-result';
 
 import { randomBytes } from 'node:crypto';
 import { revalidatePath } from 'next/cache';
@@ -6,11 +7,11 @@ import { staff, canOperate, requireStaff } from '../../../../../lib/auth';
 import { appUrl, sql } from '../../../../../lib/db';
 import { audit, digest, field, uuid } from '../../../../../lib/registration';
 
-export async function generateBrief(id: string, _previous: { link?: string; error?: string }, form: FormData): Promise<{ link?: string; error?: string }> {
+export async function generateBrief(id: string, _previous: FormResult & {link?:string}, form: FormData): Promise<FormResult & {link?:string}> {
   if (!uuid(id)) return { error: 'La salida no es válida.' };
   const user = await staff();
   const lead = field(form,'lead');
-  if (!uuid(lead)) return { error: 'Seleccioná una persona asignada como 70.' };
+  if (!uuid(lead)) return { fieldErrors:{lead:'Seleccioná una persona asignada como 70.'} };
   const token = randomBytes(32).toString('base64url');
   const result = await sql.begin(async tx => {
     const [outing] = await tx`select unit,status from outings where id=${id} for update`;
@@ -24,7 +25,7 @@ export async function generateBrief(id: string, _previous: { link?: string; erro
     await audit(tx,user.subject,'Generó resumen para 70',id,`Inscripción: ${lead}`);
   });
   revalidatePath(`/coordinacion/salidas/${id}/resumen`);
-  return result ? { error: result } : { link: `${appUrl()}/resumen-salida/${token}` };
+  return result ? { error: result } : { saved:true,link: `${appUrl()}/resumen-salida/${token}` };
 }
 
 export async function revokeBrief(id: string) {

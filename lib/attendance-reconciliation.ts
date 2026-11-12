@@ -1,3 +1,5 @@
+import {validateRegistryForm} from './registry-validation';
+import type {FormResult} from './form-result';
 import { sql } from './db';
 import { audit, type Transaction } from './registration';
 
@@ -24,13 +26,15 @@ export async function attendanceCases(outingId: string, tx?: Transaction) {
 }
 
 // Caller locks the outing and verifies Coordination's permission for its current unit.
-export async function saveAttendanceResolution(tx: Transaction, outingId: string, volunteerId: string, version: string, decision: string, reason: string, actor: string) {
-  if (!Object.hasOwn(attendanceDecisionLabels,decision)) return { error:'Elegí una decisión válida.' };
-  if (!reason.trim() || reason.length>4000) return { error:'Indicá un motivo de hasta 4000 caracteres.' };
+export async function saveAttendanceResolution(tx: Transaction, outingId: string, volunteerId: string, version: string, decision: string, reason: string, actor: string):Promise<FormResult> {
+
   const [outing] = await tx`select status from outings where id=${outingId}`;
   if (!outing || !['abierta','confirmada','completada'].includes(outing.status)) return { error:'La salida no permite conciliar asistencia.' };
   const item = (await attendanceCases(outingId,tx)).find(row=>row.volunteer_id===volunteerId);
   if (!item || item.version !== version) return { error:'Los informes cambiaron. Cerrá el modal y volvé a revisar las versiones actuales.' };
+  const form=new FormData();form.set('decision',decision);form.set('reason',reason);
+  const errors=validateRegistryForm(form,'attendance');if(Object.keys(errors).length)return {fieldErrors:errors};
+  if(item.current_resolution&&item.decision===decision&&item.reason===reason.trim())return {saved:true};
   await tx`insert into attendance_resolutions(outing_id,volunteer_id,decision,reason,actor,evidence)
     values (${outingId},${volunteerId},${decision},${reason.trim()},${actor},${tx.json(item.snapshot)})`;
   const message = `${attendanceDecisionLabels[decision as AttendanceDecision]} · ${reason.trim()}`;

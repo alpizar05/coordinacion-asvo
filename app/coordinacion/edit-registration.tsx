@@ -4,6 +4,10 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CoordinationModal } from './coordination-modal';
 import { StatusRibbon } from '../status-ribbon';
+import { StaffParticipationFields } from './staff-participation-fields';
+import { FormFeedbackProvider,FormErrorSummary,useFormFeedback } from '../form-feedback/form-feedback';
+import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
+import { fieldErrorMessages } from '../../lib/form-result';
 import { loadEditableRegistration, saveEditedRegistration } from './edit-registration-actions';
 
 type Data = NonNullable<Awaited<ReturnType<typeof loadEditableRegistration>>['data']>;
@@ -11,11 +15,13 @@ export function EditRegistration({ id, open, onClose }: { id: string; open: bool
   const [data,setData] = useState<Data | null>(null), [error,setError] = useState(''), [success,setSuccess] = useState('');
   const [loading,setLoading] = useState(false), [pending,setPending] = useState(false), [dirty,setDirty] = useState(false);
   const [transport,setTransport] = useState(false);
-  const errorRef = useRef<HTMLParagraphElement>(null), formId = useId(), router = useRouter();
+  const formRef=useRef<HTMLFormElement>(null),inFlight=useRef(false);
+  const feedback=useFormFeedback({form:formRef,validate:form=>data?validateStaffParticipation(form,{flexible:data.flexible,starts:data.firstDay,ends:data.lastDay}):{},labels:staffRegistrationLabels,dependencies:{starts:['ends'],ends:['starts'],transport:['rides']}});
+  const formId=useId(),router=useRouter();
   useEffect(() => {
     if (!open) return;
     let active = true;
-    setData(null); setError(''); setLoading(true); setDirty(false);
+    setData(null); setError(''); feedback.reset(); setLoading(true); setDirty(false);
     loadEditableRegistration(id).then(result => {
       if (!active) return;
       if (result.data) { setData(result.data); setTransport(result.data.transport); }
@@ -29,32 +35,27 @@ export function EditRegistration({ id, open, onClose }: { id: string; open: bool
     <CoordinationModal open={open} onClose={onClose} title="Editar inscripción" dirty={dirty} pending={pending}
       footer={<button type="submit" form={formId} disabled={pending || loading || !data} className="coord-button-primary">{pending ? 'Guardando…' : 'Guardar cambios'}</button>}>
       {loading && <p role="status">Cargando inscripción…</p>}
-      {error && <p role="alert" className="note" ref={errorRef} tabIndex={-1}>{error}</p>}
-      {open && data && <form id={formId} onChange={() => setDirty(true)} onSubmit={async event => {
-        event.preventDefault(); if (pending) return;
-        const form = new FormData(event.currentTarget); setPending(true); setError('');
+      {error && <p role="alert" className="note" tabIndex={-1}>{error}</p>}
+      {open && data && <FormFeedbackProvider feedback={feedback}><form ref={formRef} id={formId} noValidate onChange={event=>{setDirty(true);const input=event.target;if(input instanceof HTMLInputElement||input instanceof HTMLTextAreaElement)feedback.changed(input.name);}} onSubmit={async event => {
+        event.preventDefault(); if(inFlight.current)return;
+        const form = new FormData(event.currentTarget);
+        const errors=validateStaffParticipation(form,{flexible:data.flexible,starts:data.firstDay,ends:data.lastDay});
+        if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
+        inFlight.current=true;setPending(true);setError('');
         try {
           const result = await saveEditedRegistration(id,form);
-          if (result.error) { setError(result.error); setTimeout(() => errorRef.current?.focus(),0); }
+          if (!result.saved) { feedback.showErrors(result.fieldErrors,result.error); }
           else { setDirty(false); onClose(); setSuccess('Inscripción actualizada. Se notificará a la persona voluntaria por correo.'); router.refresh(); }
-        } catch { setError('No se pudo guardar. Los datos se conservan para reintentar.'); setTimeout(() => errorRef.current?.focus(),0); }
-        finally { setPending(false); }
+        } catch { feedback.showErrors({},'No se pudo guardar. Los datos se conservan para reintentar.'); }
+        finally { inFlight.current=false;setPending(false); }
       }}>
-        <p><strong>{data.name}</strong></p>
+        <FormErrorSummary/><p><strong>{data.name}</strong></p>
         <fieldset className="coordination-modal-form-fields" disabled={pending}>
           <input type="hidden" name="version" value={data.version} />
-          <label>Llegada<input name="starts" type="date" required defaultValue={data.starts} readOnly={!data.flexible} /></label>
-          <label>Regreso<input name="ends" type="date" required defaultValue={data.ends} readOnly={!data.flexible} /></label>
-          {data.confirmed && data.flexible && <p className="muted">Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.</p>}
-          <label><input name="transport" type="checkbox" checked={transport} onChange={e => setTransport(e.target.checked)} /> Tiene transporte propio</label>
-          {transport ? <label>Personas que puede llevar<input name="rides" type="number" min="0" max="100" required defaultValue={data.seats} /></label>
-            : <input name="rides" type="hidden" value="0" />}
-          {data.legacySeats && <p className="muted">La inscripción anterior ofrecía transporte sin indicar cantidad. Revisá cuántas personas puede llevar.</p>}
-          <label>Restricciones alimentarias<textarea name="food" maxLength={500} defaultValue={data.food} /></label>
-          {data.general && <label><input name="lead" type="checkbox" defaultChecked={data.interested70} /> Tiene interés en ser 70</label>}
-          <label>Otras observaciones<textarea name="other" maxLength={500} defaultValue={data.other} /></label>
+          <StaffParticipationFields starts={data.starts} ends={data.ends} flexible={data.flexible} general={data.general} transport={transport} onTransport={setTransport} seats={data.seats} food={data.food} other={data.other} interested70={data.interested70} legacySeats={data.legacySeats}/>
+          {data.confirmed&&data.flexible&&<p className="muted">Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.</p>}
         </fieldset>
-      </form>}
+      </form></FormFeedbackProvider>}
     </CoordinationModal>
   </>;
 }

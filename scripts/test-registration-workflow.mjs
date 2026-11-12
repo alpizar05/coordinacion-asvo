@@ -205,6 +205,8 @@ try {
     await queueRegistrationMail(tx,reserved[0].id,'Aviso de prueba',{ origin: process.env.APP_URL, demo: false });
     const originalFetch = globalThis.fetch;
     try {
+      // Exercise Graph retries with a reserved non-deliverable domain; .test recipients are intentionally cancelled before Graph.
+      await tx`update registration_mail_outbox set recipient='mock@example.invalid' where registration_id=${reserved[0].id} and sent_at is null`;
       globalThis.fetch = async () => new Response('',{status:503});
       await flushRegistrationMail(tx);
       const [pending] = await tx`select id,sent_at,attempts from registration_mail_outbox where registration_id=${reserved[0].id}`;

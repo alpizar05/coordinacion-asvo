@@ -1,0 +1,30 @@
+import{registerHooks}from'node:module';import{existsSync}from'node:fs';import{fileURLToPath}from'node:url';import{randomUUID}from'node:crypto';import assert from'node:assert/strict';
+const url=new URL(process.env.DATABASE_URL);if(process.env.ASVO_DEMO!=='1'||!['localhost','127.0.0.1','[::1]'].includes(url.hostname))throw Error('Solo demo local');process.env.NODE_ENV='development';registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const p=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(p)))return n(p.href,c);}return n(s,c);}});
+const{sql}=await import('../lib/db.ts');const{validateDateFilter}=await import('../lib/filter-validation.ts');const{validateOutingDecision}=await import('../lib/outing-decision-validation.ts');const{saveOutingDecision}=await import('../lib/outing-decision.ts');const{outingEditVersion}=await import('../lib/outing-editor.ts');
+const form=(v={})=>{const f=new FormData();for(const[k,value]of Object.entries(v))f.set(k,value);return f;};
+assert.ok(validateDateFilter('2035-02-02','2035-02-01').hasta);assert.equal(validateDateFilter('2035-02-02','2035-02-01').desde,undefined);assert.deepEqual(validateDateFilter('2035-02-02','2035-02-02'),{});assert.deepEqual(validateDateFilter('','2035-02-01'),{});assert.ok(validateDateFilter('0000-01-01','').desde);assert.ok(validateDateFilter('2035-02-30','2035-02-31').desde);assert.ok(validateDateFilter('2035-02-30','2035-02-31').hasta);
+assert.ok(validateOutingDecision(form(),'agrupación').reason);assert.ok(validateOutingDecision(form(),'cancelar-salida').reason);assert.ok(validateOutingDecision(form(),'completar').confirmCompleted);assert.ok(validateOutingDecision(form(),'eliminar').confirmDelete);
+const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};const rollback=Error('rollback');
+try{await sql.begin(async tx=>{
+ const request=randomUUID(),outing=randomUUID(),person=randomUUID(),entry=randomUUID(),empty=randomUUID();
+ await tx`insert into requests(id,organization,activity)values(${request},'DEMO auditoría de formularios','Prueba')`;
+ for(const id of[outing,empty])await tx`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,listed)values(${id},${request},'DEMO auditoría formularios','Local','Voluntariado General','2000-01-01','2000-01-02',true,2,'abierta',false)`;
+ await tx`insert into volunteers(id,identification,name,surname,email)values(${person},${person},'Persona','Ficticia','persona@example.test')`;
+ await tx`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)values(${entry},${outing},${person},${person},'2000-01-01','2000-01-02','revisión','{}'::jsonb)`;
+ const context={actor:'prueba-auditoría',canOperate:()=>true};
+ const make=async(id,action,extra={})=>form({action,version:await outingEditVersion(tx,id),...extra});
+ assert.ok((await saveOutingDecision(tx,outing,await make(outing,'agrupación'),context)).fieldErrors.reason);
+ assert.ok((await saveOutingDecision(tx,outing,await make(outing,'completar'),context)).fieldErrors.confirmCompleted);
+ assert.ok((await saveOutingDecision(tx,empty,await make(empty,'eliminar'),context)).fieldErrors.confirmDelete);
+ const denied=await saveOutingDecision(tx,outing,await make(outing,'agrupación',{reason:'Ficticia'}),{...context,canOperate:()=>false});assert.ok(denied.error);assert.equal(denied.saved,undefined);
+ const fakeAction=await saveOutingDecision(tx,outing,await make(outing,'sin-campos-inventada'),context);assert.ok(fakeAction.error);assert.equal(fakeAction.fieldErrors,undefined);
+ const stale=await saveOutingDecision(tx,outing,await make(outing,'agrupación',{version:'obsoleta',reason:'Ficticia'}),context);assert.ok(stale.error.includes('cambió'));assert.equal(stale.fieldErrors,undefined);
+ const decision=await make(outing,'agrupación',{reason:'Decisión ficticia'});assert.equal((await saveOutingDecision(tx,outing,decision,context)).saved,true);assert.equal((await saveOutingDecision(tx,outing,decision,context)).saved,true);assert.equal((await tx`select count(*)::int as n from audit where target=${outing} and action='Decidió agrupación'`)[0].n,1);
+ assert.ok((await saveOutingDecision(tx,outing,await make(outing,'cancelar-salida'),context)).fieldErrors.reason);
+ const cancelled=await saveOutingDecision(tx,outing,await make(outing,'cancelar-salida',{reason:'Motivo ficticio'}),context);assert.equal(cancelled.saved,true);assert.ok(cancelled.destination);assert.equal((await tx`select status from registrations where id=${entry}`)[0].status,'cancelada por coordinación');
+ const mails=(await tx`select count(*)::int as n from demo_mail where registration_id=${entry}`)[0].n;assert.equal(mails,1);
+ assert.ok((await saveOutingDecision(tx,outing,await make(outing,'cancelar-salida',{reason:'Motivo ficticio'}),context)).error);assert.equal((await tx`select count(*)::int as n from demo_mail where registration_id=${entry}`)[0].n,mails);
+ assert.equal((await saveOutingDecision(tx,empty,await make(empty,'completar',{confirmCompleted:'on'}),context)).saved,true);assert.equal((await tx`select status from outings where id=${empty}`)[0].status,'completada');
+ await tx`update outings set status='abierta' where id=${empty}`;assert.equal((await saveOutingDecision(tx,empty,await make(empty,'eliminar',{confirmDelete:'on'}),context)).saved,true);assert.equal((await tx`select count(*)::int as n from outings where id=${empty}`)[0].n,0);
+ assert.equal((await tx`select count(*)::int as n from registration_mail_outbox where registration_id=${entry}`)[0].n,0);throw rollback;
+});}catch(e){if(e!==rollback)throw e;console.log('OK: filtros invertidos en Hasta; decisiones con campo, permisos/conflictos generales, sin falsos éxitos, auditoría idempotente, completar/eliminar/cancelar y notificación demo única. Rollback local, cero red real.');}finally{globalThis.fetch=originalFetch;await sql.end();}

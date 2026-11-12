@@ -1,3 +1,5 @@
+import {OutingDecisionForm} from '../../outing-decision-form';
+import { SplitGroupForm } from '../../split-group-form';
 import { OutingEditor } from './outing-editor';
 import { AttendanceReconciliation } from '../../attendance-reconciliation';
 import { OutingLogistics } from '../../../outing-logistics';
@@ -49,7 +51,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   const canViewProfile = canOperate(user);
   const photos = await sql`select id,alt,credit from outing_photos
     where outing_id=${id} and position is not null order by position`;
-  const entries = await sql`select r.id,r.identification,r.status,r.received_at,r.starts::text,r.ends::text,r.details,
+  const entries = await sql`select r.id,r.identification,r.status,r.received_at,r.starts::text,r.ends::text,r.details,md5(to_jsonb(r)::text) as version,
     (r.status='confirmada' and r.details->'assigned70'='true'::jsonb) as assigned70,
     exists(select 1 from outing_reports p where p.lead_registration_id=r.id and p.outing_id=r.outing_id and p.status='finalizado') as report_finalized,
     exists(select 1 from outing_brief_links l where l.lead_registration_id=r.id and l.outing_id=r.outing_id and l.revoked_at is null and l.expires_at>clock_timestamp()) as report_link,
@@ -138,7 +140,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
                   outingId: id,title: outing.title,starts: displayDate(outing.first_day),ends: displayDate(outing.last_day),
                   email: entry.volunteer_email,activeLink: !!entry.report_link,pending: !!entry.reminder_pending,finalized: !!entry.report_finalized,demo,
                 } : undefined}
-                entry={{ id: entry.id, status: entry.status, identification: entry.identification, starts: entry.starts, ends: entry.ends, assigned70: !!entry.assigned70 }}
+                entry={{ id: entry.id, version: entry.version, status: entry.status, identification: entry.identification, starts: entry.starts, ends: entry.ends, assigned70: !!entry.assigned70 }}
                 outing={{ flexible: outing.flexible, first_day: outing.first_day, last_day: outing.last_day }}
                 error={entry.id === inscripcion ? error : undefined}
                 />
@@ -307,49 +309,25 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
           <a href={`${back}#inscripcion-${person.id}`}>{person.name}</a> · {displayDate(person.starts)} al {displayDate(person.ends)}
           {' · '}{statusLabels.get(person.status) ?? person.status}
         </li>)}</ul>
-        {['abierta', 'confirmada'].includes(outing.status) && <ActionModal title="Crear salida para este grupo" saveLabel="Crear salida y trasladar grupo" action={splitOutingGroup.bind(null,id,group.starts,group.ends)}>
-            {group.people.map(person => <input key={person.id} type="hidden" name="member" value={person.id} />)}
-            <div className="grid">
-              <label>Título de la nueva salida<input name="title" required maxLength={200}
-                defaultValue={`${outing.title} · ${displayDate(group.starts)}`.slice(0, 200)} /></label>
-              <label>Cupos<input name="capacity" type="number" required min={Math.max(1,groupOccupied)} max="10000"
-                defaultValue={Math.min(10000,group.people.length)} /></label>
-            </div>
-            <p>Se crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.</p>
-        </ActionModal>}
+        {['abierta','confirmada'].includes(outing.status)&&<SplitGroupForm outingId={id} starts={group.starts} ends={group.ends} members={group.people.map(person=>person.id)} occupied={groupOccupied} title={`${outing.title} · ${displayDate(group.starts)}`.slice(0,200)}/>}
       </div>;
     })}
     {decisions.map(decision => <p className="copy" key={decision.id}>{decision.reason}</p>)}
-    {editable && <form action={manageOuting.bind(null,id)}>
-      <label>Decisión de coordinación<textarea name="reason" required /></label>
-      <button className="coord-button-primary" name="action" value="agrupación">Registrar decisión</button>
-    </form>}
+    {editable && <OutingDecisionForm id={id} version={String(outing.edit_version)} action="agrupación"/>}
   </section>}
   </>;
   const editEnd = <>
   {editing && ['abierta', 'confirmada'].includes(outing.status) && <section className="card" id="completar-salida">
     <h2>Completar salida</h2>
-    {outing.has_ended ? <form action={manageOuting.bind(null,id)}>
-      <p>Al completar este bloque, su ficha queda en solo lectura y las inscripciones se conservan en el historial.</p>
-      <label><input type="checkbox" name="confirmCompleted" required /> Confirmo que la actividad se realizó.</label>
-      <button type="submit" name="action" value="completar">Marcar como completada</button>
-    </form> : <p className="muted">Disponible a partir del día siguiente al regreso.</p>}
+    {outing.has_ended ? <><p>Al completar este bloque, su ficha queda en solo lectura y las inscripciones se conservan en el historial.</p><OutingDecisionForm id={id} version={String(outing.edit_version)} action="completar"/></> : <p className="muted">Disponible a partir del día siguiente al regreso.</p>}
   </section>}
   {editing && <section className="card outing-danger-zone" id="gestionar-salida" aria-labelledby="gestionar-salida-titulo">
     {error && gestion && <p className="note" role="alert">{error}</p>}
     <p className="eyebrow">Acción definitiva</p>
     <h2 id="gestionar-salida-titulo">{entries.length ? 'Cancelar convocatoria' : 'Eliminar convocatoria'}</h2>
-    <form action={manageOuting.bind(null,id)}>
-      {entries.length ? <>
-        <p>Se cerrará la convocatoria y se cancelarán las inscripciones activas. Las solicitudes quedarán en el historial.</p>
-        <label>Motivo de la cancelación<input name="reason" required /></label>
-        <button className="coord-button-danger" name="action" value="cancelar-salida">Cancelar convocatoria</button>
-      </> : <>
-        <p>Esta convocatoria puede eliminarse porque no tiene inscripciones.</p>
-        <label><input type="checkbox" name="confirmDelete" required /> Confirmo que quiero eliminar esta convocatoria.</label>
-        <button className="coord-button-danger" name="action" value="eliminar">Eliminar convocatoria</button>
-      </>}
-    </form>
+    <p>{entries.length?'Se cerrará la convocatoria y se cancelarán las inscripciones activas. Las solicitudes quedarán en el historial.':'Esta convocatoria puede eliminarse porque no tiene inscripciones.'}</p>
+    <OutingDecisionForm id={id} version={String(outing.edit_version)} action={entries.length?'cancelar-salida':'eliminar'}/>
+
   </section>}
   </>;
   return <><CoordinationBreadcrumb current={series ? compactParticipationDates(outing.first_day,outing.last_day) : outing.title}

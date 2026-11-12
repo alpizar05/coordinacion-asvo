@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 
-export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, managed, onClose, children, expanded = false }: {
+export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, managed, onClose, children, expanded = false, pending = false }: {
+  pending?: boolean;
   title: string;
   expanded?: boolean;
   subtitle?: string;
@@ -53,15 +54,15 @@ export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, man
         dialog.showModal();
       }} aria-label={triggerLabel}>Gestionar <span aria-hidden="true">⌄</span></button>
     <dialog className={`drawer registration-sheet${expanded ? ' registration-detail-view' : ''}`} ref={panel} aria-labelledby={id}
-      onClose={onClose} onClick={event => {
-        if (event.target === event.currentTarget) panel.current?.close();
+      onClose={onClose} onCancel={event=>{if(pending)event.preventDefault();}} onClick={event => {
+        if (!pending && event.target === event.currentTarget) panel.current?.close();
       }}>
       <div className="registration-sheet-content">
         <header className="drawer-heading">
           <div><h2 id={id}>{title}</h2>
             {subtitle && <p>{subtitle}</p>}
           </div>
-          <button className="registration-sheet-close" type="button" aria-label="Cerrar panel"
+          <button className="registration-sheet-close" type="button" aria-label="Cerrar panel" disabled={pending}
             onClick={() => panel.current?.close()}>×</button>
         </header>
         {children(() => panel.current?.close())}

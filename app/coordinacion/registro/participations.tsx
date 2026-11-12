@@ -26,7 +26,7 @@ export function Participations({ rows, canManage, name }: { rows:ParticipationRo
           <td data-label="Inscripción"><span className="pill" data-status={row.status}>{statusLabels.get(row.status) || row.status}</span></td>
           <td data-label="Participación real">{participationResult(row)}{row.resolution_stale && <small className="trajectory-unit">La resolución anterior requiere revisión.</small>}{row.attended && row.absent && canManage && <small className="trajectory-unit"><Link href={`/coordinacion/salidas/${row.outing_id}?pestana=herramientas#asistencia`}>Revisar asistencia</Link></small>}</td>
           <td data-label="Responsabilidad">{row.lead_report ? '70 · Informe finalizado' : row.assigned70 ? '70 asignado' : 'Integrante'}{row.pending_report && <small className="trajectory-unit">Informe pendiente</small>}</td>
-          {canManage && <td data-label="Acciones"><RegistrationActions personName={name} canManage={false} entry={{id:row.id,status:row.status,identification:'',starts:row.starts,ends:row.ends}}
+          {canManage && <td data-label="Acciones"><RegistrationActions personName={name} canManage={false} entry={{id:row.id,version:'',status:row.status,identification:'',starts:row.starts,ends:row.ends}}
             outing={{flexible:row.flexible,first_day:row.outing_start,last_day:row.outing_end}} /></td>}
         </tr>)}</tbody>
       </table>

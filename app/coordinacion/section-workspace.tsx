@@ -1,5 +1,5 @@
 'use client';
-import { useEffect,useId,useState,type ReactNode } from 'react';
+import { useEffect,useId,useRef,useState,type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { CoordinationModal } from './coordination-modal';
 import './section-workspace.css';
@@ -8,7 +8,8 @@ export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect
  sections:WorkspaceSection[];compact?:boolean;compactDiscard?:boolean;title?:string;toolbar?:ReactNode;initial?:string;active?:string;onSelect?:(key:string)=>void;discardHref?:string;trackChanges?:boolean;pending?:boolean;notice?:string;
 }){
  const [local,setLocal]=useState(initial||sections[0]?.key),[open,setOpen]=useState(false),[dirty,setDirty]=useState(false),[discard,setDiscard]=useState<string|null>(null);
- const current=active??local,id=useId(),router=useRouter();
+ const current=active??local,id=useId(),router=useRouter(),root=useRef<HTMLDivElement>(null);
+ useEffect(()=>{const node=root.current;if(!node)return;const reveal=(event:Event)=>{const target=event.target;if(!(target instanceof Element))return;const section=sections.find(s=>document.getElementById(`${id}-${s.key}`)?.contains(target));if(section){if(onSelect)onSelect(section.key);else setLocal(section.key);}};node.addEventListener('asvo:reveal-form',reveal);return()=>node.removeEventListener('asvo:reveal-form',reveal);},[sections,id,onSelect]);
  const select=(key:string)=>{if(onSelect)onSelect(key);else setLocal(key);setOpen(false);};
  useEffect(()=>{
   if(!trackChanges||!dirty)return;
@@ -18,7 +19,7 @@ export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect
   return()=>{window.removeEventListener('beforeunload',unload);document.removeEventListener('click',click,true);};
  },[trackChanges,dirty,pending]);
  const discardButton=discardHref?<button type="button" className={compactDiscard?'workspace-discard-compact':undefined} disabled={pending} onClick={()=>dirty?setDiscard(discardHref):router.push(discardHref)}>Descartar</button>:null;
- return <div className={`section-workspace${compact?' section-workspace-compact':''}`} onChangeCapture={()=>{if(trackChanges)setDirty(true);}}>
+ return <div ref={root} className={`section-workspace${compact?' section-workspace-compact':''}`} onChangeCapture={()=>{if(trackChanges)setDirty(true);}}>
   {(title||toolbar||discardHref)&&<div className={`section-workspace-bar${compactDiscard?' section-workspace-bar-compact-discard':''}`}><div><div className="section-workspace-bar-heading">{title&&<strong>{title}</strong>}</div>{notice&&<span role="status">{notice}</span>}</div><div className="actions">{discardButton}{toolbar}</div></div>}
   <div className="section-workspace-layout"><nav className="section-workspace-nav" aria-label="Secciones">{sections.map((s,i)=><button type="button" key={s.key} aria-current={s.key===current?'step':undefined} aria-controls={`${id}-${s.key}`} onClick={()=>select(s.key)}><span aria-hidden="true">{i+1}</span>{s.label}</button>)}</nav>
    <div className="section-workspace-content"><button type="button" className="section-workspace-trigger" aria-haspopup="dialog" onClick={()=>setOpen(true)}>Sección: {sections.find(s=>s.key===current)?.label}<span aria-hidden="true">⌄</span></button>

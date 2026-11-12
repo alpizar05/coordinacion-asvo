@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useSyncExternalStore, type RefObject, type ReactNode } from 'react';
 
 const subscribe = (callback: () => void) => {
   const media = window.matchMedia('(max-width: 700px)');
@@ -9,13 +9,15 @@ const subscribe = (callback: () => void) => {
 };
 const mobileSnapshot = () => window.matchMedia('(max-width: 700px)').matches;
 
-export function TableFilters({ children, title = 'Filtros', active = false }: {
+export function TableFilters({ children, title = 'Filtros', active = false, revealRef }: {
+  revealRef?:RefObject<(()=>void)|null>;
   children: ReactNode; title?: string; active?: boolean;
 }) {
   const mobile = useSyncExternalStore(subscribe, mobileSnapshot, () => false);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const id = useId();
+  useEffect(()=>{if(!revealRef)return;revealRef.current=()=>{if(mobile&&!dialog.current?.open)dialog.current?.showModal();};return()=>{revealRef.current=null;};},[mobile,revealRef]);
   if (!mobile) return <div className="table-filters-desktop">{children}</div>;
   return <div className="table-filters-mobile">
     <button ref={trigger} type="button" className="table-filter-trigger" aria-haspopup="dialog"

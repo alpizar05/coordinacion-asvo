@@ -3,7 +3,7 @@ import { registrationToday } from './outing-invitations';
 
 export async function coordinationSummary(general: boolean, scopes: string[], unit: string, days: number) {
   const allowed = sql`(${general} or o.unit=any(${scopes}::text[])) and (${unit}='' or o.unit=${unit})`;
-  const reviews = await sql`select r.id,r.identification,r.status,r.starts::text,r.ends::text,r.received_at,r.details,
+  const reviews = await sql`select r.id,md5(to_jsonb(r)::text) as version,r.identification,r.status,r.starts::text,r.ends::text,r.received_at,r.details,
     concat_ws(' ',v.name,v.surname,v.second_surname) as volunteer,o.id as outing_id,o.title,o.unit,o.flexible,
     o.starts::text as outing_start,o.ends::text as outing_end,
     (o.starts-${registrationToday})::int as days_to_start,
