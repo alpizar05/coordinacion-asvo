@@ -30,7 +30,7 @@ export function TableFilters({ children, title = 'Filtros', active = false, reve
       {active && <span className="table-filter-active" aria-hidden="true" />}
     </button>
     <dialog ref={dialog} className="table-filter-modal" aria-labelledby={id}
-      onClose={() => trigger.current?.focus()} onClick={event => {
+      onClose={() => trigger.current?.focus({preventScroll:true})} onClick={event => {
         if (event.target === event.currentTarget) dialog.current?.close();
       }}>
       <header className="table-filter-heading"><h2 id={id}>{title}</h2>

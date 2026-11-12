@@ -1,3 +1,6 @@
+import { NavigationResults } from '../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextDetailLink } from '../navigation-context';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { staff } from '../../../lib/auth';
@@ -47,7 +50,7 @@ export default async function Reports({ searchParams }: { searchParams: Promise<
     ...(unit?[{key:'unidad',label:unit}]:[]),
     ...(from||to?[{key:'fechas',label:from&&to?`${displayDate(from)} – ${displayDate(to)}`:from?`Desde ${displayDate(from)}`:`Hasta ${displayDate(to)}`}]:[]),
   ];
-  return <>
+  return <><NavigationResults revision={randomUUID()}/>
     <CoordinationBreadcrumb current="Informes de salida" /><h1>Informes de salida</h1>
     <section className="card">
       <div className="coordination-table-toolbar">
@@ -59,16 +62,16 @@ export default async function Reports({ searchParams }: { searchParams: Promise<
         <Link href="/coordinacion/informes" className="active-filter-reset" scroll={false}>Restablecer</Link>
       </nav>}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de informes de salida">
-        <table className="outings-table coordination-compact-table reports-overview-table">
+        <table className="outings-table coordination-compact-table reports-overview-table" data-navigation-list="reports">
           <thead><tr><th scope="col">Responsable (70)</th><th scope="col">Convocatoria</th><th scope="col">Unidad</th><th scope="col">Fechas de la gira</th><th scope="col">Última actualización</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead>
-          <tbody>{rows.map(row=><tr key={row.id}>
-            <th scope="row">{general && row.volunteer_id?<Link href={`/coordinacion/registro/${row.volunteer_id}`}>{row.lead_name}</Link>:row.lead_name}</th>
-            <td data-label="Convocatoria"><Link href={`/coordinacion/salidas/${row.outing_id}`}>{row.title}</Link></td>
+          <tbody>{rows.map(row=><tr id={`informe-${row.id}`} key={row.id}>
+            <th scope="row">{general && row.volunteer_id?<ContextDetailLink anchor={`informe-${row.id}`} href={`/coordinacion/registro/${row.volunteer_id}`}>{row.lead_name}</ContextDetailLink>:row.lead_name}</th>
+            <td data-label="Convocatoria"><ContextDetailLink anchor={`informe-${row.id}`} href={`/coordinacion/salidas/${row.outing_id}`}>{row.title}</ContextDetailLink></td>
             <td data-label="Unidad">{row.unit}</td>
             <td data-label="Fechas">{row.starts && row.ends?compactParticipationDates(row.starts,row.ends):'Sin completar'}</td>
             <td data-label="Actualizado">{timestamp.format(row.submitted_at || row.updated_at)}</td>
             <td data-label="Estado"><span className="pill" data-status={row.status}>{row.status==='finalizado'?'Finalizado':'Borrador'}</span></td>
-            <td data-label="Acciones"><Link href={`/coordinacion/salidas/${row.outing_id}/resumen?informe=${row.lead_registration_id}#informe-${row.lead_registration_id}`}>Ver informe</Link></td>
+            <td data-label="Acciones"><ContextDetailLink anchor={`informe-${row.id}`} href={`/coordinacion/salidas/${row.outing_id}/resumen?informe=${row.lead_registration_id}#informe-${row.lead_registration_id}`}>Ver informe</ContextDetailLink></td>
           </tr>)}{!rows.length && <tr><td colSpan={7}>No hay informes que coincidan con los filtros.</td></tr>}</tbody>
         </table>
       </div>

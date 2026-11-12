@@ -1,0 +1,116 @@
+{
+  "environment": "localhost:3031; PostgreSQL demo; fictitious data only",
+  "date": "2026-11-12",
+  "driver": "CUA native accessibility activation and documented Playwright read/locator API",
+  "results": [
+    {
+      "name": "Summary trays, combined criteria, reload and consultation list return",
+      "status": "passed"
+    },
+    {
+      "name": "Summary → outing → transport/food → person, desktop disclosure and ancestors",
+      "status": "passed"
+    },
+    {
+      "name": "mobile transport and food dialogs reopen with row focus; history/direct-tab fallback",
+      "status": "passed"
+    },
+    {
+      "name": "logistics native Back/Forward, direct entry and independent-tab fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Summary saves preserve criteria and neighbors; errors keep modal and focus",
+      "status": "passed"
+    },
+    {
+      "name": "capture transport origin before fictitious record disappears",
+      "status": "passed"
+    },
+    {
+      "name": "missing transport origin restores the next available row",
+      "status": "passed"
+    },
+    {
+      "name": "empty logistics restores its accessible fallback without changing tab or disclosure criterion",
+      "status": "passed"
+    },
+    {
+      "name": "contextual return, reload, keyboard and native Back/Forward",
+      "status": "passed"
+    },
+    {
+      "name": "list → outing → person → outing → list, plus fragment target",
+      "status": "passed"
+    },
+    {
+      "name": "capture alimentacion origin before fictitious record disappears",
+      "status": "passed"
+    },
+    {
+      "name": "missing alimentacion origin restores the next available row",
+      "status": "passed"
+    },
+    {
+      "name": "empty food restores its accessible fallback without changing tab or disclosure criterion",
+      "status": "passed"
+    },
+    {
+      "name": "keyboard/error summary, accessible descriptions and modal focus priority",
+      "status": "passed"
+    },
+    {
+      "name": "section hash, sticky mobile header, native Back and filter modal do not fight restoration",
+      "status": "passed"
+    },
+    {
+      "name": "direct entry and independent tab use the normal fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Voluntariado criteria, participation section and memory-only search on reload",
+      "status": "passed"
+    },
+    {
+      "name": "automatic/manual series, blocks and independent overview criteria",
+      "status": "passed"
+    },
+    {
+      "name": "report list → report summary → list with date criteria",
+      "status": "passed"
+    },
+    {
+      "name": "mobile confirmation/removal, validation focus and retry",
+      "status": "passed"
+    },
+    {
+      "name": "save with Todos preserves an existing record",
+      "status": "passed"
+    },
+    {
+      "name": "mobile empty result set preserves filters and an accessible focus target",
+      "status": "passed"
+    },
+    {
+      "name": "deleting a fixture outing returns to its filtered source and neighbor",
+      "status": "passed"
+    },
+    {
+      "name": "pagination preserves search/unit and records page-two origin",
+      "status": "passed"
+    },
+    {
+      "name": "empty last page clamps URL and visibly focuses last surviving record",
+      "status": "passed"
+    },
+    {
+      "name": "Summary existing preferences initialize explicit criteria without a filter-scroll jump",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Requires an initialized CUA session; not a standalone CI runner",
+    "No real assistive reader or cross-browser/device matrix",
+    "Free-search contexts intentionally do not survive detail reload"
+  ]
+}

@@ -1,4 +1,5 @@
 'use client';
+import { navigationSaved } from './navigation-position';
 import {useRef,useState,type ReactNode} from 'react';
 import {useRouter} from 'next/navigation';
 import {FormFeedbackProvider,FormErrorSummary,useFormFeedback} from '../form-feedback/form-feedback';
@@ -16,7 +17,7 @@ export function RegistryForm({kind,action,children,successMessage}:{kind:Registr
   const f=new FormData(e.currentTarget,(e.nativeEvent as SubmitEvent).submitter),errors=validateRegistryForm(f,kind);
   if(Object.keys(errors).length){feedback.showErrors(errors);return;}
   busy.current=true;setPending(true);
-  try{const result=await action(f);if(!result.saved)feedback.showErrors(result.fieldErrors,result.error);else{feedback.reset();if(kind==='incident')form.current?.reset();setSuccess(p=>({id:p.id+1,message:successMessage}));router.refresh();}}
+  try{const result=await action(f);if(!result.saved)feedback.showErrors(result.fieldErrors,result.error);else{navigationSaved();feedback.reset();if(kind==='incident')form.current?.reset();setSuccess(p=>({id:p.id+1,message:successMessage}));router.refresh();}}
   catch{feedback.showErrors({},'No se pudo guardar. Los datos se conservan para reintentar.');}
   finally{busy.current=false;setPending(false);}
  }}><FormErrorSummary/><fieldset disabled={pending} className="coordination-modal-form-fields">{children}</fieldset></form></FormFeedbackProvider>;

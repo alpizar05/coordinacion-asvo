@@ -18,7 +18,7 @@ export function CoordinationModal({ open, onClose, title, children, footer, dirt
       if (!dialog.current?.open) dialog.current?.showModal();
     } else if (dialog.current?.open) {
       dialog.current.close();
-      previousFocus.current?.focus();
+      previousFocus.current?.focus({preventScroll:true});
     }
     return () => { if (dialog.current?.open) dialog.current.close(); };
   }, [open]);

@@ -46,6 +46,7 @@ export function useFormFeedback({ form, validate, revealField, dependencies = {}
     if (!await focusFormField(form.current,name,revealField)) summary.current?.focus();
   };
   const showErrors = (errors: FieldErrors = {}, message = '', moveFocus = true) => {
+    if(moveFocus)window.dispatchEvent(new Event('asvo:form-errors'));
     attempted.current = true;
     if(moveFocus&&form.current)revealForm(form.current);
     setFieldErrors(errors); setGeneralError(message);

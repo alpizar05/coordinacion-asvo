@@ -1,5 +1,6 @@
 'use client';
 
+import { ContextDetailLink, NavigationResults, useTableCriteria } from './navigation-context';
 import { StatusRibbon } from '../status-ribbon';
 
 import Link from 'next/link';
@@ -21,9 +22,9 @@ export type CollectionRow = {
 const labels = { automaticas: 'Automática', manuales: 'Manual' };
 
 export function CollectionsTable({ collections }: { collections: CollectionRow[] }) {
-  const [search, setSearch] = useState('');
-  const [kind, setKind] = useState('');
-  const [availability, setAvailability] = useState('');
+  const criteria=useTableCriteria();
+  const search=criteria.get('serieBuscar'),kind=criteria.get('serieTipo'),availability=criteria.get('serieDisponibilidad');
+  const setSearch=(value:string)=>criteria.set({serieBuscar:value}),setKind=(value:string)=>criteria.set({serieTipo:value}),setAvailability=(value:string)=>criteria.set({serieDisponibilidad:value});
   const [copyStatus, setCopyStatus] = useState('');
   const [copyError,setCopyError] = useState('');
   const normalize = (value: string) => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLocaleLowerCase('es');
@@ -34,7 +35,7 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
     .sort((a, b) => (a.next_start ?? '9999-12-31').localeCompare(b.next_start ?? '9999-12-31')
       || a.name.localeCompare(b.name, 'es'));
 
-  return <>
+  return <><NavigationResults revision={collections}/>
     <div className="coordination-table-toolbar"><TableFilters title="Filtrar convocatorias en serie" active={!!(search || kind || availability)}><div className="outings-filters">
       <label>Buscar por nombre<input type="search" value={search} onChange={event => setSearch(event.target.value)} /></label>
       <label>Tipo<select value={kind} onChange={event => setKind(event.target.value)}>
@@ -52,12 +53,12 @@ export function CollectionsTable({ collections }: { collections: CollectionRow[]
     ]} reset={search || kind || availability ? () => { setSearch(''); setKind(''); setAvailability(''); } : undefined} />
     {copyError && <p className="note" role="alert">{copyError}</p>}
     <StatusRibbon message={copyStatus} onExpire={setCopyStatus} />
-    {rows.length ? <table className="outings-table collections-table coordination-compact-table compact-series" aria-label="Convocatorias en serie">
+    {rows.length ? <table className="outings-table collections-table coordination-compact-table compact-series" data-navigation-list="series" aria-label="Convocatorias en serie">
       <thead><tr><th scope="col">Convocatoria en serie</th><th scope="col">Tipo</th><th scope="col">Próximo inicio</th><th scope="col">Salidas</th><th scope="col">Acciones</th></tr></thead>
       <tbody>{rows.map(row => {
         const publicPath = row.kind === 'automaticas' ? `/colecciones/${row.id}` : `/colecciones/manuales/${row.id}`;
-        return <tr key={`${row.kind}-${row.id}`}>
-          <th className="collection-name" scope="row"><Link href={`/coordinacion/colecciones/${row.kind}/${row.id}`}>{row.name}</Link></th>
+        return <tr id={`serie-${row.kind}-${row.id}`} key={`${row.kind}-${row.id}`}>
+          <th className="collection-name" scope="row"><ContextDetailLink anchor={`serie-${row.kind}-${row.id}`} href={`/coordinacion/colecciones/${row.kind}/${row.id}`}>{row.name}</ContextDetailLink></th>
           <td data-label="Tipo" className="collection-kind"><span className="pill">{labels[row.kind]}</span></td>
           <td data-label="Próximo inicio" className="collection-next">{row.next_start
             ? <time dateTime={row.next_start}><span className="compact-desktop-only">{row.next_start.split('-').reverse().join('/')}</span><span className="compact-mobile-only">Próxima salida: {compactParticipationDates(row.next_start,row.next_start)}</span></time>

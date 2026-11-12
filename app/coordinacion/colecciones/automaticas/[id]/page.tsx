@@ -1,3 +1,6 @@
+import { NavigationResults } from '../../../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextDetailLink, ContextReturnLink, ContextStateLink } from '../../../navigation-context';
 import {outingSeriesVersion} from '../../../../../lib/outing-editor';
 import { AutomaticCollectionEditor } from './collection-editor';
 import { compactParticipationDates } from '../../../../../lib/participation-dates';
@@ -56,13 +59,13 @@ export default async function AutomaticCollection({ params, searchParams }: {
       {!editing && <p>Elegí <strong>Clonar bloque</strong> en la fila que querés usar como punto de partida.</p>}
       {creados && /^[1-9]\d?$/.test(creados) && <StatusRibbon message={creados === '1' ? 'Se agregó un bloque.' : `Se agregaron ${creados} bloques.`} />}
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Bloques de convocatoria asociados">
-        <table className="outings-table coordination-compact-table compact-blocks">
+        <table className="outings-table coordination-compact-table compact-blocks" data-navigation-list="series-blocks">
           <thead><tr>
             <th scope="col">Convocatoria</th><th scope="col">Unidad</th><th scope="col">Fechas</th>
             <th scope="col">Excepciones</th><th scope="col">Modalidad</th><th scope="col">Cupos</th><th scope="col">Estado</th><th scope="col">Visibilidad</th>{!editing && <th scope="col">Acciones</th>}
           </tr></thead>
-          <tbody>{blocks.map(block => <tr key={block.id}>
-            <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link><span className={block.location === block.title ? 'compact-block-duplicate-location' : undefined}><br />{block.location}</span></th>
+          <tbody>{blocks.map(block => <tr id={`bloque-${block.id}`} key={block.id}>
+            <th scope="row"><ContextDetailLink anchor={`bloque-${block.id}`} href={`/coordinacion/salidas/${block.id}`}>{block.title}</ContextDetailLink><span className={block.location === block.title ? 'compact-block-duplicate-location' : undefined}><br />{block.location}</span></th>
             <td data-label="Unidad">{block.unit}</td>
             <td data-label="Fechas" className="table-date"><span className="compact-desktop-only">{displayDate(block.starts)} al {displayDate(block.ends)}</span><span className="compact-mobile-only">{compactParticipationDates(block.starts,block.ends)}</span></td>
             <td data-label="Excepciones">{[
@@ -80,12 +83,13 @@ export default async function AutomaticCollection({ params, searchParams }: {
       </div>
     </section>
   </>;
-  return <>
+  return <><NavigationResults revision={randomUUID()}/>
+    <ContextReturnLink />
     <CoordinationBreadcrumb current={title} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
     <header className="card coordination-outing-summary">
       <div className="outings-table-heading">
         <span className="eyebrow">Convocatoria en serie · Automática</span>
-        {access.allowed && !editing && <Link className="button" href={`${path}?editar=1`}>Editar datos comunes</Link>}
+        {access.allowed && !editing && <ContextStateLink className="button" href={`${path}?editar=1`}>Editar datos comunes</ContextStateLink>}
       </div>
       <h1>{title}</h1>
       <p>{blocks.length} {blocks.length === 1 ? 'bloque asociado' : 'bloques asociados'}</p>

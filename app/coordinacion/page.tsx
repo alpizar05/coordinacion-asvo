@@ -1,3 +1,5 @@
+import {randomUUID} from 'node:crypto';
+import {ContextDetailLink,ContextReturnLink,NavigationResults} from './navigation-context';
 import { ReportReminder } from './report-reminder';
 import { SummaryViewSelector } from './summary-view-selector';
 import { SummaryFilters } from './summary-filters';
@@ -38,7 +40,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
   const updated = new Intl.DateTimeFormat('es-CR',{ timeZone:'America/Costa_Rica',hour:'2-digit',minute:'2-digit' }).format(new Date());
   const reviewCount = Number(reviews[0]?.total || 0), reportCount = Number(reports[0]?.total || 0);
   const tabs = [['revision','Inscripciones en revisión',reviewCount],['sin70','Sin 70',withoutLead.length],['informes','Informes pendientes',reportCount]] as const;
-  return <>
+  return <><NavigationResults revision={randomUUID()}/><ContextReturnLink/>
     <SummaryPreferences subject={user.subject} unit={unit} days={days} tab={tab} explicit={!!(params.unidad !== undefined || params.dias || params.pestana)} />
     <CoordinationBreadcrumb current="Resumen" />
     <div className="summary-heading"><div className="summary-title"><h1>Resumen</h1><p className="muted">Actualizado a las {updated} · Costa Rica</p></div>
@@ -48,22 +50,22 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
     <div id="summary-active-filters" />
     {params.gestionada && <StatusRibbon message="Inscripción gestionada. Los pendientes se actualizaron." />}
     <div className="summary-dashboard">
-      <section className="card" aria-labelledby="summary-attention"><h2 id="summary-attention">Requiere atención</h2>
+      <section className="card" aria-labelledby="summary-attention" data-navigation-list-container="summary-attention" tabIndex={-1}><h2 id="summary-attention">Requiere atención</h2>
         {!reviewCount && !withoutLead.length && !reportCount && <p className="summary-clear">Todo al día. No hay pendientes para esta selección.</p>}
         <SummaryViewSelector selected={tab} options={tabs.map(([key,label,count]) => ({key,label,count,href:url(key)}))} />
-        <ul className="summary-list">
-          {tab === 'revision' && reviews.map(row => <li key={row.id} id={`inscripcion-${row.id}`}>
-            <div><strong>{row.volunteer || 'Ficha pendiente de conciliar'}</strong><p><Link href={`/coordinacion/salidas/${row.outing_id}`}>{row.title}</Link></p>
+        <ul className="summary-list" data-navigation-list="summary-attention">
+          {tab === 'revision' && reviews.map(row => <li key={row.id} data-navigation-item id={`summary-review-${row.id}`}>
+            <div><strong>{row.volunteer || 'Ficha pendiente de conciliar'}</strong><p><ContextDetailLink anchor={`summary-review-${row.id}`} href={`/coordinacion/salidas/${row.outing_id}`}>{row.title}</ContextDetailLink></p>
               <p>{displayDate(row.starts)} al {displayDate(row.ends)}</p><p className="muted">{row.age === 0 ? 'Recibida hoy' : `Recibida hace ${row.age} días`} · {startLabel(row.days_to_start)}</p></div>
             <RegistrationActions personName={row.volunteer} entry={{version:row.version,id:row.id,status:row.status,identification:row.identification,starts:row.starts,ends:row.ends}}
               outing={{flexible:row.flexible,first_day:row.outing_start,last_day:row.outing_end}} fromList filter={filters.toString()} fromSummary
               error={params.inscripcion === row.id ? params.error : undefined} />
           </li>)}
-          {tab === 'sin70' && withoutLead.map(row => <li key={row.id}><div><strong><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></strong>
+          {tab === 'sin70' && withoutLead.map(row => <li key={row.id} data-navigation-item id={`summary-no-lead-${row.id}`}><div><strong><ContextDetailLink anchor={`summary-no-lead-${row.id}`} href={`/coordinacion/salidas/${row.id}`}>{row.title}</ContextDetailLink></strong>
             <p>{startLabel(row.days_to_start)} · {displayDate(row.starts)} al {displayDate(row.ends)}</p>
             <p className="muted">{row.confirmed ? `${row.confirmed} confirmadas · ${row.interested} con interés en ser 70` : 'Todavía no hay personas confirmadas para asignar como 70.'}</p></div>
-            <Link href={`/coordinacion/salidas/${row.id}#inscripciones`}>Ver inscripciones</Link></li>)}
-          {tab === 'informes' && reports.map(row => <li key={row.id} className="summary-report-row"><div><strong><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></strong>
+            <ContextDetailLink anchor={`summary-no-lead-${row.id}`} href={`/coordinacion/salidas/${row.id}#inscripciones`}>Ver inscripciones</ContextDetailLink></li>)}
+          {tab === 'informes' && reports.map(row => <li key={row.id} className="summary-report-row" data-navigation-item id={`summary-report-${row.id}`}><div><strong><ContextDetailLink anchor={`summary-report-${row.id}`} href={`/coordinacion/salidas/${row.id}`}>{row.title}</ContextDetailLink></strong>
             <p>{displayDate(row.starts || row.ends)} al {displayDate(row.ends)} · Finalizó hace {row.age} {row.age === 1 ? 'día' : 'días'}</p>
             {!row.missing && <p className="muted">Falta definir quién presentará el informe. No hay una persona asignada como 70.</p>}
             <ul className="summary-report-people">{reportPeople.filter(person => person.outing_id === row.id).map(person => <li key={person.id}>
@@ -79,22 +81,22 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ u
                     : <p className="note">Sin correo registrado. Administración debe actualizar la ficha antes de enviar.</p>}
               </>}
             </li>)}</ul>
-            <Link href={`/coordinacion/salidas/${row.id}?pestana=herramientas`}>Ver seguimiento de la salida</Link></div></li>)}
+            <ContextDetailLink anchor={`summary-report-${row.id}`} href={`/coordinacion/salidas/${row.id}?pestana=herramientas`}>Ver seguimiento de la salida</ContextDetailLink></div></li>)}
         </ul>
         {!(tab === 'revision' ? reviews.length : tab === 'sin70' ? withoutLead.length : reports.length) && <p>No hay pendientes en esta categoría.</p>}
-        {tab === 'revision' && reviewCount > reviews.length && <Link href={`/coordinacion/inscripciones?estado=${encodeURIComponent('revisión')}&unidad=${encodeURIComponent(unit)}`}>Ver las {reviewCount} inscripciones en revisión</Link>}
+        {tab === 'revision' && reviewCount > reviews.length && <ContextDetailLink anchor={reviews[0]?`summary-review-${reviews[0].id}`:'summary-review-00000000-0000-4000-8000-000000000000'} href={`/coordinacion/inscripciones?estado=${encodeURIComponent('revisión')}&unidad=${encodeURIComponent(unit)}`}>Ver las {reviewCount} inscripciones en revisión</ContextDetailLink>}
         {tab === 'informes' && reportCount > reports.length && <p>Se muestran las 100 salidas más antiguas de {reportCount} pendientes.</p>}
       </section>
-      <section className="card" aria-labelledby="summary-upcoming"><h2 id="summary-upcoming">Próximas salidas</h2>
+      <section className="card" aria-labelledby="summary-upcoming" data-navigation-list-container="summary-upcoming" tabIndex={-1}><h2 id="summary-upcoming">Próximas salidas</h2>
         <p className="muted">Próximos {days} días · {upcoming.length} salidas</p>
-        <ul className="summary-list">{upcoming.map(row => <li key={row.id}><div><strong><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></strong>
+        <ul className="summary-list" data-navigation-list="summary-upcoming" id="summary-upcoming-00000000-0000-4000-8000-000000000000">{upcoming.map(row => <li key={row.id} data-navigation-item id={`summary-upcoming-${row.id}`}><div><strong><ContextDetailLink anchor={`summary-upcoming-${row.id}`} href={`/coordinacion/salidas/${row.id}`}>{row.title}</ContextDetailLink></strong>
           <p>{displayDate(row.starts)} al {displayDate(row.ends)} · {row.unit}</p>
           <p>{row.occupied}/{row.capacity} inscripciones{row.waiting ? ` · ${row.waiting} en espera` : ''}</p>
           <p><strong>70:</strong> {row.leads || 'Sin asignar'}</p><p className="muted">{row.drivers ? `${row.drivers} ${row.drivers === 1 ? 'persona confirmada tiene' : 'personas confirmadas tienen'} transporte propio` : 'Sin transporte propio indicado por personas confirmadas'}</p>
-          <Link href={`/coordinacion/salidas/${row.id}?pestana=logistica`}>Ver logística</Link>
+          <ContextDetailLink anchor={`summary-upcoming-${row.id}`} href={`/coordinacion/salidas/${row.id}?pestana=logistica`}>Ver logística</ContextDetailLink>
         </div></li>)}</ul>
         {!upcoming.length && <p>No hay salidas próximas para esta selección.</p>}
-        <Link href="/coordinacion/convocatorias">Ver convocatorias de salida</Link>
+        <ContextDetailLink anchor={upcoming[0]?`summary-upcoming-${upcoming[0].id}`:'summary-upcoming-00000000-0000-4000-8000-000000000000'} href="/coordinacion/convocatorias">Ver convocatorias de salida</ContextDetailLink>
       </section>
     </div>
   </>;

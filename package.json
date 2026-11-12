@@ -11,7 +11,9 @@
     "db:start": "node --env-file=.env.local scripts/local-postgres.mjs",
     "mail:retry": "node --env-file=.env.local scripts/mail-outbox.mjs",
     "mail:worker": "node --env-file=.env.local scripts/mail-outbox.mjs --watch",
-    "test:registration": "node --env-file=.env.local scripts/test-registration-workflow.mjs"
+    "test:registration": "node --env-file=.env.local scripts/test-registration-workflow.mjs",
+    "test:navigation:unit": "node --test --import ./tests/navigation/register.mjs tests/navigation/*.test.mjs",
+    "test:navigation:coverage": "node --test --experimental-test-coverage --test-coverage-include='lib/navigation*.ts' --import ./tests/navigation/register.mjs tests/navigation/*.test.mjs"
   },
   "type": "module",
   "dependencies": {

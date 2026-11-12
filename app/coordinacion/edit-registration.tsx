@@ -1,4 +1,5 @@
 'use client';
+import { navigationSaved } from './navigation-position';
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -45,7 +46,7 @@ export function EditRegistration({ id, open, onClose }: { id: string; open: bool
         try {
           const result = await saveEditedRegistration(id,form);
           if (!result.saved) { feedback.showErrors(result.fieldErrors,result.error); }
-          else { setDirty(false); onClose(); setSuccess('Inscripción actualizada. Se notificará a la persona voluntaria por correo.'); router.refresh(); }
+          else { navigationSaved();setDirty(false); onClose(); setSuccess('Inscripción actualizada. Se notificará a la persona voluntaria por correo.'); router.refresh(); }
         } catch { feedback.showErrors({},'No se pudo guardar. Los datos se conservan para reintentar.'); }
         finally { inFlight.current=false;setPending(false); }
       }}>

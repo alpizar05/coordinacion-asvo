@@ -1,4 +1,5 @@
 'use client';
+import {preserveCurrentNavigation} from '../../navigation-position';
 import { useEffect,useRef,useState,type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { commonOutingFields,supportRequestFields } from '../../../../lib/collection-fields';
@@ -58,14 +59,14 @@ export function OutingEditor(props:OutingEditorProps){
   for(const p of photos)if(p.file)data.set(`photo-${p.key}`,p.file);
   const errors=validateOutingEdit(data,props.initial,props.defaults,props.isSeries,0,props.request,props.related.length>1);if(Object.keys(errors).length){feedback.showErrors(errors);return;}
   busy.current=true;setPending(true);
-  try{const result=await saveOutingEdit(props.id,data);if(result.saved){setDirty(false);router.replace(`${back}?guardada=1`);router.refresh();}
+  try{const result=await saveOutingEdit(props.id,data);if(result.saved){setDirty(false);router.replace(preserveCurrentNavigation(`${back}?guardada=1`));router.refresh();}
    else feedback.showErrors(result.fieldErrors,result.error);}
   catch{feedback.showErrors({},'No se pudo guardar. Los datos y archivos se conservan para reintentar.');}
   finally{busy.current=false;setPending(false);}
 
  }
  return <FormFeedbackProvider feedback={feedback}><div ref={root} className="outing-editor">
-  <div className="outing-editor-bar" role="region" aria-label="Acciones de edición"><div><strong>Modo edición</strong><span role="status">{pending?'Guardando…':dirty?'Cambios sin guardar':props.isSeries?'Editando este bloque':'Editando la convocatoria'}</span></div><div className="actions"><button type="button" disabled={pending} onClick={()=>dirty?setDiscard(back):router.push(back)}>Descartar</button><button type="button" className="coord-button-primary" disabled={pending||!dirty} onClick={save}>{pending?'Guardando…':'Guardar cambios'}</button></div></div>
+  <div className="outing-editor-bar" role="region" aria-label="Acciones de edición"><div><strong>Modo edición</strong><span role="status">{pending?'Guardando…':dirty?'Cambios sin guardar':props.isSeries?'Editando este bloque':'Editando la convocatoria'}</span></div><div className="actions"><button type="button" disabled={pending} onClick={()=>dirty?setDiscard(back):router.push(preserveCurrentNavigation(back))}>Descartar</button><button type="button" className="coord-button-primary" disabled={pending||!dirty} onClick={save}>{pending?'Guardando…':'Guardar cambios'}</button></div></div>
   <div className="outing-editor-layout">
    <nav className="outing-editor-nav" aria-label="Secciones del editor">{sections.map(([key,label],i)=><button type="button" key={key} aria-current={section===key?'step':undefined} onClick={()=>setSection(key)}><span aria-hidden="true">{i+1}</span>{label}</button>)}</nav>
    <div className="outing-editor-content">
@@ -110,6 +111,6 @@ export function OutingEditor(props:OutingEditorProps){
    </div>
   </div>
   <CoordinationModal open={selector} onClose={()=>setSelector(false)} title="Sección del editor"><div className="editor-section-options">{sections.map(([key,label])=><button type="button" key={key} aria-pressed={section===key} onClick={()=>{setSection(key);setSelector(false);}}>{label}</button>)}</div></CoordinationModal>
-  <CoordinationModal open={!!discard} onClose={()=>setDiscard(null)} title="Descartar cambios" footer={<button type="button" className="coord-button-danger" onClick={()=>{const href=discard||back;setDirty(false);setDiscard(null);router.push(href);}}>Descartar y salir</button>}><p>Los cambios de este editor todavía no se guardaron. ¿Querés descartarlos?</p></CoordinationModal>
+  <CoordinationModal open={!!discard} onClose={()=>setDiscard(null)} title="Descartar cambios" footer={<button type="button" className="coord-button-danger" onClick={()=>{const href=discard||back;setDirty(false);setDiscard(null);router.push(preserveCurrentNavigation(href));}}>Descartar y salir</button>}><p>Los cambios de este editor todavía no se guardaron. ¿Querés descartarlos?</p></CoordinationModal>
  </div></FormFeedbackProvider>;
 }

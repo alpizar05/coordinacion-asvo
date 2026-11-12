@@ -1,3 +1,7 @@
+import {ContextReturnLink} from '../navigation-context';
+import { NavigationResults } from '../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextDetailLink } from '../navigation-context';
 import { ActiveRegistrationFilters } from './active-filters';
 import { compactParticipationDates } from '../../../lib/participation-dates';
 import { StatusRibbon } from '../../status-ribbon';
@@ -5,7 +9,6 @@ import { statuses, statusLabels } from '../registration-statuses';
 import CoordinationBreadcrumb from '../breadcrumb';
 import { StatusFilter } from './status-filter';
 import { RegistrationActions } from '../registration-actions';
-import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { staff } from '../../../lib/auth';
 import { sql } from '../../../lib/db';
@@ -52,7 +55,7 @@ export default async function Registrations({ searchParams }: {
       and (${status}='' or r.status=${status})
     order by r.received_at desc,r.id`;
 
-  return <>
+  return <><ContextReturnLink/><NavigationResults revision={randomUUID()}/>
     <CoordinationBreadcrumb current="Solicitudes de inscripción" />
     <h1>Solicitudes de inscripción</h1>
     {gestionada && uuid(gestionada) && <StatusRibbon key={gestionada} message="Inscripción actualizada." />}
@@ -61,7 +64,7 @@ export default async function Registrations({ searchParams }: {
       <p role="status" aria-live="polite" aria-atomic="true">{rows.length} {rows.length === 1 ? 'solicitud' : 'solicitudes'}</p></div>
       <ActiveRegistrationFilters status={filter} unit={unit} from={from} to={to} />
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de solicitudes de inscripción">
-        <table className="outings-table coordination-compact-table registrations-overview-table">
+        <table className="outings-table coordination-compact-table registrations-overview-table" data-navigation-list="requests">
           <thead><tr>
             <th scope="col">Persona voluntaria</th><th scope="col">Convocatoria</th><th scope="col">Unidad</th>
             <th scope="col">Fechas solicitadas</th><th scope="col">Recibida</th><th scope="col">Estado</th><th scope="col">Acciones</th>
@@ -69,9 +72,9 @@ export default async function Registrations({ searchParams }: {
           <tbody>
             {rows.map(row => <tr id={`inscripcion-${row.id}`} key={row.id}>
               <th scope="row" className="overview-person">{general && row.volunteer_id
-                ? <Link href={`/coordinacion/registro/${row.volunteer_id}`}>{row.volunteer}</Link>
+                ? <ContextDetailLink anchor={`inscripcion-${row.id}`} href={`/coordinacion/registro/${row.volunteer_id}`}>{row.volunteer}</ContextDetailLink>
                 : row.volunteer || 'Ficha pendiente de conciliar'}</th>
-              <td data-label="Convocatoria"><Link href={`/coordinacion/salidas/${row.outing_id}#inscripcion-${row.id}`}>{row.title}</Link>
+              <td data-label="Convocatoria"><ContextDetailLink anchor={`inscripcion-${row.id}`} href={`/coordinacion/salidas/${row.outing_id}#inscripcion-${row.id}`}>{row.title}</ContextDetailLink>
                 <br className="overview-outing-dates" /><span className="table-date overview-outing-dates">{displayDate(row.outing_start)} al {displayDate(row.outing_end)}</span></td>
               <td data-label="Unidad">{row.unit}</td>
               <td data-label="Fechas solicitadas" className="table-date"><span className="overview-full-dates">{displayDate(row.starts)} al {displayDate(row.ends)}</span><span className="overview-compact-dates">{compactParticipationDates(row.starts,row.ends)}</span></td>

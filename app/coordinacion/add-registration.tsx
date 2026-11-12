@@ -1,4 +1,5 @@
 'use client';
+import { navigationSaved } from './navigation-position';
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -51,7 +52,7 @@ export function AddRegistration({ outing }: { outing: { id: string; starts: stri
           const result = await addRegistration(outing.id,data);
           if (!result.saved) { feedback.showErrors(result.fieldErrors,result.fieldErrors?undefined:result.error); }
           else {
-            setDirty(false); setOpen(false);
+            navigationSaved();setDirty(false); setOpen(false);
             setSuccess(`${selected?.name}: inscripción agregada ${result.status === 'espera' ? 'a lista de espera' : 'en revisión'}. Se notificará por correo.`);
             router.refresh();
           }

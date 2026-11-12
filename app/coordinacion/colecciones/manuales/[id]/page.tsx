@@ -1,3 +1,6 @@
+import { NavigationResults } from '../../../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextDetailLink, ContextReturnLink } from '../../../navigation-context';
 import { compactParticipationDates } from '../../../../../lib/participation-dates';
 import { CapacitySummary } from '../../../../capacity-summary';
 import Link from 'next/link';
@@ -26,7 +29,8 @@ export default async function ManualCollectionDetail({ params }: { params: Promi
     where m.collection_id=${id} and (${general} or o.unit=any(${scopes}::text[]))
     order by o.starts,o.id`;
 
-  return <>
+  return <><NavigationResults revision={randomUUID()}/>
+    <ContextReturnLink />
     <CoordinationBreadcrumb current={collection.name} parent={{ href: '/coordinacion/convocatorias#colecciones', label: 'Convocatorias de salida' }} />
     <header className="card coordination-outing-summary">
       <span className="eyebrow">Convocatoria en serie · Manual</span>
@@ -37,10 +41,10 @@ export default async function ManualCollectionDetail({ params }: { params: Promi
     <section className="card">
       <h2>Salidas asociadas</h2>
       {blocks.length ? <div className="outings-scroll" tabIndex={0} role="region" aria-label="Salidas asociadas">
-        <table className="outings-table coordination-compact-table compact-blocks">
+        <table className="outings-table coordination-compact-table compact-blocks" data-navigation-list="series-blocks">
           <thead><tr><th scope="col">Salida</th><th scope="col">Unidad</th><th scope="col">Fechas</th><th scope="col">Cupos</th><th scope="col">Estado</th><th scope="col">Disponibilidad</th></tr></thead>
-          <tbody>{blocks.map(block => <tr key={block.id}>
-            <th scope="row"><Link href={`/coordinacion/salidas/${block.id}`}>{block.title}</Link></th>
+          <tbody>{blocks.map(block => <tr id={`bloque-${block.id}`} key={block.id}>
+            <th scope="row"><ContextDetailLink anchor={`bloque-${block.id}`} href={`/coordinacion/salidas/${block.id}`}>{block.title}</ContextDetailLink></th>
             <td data-label="Unidad">{block.unit}</td>
             <td data-label="Fechas" className="table-date"><span className="compact-desktop-only">{displayDate(block.starts)} al {displayDate(block.ends)}</span><span className="compact-mobile-only">{compactParticipationDates(block.starts,block.ends)}</span></td>
             <td data-label="Cupos"><CapacitySummary capacity={block.capacity} occupied={block.occupied} detail /></td>

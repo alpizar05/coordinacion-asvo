@@ -60,7 +60,7 @@ export default function CoordinationNav({ showOperations, showVolunteers, showDe
         <p className="coordination-nav-label">Coordinación</p>
         {items}
       </nav>
-      <form className="coordination-menu-logout" action={logout}>
+      <form className="coordination-menu-logout" data-navigation-session-end action={logout}>
         <button type="submit">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M10 5H5v14h5m4-11 4 4-4 4m-5-4h9" />

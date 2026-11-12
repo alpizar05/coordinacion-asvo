@@ -1,3 +1,4 @@
+import { ContextReturnLink } from '../../navigation-context';
 import { RegistryModal,RegistryForm } from '../../registry-form';
 import { FormField } from '../../../form-feedback/form-feedback';
 import { ProfileEditor } from '../profile-editor';
@@ -41,6 +42,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
   ]);
   const participations = await volunteerParticipations(id);
   return <>
+    <ContextReturnLink />
     <CoordinationBreadcrumb current={`${person.name} ${person.surname} ${person.second_surname ?? ""}`.trim()} parent={{ href: "/coordinacion/registro", label: "Voluntariado" }} />
     <header className="card">
       <h1>{person.name} {person.surname} {person.second_surname}</h1>
@@ -50,7 +52,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
         {person.units.filter((unit: string) => unit !== 'Voluntariado General').map((unit: string) => <li key={unit}>{unit}</li>)}
       </ul>
     </header>
-    <SectionWorkspace initial={incidente?'incidents':'information'} sections={[
+    <SectionWorkspace urlKey="seccion" initial={incidente?'incidents':'information'} sections={[
       {key:'information',label:'Información personal',content:<>    <div className="profile-overview">
       <section className="card">
         <h2>Contacto y datos personales</h2>

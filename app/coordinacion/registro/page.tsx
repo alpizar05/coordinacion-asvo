@@ -1,3 +1,6 @@
+import { NavigationPageBoundary, NavigationResults } from '../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextDetailLink } from '../navigation-context';
 import { VolunteerFilters } from './volunteer-filters';
 import { searchVolunteers, volunteerListUrl } from '../../../lib/volunteer-search';
 import CoordinationBreadcrumb from '../breadcrumb';
@@ -16,7 +19,7 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
   const unit = typeof params.unidad === 'string' && units.includes(params.unidad) ? params.unidad : '';
   const { people,total,page,pages,pageSize } = await searchVolunteers(query,unit,Number(params.pagina || 1));
   const filtered = !!(query || unit);
-  return <>
+  return <><NavigationPageBoundary page={page}/><NavigationResults revision={randomUUID()}/>
     <CoordinationBreadcrumb current="Voluntariado" />
     <h1>Voluntariado</h1>
     <section className="card">
@@ -29,16 +32,16 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
       </div>
       <div id="volunteer-registry-active-filters" />
       <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de voluntariado">
-        <table className="outings-table coordination-compact-table compact-volunteers">
+        <table className="outings-table coordination-compact-table compact-volunteers" data-navigation-list="volunteers">
           <thead><tr>
             <th scope="col">Nombre</th><th scope="col">Identificación</th>
             <th scope="col">Correo</th><th scope="col">Unidades</th>
           </tr></thead>
           <tbody>
-            {people.map(person => <tr key={person.id}>
-              <th scope="row"><Link href={`/coordinacion/registro/${person.id}`}>
+            {people.map(person => <tr id={`persona-${person.id}`} key={person.id}>
+              <th scope="row"><ContextDetailLink anchor={`persona-${person.id}`} href={`/coordinacion/registro/${person.id}`}>
                 {person.name} {person.surname} {person.second_surname}
-              </Link></th>
+              </ContextDetailLink></th>
               <td data-label="Identificación">{person.identification}</td><td data-label="Correo">{person.email || 'Pendiente'}</td>
               <td data-label="Unidades">{person.units.join(', ') || 'Pendientes'}</td>
             </tr>)}

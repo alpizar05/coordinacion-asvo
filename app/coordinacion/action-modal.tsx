@@ -1,4 +1,5 @@
 'use client';
+import { preserveCurrentNavigation, navigationSaved } from './navigation-position';
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
@@ -48,8 +49,8 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
           if (!result?.saved) {
             feedback.showErrors(result?.fieldErrors,result?.error || (Object.values(result?.fieldErrors || {}).some(value=>fieldErrorMessages(value).length) ? '' : 'No se pudo guardar. Revisá los datos e intentá de nuevo.'));
           } else {
-            setDirty(false); setOpen(false);
-            if (result.destination) router.push(result.destination,{scroll:false});
+            navigationSaved();setDirty(false); setOpen(false);
+            if (result.destination) router.push(preserveCurrentNavigation(result.destination),{scroll:false});
             else { setConfirmation(previous=>({id:previous.id+1,message:successMessage})); router.refresh(); }
           }
         } catch {

@@ -1,4 +1,5 @@
 'use client';
+import {navigationSaved} from '../../navigation-position';
 
 import { useState } from 'react';
 import { StatusRibbon } from '../../../status-ribbon';
@@ -21,6 +22,7 @@ export function AttachPhotos({ id, gallery, initial }: {
     }
     const result = await attachOutingPhoto(id,form);
     if (!result.saved) return result;
+    navigationSaved();
     if (photo.kind === 'gallery') setAdded(current => [...current,photo.id]);
     setSaved(initial ? 'Datos de foto actualizados.' : 'Foto agregada.');
   }

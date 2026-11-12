@@ -1,16 +1,17 @@
 'use client';
 import { useEffect,useId,useRef,useState,type ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { CoordinationModal } from './coordination-modal';
 import './section-workspace.css';
 export type WorkspaceSection={key:string;label:string;content:ReactNode};
-export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect,discardHref,trackChanges=false,pending=false,notice,compact=false,compactDiscard=false}: {
- sections:WorkspaceSection[];compact?:boolean;compactDiscard?:boolean;title?:string;toolbar?:ReactNode;initial?:string;active?:string;onSelect?:(key:string)=>void;discardHref?:string;trackChanges?:boolean;pending?:boolean;notice?:string;
+export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect,discardHref,trackChanges=false,pending=false,notice,compact=false,compactDiscard=false,urlKey}: {
+ urlKey?:string;sections:WorkspaceSection[];compact?:boolean;compactDiscard?:boolean;title?:string;toolbar?:ReactNode;initial?:string;active?:string;onSelect?:(key:string)=>void;discardHref?:string;trackChanges?:boolean;pending?:boolean;notice?:string;
 }){
  const [local,setLocal]=useState(initial||sections[0]?.key),[open,setOpen]=useState(false),[dirty,setDirty]=useState(false),[discard,setDiscard]=useState<string|null>(null);
- const current=active??local,id=useId(),router=useRouter(),root=useRef<HTMLDivElement>(null);
- useEffect(()=>{const node=root.current;if(!node)return;const reveal=(event:Event)=>{const target=event.target;if(!(target instanceof Element))return;const section=sections.find(s=>document.getElementById(`${id}-${s.key}`)?.contains(target));if(section){if(onSelect)onSelect(section.key);else setLocal(section.key);}};node.addEventListener('asvo:reveal-form',reveal);return()=>node.removeEventListener('asvo:reveal-form',reveal);},[sections,id,onSelect]);
- const select=(key:string)=>{if(onSelect)onSelect(key);else setLocal(key);setOpen(false);};
+ const params=useSearchParams(),selected=urlKey?params.get(urlKey):null;
+ const current=active??(selected&&sections.some(s=>s.key===selected)?selected:local),id=useId(),router=useRouter(),root=useRef<HTMLDivElement>(null);
+ const select=(key:string)=>{if(onSelect)onSelect(key);else setLocal(key);if(urlKey){const url=new URL(window.location.href);url.searchParams.set(urlKey,key);window.history.replaceState(null,'',url.href);}setOpen(false);};
+ useEffect(()=>{const node=root.current;if(!node)return;const reveal=(event:Event)=>{const target=event.target;if(!(target instanceof Element))return;const section=sections.find(s=>document.getElementById(`${id}-${s.key}`)?.contains(target));if(section)select(section.key);};node.addEventListener('asvo:reveal-form',reveal);return()=>node.removeEventListener('asvo:reveal-form',reveal);},[sections,id,onSelect,urlKey]);
  useEffect(()=>{
   if(!trackChanges||!dirty)return;
   const unload=(e:BeforeUnloadEvent)=>{e.preventDefault();e.returnValue='';};

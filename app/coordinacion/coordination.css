@@ -495,3 +495,8 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
  .coordination-content .coordination-table-toolbar { flex-wrap: wrap; }
  .coordination-content .coordination-table-toolbar > .form-error-summary { order: 3; flex-basis: 100%; margin: 0; }
 }
+
+/* Hash targets stay below the sticky mobile header without animated scrolling. */
+.coordination-content #inscripciones, .coordination-content tr[id^="inscripcion-"] { scroll-margin-top: 6rem; }
+
+.coordination-content [data-navigation-item], .coordination-content tr[id^="transporte-"], .coordination-content tr[id^="alimentacion-"] { scroll-margin-top: 6rem; }

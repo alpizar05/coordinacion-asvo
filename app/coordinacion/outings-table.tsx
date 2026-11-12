@@ -3,10 +3,10 @@
 import { compactParticipationDates } from '../../lib/participation-dates';
 
 
-import Link from 'next/link';
+import { ContextDetailLink, NavigationResults, useTableCriteria } from './navigation-context';
 import { ActiveFilters } from './active-filters';
 import { TableFilters } from './table-filters';
-import { useState } from 'react';
+
 
 export type OutingRow = {
   id: string; title: string; location: string; unit: string;
@@ -25,11 +25,12 @@ const date = (value: string) => value.split('-').reverse().join('/');
 const normalize = (value: string) => value.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
 
 export function OutingsTable({ outings }: { outings: OutingRow[] }) {
-  const [query, setQuery] = useState('');
-  const [unit, setUnit] = useState('');
-  const [status, setStatus] = useState('abierta');
-  const [access, setAccess] = useState('');
-  const [sort, setSort] = useState<{ column: Column; ascending: boolean }>({ column: 'starts', ascending: false });
+  const criteria=useTableCriteria();
+  const query=criteria.get('salidaBuscar'),unit=criteria.get('salidaUnidad'),status=criteria.get('salidaEstado','abierta'),access=criteria.get('salidaAcceso');
+  const setQuery=(value:string)=>criteria.set({salidaBuscar:value}),setUnit=(value:string)=>criteria.set({salidaUnidad:value}),setStatus=(value:string)=>criteria.set({salidaEstado:value}),setAccess=(value:string)=>criteria.set({salidaAcceso:value});
+  const [column,direction]=criteria.get('salidaOrden','starts:desc').split(':');
+  const sort={column:columns.some(([key])=>key===column)?column as Column:'starts' as Column,ascending:direction==='asc'};
+  const setSort=(value:typeof sort)=>criteria.set({salidaOrden:`${value.column}:${value.ascending?'asc':'desc'}`});
   const units = [...new Set(outings.map(row => row.unit))].sort(collator.compare);
   const statuses = [...new Set(['abierta', ...outings.map(row => row.status)])].sort(collator.compare);
   const search = normalize(query.trim());
@@ -46,7 +47,7 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
     return sort.ascending ? result : -result;
   });
 
-  return <>
+  return <><NavigationResults revision={outings}/>
     <div className="coordination-table-toolbar"><TableFilters title="Filtrar convocatorias" active={!!(query || unit || status || access)}><div className="outings-filters">
       <label>Buscar<input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Título o lugar" /></label>
       <label>Unidad<select value={unit} onChange={event => setUnit(event.target.value)}>
@@ -80,17 +81,15 @@ export function OutingsTable({ outings }: { outings: OutingRow[] }) {
       setQuery(''); setUnit(''); setAccess(''); setStatus('abierta');
     } : undefined} />
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Tabla de convocatorias">
-      <table className="outings-table coordination-compact-table compact-outings">
+      <table className="outings-table coordination-compact-table compact-outings" data-navigation-list="outings">
         <thead><tr>{columns.map(([column,label]) => {
           const active = sort.column === column;
           return <th key={column} scope="col" aria-sort={active ? sort.ascending ? 'ascending' : 'descending' : undefined}>
-            <button type="button" onClick={() => setSort(current => ({
-              column, ascending: current.column === column ? !current.ascending : true,
-            }))}>{label} <span aria-hidden="true">{active ? sort.ascending ? '↑' : '↓' : '↕'}</span></button>
+            <button type="button" onClick={() => setSort({column,ascending:sort.column===column?!sort.ascending:true})}>{label} <span aria-hidden="true">{active ? sort.ascending ? '↑' : '↓' : '↕'}</span></button>
           </th>;
         })}</tr></thead>
-        <tbody>{rows.map(row => <tr key={row.id}>
-          <th scope="row"><Link href={`/coordinacion/salidas/${row.id}`}>{row.title}</Link></th>
+        <tbody>{rows.map(row => <tr id={`salida-${row.id}`} key={row.id}>
+          <th scope="row"><ContextDetailLink anchor={`salida-${row.id}`} href={`/coordinacion/salidas/${row.id}`}>{row.title}</ContextDetailLink></th>
           <td data-label="Lugar" className={row.location === row.title ? 'compact-duplicate-location' : undefined}>{row.location}</td><td data-label="Unidad">{row.unit}</td><td data-label="Inicio" className="table-date"><span className="compact-desktop-only">{date(row.starts)}</span><span className="compact-mobile-only">{compactParticipationDates(row.starts,row.ends)}</span></td><td data-label="Fin" className="table-date">{date(row.ends)}</td>
           <td data-label="Estado"><span className="pill" data-status={row.status}>{row.status}</span></td><td data-label="Visibilidad">{visibility(row.listed)}</td>
         </tr>)}

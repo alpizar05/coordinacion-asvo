@@ -25,6 +25,7 @@ export function OutingTabs({ initial, panels }: { initial: OutingTab; panels: Re
       const target = url.hash ? document.getElementById(decodeURIComponent(url.hash.slice(1))) : null;
       const panel = target?.closest<HTMLElement>('[data-outing-tab]');
       const next = panel && root.current?.contains(panel) ? outingTab(panel.dataset.outingTab) : outingTab(url.searchParams.get('pestana') ?? initial);
+      if(target&&panel&&url.searchParams.get('pestana')!==next){url.searchParams.set('pestana',next);window.history.replaceState(null,'',url.href);}
       setActive(next);
       if (target && panel) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
     }
@@ -41,8 +42,9 @@ export function OutingTabs({ initial, panels }: { initial: OutingTab; panels: Re
     setActive(id);
     const url = new URL(window.location.href);
     url.searchParams.set('pestana', id);
+    if (id !== 'logistica') url.searchParams.delete('desglose');
     url.hash = '';
-    window.history.replaceState(window.history.state, '', url.href);
+    window.history.replaceState(null, '', url.href);
     if (focus) document.getElementById(`${prefix}-tab-${id}`)?.focus();
   }
 

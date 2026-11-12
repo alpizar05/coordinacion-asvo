@@ -1,3 +1,6 @@
+import { NavigationResults } from '../../navigation-context';
+import { randomUUID } from 'node:crypto';
+import { ContextReturnLink, ContextDetailLink, ContextStateLink } from '../../navigation-context';
 import {OutingDecisionForm} from '../../outing-decision-form';
 import { SplitGroupForm } from '../../split-group-form';
 import { OutingEditor } from './outing-editor';
@@ -112,7 +115,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       : `${visibleEntries.length} de ${entries.length} inscripciones`}</p>
     <div id="outing-registration-active-filters" />
     <div className="outings-scroll" tabIndex={0} role="region" aria-label="Inscripciones de la salida">
-      <table className="outings-table outing-registration-table" role="table">
+      <table className="outings-table outing-registration-table" data-navigation-list="outing-registrations" role="table">
         <thead><tr>
           <th scope="col">Persona voluntaria</th>
           <th scope="col">Estado</th>
@@ -124,7 +127,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
         <tbody>
           {visibleEntries.map(entry => <tr id={`inscripcion-${entry.id}`} key={entry.id}>
             <th scope="row" className="registration-person">{canViewProfile && entry.volunteer_id
-              ? <Link href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</Link>
+              ? <ContextDetailLink anchor={`inscripcion-${entry.id}`} href={`/coordinacion/registro/${entry.volunteer_id}`}>{entry.volunteer}</ContextDetailLink>
               : entry.volunteer || 'Ficha pendiente de conciliar'}
               {entry.assigned70 && <> <span className="pill coord-role-label">70</span></>}</th>
             <td className="registration-state"><span className="pill registration-state-desktop" data-status={entry.status}>{statusLabels.get(entry.status) ?? entry.status}</span>
@@ -170,7 +173,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
     {conflicts.length > 0 && <div className="note" role="alert">
       <p>Revisá estas inscripciones antes de cambiar la unidad a {unidadPropuesta}.</p>
       <ul>{conflicts.map(entry => <li key={entry.id}>
-        <a href={`${back}#inscripcion-${entry.id}`}>{entry.name || 'Ficha pendiente de conciliar'}</a>
+        <ContextStateLink href={`${back}#inscripcion-${entry.id}`}>{entry.name || 'Ficha pendiente de conciliar'}</ContextStateLink>
         {' · '}{displayDate(entry.starts)} al {displayDate(entry.ends)}
       </li>)}</ul>
     </div>}
@@ -306,7 +309,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
         <h3>{displayDate(group.starts)} al {displayDate(group.ends)}</h3>
         <p>{group.people.length} personas · {groupOccupied} con cupo</p>
         <ul>{group.people.map(person => <li key={person.id}>
-          <a href={`${back}#inscripcion-${person.id}`}>{person.name}</a> · {displayDate(person.starts)} al {displayDate(person.ends)}
+          <ContextStateLink href={`${back}#inscripcion-${person.id}`}>{person.name}</ContextStateLink> · {displayDate(person.starts)} al {displayDate(person.ends)}
           {' · '}{statusLabels.get(person.status) ?? person.status}
         </li>)}</ul>
         {['abierta','confirmada'].includes(outing.status)&&<SplitGroupForm outingId={id} starts={group.starts} ends={group.ends} members={group.people.map(person=>person.id)} occupied={groupOccupied} title={`${outing.title} · ${displayDate(group.starts)}`.slice(0,200)}/>}
@@ -330,7 +333,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
 
   </section>}
   </>;
-  return <><CoordinationBreadcrumb current={series ? compactParticipationDates(outing.first_day,outing.last_day) : outing.title}
+  return <><NavigationResults revision={randomUUID()}/><ContextReturnLink /><CoordinationBreadcrumb current={series ? compactParticipationDates(outing.first_day,outing.last_day) : outing.title}
     parents={[{ href: '/coordinacion/convocatorias#salidas', label: 'Convocatorias de salida' },...(series ? [series] : [])]} />
   <header className={`card coordination-outing-summary${editing ? '' : ' outing-tabbed-summary'}`}>
     <div className="outings-table-heading">
@@ -339,7 +342,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
         {editing ? <span>Inscripciones: <strong>{occupied}/{outing.capacity}</strong></span>
           : <a href="#inscripciones">Inscripciones: <strong>{occupied}/{outing.capacity}</strong></a>}
       </div>
-      {editable && !editing && <Link className="button" href={`${back}?editar=1`}>Editar salida</Link>}
+      {editable && !editing && <ContextStateLink className="button" href={`${back}?editar=1`}>Editar salida</ContextStateLink>}
     </div>
     <h1>{outing.title}</h1>
     {series && <p className="outing-parent-series"><span>Convocatoria en serie</span><Link href={series.href}>{series.label} <span aria-hidden="true">→</span></Link></p>}

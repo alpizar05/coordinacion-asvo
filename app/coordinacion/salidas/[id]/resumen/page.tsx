@@ -1,3 +1,4 @@
+import { ContextReturnLink } from '../../../navigation-context';
 import { MobileDisclosure } from '../../../mobile-disclosure';
 import { readOutingReports } from '../../../../../lib/outing-report';
 import { OutingReportView } from '../../../../outing-report-view';
@@ -26,6 +27,7 @@ export default async function Page({ params, searchParams }: { params: Promise<{
   const reports = await readOutingReports(id);
   const selectedReport = (await searchParams).informe;
   return <>
+    <ContextReturnLink />
     <CoordinationBreadcrumb current="Resumen para el 70" parent={{ href: `/coordinacion/salidas/${id}`, label: outing.title }} />
     <div className="actions brief-controls"><Link className="button" href={`/coordinacion/salidas/${id}?pestana=herramientas`}>Volver a la salida</Link></div>
     <ShareBrief id={id} leads={leads} />

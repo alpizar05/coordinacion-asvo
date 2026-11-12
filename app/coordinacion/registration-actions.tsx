@@ -1,4 +1,5 @@
 'use client';
+import { navigationSaved } from './navigation-position';
 
 import { RegistrationDetailPanel } from './registration-detail-panel';
 import { useState } from 'react';
@@ -74,7 +75,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
         </> : action ? <ManageRegistrationForm key={action} entry={entry} outing={outing} action={action} title={labels[action]}
           onPending={setPending} onBack={()=>setSelected(null)} onSaved={()=>{
             const messages={asignar70:'Persona asignada como 70.',quitar70:'Asignación de 70 retirada.',validar:'Inscripción anterior recuperada.',confirmar:'Inscripción confirmada.',espera:'Inscripción trasladada a lista de espera.',rechazar:'Inscripción rechazada.',cancelar:'Inscripción cancelada.'};
-            setSuccess(previous=>({id:previous.id+1,message:messages[action]}));close();router.refresh();
+            navigationSaved();setSuccess(previous=>({id:previous.id+1,message:messages[action]}));close();router.refresh();
           }}/> : <ul className="registration-sheet-actions">
           <li><button type="button" onClick={() => setSelected('ver')}>Ver inscripción</button></li>
           {canManage && ['revisión','espera','confirmada'].includes(entry.status) && <li><button type="button" onClick={() => { close(); setEditing(true); }}>Editar inscripción</button></li>}

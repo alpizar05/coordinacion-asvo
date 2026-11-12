@@ -1,3 +1,4 @@
+import {ContextReturnLink} from '../navigation-context';
 import { redirect } from 'next/navigation';
 import { StatusRibbon } from '../../status-ribbon';
 import { CollectionsTable, type CollectionRow } from '../collections-table';
@@ -41,9 +42,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
       (min(o.starts) filter (where o.public))::text
     from scoped_outings o join requests r on r.id=o.request_id
     group by r.id having count(*) > 1` : [];
-  return <>{operates && <CoordinationBreadcrumb current="Convocatorias de salida" />}<h1>{operates ? "Convocatorias de salida" : "Coordinación"}</h1>
+  return <><ContextReturnLink/>{operates && <CoordinationBreadcrumb current="Convocatorias de salida" />}<h1>{operates ? "Convocatorias de salida" : "Coordinación"}</h1>
   {!user.grants.length && <p>Tu cuenta está a la espera de permisos de ASVO.</p>}
-  {!!available.length && <section className="card" id="salidas">
+  {!!available.length && <section className="card" id="salidas" data-navigation-list-container="outings">
     <div className="outings-table-heading">
       <Link href="#colecciones">Ver convocatorias en serie</Link>
       <Link className="button coord-button-primary" href="/coordinacion/salidas/nueva">Agregar nueva convocatoria de salida</Link>
@@ -51,7 +52,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
     {creadas && <StatusRibbon message={`Se crearon ${creadas} convocatorias.`} />}
     <OutingsTable outings={outings} />
   </section>}
-  {operates && <section className="card" id="colecciones">
+  {operates && <section className="card" id="colecciones" data-navigation-list-container="series">
     <div className="outings-table-heading">
       <h2>Convocatorias en serie</h2>
       <Link className="button" href="/coordinacion/colecciones/nueva">Crear convocatoria en serie</Link>
