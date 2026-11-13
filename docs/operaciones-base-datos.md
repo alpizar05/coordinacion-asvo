@@ -68,10 +68,10 @@ La marca **`received-registration-reservations-v1` nunca se borra ni se renombra
 
 La adaptación histórica ya no importa el generador de correo: no crea notificaciones, enlaces privados ni mensajes demo. Los mensajes, intentos, fechas y enlaces que ya existían permanecen intactos. Las razones de auditoría históricas describen el cambio de estado; no son evidencia de que se haya generado o enviado un correo en esta ejecución.
 
-## Correo operativo sin cambios
+## Correo operativo y recuperación de resultados inciertos
 
 - Recepción, edición, confirmación, cancelación, promociones y recordatorios conservan su generación transaccional de mensajes e intento posterior de envío.
-- Se conserva el bloqueo de destinatarios `.test`, orden por inscripción, reserva concurrente y reintentos.
+- Se conserva el bloqueo de destinatarios `.test`, orden por inscripción, reserva concurrente y reintentos de fallos confirmados. Los resultados inciertos requieren revisión; ver [procedimiento y migración 0003](resultados-de-correo.md). `npm run mail:review` consulta sin enviar y sus resoluciones exigen `--apply`.
 - `scripts/mail-outbox.mjs` sigue siendo la entrada explícita para el worker/reintento; no se importa desde la preparación ni desde el histórico.
 - `/api/cron/correos`, su autenticación y su programación `0 12 * * *` no cambian. La bandeja demo sigue siendo el destino del modo local.
 - La compilación y el arranque de Next.js no ejecutan estas operaciones de base.

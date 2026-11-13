@@ -348,13 +348,14 @@ Confirmá `GRAPH_SENDER` y las tres credenciales Graph en el despliegue vigente.
 
 Los nuevos mensajes guardan `html_body` además del texto. La plantilla incorpora el logo público `/logo-asvo.png`, paleta ASVO, nombre, estado, lugar, unidad, fechas y enlace privado. La columna se agrega de forma compatible mediante la baseline numerada y las migraciones explícitas; debe existir antes de desplegar el nuevo código. Los mensajes ya pendientes sin HTML conservan su formato de texto. La bandeja demo muestra el texto. No se adjunta el PDF del formulario anterior ni se promete crear automáticamente un grupo de WhatsApp.
 
-Los mensajes se guardan en `registration_mail_outbox` dentro de la transacción de la inscripción. La aplicación intenta enviarlos después de cada operación. Los fallidos quedan pendientes; un intento reserva el mensaje durante cinco minutos y cada ejecución procesa hasta 30 mensajes respetando el orden por inscripción.
+Los mensajes se guardan en `registration_mail_outbox` dentro de la transacción de la inscripción. La aplicación intenta enviarlos después de cada operación. Los fallos confirmados anteriores al envío y rechazos explícitos quedan pendientes; los resultados ambiguos se detienen para revisión. Una reserva dura cinco minutos y cada ejecución procesa hasta 30 mensajes respetando el orden por inscripción. `sent_at` representa aceptación, no entrega. Consultá [recuperación, revisión y migración 0003](resultados-de-correo.md) antes de actualizar el worker.
 
 Consultar conteos en Neon sin exponer contenidos ni enlaces privados:
 
 ```sql
-select count(*) filter (where sent_at is null) as pendientes,
-       count(*) filter (where sent_at is not null) as enviados
+select count(*) filter (where delivery_state='pending' and cancelled_at is null) as pendientes,
+       count(*) filter (where delivery_state='uncertain') as requieren_revision,
+       count(*) filter (where sent_at is not null) as aceptados
 from registration_mail_outbox;
 ```
 
@@ -414,7 +415,7 @@ Definí respaldo y retención según el plan Neon y realizá una prueba de resta
 | No production deployments found | Creá despliegue de la rama configurada como producción |
 | Cambios de variables no aparecen | Redeploy y comprobación de que estás abriendo el despliegue nuevo |
 
-En Vercel abrí logs de la solicitud y buscá `[auth][diagnostic]`, `[auth][entra-token]`, `[sharepoint][diagnostic]` o `Correo de inscripción pendiente de reintento`. El diagnóstico de correo actual es menos detallado que el de SharePoint. No habilites impresión de secretos, tokens ni enlaces privados para depurar.
+En Vercel abrí logs de la solicitud y buscá `[auth][diagnostic]`, `[auth][entra-token]`, `[sharepoint][diagnostic]` o `[mail-outcome]` y `[mail-review]`. El inventario `mail:review` permite revisar metadatos de los intentos sin imprimir el mensaje. No habilites impresión de secretos, tokens ni enlaces privados para depurar.
 
 ## 12. Checklist de beta y lanzamiento
 

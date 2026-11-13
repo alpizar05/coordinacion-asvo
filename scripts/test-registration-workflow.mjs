@@ -210,16 +210,17 @@ try {
     assert.equal((await tx`select id from registration_mail_outbox where sent_at is null`).length,0,
       'La prueba del envío requiere una cola local sin mensajes pendientes');
     await queueRegistrationMail(tx,reserved[0].id,'Aviso de prueba',{ origin: process.env.APP_URL, demo: false });
+  });
     const originalFetch = globalThis.fetch;
     try {
       // Exercise Graph retries with a reserved non-deliverable domain; .test recipients are intentionally cancelled before Graph.
-      await tx`update registration_mail_outbox set recipient='mock@example.invalid' where registration_id=${reserved[0].id} and sent_at is null`;
+      await sql`update registration_mail_outbox set recipient='mock@example.invalid' where registration_id=${reserved[0].id} and sent_at is null`;
       globalThis.fetch = async () => new Response('',{status:503});
-      await flushRegistrationMail(tx);
-      const [pending] = await tx`select id,sent_at,attempts from registration_mail_outbox where registration_id=${reserved[0].id}`;
+      await flushRegistrationMail(sql);
+      const [pending] = await sql`select id,sent_at,attempts from registration_mail_outbox where registration_id=${reserved[0].id}`;
       assert.equal(pending.sent_at,null,'Un fallo de Graph conserva el correo pendiente');
       assert.equal(pending.attempts,1);
-      await tx`update registration_mail_outbox set retry_at=now() where id=${pending.id}`;
+      await sql`update registration_mail_outbox set retry_at=now() where id=${pending.id}`;
       globalThis.fetch = async (url, options) => {
         if (String(url).includes('/token')) return Response.json({ access_token: 'mock' });
         const { message } = JSON.parse(options.body);
@@ -227,11 +228,10 @@ try {
         assert.match(message.body.content,/Ver mi inscripción/);
         return new Response('',{status:202});
       };
-      await flushRegistrationMail(tx);
-      const [sent] = await tx`select sent_at from registration_mail_outbox where id=${pending.id}`;
-      assert.ok(sent.sent_at,'Un reintento exitoso registra la entrega');
+      await flushRegistrationMail(sql);
+      const [sent] = await sql`select sent_at from registration_mail_outbox where id=${pending.id}`;
+      assert.ok(sent.sent_at,'Un reintento exitoso registra aceptación');
     } finally { globalThis.fetch = originalFetch; }
-  });
   console.log('OK: recepción concurrente, duplicados, confirmación, motivos, promociones, correos, enlace privado, cancelación, edición y reintentos de correo.');
 } finally {
   await sql.begin(async tx => {

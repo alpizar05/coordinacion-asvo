@@ -31,7 +31,8 @@
     "test:contracts": "node scripts/test-contracts.mjs",
     "test:authorization:inventory": "node scripts/audit-authorization.mjs",
     "photos:cleanup:plan": "node --env-file=.env.local scripts/photo-cleanup.mjs --plan",
-    "photos:cleanup": "node --env-file=.env.local scripts/photo-cleanup.mjs --apply"
+    "photos:cleanup": "node --env-file=.env.local scripts/photo-cleanup.mjs --apply",
+    "mail:review": "node --env-file=.env.local scripts/mail-review.mjs"
   },
   "type": "module",
   "dependencies": {
