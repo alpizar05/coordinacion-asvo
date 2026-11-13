@@ -19,51 +19,17 @@ export async function preparePhoto(file: File) {
   return { original, format, thumbnail, display };
 }
 
-export async function storeOriginal(photo: Awaited<ReturnType<typeof preparePhoto>>) {
-  if (demo) return { drive: null, item: null };
-  const drive = process.env.SHAREPOINT_PHOTO_DRIVE_ID;
-  const folder = process.env.SHAREPOINT_PHOTO_FOLDER_ID;
-  const tenant = process.env.GRAPH_TENANT_ID;
-  const client = process.env.GRAPH_CLIENT_ID;
-  const secret = process.env.GRAPH_CLIENT_SECRET;
-  if (!drive || !folder || !tenant || !client || !secret) {
-    console.error('[sharepoint][diagnostic]', JSON.stringify({ stage: 'configuration', missing:
-      Object.entries({ SHAREPOINT_PHOTO_DRIVE_ID: drive, SHAREPOINT_PHOTO_FOLDER_ID: folder,
-        GRAPH_TENANT_ID: tenant, GRAPH_CLIENT_ID: client, GRAPH_CLIENT_SECRET: secret })
-        .filter(([,value]) => !value).map(([key]) => key) }));
-    throw new Error('Configurá la carpeta privada de fotos en SharePoint.');
-  }
-  const token = await fetch(`https://login.microsoftonline.com/${encodeURIComponent(tenant)}/oauth2/v2.0/token`, {
-    method: 'POST',
-    body: new URLSearchParams({
-      client_id: client, client_secret: secret, scope: 'https://graph.microsoft.com/.default', grant_type: 'client_credentials',
-    }),
-    signal: AbortSignal.timeout(8000),
-  }).catch(error => {
-    console.error('[sharepoint][diagnostic]', JSON.stringify({ stage: 'sharepoint-auth', networkFailure: true,
-      timeout: error instanceof Error && error.name === 'TimeoutError' }));
-    throw new Error('No se pudo conectar con Microsoft.');
-  });
-  if (!token.ok) {
-    await graphDiagnostic('sharepoint-auth', token);
-    throw new Error('No se pudo acceder a SharePoint.');
-  }
-  const access_token = graphAccessToken(await token.json());
-  const name = `${randomUUID()}.${photo.format}`;
-  const response = await fetch(`https://graph.microsoft.com/v1.0/drives/${encodeURIComponent(drive)}/items/${encodeURIComponent(folder)}:/${name}:/content`, {
-    method: 'PUT',
-    headers: { Authorization: `Bearer ${access_token}`, 'Content-Type': `image/${photo.format}` },
-    body: photo.original,
-    signal: AbortSignal.timeout(12000),
-  }).catch(error => {
-    console.error('[sharepoint][diagnostic]', JSON.stringify({ stage: 'sharepoint-upload', networkFailure: true,
-      timeout: error instanceof Error && error.name === 'TimeoutError' }));
-    throw new Error('No se pudo conectar con SharePoint.');
-  });
-  if (!response.ok) {
-    await graphDiagnostic('sharepoint-upload', response);
-    throw new Error('No se pudo guardar el original en SharePoint.');
-  }
-  const id = graphItemId(await response.json());
-  return { drive, item: id };
+export function graphPhotoStore(options:{fetch?:typeof fetch;config?:()=>{tenant:string;client:string;secret:string;drive:string;folder:string};timeoutMs?:number;demo?:boolean}={}):import('./photo-upload-workflow').PhotoStore {
+ const request=options.fetch??fetch,timeout=options.timeoutMs??12000;
+ const config=options.config??(()=>{const c={tenant:process.env.GRAPH_TENANT_ID||'',client:process.env.GRAPH_CLIENT_ID||'',secret:process.env.GRAPH_CLIENT_SECRET||'',drive:process.env.SHAREPOINT_PHOTO_DRIVE_ID||'',folder:process.env.SHAREPOINT_PHOTO_FOLDER_ID||''};if(Object.values(c).some(value=>!value))throw Error('Configurá la carpeta privada de fotos en SharePoint.');return c;});
+ async function token(){const c=config();const response=await request(`https://login.microsoftonline.com/${encodeURIComponent(c.tenant)}/oauth2/v2.0/token`,{method:'POST',body:new URLSearchParams({client_id:c.client,client_secret:c.secret,scope:'https://graph.microsoft.com/.default',grant_type:'client_credentials'}),signal:AbortSignal.timeout(Math.min(timeout,8000))});if(!response.ok){await graphDiagnostic('sharepoint-auth',response);throw Error('No se pudo acceder a SharePoint.');}return graphAccessToken(await response.json());}
+ const path=(target:import('./photo-upload-workflow').PhotoTarget)=>`https://graph.microsoft.com/v1.0/drives/${encodeURIComponent(target.drive)}/items/${encodeURIComponent(target.folder)}:/${encodeURIComponent(target.name)}`;
+ return {
+  target(){if(options.demo??demo)return null;const c=config();return {drive:c.drive,folder:c.folder};},
+  async put(photo,target){const access=await token();const response=await request(path(target)+':/content',{method:'PUT',headers:{Authorization:`Bearer ${access}`,'Content-Type':`image/${photo.format}`},body:photo.original,signal:AbortSignal.timeout(timeout)});if(!response.ok){await graphDiagnostic('sharepoint-upload',response);throw Error('No se pudo guardar el original en SharePoint.');}return {drive:target.drive,item:graphItemId(await response.json())};},
+  async find(target){const access=await token();const response=await request(path(target),{headers:{Authorization:`Bearer ${access}`},signal:AbortSignal.timeout(timeout)});if(response.status===404)return null;if(!response.ok)throw Error('No se pudo consultar el original pendiente.');const data:unknown=await response.json();const row=data as {id?:unknown;name?:unknown;eTag?:unknown;parentReference?:{id?:unknown}};if(!row||row.name!==target.name||row.parentReference?.id!==target.folder||typeof row.eTag!=='string'||!row.eTag||/[\r\n]/.test(row.eTag))throw Error('SharePoint devolvió metadatos inesperados.');return {item:graphItemId(row),etag:row.eTag};},
+  async remove(target,item,etag){const access=await token();const response=await request(`https://graph.microsoft.com/v1.0/drives/${encodeURIComponent(target.drive)}/items/${encodeURIComponent(item)}`,{method:'DELETE',headers:{Authorization:`Bearer ${access}`,'If-Match':etag},signal:AbortSignal.timeout(timeout)});if(!response.ok&&response.status!==404)throw Error('No se pudo limpiar el original pendiente.');},
+ };
 }
+/** Compatibility for explicit tooling. Application writes use the tracked workflow. */
+export async function storeOriginal(photo:Awaited<ReturnType<typeof preparePhoto>>){const store=graphPhotoStore(),target=store.target();if(!target)return {drive:null,item:null};return store.put(photo,{...target,name:`${randomUUID()}.${photo.format}`});}

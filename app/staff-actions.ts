@@ -20,7 +20,9 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { allows, canOperate, requireStaff, signIn, signOut, staff, staffScope } from '../lib/auth';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit } from '../lib/outing-photo-limits';
-import { preparePhoto, storeOriginal } from '../lib/outing-photos';
+import {preparePhoto,graphPhotoStore} from '../lib/outing-photos';
+import {withPhotoUploads,PhotoUploadError} from '../lib/photo-upload-workflow';
+import {OutingCreationError,authorizeCreationPhotos,saveOutingCreation} from '../lib/outing-creation';
 import { inheritGeneralPhotos, saveGeneralPhotos } from '../lib/outing-inheritance';
 import { registrationToday } from '../lib/outing-invitations';
 import { commonOutingFields } from '../lib/collection-fields';
@@ -53,177 +55,26 @@ export async function grant(form: FormData):Promise<FormResult> {
  if(result.saved)revalidatePath('/coordinacion/administracion');return result;
 }
 
-class OutingCreationError extends Error {
-  constructor(message: string, readonly target?: string, readonly fieldErrors?:FieldErrors) {
-    super(message);
-  }
-}
-
 export async function createOuting(form: FormData): Promise<FormResult & {target?:string}> {
   try {
     return { saved:true,destination: await saveOuting(form) };
   } catch (error) {
+    if(error instanceof PhotoUploadError)return {fieldErrors:error.fieldErrors};
     if (error instanceof OutingCreationError) return error.fieldErrors?{fieldErrors:error.fieldErrors}:{error:error.target?undefined:error.message,fieldErrors:error.target?{[error.target]:error.message}:undefined,target:error.target};
     console.error('Falló la creación de la convocatoria.', error);
     return { error: 'No se pudo crear la convocatoria. Revisá los datos e intentá de nuevo.' };
   }
 }
 
-async function saveOuting(form: FormData) {
-  const user = await staff();
-  const unit = field(form,'unit');
-  requireStaff(user,canOperate(user,unit));
-  const fieldErrors=validateNewOuting(form);
-  if(unit&&!(await sql`select 1 from units where name=${unit}`).length)fieldErrors.unit='Seleccioná una unidad disponible.';
-  if(Object.keys(fieldErrors).length)throw new OutingCreationError('',undefined,fieldErrors);
-  const starts = form.getAll('starts').map(String);
-  const ends = form.getAll('ends').map(String);
-  const periods = starts.map((start,index) => ({ start, end: ends[index] ?? '' }));
-  const invalid = (message: string, target?: string): never => { throw new OutingCreationError(message, target); };
-  if (!periods.length || periods.length > 24 || starts.length !== ends.length) {
-    invalid('Ingresá entre 1 y 24 bloques con fechas válidas.', 'dates');
-  }
-  const ranges = new Set<string>();
-  for (const [index, { start, end }] of periods.entries()) {
-    const target = `period-${index}`;
-    if (!date(start) || !date(end)) invalid('Completá las fechas de llegada y regreso.', target);
-    if (end < start) invalid('El regreso debe ser el mismo día de la llegada o después.', target);
-    const range = `${start}/${end}`;
-    if (ranges.has(range)) invalid('Este rango ya está en otro bloque. Elegí fechas distintas.', target);
-    ranges.add(range);
-  }
-  const capacity = Number(field(form,'capacity'));
-  if (!Number.isSafeInteger(capacity) || capacity < 1 || capacity > 10000) invalid('Ingresá entre 1 y 10 000 cupos.', 'capacity');
-  if (outingLogisticsFields.some(item => field(form,item.name).length > 5000)) invalid('Usá hasta 5000 caracteres en cada campo de logística.', 'logistics');
-  const title = field(form,'title'), location = field(form,'location');
-  if (!title) invalid('Completá el título.', 'title');
-  if (!location) invalid('Completá el lugar.', 'location');
-  const publish = field(form,'action') === 'publicar';
-  const listed = field(form,'visibility') !== 'privada';
-  const deadline = field(form, 'registrationDeadline');
-  if (deadline && (!date(deadline) || periods.some(period => deadline > period.start))) {
-    invalid('La fecha límite debe ser el mismo día de la primera salida o anterior.', 'deadline');
-  }
-  const photoIds = form.getAll('copyPhoto').map(String);
-  const uploads = Array.from({ length: outingPhotoLimit }, (_, index) => ({
-    key: `new-${index}`,
-    file: form.get(`photo-${index}`),
-    alt: field(form, `alt-${index}`),
-    credit: field(form, `credit-${index}`),
-    permission: field(form, `permission-${index}`) === 'on',
-  })).filter((photo): photo is typeof photo & { file: File } => photo.file instanceof File && photo.file.size > 0);
-  if (photoIds.length + uploads.length > outingPhotoLimit ||
-      new Set(photoIds).size !== photoIds.length || photoIds.some(id => !uuid(id))) {
-    invalid('Revisá la selección. Podés incluir hasta seis fotos.', 'photos');
-  }
-  if (publish && !uploads.length && !photoIds.length) invalid('Adjuntá una portada para publicar la convocatoria.', 'photos');
-  if (uploads.reduce((total, photo) => total + photo.file.size, 0) > outingPhotoBatchMaxBytes) {
-    invalid('Las fotos nuevas deben pesar como máximo 3,75 MB en conjunto.', 'photos');
-  }
-  const order = [...photoIds, ...uploads.map(photo => photo.key)];
-  const cover = field(form, 'photoCover');
-  const coverIndex = order.indexOf(cover);
-  if (coverIndex > 0) order.unshift(...order.splice(coverIndex, 1));
-  const copiedPositions = photoIds.map(id => order.indexOf(id) + 1);
-  for (const id of photoIds) {
-    if ((form.has(`copyAlt-${id}`) && (!field(form,`copyAlt-${id}`) || field(form,`copyAlt-${id}`).length > 240)) || field(form,`copyCredit-${id}`).length > 150) invalid('Revisá descripción y crédito de la foto.',`existing-${id}`);
-  }
-  const prepared: { key: string; alt: string; credit: string; position: number; image: Awaited<ReturnType<typeof preparePhoto>> }[] = [];
-  const imageErrors:FieldErrors={};
-  for (const photo of uploads) {
-    const position = order.indexOf(photo.key) + 1;
-    if (!photo.alt || photo.alt.length > 240 || photo.credit.length > 150 || !photo.permission) {
-      invalid(`Completá la descripción y confirmá la autorización de la foto ${position}.`, photo.key);
-    }
-    try{const image=await preparePhoto(photo.file);prepared.push({...photo,image,position});}catch{imageErrors[`${photo.key}-photo`]=`Foto ${position}: el archivo no es una imagen JPG, PNG o WebP válida.`;}
-  }
-  if(Object.keys(imageErrors).length)throw new OutingCreationError('',undefined,imageErrors);
-  const cloneId = field(form,'cloneBlock');
-  if (cloneId && !uuid(cloneId)) invalid('El bloque de origen no está disponible.');
-  const ids = await sql.begin(async tx => {
-    const selected = field(form,'request');
-    const [source] = cloneId ? await tx`select request_id,unit,outing_overrides from outings where id=${cloneId} for share` : [];
-    if (cloneId && (!source || source.request_id !== selected || !canOperate(user,source.unit))) {
-      invalid('El bloque de origen no está disponible.');
-    }
-    let requestId = selected;
-    const values = { title, location, unit, requirements: field(form,'requirements'), logistics: field(form,'logistics') };
-    const newRequest = !uuid(selected);
-    if (newRequest) {
-      const [request] = await tx`insert into requests(organization,contact,area,activity,plan,logistics,outing_defaults) values
-        (${field(form,'organization')},${field(form,'contact')},${field(form,'area')},${field(form,'activity')},
-        ${field(form,'plan')},${field(form,'logistics')},${tx.json(values)}) returning id`;
-      requestId = request.id;
-    } else if (!(await tx`select 1 from outings where request_id=${selected} and unit=${unit}`).length && !canOperate(user)) {
-      throw new Error('Solicitud fuera de tu unidad.');
-    }
-    if (photoIds.length) {
-      const matches = await tx<{ id: string; unit: string }[]>`select p.id,o.unit
-        from outing_photos p join outings o on o.id=p.outing_id
-        where p.position is not null and p.id=any(${photoIds}::uuid[])
-        for share of p,o`;
-      const unavailable = photoIds.find(id => !matches.some(photo => photo.id === id && canOperate(user, photo.unit)));
-      if (unavailable) {
-        invalid('Una foto seleccionada ya no está disponible o no tenés permiso para usarla. Revisá la galería.');
-      }
-    }
-    const [general] = await tx`select outing_defaults from requests where id=${requestId} for update`;
-    if (cloneId) {
-      const existing = await tx`select starts::text,ends::text from outings where request_id=${requestId}`;
-      const duplicate = periods.findIndex(period => existing.some(block => block.starts === period.start && block.ends === period.end));
-      if (duplicate >= 0) invalid('Ya existe un bloque con estas fechas en la convocatoria general.', `period-${form.getAll('periodId')[duplicate]||duplicate}-starts`);
-    }
-    const newPhotos = [];
-    for (const photo of prepared) {
-      const original = await storeOriginal(photo.image).catch(() => invalid(`No se pudo guardar la foto ${photo.position} en SharePoint. Conservamos los archivos para reintentar.`));
-      newPhotos.push({ ...photo, original });
-    }
-    const overrides = commonOutingFields.filter(item =>
-      source?.outing_overrides.includes(item.name) || general.outing_defaults?.[item.name] !== values[item.name]
-    ).map(item => item.name);
-    const initialTransition=newOutingTransition(publish);
-    const status=initialTransition.status;
-    const created: string[] = [];
-    for (const {start,end} of periods) {
-      const [outing] = await tx`insert into outings(request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,transport_details,food_details,lodging_details,status,listed,registration_deadline,outing_overrides)
-        values (${requestId},${title},${location},${unit},${start},${end},${field(form,'flexible') === 'on'},
-        ${capacity},${field(form,'requirements')},${field(form,'logistics')},${field(form,'transport_details')},${field(form,'food_details')},${field(form,'lodging_details')},${status},${listed},${deadline || start},${newRequest ? [] : [...overrides, 'photos']}) returning id`;
-      if (photoIds.length) {
-        await tx`insert into outing_photos(outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-          select ${outing.id}::uuid,selection.position,
-            photo.alt,photo.credit,photo.original_item,photo.original_drive,photo.thumbnail,photo.display_image
-          from unnest(${photoIds}::uuid[], ${copiedPositions}::smallint[]) as selection(id,position)
-          join outing_photos photo on photo.id=selection.id`;
-        for (const sourceId of photoIds) {
-          if (!form.has(`copyAlt-${sourceId}`) && !form.has(`copyCredit-${sourceId}`)) continue;
-          await tx`update outing_photos set
-            alt=coalesce(${form.has(`copyAlt-${sourceId}`) ? field(form,`copyAlt-${sourceId}`) : null}::text,alt),
-            credit=coalesce(${form.has(`copyCredit-${sourceId}`) ? field(form,`copyCredit-${sourceId}`) : null}::text,credit)
-            where outing_id=${outing.id} and position=${copiedPositions[photoIds.indexOf(sourceId)]}`;
-        }
-      }
-      for (const { position, alt, credit, original, image } of newPhotos) {
-        await tx`insert into outing_photos(outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-          values (${outing.id},${position},${alt},${credit},${original.item},${original.drive},${image.thumbnail},${image.display})`;
-      }
-      if (newRequest && !created.length) await saveGeneralPhotos(tx,requestId,outing.id);
-      if (!newRequest && !source?.outing_overrides.includes('photos')) {
-        await tx`update outings set outing_overrides=array_remove(outing_overrides,'photos') where id=${outing.id}
-          and not exists (
-            (select position,alt,credit,original_item,original_drive,thumbnail,display_image from outing_photos where outing_id=${outing.id} and position is not null
-             except select position,alt,credit,original_item,original_drive,thumbnail,display_image from request_outing_photos where request_id=${requestId})
-            union all
-            (select position,alt,credit,original_item,original_drive,thumbnail,display_image from request_outing_photos where request_id=${requestId}
-             except select position,alt,credit,original_item,original_drive,thumbnail,display_image from outing_photos where outing_id=${outing.id} and position is not null)
-          )`;
-      }
-      await audit(tx,user.subject,initialTransition.audit,outing.id);
-      created.push(outing.id);
-    }
-    return created;
-  });
-  if (cloneId) return `/coordinacion/colecciones/automaticas/${field(form,'request')}?creados=${ids.length}#bloques`;
-  return ids.length === 1 ? `/coordinacion/salidas/${ids[0]}?confirmacion=${publish ? 'creada' : 'borrador'}` : `/coordinacion/convocatorias?creadas=${ids.length}#salidas`;
+async function saveOuting(form:FormData){
+ const principal=await staff();if(!principal)throw Error('Acceso denegado.');
+ const files=[...form].filter((entry):entry is [string,File]=>/^photo-\d+$/.test(entry[0])&&entry[1] instanceof File).map(([key,file])=>({key:`new-${key.slice(6)}`,file}));
+ const result=await withPhotoUploads({sql,principal,scope:'create-outing',form,files,prepare:preparePhoto,store:graphPhotoStore(),
+  authorize:(tx,user)=>authorizeCreationPhotos(tx,form,user),
+  validate:(tx,user)=>saveOutingCreation(tx,form,user,{preflightOnly:true}),
+  commit:async(tx,user,uploads,snapshot)=>saveOutingCreation(tx,form,user,{uploads,expectedSnapshot:(snapshot as {snapshot:string}).snapshot}),
+ });
+ return result.destination!;
 }
 
 export async function manageOuting(id: string, form: FormData) {

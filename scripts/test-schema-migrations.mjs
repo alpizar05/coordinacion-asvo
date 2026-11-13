@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import { mkdtemp, readFile, writeFile, cp, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, cp, rm, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import postgres from 'postgres';
 import { requireLocalDemo } from '../lib/local-demo.mjs';
-import { loadSchemaMigrations, schemaMigrationOperation as operate } from '../lib/schema-migrations.mjs';
+import { loadSchemaMigrations, schemaMigrationOperation as runMigrations } from '../lib/schema-migrations.mjs';
 import { inspectSchema, schemaDifferences } from '../lib/schema-inspection.mjs';
 
 const source = requireLocalDemo(), admin = postgres(source.href,{max:1,onnotice(){}});
@@ -22,8 +22,10 @@ async function database(){
 }
 async function folder(){
   const path=await mkdtemp(join(tmpdir(),'asvo-migrations-'));folders.push(path);
-  await cp(new URL('../migrations/',import.meta.url),path,{recursive:true});return pathToFileURL(path+'/');
+  await cp(new URL('../migrations/',import.meta.url),path,{recursive:true});for(const file of await readdir(path))if(file.endsWith('.sql')&&file!=='0001_initial.sql')await rm(join(path,file));return pathToFileURL(path+'/');
 }
+let baselineFolder;
+const operate=(sql,options={})=>runMigrations(sql,{folder:baselineFolder,...options});
 const initial=(await loadSchemaMigrations())[0];
 const manifest=JSON.parse(await readFile(new URL('../migrations/0001_initial.schema.json',import.meta.url),'utf8'));
 const exists=async(sql,name)=>(await sql`select to_regclass(${name}) as object`)[0].object!==null;
@@ -33,6 +35,7 @@ async function businessSnapshot(sql){
   return JSON.parse(JSON.stringify(result));
 }
 try{
+  baselineFolder=await folder();
   assert.equal(manifest.sourceChecksum,initial.checksum);
   const empty=await database();
   for(const action of ['status','plan'])assert.equal((await operate(empty,{action})).kind,'empty');
@@ -77,6 +80,13 @@ try{
   assert.equal((await operate(legacy,{action:'adopt'})).adopted,false);
   assert.deepEqual((await operate(legacy)).executed,[]);
   console.log('OK: adopción compatible, extensiones históricas, restricción validada y marcas/datos/cola/enlaces intactos.');
+
+  // Apply the real additive photo migration to an adopted legacy database, retaining business data.
+  assert.deepEqual((await runMigrations(legacy)).executed,['0002_photo_upload_lifecycle']);
+  assert.deepEqual(await businessSnapshot(legacy),oldData);
+  assert.deepEqual((await runMigrations(legacy)).executed,[]);
+  assert.equal(await exists(legacy,'photo_upload_items'),true);
+  console.log('OK: migración de cargas sobre baseline adoptada sin modificar fotos, cola ni datos históricos; segunda ejecución sin cambios.');
 
   const invalid=await database();await invalid.unsafe(initial.source);
   await invalid`alter table registrations drop column details`;

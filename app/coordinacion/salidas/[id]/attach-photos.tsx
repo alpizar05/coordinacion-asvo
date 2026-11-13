@@ -1,7 +1,7 @@
 'use client';
 import {navigationSaved} from '../../navigation-position';
 
-import { useState } from 'react';
+import { useRef,useState } from 'react';
 import { StatusRibbon } from '../../../status-ribbon';
 import { attachOutingPhoto } from '../../../photo-actions';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
@@ -10,10 +10,11 @@ import { PhotoDialog, type PhotoChoice } from '../../photo-dialog';
 export function AttachPhotos({ id, gallery, initial }: {
   id: string; gallery: GalleryPhoto[]; initial?: { id: string; alt: string; credit: string };
 }) {
+  const photoOperation=useRef('');
   const [added,setAdded] = useState<string[]>([]);
   const [saved,setSaved] = useState('');
   async function save(photo: PhotoChoice) {
-    const form = new FormData();
+    const form = new FormData();if(!photoOperation.current)photoOperation.current=crypto.randomUUID();form.set('photoOperation',photoOperation.current);
     form.set('alt',photo.alt); form.set('credit',photo.credit);
     if (photo.kind === 'upload') {
       form.set('action','agregar'); form.set('photo',photo.file); form.set('permission','on');
@@ -22,6 +23,7 @@ export function AttachPhotos({ id, gallery, initial }: {
     }
     const result = await attachOutingPhoto(id,form);
     if (!result.saved) return result;
+    photoOperation.current='';
     navigationSaved();
     if (photo.kind === 'gallery') setAdded(current => [...current,photo.id]);
     setSaved(initial ? 'Datos de foto actualizados.' : 'Foto agregada.');

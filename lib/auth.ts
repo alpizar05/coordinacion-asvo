@@ -47,6 +47,6 @@ export async function staff() {
 // Existing imports remain compatible; the executable matrix is the single policy source.
 export {canOperate,canAdminister,allows,staffScope} from './authorization';
 
-export function requireStaff(user: Awaited<ReturnType<typeof staff>>, allowed: boolean): asserts user {
+export function requireStaff(user: import('./authorization').StaffPrincipal, allowed: boolean): asserts user {
   if (!user || !allowed) throw new Error('Acceso denegado.');
 }

@@ -13,9 +13,9 @@ try{await sql.begin(async tx=>{
  await tx`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,listed)values(${outing},${request},'General ficticia','Lugar general','Voluntariado General','2035-01-10','2035-01-12',false,2,'borrador',false)`;
  const initial={...defaults,starts:'2035-01-10',ends:'2035-01-12',mode:'fija',capacity:'2'};
  const good=async(extra={})=>form({...initial,version:await outingEditVersion(tx,outing),visibility:'privada',registrationDeadline:'2035-01-10',photoMode:'keep',...extra});
- let uploadCount=0;const options={actor:'prueba-local',canOperate:()=>true,upload:async()=>{uploadCount++;throw Error('No se permiten cargas reales');}};
+ const options={actor:'prueba-local',canOperate:()=>true,uploads:new Map()};
  await assert.rejects(saveOutingEditor(tx,outing,await good({title:'',location:'',starts:'',ends:'',capacity:'0'}),options),e=>e instanceof OutingEditError&&e.fieldErrors.title&&e.fieldErrors.location&&e.fieldErrors.starts&&e.fieldErrors.ends&&!!e.fieldErrors.capacity);
- assert.equal(uploadCount,0);const old=await outingEditVersion(tx,outing);await saveOutingEditor(tx,outing,await good({title:'Individual editada'}),options);assert.equal((await tx`select title from outings where id=${outing}`)[0].title,'Individual editada','Individual sin Personalizar');
+ const old=await outingEditVersion(tx,outing);await saveOutingEditor(tx,outing,await good({title:'Individual editada'}),options);assert.equal((await tx`select title from outings where id=${outing}`)[0].title,'Individual editada','Individual sin Personalizar');
  await assert.rejects(saveOutingEditor(tx,outing,await good({version:old,title:'Obsoleta'}),options),e=>e.target==='form'&&!e.fieldErrors);
  const other=randomUUID();await tx`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status,listed)values(${other},${request},'Otro bloque','Lugar general','Voluntariado General','2035-01-20','2035-01-22',false,2,'borrador',false)`;
  await saveOutingEditor(tx,outing,await good({personal:['title'],title:'Título propio',location:'Ignorar',unit:'Ignorar'}),options);const [block]=await tx`select title,location,unit from outings where id=${outing}`;assert.equal(block.title,'Título propio');assert.equal(block.location,'Lugar general');assert.equal(block.unit,'Voluntariado General','Bloque hereda campos no personalizados');
@@ -28,5 +28,5 @@ try{await sql.begin(async tx=>{
  const finalValues={...blank,labour:[labourOptions[0]],activity:activityOptions[0],location:'Lugar ficticio',starts:'2035-01-10',ends:'2035-01-12',actions:'Acciones ficticias',host:'Persona ficticia'};
  assert.ok((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'finalizar','obsoleta')).error);
  assert.equal((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'finalizar',version)).status,'finalizado');assert.ok((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'borrador',version)).error.includes('finalizado'));
- assert.equal((await tx`select count(*)::int as n from outing_reports where outing_id=${outing}`)[0].n,1);assert.equal(uploadCount,0);throw rollback;
+ assert.equal((await tx`select count(*)::int as n from outing_reports where outing_id=${outing}`)[0].n,1);throw rollback;
 });}catch(e){if(e!==rollback)throw e;console.log('OK: errores conjuntos del editor, alcance explícito, edición directa/herencia, versiones obsoletas, borrador sin asistencia y finalización bloqueada. Rollback local; cero cargas o correos reales.');}finally{globalThis.fetch=originalFetch;await sql.end();}

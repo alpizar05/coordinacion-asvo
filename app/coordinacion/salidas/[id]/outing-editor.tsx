@@ -15,7 +15,7 @@ type Section=typeof sections[number][0];
 type Photo={key:string;kind:'existing'|'gallery'|'upload';id?:string;file?:File;permission?:boolean;alt:string;credit:string};
 export type OutingEditorProps={isSeries:boolean;id:string;version:string;initial:Record<string,string>;defaults:Record<string,string>;overrides:string[];units:string[];photos:{id:string;alt:string;credit:string}[];gallery:GalleryPhoto[];request:Record<string,string>;canEditRequest:boolean;related:{id:string;title:string;starts:string;ends:string}[];inheritsPhotos:boolean;hasGeneralPhotos:boolean;actions:ReactNode};
 export function OutingEditor(props:OutingEditorProps){
- const root=useRef<HTMLDivElement>(null);
+ const root=useRef<HTMLDivElement>(null),photoOperation=useRef('');
  const router=useRouter(),form=useRef<HTMLFormElement>(null),busy=useRef(false);
  const [section,setSection]=useState<Section>('general'),[selector,setSelector]=useState(false),[dirty,setDirty]=useState(false),[pending,setPending]=useState(false),[discard,setDiscard]=useState<string|null>(null);
 
@@ -54,7 +54,7 @@ export function OutingEditor(props:OutingEditorProps){
  const addPhoto=(choice:PhotoChoice)=>{if(photos.length>=6)return 'Podés agregar hasta seis fotos.';photoChange([...photos,{...choice,permission:choice.kind==='upload'?true:undefined,kind:choice.kind==='edit'?'existing':choice.kind,key:choice.kind==='upload'?`new-${crypto.randomUUID()}`:choice.id}]);};
  async function save(){
   if(!form.current||busy.current)return;
-  const data=new FormData(form.current);data.set('version',props.version);data.set('photoMode',photoMode);
+  const data=new FormData(form.current);if(!photoOperation.current)photoOperation.current=crypto.randomUUID();data.set('photoOperation',photoOperation.current);data.set('version',props.version);data.set('photoMode',photoMode);
   data.set('photos',JSON.stringify(photos.map(({file,...p})=>p)));
   for(const p of photos)if(p.file)data.set(`photo-${p.key}`,p.file);
   const errors=validateOutingEdit(data,props.initial,props.defaults,props.isSeries,0,props.request,props.related.length>1);if(Object.keys(errors).length){feedback.showErrors(errors);return;}

@@ -1,119 +1,35 @@
 'use server';
-import {validatePhoto} from '../lib/outing-form-validation';
 import type {FormResult} from '../lib/form-result';
-
-import { revalidatePath } from 'next/cache';
-import { outingPhotoLimit } from '../lib/outing-photo-limits';
-import { redirect } from 'next/navigation';
-import { allows, requireStaff, staff } from '../lib/auth';
-import { sql } from '../lib/db';
-import { preparePhoto, storeOriginal } from '../lib/outing-photos';
-import { audit, field, outingIsEditable, uuid } from '../lib/registration';
-
-export async function managePhoto(id: string, form: FormData) {
-  const error = await updatePhoto(id, form);
-  const back = `/coordinacion/salidas/${id}`;
-  redirect(error ? `${back}?editar=1&error=${encodeURIComponent(error)}#fotos` : `${back}?editar=1&confirmacion=foto#fotos`);
+import {revalidatePath} from 'next/cache';
+import {redirect} from 'next/navigation';
+import {staff} from '../lib/auth';
+import {sql} from '../lib/db';
+import {field,uuid} from '../lib/registration';
+import {preparePhoto,graphPhotoStore} from '../lib/outing-photos';
+import {PhotoUploadError,withPhotoUploads} from '../lib/photo-upload-workflow';
+import {authorizePhotoMutation,savePhotoMutation} from '../lib/photo-mutation';
+export async function managePhoto(id:string,form:FormData){
+ const result=await mutatePhoto(id,form),back=`/coordinacion/salidas/${id}`;
+ const error=result.saved?'':result.error||'Revisá los datos de la foto.';
+ redirect(error?`${back}?editar=1&error=${encodeURIComponent(error)}#fotos`:`${back}?editar=1&confirmacion=foto#fotos`);
 }
-
-export async function attachOutingPhoto(id: string, form: FormData):Promise<FormResult> {
-  if (!['agregar', 'galeria', 'editar'].includes(field(form, 'action'))) return {error:'Elegí cómo agregar la foto.'};
-  const action=field(form,'action');const errors=validatePhoto(form,{mode:action==='agregar'?'upload':action==='galeria'?'gallery':'edit'});if(Object.keys(errors).length)return {fieldErrors:errors};
-  if(action==='agregar'){const file=form.get('photo');try{await preparePhoto(file as File);}catch{return {fieldErrors:{photo:'El archivo no es una imagen válida de hasta 3 MB y 24 megapíxeles.'}};}}
-  const error = await updatePhoto(id, form);
-  if (!error) {
-    revalidatePath(`/coordinacion/salidas/${id}`);
-    revalidatePath(`/convocatorias/${id}`);
-  }
-  return error?{error}:{saved:true};
+export async function attachOutingPhoto(id:string,form:FormData):Promise<FormResult>{
+ if(!['agregar','galeria','editar'].includes(field(form,'action')))return {error:'Elegí cómo agregar la foto.'};
+ return mutatePhoto(id,form);
 }
-
-async function updatePhoto(id: string, form: FormData) {
-  if (!uuid(id)) return 'La convocatoria no está disponible.';
-  const user = await staff();
-  const [ref] = await sql`select unit from outings where id=${id}`;
-  requireStaff(user,!!ref && allows(user,'photos.manage',{unit:ref.unit}));
-  const action = field(form,'action');
-  if(!['agregar','galeria','editar','retirar','portada','subir','bajar'].includes(action))return 'La acción de foto no está disponible.';
-  const photoId = field(form,'photoId');
-  let error: string | undefined;
-  try {
-    const alt = field(form,'alt');
-    const credit = field(form,'credit');
-    const file = form.get('photo');
-    if (action === 'editar' && (!alt || alt.length > 240 || credit.length > 150)) throw new Error('Elegí una descripción de hasta 240 caracteres y un crédito de hasta 150.');
-    if (action === 'galeria' && (form.has('alt') && (!alt || alt.length > 240) || credit.length > 150)) throw new Error('Elegí una descripción válida y revisá el crédito de la foto.');
-    if (action === 'agregar' && (!(file instanceof File) || !alt || alt.length > 240 || credit.length > 150)) {
-      throw new Error('Elegí una foto y completá su descripción.');
-    }
-    if (action === 'agregar' && field(form,'permission') !== 'on') {
-      throw new Error('Agregá únicamente fotos autorizadas para publicación.');
-    }
-    const prepared = action === 'agregar' && file instanceof File ? await preparePhoto(file) : null;
-    await sql.begin(async tx => {
-      const [outing] = await tx`select unit,status from outings where id=${id} for update`;
-      requireStaff(user,!!outing && allows(user,'photos.manage',{unit:outing.unit}));
-      if (!outingIsEditable(outing.status)) {
-        error = 'Esta convocatoria está cerrada para edición.';
-        return;
-      }
-      const markPersonal = () => tx`update outings set outing_overrides=array_append(outing_overrides,'photos')
-        where id=${id} and not ('photos'=any(outing_overrides))`;
-      const photos = await tx`select id,position from outing_photos where outing_id=${id} and position is not null order by position`;
-      if ((prepared || action === 'galeria') && photos.length >= outingPhotoLimit) {
-        throw new Error('La convocatoria admite hasta seis fotos.');
-      }
-      if (action === 'galeria') {
-        if (!uuid(photoId)) throw new Error('Elegí una foto disponible de la galería.');
-        const [source] = await tx`select p.id,o.unit
-          from outing_photos p join outings o on o.id=p.outing_id
-          where p.id=${photoId} and p.position is not null and p.outing_id<>${id}
-          for share of p`;
-        if (!source || !allows(user,'photos.manage',{unit:source.unit})) throw new Error('Elegí una foto disponible de la galería.');
-        const [photo] = await tx`insert into outing_photos
-          (outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-          select ${id},${photos.length + 1},coalesce(${form.has('alt') ? alt : null}::text,alt),coalesce(${form.has('credit') ? credit : null}::text,credit),original_item,original_drive,thumbnail,display_image
-          from outing_photos where id=${source.id} returning id`;
-        await markPersonal();
-        await audit(tx, user.subject, 'Adjuntó foto de la galería', photo.id);
-        return;
-      }
-      if (prepared) {
-        const original = await storeOriginal(prepared);
-        const [photo] = await tx`insert into outing_photos(outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
-          values (${id},${photos.length + 1},${alt},${credit},${original.item},${original.drive},
-            ${prepared.thumbnail},${prepared.display}) returning id`;
-        await markPersonal();
-        await audit(tx,user.subject,'Adjuntó foto',photo.id);
-        return;
-      }
-      const index = photos.findIndex(photo => photo.id === photoId);
-      if (index < 0) throw new Error('Elegí una foto que siga disponible en la convocatoria.');
-      if (action === 'editar') {
-        await tx`update outing_photos set alt=${alt},credit=${credit} where id=${photoId} and outing_id=${id}`;
-        await markPersonal();
-        await audit(tx,user.subject,'Actualizó descripción y crédito de foto',photoId);
-        return;
-      }
-      if (action === 'retirar') {
-        if (outing.status === 'abierta' && photos.length === 1) throw new Error('Agregá otra foto antes de retirar la única portada.');
-        await tx`update outing_photos set position=null where id=${photoId}`;
-        await tx`update outing_photos set position=position-1 where outing_id=${id} and position>${index+1}`;
-        await markPersonal();
-        await audit(tx,user.subject,'Retiró foto',photoId);
-        return;
-      }
-      const target = photos[action === 'portada' ? 0 : action === 'subir' ? index-1 : action === 'bajar' ? index+1 : -1];
-      if (!target || target.id === photoId) return;
-      await tx`update outing_photos set position=case when id=${photoId} then ${target.position}::smallint else ${index+1}::smallint end
-        where id in (${photoId},${target.id})`;
-      await markPersonal();
-      await audit(tx,user.subject,'Reordenó foto',photoId);
-    });
-  } catch (cause) {
-    const message = cause instanceof Error ? cause.message : '';
-    error = /^(Elegí|Usá|La convocatoria|Configurá|No se pudo|SharePoint|Agregá)/.test(message)
-      ? message : 'No se pudo procesar la foto.';
-  }
-  return error;
+async function mutatePhoto(id:string,form:FormData):Promise<FormResult>{
+ const principal=await staff();if(!principal||!uuid(id))return {error:'No tenés permiso para gestionar esta convocatoria.'};
+ const file=form.get('photo'),files=field(form,'action')==='agregar'&&file instanceof File?[{key:'upload',file}]:[];
+ try{
+  await withPhotoUploads({sql,principal,scope:`photo:${id}`,form,files,prepare:preparePhoto,store:graphPhotoStore(),
+   authorize:(tx,user)=>authorizePhotoMutation(tx,id,user),
+   validate:(tx,user)=>savePhotoMutation(tx,id,form,user,{preflightOnly:true}),
+   commit:async(tx,user,uploads,snapshot)=>{await savePhotoMutation(tx,id,form,user,{expectedVersion:String(snapshot),prepared:uploads.get('upload')});return {saved:true};},
+  });
+ }catch(error){
+  if(error instanceof PhotoUploadError)return {fieldErrors:{photo:Object.values(error.fieldErrors)[0]}};
+  if(error&&typeof error==='object'&&'fieldErrors'in error)return {fieldErrors:error.fieldErrors as Record<string,string>};
+  const message=error instanceof Error?error.message:'';return {error:/^(Elegí|Usá|La convocatoria|Configurá|No se pudo|SharePoint|Agregá|Esta convocatoria|Acceso denegado)/.test(message)?message:'No se pudo procesar la foto. Tus datos se conservan para reintentar.'};
+ }
+ revalidatePath(`/coordinacion/salidas/${id}`);revalidatePath(`/convocatorias/${id}`);return {saved:true};
 }

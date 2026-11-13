@@ -329,3 +329,7 @@ La [guía de validación de entradas y resultados](docs/validacion-de-entradas.m
 La [matriz de autorización](docs/autorizacion.md) documenta rol, unidad, recurso y capacidades privadas, con inventario verificable de acciones/handlers (`npm run test:authorization:inventory`). Las políticas compartidas conservan la separación entre Administración y Coordinación y se verifican con datos ficticios locales.
 
 La [guía de transiciones](docs/transiciones-de-estado.md) describe estados, actores, motivos, auditorías y avisos de convocatorias, inscripciones e informes. Las decisiones compartidas mantienen las transacciones existentes y se prueban con fallos de outbox/auditoría en bases locales desechables (`npm run test:integration -- --only=workflow-transitions`). No se añaden restricciones ni conversiones automáticas de estados históricos.
+
+### Carga y compensación de fotografías
+
+Creación y edición separan autorización, preparación, Graph y confirmación corta con revalidación. Consultá [flujo, reintentos, limpieza y pruebas](docs/carga-de-fotografias.md). **Aplicar la migración 0002 antes de desplegar**. `npm run photos:cleanup:plan` consulta la bitácora; `npm run photos:cleanup` ejecuta compensación explícita de originales nuevos no referenciados. No se activó un cron de fotos ni se cambió el proveedor o la caché pública.

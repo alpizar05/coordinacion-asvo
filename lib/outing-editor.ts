@@ -20,7 +20,7 @@ export async function outingEditVersion(tx:Transaction | import('postgres').Sql,
  return String(row?.version || '');
 }
 
-export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,options:{photoErrors?:FieldErrors;actor:string;canOperate:(unit:string)=>boolean;upload:(key:string)=>Promise<{item:string|null;drive:string|null;thumbnail:Buffer;display:Buffer}>}){
+export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,options:{photoErrors?:FieldErrors;actor:string;canOperate:(unit:string)=>boolean;uploads?:ReadonlyMap<string,import('./photo-upload-workflow').PhotoReference>;preflightOnly?:boolean}){
  const [ref]=await tx`select request_id from outings where id=${id}`;
  if(!ref)invalid('form','La convocatoria no está disponible.');
  const [request]=await tx`select * from requests where id=${ref.request_id} for update`;
@@ -94,9 +94,10 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
   }
  }
  if(photoMode==='inherit'&&(!request.outing_photos_initialized||(outing.status==='abierta'&&!(await tx`select 1 from request_outing_photos where request_id=${outing.request_id}`).length)))invalid('photos','La convocatoria general no tiene una portada disponible.');
- // Validate every section before uploading or changing any database record.
- const uploads=new Map<string,Awaited<ReturnType<typeof options.upload>>>();
- for(const p of photos.filter(p=>p.kind==='upload'))uploads.set(p.key,await options.upload(p.key));
+ // The preflight transaction never reads file bytes or calls a provider.
+ if(options.preflightOnly)return;
+ const uploads=options.uploads??new Map();
+ for(const p of photos.filter(p=>p.kind==='upload'))if(!uploads.has(p.key))invalid('form','No se encontró un archivo preparado.');
  const overrides=[...outing.outing_overrides.filter((name:string)=>!commonOutingFields.some(item=>item.name===name)),...commonOutingFields.filter(item=>personal.has(item.name)).map(item=>item.name)];
  await tx`update outings set ${tx({...updates,starts,ends,flexible:mode==='flexible',capacity,listed:visibility==='publica',registration_deadline:deadline})},outing_overrides=${overrides} where id=${id}`;
  if(requestChanged){await tx`update requests set ${tx(shared)} where id=${outing.request_id}`;await audit(tx,options.actor,'Actualizó solicitud de apoyo',outing.request_id);}

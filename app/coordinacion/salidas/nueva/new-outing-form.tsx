@@ -41,6 +41,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   clone?: OutingTemplate; gallery: GalleryPhoto[]; templates: OutingTemplate[]; units: string[];
 }) {
   const router = useRouter();
+  const photoOperation=useRef('');
   const editorSections=[['general','Información general'],['dates','Fechas y cupos'],['logistics','Participación y logística'],['photos','Fotos'],['publication','Publicación']] as const;
   const [section,setSection]=useState('general');
   const [selector,setSelector]=useState(false);
@@ -87,6 +88,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
   return <FormFeedbackProvider feedback={feedback}><form ref={formRef} className="outing-editor new-outing-editor" method="post" noValidate onChange={e=>{setDirty(true);const t=e.target;if(t instanceof HTMLInputElement||t instanceof HTMLSelectElement||t instanceof HTMLTextAreaElement)requestAnimationFrame(()=>feedback.changed(t.name));}} onSubmit={async event=>{
     event.preventDefault();if(busy.current)return;
     const data=new FormData(event.currentTarget,(event.nativeEvent as SubmitEvent).submitter);
+    if(!photoOperation.current)photoOperation.current=crypto.randomUUID();data.set('photoOperation',photoOperation.current);
     newPhotos.forEach((photo,index)=>{data.set(`photo-${index}`,photo.file);data.set(`alt-${index}`,photo.alt);data.set(`credit-${index}`,photo.credit);data.set(`permission-${index}`,'on');});
     const coverSlot=newPhotos.findIndex(photo=>currentCover===photo.file);data.set('photoCover',coverSlot<0?String(currentCover):`new-${coverSlot}`);
     const errors=validateNewOuting(data);if(Object.keys(errors).length){feedback.showErrors(mapErrors(errors));return;}
