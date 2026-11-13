@@ -12,7 +12,7 @@ Las recomendaciones de producto y experiencia de uso están en la **[lista de me
 
 Consultá el **[How to: desplegar y configurar la plataforma](docs/despliegue-y-configuracion.md)**. Incluye GitHub, Vercel, Neon, Entra ID, SharePoint, Microsoft Graph, Exchange Online, PowerShell, variables de entorno, permisos, diagnóstico de errores y el procedimiento futuro para dominio y remitente definitivo.
 
-El manual también registra qué se verificó en la beta y los pendientes: reintentos programados de correo, pruebas de aceptación, separación de bases por entorno y preparación del lanzamiento. El subdominio `voluntariado.asvocr.org` queda reservado para esa etapa.
+El manual registra qué se verificó en la beta y la configuración de reintentos de correo, además de los pendientes de aceptación, separación de bases por entorno y lanzamiento. El subdominio `voluntariado.asvocr.org` queda reservado para esa etapa.
 
 ## Configuración y seguridad
 
@@ -36,7 +36,7 @@ El módulo futuro de capacitaciones vinculará cada curso completado al UUID de 
 
 ## Despliegue local
 
-Ejecutá estos comandos desde la carpeta `coordinacion-asvo`. Requiere Node.js 22 o posterior y npm. El entorno de prueba funciona con `ASVO_DEMO=1` y `npm run dev`.
+Ejecutá estos comandos desde la carpeta `coordinacion-asvo`. La evidencia local más reciente usa Node.js 25.2.1 y npm 11.7.0, fijados para CI; validar una versión LTS soportada por el alojamiento sigue pendiente. No confundir ese pin de CI con la configuración remota de Vercel. El entorno de prueba funciona con `ASVO_DEMO=1` y `npm run dev`.
 
 ### Primera instalación en Mac con Apple Silicon
 
@@ -156,10 +156,11 @@ Ver [comandos, compatibilidad y verificación local](docs/operaciones-base-datos
 
 ## Pruebas separadas y cobertura
 
-- `npm run test:unit`: 62 pruebas aisladas, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
-- `npm run test:unit:coverage`: LCOV y resumen por módulo en `coverage/`, sobre un denominador explícito de 25 módulos puros; no mide toda la plataforma.
-- `npm run test:contracts`: Auth.js y adaptador de correo con dobles, sin proveedores reales.
-- `npm run test:integration`: 12 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
+- `npm run test:unit`: 92 pruebas en la última evidencia registrada, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
+- `npm run test:unit:coverage`: LCOV y resumen por módulo en `coverage/`, sobre un denominador explícito de 35 módulos puros; no mide toda la plataforma.
+- `npm run test:contracts`: cinco inventarios/contratos (fronteras, autorización, Auth.js y correo), sin proveedores reales.
+- `npm run test:ci`: seis comprobaciones de la pipeline, separadas de las unitarias del dominio.
+- `npm run test:integration`: 18 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
 - `npm run test:integration -- --only=summary`: ejecuta un grupo concreto con el mismo aislamiento.
 
 Ver [inventario y comandos](tests/README.md) y [medición inicial, exclusiones y umbrales propuestos](docs/pruebas-y-cobertura.md). Los scripts antiguos de integración ya no aceptan la base de uso diario: ejecutalos mediante el grupo correspondiente. TypeScript, compilación y navegador siguen siendo comprobaciones separadas.
@@ -170,7 +171,7 @@ Los mensajes nuevos usan una plantilla HTML con el logo de ASVO, los colores de 
 
 Cada recepción y actualización genera un correo con estado, mensaje y enlace privado. En modo demo se consulta en **Bandeja de prueba · Demo**. En producción se usa Exchange Online mediante Graph. Los mensajes quedan en una cola persistente dentro de la misma transacción que cambia la inscripción.
 
-La aplicación intenta enviarlos después de cada operación. Si falla Graph, quedan pendientes de reintento. Para procesar la cola cada minuto, mantené un proceso de correo activo con `npm run mail:worker`, usando las variables de entorno del despliegue. En un servicio que ya inyecta las variables, usá `node scripts/mail-outbox.mjs --watch`. En Vercel, `vercel.json` programa `/api/cron/correos` diariamente a las 12:00 UTC (6:00 a. m. de Costa Rica), compatible con Hobby. Para activarlo, configurá `CRON_SECRET` en Production y desplegá el código. La ruta exige autorización Bearer y rechaza demo/Preview. Consultá la [configuración y verificación del cron](docs/despliegue-y-configuracion.md#10-cola-y-reintentos-de-correo). La ejecución diaria es de respaldo; un envío fallido puede esperar al siguiente día. Para un reintento local puntual, usá `npm run mail:retry`. Los mensajes de una misma inscripción se entregan en orden. La evidencia de aceptación se registra antes de proyectar `sent_at`; si esa proyección falla se recupera sin reenviar. Los resultados inciertos quedan detenidos para revisión explícita (`npm run mail:review`), sin reintento ciego. Aceptación no significa entrega. Ver [intentos, recuperación y revisión de correo](docs/resultados-de-correo.md). Requiere la migración 0003 antes del despliegue, con los workers antiguos detenidos.
+La aplicación intenta enviarlos después de cada operación. Si falla Graph, quedan pendientes de reintento. Para procesar la cola cada minuto, mantené un proceso de correo activo con `npm run mail:worker`, usando las variables de entorno del despliegue. En un servicio que ya inyecta las variables, usá `node scripts/mail-outbox.mjs --watch`. En Vercel, `vercel.json` programa `/api/cron/correos` diariamente a las 12:00 UTC (6:00 a. m. de Costa Rica), compatible con Hobby. Para activarlo, configurá `CRON_SECRET` en Production y desplegá el código. La ruta exige autorización Bearer y rechaza demo/Preview. Consultá la [configuración y verificación del cron](docs/despliegue-y-configuracion.md#10-cola-y-reintentos-de-correo). La ejecución diaria es de respaldo; un envío fallido puede esperar al siguiente día. Para un reintento local puntual, usá `npm run mail:retry`. Los intentos de envío mantienen el orden por inscripción; esto no garantiza el orden de entrega en el buzón. La evidencia de aceptación se registra antes de proyectar `sent_at`; si esa proyección falla se recupera sin reenviar. Los resultados inciertos quedan detenidos para revisión explícita (`npm run mail:review`), sin reintento ciego. Aceptación no significa entrega. Ver [intentos, recuperación y revisión de correo](docs/resultados-de-correo.md). Requiere la migración 0003 antes del despliegue, con los workers antiguos detenidos.
 
 `npm run db:setup` y `db:migrate` ejecutan únicamente las migraciones numeradas de estructura y catálogo operativo. Usá `db:status` o `db:plan` para consultar sin escrituras; una base existente sin registro requiere `db:adopt -- --apply` después de verificar su compatibilidad. No transforma inscripciones, carga ejemplos, crea avisos/enlaces ni procesa correo. Para una base anterior, las transformaciones históricas se ejecutan por separado con `npm run db:migrate:history -- --apply`, previa revisión de la [guía de operaciones de base](docs/operaciones-base-datos.md); conservan sus marcas y no generan comunicaciones. `--demo` en `db:setup` ahora se rechaza antes de conectar: usá `npm run db:seed:demo`. La prueba local `npm run test:registration` comprueba concurrencia, reservas, promociones, motivos, correos demo y enlaces privados, y elimina sus propios datos al terminar. Requiere Node.js 22.18 o posterior con soporte de TypeScript nativo.
 
@@ -349,3 +350,9 @@ La interfaz de Coordinación usa `app/actions/{outings,series,registrations,repo
 La [auditoría de CI y equivalencia](docs/ci-y-equivalencia.md) inventaría la refactorización, las pruebas ejecutadas y sus límites. El workflow local `.github/workflows/ci.yml` separa calidad, unitarias, contratos, integración, build y seguridad; tiene únicamente disparo manual. **Publicado posteriormente con autorización, manteniendo solo disparo manual; primera ejecución remota pendiente.** La suite de navegador conserva su dependencia de CUA y no se presenta como CI autónomo.
 
 Comandos adicionales: `npm run lint`, `npm run format:check`, `npm run test:ci`, `npm run ci:typecheck`, `npm run ci:install:verify`, `npm run security:secrets` y `npm run security:dependencies`. Para CI sin dotenv: `npm run test:integration:ci`, con `CI_DATABASE_URL` exclusivamente local y sin variables Auth/Graph/SharePoint heredadas. No usar credenciales beta. La primera ejecución Linux/contenedor, runtime LTS y verificación visual completa siguen pendientes antes de activar protecciones de repositorio.
+
+## Evolución de arquitectura y próximas solicitudes
+
+La [reevaluación de refactorización](docs/reevaluacion-refactorizacion.md) contrasta implementación, evidencia histórica y pendientes concretos; evita repetir como deuda las bases ya resueltas. Los [lineamientos de implementación](docs/lineamientos-implementacion.md) indican qué reutilizar y cuándo extender o crear una pieza. Las [plantillas breve y completa](docs/plantillas-solicitudes-codigo.md) sirven para solicitar cambios y módulos nuevos, con un ejemplo de Lugares que todavía requiere decisiones de producto.
+
+Esta revisión fue documental: solo repitió tres auditorías estáticas, sin DB, builds, navegador ni proveedores. Los resultados de pruebas indicados arriba pertenecen a las etapas registradas; CI remoto, runtime LTS, CUA/lectores e infraestructura conservan sus pendientes. No se modificaron AGENTS.md ni reglas de Codex.
