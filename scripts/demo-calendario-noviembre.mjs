@@ -1,11 +1,9 @@
+import { requireLocalDemo } from '../lib/local-demo.mjs';
 import postgres from 'postgres';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 
-const url = new URL(process.env.DATABASE_URL);
-if (process.env.ASVO_DEMO !== '1' || !['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) {
-  throw new Error('El calendario requiere ASVO_DEMO=1 y una base PostgreSQL local.');
-}
+const url = requireLocalDemo();
 
 const weekend = [[7, 8], [14, 15], [21, 22], [28, 29]];
 const calendar = [

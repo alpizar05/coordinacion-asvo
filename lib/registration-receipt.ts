@@ -1,3 +1,4 @@
+import {validPrivateToken} from './authorization';
 import { randomBytes } from 'node:crypto';
 import { cookies } from 'next/headers';
 import { sql } from './db';
@@ -14,7 +15,7 @@ export async function createRegistrationReceipt(tx: Transaction, registrationId:
 
 export async function readRegistrationReceipt(outingId: string) {
   const token = (await cookies()).get(receiptCookie(outingId))?.value;
-  if (!token || !/^[\w-]{43}$/.test(token)) return;
+  if (!validPrivateToken(token)) return;
   const [receipt] = await sql<{ name: string; firstName: string; status: string }[]>`select concat_ws(' ',v.name,v.surname,v.second_surname) as name,v.name as "firstName",receipt.status
     from registration_receipts receipt join registrations r on r.id=receipt.registration_id
     join volunteers v on v.id=r.volunteer_id

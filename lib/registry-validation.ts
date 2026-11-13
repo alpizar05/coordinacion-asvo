@@ -1,6 +1,6 @@
+import {formText as value,scalarInputErrors} from './form-input';
 import {validFormDate as date} from './form-dates.mjs';
 import type { FieldErrors } from './form-result';
-const value=(f:FormData,n:string)=>String(f.get(n)??'').trim();
 const uuid=(s:string)=>/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(s);
 export type RegistryFormKind='policy'|'incident'|'attendance'|'grant';
 export function validateRegistryForm(form:FormData,kind:RegistryFormKind):FieldErrors{
@@ -27,5 +27,5 @@ export function validateRegistryForm(form:FormData,kind:RegistryFormKind):FieldE
   if(value(form,'role')==='unidad'&&!value(form,'unit'))errors.unit='Seleccioná una unidad.';
   if(!['asignar','revocar'].includes(value(form,'action')))errors.action='Seleccioná Asignar o Revocar.';
  }
- return errors;
+ return {...errors,...scalarInputErrors(form,kind==='policy'?['kind','number','source','starts','ends']:kind==='incident'?['occurred_on','description','outing']:kind==='attendance'?['decision','reason']:['subject','role','unit','action'])};
 }

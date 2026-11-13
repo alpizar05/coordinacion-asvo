@@ -29,7 +29,7 @@ import { RegistrationActions } from '../../registration-actions';
 import { managePhoto } from '../../../photo-actions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { canOperate, staff } from '../../../../lib/auth';
+import { canOperate, staff, staffScope } from '../../../../lib/auth';
 import { appUrl, demo, sql } from '../../../../lib/db';
 import { displayDate, outingIsEditable, suggestedGroups, uuid } from '../../../../lib/registration';
 import { manageOuting, splitOutingGroup } from '../../../staff-actions';
@@ -72,7 +72,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   const canAttachPhotos = editing && photos.length < outingPhotoLimit;
   const gallery = editing ? await outingPhotoGallery(user, id) : [];
   const [request] = await sql`select organization,contact,area,activity,plan,outing_defaults,outing_photos_initialized from requests where id=${outing.request_id}`;
-  const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
+  const scopes = staffScope(user).units;
   const units = editing ? await sql`select name from units where ${canViewProfile} or name=any(${scopes}::text[]) order by name` : [];
   const related = editing ? await sql`select id,title,unit,starts::text,ends::text from outings
     where request_id=${outing.request_id} order by starts,id` : [];

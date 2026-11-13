@@ -5,7 +5,7 @@ import type {FormResult} from '../lib/form-result';
 import { revalidatePath } from 'next/cache';
 import { outingPhotoLimit } from '../lib/outing-photo-limits';
 import { redirect } from 'next/navigation';
-import { canOperate, requireStaff, staff } from '../lib/auth';
+import { allows, requireStaff, staff } from '../lib/auth';
 import { sql } from '../lib/db';
 import { preparePhoto, storeOriginal } from '../lib/outing-photos';
 import { audit, field, outingIsEditable, uuid } from '../lib/registration';
@@ -32,7 +32,7 @@ async function updatePhoto(id: string, form: FormData) {
   if (!uuid(id)) return 'La convocatoria no está disponible.';
   const user = await staff();
   const [ref] = await sql`select unit from outings where id=${id}`;
-  requireStaff(user,!!ref && canOperate(user,ref.unit));
+  requireStaff(user,!!ref && allows(user,'photos.manage',{unit:ref.unit}));
   const action = field(form,'action');
   if(!['agregar','galeria','editar','retirar','portada','subir','bajar'].includes(action))return 'La acción de foto no está disponible.';
   const photoId = field(form,'photoId');
@@ -52,7 +52,7 @@ async function updatePhoto(id: string, form: FormData) {
     const prepared = action === 'agregar' && file instanceof File ? await preparePhoto(file) : null;
     await sql.begin(async tx => {
       const [outing] = await tx`select unit,status from outings where id=${id} for update`;
-      requireStaff(user,!!outing && canOperate(user,outing.unit));
+      requireStaff(user,!!outing && allows(user,'photos.manage',{unit:outing.unit}));
       if (!outingIsEditable(outing.status)) {
         error = 'Esta convocatoria está cerrada para edición.';
         return;
@@ -69,7 +69,7 @@ async function updatePhoto(id: string, form: FormData) {
           from outing_photos p join outings o on o.id=p.outing_id
           where p.id=${photoId} and p.position is not null and p.outing_id<>${id}
           for share of p`;
-        if (!source || !canOperate(user, source.unit)) throw new Error('Elegí una foto disponible de la galería.');
+        if (!source || !allows(user,'photos.manage',{unit:source.unit})) throw new Error('Elegí una foto disponible de la galería.');
         const [photo] = await tx`insert into outing_photos
           (outing_id,position,alt,credit,original_item,original_drive,thumbnail,display_image)
           select ${id},${photos.length + 1},coalesce(${form.has('alt') ? alt : null}::text,alt),coalesce(${form.has('credit') ? credit : null}::text,credit),original_item,original_drive,thumbnail,display_image

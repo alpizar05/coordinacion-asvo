@@ -1,3 +1,4 @@
+import {collectionAccessCondition} from '../../../../../lib/authorization-sql';
 import { NavigationResults } from '../../../navigation-context';
 import { randomUUID } from 'node:crypto';
 import { ContextDetailLink, ContextReturnLink } from '../../../navigation-context';
@@ -5,7 +6,7 @@ import { compactParticipationDates } from '../../../../../lib/participation-date
 import { CapacitySummary } from '../../../../capacity-summary';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { canOperate, staff } from '../../../../../lib/auth';
+import { canOperate, staff, staffScope } from '../../../../../lib/auth';
 import { sql } from '../../../../../lib/db';
 import { registrationToday } from '../../../../../lib/outing-invitations';
 import { displayDate, uuid } from '../../../../../lib/registration';
@@ -17,10 +18,10 @@ export default async function ManualCollectionDetail({ params }: { params: Promi
   const user = await staff();
   if (!user) redirect('/coordinacion');
   const general = canOperate(user);
-  const scopes = user.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit);
+  const scopes = staffScope(user).units;
   if (!general && !scopes.length) notFound();
   const [collection] = await sql`select name,description from outing_collections
-    where id=${id} and (${general} or created_by=${user.subject})`;
+    where id=${id} and ${collectionAccessCondition(sql,user)}`;
   if (!collection) notFound();
   const blocks = await sql`select o.id,o.title,o.unit,o.starts::text,o.ends::text,o.status,o.capacity,
       (select count(*)::int from registrations where outing_id=o.id and status in ('revisión','confirmada')) as occupied,

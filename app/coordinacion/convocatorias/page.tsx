@@ -1,3 +1,4 @@
+import {collectionAccessCondition} from '../../../lib/authorization-sql';
 import {ContextReturnLink} from '../navigation-context';
 import { redirect } from 'next/navigation';
 import { StatusRibbon } from '../../status-ribbon';
@@ -5,7 +6,7 @@ import { CollectionsTable, type CollectionRow } from '../collections-table';
 import CoordinationBreadcrumb from '../breadcrumb';
 import { OutingsTable, type OutingRow } from '../outings-table';
 import Link from 'next/link';
-import { staff } from '../../../lib/auth';
+import { staff, staffScope } from '../../../lib/auth';
 import { registrationToday } from '../../../lib/outing-invitations';
 import { sql } from '../../../lib/db';
 
@@ -14,9 +15,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
   const user = await staff();
   if (!user) redirect('/coordinacion');
 
-  const admin = user.grants.some(item => item.role === 'admin');
-  const general = user.grants.some(item => item.role === 'general');
-  const scopes = user.grants.filter(item => item.role === 'unidad').map(item => item.unit);
+  const admin = staffScope(user).admin;
+  const general = staffScope(user).general;
+  const scopes = staffScope(user).units;
   const operates = general || scopes.length > 0;
   if (admin && !operates) redirect('/coordinacion/administracion');
   const units = await sql`select name from units order by name`;
@@ -34,7 +35,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
       (min(o.starts) filter (where o.public))::text as next_start
     from outing_collections c left join outing_collection_members m on m.collection_id=c.id
     left join scoped_outings o on o.id=m.outing_id
-    where ${general} or c.created_by=${user.subject}
+    where ${collectionAccessCondition(sql,user,true)}
     group by c.id
     union all
     select r.id,coalesce(r.outing_defaults->>'title',(array_agg(o.title order by o.starts,o.id))[1]),

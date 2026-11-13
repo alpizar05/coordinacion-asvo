@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import {registerHooks} from 'node:module';
 import {existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
@@ -10,13 +12,7 @@ registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.sta
 const {sql}=await import('../lib/db.ts');
 const {manageStaffEntry}=await import('../lib/staff-entry-management.ts');
 const {splitStaffGroup}=await import('../lib/staff-group.ts');
-const {validateStaffParticipation,validateEntryManagement,validateSplitGroup}=await import('../lib/staff-registration-validation.ts');
 const form=(values={})=>{const f=new FormData();for(const[k,v]of Object.entries(values))for(const item of Array.isArray(v)?v:[v])f.append(k,item);return f;};
-assert.deepEqual(Object.keys(validateStaffParticipation(form({starts:'',ends:'',transport:'on',rides:'-1'}),{flexible:true,starts:'2035-01-10',ends:'2035-01-15'},true)).sort(),['ends','rides','starts','volunteer']);
-assert.ok(validateEntryManagement(form(),'confirmar','2035-01-09/2035-01-12').approveDates);
-assert.ok(validateEntryManagement(form(),'validar').identification);
-assert.ok(validateEntryManagement(form(),'cancelar').reason);
-assert.deepEqual(Object.keys(validateSplitGroup(form({title:'',capacity:'0'}))),['title','capacity']);
 const fetchOriginal=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};
 
 async function concurrentDecisions(){

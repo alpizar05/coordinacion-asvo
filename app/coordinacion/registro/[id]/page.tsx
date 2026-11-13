@@ -11,7 +11,7 @@ import { StatusRibbon } from '../../../status-ribbon';
 import Link from 'next/link';
 import CoordinationBreadcrumb from '../../breadcrumb';
 import { notFound } from 'next/navigation';
-import { canAdminister, canOperate, staff } from '../../../../lib/auth';
+import { allows, canAdminister, canOperate, staff } from '../../../../lib/auth';
 import { sql } from '../../../../lib/db';
 import { displayDate, uuid } from '../../../../lib/registration';
 import { recordVolunteerIncident, verifyPolicy } from '../../../staff-actions';
@@ -24,7 +24,7 @@ export default async function VolunteerProfile({ params, searchParams }: {
   const user = await staff();
   const admin = canAdminister(user);
   const coordinates = canOperate(user);
-  if (!uuid(id) || (!admin && !coordinates)) notFound();
+  if (!uuid(id) || !allows(user,'volunteers.read')) notFound();
   const [person] = await sql`select *,birth::text from volunteers where id=${id}`;
   if (!person) notFound();
   const { incidente } = await searchParams;

@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import { registerHooks } from 'node:module';
@@ -15,7 +17,7 @@ registerHooks({ resolve(specifier, context, nextResolve) {
   return nextResolve(specifier,context);
 } });
 const { sql } = await import('../lib/db.ts');
-const { searchVolunteers, volunteerListUrl } = await import('../lib/volunteer-search.ts');
+const { searchVolunteers } = await import('../lib/volunteer-search.ts');
 const batch = randomUUID().replaceAll('-','');
 const ids = Array.from({length:28},()=>randomUUID());
 try {
@@ -36,11 +38,7 @@ try {
   assert.equal((await searchVolunteers(`persona5-${batch}@example.test`,'',1)).people[0].id,ids[5]);
   assert.equal((await searchVolunteers(`${batch} no-existe`,'',1)).total,0);
   assert.equal((await searchVolunteers(`${batch} %`,'',1)).total,0,'Los comodines deben tratarse como texto literal');
-  const link = new URL(volunteerListUrl('Élena & Prueba','Control y Protección/COVIRENA',2),'http://localhost');
-  assert.equal(link.searchParams.get('buscar'),'Élena & Prueba');
-  assert.equal(link.searchParams.get('unidad'),'Control y Protección/COVIRENA');
-  assert.equal(link.searchParams.get('pagina'),'2');
-  console.log('OK: búsqueda sin tildes, identificación, correo, unidad, paginación y enlaces.');
+  console.log('OK: búsqueda sin tildes, identificación, correo, unidad y paginación.');
 } finally {
   await sql`delete from volunteers where id=any(${ids}::uuid[])`;
   await sql.end();

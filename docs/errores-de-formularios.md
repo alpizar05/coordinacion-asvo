@@ -99,8 +99,8 @@ Se migraron los tres formularios: inscripción pública, edición privada y canc
 
 Comprobaciones de esta etapa:
 
-- `node --env-file=.env.local scripts/test-public-registration.mjs`: requiere explícitamente ASVO_DEMO y PostgreSQL local. Usa una transacción revertida y bloquea fetch real. Cubre errores simultáneos, formato, fechas flexibles, identificación inexistente, póliza, unidad, cupos/espera, edición confirmada que vuelve a revisión, motivo y aceptación en servidor, promoción y reintentos sin duplicar notificaciones.
-- `node --env-file=.env.local scripts/test-registration-workflow.mjs`: regresión del flujo existente correcta. Se ajustó únicamente el destinatario de la prueba de Graph simulado a `example.invalid`: el destinatario `.test` anterior era descartado correctamente por la protección y no permitía probar el reintento. Las llamadas siguen simuladas.
+- `npm run test:integration -- --only=public-registration`: requiere explícitamente ASVO_DEMO y PostgreSQL local. Usa una transacción revertida y bloquea fetch real. Cubre errores simultáneos, formato, fechas flexibles, identificación inexistente, póliza, unidad, cupos/espera, edición confirmada que vuelve a revisión, motivo y aceptación en servidor, promoción y reintentos sin duplicar notificaciones.
+- `npm run test:integration -- --only=registration`: regresión del flujo existente correcta. Se ajustó únicamente el destinatario de la prueba de Graph simulado a `example.invalid`: el destinatario `.test` anterior era descartado correctamente por la protección y no permitía probar el reintento. Las llamadas siguen simuladas.
 - `node scripts/test-mail-test-recipients.mjs`: confirma que `.test` no autentica ni envía por Graph.
 - Navegador local: tres errores públicos simultáneos, pegado `990-000-090` convertido en nueve dígitos, mensajes distintos de identificación y póliza, valores conservados al cerrar avisos, modal correcto con nombre y permanencia en PDP. Desmarcar recordar conserva los campos visibles.
 - Gestión privada: errores independientes de fechas/transporte y motivo/aceptación en los dos formularios, edición válida que conserva cupo y vuelve a revisión, cancelación válida y promoción de la persona en espera. Diseño revisado en desktop y 390 px.
@@ -120,7 +120,7 @@ Los errores no cierran ni desmontan el formulario o acción seleccionada. Gestio
 
 Comprobaciones:
 
-- `node --env-file=.env.local scripts/test-staff-form-errors.mjs`: exige ASVO_DEMO y host local, bloquea red real y revierte la prueba principal. Comprueba errores simultáneos, permisos generales, aprobación, motivos, estados, identificación inexistente, recuperación con cupo disponible, versiones obsoletas, agrupación modificada y creación válida. Una segunda prueba lanza dos decisiones concurrentes con la misma versión: un guardado, un conflicto, una auditoría y una notificación demo; elimina sus datos temporales al terminar.
+- `npm run test:integration -- --only=staff-forms`: exige ASVO_DEMO y host local, bloquea red real y revierte la prueba principal. Comprueba errores simultáneos, permisos generales, aprobación, motivos, estados, identificación inexistente, recuperación con cupo disponible, versiones obsoletas, agrupación modificada y creación válida. Una segunda prueba lanza dos decisiones concurrentes con la misma versión: un guardado, un conflicto, una auditoría y una notificación demo; elimina sus datos temporales al terminar.
 - Regresiones `test-registration-workflow.mjs`, `test-public-registration.mjs` y `test-form-feedback.mjs` correctas; recepción concurrente, cupos, espera, ediciones y cancelaciones conservan sus reglas.
 - `npm run check` y `npm run build` correctos.
 - Navegador local desktop: Agregar persona reúne persona faltante y transporte inválido, enfoca la búsqueda y conserva las restricciones ingresadas. Corregir transporte retira solo ese error. Gestionar conserva la acción de espera abierta y enfoca el motivo vacío.
@@ -151,7 +151,7 @@ El helper de foco emite `asvo:reveal-form`; cada `SectionWorkspace` contenedor s
 
 ### Verificación
 
-- `node --env-file=.env.local scripts/test-registry-form-errors.mjs`: exige PostgreSQL demo local, bloquea red real y revierte todos los cambios. Cubre errores simultáneos de póliza/incidente/asistencia, validación de ficha, unidad obligatoria, permisos ficticios, evidencia obsoleta, errores CSV por fila/columna, archivos malformados y grandes, preview sin escrituras, confirmación obligatoria, selección inválida sin aplicación, cambios concurrentes, altas nuevas y reintentos sin duplicados ni auditorías repetidas.
+- `npm run test:integration -- --only=registry-forms`: exige PostgreSQL demo local, bloquea red real y revierte todos los cambios. Cubre errores simultáneos de póliza/incidente/asistencia, validación de ficha, unidad obligatoria, permisos ficticios, evidencia obsoleta, errores CSV por fila/columna, archivos malformados y grandes, preview sin escrituras, confirmación obligatoria, selección inválida sin aplicación, cambios concurrentes, altas nuevas y reintentos sin duplicados ni auditorías repetidas.
 - Navegador local: permiso con identificador vacío enfoca ese campo; CSV con encabezados inválidos enfoca el selector; fila con nombre/correo inválidos muestra ambas columnas y permanece deshabilitada. Una fila válida exige confirmación explícita. El enlace del resumen abre la etapa de Confirmar y enfoca su casilla. Se revisó la presentación a 390 px.
 - Navegador local: Verificar póliza reúne cinco errores y enfoca Tipo; Corregir ficha reúne Nombre y Correo y conserva los demás datos. Se cerraron sin guardar las fichas ficticias existentes. No se aplicaron importaciones ni cambios de permisos desde la prueba visual.
 - Tipos, build y pruebas de regresión de formularios, inscripciones, cupos, concurrencia y destinatarios `.test` correctos. No hay migraciones de esquema ni cambios en beta, permisos reales o correos reales.
@@ -190,3 +190,10 @@ Invitaciones y enlaces del 70 reutilizan `PrivateLinkForm`: errores junto a iden
 ## Revisión integral y cierre del alcance activo
 
 Ver el [inventario, correcciones, evidencia y limitaciones](auditoria-errores-formularios.md). La revisión añadió errores por campo a las decisiones finales de salida y los filtros de fechas; corrigió el orden de foco de grupos/aliases, bordes visuales, despliegues nativos y conservación de acciones al cambiar de sección. Los errores de filtros pueden presentarse sin robar el foco al cargar una URL (`showErrors(errors, mensaje, false)`); su resumen usa `purpose="aplicar los filtros"`. Los fallos generales y las operaciones sin campos permanecen generales.
+
+
+La separación posterior de pruebas mueve las comprobaciones puras a `npm run test:unit`. Los grupos anteriores se ejecutan ahora en bases desechables con guard de destino; no aceptan la base local de uso diario. Ver [inventario y cobertura](../tests/README.md).
+
+## Validación de entradas en servidor
+
+La siguiente etapa reutiliza este contrato y añade lectura escalar segura, reglas comunes de participación y cobertura, parser de metadatos de fotos/CSV y validación de respuestas usadas de Graph. Ver [contratos, diferencias autorizadas y comprobaciones](validacion-de-entradas.md). No cambia la conservación de archivos, los componentes de foco ni las notificaciones.

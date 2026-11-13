@@ -1,11 +1,13 @@
 'use server';
+import {outingIsOpen,outingTransition,outingTransitionError,newOutingTransition} from '../lib/workflow-transitions';
+import {applyOutingState} from '../lib/outing-state-transition';
 import {outingSeriesVersion} from '../lib/outing-editor';
 import {validateNewOuting,validateCommonSeries,validateManualSeries} from '../lib/outing-form-validation';
 import type {FieldErrors} from '../lib/form-result';
 import {prepareRegistryImport,applyRegistryImport} from '../lib/registry-import';
 import {verifyRegistryPolicy,saveRegistryUnits,saveRegistryIncident,saveRegistryGrant} from '../lib/registry-mutations';
 
-import { assignRegistration70, changeRegistrationStatus, dispatchRegistrationUpdates, notifyRegistration, occupiedSeats, promoteWaitlist } from '../lib/registration-workflow';
+import { recoverRegistration, assignRegistration70, changeRegistrationStatus, dispatchRegistrationUpdates, occupiedSeats, promoteWaitlist } from '../lib/registration-workflow';
 
 import { outingLogisticsFields } from '../lib/outing-logistics';
 import { randomBytes } from 'node:crypto';
@@ -16,7 +18,7 @@ import type { FormResult } from '../lib/form-result';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { canAdminister, canOperate, requireStaff, signIn, signOut, staff } from '../lib/auth';
+import { allows, canOperate, requireStaff, signIn, signOut, staff, staffScope } from '../lib/auth';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit } from '../lib/outing-photo-limits';
 import { preparePhoto, storeOriginal } from '../lib/outing-photos';
 import { inheritGeneralPhotos, saveGeneralPhotos } from '../lib/outing-inheritance';
@@ -46,7 +48,7 @@ export async function logout() {
 }
 
 export async function grant(form: FormData):Promise<FormResult> {
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para administrar accesos.'};
+ const user=await staff();if(!user||!allows(user,'permissions.manage'))return {error:'No tenés permiso para administrar accesos.'};
  const result=await sql.begin(tx=>saveRegistryGrant(tx,form,user.subject,demo));
  if(result.saved)revalidatePath('/coordinacion/administracion');return result;
 }
@@ -179,7 +181,8 @@ async function saveOuting(form: FormData) {
     const overrides = commonOutingFields.filter(item =>
       source?.outing_overrides.includes(item.name) || general.outing_defaults?.[item.name] !== values[item.name]
     ).map(item => item.name);
-    const status = publish ? 'abierta' : 'borrador';
+    const initialTransition=newOutingTransition(publish);
+    const status=initialTransition.status;
     const created: string[] = [];
     for (const {start,end} of periods) {
       const [outing] = await tx`insert into outings(request_id,title,location,unit,starts,ends,flexible,capacity,requirements,logistics,transport_details,food_details,lodging_details,status,listed,registration_deadline,outing_overrides)
@@ -214,7 +217,7 @@ async function saveOuting(form: FormData) {
              except select position,alt,credit,original_item,original_drive,thumbnail,display_image from outing_photos where outing_id=${outing.id} and position is not null)
           )`;
       }
-      await audit(tx,user.subject,publish ? 'Creó y publicó convocatoria' : 'Creó salida',outing.id);
+      await audit(tx,user.subject,initialTransition.audit,outing.id);
       created.push(outing.id);
     }
     return created;
@@ -235,31 +238,25 @@ export async function manageOuting(id: string, form: FormData) {
     if(!['completar','eliminar','cancelar-salida','datos','informacion','solicitud','visibilidad','fechas','publicar','cupo','agrupación','heredar-fotos'].includes(action))return 'La acción no está disponible.';
     if(action==='agrupación'&&!reason)return 'Indicá la decisión de coordinación.';
     if (action === 'completar') {
-      if (!['abierta', 'confirmada'].includes(outing.status)) return 'Solo se puede completar una salida abierta o confirmada.';
+      if (!outingIsOpen(outing.status)) return 'Solo se puede completar una salida abierta o confirmada.';
       const [{ finished }] = await tx`select ${outing.last_day}::date < ${registrationToday} as finished`;
-      if (!finished) return 'Podés completar la salida a partir del día siguiente a la fecha de regreso.';
+      const transition=outingTransition(outing.status,'completar',{finished});
+      if('error' in transition)return outingTransitionError(transition.error,true);
       if (field(form,'confirmCompleted') !== 'on') return 'Confirmá que la actividad se realizó.';
-      await tx`update outings set status='completada' where id=${id}`;
-      await audit(tx,user.subject,'Completó convocatoria',id);
+      await applyOutingState(tx,id,user.subject,transition,reason,outing.title);
       return 'completada';
     }
     if (action === 'eliminar' || action === 'cancelar-salida') {
       const [registration] = await tx`select 1 from registrations where outing_id=${id} limit 1`;
-      if (action === 'eliminar') {
-        if (registration) return 'La convocatoria tiene inscripciones. Podés cancelarla.';
-        if (field(form,'confirmDelete') !== 'on') return 'Confirmá que querés eliminar la convocatoria.';
-        await tx`delete from outing_photos where outing_id=${id}`;
-        await tx`delete from outings where id=${id}`;
-        await audit(tx,user.subject,'Eliminó convocatoria',id,outing.title);
+      const transition=outingTransition(outing.status,action,{hasRegistrations:!!registration});
+      if('error' in transition)return outingTransitionError(transition.error,true);
+      if(action==='eliminar'){
+        if(field(form,'confirmDelete')!=='on')return 'Confirmá que querés eliminar la convocatoria.';
+        await applyOutingState(tx,id,user.subject,transition,reason,outing.title);
         return 'eliminada';
       }
-      if (!registration) return 'La convocatoria no tiene inscripciones. Podés eliminarla.';
-      if (!reason) return 'Indicá el motivo de la cancelación.';
-      await tx`update outings set status='cancelada' where id=${id}`;
-      const cancelled = await tx<{ id: string }[]>`update registrations set status='cancelada por coordinación' where outing_id=${id}
-        and status in ('validación','revisión','espera','confirmada') returning id`;
-      for (const entry of cancelled) await notifyRegistration(tx,entry.id,`Coordinación canceló la salida. Motivo: ${reason}`);
-      await audit(tx,user.subject,'Canceló convocatoria',id,reason);
+      if(!reason)return 'Indicá el motivo de la cancelación.';
+      await applyOutingState(tx,id,user.subject,transition,reason,outing.title);
     } else if (action === 'datos' || action === 'informacion') {
       const keys = action === 'datos' ? commonOutingFields.slice(0,3) : commonOutingFields.slice(3);
       const [request] = await tx`select outing_defaults from requests where id=${outing.request_id} for update`;
@@ -337,9 +334,9 @@ export async function manageOuting(id: string, form: FormData) {
       await audit(tx,user.subject,'Cambió fechas o modalidad',id,`${previous} → ${starts} a ${ends} (${mode}). ${reason}`);
     } else if (action === 'publicar' && outing.status === 'borrador') {
       const [cover] = await tx`select id from outing_photos where outing_id=${id} and position=1`;
-      if (!cover) return 'Adjuntá una foto de portada antes de publicar.';
-      await tx`update outings set status='abierta' where id=${id}`;
-      await audit(tx,user.subject,'Publicó convocatoria',id);
+      const transition=outingTransition(outing.status,'publicar',{hasCover:!!cover});
+      if('error' in transition)return outingTransitionError(transition.error,true);
+      await applyOutingState(tx,id,user.subject,transition,reason,outing.title);
     } else if (action === 'cupo') {
       if (!reason) return 'Indicá el motivo del ajuste de cupos.';
       const capacity = Number(field(form,'capacity'));
@@ -427,11 +424,7 @@ export async function manageEntry(id: string, fromList: boolean, filter: string,
       if (!person?.email || !await eligible(tx,person.id,outing.unit)) return fail('Revisá la ficha, el correo y la unidad.');
       if ((await tx`select 1 from registrations where outing_id=${outing.id} and volunteer_id=${person.id}
         and status in ('revisión','espera','confirmada') and id<>${id}`).length) return fail('La persona ya tiene una inscripción activa.');
-      await promoteWaitlist(tx,outing.id,user.subject);
-      const status = await occupiedSeats(tx,outing.id) < outing.capacity ? 'revisión' : 'espera';
-      await tx`update registrations set volunteer_id=${person.id},status=${status} where id=${id}`;
-      await audit(tx,user.subject,'Recuperó inscripción anterior',id);
-      await notifyRegistration(tx,id,'Tu inscripción anterior fue incorporada al nuevo flujo de recepción de solicitudes.');
+      await recoverRegistration(tx,id,{id:String(outing.id),capacity:Number(outing.capacity)},person.id,user.subject);
     } else {
       const error = await changeRegistrationStatus(tx,id,user.subject,action,reason,field(form,'approveDates'));
       if (error) return fail(error);
@@ -443,25 +436,25 @@ export async function manageEntry(id: string, fromList: boolean, filter: string,
 }
 
 export async function verifyPolicy(form: FormData):Promise<FormResult> {
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para verificar pólizas.'};
+ const user=await staff();if(!user||!allows(user,'policies.verify'))return {error:'No tenés permiso para verificar pólizas.'};
  const id=field(form,'volunteer');if(!uuid(id))return {error:'La persona no está disponible.'};
  const result=await sql.begin(tx=>verifyRegistryPolicy(tx,id,form,user.subject));
  if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
 }
 
 export async function importPreview(csv:string){
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar voluntariado.'};
+ const user=await staff();if(!user||!allows(user,'volunteers.import'))return {error:'No tenés permiso para importar voluntariado.'};
  return sql.begin(tx=>prepareRegistryImport(tx,csv,'volunteers'));
 }
 export async function applyImportRows(form:FormData):Promise<FormResult>{
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar voluntariado.'};
+ const user=await staff();if(!user||!allows(user,'volunteers.import'))return {error:'No tenés permiso para importar voluntariado.'};
  const result=await sql.begin(tx=>applyRegistryImport(tx,form,'volunteers',user.subject));
  if(result.saved){revalidatePath('/coordinacion/registro');revalidatePath('/coordinacion/administracion');}return result;
 }
 
 export async function editProfile(id: string, form: FormData): Promise<FormResult<ProfileField>> {
   const user = await staff();
-  if (!user || !canAdminister(user)) return { error: 'No tenés permiso para corregir esta ficha.' };
+  if (!user || !allows(user,'volunteers.correct')) return { error: 'No tenés permiso para corregir esta ficha.' };
   if (!uuid(id)) return { error: 'La persona no está disponible.' };
   const name = field(form,'name'), surname = field(form,'surname');
   const birth = field(form,'birth'), email = field(form,'email');
@@ -491,24 +484,24 @@ export async function editProfile(id: string, form: FormData): Promise<FormResul
 }
 
 export async function updateVolunteerUnits(id:string,form:FormData):Promise<FormResult>{
- const user=await staff();if(!user||!(canOperate(user)||canAdminister(user)))return {error:'No tenés permiso para actualizar unidades.'};
+ const user=await staff();if(!user||!allows(user,'volunteers.units'))return {error:'No tenés permiso para actualizar unidades.'};
  if(!uuid(id))return {error:'La persona no está disponible.'};
  const result=await sql.begin(tx=>saveRegistryUnits(tx,id,form,user.subject));
  if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
 }
 
 export async function previewPolicies(csv:string){
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar pólizas.'};
+ const user=await staff();if(!user||!allows(user,'policies.import'))return {error:'No tenés permiso para importar pólizas.'};
  return sql.begin(tx=>prepareRegistryImport(tx,csv,'policies'));
 }
 export async function applyPolicyRows(form:FormData):Promise<FormResult>{
- const user=await staff();if(!user||!canAdminister(user))return {error:'No tenés permiso para importar pólizas.'};
+ const user=await staff();if(!user||!allows(user,'policies.import'))return {error:'No tenés permiso para importar pólizas.'};
  const result=await sql.begin(tx=>applyRegistryImport(tx,form,'policies',user.subject));
  if(result.saved){revalidatePath('/coordinacion/registro');revalidatePath('/coordinacion/administracion');}return result;
 }
 
 export async function recordVolunteerIncident(id:string,form:FormData):Promise<FormResult>{
- const user=await staff();if(!user||!canOperate(user))return {error:'No tenés permiso para registrar incidentes.'};
+ const user=await staff();if(!user||!allows(user,'volunteers.incident'))return {error:'No tenés permiso para registrar incidentes.'};
  if(!uuid(id))return {error:'La persona no está disponible.'};
  const result=await sql.begin(tx=>saveRegistryIncident(tx,id,form,user.subject));
  if(result.saved)revalidatePath(`/coordinacion/registro/${id}`);return result;
@@ -517,7 +510,7 @@ export async function recordVolunteerIncident(id:string,form:FormData):Promise<F
 export async function createOutingCollection(_previous: FormResult, form: FormData):Promise<FormResult> {
   const user = await staff();
   const general = canOperate(user);
-  const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
+  const scopes = staffScope(user).units;
   requireStaff(user, general || scopes.length > 0);
   const name = field(form, 'name');
   const description = field(form, 'description');
@@ -580,7 +573,7 @@ export async function updateAutomaticCollection(id: string, form: FormData) {
 export async function saveAutomaticCollection(id: string, form: FormData): Promise<FormResult> {
   if (!uuid(id)) return {error:'Convocatoria inválida.'};
   const user = await staff();
-  requireStaff(user, !!user?.grants.some(grant => grant.role === 'general' || grant.role === 'unidad'));
+  requireStaff(user, allows(user,'operations.read'));
   const validation=validateCommonSeries(form);if(Object.keys(validation).length)return {fieldErrors:validation};
   const back = `/coordinacion/colecciones/automaticas/${id}`;
   const selected = new Set(form.getAll('apply').map(String));
@@ -604,7 +597,7 @@ export async function saveAutomaticCollection(id: string, form: FormData): Promi
     if(field(form,'version')!==await outingSeriesVersion(tx,id))return {error:'Los datos comunes o sus bloques cambiaron. Recargá antes de guardar.'};
     const blocks = await tx<{ id: string; unit: string; status: string; outing_overrides: string[] }[]>`
       select id,unit,status,outing_overrides from outings where request_id=${id}`;
-    if (!blocks.length || blocks.some(block => !canOperate(user, block.unit))) {
+    if (!allows(user,'series.common-edit',{units:blocks.map(block=>block.unit)})) {
       return {error:'Necesitás permiso para gestionar todos los bloques.'};
     }
     const editable = blocks.filter(block => outingIsEditable(block.status));
@@ -663,7 +656,7 @@ export async function setHomepageFeature(kind: 'outing' | 'request', id: string,
       select unit,(status='abierta' and listed and coalesce(registration_deadline,starts) >= ${registrationToday}) as available
       from outings where ${kind === 'outing' ? tx`id=${id}` : tx`request_id=${id}`}
       order by id for share`;
-    requireStaff(user, !!blocks.length && blocks.every(block => canOperate(user,block.unit)));
+    requireStaff(user, allows(user,'series.feature',{units:blocks.map(block=>block.unit)}));
     if (!clear && !blocks.some(block => block.available)) {
       return 'Solo podés destacar convocatorias públicas con inscripciones abiertas.';
     }

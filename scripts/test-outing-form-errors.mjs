@@ -1,13 +1,10 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import{registerHooks}from'node:module';import{existsSync}from'node:fs';import{fileURLToPath}from'node:url';import{randomUUID,randomBytes}from'node:crypto';import assert from'node:assert/strict';
 const url=new URL(process.env.DATABASE_URL);if(process.env.ASVO_DEMO!=='1'||!['localhost','127.0.0.1','[::1]'].includes(url.hostname))throw Error('Solo demo local');process.env.NODE_ENV='development';registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const p=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(p)))return n(p.href,c);}return n(s,c);}});
-const {validateNewOuting,validatePhoto,validateOutingEdit,validateCommonSeries,validateManualSeries}=await import('../lib/outing-form-validation.ts');const {sql}=await import('../lib/db.ts');const{saveOutingEditor,outingEditVersion,OutingEditError}=await import('../lib/outing-editor.ts');const{saveOutingReport}=await import('../lib/outing-report.ts');const{validateReport}=await import('../lib/outing-report-validation.ts');const{digest}=await import('../lib/registration.ts');const{labourOptions,activityOptions}=await import('../lib/outing-report-options.ts');
+const {sql}=await import('../lib/db.ts');const{saveOutingEditor,outingEditVersion,OutingEditError}=await import('../lib/outing-editor.ts');const{saveOutingReport}=await import('../lib/outing-report.ts');const{digest}=await import('../lib/registration.ts');const{labourOptions,activityOptions}=await import('../lib/outing-report-options.ts');
 const form=(values={})=>{const f=new FormData();for(const[k,v]of Object.entries(values))for(const item of Array.isArray(v)?v:[v])f.append(k,item);return f;};
-const invalid=validateNewOuting(form({starts:['','2035-01-13'],ends:['','2035-01-11'],periodId:['7','12'],capacity:'0',action:'publicar'}));for(const n of['title','location','capacity','period-7-starts','period-7-ends','period-12-ends','photos'])assert.ok(invalid[n],n);
-const image=new File(['falso'],'foto.png',{type:'image/png'});const photoErrors=validatePhoto(form({photo:image,alt:'',credit:'x'.repeat(151)}));assert.ok(photoErrors.alt);assert.ok(photoErrors.credit);assert.ok(photoErrors.permission);
-assert.ok(validatePhoto(form({alt:'Foto',photo:new File(['x'],'mala.txt',{type:'text/plain'}),permission:'on'})).photo);assert.ok(validatePhoto(form({alt:'Galería'}),{mode:'gallery'}).photoId);
-const staged=form({photoMode:'personal',photos:JSON.stringify([{key:'new-demo',kind:'upload',alt:'',credit:'x'.repeat(151)}]),'photo-new-demo':image});const stagedErrors=validateOutingEdit(staged,{}, {},false);assert.ok(stagedErrors['new-demo-alt']);assert.ok(stagedErrors['new-demo-credit']);assert.ok(stagedErrors['new-demo-permission']);
-assert.equal(Object.keys(validateCommonSeries(form())).length,2);assert.equal(Object.keys(validateManualSeries(form())).length,2);
-const blank={labour:[],activity:'',location:'',starts:'',ends:'',actions:'',host:'',observations:''};assert.deepEqual(validateReport(blank,[],false,true),{});assert.ok(Object.keys(validateReport(blank,[],false)).length>=8);
+const blank={labour:[],activity:'',location:'',starts:'',ends:'',actions:'',host:'',observations:''};
 const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};const rollback=Error('rollback');
 try{await sql.begin(async tx=>{
  const request=randomUUID(),outing=randomUUID(),person=randomUUID(),entry=randomUUID();
@@ -32,4 +29,4 @@ try{await sql.begin(async tx=>{
  assert.ok((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'finalizar','obsoleta')).error);
  assert.equal((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'finalizar',version)).status,'finalizado');assert.ok((await saveOutingReport(tx,token,finalValues,[entry],true,[entry],'borrador',version)).error.includes('finalizado'));
  assert.equal((await tx`select count(*)::int as n from outing_reports where outing_id=${outing}`)[0].n,1);assert.equal(uploadCount,0);throw rollback;
-});}catch(e){if(e!==rollback)throw e;console.log('OK: múltiples periodos y fotos, errores conjuntos, alcance explícito, edición directa/herencia, versiones obsoletas, borrador sin asistencia y finalización bloqueada. Rollback local; cero cargas o correos reales.');}finally{globalThis.fetch=originalFetch;await sql.end();}
+});}catch(e){if(e!==rollback)throw e;console.log('OK: errores conjuntos del editor, alcance explícito, edición directa/herencia, versiones obsoletas, borrador sin asistencia y finalización bloqueada. Rollback local; cero cargas o correos reales.');}finally{globalThis.fetch=originalFetch;await sql.end();}

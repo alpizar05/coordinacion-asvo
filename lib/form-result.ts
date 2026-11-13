@@ -4,8 +4,8 @@ export type FieldErrors<Field extends string = string> = Partial<Record<Field, F
 export function fieldErrorMessages(value?: FieldErrorValue): string[] {
   return (Array.isArray(value) ? value : value ? [value] : []).filter(message=>!!message.trim());
 }
-export type FormResult<Field extends string = string> =
-  | { saved: true; destination?: string; error?: never; fieldErrors?: never }
+export type FormResult<Field extends string = string, Success extends object = object> =
+  | ({ saved: true; destination?: string; error?: never; fieldErrors?: never } & Success)
   | { saved?: false; error?: string; fieldErrors?: FieldErrors<Field>; destination?: never };
 
 /** Revalidate only the changed field; unrelated server errors remain intact. */

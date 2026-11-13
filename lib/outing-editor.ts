@@ -1,3 +1,5 @@
+import {parsePhotoMetadata,type EditorPhoto} from './photo-metadata';
+export type {EditorPhoto} from './photo-metadata';
 import {validateOutingEdit} from './outing-form-validation';
 import type {FieldErrors} from './form-result';
 import type { Transaction } from './registration';
@@ -17,7 +19,7 @@ export async function outingEditVersion(tx:Transaction | import('postgres').Sql,
  const [row]=await tx`select md5(to_jsonb(o)::text || to_jsonb(r)::text || coalesce((select jsonb_agg(jsonb_build_array(p.id,p.position,p.alt,p.credit) order by p.position)::text from outing_photos p where p.outing_id=o.id and p.position is not null),'[]')) as version from outings o join requests r on r.id=o.request_id where o.id=${id}`;
  return String(row?.version || '');
 }
-export type EditorPhoto={key:string;kind:'existing'|'gallery'|'upload';id?:string;permission?:boolean;alt:string;credit:string};
+
 export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,options:{photoErrors?:FieldErrors;actor:string;canOperate:(unit:string)=>boolean;upload:(key:string)=>Promise<{item:string|null;drive:string|null;thumbnail:Buffer;display:Buffer}>}){
  const [ref]=await tx`select request_id from outings where id=${id}`;
  if(!ref)invalid('form','La convocatoria no está disponible.');
@@ -75,7 +77,9 @@ export async function saveOutingEditor(tx:Transaction,id:string,form:FormData,op
  let photos:EditorPhoto[]=[];
  if(!['keep','personal','inherit'].includes(photoMode)||(!isSeries&&photoMode==='inherit'))invalid('photos','Revisá la selección de fotos.');
  if(photoMode==='personal'){
-  try{photos=JSON.parse(field(form,'photos'));}catch{invalid('photos','Revisá las fotos.');}
+  const parsed=parsePhotoMetadata(field(form,'photos'));
+  if(Object.keys(parsed.fieldErrors).length)throw new OutingEditError('form','',parsed.fieldErrors);
+  photos=parsed.photos;
   if(!Array.isArray(photos)||photos.length>6||new Set(photos.map(p=>p.key)).size!==photos.length)invalid('photos','Elegí hasta seis fotos sin repetir.');
   if(outing.status==='abierta'&&!photos.length)invalid('photos','La convocatoria abierta necesita una portada.');
   const ids=new Set<string>();

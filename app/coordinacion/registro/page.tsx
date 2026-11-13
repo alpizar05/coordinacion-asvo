@@ -6,13 +6,13 @@ import { searchVolunteers, volunteerListUrl } from '../../../lib/volunteer-searc
 import CoordinationBreadcrumb from '../breadcrumb';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { canAdminister, canOperate, staff } from '../../../lib/auth';
+import { allows, canAdminister, canOperate, staff } from '../../../lib/auth';
 import { sql } from '../../../lib/db';
 
 export default async function Volunteers({ searchParams }: { searchParams: Promise<{ buscar?: string; unidad?: string; pagina?: string }> }) {
   const user = await staff();
   const admin = canAdminister(user);
-  if (!admin && !canOperate(user)) notFound();
+  if (!allows(user,'volunteers.read')) notFound();
   const params = await searchParams;
   const query = typeof params.buscar === 'string' ? params.buscar.trim().slice(0,120) : '';
   const units = (await sql<{name: string}[]>`select name from units order by name`).map(row => row.name);

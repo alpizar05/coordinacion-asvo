@@ -1,11 +1,9 @@
+import { requireLocalDemo } from '../lib/local-demo.mjs';
 import postgres from 'postgres';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 
-const url = new URL(process.env.DATABASE_URL);
-if (process.env.ASVO_DEMO !== '1' || !['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) {
-  throw new Error('Este ejemplo requiere ASVO_DEMO=1 y una base PostgreSQL local.');
-}
+const url = requireLocalDemo();
 
 const id = number => `e9db65dc-7623-442a-9d31-${String(number).padStart(12, '0')}`;
 const outingId = id(2);

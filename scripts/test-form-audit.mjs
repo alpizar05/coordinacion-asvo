@@ -1,9 +1,9 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import{registerHooks}from'node:module';import{existsSync}from'node:fs';import{fileURLToPath}from'node:url';import{randomUUID}from'node:crypto';import assert from'node:assert/strict';
 const url=new URL(process.env.DATABASE_URL);if(process.env.ASVO_DEMO!=='1'||!['localhost','127.0.0.1','[::1]'].includes(url.hostname))throw Error('Solo demo local');process.env.NODE_ENV='development';registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const p=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(p)))return n(p.href,c);}return n(s,c);}});
-const{sql}=await import('../lib/db.ts');const{validateDateFilter}=await import('../lib/filter-validation.ts');const{validateOutingDecision}=await import('../lib/outing-decision-validation.ts');const{saveOutingDecision}=await import('../lib/outing-decision.ts');const{outingEditVersion}=await import('../lib/outing-editor.ts');
+const{sql}=await import('../lib/db.ts');const{saveOutingDecision}=await import('../lib/outing-decision.ts');const{outingEditVersion}=await import('../lib/outing-editor.ts');
 const form=(v={})=>{const f=new FormData();for(const[k,value]of Object.entries(v))f.set(k,value);return f;};
-assert.ok(validateDateFilter('2035-02-02','2035-02-01').hasta);assert.equal(validateDateFilter('2035-02-02','2035-02-01').desde,undefined);assert.deepEqual(validateDateFilter('2035-02-02','2035-02-02'),{});assert.deepEqual(validateDateFilter('','2035-02-01'),{});assert.ok(validateDateFilter('0000-01-01','').desde);assert.ok(validateDateFilter('2035-02-30','2035-02-31').desde);assert.ok(validateDateFilter('2035-02-30','2035-02-31').hasta);
-assert.ok(validateOutingDecision(form(),'agrupación').reason);assert.ok(validateOutingDecision(form(),'cancelar-salida').reason);assert.ok(validateOutingDecision(form(),'completar').confirmCompleted);assert.ok(validateOutingDecision(form(),'eliminar').confirmDelete);
 const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};const rollback=Error('rollback');
 try{await sql.begin(async tx=>{
  const request=randomUUID(),outing=randomUUID(),person=randomUUID(),entry=randomUUID(),empty=randomUUID();
@@ -27,4 +27,4 @@ try{await sql.begin(async tx=>{
  assert.equal((await saveOutingDecision(tx,empty,await make(empty,'completar',{confirmCompleted:'on'}),context)).saved,true);assert.equal((await tx`select status from outings where id=${empty}`)[0].status,'completada');
  await tx`update outings set status='abierta' where id=${empty}`;assert.equal((await saveOutingDecision(tx,empty,await make(empty,'eliminar',{confirmDelete:'on'}),context)).saved,true);assert.equal((await tx`select count(*)::int as n from outings where id=${empty}`)[0].n,0);
  assert.equal((await tx`select count(*)::int as n from registration_mail_outbox where registration_id=${entry}`)[0].n,0);throw rollback;
-});}catch(e){if(e!==rollback)throw e;console.log('OK: filtros invertidos en Hasta; decisiones con campo, permisos/conflictos generales, sin falsos éxitos, auditoría idempotente, completar/eliminar/cancelar y notificación demo única. Rollback local, cero red real.');}finally{globalThis.fetch=originalFetch;await sql.end();}
+});}catch(e){if(e!==rollback)throw e;console.log('OK: decisiones con campo, permisos/conflictos generales, sin falsos éxitos, auditoría idempotente, completar/eliminar/cancelar y notificación demo única. Rollback local, cero red real.');}finally{globalThis.fetch=originalFetch;await sql.end();}

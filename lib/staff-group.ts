@@ -1,3 +1,4 @@
+import {outingIsOpen,registrationConsumesSeat} from './workflow-transitions';
 import { audit,field,suggestedGroups,type Transaction } from './registration';
 import { notifyRegistration,promoteWaitlist } from './registration-workflow';
 import { validateSplitGroup } from './staff-registration-validation';
@@ -7,7 +8,7 @@ export async function splitStaffGroup(tx:Transaction,id:string,start:string,end:
   const members=form.getAll('member').map(String),title=field(form,'title'),capacity=Number(field(form,'capacity'));
     const [outing] = await tx`select * from outings where id=${id} for update`;
     if(!outing||!context.canOperate(outing.unit))return {error:'No tenés permiso para gestionar esta salida.'};
-    if (!outing.flexible || !['abierta', 'confirmada'].includes(outing.status)) {
+    if (!outing.flexible || !outingIsOpen(outing.status)) {
       return { error: 'La salida debe estar abierta o confirmada y tener fechas flexibles.' };
     }
     const entries = await tx<{ id: string; starts: string; ends: string; status: string }[]>`
@@ -18,7 +19,7 @@ export async function splitStaffGroup(tx:Transaction,id:string,start:string,end:
     if (!group || group.people.length !== submitted.size || group.people.some(person => !submitted.has(person.id))) {
       return { error: 'La agrupación cambió. Revisá quiénes la integran antes de volver a separarla.' };
     }
-    const occupied = group.people.filter(person => ['revisión','confirmada'].includes(person.status)).length;
+    const occupied = group.people.filter(person => registrationConsumesSeat(person.status)).length;
     const fieldErrors=validateSplitGroup(form,occupied);
     if(Object.keys(fieldErrors).length)return {fieldErrors};
 

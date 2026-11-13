@@ -95,10 +95,12 @@ Revisá el archivo de forma privada. Debe apuntar a Neon, tener `APP_URL=https:/
 Desde la raíz del proyecto:
 
 ```sh
-node --env-file=.env.production.local scripts/db.mjs
+node --env-file=.env.production.local scripts/db.mjs --plan
 ```
 
-El comando puede terminar sin imprimir mensajes. Verificá en Neon SQL Editor:
+El plan no escribe. Si la base existente es compatible y aún no tiene registro numerado, la adopción es un paso explícito (`scripts/db.mjs --adopt --apply`, cargando el archivo de entorno correspondiente). Después se ejecuta `scripts/db.mjs` para aplicar pendientes. Si es incompatible, detenete y revisá las diferencias; no marques la baseline ni ejecutes SQL a ciegas. Ver [adopción y recuperación](migraciones-numeradas.md). Estos ejemplos son para una intervención futura autorizada; no se accedió a beta durante la refactorización.
+
+El comando devuelve un plan JSON con migraciones aplicadas, pendientes y compatibilidad de adopción. Verificá en Neon SQL Editor:
 
 ```sql
 select to_regclass('public.volunteers') as voluntariado,
@@ -107,7 +109,7 @@ select to_regclass('public.volunteers') as voluntariado,
        to_regclass('public.outing_reports') as informes;
 ```
 
-Los resultados deben ser nombres de tablas, no `null`. El script aplica el esquema y la migración del flujo de inscripciones; también intenta despachar correo pendiente fuera de demo. En una base con datos, respaldá antes y revisá las migraciones. No lo agregues indiscriminadamente al build de cada Preview.
+Los resultados deben ser nombres de tablas, no `null`. Esta consulta básica no sustituye la verificación estructural completa de adopción. Al ejecutarse sin flags, el script aplica únicamente migraciones numeradas de estructura y catálogo operativo. No ejecuta transformaciones históricas, genera enlaces o avisos ni despacha correo pendiente. Las transformaciones de unidades, herencia y flujo de inscripción requieren el comando histórico explícito; consultá la [guía de operaciones de base](operaciones-base-datos.md) antes de usarlo en una base existente. No se ejecutaron estos cambios sobre beta durante la refactorización. No lo agregues indiscriminadamente al build de cada Preview.
 
 ## 5. Microsoft Entra ID: inicio de sesión
 
@@ -344,7 +346,7 @@ Confirmá `GRAPH_SENDER` y las tres credenciales Graph en el despliegue vigente.
 
 ## 10. Cola y reintentos de correo
 
-Los nuevos mensajes guardan `html_body` además del texto. La plantilla incorpora el logo público `/logo-asvo.png`, paleta ASVO, nombre, estado, lugar, unidad, fechas y enlace privado. La columna se agrega de forma compatible al aplicar `schema.sql`; debe existir antes de desplegar el nuevo código. Los mensajes ya pendientes sin HTML conservan su formato de texto. La bandeja demo muestra el texto. No se adjunta el PDF del formulario anterior ni se promete crear automáticamente un grupo de WhatsApp.
+Los nuevos mensajes guardan `html_body` además del texto. La plantilla incorpora el logo público `/logo-asvo.png`, paleta ASVO, nombre, estado, lugar, unidad, fechas y enlace privado. La columna se agrega de forma compatible mediante la baseline numerada y las migraciones explícitas; debe existir antes de desplegar el nuevo código. Los mensajes ya pendientes sin HTML conservan su formato de texto. La bandeja demo muestra el texto. No se adjunta el PDF del formulario anterior ni se promete crear automáticamente un grupo de WhatsApp.
 
 Los mensajes se guardan en `registration_mail_outbox` dentro de la transacción de la inscripción. La aplicación intenta enviarlos después de cada operación. Los fallidos quedan pendientes; un intento reserva el mensaje durante cinco minutos y cada ejecución procesa hasta 30 mensajes respetando el orden por inscripción.
 

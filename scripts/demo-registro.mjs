@@ -1,13 +1,13 @@
+import { requireLocalDemo, requireTestRecipients } from '../lib/local-demo.mjs';
 import postgres from 'postgres';
 import { parse } from 'csv-parse/sync';
 import { readFile } from 'node:fs/promises';
 
-const url = new URL(process.env.DATABASE_URL);
-if (process.env.ASVO_DEMO !== '1' || !['localhost','127.0.0.1','[::1]'].includes(url.hostname)) {
-  throw new Error('Este registro requiere una base demo local.');
-}
+const url = requireLocalDemo();
+
 const rows = parse(await readFile(new URL('./registro-ficticio.csv', import.meta.url), 'utf8'),
   { columns: true, bom: true, skip_empty_lines: true, trim: true });
+requireTestRecipients(rows.map(row => row.correo));
 const sql = postgres(url.href);
 try {
   await sql.begin(async tx => {
@@ -16,7 +16,7 @@ try {
     for (const row of rows) {
       const [person] = await tx`insert into volunteers(identification,name,surname,email)
         values (${row.identificacion},${row.nombre},${row.primer_apellido},${row.correo})
-        on conflict (identification) do update set identification=excluded.identification returning id`;
+        on conflict (identification) do update set identification=excluded.identification,email=excluded.email returning id`;
       const number = `DEMO-REGISTRO-${row.identificacion}`;
       await tx`insert into policies(volunteer_id,kind,number,starts,ends,source,verified_by,verified_at)
         select ${person.id},'Prueba',${number},'2026-11-01'::date,'2026-12-31'::date,

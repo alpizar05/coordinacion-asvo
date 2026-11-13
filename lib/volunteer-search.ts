@@ -1,10 +1,8 @@
 import { sql } from './db';
 
 const pageSize = 25;
-export function volunteerSearchTerms(value: string) {
-  return value.trim().slice(0,120).normalize('NFD').replace(/\p{Diacritic}/gu,'').toLocaleLowerCase('es')
-    .split(/\s+/).filter(Boolean).slice(0,10);
-}
+import { volunteerSearchTerms } from './volunteer-search-criteria';
+export { volunteerSearchTerms, volunteerListUrl } from './volunteer-search-criteria';
 
 export async function searchVolunteers(query: string, unit: string, requestedPage: number) {
   const terms = volunteerSearchTerms(query);
@@ -23,12 +21,4 @@ export async function searchVolunteers(query: string, unit: string, requestedPag
       where ${where} order by name,surname,second_surname,id limit ${pageSize} offset ${(page-1)*pageSize}`;
     return { people,total,page,pages,pageSize };
   });
-}
-
-export function volunteerListUrl(query: string, unit: string, page = 1) {
-  const params = new URLSearchParams();
-  if (query) params.set('buscar',query);
-  if (unit) params.set('unidad',unit);
-  if (page>1) params.set('pagina',String(page));
-  return `/coordinacion/registro${params.size ? `?${params}` : ''}`;
 }

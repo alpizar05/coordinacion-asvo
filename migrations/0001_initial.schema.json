@@ -1,0 +1,3184 @@
+{
+  "generated": "scripts/generate-baseline-catalog.mjs; do not edit manually",
+  "sourceChecksum": "50ae44f87ada84133d55b66f648cfab306a9f64bb480c891e96d44bce9108783",
+  "catalog": {
+    "relations": [
+      {
+        "name": "app_migrations",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "attempts",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "attendance_resolutions",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "attendance_resolutions_id_seq",
+        "kind": "S",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "audit",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "audit_id_seq",
+        "kind": "S",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "demo_mail",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "demo_mail_id_seq",
+        "kind": "S",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "grants",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "homepage_feature",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "links",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_brief_links",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_collection_members",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_collections",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_invitations",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_photos",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outing_reports",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "outings",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "policies",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "registration_mail_outbox",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "registration_mail_outbox_id_seq",
+        "kind": "S",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "registration_receipts",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "registrations",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "report_reminders",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "report_reminders_id_seq",
+        "kind": "S",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "request_outing_photos",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "requests",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "units",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "volunteer_attendance_evidence",
+        "kind": "v",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "volunteer_incidents",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      },
+      {
+        "name": "volunteers",
+        "kind": "r",
+        "persistence": "p",
+        "rls": false,
+        "force_rls": false,
+        "options": null
+      }
+    ],
+    "columns": [
+      {
+        "relation": "app_migrations",
+        "name": "name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "app_migrations",
+        "name": "applied_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "attempts",
+        "name": "bucket",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attempts",
+        "name": "slot",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attempts",
+        "name": "count",
+        "type": "integer",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "a",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "decision",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "reason",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "actor",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "evidence",
+        "type": "jsonb",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "audit",
+        "name": "id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "a",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "audit",
+        "name": "actor",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "audit",
+        "name": "action",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "audit",
+        "name": "target",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "audit",
+        "name": "reason",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "audit",
+        "name": "happened_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "demo_mail",
+        "name": "id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "a",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "recipient",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "url",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "subject",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "body",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "demo_mail",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "grants",
+        "name": "subject",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "grants",
+        "name": "role",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "grants",
+        "name": "unit",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "singleton",
+        "type": "boolean",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "true"
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "request_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "links",
+        "name": "digest",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "links",
+        "name": "registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "links",
+        "name": "purpose",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "links",
+        "name": "expires",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "digest",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "lead_registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "created_by",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "expires_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "(now() + '7 days'::interval)"
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "revoked_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "collection_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_collections",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "outing_collections",
+        "name": "name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_collections",
+        "name": "description",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "outing_collections",
+        "name": "created_by",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_collections",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "digest",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "expires_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "used_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "position",
+        "type": "smallint",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "alt",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "credit",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "original_item",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "original_drive",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "thumbnail",
+        "type": "bytea",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_photos",
+        "name": "display_image",
+        "type": "bytea",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "lead_registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "lead_name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "lead_email",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "labour",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "location",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "activity",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "starts",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "ends",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "actions",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "host",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "observations",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "outing_reports",
+        "name": "participants",
+        "type": "jsonb",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outing_reports",
+        "name": "submitted_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "outing_reports",
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "outing_reports",
+        "name": "labour_types",
+        "type": "text[]",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "'{}'::text[]"
+      },
+      {
+        "relation": "outing_reports",
+        "name": "status",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "'finalizado'::text"
+      },
+      {
+        "relation": "outings",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "outings",
+        "name": "request_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "title",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "location",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "unit",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "starts",
+        "type": "date",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "ends",
+        "type": "date",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "flexible",
+        "type": "boolean",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "capacity",
+        "type": "integer",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "requirements",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "logistics",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "status",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "'borrador'::text"
+      },
+      {
+        "relation": "outings",
+        "name": "listed",
+        "type": "boolean",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "true"
+      },
+      {
+        "relation": "outings",
+        "name": "registration_deadline",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "outings",
+        "name": "outing_overrides",
+        "type": "text[]",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "'{}'::text[]"
+      },
+      {
+        "relation": "outings",
+        "name": "transport_details",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "outings",
+        "name": "food_details",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "outings",
+        "name": "lodging_details",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "''::text"
+      },
+      {
+        "relation": "policies",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "policies",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "kind",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "number",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "starts",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "ends",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "source",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "verified_by",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "policies",
+        "name": "verified_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "a",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "recipient",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "url",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "subject",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "body",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "sent_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "attempts",
+        "type": "integer",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "0"
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "retry_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "html_body",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "cancelled_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "digest",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "status",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "expires_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "(now() + '00:10:00'::interval)"
+      },
+      {
+        "relation": "registrations",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "registrations",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "identification",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "received_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "registrations",
+        "name": "validated_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "validated_by",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "validation_channel",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "status",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "'revisión'::text"
+      },
+      {
+        "relation": "registrations",
+        "name": "starts",
+        "type": "date",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "ends",
+        "type": "date",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "details",
+        "type": "jsonb",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "registrations",
+        "name": "policy_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": true,
+        "identity": "a",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "registration_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "link_digest",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "actor",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "recipient",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "clock_timestamp()"
+      },
+      {
+        "relation": "report_reminders",
+        "name": "mail_id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "report_reminders",
+        "name": "demo_mail_id",
+        "type": "bigint",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "request_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "position",
+        "type": "smallint",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "alt",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "credit",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "original_item",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "original_drive",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "thumbnail",
+        "type": "bytea",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "display_image",
+        "type": "bytea",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "requests",
+        "name": "organization",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "contact",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "area",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "activity",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "plan",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "logistics",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "outing_defaults",
+        "type": "jsonb",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "requests",
+        "name": "outing_photos_initialized",
+        "type": "boolean",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "false"
+      },
+      {
+        "relation": "units",
+        "name": "name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "report_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "lead_name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "starts",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "ends",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "observations",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "submitted_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "attended",
+        "type": "boolean",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "absent",
+        "type": "boolean",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_attendance_evidence",
+        "name": "evidence_entry",
+        "type": "jsonb",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "outing_id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "occurred_on",
+        "type": "date",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "description",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "recorded_by",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "recorded_at",
+        "type": "timestamp with time zone",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "now()"
+      },
+      {
+        "relation": "volunteers",
+        "name": "id",
+        "type": "uuid",
+        "collation": null,
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "gen_random_uuid()"
+      },
+      {
+        "relation": "volunteers",
+        "name": "identification",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "surname",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "second_surname",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "email",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "birth",
+        "type": "date",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "whatsapp",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "province",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "canton",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "district",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "medical",
+        "type": "boolean",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "medical_detail",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "emergency_name",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "emergency_phone",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "emergency_relation",
+        "type": "text",
+        "collation": "\"default\"",
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteer_year",
+        "type": "integer",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "member",
+        "type": "boolean",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "member_year",
+        "type": "integer",
+        "collation": null,
+        "not_null": false,
+        "identity": "",
+        "generated": "",
+        "default_expr": null
+      },
+      {
+        "relation": "volunteers",
+        "name": "units",
+        "type": "text[]",
+        "collation": "\"default\"",
+        "not_null": true,
+        "identity": "",
+        "generated": "",
+        "default_expr": "ARRAY['Voluntariado General'::text]"
+      }
+    ],
+    "constraints": [
+      {
+        "relation": "app_migrations",
+        "name": "app_migrations_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (name)",
+        "validated": true
+      },
+      {
+        "relation": "attempts",
+        "name": "attempts_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (bucket, slot)",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_decision_check",
+        "type": "c",
+        "definition": "CHECK (decision = ANY (ARRAY['participo'::text, 'no_participo'::text, 'pendiente'::text]))",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_evidence_check",
+        "type": "c",
+        "definition": "CHECK (jsonb_typeof(evidence) = 'array'::text)",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_reason_check",
+        "type": "c",
+        "definition": "CHECK (length(TRIM(BOTH FROM reason)) >= 1 AND length(TRIM(BOTH FROM reason)) <= 4000)",
+        "validated": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_volunteer_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (volunteer_id) REFERENCES volunteers(id)",
+        "validated": true
+      },
+      {
+        "relation": "audit",
+        "name": "audit_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "demo_mail",
+        "name": "demo_mail_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "demo_mail",
+        "name": "demo_mail_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (registration_id) REFERENCES registrations(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "grants",
+        "name": "grants_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (subject, role, unit)",
+        "validated": true
+      },
+      {
+        "relation": "grants",
+        "name": "grants_role_check",
+        "type": "c",
+        "definition": "CHECK (role = ANY (ARRAY['admin'::text, 'general'::text, 'unidad'::text]))",
+        "validated": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_check",
+        "type": "c",
+        "definition": "CHECK (num_nonnulls(outing_id, request_id) = 1)",
+        "validated": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (singleton)",
+        "validated": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_request_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (request_id) REFERENCES requests(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_singleton_check",
+        "type": "c",
+        "definition": "CHECK (singleton)",
+        "validated": true
+      },
+      {
+        "relation": "links",
+        "name": "links_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (digest)",
+        "validated": true
+      },
+      {
+        "relation": "links",
+        "name": "links_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (registration_id) REFERENCES registrations(id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "outing_brief_links_lead_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (lead_registration_id) REFERENCES registrations(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "outing_brief_links_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "outing_brief_links_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (digest)",
+        "validated": true
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_collection_members_collection_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (collection_id) REFERENCES outing_collections(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_collection_members_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_collection_members_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (collection_id, outing_id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_collections",
+        "name": "outing_collections_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_invitations_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_invitations_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (digest)",
+        "validated": true
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_invitations_volunteer_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (volunteer_id) REFERENCES volunteers(id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_outing_id_position_key",
+        "type": "u",
+        "definition": "UNIQUE (outing_id, \"position\") DEFERRABLE INITIALLY DEFERRED",
+        "validated": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_position_check",
+        "type": "c",
+        "definition": "CHECK (\"position\" >= 1 AND \"position\" <= 6)",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_check",
+        "type": "c",
+        "definition": "CHECK (ends >= starts)",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_lead_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (lead_registration_id) REFERENCES registrations(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_outing_id_lead_registration_id_key",
+        "type": "u",
+        "definition": "UNIQUE (outing_id, lead_registration_id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_status_check",
+        "type": "c",
+        "definition": "CHECK (status = ANY (ARRAY['borrador'::text, 'finalizado'::text]))",
+        "validated": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_capacity_check",
+        "type": "c",
+        "definition": "CHECK (capacity > 0)",
+        "validated": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_check",
+        "type": "c",
+        "definition": "CHECK (ends >= starts)",
+        "validated": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_request_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (request_id) REFERENCES requests(id)",
+        "validated": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_unit_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (unit) REFERENCES units(name)",
+        "validated": true
+      },
+      {
+        "relation": "policies",
+        "name": "policies_check",
+        "type": "c",
+        "definition": "CHECK (ends >= starts)",
+        "validated": true
+      },
+      {
+        "relation": "policies",
+        "name": "policies_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "policies",
+        "name": "policies_volunteer_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (volunteer_id) REFERENCES volunteers(id)",
+        "validated": true
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "registration_mail_outbox_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "registration_mail_outbox_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (registration_id) REFERENCES registrations(id)",
+        "validated": true
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "registration_receipts_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (digest)",
+        "validated": true
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "registration_receipts_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (registration_id) REFERENCES registrations(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_check",
+        "type": "c",
+        "definition": "CHECK (ends >= starts)",
+        "validated": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id)",
+        "validated": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_policy_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (policy_id) REFERENCES policies(id)",
+        "validated": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_volunteer_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (volunteer_id) REFERENCES volunteers(id)",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_check",
+        "type": "c",
+        "definition": "CHECK ((mail_id IS NULL) <> (demo_mail_id IS NULL))",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_demo_mail_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (demo_mail_id) REFERENCES demo_mail(id)",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_link_digest_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (link_digest) REFERENCES outing_brief_links(digest) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_mail_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (mail_id) REFERENCES registration_mail_outbox(id)",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_registration_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (registration_id) REFERENCES registrations(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "request_outing_photos_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (request_id, \"position\")",
+        "validated": true
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "request_outing_photos_position_check",
+        "type": "c",
+        "definition": "CHECK (\"position\" >= 1 AND \"position\" <= 6)",
+        "validated": true
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "request_outing_photos_request_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (request_id) REFERENCES requests(id) ON DELETE CASCADE",
+        "validated": true
+      },
+      {
+        "relation": "requests",
+        "name": "requests_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "units",
+        "name": "units_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (name)",
+        "validated": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_description_check",
+        "type": "c",
+        "definition": "CHECK (char_length(btrim(description)) >= 1 AND char_length(btrim(description)) <= 4000)",
+        "validated": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_outing_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (outing_id) REFERENCES outings(id)",
+        "validated": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_volunteer_id_fkey",
+        "type": "f",
+        "definition": "FOREIGN KEY (volunteer_id) REFERENCES volunteers(id)",
+        "validated": true
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteers_general_unit_required",
+        "type": "c",
+        "definition": "CHECK (units @> ARRAY['Voluntariado General'::text])",
+        "validated": false
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteers_identification_key",
+        "type": "u",
+        "definition": "UNIQUE (identification)",
+        "validated": true
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteers_pkey",
+        "type": "p",
+        "definition": "PRIMARY KEY (id)",
+        "validated": true
+      }
+    ],
+    "indexes": [
+      {
+        "relation": "app_migrations",
+        "name": "app_migrations_pkey",
+        "definition": "CREATE UNIQUE INDEX app_migrations_pkey ON __schema__.app_migrations USING btree (name)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "attempts",
+        "name": "attempts_pkey",
+        "definition": "CREATE UNIQUE INDEX attempts_pkey ON __schema__.attempts USING btree (bucket, slot)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolution_latest",
+        "definition": "CREATE INDEX attendance_resolution_latest ON __schema__.attendance_resolutions USING btree (outing_id, volunteer_id, id DESC)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "attendance_resolutions",
+        "name": "attendance_resolutions_pkey",
+        "definition": "CREATE UNIQUE INDEX attendance_resolutions_pkey ON __schema__.attendance_resolutions USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "audit",
+        "name": "audit_pkey",
+        "definition": "CREATE UNIQUE INDEX audit_pkey ON __schema__.audit USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "audit",
+        "name": "audit_target_history",
+        "definition": "CREATE INDEX audit_target_history ON __schema__.audit USING btree (target, happened_at, id)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "demo_mail",
+        "name": "demo_mail_pkey",
+        "definition": "CREATE UNIQUE INDEX demo_mail_pkey ON __schema__.demo_mail USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "demo_mail",
+        "name": "demo_mail_registration",
+        "definition": "CREATE INDEX demo_mail_registration ON __schema__.demo_mail USING btree (registration_id)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "grants",
+        "name": "grants_pkey",
+        "definition": "CREATE UNIQUE INDEX grants_pkey ON __schema__.grants USING btree (subject, role, unit)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "homepage_feature",
+        "name": "homepage_feature_pkey",
+        "definition": "CREATE UNIQUE INDEX homepage_feature_pkey ON __schema__.homepage_feature USING btree (singleton)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "links",
+        "name": "links_pkey",
+        "definition": "CREATE UNIQUE INDEX links_pkey ON __schema__.links USING btree (digest)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_brief_links",
+        "name": "outing_brief_links_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_brief_links_pkey ON __schema__.outing_brief_links USING btree (digest)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_collection_members_outing",
+        "definition": "CREATE INDEX outing_collection_members_outing ON __schema__.outing_collection_members USING btree (outing_id)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_collection_members",
+        "name": "outing_collection_members_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_collection_members_pkey ON __schema__.outing_collection_members USING btree (collection_id, outing_id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_collections",
+        "name": "outing_collections_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_collections_pkey ON __schema__.outing_collections USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_invitations_outing",
+        "definition": "CREATE INDEX outing_invitations_outing ON __schema__.outing_invitations USING btree (outing_id)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_invitations",
+        "name": "outing_invitations_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_invitations_pkey ON __schema__.outing_invitations USING btree (digest)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_outing_id_position_key",
+        "definition": "CREATE UNIQUE INDEX outing_photos_outing_id_position_key ON __schema__.outing_photos USING btree (outing_id, \"position\")",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_photos",
+        "name": "outing_photos_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_photos_pkey ON __schema__.outing_photos USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_outing_id_lead_registration_id_key",
+        "definition": "CREATE UNIQUE INDEX outing_reports_outing_id_lead_registration_id_key ON __schema__.outing_reports USING btree (outing_id, lead_registration_id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outing_reports",
+        "name": "outing_reports_pkey",
+        "definition": "CREATE UNIQUE INDEX outing_reports_pkey ON __schema__.outing_reports USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "outings",
+        "name": "outings_pkey",
+        "definition": "CREATE UNIQUE INDEX outings_pkey ON __schema__.outings USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "policies",
+        "name": "one_pending_policy",
+        "definition": "CREATE UNIQUE INDEX one_pending_policy ON __schema__.policies USING btree (volunteer_id, kind, number) WHERE (verified_at IS NULL)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "policies",
+        "name": "policies_pkey",
+        "definition": "CREATE UNIQUE INDEX policies_pkey ON __schema__.policies USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "registration_mail_outbox_pkey",
+        "definition": "CREATE UNIQUE INDEX registration_mail_outbox_pkey ON __schema__.registration_mail_outbox USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "registration_mail_outbox",
+        "name": "registration_mail_pending",
+        "definition": "CREATE INDEX registration_mail_pending ON __schema__.registration_mail_outbox USING btree (retry_at, id) WHERE (sent_at IS NULL)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "registration_receipts",
+        "name": "registration_receipts_pkey",
+        "definition": "CREATE UNIQUE INDEX registration_receipts_pkey ON __schema__.registration_receipts USING btree (digest)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "registrations",
+        "name": "one_valid_registration",
+        "definition": "CREATE UNIQUE INDEX one_valid_registration ON __schema__.registrations USING btree (outing_id, volunteer_id) WHERE (status = ANY (ARRAY['revisión'::text, 'espera'::text, 'confirmada'::text]))",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "registrations",
+        "name": "registrations_pkey",
+        "definition": "CREATE UNIQUE INDEX registrations_pkey ON __schema__.registrations USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_pkey",
+        "definition": "CREATE UNIQUE INDEX report_reminders_pkey ON __schema__.report_reminders USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "report_reminders",
+        "name": "report_reminders_registration",
+        "definition": "CREATE INDEX report_reminders_registration ON __schema__.report_reminders USING btree (registration_id, id DESC)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "request_outing_photos",
+        "name": "request_outing_photos_pkey",
+        "definition": "CREATE UNIQUE INDEX request_outing_photos_pkey ON __schema__.request_outing_photos USING btree (request_id, \"position\")",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "requests",
+        "name": "requests_pkey",
+        "definition": "CREATE UNIQUE INDEX requests_pkey ON __schema__.requests USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "units",
+        "name": "units_pkey",
+        "definition": "CREATE UNIQUE INDEX units_pkey ON __schema__.units USING btree (name)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_history",
+        "definition": "CREATE INDEX volunteer_incidents_history ON __schema__.volunteer_incidents USING btree (volunteer_id, occurred_on DESC, recorded_at DESC)",
+        "is_unique": false,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "volunteer_incidents",
+        "name": "volunteer_incidents_pkey",
+        "definition": "CREATE UNIQUE INDEX volunteer_incidents_pkey ON __schema__.volunteer_incidents USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteers_identification_key",
+        "definition": "CREATE UNIQUE INDEX volunteers_identification_key ON __schema__.volunteers USING btree (identification)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      },
+      {
+        "relation": "volunteers",
+        "name": "volunteers_pkey",
+        "definition": "CREATE UNIQUE INDEX volunteers_pkey ON __schema__.volunteers USING btree (id)",
+        "is_unique": true,
+        "valid": true,
+        "ready": true
+      }
+    ],
+    "views": [
+      {
+        "name": "volunteer_attendance_evidence",
+        "definition": " SELECT p.outing_id,\n    r.volunteer_id,\n    p.id AS report_id,\n    p.lead_name,\n    p.starts,\n    p.ends,\n    p.observations,\n    p.submitted_at,\n    bool_or((member.value -> 'attended'::text) = 'true'::jsonb) AS attended,\n    bool_or((member.value -> 'attended'::text) = 'false'::jsonb) AS absent,\n    jsonb_build_object('id', p.id, 'version', md5(p.updated_at::text || p.participants::text), 'attended', bool_or((member.value -> 'attended'::text) = 'true'::jsonb), 'absent', bool_or((member.value -> 'attended'::text) = 'false'::jsonb)) AS evidence_entry\n   FROM outing_reports p\n     CROSS JOIN LATERAL jsonb_array_elements(p.participants) member(value)\n     JOIN registrations r ON r.id::text = (member.value ->> 'id'::text) AND r.outing_id = p.outing_id\n  WHERE p.status = 'finalizado'::text\n  GROUP BY p.outing_id, r.volunteer_id, p.id;"
+      }
+    ],
+    "functions": [
+      {
+        "name": "attendance_resolution_is_current",
+        "arguments": "decision text, reviewed jsonb, current_evidence jsonb",
+        "definition": "CREATE OR REPLACE FUNCTION __schema__.attendance_resolution_is_current(decision text, reviewed jsonb, current_evidence jsonb)\n RETURNS boolean\n LANGUAGE sql\n IMMUTABLE\nAS $function$\n  select decision in ('participo','no_participo','pendiente') and reviewed is not null and not exists (\n    select 1 from jsonb_array_elements(reviewed) old\n    where not coalesce(current_evidence,'[]'::jsonb) @> jsonb_build_array(old)\n  ) and not exists (\n    select 1 from jsonb_array_elements(coalesce(current_evidence,'[]'::jsonb)) fresh\n    where not reviewed @> jsonb_build_array(fresh)\n      and (decision='pendiente' or\n        (decision='participo' and (fresh->>'attended' is distinct from 'true' or fresh->>'absent' is distinct from 'false')) or\n        (decision='no_participo' and (fresh->>'attended' is distinct from 'false' or fresh->>'absent' is distinct from 'true')))\n  )\n$function$\n"
+      }
+    ],
+    "sequences": [
+      {
+        "name": "attendance_resolutions_id_seq",
+        "type": "bigint",
+        "start": "1",
+        "increment": "1",
+        "min": "1",
+        "max": "9223372036854775807",
+        "cache": "1",
+        "cycle": false,
+        "relation": "attendance_resolutions",
+        "column_name": "id"
+      },
+      {
+        "name": "audit_id_seq",
+        "type": "bigint",
+        "start": "1",
+        "increment": "1",
+        "min": "1",
+        "max": "9223372036854775807",
+        "cache": "1",
+        "cycle": false,
+        "relation": "audit",
+        "column_name": "id"
+      },
+      {
+        "name": "demo_mail_id_seq",
+        "type": "bigint",
+        "start": "1",
+        "increment": "1",
+        "min": "1",
+        "max": "9223372036854775807",
+        "cache": "1",
+        "cycle": false,
+        "relation": "demo_mail",
+        "column_name": "id"
+      },
+      {
+        "name": "registration_mail_outbox_id_seq",
+        "type": "bigint",
+        "start": "1",
+        "increment": "1",
+        "min": "1",
+        "max": "9223372036854775807",
+        "cache": "1",
+        "cycle": false,
+        "relation": "registration_mail_outbox",
+        "column_name": "id"
+      },
+      {
+        "name": "report_reminders_id_seq",
+        "type": "bigint",
+        "start": "1",
+        "increment": "1",
+        "min": "1",
+        "max": "9223372036854775807",
+        "cache": "1",
+        "cycle": false,
+        "relation": "report_reminders",
+        "column_name": "id"
+      }
+    ],
+    "triggers": [],
+    "policies": [],
+    "units": [
+      "BRIF",
+      "Control y Protección/COVIRENA",
+      "UEA",
+      "Voluntariado General"
+    ]
+  }
+}

@@ -6,6 +6,16 @@ export type ReportErrors = Partial<Record<keyof ReportValues | 'participants' | 
 
 export function validateReport(values: ReportValues, attended: string[], accuracy: boolean, draft = false): ReportErrors {
   const errors: ReportErrors = {};
+  const shapeErrors:ReportErrors={};
+  const raw=values&&typeof values==='object'?values:{} as Partial<ReportValues>;
+  const safe={...raw} as ReportValues;
+  for(const key of ['location','activity','starts','ends','actions','host','observations'] as const){
+    if(typeof raw[key]!=='string'){shapeErrors[key]='Revisá el valor de este campo.';safe[key]='';}
+  }
+  values=safe;
+  if(!Array.isArray(attended)||attended.some(value=>typeof value!=='string')){shapeErrors.participants='Revisá la selección de participantes.';attended=[];}
+  if(typeof accuracy!=='boolean')shapeErrors.accuracy='Revisá la confirmación del informe.';
+
   for (const key of ['location','actions','host'] as const) {
     const max = key === 'actions' ? 10000 : 500;
     if (!draft && !values[key].trim()) errors[key] = 'Completá este campo.';
@@ -19,6 +29,6 @@ export function validateReport(values: ReportValues, attended: string[], accurac
   if (values.observations.length > 5000) errors.observations = 'Usá un máximo de 5000 caracteres.';
   if (!draft && !attended.length) errors.participants = 'Confirmá al menos una persona que participó realmente.';
   if (!draft && !accuracy) errors.accuracy = 'Confirmá que revisaste la asistencia y la información del informe.';
-  return errors;
+  return {...errors,...shapeErrors};
 }
 

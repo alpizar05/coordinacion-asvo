@@ -1,15 +1,17 @@
+import {validPrivateToken} from '../../../lib/authorization';
+import {registrationLinkCondition} from '../../../lib/authorization-sql';
 import { StatusRibbon } from '../../status-ribbon';
 import { statusLabels } from '../../coordinacion/registration-statuses';
 import { sql } from '../../../lib/db';
-import { cancellationWarning, digest, displayDate } from '../../../lib/registration';
+import { cancellationWarning, displayDate } from '../../../lib/registration';
 import { PrivateRegistrationForms } from '../private-registration-forms';
 
 export default async function Page({params,searchParams}: {params:Promise<{token:string}>;searchParams:Promise<{error?:string;actualizada?:string}>}) {
   const {token} = await params;
-  const [entry] = /^[\w-]{43}$/.test(token) ? await sql`select l.purpose,r.status,r.details,r.starts::text,r.ends::text,
+  const [entry] = validPrivateToken(token) ? await sql`select l.purpose,r.status,r.details,r.starts::text,r.ends::text,
     o.title,o.unit,o.status as outing_status,o.flexible,o.starts::text as first_day,o.ends::text as last_day
     from links l join registrations r on r.id=l.registration_id join outings o on o.id=r.outing_id
-    where l.digest=${digest(token)} and l.expires>now()` : [];
+    where ${registrationLinkCondition(sql,token,false,true)}` : [];
   if (!entry) return <><h1>Enlace privado</h1><p>El enlace venció o ya se utilizó. Si necesitás ayuda, contactá a coordinación.</p></>;
   const active = ['revisión','espera','confirmada'].includes(entry.status) && ['abierta','confirmada'].includes(entry.outing_status);
   const query = await searchParams;

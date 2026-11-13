@@ -1,14 +1,10 @@
 import type { FieldErrors } from './form-result';
+import {formText as value,scalarInputErrors,historicalIdentification} from './form-input';
 import { validateParticipation, type RegistrationSchedule } from './registration-validation';
 
 export const staffRegistrationLabels = {volunteer:'Persona voluntaria',identification:'Identificación para conciliar',starts:'Llegada',ends:'Regreso',transport:'Transporte propio',rides:'Personas que puede llevar',food:'Restricciones alimentarias',other:'Observaciones',reason:'Motivo',approveDates:'Aprobación de fechas',title:'Título de la nueva salida',capacity:'Cupos'};
-const value=(form:FormData,key:string)=>String(form.get(key)??'').trim();
 export function validateStaffParticipation(form:FormData,schedule:RegistrationSchedule,selectPerson=false):FieldErrors{
-  const errors:FieldErrors={...validateParticipation(form,{...schedule,flexible:true})};
-  if(!schedule.flexible){
-    if(value(form,'starts')!==schedule.starts)errors.starts='La llegada debe coincidir con la fecha de la salida.';
-    if(value(form,'ends')!==schedule.ends)errors.ends='El regreso debe coincidir con la fecha de la salida.';
-  }
+  const errors:FieldErrors={...validateParticipation(form,schedule,false,'submitted'),...scalarInputErrors(form,['volunteer'])};
   if(selectPerson&&!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value(form,'volunteer')))errors.volunteer='Seleccioná una persona del registro de voluntariado.';
   return errors;
 }
@@ -17,7 +13,7 @@ export function validateEntryManagement(form:FormData,action:string,approval?:st
   if(['espera','rechazar','cancelar'].includes(action)&&!value(form,'reason'))errors.reason='Indicá el motivo de esta decisión.';
   if(action==='confirmar'&&approval&&value(form,'approveDates')!==approval)errors.approveDates='Revisá y aprobá las fechas solicitadas fuera del rango publicado.';
   if(action==='validar'){
-    const number=value(form,'identification').toUpperCase().replace(/[\s-]/g,'');
+    const number=historicalIdentification(value(form,'identification'));
     // Recovery must also support the historical identifiers already accepted by Coordination.
     if(!/^[A-Z0-9]{4,30}$/.test(number))errors.identification='Ingresá una identificación válida del registro de voluntariado.';
   }

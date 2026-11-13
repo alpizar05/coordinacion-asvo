@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import { registerHooks } from 'node:module';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -23,16 +25,17 @@ try{
   async function form(){const f=new FormData();for(const[k,v]of Object.entries({version:await outingEditVersion(tx,id),starts:'2027-01-10',ends:'2027-01-11',mode:'flexible',capacity:'2',visibility:'publica',registrationDeadline:'2027-01-10',photoMode:'keep',title:'Nuevo',location:'Lugar',unit:'Voluntariado General',requirements:'',logistics:''}))f.set(k,v);f.append('personal','title');return f;}
   const individual=await form();individual.delete('personal');await saveOutingEditor(tx,id,individual,options);assert.equal((await tx`select title from outings where id=${id}`)[0].title,'Nuevo');await tx`update outings set title='Original' where id=${id}`;
   const failed=await form();failed.set('capacity','0');
-  await assert.rejects(()=>saveOutingEditor(tx,id,failed,options),e=>e instanceof OutingEditError&&e.target==='capacity');
+  await assert.rejects(()=>saveOutingEditor(tx,id,failed,options),e=>e instanceof OutingEditError&&e.target==='form'&&!!e.fieldErrors?.capacity);
   assert.equal((await tx`select title from outings where id=${id}`)[0].title,'Original');
   const stale=await form(),valid=await form();valid.set('starts','2027-01-09');valid.set('registrationDeadline','2027-01-09');valid.set('dateReason','Cambio coordinado');
   await saveOutingEditor(tx,id,valid,options);
   const [saved]=await tx`select title,starts::text,registration_deadline::text from outings where id=${id}`;
   assert.equal(saved.title,'Nuevo');assert.equal(saved.starts,'2027-01-09');assert.equal(saved.registration_deadline,'2027-01-09');
-  await assert.rejects(()=>saveOutingEditor(tx,id,stale,options),e=>e.target==='form');
+  await assert.rejects(()=>saveOutingEditor(tx,id,stale,options),e=>e.target==='form'&&!e.fieldErrors);
   const missingReason=await form();missingReason.set('capacity','3');missingReason.set('starts','2027-01-09');missingReason.set('registrationDeadline','2027-01-09');
-  await assert.rejects(()=>saveOutingEditor(tx,id,missingReason,options),e=>e.target==='capacityReason');
-  const photo=await form();photo.set('starts','2027-01-09');photo.set('registrationDeadline','2027-01-09');photo.set('title','No guardar');photo.set('photoMode','personal');photo.set('photos',JSON.stringify([{key:'new-test',kind:'upload',alt:'Prueba',credit:''}]));
+  await assert.rejects(()=>saveOutingEditor(tx,id,missingReason,options),e=>e.target==='form'&&!!e.fieldErrors?.capacityReason);
+  const photo=await form();photo.set('starts','2027-01-09');photo.set('registrationDeadline','2027-01-09');photo.set('title','No guardar');photo.set('photoMode','personal');photo.set('photos',JSON.stringify([{key:'new-test',kind:'upload',alt:'Prueba',credit:'',permission:true}]));
+  photo.set('photo-new-test',new File(['ficticio'],'foto.png',{type:'image/png'}));
   await assert.rejects(()=>saveOutingEditor(tx,id,photo,options),/foto-fallida/);
   assert.equal((await tx`select title from outings where id=${id}`)[0].title,'Nuevo');
   const first=randomUUID(),second=randomUUID(),sourceId=randomUUID(),galleryId=randomUUID();
@@ -51,7 +54,7 @@ try{
   assert.equal((await tx`select alt from outing_photos where outing_id=${id} and position=1`)[0].alt,'General');
   assert.equal((await tx`select outing_overrides from outings where id=${id}`)[0].outing_overrides.includes('photos'),false);
   const shared=await form();shared.set('starts','2027-01-09');shared.set('registrationDeadline','2027-01-09');shared.set('editRequest','1');shared.set('request-organization','Nueva organización');shared.set('request-activity','Actividad');
-  await assert.rejects(()=>saveOutingEditor(tx,id,shared,options),e=>e.target==='confirmShared');
+  await assert.rejects(()=>saveOutingEditor(tx,id,shared,options),e=>e.target==='form'&&!!e.fieldErrors?.confirmShared);
   assert.equal((await tx`select organization from requests where id=${request}`)[0].organization,'DEMO prueba editor');
   const forbidden=await form();await assert.rejects(()=>saveOutingEditor(tx,id,forbidden,{...options,canOperate:()=>false}),e=>e.target==='form');
   assert.equal((await tx`select count(*)::int as count from registration_mail_outbox where registration_id in(select id from registrations where outing_id=${id})`)[0].count,0);

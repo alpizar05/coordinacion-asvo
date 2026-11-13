@@ -1,3 +1,4 @@
+import { prepareDatabase } from '../lib/database-setup.mjs';
 import postgres from 'postgres';
 import sharp from 'sharp';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -108,7 +109,7 @@ try{
   if(!local||!/^historical_import_test_[a-z0-9_]+$/.test(process.env.IMPORT_TEST_SCHEMA))throw new Error('Esquema de prueba inválido');
   await sql.unsafe(`create schema if not exists ${process.env.IMPORT_TEST_SCHEMA}`);
   await sql.unsafe(`set search_path to ${process.env.IMPORT_TEST_SCHEMA}`);
-  await sql.unsafe(await readFile(new URL('../schema.sql',import.meta.url),'utf8'));
+  await prepareDatabase(sql);
  }
  const existing=await sql`select id,identification from volunteers where identification in ${sql(data.volunteers.map(v=>v.identification))}`;
  console.log(JSON.stringify({mode:apply?'apply':'preview',batch:plan.batch,destination:local?'local':origin,...plan.summary,reusedPeople:existing.length,newPeople:167-existing.length}));

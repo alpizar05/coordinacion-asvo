@@ -16,3 +16,11 @@ try {
   assert.equal(cancelled,1);assert.equal(fetchCalls,0);
   console.log('OK: destinatarios .test cancelados sin autenticación ni envío a Graph.');
 } finally {globalThis.fetch=originalFetch;}
+// A 200 with malformed token JSON must leave mail pending, never call sendMail.
+let sent=0,network=0;
+try{
+ globalThis.fetch=async()=>{network++;return {ok:true,json:async()=>({access_token:{secret:'must-not-be-used'}})};};
+ const sql=async(strings)=>{const query=strings.join('?');if(query.includes('returning id,recipient,subject,body,html_body'))return [{id:2,recipient:'fake@example.invalid',subject:'Ficticio',body:'Ficticio'}];if(query.includes('from report_reminders'))return [];if(query.includes('sent_at=now()')){sent++;return [];}throw Error('Consulta inesperada');};
+ assert.deepEqual(await flushRegistrationMail(sql),{sent:0,failed:1});assert.equal(network,1);assert.equal(sent,0);
+ console.log('OK: respuesta de token malformada conserva el correo pendiente sin enviar.');
+}finally{globalThis.fetch=originalFetch;}

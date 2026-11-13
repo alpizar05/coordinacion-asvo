@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import { registerHooks } from 'node:module';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -65,8 +67,8 @@ try {
     const item=(await attendanceCases(outings[0],tx)).find(row=>row.volunteer_id===person);
     return saveAttendanceResolution(tx,outings[0],person,version || item.version,decision,reason,'coordinador-prueba');
   });
-  assert.ok((await reconcile('participo','')).error,'Exige motivo');
-  assert.ok((await reconcile('inventado')).error);
+  assert.ok((await reconcile('participo','')).fieldErrors?.reason,'Exige motivo junto al campo');
+  assert.ok((await reconcile('inventado')).fieldErrors?.decision);
   assert.ok((await reconcile('participo','Motivo','desactualizada')).error,'No resuelve evidencia que cambió mientras se revisaba');
   assert.ok((await reconcile('pendiente')).saved);
   assert.equal(participationSummary(await volunteerParticipations(person)).attended,0);

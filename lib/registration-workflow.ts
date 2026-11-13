@@ -1,3 +1,4 @@
+import {outingIsOpen,registrationStaffMutable,registrationCanReopen,staffRegistrationTransition,reservationTransition,promotionTransition,assign70Transition} from './workflow-transitions';
 import { appUrl, demo, sql } from './db';
 import { audit, hours, type Transaction } from './registration';
 import { queueRegistrationMail } from './registration-mail.mjs';
@@ -16,15 +17,15 @@ export function notifyRegistration(tx: Transaction, id: string, message: string)
 // The caller holds the outing row lock for the whole reservation and notification transaction.
 export async function promoteWaitlist(tx: Transaction, outingId: string, actor: string, exclude: string[] = []) {
   const [outing] = await tx`select capacity,status from outings where id=${outingId}`;
-  if (!outing || !['abierta','confirmada'].includes(outing.status)) return;
+  if (!outing || !outingIsOpen(outing.status)) return;
   const free = Math.max(0, outing.capacity - await occupiedSeats(tx, outingId));
   if (!free) return;
   const waiting = await tx<{ id: string }[]>`select id from registrations where outing_id=${outingId}
     and status='espera' and not (id=any(${exclude}::uuid[])) order by received_at,id limit ${free} for update`;
   for (const entry of waiting) {
-    await tx`update registrations set status='revisión' where id=${entry.id}`;
-    await audit(tx,actor,'Asignó cupo desde lista de espera',entry.id);
-    await notifyRegistration(tx,entry.id,'Se liberó un cupo y lo reservamos para vos por orden de recepción. Coordinación debe confirmar tu participación.');
+    await tx`update registrations set status=${promotionTransition.status} where id=${entry.id}`;
+    await audit(tx,actor,promotionTransition.audit,entry.id);
+    await notifyRegistration(tx,entry.id,promotionTransition.message);
   }
 }
 
@@ -37,25 +38,24 @@ export async function dispatchRegistrationUpdates() {
 export async function assignRegistration70(tx: Transaction, id: string, actor: string, assigned: boolean) {
   const [entry] = await tx`select r.status,o.status as outing_status from registrations r
     join outings o on o.id=r.outing_id where r.id=${id}`;
-  if (!entry || entry.status !== 'confirmada') return 'Solo se puede asignar como 70 a una persona con inscripción confirmada.';
-  if (!['abierta','confirmada'].includes(entry.outing_status)) return 'La salida debe estar abierta o confirmada.';
+  const decision=assign70Transition(entry?.status??'',entry?.outing_status??'',assigned);
+  if('error' in decision)return decision.error;
   await tx`update registrations set details=jsonb_set(coalesce(details,'{}'::jsonb),'{assigned70}',${tx.json(assigned)}::jsonb) where id=${id}`;
   if (!assigned) await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${id} and revoked_at is null`;
-  await audit(tx,actor,assigned ? 'Asignó como 70' : 'Retiró asignación de 70',id);
-  await notifyRegistration(tx,id,assigned ? 'Coordinación te asignó como 70 para esta salida.' : 'Coordinación retiró tu asignación como 70 para esta salida. Tu inscripción continúa confirmada.');
+  await audit(tx,actor,decision.audit,id);
+  await notifyRegistration(tx,id,decision.message);
 }
 
+// Caller holds the outing lock; adapter versions are checked under that same lock.
 export async function changeRegistrationStatus(tx: Transaction, id: string, actor: string, action: string, reason: string, approveDates: string) {
   const [entry] = await tx`select *,starts::text as first_day,ends::text as last_day from registrations where id=${id}`;
-  const reopening = entry && ['cancelada por coordinación','cancelada por voluntariado'].includes(entry.status) && action === 'confirmar';
-  if (!entry || (!['revisión','espera','confirmada'].includes(entry.status) && !reopening)) return 'Esta inscripción ya no está activa.';
+  const reopening = entry && registrationCanReopen(entry.status,action);
+  if (!entry || !registrationStaffMutable(entry.status,action)) return 'Esta inscripción ya no está activa.';
   const [outing] = await tx`select *,starts::text as first_day,ends::text as last_day from outings where id=${entry.outing_id}`;
-  if (!outing || !['abierta','confirmada'].includes(outing.status)) return 'La salida debe estar abierta o confirmada.';
-  if (!['confirmar','espera','rechazar','cancelar'].includes(action)) return 'Elegí una acción válida.';
-  if (action !== 'confirmar' && !reason) return 'Indicá el motivo.';
-  if (action === 'espera' && entry.status === 'espera') return 'La inscripción ya está en lista de espera.';
-  if (action === 'confirmar') {
-    if (entry.status === 'confirmada') return 'La inscripción ya está confirmada.';
+  if (!outing || !outingIsOpen(outing.status)) return 'La salida debe estar abierta o confirmada.';
+  const decision=staffRegistrationTransition(entry.status,outing.status,action,reason);
+  if('error' in decision)return decision.error;
+  if(action==='confirmar'){
     const outside = entry.first_day < outing.first_day || entry.last_day > outing.last_day;
     if (outside && (!outing.flexible || approveDates !== `${entry.first_day}/${entry.last_day}`)) {
       return 'Revisá y aprobá las fechas fuera del rango publicado.';
@@ -71,18 +71,17 @@ export async function changeRegistrationStatus(tx: Transaction, id: string, acto
     const [policy] = await tx`select id from policies where volunteer_id=${entry.volunteer_id} and verified_at is not null
       and starts<=${entry.first_day}::date and ends>=${entry.last_day}::date order by verified_at desc limit 1`;
     if (!policy) return 'Falta una póliza vigente para todo el periodo.';
-    await tx`update registrations set status='confirmada',policy_id=${policy.id},details=case when ${!!reopening} then details-'assigned70' else details end where id=${id}`;
-    await audit(tx,actor,reopening ? 'Reactivó y confirmó inscripción cancelada' : 'Confirmó cupo',id);
+    await tx`update registrations set status=${decision.status},policy_id=${policy.id},details=case when ${!!reopening} then details-'assigned70' else details end where id=${id}`;
+    await audit(tx,actor,decision.audit,id);
     if (outside) await audit(tx,actor,'Aprobó fechas fuera del rango',id,`${entry.first_day} al ${entry.last_day}`);
-    await notifyRegistration(tx,id,'Coordinación confirmó tu participación. Tu cupo está confirmado.');
+    await notifyRegistration(tx,id,decision.message);
     return;
   }
-  const status = action === 'espera' ? 'espera' : action === 'rechazar' ? 'rechazada' : 'cancelada por coordinación';
+  const status=decision.status;
   await tx`update registrations set status=${status},details=details-'assigned70' where id=${id}`;
   await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${id} and revoked_at is null`;
-  await audit(tx,actor,action === 'espera' ? 'Movió a lista de espera' : status,id,reason);
-  await notifyRegistration(tx,id,`${action === 'espera' ? 'Coordinación movió tu inscripción a lista de espera.'
-    : action === 'rechazar' ? 'Coordinación rechazó tu inscripción.' : 'Coordinación canceló tu inscripción.'} Motivo: ${reason}`);
+  await audit(tx,actor,decision.audit,id,reason);
+  await notifyRegistration(tx,id,decision.message);
   await promoteWaitlist(tx,outing.id,actor,action === 'espera' ? [id] : []);
 }
 
@@ -101,13 +100,21 @@ export async function receiveRegistration(tx: Transaction, input: {
     and status in ('validación','revisión','espera','confirmada') limit 1`;
   if (existing) return { duplicate: true as const };
   await promoteWaitlist(tx,outingId,'sistema');
-  const status = await occupiedSeats(tx,outingId) < outing.capacity ? 'revisión' : 'espera';
+  const decision=reservationTransition(await occupiedSeats(tx,outingId),outing.capacity);
+  const status=decision.status;
   const [entry] = await tx<{ id: string }[]>`insert into registrations
     (outing_id,volunteer_id,identification,starts,ends,details,status)
     values (${outingId},${volunteerId},${identification},${starts},${ends},${tx.json(details)},${status}) returning id`;
-  await audit(tx,input.actor || 'voluntariado','Recibió inscripción',entry.id,status);
-  await notifyRegistration(tx,entry.id,status === 'revisión'
-    ? 'Recibimos tu inscripción y reservamos un cupo. Coordinación debe confirmar tu participación.'
-    : 'Recibimos tu inscripción. Los cupos están cubiertos y quedaste en lista de espera. Te avisaremos si se libera un cupo.');
+  await audit(tx,input.actor || 'voluntariado',decision.audit,entry.id,status);
+  await notifyRegistration(tx,entry.id,decision.message);
   return { id: entry.id, status };
+}
+
+/** Caller has locked the outing/entry and checked identity, eligibility and duplicates. */
+export async function recoverRegistration(tx:Transaction,id:string,outing:{id:string;capacity:number},personId:string,actor:string){
+ await promoteWaitlist(tx,outing.id,actor);
+ const decision=reservationTransition(await occupiedSeats(tx,outing.id),outing.capacity,'recovered');
+ await tx`update registrations set volunteer_id=${personId},status=${decision.status} where id=${id}`;
+ await audit(tx,actor,decision.audit,id);
+ await notifyRegistration(tx,id,decision.message);
 }

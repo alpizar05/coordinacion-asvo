@@ -1,17 +1,18 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import {registerHooks}from'node:module';import{existsSync}from'node:fs';import{fileURLToPath}from'node:url';import{randomUUID}from'node:crypto';import assert from'node:assert/strict';
 const url=new URL(process.env.DATABASE_URL);if(process.env.ASVO_DEMO!=='1'||!['localhost','127.0.0.1','[::1]'].includes(url.hostname))throw Error('Solo demo local');process.env.NODE_ENV='development';
 registerHooks({resolve(s,c,n){if(s==='next/headers')return n(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const p=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(p)))return n(p.href,c);}return n(s,c);}});
-const {sql}=await import('../lib/db.ts');const {validateRegistryForm}=await import('../lib/registry-validation.ts');const {validateProfile}=await import('../lib/profile-validation.ts');
+const {sql}=await import('../lib/db.ts');
 const {prepareRegistryImport,applyRegistryImport}=await import('../lib/registry-import.ts');const {verifyRegistryPolicy,saveRegistryUnits,saveRegistryIncident,saveRegistryGrant}=await import('../lib/registry-mutations.ts');const {attendanceCases,saveAttendanceResolution}=await import('../lib/attendance-reconciliation.ts');
 const form=(values={})=>{const f=new FormData();for(const[k,v]of Object.entries(values))for(const item of Array.isArray(v)?v:[v])f.append(k,item);return f;};
-assert.equal(Object.keys(validateRegistryForm(form(),'policy')).length,5);assert.equal(Object.keys(validateRegistryForm(form(),'incident')).length,2);assert.equal(Object.keys(validateRegistryForm(form(),'attendance')).length,2);
-assert.ok(validateProfile(form({name:'',surname:'',email:'mal'})).email);
 const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('Red real prohibida');};const rollback=Error('rollback');
 try{await sql.begin(async tx=>{
  const person=randomUUID(),ident='T'+person.replaceAll('-','').slice(0,20).toUpperCase(),actor='test-'+randomUUID();
  await tx`insert into volunteers(id,identification,name,surname,email)values(${person},${ident},'Persona','Ficticia','persona@example.test')`;
  const count=async table=>Number((await tx.unsafe(`select count(*)::int as n from ${table}`))[0].n);
  const before=await count('volunteers'),audits=await count('audit');
+ assert.ok((await applyRegistryImport(tx,form({csv:new File(['data'],'bad.csv')}),'volunteers',actor)).fieldErrors.csv);
  assert.ok((await prepareRegistryImport(tx,'nombre\nPrueba','volunteers')).fieldErrors.csv);
  assert.ok((await prepareRegistryImport(tx,'identificacion,tipo,numero\n"mal','policies')).fieldErrors.csv);
  const csv=`identificacion,nombre,primer_apellido,correo\n${ident},Persona nueva,Ficticia,persona@example.test\nINVALIDA,,Prueba,mal\n${ident},Duplicada,Prueba,correo@example.test\n`;
@@ -19,7 +20,8 @@ try{await sql.begin(async tx=>{
  assert.equal(await count('volunteers'),before);assert.equal(await count('audit'),audits,'Previsualizar no escribe');
  const applyForm=form({csv,selected:['0'],preview:preview.token,versions:JSON.stringify(preview.rows.map(r=>r.version))});
  assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.confirm);
- applyForm.set('confirm','on');applyForm.append('selected','1');assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.selected);assert.equal(await count('audit'),audits);
+ applyForm.set('confirm','on');const forged=form({csv,selected:['0'],confirm:'on',preview:'é'.repeat(64)});assert.ok((await applyRegistryImport(tx,forged,'volunteers',actor)).error);
+applyForm.append('selected','1');assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.selected);assert.equal(await count('audit'),audits);
  applyForm.delete('selected');applyForm.append('selected','0');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);const after=await count('audit');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);assert.equal(await count('audit'),after);
  const stale=await prepareRegistryImport(tx,csv,'volunteers');applyForm.set('preview',stale.token);applyForm.set('versions',JSON.stringify(stale.rows.map(r=>r.version)));await tx`update volunteers set name='Cambio concurrente'where id=${person}`;assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).error.includes('cambió'));
  const pcsv=`identificacion,tipo,numero\n${ident},DEMO,PRUEBA\nNOEXISTE,DEMO,OTRA\n`,pp=await prepareRegistryImport(tx,pcsv,'policies');assert.equal(pp.rows[1].valid,false);

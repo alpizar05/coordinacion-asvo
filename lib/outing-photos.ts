@@ -1,10 +1,11 @@
+import {graphAccessToken,graphItemId} from './graph-response.mjs';
 import { randomUUID } from 'node:crypto';
 import sharp from 'sharp';
 import { demo } from './db';
 import { graphDiagnostic } from './graph-diagnostics';
 
 export async function preparePhoto(file: File) {
-  if (file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error('Elegí una imagen de hasta 3 MB.');
+  if (!(file instanceof File) || file.size < 1 || file.size > 3 * 1024 * 1024) throw new Error('Elegí una imagen de hasta 3 MB.');
   const original = await file.arrayBuffer();
   const source = sharp(original, { limitInputPixels: 24_000_000 });
   const { format, pages } = await source.metadata();
@@ -47,7 +48,7 @@ export async function storeOriginal(photo: Awaited<ReturnType<typeof preparePhot
     await graphDiagnostic('sharepoint-auth', token);
     throw new Error('No se pudo acceder a SharePoint.');
   }
-  const { access_token } = await token.json();
+  const access_token = graphAccessToken(await token.json());
   const name = `${randomUUID()}.${photo.format}`;
   const response = await fetch(`https://graph.microsoft.com/v1.0/drives/${encodeURIComponent(drive)}/items/${encodeURIComponent(folder)}:/${name}:/content`, {
     method: 'PUT',
@@ -63,7 +64,6 @@ export async function storeOriginal(photo: Awaited<ReturnType<typeof preparePhot
     await graphDiagnostic('sharepoint-upload', response);
     throw new Error('No se pudo guardar el original en SharePoint.');
   }
-  const { id } = await response.json();
-  if (typeof id !== 'string') throw new Error('SharePoint no devolvió el identificador de la foto.');
+  const id = graphItemId(await response.json());
   return { drive, item: id };
 }

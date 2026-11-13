@@ -1,3 +1,4 @@
+-- Estructura y catálogo operativo. Transformaciones históricas: scripts/db-history.mjs.
 create table if not exists grants (
   subject text not null, role text not null check (role in ('admin','general','unidad')),
   unit text not null default '', primary key(subject,role,unit)
@@ -82,8 +83,6 @@ create index if not exists volunteer_incidents_history
   on volunteer_incidents(volunteer_id, occurred_on desc, recorded_at desc);
 
 alter table volunteers alter column units set default array['Voluntariado General']::text[];
-update volunteers set units = array_prepend('Voluntariado General', units)
-  where not (units @> array['Voluntariado General']::text[]);
 
 do $$
 begin
@@ -92,15 +91,11 @@ begin
     where conrelid = 'volunteers'::regclass and conname = 'volunteers_general_unit_required'
   ) then
     alter table volunteers add constraint volunteers_general_unit_required
-      check (units @> array['Voluntariado General']::text[]);
+      check (units @> array['Voluntariado General']::text[]) not valid;
   end if;
 end;
 $$;
 
--- Retirar la antigua opción del catálogo y de las membresías existentes.
-delete from units where name = 'Otros';
-update volunteers set units = array_remove(units, 'Otros')
-  where units @> array['Otros']::text[];
 
 create table if not exists outing_collections (
   id uuid primary key default gen_random_uuid(),
@@ -130,23 +125,6 @@ create index if not exists outing_invitations_outing on outing_invitations(outin
 alter table requests add column if not exists outing_defaults jsonb;
 alter table outings add column if not exists outing_overrides text[] not null default '{}';
 
--- Use the first block as the starting point and preserve existing differences.
-with first_blocks as (
-  select distinct on (request_id) request_id,title,location,unit,requirements,logistics
-  from outings order by request_id,starts,id
-), initialized as (
-  update requests r set outing_defaults=jsonb_build_object(
-    'title',b.title,'location',b.location,'unit',b.unit,
-    'requirements',coalesce(b.requirements,''),'logistics',coalesce(b.logistics,''))
-  from first_blocks b where r.id=b.request_id and r.outing_defaults is null
-  returning r.id,r.outing_defaults
-)
-update outings o set outing_overrides=array(
-  select key from jsonb_each_text(i.outing_defaults) as defaults(key,value)
-  where coalesce(to_jsonb(o)->>key,'') is distinct from value
-)
-from initialized i where o.request_id=i.id;
-
 create table if not exists request_outing_photos (
   request_id uuid not null references requests on delete cascade,
   position smallint not null check (position between 1 and 6),
@@ -159,35 +137,6 @@ create table if not exists request_outing_photos (
   primary key(request_id,position)
 );
 alter table requests add column if not exists outing_photos_initialized boolean not null default false;
-
-do $$
-begin
-  if exists (select 1 from requests where not outing_photos_initialized and outing_defaults is not null) then
-    insert into request_outing_photos
-    select r.id,p.position,p.alt,p.credit,p.original_item,p.original_drive,p.thumbnail,p.display_image
-    from requests r
-    join lateral (select id from outings where request_id=r.id order by starts,id limit 1) first on true
-    join outing_photos p on p.outing_id=first.id and p.position is not null
-    where not r.outing_photos_initialized and r.outing_defaults is not null
-    on conflict do nothing;
-
-    update outings o set outing_overrides=array_append(o.outing_overrides,'photos')
-    from requests r where o.request_id=r.id and not r.outing_photos_initialized and r.outing_defaults is not null
-      and not ('photos'=any(o.outing_overrides))
-      and (
-        exists (select position,alt,credit,original_item,original_drive,thumbnail,display_image
-          from outing_photos where outing_id=o.id and position is not null
-          except select position,alt,credit,original_item,original_drive,thumbnail,display_image
-          from request_outing_photos where request_id=r.id)
-        or exists (select position,alt,credit,original_item,original_drive,thumbnail,display_image
-          from request_outing_photos where request_id=r.id
-          except select position,alt,credit,original_item,original_drive,thumbnail,display_image
-          from outing_photos where outing_id=o.id and position is not null)
-      );
-    update requests set outing_photos_initialized=true where not outing_photos_initialized and outing_defaults is not null;
-  end if;
-end;
-$$;
 
 create table if not exists homepage_feature (
   singleton boolean primary key default true check (singleton),

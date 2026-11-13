@@ -1,10 +1,10 @@
-import { canOperate, type staff } from './auth';
+import { canOperate, staffScope, type staff } from './auth';
 import { sql } from './db';
 
 export type GalleryPhoto = { id: string; alt: string; credit?: string; title: string; location: string };
 
 export function outingPhotoGallery(user: Awaited<ReturnType<typeof staff>>, excludeOuting?: string) {
-  const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
+  const scopes = staffScope(user).units;
   return sql<GalleryPhoto[]>`
     select id,alt,credit,title,location from (
     select distinct on (coalesce(p.original_drive,''),coalesce(p.original_item,p.id::text)) p.id,p.alt,p.credit,o.title,o.location,o.starts,p.position

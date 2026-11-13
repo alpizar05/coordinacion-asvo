@@ -59,7 +59,7 @@ Iniciá PostgreSQL y aplicá el esquema:
 
 ```sh
 npm run db:start
-npm run db:setup -- --demo
+npm run db:setup
 ```
 
 `db:start` inicializa la base en el primer uso y detecta si ya está activa. Los datos quedan en `.local-postgres/data/` y el registro del servidor en `.local-postgres/postgres.log`. Conservá esa carpeta entre sesiones. Una instalación en `/private/tmp` puede desaparecer después de reiniciar el equipo.
@@ -69,14 +69,14 @@ npm run db:setup -- --demo
 Prepará el registro ficticio, sus pólizas de prueba y los permisos de administrador y Coordinación general:
 
 ```sh
-node --env-file=.env.local scripts/demo-registro.mjs
+npm run db:seed:demo
 ```
 
 Podés cargar además el calendario de noviembre de 2026 y el ejemplo de agrupaciones flexibles:
 
 ```sh
-node --env-file=.env.local scripts/demo-calendario-noviembre.mjs
-node --env-file=.env.local scripts/demo-agrupaciones.mjs
+npm run db:seed:calendar
+npm run db:seed:groups
 ```
 
 Estos scripts requieren una base demo local y pueden repetirse sin duplicar los ejemplos identificados. El calendario también actualiza los bloques coincidentes de Robles-Kaufman. Las fechas y las vigencias de las pólizas están fijadas en los scripts. Las convocatorias vencidas siguen visibles en Coordinación y dejan de aparecer en el catálogo público.
@@ -91,7 +91,7 @@ Abrí [Convocatorias](http://localhost:3031/) o [Coordinación](http://localhost
 
 Para probar una inscripción:
 
-1. Abrí una convocatoria vigente en una ventana privada. Usá una identificación de `scripts/registro-ficticio.csv`, como `DEMO0001`. La póliza ficticia debe cubrir las fechas elegidas.
+1. Abrí una convocatoria vigente en una ventana privada. Usá una identificación de `scripts/registro-ficticio.csv`, como las del CSV. Los ejemplos legados con identificación `DEMO…` no satisfacen el formulario público actual de nueve dígitos; para ese flujo necesitás una ficha ficticia con identificación de nueve dígitos y cobertura adecuada. La póliza ficticia debe cubrir las fechas elegidas.
 2. La inscripción queda **En revisión** y reserva cupo si hay disponibilidad. Si los cupos están cubiertos, queda en **Lista de espera**.
 3. En la sesión de Coordinación abrí **Bandeja de prueba · Demo**. El mensaje muestra el estado y el enlace privado para consultar, editar o cancelar la inscripción. Abrí ese enlace en la ventana privada.
 4. Coordinación puede confirmar sin motivo. Mover a espera, rechazar o cancelar requieren justificación. Al liberar un cupo, la siguiente solicitud en espera pasa a revisión y recibe un aviso. La persona movida manualmente a espera queda excluida de esa promoción inmediata.
@@ -127,7 +127,7 @@ APP_URL=http://localhost:3031
 ASVO_DEMO=1
 ```
 
-Después ejecutá `npm run db:setup -- --demo`, cargá los ejemplos necesarios y levantá Next.js. Si ya tenés PostgreSQL 17 o posterior, configurá `DATABASE_URL` con una base dedicada a pruebas y aplicá el mismo esquema. El comando `db:start` corresponde a la instalación integrada para Mac con Apple Silicon.
+Después ejecutá `npm run db:setup`, cargá los ejemplos necesarios y levantá Next.js. Si ya tenés PostgreSQL 17 o posterior, configurá `DATABASE_URL` con una base dedicada a pruebas y aplicá el mismo esquema. El comando `db:start` corresponde a la instalación integrada para Mac con Apple Silicon.
 
 ### Problemas habituales
 
@@ -137,12 +137,26 @@ Después ejecutá `npm run db:setup -- --demo`, cargá los ejemplos necesarios y
 | `command not found: docker` | Usá la instalación persistente para Mac indicada arriba, o instalá e iniciá Docker Desktop si elegís esa alternativa. |
 | Puerto 3031 ocupado | Elegí otro con `npm run dev -- --port PUERTO` y actualizá `APP_URL` para que coincida. |
 | Catálogo sin convocatorias | Revisá que las salidas estén abiertas, sean públicas y tengan inscripción vigente. |
-| Faltan tablas o columnas | Ejecutá `npm run db:setup` con PostgreSQL activo. |
+| Faltan tablas o columnas | Revisá `npm run db:plan`. Una base vacía usa `db:setup`; un esquema existente parcial necesita revisión antes de adoptar, sin forzar la baseline. |
 | Desapareció la base de `/private/tmp` | Restaurá un respaldo o reconstruí los ejemplos con los scripts. Los cambios manuales requieren un respaldo para recuperarse. |
 
 ### Verificación y acceso institucional
 
 `npm run check` verifica TypeScript y `npm run build` compila la aplicación. Las identidades ficticias y la bandeja de prueba funcionan en desarrollo. Para Entra, configurá un registro de aplicación de un solo directorio, el callback `/api/auth/callback/microsoft-entra-id` y su emisor. Aprovisioná el identificador de objeto aprobado con rol `admin` y configurá Graph para el buzón y la biblioteca de SharePoint autorizados.
+
+## Operaciones independientes de base y correo
+
+Ver [comandos, compatibilidad y verificación local](docs/operaciones-base-datos.md) y [migraciones numeradas, adopción y recuperación](docs/migraciones-numeradas.md). La fuente de verdad es `migrations/*.sql`; el antiguo `schema.sql` fue retirado. `npm run test:db:migrations` verifica el ejecutor en bases locales desechables. Las pruebas de esta separación se ejecutan con `npm run test:db:commands`: crean y eliminan una base local desechable y bloquean solicitudes externas. No requieren credenciales Graph.
+
+## Pruebas separadas y cobertura
+
+- `npm run test:unit`: 62 pruebas aisladas, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
+- `npm run test:unit:coverage`: LCOV y resumen por módulo en `coverage/`, sobre un denominador explícito de 25 módulos puros; no mide toda la plataforma.
+- `npm run test:contracts`: Auth.js y adaptador de correo con dobles, sin proveedores reales.
+- `npm run test:integration`: 12 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
+- `npm run test:integration -- --only=summary`: ejecuta un grupo concreto con el mismo aislamiento.
+
+Ver [inventario y comandos](tests/README.md) y [medición inicial, exclusiones y umbrales propuestos](docs/pruebas-y-cobertura.md). Los scripts antiguos de integración ya no aceptan la base de uso diario: ejecutalos mediante el grupo correspondiente. TypeScript, compilación y navegador siguen siendo comprobaciones separadas.
 
 ## Correos de inscripción
 
@@ -152,7 +166,7 @@ Cada recepción y actualización genera un correo con estado, mensaje y enlace p
 
 La aplicación intenta enviarlos después de cada operación. Si falla Graph, quedan pendientes de reintento. Para procesar la cola cada minuto, mantené un proceso de correo activo con `npm run mail:worker`, usando las variables de entorno del despliegue. En un servicio que ya inyecta las variables, usá `node scripts/mail-outbox.mjs --watch`. En Vercel, `vercel.json` programa `/api/cron/correos` diariamente a las 12:00 UTC (6:00 a. m. de Costa Rica), compatible con Hobby. Para activarlo, configurá `CRON_SECRET` en Production y desplegá el código. La ruta exige autorización Bearer y rechaza demo/Preview. Consultá la [configuración y verificación del cron](docs/despliegue-y-configuracion.md#10-cola-y-reintentos-de-correo). La ejecución diaria es de respaldo; un envío fallido puede esperar al siguiente día. Para un reintento local puntual, usá `npm run mail:retry`. Los mensajes de una misma inscripción se entregan en orden. Una interrupción después de la aceptación por Graph y antes de registrar el envío puede producir un correo duplicado.
 
-`npm run db:setup` adapta las solicitudes existentes al nuevo reparto por orden de recepción, conserva las confirmaciones y genera sus avisos una sola vez. La prueba local `npm run test:registration` comprueba concurrencia, reservas, promociones, motivos, correos demo y enlaces privados, y elimina sus propios datos al terminar. Requiere Node.js 22.18 o posterior con soporte de TypeScript nativo.
+`npm run db:setup` y `db:migrate` ejecutan únicamente las migraciones numeradas de estructura y catálogo operativo. Usá `db:status` o `db:plan` para consultar sin escrituras; una base existente sin registro requiere `db:adopt -- --apply` después de verificar su compatibilidad. No transforma inscripciones, carga ejemplos, crea avisos/enlaces ni procesa correo. Para una base anterior, las transformaciones históricas se ejecutan por separado con `npm run db:migrate:history -- --apply`, previa revisión de la [guía de operaciones de base](docs/operaciones-base-datos.md); conservan sus marcas y no generan comunicaciones. `--demo` en `db:setup` ahora se rechaza antes de conectar: usá `npm run db:seed:demo`. La prueba local `npm run test:registration` comprueba concurrencia, reservas, promociones, motivos, correos demo y enlaces privados, y elimina sus propios datos al terminar. Requiere Node.js 22.18 o posterior con soporte de TypeScript nativo.
 
 Cuando una persona cancela su inscripción desde el enlace privado, se encola un aviso al buzón `GRAPH_SENDER` (el mismo remitente configurado; en beta, el buzón de Coordinación de pruebas). Incluye persona, salida, fechas, motivo y enlace institucional que exige iniciar sesión. El aviso usa la cola persistente y sus reintentos. La persona recibe su cancelación sin enlace privado.
 
@@ -202,7 +216,7 @@ Resumen reúne **Requiere atención** (inscripciones en revisión, próximas sal
 
 Los informes se consideran pendientes desde el día siguiente al final de la salida, sin calificarlos como atrasados: se espera un informe por cada 70 confirmado asignado, conforme al modelo actual. Las salidas finalizadas sin 70 ni informes señalan que falta definir responsable. Se excluyen canceladas y borradores. Las preferencias de unidad, periodo y pestaña se guardan en este navegador por usuario, sin almacenar datos de voluntariado.
 
-Prueba local del dashboard: `node --env-file=.env.local scripts/test-coordination-summary.mjs`. Usa registros temporales y verifica permisos, periodos, estados, asignación de 70 e informes.
+Prueba local del dashboard: `npm run test:integration -- --only=summary`. Usa registros temporales y verifica permisos, periodos, estados, asignación de 70 e informes.
 
 ### Seguimiento de informes y recordatorios
 
@@ -210,13 +224,13 @@ En **Resumen → Informes pendientes** se muestran los 70 confirmados de cada sa
 
 La cola habitual registra los correos y reintenta los fallidos. No se permite otro recordatorio mientras uno esté pendiente. Antes del envío se comprueba que la salida terminó, el 70 y su correo continúan vigentes, el enlace sigue habilitado y el informe no se presentó. Si dejó de corresponder, el correo se marca cancelado sin enviarlo. Un recordatorio posterior puede reutilizar un enlace recuperable con más de un día de vigencia; de lo contrario crea uno de siete días sin revocar otros enlaces válidos. En demo se registra en Bandeja de prueba, sin enviar correos reales.
 
-**Antes de desplegar esta versión:** aplicar `schema.sql` con `node --env-file=.env.production.local scripts/db.mjs`. Agrega `report_reminders` y `registration_mail_outbox.cancelled_at`; es una migración aditiva. La base local ya se actualizó. No se actualiza Neon automáticamente desde la aplicación.
+**Estructura requerida:** `report_reminders` y `registration_mail_outbox.cancelled_at`, incluidas en la baseline numerada. Para una base existente, seguí el plan y la adopción verificada de la [guía de migraciones](docs/migraciones-numeradas.md). No se actualiza Neon automáticamente desde la aplicación.
 
 ### Borrador y finalización del informe del 70
 
 **Guardar borrador** conserva campos incompletos y la selección provisional de asistentes para retomarlos con un enlace privado vigente. No confirma asistencia ni completa la tarea: el dashboard y los recordatorios siguen considerando pendiente el informe. **Finalizar informe** exige todos los campos obligatorios y la confirmación de asistencia, registra la fecha definitiva y bloquea futuras ediciones, incluso desde pestañas antiguas o con `?editar=1`. En la guía del 70 aparece «Continuar borrador» o «Consultar informe», según el estado.
 
-La migración de `schema.sql` incorpora `outing_reports.status` y permite fechas vacías solo durante el borrador. Los informes existentes se conservan como finalizados. Para aplicar esta actualización debe ejecutarse `node --env-file=.env.production.local scripts/db.mjs` en la base beta. Los informes previos a esta migración quedan finalizados y bloqueados para edición.
+La baseline numerada incorpora `outing_reports.status` y permite fechas vacías solo durante el borrador. Los informes existentes conservan su estado; los que precedían a esa columna fueron tratados como finalizados por la actualización original. Las bases existentes requieren el plan y la adopción verificada antes de futuras migraciones; no se aplica esta actualización automáticamente a beta.
 
 En el detalle de una salida terminada, **Inscripciones → Gestionar** ofrece **Recordar informe de salida** para una persona confirmada y asignada como 70 cuyo informe aún no esté finalizado. Reutiliza el modal y el envío de Resumen; bloquea duplicados cuando hay correo pendiente y muestra el acceso **Ver informe finalizado** cuando corresponde. Funciona también para salidas completadas sin habilitar la edición de inscripciones cerradas.
 
@@ -226,7 +240,7 @@ Crear y editar una convocatoria incluye **Transporte**, **Alimentación** y **Ho
 
 Los campos se muestran en la convocatoria pública, en Logística e Información de Coordinación, en la guía privada del 70 y en el comunicado para WhatsApp. Las condiciones de la salida se distinguen de las ofertas de transporte y restricciones alimentarias personales. Los campos no completados indican «Por confirmar con Coordinación».
 
-Esta versión agrega `outings.transport_details`, `food_details` y `lodging_details`. Antes de desplegar debe aplicarse `schema.sql` en Neon junto con la migración pendiente de borradores de informes.
+Esta versión agrega `outings.transport_details`, `food_details` y `lodging_details`. Estos campos y la estructura de borradores forman parte de la baseline numerada; una base anterior incompatible requiere una actualización revisada antes de poder adoptarla.
 
 ### Historial de inscripción
 
@@ -234,7 +248,7 @@ Esta versión agrega `outings.transport_details`, `food_details` y `lodging_deta
 
 La línea de tiempo reutiliza auditoría: fecha/hora de Costa Rica, responsable registrado, acción, motivo y cambios anteriores/nuevos para ediciones posteriores a esta versión. Los correos se presentan por separado con destinatario, fecha, estado pendiente/enviado/cancelado e intentos. «Enviado» significa aceptación de Microsoft, no lectura. El historial no devuelve cuerpos de correo, enlaces privados ni tokens.
 
-Los datos antiguos no se reconstruyen por suposición. Los correos demo nuevos quedan vinculados por `demo_mail.registration_id` y `created_at`; los anteriores pueden no tener vínculo o fecha. Antes de desplegar aplicar `schema.sql` en Neon. La base local ya cuenta con las columnas y los índices de consulta.
+Los datos antiguos no se reconstruyen por suposición. Los correos demo nuevos quedan vinculados por `demo_mail.registration_id` y `created_at`; los anteriores pueden no tener vínculo o fecha. Las columnas y los índices de consulta están en la baseline numerada; consultá el plan antes de aplicar cambios a una base existente.
 
 ### Trayectoria y participaciones de voluntariado
 
@@ -244,7 +258,7 @@ Si los informes discrepan para una misma persona y salida, se muestra «Asistenc
 
 Coordinación general puede abrir la salida y consultar la inscripción e historial desde la ficha. Administración conserva la consulta de trayectoria sin enlaces a operaciones para las que no tenga permiso. La tabla se convierte en lista compacta en celular. La ausencia de registros históricos no equivale a ausencia de participación previa en ASVO. Esta función no requiere migración de base de datos.
 
-Prueba local: `node --env-file=.env.local scripts/test-volunteer-participation.mjs`.
+Prueba local: `npm run test:integration -- --only=volunteer-participation`.
 
 ### Conciliación de asistencia
 
@@ -252,7 +266,7 @@ En **Salida → Herramientas → Asistencia**, Coordinación revisa los casos co
 
 La resolución se guarda por persona y salida, con la evidencia revisada, sin modificar informes originales. Participó acredita una sola salida; No participó no la acredita; Mantener pendiente la deja fuera del total. Si llega otro informe finalizado concordante, se conserva la resolución. Un informe nuevo contradictorio o una modificación de la evidencia revisada vuelve a exigir revisión. Se comprueba también que los informes no hayan cambiado mientras el modal estaba abierto. La resolución queda auditada en la salida y en sus inscripciones.
 
-Requiere aplicar `schema.sql` antes del despliegue: agrega `attendance_resolutions`, la vista `volunteer_attendance_evidence` y la función de vigencia de resoluciones. Aplicar la migración antes de desplegar. Las pruebas están en `scripts/test-volunteer-participation.mjs`.
+Requiere `attendance_resolutions`, la vista `volunteer_attendance_evidence` y la función de vigencia de resoluciones, incluidas en la baseline numerada. Verificá el plan y la compatibilidad de la base antes de un despliegue. Las pruebas están en `scripts/test-volunteer-participation.mjs`.
 
 ## Editor de un bloque de convocatoria
 
@@ -260,7 +274,7 @@ Requiere aplicar `schema.sql` antes del despliegue: agrega `attendance_resolutio
 
 Los campos heredados indican su origen y pueden personalizarse por bloque. La solicitud de apoyo y el plan de trabajo son datos comunes; si afectan varios bloques, requieren confirmación y permiso sobre todos ellos. Las fotos nuevas, selección de galería, portada y metadatos permanecen pendientes hasta guardar. Completar, cancelar o eliminar se encuentran en Publicación → Acciones de la convocatoria y requieren guardar o descartar antes los cambios pendientes.
 
-El servidor valida conjuntamente fechas, cierre, cupos, motivos, permisos, herencia y fotos antes de actualizar la base en una transacción. Una versión de la ficha detecta ediciones concurrentes. Los errores conservan el formulario y seleccionan la sección que requiere corrección. No requiere una migración de base de datos. Prueba local: `node --env-file=.env.local scripts/test-outing-editor.mjs`.
+El servidor valida conjuntamente fechas, cierre, cupos, motivos, permisos, herencia y fotos antes de actualizar la base en una transacción. Una versión de la ficha detecta ediciones concurrentes. Los errores conservan el formulario y seleccionan la sección que requiere corrección. No requiere una migración de base de datos. Prueba local: `npm run test:integration -- --only=outing-editor`.
 
 El formulario de nueva convocatoria y de nuevo bloque utiliza las mismas cinco secciones, navegación lateral/selector móvil y barra fija para publicar o descartar. Conserva la vinculación a convocatoria de origen, los periodos múltiples, las fotos y el resumen de publicación. Los errores abren su sección y conservan los datos. Guardar como borrador permanece como alternativa opcional dentro de Publicación.
 
@@ -292,7 +306,7 @@ Verificación local: guardado de ficha ficticia sin cambiar sus datos, modal cer
 
 Implementada la primera etapa en **Corregir ficha**, con validación compartida entre navegador y servidor, errores múltiples, mensajes accesibles junto al control, resumen navegable y conservación de datos. `ActionModal` mantiene compatibilidad con los demás formularios. El contrato, la integración y las comprobaciones se documentan en [Errores de formularios](docs/errores-de-formularios.md). Prueba: `node scripts/test-form-feedback.mjs`. Los demás formularios se migrarán en etapas posteriores.
 
-La segunda etapa extiende los errores por campo a inscripción pública, edición y cancelación mediante enlace privado. Conserva datos ante errores y los avisos importantes de identificación/póliza, mantiene la recepción en modal sobre la PDP y evita nuevas notificaciones ante reintentos idénticos de edición o cancelación. Prueba local con rollback y sin red real: `node --env-file=.env.local scripts/test-public-registration.mjs`. Ver detalles en la misma guía.
+La segunda etapa extiende los errores por campo a inscripción pública, edición y cancelación mediante enlace privado. Conserva datos ante errores y los avisos importantes de identificación/póliza, mantiene la recepción en modal sobre la PDP y evita nuevas notificaciones ante reintentos idénticos de edición o cancelación. Prueba local con rollback y sin red real: `npm run test:integration -- --only=public-registration`. Ver detalles en la misma guía.
 
 Errores por campo en Coordinación: agregar/editar inscripciones, decisiones, recuperación y creación desde agrupaciones usan la base compartida. Patrón y pruebas locales en [Errores de formularios](docs/errores-de-formularios.md).
 
@@ -304,8 +318,14 @@ Los editores de convocatorias, bloques, series, fotos, informe del 70 e invitaci
 
 El [inventario de formularios activos y auditoría integral](docs/auditoria-errores-formularios.md) registra qué se verificó, las correcciones de teclado/foco/celular, los filtros de fechas y las limitaciones pendientes. El [patrón compartido](docs/errores-de-formularios.md) explica cómo integrar formularios nuevos.
 
-Verificación local de esta revisión: `node --env-file=.env.local scripts/test-form-audit.mjs`. Exige una base demo en localhost, bloquea red real y revierte sus cambios. Complementar con las regresiones enumeradas en la auditoría, `npm run check` y `npm run build`. No ejecutar estas pruebas contra beta/producción.
+Verificación local de esta revisión: `npm run test:integration -- --only=form-audit`. Exige una base demo en localhost, bloquea red real y revierte sus cambios. Complementar con las regresiones enumeradas en la auditoría, `npm run check` y `npm run build`. No ejecutar estas pruebas contra beta/producción.
 
 La [conservación del contexto de navegación](docs/contexto-de-navegacion.md) cubre Resumen (bandejas y próximas salidas), Logística (transporte y alimentación), Solicitudes, Convocatorias y series, Voluntariado, Informes, inscripciones de una salida y participaciones de una persona. Resumen conserva sus criterios existentes y Logística recupera su desglose abierto, también en el modal móvil. Conserva criterios y posición en recorridos de varios niveles; incluye conservación tras guardados confirmados, selección del siguiente registro si desaparece y corrección de páginas fuera de rango.
 
 La [auditoría integral de navegación](docs/auditoria-contexto-navegacion.md) documenta los recorridos cubiertos, pendientes y límites. Pruebas aisladas: `npm run test:navigation:unit`; cobertura de los módulos puros: `npm run test:navigation:coverage`. La suite de navegador usa CUA y tiene [instrucciones propias](tests/navigation/README.md). Por privacidad, los regresos que contienen búsquedas libres viven solo en memoria y no sobreviven a recargar el detalle.
+
+La [guía de validación de entradas y resultados](docs/validacion-de-entradas.md) documenta las reglas compartidas entre inscripción pública, gestión privada y Coordinación, además de los límites de confianza de FormData, fotografías, CSV y Graph. Verificada con las suites locales aisladas; no requiere cambios de esquema.
+
+La [matriz de autorización](docs/autorizacion.md) documenta rol, unidad, recurso y capacidades privadas, con inventario verificable de acciones/handlers (`npm run test:authorization:inventory`). Las políticas compartidas conservan la separación entre Administración y Coordinación y se verifican con datos ficticios locales.
+
+La [guía de transiciones](docs/transiciones-de-estado.md) describe estados, actores, motivos, auditorías y avisos de convocatorias, inscripciones e informes. Las decisiones compartidas mantienen las transacciones existentes y se prueban con fallos de outbox/auditoría en bases locales desechables (`npm run test:integration -- --only=workflow-transitions`). No se añaden restricciones ni conversiones automáticas de estados históricos.

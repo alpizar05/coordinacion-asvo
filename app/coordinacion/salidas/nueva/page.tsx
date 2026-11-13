@@ -1,6 +1,6 @@
 import CoordinationBreadcrumb from '../../breadcrumb';
 import { notFound } from 'next/navigation';
-import { staff } from '../../../../lib/auth';
+import { staff, staffScope } from '../../../../lib/auth';
 import { outingPhotoGallery } from '../../../../lib/outing-photo-gallery';
 import { uuid } from '../../../../lib/registration';
 import { sql } from '../../../../lib/db';
@@ -8,8 +8,8 @@ import { NewOutingForm, type OutingTemplate } from './new-outing-form';
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ error?: string; bloque?: string }> }) {
   const user = await staff();
-  const general = !!user?.grants.some(grant => grant.role === 'general');
-  const scopes = user?.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit) ?? [];
+  const general = staffScope(user).general;
+  const scopes = staffScope(user).units;
   if (!general && !scopes.length) notFound();
   const available = await sql`select name from units where ${general} or name=any(${scopes}::text[]) order by name`;
   const { error, bloque } = await searchParams;

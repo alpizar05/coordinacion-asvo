@@ -1,5 +1,6 @@
+import {validPrivateToken} from './authorization';
+import {briefAccessCondition} from './authorization-sql';
 import { sql } from './db';
-import { digest } from './registration';
 
 export async function outingBrief(id: string) {
   const [outing] = await sql`select id,title,location,unit,status,starts::text,ends::text,requirements,logistics,transport_details,food_details,lodging_details,flexible
@@ -15,12 +16,10 @@ export async function outingBrief(id: string) {
 }
 
 export async function briefAccess(token: string) {
-  if (!/^[\w-]{43}$/.test(token)) return;
+  if (!validPrivateToken(token)) return;
   const [access] = await sql`select l.outing_id,l.lead_registration_id,l.expires_at from outing_brief_links l
     join registrations r on r.id=l.lead_registration_id and r.outing_id=l.outing_id
     join outings o on o.id=l.outing_id
-    where l.digest=${digest(token)} and l.revoked_at is null and l.expires_at>clock_timestamp()
-      and r.status='confirmada' and r.details->'assigned70'='true'::jsonb
-      and o.status in ('abierta','confirmada','completada')`;
+    where ${briefAccessCondition(sql,token)}`;
   return access;
 }

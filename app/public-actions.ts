@@ -1,4 +1,5 @@
 'use server';
+import {validPrivateToken} from '../lib/authorization';
 
 import { randomUUID } from 'node:crypto';
 import { cookies,headers } from 'next/headers';
@@ -29,7 +30,7 @@ export async function register(outingId:string,schedule:string,token:string,form
   }
 }
 export async function submitPrivateRegistration(token:string,form:FormData):Promise<RegistrationActionResult>{
-  if(!/^[\w-]{43}$/.test(token))return {error:'El enlace no es válido. Contactá a Coordinación.'};
+  if(!validPrivateToken(token))return {error:'El enlace no es válido. Contactá a Coordinación.'};
   try{
     const result=await sql.begin(tx=>changePrivateRegistration(tx,token,form));
     if(result.saved)await dispatchRegistrationUpdates();

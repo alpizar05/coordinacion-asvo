@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import { registerHooks } from 'node:module';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -13,15 +15,8 @@ registerHooks({resolve(specifier,context,next){
 }});
 const {sql}=await import('../lib/db.ts');
 const {receivePublicRegistration,changePrivateRegistration}=await import('../lib/public-registration.ts');
-const {validateParticipation,validateCancellation}=await import('../lib/registration-validation.ts');
 const {digest}=await import('../lib/registration.ts');
 const form=(fields={})=>{const data=new FormData();for(const[k,v]of Object.entries({identification:'987654321',starts:'2035-01-10',ends:'2035-01-12',...fields}))data.set(k,v);return data;};
-const schedule={flexible:true,starts:'2035-01-10',ends:'2035-01-15'};
-assert.deepEqual(Object.keys(validateParticipation(form({identification:'1-234',starts:'',ends:'',transport:'on',rides:'-1'}),schedule,true)),['identification','starts','ends','rides']);
-assert.deepEqual(validateParticipation(form({starts:'2035-01-09',ends:'2035-01-16'}),schedule),{},'Permite extender participación flexible con intersección');
-assert.ok(validateParticipation(form({ends:'2035-01-09'}),schedule).ends);
-assert.ok(validateCancellation(form({reason:''}),true).reason);
-assert.ok(validateCancellation(form({reason:''}),true).acknowledge);
 const originalFetch=globalThis.fetch;globalThis.fetch=()=>{throw new Error('Red real prohibida en pruebas');};
 const rollback=new Error('rollback');
 try{await sql.begin(async tx=>{
@@ -35,6 +30,9 @@ try{await sql.begin(async tx=>{
  const stamp='2035-01-10/2035-01-15/true';let ip=0;
  const receive=data=>receivePublicRegistration(tx,outing,stamp,'',data,`demo-${request}-${++ip}`);
  assert.ok((await receive(form({identification:'123'}))).fieldErrors.identification);
+ const malformed=form({transport:'on',rides:'101',food:new File(['dato'],'f.txt')});malformed.append('starts','2035-01-11');const submitted=[...malformed];
+ const invalidPublic=await receive(malformed);for(const name of ['starts','rides','food'])assert.ok(invalidPublic.fieldErrors[name]);assert.deepEqual([...malformed],submitted);
+ assert.equal((await tx`select count(*)::int as n from demo_mail`)[0].n,0,'Entradas malformadas no notifican');
  assert.ok((await receive(form({identification:'987654320'}))).issue.title.includes('Identificación'));
  await tx`update policies set verified_at=null where volunteer_id=${person}`;
  assert.ok((await receive(form())).issue.title.includes('póliza'));
@@ -47,6 +45,7 @@ try{await sql.begin(async tx=>{
  const waiter=await receive(form({identification:'987654322'}));assert.equal(waiter.status,'espera');
  const token=randomBytes(32).toString('base64url');
  await tx`insert into links(digest,registration_id,purpose,expires)values(${digest(token)},${received.id},'gestionar',now()+interval '1 day')`;
+ malformed.set('action','editar');const invalidPrivate=await changePrivateRegistration(tx,token,malformed);for(const name of ['starts','rides','food'])assert.ok(invalidPrivate.fieldErrors[name]);
  const bad=await changePrivateRegistration(tx,token,form({action:'editar',ends:'2035-01-09',transport:'on',rides:'-2'}));assert.ok(bad.fieldErrors.ends);assert.ok(bad.fieldErrors.rides);
  await tx`update policies set verified_at=null where volunteer_id=${person}`;
  assert.ok((await changePrivateRegistration(tx,token,form({action:'editar'}))).issue.title.includes('póliza'));

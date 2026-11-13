@@ -44,13 +44,8 @@ export async function staff() {
   return { subject, grants };
 }
 
-export function canOperate(user: Awaited<ReturnType<typeof staff>>, unit?: string) {
-  return !!user?.grants.some(grant => grant.role === 'general' || (unit && grant.role === 'unidad' && grant.unit === unit));
-}
-
-export function canAdminister(user: Awaited<ReturnType<typeof staff>>) {
-  return !!user?.grants.some(grant => grant.role === 'admin');
-}
+// Existing imports remain compatible; the executable matrix is the single policy source.
+export {canOperate,canAdminister,allows,staffScope} from './authorization';
 
 export function requireStaff(user: Awaited<ReturnType<typeof staff>>, allowed: boolean): asserts user {
   if (!user || !allowed) throw new Error('Acceso denegado.');

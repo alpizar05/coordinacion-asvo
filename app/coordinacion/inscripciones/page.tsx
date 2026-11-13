@@ -10,7 +10,7 @@ import CoordinationBreadcrumb from '../breadcrumb';
 import { StatusFilter } from './status-filter';
 import { RegistrationActions } from '../registration-actions';
 import { notFound, redirect } from 'next/navigation';
-import { staff } from '../../../lib/auth';
+import { staff, staffScope } from '../../../lib/auth';
 import { sql } from '../../../lib/db';
 import { date, displayDate, outingIsEditable, uuid } from '../../../lib/registration';
 
@@ -23,8 +23,8 @@ export default async function Registrations({ searchParams }: {
 }) {
   const user = await staff();
   if (!user) redirect('/coordinacion');
-  const general = user.grants.some(grant => grant.role === 'general');
-  const scopes = user.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit);
+  const general = staffScope(user).general;
+  const scopes = staffScope(user).units;
   if (!general && !scopes.length) notFound();
 
   const { estado, unidad, desde, hasta, error, inscripcion, gestionada } = await searchParams;

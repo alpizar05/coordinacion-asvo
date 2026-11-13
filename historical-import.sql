@@ -23,5 +23,4 @@ create table if not exists historical_import_photos (
   thumbnail bytea not null, display_image bytea not null, alt text not null, credit text not null,
   primary key(batch_id,photo_key)
 );
--- Authorized DEMO registrations have no original reception timestamp.
-alter table registrations alter column received_at drop not null;
+-- Core columns (including nullable received_at) are prepared by numbered migrations.

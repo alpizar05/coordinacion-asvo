@@ -1,6 +1,7 @@
+import {outingIsOpen,outingTransition,outingTransitionError,type OutingStateAction} from './workflow-transitions';
+import {applyOutingState} from './outing-state-transition';
 import {audit,field,outingIsEditable,type Transaction} from './registration';
 import {outingEditVersion} from './outing-editor';
-import {notifyRegistration} from './registration-workflow';
 import {registrationToday} from './outing-invitations';
 import {validateOutingDecision} from './outing-decision-validation';
 import type {FormResult} from './form-result';
@@ -15,13 +16,14 @@ export async function saveOutingDecision(tx:Transaction,id:string,form:FormData,
  if(!['agrupación','completar','cancelar-salida','eliminar'].includes(action))return {error:'La acción no está disponible.'};
  if(action==='agrupación'&&!outing.flexible)return {error:'Esta salida no admite decisiones de agrupación.'};
  if(action==='completar'){
-  if(!['abierta','confirmada'].includes(outing.status))return {error:'Solo se puede completar una salida abierta o confirmada.'};
+  if(!outingIsOpen(outing.status))return {error:'Solo se puede completar una salida abierta o confirmada.'};
   const[{finished}]=await tx`select ${outing.last_day}::date<${registrationToday} as finished`;
-  if(!finished)return {error:'Podés completar la salida a partir del día siguiente al regreso.'};
+  const completion=outingTransition(outing.status,'completar',{finished});
+  if('error' in completion)return {error:outingTransitionError(completion.error)};
  }
  const[registration]=await tx`select 1 from registrations where outing_id=${id} limit 1`;
- if(action==='eliminar'&&registration)return {error:'La convocatoria tiene inscripciones. Podés cancelarla.'};
- if(action==='cancelar-salida'&&!registration)return {error:'La convocatoria no tiene inscripciones. Podés eliminarla.'};
+ const transition=action==='agrupación'?undefined:outingTransition(outing.status,action as OutingStateAction,{finished:true,hasRegistrations:!!registration});
+ if(transition&&'error' in transition)return {error:outingTransitionError(transition.error)};
  const errors=validateOutingDecision(form,action);if(Object.keys(errors).length)return {fieldErrors:errors};
  const reason=field(form,'reason');
  if(action==='agrupación'){
@@ -30,14 +32,9 @@ export async function saveOutingDecision(tx:Transaction,id:string,form:FormData,
   if(previous?.reason!==reason||previous?.actor!==context.actor)await audit(tx,context.actor,'Decidió agrupación',id,reason);
   return {saved:true};
  }
- if(action==='completar'){await tx`update outings set status='completada' where id=${id}`;await audit(tx,context.actor,'Completó convocatoria',id);return {saved:true,destination:`/coordinacion/salidas/${id}?completada=1`};}
- if(action==='eliminar'){
-  await tx`delete from outing_photos where outing_id=${id}`;await tx`delete from outings where id=${id}`;await audit(tx,context.actor,'Eliminó convocatoria',id,outing.title);
-  return {saved:true,destination:'/coordinacion/convocatorias?confirmacion=eliminada#salidas'};
- }
- await tx`update outings set status='cancelada' where id=${id}`;
- const cancelled=await tx`update registrations set status='cancelada por coordinación' where outing_id=${id} and status in ('validación','revisión','espera','confirmada') returning id`;
- for(const entry of cancelled)await notifyRegistration(tx,entry.id,`Coordinación canceló la salida. Motivo: ${reason}`);
- await audit(tx,context.actor,'Canceló convocatoria',id,reason);
+ if(!transition)return {error:'La acción no está disponible.'};
+ await applyOutingState(tx,id,context.actor,transition,reason,outing.title);
+ if(action==='completar')return {saved:true,destination:`/coordinacion/salidas/${id}?completada=1`};
+ if(action==='eliminar')return {saved:true,destination:'/coordinacion/convocatorias?confirmacion=eliminada#salidas'};
  return {saved:true,destination:`/coordinacion/salidas/${id}?confirmacion=cancelada`};
 }

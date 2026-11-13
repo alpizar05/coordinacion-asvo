@@ -5,7 +5,7 @@ import { SummaryViewSelector } from './summary-view-selector';
 import { SummaryFilters } from './summary-filters';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { staff } from '../../lib/auth';
+import { staff, staffScope } from '../../lib/auth';
 import { demo, sql } from '../../lib/db';
 import { coordinationSummary } from '../../lib/coordination-summary';
 import { displayDate } from '../../lib/registration';
@@ -19,10 +19,10 @@ const startLabel = (days: number) => days < 0 ? `Comenzó hace ${-days} días` :
 export default async function Page({ searchParams }: { searchParams: Promise<{ unidad?: string; dias?: string; pestana?: string; gestionada?: string; inscripcion?: string; error?: string }> }) {
   const user = await staff();
   if (!user) return <><h1>Coordinación</h1><form className="card" action={login}>{demo ? <><p>Entorno local con datos ficticios.</p><div className="actions"><button name="role" value="admin">Entrar como administrador</button><button name="role" value="general">Entrar como coordinación</button></div></> : <button>Entrar con Microsoft</button>}</form></>;
-  const general = user.grants.some(grant => grant.role === 'general');
-  const scopes = user.grants.filter(grant => grant.role === 'unidad').map(grant => grant.unit);
+  const general = staffScope(user).general;
+  const scopes = staffScope(user).units;
   if (!general && !scopes.length) {
-    if (user.grants.some(grant => grant.role === 'admin')) redirect('/coordinacion/administracion');
+    if (staffScope(user).admin) redirect('/coordinacion/administracion');
     return <><h1>Coordinación</h1><p>Tu cuenta está a la espera de permisos de ASVO.</p></>;
   }
   const params = await searchParams;

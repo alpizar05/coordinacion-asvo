@@ -1,18 +1,13 @@
-import { migrateRegistrationWorkflow } from '../lib/registration-workflow-migration.mjs';
-import { flushRegistrationMail } from '../lib/mail-outbox.mjs';
 import postgres from 'postgres';
-import { readFile } from 'node:fs/promises';
+import { schemaMigrationOperation } from '../lib/schema-migrations.mjs';
 
-const sql = postgres(process.env.DATABASE_URL);
-try {
-  await sql.unsafe(await readFile(new URL('../schema.sql', import.meta.url), 'utf8'));
-  await migrateRegistrationWorkflow(sql, { origin: new URL(process.env.APP_URL).origin,
-    demo: process.env.ASVO_DEMO === '1', managementHours: Number(process.env.MANAGEMENT_HOURS) || 72 });
-  if (process.env.ASVO_DEMO !== '1') await flushRegistrationMail(sql);
-  if (process.argv.includes('--demo')) {
-    if (process.env.ASVO_DEMO !== '1') throw new Error('Activá ASVO_DEMO en una base local de prueba.');
-    await sql`insert into grants(subject,role) values ('local-admin','admin') on conflict do nothing`;
-  }
-} finally {
-  await sql.end();
+const args = process.argv.slice(2);
+let action = 'apply';
+if (args.length) {
+  if (args.length===1&&['--status','--plan'].includes(args[0])) action=args[0].slice(2);
+  else if (args.length===2&&args[0]==='--adopt'&&args[1]==='--apply') action='adopt';
+  else throw new Error('Usá db:setup/db:migrate, db:status, db:plan o db:adopt -- --apply. Para ejemplos: db:seed:demo; para datos históricos: db:migrate:history -- --apply.');
 }
+const sql = postgres(process.env.DATABASE_URL,{max:1});
+try { console.log(JSON.stringify(await schemaMigrationOperation(sql,{action}),null,2)); }
+finally { await sql.end(); }

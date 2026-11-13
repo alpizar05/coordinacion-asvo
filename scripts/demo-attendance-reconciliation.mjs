@@ -1,7 +1,8 @@
+import { requireLocalDemo } from '../lib/local-demo.mjs';
 import postgres from 'postgres';
-const url = new URL(process.env.DATABASE_URL);
-if (process.env.ASVO_DEMO !== '1' || !['localhost','127.0.0.1','[::1]'].includes(url.hostname)) throw new Error('Solo se permite crear este ejemplo en una base demo local.');
-const sql = postgres(process.env.DATABASE_URL);
+const url = requireLocalDemo();
+
+const sql = postgres(url.href);
 const id = n => `a7700000-0000-4000-8000-${String(n).padStart(12,'0')}`;
 const outing=id(1), request=id(2);
 const people=[{id:id(10),registration:id(20),name:'María',surname:'Ejemplo'},
@@ -15,7 +16,7 @@ try {
       (clock_timestamp() at time zone 'America/Costa_Rica')::date-3,
       (clock_timestamp() at time zone 'America/Costa_Rica')::date-2,true,6,'completada',false) on conflict do nothing`;
     for (const [index,person] of people.entries()) {
-      await tx`insert into volunteers(id,identification,name,surname,email) values (${person.id},${`DEMOASISTENCIA${index}`},${person.name},${person.surname},${`asistencia${index}@example.invalid`}) on conflict do nothing`;
+      await tx`insert into volunteers(id,identification,name,surname,email) values (${person.id},${`DEMOASISTENCIA${index}`},${person.name},${person.surname},${`asistencia${index}@example.test`}) on conflict do nothing`;
       await tx`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)
         select ${person.registration},o.id,${person.id},${`DEMOASISTENCIA${index}`},o.starts,o.ends,'confirmada',${tx.json({assigned70:index>0})}
         from outings o where o.id=${outing} on conflict do nothing`;
@@ -24,7 +25,7 @@ try {
       const participants=people.map((person,i)=>({id:person.registration,name:`${person.name} ${person.surname}`,attended:i===0 ? index===1 : true}));
       const note=index===1 ? 'María apoyó durante el primer día, junto con mi equipo.' : 'Mi equipo trabajó el segundo día. María no estuvo con nuestro grupo.';
       await tx`insert into outing_reports(id,outing_id,lead_registration_id,lead_name,lead_email,labour,location,activity,starts,ends,actions,host,observations,participants,status)
-        select ${id(30+index)},o.id,${people[index].registration},${`${people[index].name} ${people[index].surname}`},${`asistencia${index}@example.invalid`},
+        select ${id(30+index)},o.id,${people[index].registration},${`${people[index].name} ${people[index].surname}`},${`asistencia${index}@example.test`},
           'Mantenimiento y otros',o.location,'Salida general (mantenimiento, colaboración en oficinas, ferias)',o.starts,o.ends,'Limpieza de senderos.','Persona responsable ficticia',${note},${tx.json(participants)},'finalizado'
         from outings o where o.id=${outing} on conflict do nothing`;
     }

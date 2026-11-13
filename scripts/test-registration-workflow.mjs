@@ -1,3 +1,5 @@
+import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';
+requireDisposableTestDatabase();
 import { registerHooks } from 'node:module';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -62,10 +64,12 @@ try {
   const staffReceive = (person, overrides = {}, starts = '2030-01-10', ends = '2030-01-12') => locked(tx =>
     receiveStaffRegistration(tx,{ ...staffOuting,...overrides },'coordinador-prueba',person.id,starts,ends,{ transporte: true, ofreceTransporte: 2, alimentacion: 'Vegetariana' }));
   assert.ok((await staffReceive(people[0],{ status: 'cancelada' })).error);
-  assert.ok((await staffReceive(people[0],{},'2030-02-01','2030-02-02')).error);
-  assert.ok((await staffReceive(people[0],{ flexible: false })).error);
+  assert.ok((await staffReceive(people[0],{},'2030-02-01','2030-02-02')).fieldErrors.starts);
+  assert.ok((await staffReceive(people[0],{ flexible: false })).fieldErrors.ends);
   assert.ok((await staffReceive(people[0],{ unit: 'BRIF' })).error);
   assert.ok((await staffReceive(people[0],{},'2029-12-31','2030-01-12')).error,'No incorpora sin cobertura para todo el periodo');
+  const malformed=await locked(tx=>receiveStaffRegistration(tx,staffOuting,'coordinador-prueba',people[0].id,'invalid','2030-01-12',{transporte:true,ofreceTransporte:101,alimentacion:42}));
+  for(const name of ['starts','rides','food'])assert.ok(malformed.fieldErrors[name]);
   const staffEntry = await staffReceive(people[0]);
   assert.equal(staffEntry.status,'revisión');
   assert.ok((await staffReceive(people[0])).error,'Coordinación tampoco duplica inscripciones');
@@ -89,6 +93,9 @@ try {
   const editDetails = { transporte: true, ofreceTransporte: 3, alimentacion: 'Sin gluten', interes70: true, otro: 'Observación de prueba' };
   const editVersion = async () => registrationVersion((await sql`select starts::text,ends::text,status,details from registrations where id=${reserved[0].id}`)[0]);
   const originalVersion = await editVersion();
+  const invalidEdit=await locked(tx=>editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'invalid','2030-01-12',{transporte:true,ofreceTransporte:101,otro:[]}));
+  for(const name of ['starts','rides','other'])assert.ok(invalidEdit.fieldErrors[name]);
+  assert.equal(await editVersion(),originalVersion,'Un error de campo no cambia datos ni versión');
   assert.ok((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-02-03',editDetails))).error,'Rechaza fechas sin cobertura');
   assert.equal((await locked(tx => editStaffRegistration(tx,reserved[0].id,'coordinador-prueba',originalVersion,'2030-01-10','2030-01-12',editDetails))).saved,true);
   assert.equal((await sql`select status,details from registrations where id=${reserved[0].id}`)[0].details.assigned70,true,'Editar logística conserva asignación 70');

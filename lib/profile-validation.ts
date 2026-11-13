@@ -1,3 +1,4 @@
+import {formText,scalarInputErrors} from './form-input';
 import {validFormDate as validDate} from './form-dates.mjs';
 import type { FieldErrors } from './form-result';
 
@@ -14,7 +15,7 @@ export type ProfileInitial = Record<ProfileField, string>;
 
 /** Pure validator shared with the server; contains no credentials, DB or browser dependencies. */
 export function validateProfile(form: FormData): FieldErrors<ProfileField> {
-  const value = (name: ProfileField) => String(form.get(name) ?? '').trim();
+  const value = (name: ProfileField) => formText(form,name);
   const errors: FieldErrors<ProfileField> = {};
   if (!value('name')) errors.name = 'Ingresá el nombre.';
   if (!value('surname')) errors.surname = 'Ingresá el primer apellido.';
@@ -27,5 +28,5 @@ export function validateProfile(form: FormData): FieldErrors<ProfileField> {
     if (!['','sí','no'].includes(value(name))) errors[name] = 'Elegí Sí, No o Por confirmar.';
   }
   if (value('medical') === 'sí' && !value('medical_detail')) errors.medical_detail = 'Describí la condición médica indicada.';
-  return errors;
+  return {...errors,...scalarInputErrors(form,Object.keys(profileFieldLabels))};
 }
