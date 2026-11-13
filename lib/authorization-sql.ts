@@ -4,7 +4,7 @@ import {digest,type Transaction} from './registration';
 type Db=typeof sql|Transaction;
 /** SQL remains authoritative for expiry, revocation, assignment and resource binding. */
 export function invitationAccessCondition(db:Db,outingId:string,token:string){
- return db`digest=${digest(token)} and outing_id=${outingId} and used_at is null and expires_at>clock_timestamp()`;
+ return db`digest=${digest(token)} and outing_id=${outingId} and used_at is null and revoked_at is null and expires_at>clock_timestamp()`;
 }
 /** Requires the existing l/r/o joins, including r.outing_id=l.outing_id. */
 export function briefAccessCondition(db:Db,token:string){
@@ -14,8 +14,8 @@ export function briefAccessCondition(db:Db,token:string){
 }
 /** The read page accepts historical purposes; mutation checks its stricter purpose separately. */
 export function registrationLinkCondition(db:Db,token:string,live=false,alias=false){
- return alias?db`l.digest=${digest(token)} and l.expires>now()`:
-   db`digest=${digest(token)} and expires>${live?db`clock_timestamp()`:db`now()`}`;
+ return alias?db`l.digest=${digest(token)} and l.revoked_at is null and l.purpose in ('gestionar','validar','gestion') and l.expires>clock_timestamp()`:
+   db`digest=${digest(token)} and revoked_at is null and purpose in ('gestionar','validar','gestion') and expires>clock_timestamp()`;
 }
 
 /** Manual series: general coordinator or owning unit coordinator; membership is scoped separately. */

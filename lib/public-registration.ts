@@ -1,3 +1,5 @@
+import {consumeAbuseLimit,rateLimitMessage} from './abuse-limits';
+import {abuseLimits} from './security-rules.mjs';
 import {outingIsOpen,privateRegistrationTransition,editRegistrationTransition} from './workflow-transitions';
 import {validPrivateToken} from './authorization';
 import {registrationLinkCondition} from './authorization-sql';
@@ -16,13 +18,10 @@ const policyMessage='No encontramos una póliza vigente que cubra todas las fech
 const policyError=():Extract<RegistrationActionResult,{saved?:false}>=>({error:policyMessage,issue:{title:'No encontramos una póliza vigente',message:policyMessage}});
 
 /** Caller provides one transaction. The outing lock serializes capacity, invitation use and duplicate checks. */
-export async function receivePublicRegistration(tx:Transaction,outingId:string,schedule:string,token:string,form:FormData,ip:string):Promise<RegistrationActionResult<{id:string;status:string}>>{
+export async function receivePublicRegistration(tx:Transaction,outingId:string,schedule:string,token:string,form:FormData,ip:string|null):Promise<RegistrationActionResult<{id:string;status:string}>>{
   const idNumber=formText(form,'identification');
-  const slot=Math.floor(Date.now()/900000);
-  for(const [bucket,limit]of [[digest('ip:'+ip),30],[digest('id:'+idNumber),8]] as const){
-    const [attempt]=await tx`insert into attempts values (${bucket},${slot},1) on conflict(bucket,slot) do update set count=attempts.count+1 returning count`;
-    if(attempt.count>limit)return {error:'Se alcanzó el límite de intentos. Esperá unos minutos antes de volver a enviar.'};
-  }
+  if(ip&&!await consumeAbuseLimit(tx,'register:network',ip,abuseLimits.network))return {error:rateLimitMessage};
+  if(/^\d{9}$/.test(idNumber)&&!await consumeAbuseLimit(tx,'register:id',idNumber,abuseLimits.registration))return {error:rateLimitMessage};
   const [outing]=await tx`select *,starts::text as first_day,ends::text as last_day,coalesce(registration_deadline,starts)>=${registrationToday} as accepting from outings where id=${outingId} and status in ('abierta','confirmada') for update`;
   const invitation=await activeOutingInvitation(outingId,token,tx);
   if(!outing||(token&&!invitation)||(!invitation&&(outing.status!=='abierta'||!outing.accepting)))return {error:'La convocatoria está cerrada o la invitación ya no está disponible. Contactá a Coordinación.'};

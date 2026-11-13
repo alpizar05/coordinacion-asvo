@@ -2,7 +2,7 @@
 import {useRef,useState,type ReactNode} from 'react';
 import {StatusRibbon} from '../../status-ribbon';
 import {FormFeedbackProvider,FormErrorSummary,FormField,FormFieldGroup,useFormFeedback} from '../../form-feedback/form-feedback';
-import {applyImportRows,applyPolicyRows,importPreview,previewPolicies} from '../../staff-actions';
+import {applyImportRows,applyPolicyRows,importPreview,previewPolicies} from '../../actions/volunteers';
 import {SectionWorkspace} from '../section-workspace';
 import type {ImportPreview,ImportRow} from '../../../lib/registry-import';
 import type {FieldErrors,FormResult} from '../../../lib/form-result';

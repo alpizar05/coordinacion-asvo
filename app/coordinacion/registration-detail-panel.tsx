@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { loadRegistrationDetail } from './registration-detail-actions';
+import { loadRegistrationDetail } from '../actions/registrations';
 import { RegistrationDetails } from './registration-details';
 import { RegistrationHistoryView } from './registration-history-view';
 

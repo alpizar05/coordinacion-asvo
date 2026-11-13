@@ -76,3 +76,7 @@ La etapa siguiente amplía el inventario a **29 módulos** y **68 pruebas**. Inc
 ## Medición posterior: transiciones
 
 80 unitarias y 31 módulos declarados. Resultado del subconjunto: líneas 100 %, ramas 96,39 %, funciones 99,47 %; el módulo puro de transiciones tiene 100 % en esas tres métricas. No representa cobertura global ni todas las combinaciones. [Inventario, atomicidad, integración y límites](transiciones-de-estado.md).
+
+## Medición posterior: configuración y seguridad
+
+La suite suma 92 casos y declara 35 módulos puros; añade `runtime-config.mjs`, `security-headers.mjs` y `security-rules.mjs`. Líneas 100 %, ramas 96,53 %, funciones 99,53 % en ese subconjunto; no cobertura global ni de React/SQL. Las ramas de configuración/headers parcialmente cubiertas permanecen visibles en el informe por módulo; no se excluyeron para elevar la cifra. Integración suma 18 grupos, contratos cinco; build/HTTP aislado de seguridad se ejecuta aparte con `npm run test:security:build`. Ver [alcance y límites](configuracion-y-seguridad.md).

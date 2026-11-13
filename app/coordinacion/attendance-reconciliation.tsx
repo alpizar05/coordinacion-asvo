@@ -2,7 +2,7 @@ import {RegistryModal} from './registry-form';
 import {FormField} from '../form-feedback/form-feedback';
 import { attendanceCases,attendanceDecisionLabels, type AttendanceDecision } from '../../lib/attendance-reconciliation';
 import { displayDate } from '../../lib/registration';
-import { reconcileAttendance } from './attendance-actions';
+import { reconcileAttendance } from '../actions/reports';
 
 const timestamp = (value:string|Date) => new Intl.DateTimeFormat('es-CR',{timeZone:'America/Costa_Rica',dateStyle:'short',timeStyle:'short'}).format(new Date(value));
 type Report = { id:string;lead:string;starts:string;ends:string;observations:string;submitted:string;attended:boolean;absent:boolean };

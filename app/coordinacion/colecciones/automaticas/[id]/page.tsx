@@ -14,7 +14,6 @@ import { sql } from '../../../../../lib/db';
 import { registrationToday } from '../../../../../lib/outing-invitations';
 import { displayDate, outingIsEditable, uuid } from '../../../../../lib/registration';
 import { commonOutingFields, supportRequestFields } from '../../../../../lib/collection-fields';
-import { updateAutomaticCollection } from '../../../../staff-actions';
 import CoordinationBreadcrumb from '../../../breadcrumb';
 
 export default async function AutomaticCollection({ params, searchParams }: {

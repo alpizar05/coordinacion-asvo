@@ -1,6 +1,9 @@
+import 'server-only';
+import {readAuthConfiguration,assertDemoHost} from './server-config.mjs';
+import {validTenantSubject} from './runtime-config.mjs';
 import NextAuth from 'next-auth';
 import MicrosoftEntraID from 'next-auth/providers/microsoft-entra-id';
-import { cookies } from 'next/headers';
+import { cookies,headers } from 'next/headers';
 import { demo, demoAdmin, demoCoordinator, sql } from './db';
 import { authDiagnostics, inspectEntraTokenResponse } from './auth-diagnostics';
 
@@ -21,7 +24,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   providers: entra ? [entra] : [],
   callbacks: {
     jwt({ token, profile }) {
-      if (profile) token.staffSubject = profile.tid === tenant ? profile.oid : null;
+      if (profile) token.staffSubject = validTenantSubject(profile,tenant);
       return token;
     },
     session({ session, token }) {
@@ -33,9 +36,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 export async function staff() {
   let subject: unknown;
   if (demo) {
+    assertDemoHost((await headers()).get('host')||'');
     const role = (await cookies()).get('asvo-demo')?.value;
     subject = role === 'admin' ? demoAdmin : role === 'general' ? demoCoordinator : null;
   } else {
+    readAuthConfiguration();
     const session = await auth();
     subject = session && 'staffSubject' in session ? session.staffSubject : null;
   }

@@ -1,3 +1,4 @@
+import './node-server-context.mjs';
 import {registerHooks} from 'node:module';import {existsSync} from 'node:fs';import {fileURLToPath} from 'node:url';
 registerHooks({resolve(s,c,next){if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const path=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(path)))return next(path.href,c);}return next(s,c);}});
 const args=process.argv.slice(2);if(args.length!==1||!['--plan','--apply'].includes(args[0]))throw Error('Usá --plan (solo consulta) o --apply (limpieza explícita).');

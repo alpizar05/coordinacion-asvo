@@ -32,7 +32,7 @@ import { notFound } from 'next/navigation';
 import { canOperate, staff, staffScope } from '../../../../lib/auth';
 import { appUrl, demo, sql } from '../../../../lib/db';
 import { displayDate, outingIsEditable, suggestedGroups, uuid } from '../../../../lib/registration';
-import { manageOuting, splitOutingGroup } from '../../../staff-actions';
+import { manageOuting } from '../../../actions/outings';
 import { CopyMessage } from './message';
 
 const receivedFormat = new Intl.DateTimeFormat('es-CR', {
@@ -77,13 +77,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
   const related = editing ? await sql`select id,title,unit,starts::text,ends::text from outings
     where request_id=${outing.request_id} order by starts,id` : [];
   const canEditRequest = editing && related.every(block => canOperate(user, block.unit));
-  const conflicts = editing && unidadPropuesta && units.some(unit => unit.name === unidadPropuesta)
-    && unidadPropuesta !== 'Voluntariado General' && unidadPropuesta !== outing.unit
-    ? await sql`select r.id,concat_ws(' ',v.name,v.surname,v.second_surname) as name,r.starts::text,r.ends::text
-      from registrations r left join volunteers v on v.id=r.volunteer_id
-      where r.outing_id=${id} and r.status in ('validación','revisión','espera','confirmada')
-        and (v.id is null or not (${unidadPropuesta}=any(v.units)))
-      order by r.received_at,r.id` : [];
+
   const defaults = request.outing_defaults ?? outing;
   const series = outing.in_series ? {
     href: `/coordinacion/colecciones/automaticas/${outing.request_id}`,
@@ -167,25 +161,7 @@ export default async function Page({params,searchParams}: {params:Promise<{id:st
       volunteer_id: entry.volunteer_id, details: entry.details }))} canViewProfile={canViewProfile} />
   </section>}
   </>;
-  const editData = <>
-  {editing && <section className="card" id="datos-salida">
-    <h2>Datos de la salida</h2>
-    {conflicts.length > 0 && <div className="note" role="alert">
-      <p>Revisá estas inscripciones antes de cambiar la unidad a {unidadPropuesta}.</p>
-      <ul>{conflicts.map(entry => <li key={entry.id}>
-        <ContextStateLink href={`${back}#inscripcion-${entry.id}`}>{entry.name || 'Ficha pendiente de conciliar'}</ContextStateLink>
-        {' · '}{displayDate(entry.starts)} al {displayDate(entry.ends)}
-      </li>)}</ul>
-    </div>}
-    <form action={manageOuting.bind(null,id)}>
-      <div className="grid">
-        {commonOutingFields.slice(0, 3).map(inheritedField)}
-      </div>
-      <p>Sin marcar Personalizar, se usa el dato general. Transporte, alimentación y hospedaje son específicos de este bloque. Unidad general: {defaults.unit}.</p>
-      <button className="coord-button-primary" name="action" value="datos">Guardar datos de la salida</button>
-    </form>
-  </section>}
-  </>;
+
   const information = <>
   <section className="card" id="informacion-salida">
     <h2>Información para voluntariado</h2>

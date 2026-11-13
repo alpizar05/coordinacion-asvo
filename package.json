@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start",
     "check": "tsc --noEmit",
@@ -32,7 +32,9 @@
     "test:authorization:inventory": "node scripts/audit-authorization.mjs",
     "photos:cleanup:plan": "node --env-file=.env.local scripts/photo-cleanup.mjs --plan",
     "photos:cleanup": "node --env-file=.env.local scripts/photo-cleanup.mjs --apply",
-    "mail:review": "node --env-file=.env.local scripts/mail-review.mjs"
+    "mail:review": "node --env-file=.env.local scripts/mail-review.mjs",
+    "config:check": "node --env-file=.env.local scripts/check-config.mjs --mode=development",
+    "test:security:build": "node scripts/test-security-build.mjs"
   },
   "type": "module",
   "dependencies": {

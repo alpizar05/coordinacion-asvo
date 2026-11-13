@@ -87,3 +87,10 @@ test('draft is incomplete but not unvalidated; final report requires attendance 
 test('report defaults preserve unit vocabulary and general fallback',()=>{
  for(const [unit,index]of [['BRIF',0],['Control y Protección/COVIRENA',1],['UEA',2],['Voluntariado General',3]])assert.deepEqual(reportDefaults(unit),{labour:[labourOptions[index]],activity:activityOptions[index]});
 });
+
+test('common series accepts repeated block identifiers while rejecting file-valued metadata and duplicate scalar values',()=>{
+ const values={apply:['title'],confirm:'on',title:'Serie',block:[uuid(1),uuid(2)],editableBlock:[uuid(1),uuid(2)]};
+ assert.deepEqual(validateCommonSeries(form(values)),{});
+ const invalid=form(values);invalid.append('block',new File(['fake'],'bad.csv'));assert.ok(validateCommonSeries(invalid).block);
+ const scalar=form(values);scalar.append('title','Otra');assert.ok(validateCommonSeries(scalar).title);
+});

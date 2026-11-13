@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
 import CoordinationNav from './coordination-nav';
 import { canAdminister, staff, staffScope } from '../../lib/auth';
 import { demo } from '../../lib/db';
-import { logout } from '../staff-actions';
+import { logout } from '../actions/session';
 
 export default async function CoordinationLayout({ children }: { children: ReactNode }) {
   const user = await staff();

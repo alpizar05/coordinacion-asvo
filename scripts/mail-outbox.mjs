@@ -1,6 +1,8 @@
+import {databaseConfiguration} from '../lib/runtime-config.mjs';
 import postgres from 'postgres';
-import { flushRegistrationMail } from '../lib/mail-outbox.mjs';
-const sql = postgres(process.env.DATABASE_URL);
+import './node-server-context.mjs';
+const {flushRegistrationMail}=await import('../lib/mail-outbox.mjs');
+const sql = postgres(databaseConfiguration(process.env).url);
 try {
   if (process.env.ASVO_DEMO === '1') throw new Error('En modo demo, los mensajes se guardan en la bandeja de prueba.');
   do {

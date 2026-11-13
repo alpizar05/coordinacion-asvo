@@ -14,6 +14,12 @@ Consultá el **[How to: desplegar y configurar la plataforma](docs/despliegue-y-
 
 El manual también registra qué se verificó en la beta y los pendientes: reintentos programados de correo, pruebas de aceptación, separación de bases por entorno y preparación del lanzamiento. El subdominio `voluntariado.asvocr.org` queda reservado para esa etapa.
 
+## Configuración y seguridad
+
+La [revisión de controles locales](docs/configuracion-y-seguridad.md) documenta validación por funcionalidad, diagnóstico sin secretos, módulos de servidor, demo local, enlaces revocables, límites de intentos y cabeceras. `npm run config:check` comprueba configuración local sin conectarse a base ni proveedores. Las [decisiones de retención y verificaciones de infraestructura](docs/seguridad-infraestructura-y-retencion.md) permanecen separadas: no hay borrado automático ni cambios de permisos efectivos.
+
+La **migración 0004** se verificó primero en bases desechables y se aplicó a Neon de la beta el 13 de noviembre de 2026, durante la publicación autorizada. El demo exige Next en desarrollo, PostgreSQL/APP_URL loopback y ausencia de indicadores de despliegue; `npm run dev` escucha en 127.0.0.1. Un build de producción debe usar `ASVO_DEMO=0`, no las credenciales ficticias de las pruebas.
+
 ## Arquitectura
 
 Next.js App Router y PostgreSQL. Las mutaciones pasan por acciones de servidor y las asignaciones se serializan por convocatoria. Auth.js usa Microsoft Entra ID de un solo directorio y permisos operativos en PostgreSQL vinculados al identificador del objeto del usuario. Vercel ejecuta Node.js y se conecta a Neon. Exchange Online transporta el correo mediante Graph con autorización limitada al buzón de beta. Los originales de fotos se guardan en una biblioteca privada de SharePoint; PostgreSQL conserva sus referencias y las versiones optimizadas que entrega la aplicación.
@@ -333,3 +339,7 @@ La [guía de transiciones](docs/transiciones-de-estado.md) describe estados, act
 ### Carga y compensación de fotografías
 
 Creación y edición separan autorización, preparación, Graph y confirmación corta con revalidación. Consultá [flujo, reintentos, limpieza y pruebas](docs/carga-de-fotografias.md). **Aplicar la migración 0002 antes de desplegar**. `npm run photos:cleanup:plan` consulta la bitácora; `npm run photos:cleanup` ejecuta compensación explícita de originales nuevos no referenciados. No se activó un cron de fotos ni se cambió el proveedor o la caché pública.
+
+### Acciones por funcionalidad
+
+La interfaz de Coordinación usa `app/actions/{outings,series,registrations,reports,volunteers,communications,session,administration}.ts`. `app/staff-actions.ts` conserva únicamente adaptadores compatibles. Consultá [organización, transacciones, compatibilidad y pruebas](docs/organizacion-por-funcionalidad.md). La reorganización no requiere migración ni cambia la cola/cron. `npm run test:integration -- --only=functional-actions` verifica los casos de uso; la suite completa incluye la auditoría de límites y ciclos.

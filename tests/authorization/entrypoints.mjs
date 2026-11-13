@@ -1,5 +1,13 @@
 /** Surface inventory: exact public exports, including compatibility delegates. Not an authorization proof. */
 export const entrypoints={
+ 'app/actions/session.ts':{login:'session.login',logout:'session.logout'},
+ 'app/actions/administration.ts':{grant:'permissions.manage'},
+ 'app/actions/communications.ts':{createOutingInvitation:'invitations.generate',generateBrief:'briefs.generate',revokeBrief:'briefs.revoke',sendReportReminder:'reports.remind'},
+ 'app/actions/reports.ts':{reconcileAttendance:'attendance.reconcile',submitReport:'private.report'},
+ 'app/actions/registrations.ts':{manageEntry:'registrations.manage',findRegistrationVolunteers:'registrations.add',addRegistration:'registrations.add',loadEditableRegistration:'registrations.manage',saveEditedRegistration:'registrations.manage',manageRegistration:'registrations.manage',loadRegistrationDetail:'registrations.read'},
+ 'app/actions/outings.ts':{createOuting:'outings.create',manageOuting:'outings.manage',splitOutingGroup:'outings.manage'},
+ 'app/actions/series.ts':{createOutingCollection:'series.create',updateAutomaticCollection:'series.common-edit',saveAutomaticCollection:'series.common-edit',setHomepageFeature:'series.feature'},
+ 'app/actions/volunteers.ts':{verifyPolicy:'policies.verify',importPreview:'volunteers.import',applyImportRows:'volunteers.import',editProfile:'volunteers.correct',updateVolunteerUnits:'volunteers.units',previewPolicies:'policies.import',applyPolicyRows:'policies.import',recordVolunteerIncident:'volunteers.incident'},
  'app/staff-actions.ts':{
   login:'session.login',logout:'session.logout',grant:'permissions.manage',createOuting:'outings.create',manageOuting:'outings.manage',splitOutingGroup:'outings.manage',manageEntry:'registrations.manage',
   verifyPolicy:'policies.verify',importPreview:'volunteers.import',applyImportRows:'volunteers.import',editProfile:'volunteers.correct',updateVolunteerUnits:'volunteers.units',previewPolicies:'policies.import',applyPolicyRows:'policies.import',recordVolunteerIncident:'volunteers.incident',

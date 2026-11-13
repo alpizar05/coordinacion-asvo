@@ -1,7 +1,7 @@
 'use client';
 import { useRef,useState } from 'react';
 import { labourOptions,activityOptions } from '../../../../lib/outing-report-options';
-import { submitReport } from './actions';
+import { submitReport } from '../../../actions/reports';
 import type { ReportValues } from '../../../../lib/outing-report';
 import {useRouter} from 'next/navigation';
 import {validateReport} from '../../../../lib/outing-report-validation';

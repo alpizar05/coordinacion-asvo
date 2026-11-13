@@ -25,7 +25,7 @@ try{
    if((await sql`select current_database() as name`)[0].name!==name)throw Error('Destino inesperado; prueba detenida.');
    if(!job.ownsDatabase)await prepareDatabase(sql);
    await sql.end();sql=null;
-   const env={...cleanTestEnvironment(),DATABASE_URL:target.href,ASVO_DEMO:'1',NODE_ENV:'development',APP_URL:'http://localhost:3031',GRAPH_SENDER:'coordination@example.test'};
+   const env={...cleanTestEnvironment(),DATABASE_URL:target.href,ASVO_DEMO:'1',NODE_ENV:'development',APP_URL:'http://localhost:3031',GRAPH_SENDER:'coordination@example.test',GRAPH_TENANT_ID:'11111111-1111-4111-8111-111111111111',GRAPH_CLIENT_ID:'22222222-2222-4222-8222-222222222222',GRAPH_CLIENT_SECRET:'fictitious-provider-test-only'};
    console.log(`Integración: ${job.name} (base local desechable).`);
    await runScript(job.file,env,{signal:controller.signal});
   }finally{

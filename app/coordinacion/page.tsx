@@ -9,7 +9,7 @@ import { staff, staffScope } from '../../lib/auth';
 import { demo, sql } from '../../lib/db';
 import { coordinationSummary } from '../../lib/coordination-summary';
 import { displayDate } from '../../lib/registration';
-import { login } from '../staff-actions';
+import { login } from '../actions/session';
 import CoordinationBreadcrumb from './breadcrumb';
 import { RegistrationActions } from './registration-actions';
 import { SummaryPreferences, SummaryRefresh } from './summary-preferences';

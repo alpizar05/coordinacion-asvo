@@ -2,6 +2,8 @@ import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';re
 import {registerHooks} from 'node:module';import {existsSync} from 'node:fs';import {fileURLToPath} from 'node:url';import {randomUUID,randomBytes} from 'node:crypto';import assert from 'node:assert/strict';
 // Exercise the durable outbox, not a provider. The URL was protected above; no production env file is loaded.
 process.env.NODE_ENV='production';
+process.env.ASVO_DEMO='0';
+process.env.AUTH_SECRET='fictitious-local-test-key-with-32-characters';
 registerHooks({resolve(s,c,next){if(s==='next/headers')return next(s+'.js',c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const u=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(u)))return next(u.href,c);}return next(s,c);}});
 const {sql}=await import('../lib/db.ts');
 const {receiveRegistration,changeRegistrationStatus,occupiedSeats,assignRegistration70,promoteWaitlist}=await import('../lib/registration-workflow.ts');

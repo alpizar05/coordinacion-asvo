@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { logout } from '../staff-actions';
+import { logout } from '../actions/session';
 import { Drawer } from '../drawer';
 import { siteNavigationLinks } from '../navigation';
 import { usePathname } from 'next/navigation';

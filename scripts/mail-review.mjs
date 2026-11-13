@@ -1,3 +1,4 @@
+import {databaseConfiguration} from '../lib/runtime-config.mjs';
 import postgres from 'postgres';
 import {mailReviewInventory,resolveUncertainMail} from '../lib/mail-attempts.mjs';
 const args=process.argv.slice(2);
@@ -10,7 +11,7 @@ for(const arg of args){
  input[match[1]]=match[2];
 }
 if(args.length&&!apply)throw Error('La resolución exige --apply; sin argumentos solo se consulta.');
-const sql=postgres(process.env.DATABASE_URL,{max:1});
+const sql=postgres(databaseConfiguration(process.env).url,{max:1});
 try{
  if(!apply)console.log(JSON.stringify(await mailReviewInventory(sql),null,2));
  else console.log(JSON.stringify(await resolveUncertainMail(sql,{...input,mailId:input.mail,attemptId:input.attempt})));

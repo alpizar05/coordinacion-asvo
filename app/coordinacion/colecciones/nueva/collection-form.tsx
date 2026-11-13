@@ -11,7 +11,7 @@ import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedba
 import { ActiveFilters } from '../../active-filters';
 import { TableFilters } from '../../table-filters';
 import { useState } from 'react';
-import { createOutingCollection } from '../../../staff-actions';
+import { createOutingCollection } from '../../../actions/series';
 import type { OutingRow } from '../../outings-table';
 
 function formatDate(value: string) {

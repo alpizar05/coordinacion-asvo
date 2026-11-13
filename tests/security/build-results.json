@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "isolated production build without env files",
+    "HTTP security and private cache headers",
+    "local Auth.js providers route",
+    "unauthenticated cron rejected",
+    "client importing database rejected by Next compiler"
+  ],
+  "providers": false,
+  "applicationDatabase": false,
+  "fixturesRemoved": true
+}

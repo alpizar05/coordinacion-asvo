@@ -466,3 +466,7 @@ Set-ManagementScope -Identity "ASVO-Correo-Pruebas" -RecipientRestrictionFilter 
 ```
 
 La asignación existente seguirá vinculada al alcance, aunque su nombre conserve «Pruebas». Comprobá nacional `True` y Álvaro `False` con `Test-ServicePrincipalAuthorization`, actualizá `GRAPH_SENDER` a `nacional@asvocr.org` y redesplegá. Considerá la propagación antes de la prueba de envío. Elegí una ventana de cambio y supervisá la cola para que los mensajes pendientes se envíen al recuperar autorización. Este cambio **todavía no se ha aplicado**.
+
+## Controles locales incorporados después de la beta
+
+Antes de un futuro despliegue, consultar [configuración y seguridad](configuracion-y-seguridad.md). El diagnóstico `scripts/check-config.mjs --mode=production` no conecta proveedores; valida sintaxis y claves por función. ASVO_DEMO=1 se rechaza fuera de desarrollo local. La migración 0004 agrega revocación de enlaces/recibos/invitaciones y debe coordinarse con el código nuevo. No se ha aplicado a beta en esta revisión. [Retención y comprobaciones efectivas de infraestructura](seguridad-infraestructura-y-retencion.md) siguen pendientes de aprobación/verificación y no deben confundirse con controles ya desplegados.

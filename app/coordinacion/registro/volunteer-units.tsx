@@ -2,7 +2,7 @@
 
 import { FormFieldGroup } from '../../form-feedback/form-feedback';
 import { ActionModal } from '../action-modal';
-import { updateVolunteerUnits } from '../../staff-actions';
+import { updateVolunteerUnits } from '../../actions/volunteers';
 
 export function VolunteerUnits({ volunteerId, units, selected }: {
   volunteerId: string; units: string[]; selected: string[];

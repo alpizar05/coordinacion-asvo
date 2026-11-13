@@ -1,5 +1,5 @@
 import { homepageFeature } from '../../lib/homepage-feature';
-import { setHomepageFeature } from '../staff-actions';
+import { setHomepageFeature } from '../actions/series';
 
 export async function HomepageFeatureControl({ kind, id, available, error }: {
   kind: 'outing' | 'request';

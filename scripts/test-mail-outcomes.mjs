@@ -10,7 +10,7 @@ const sql=postgres(target.href,{max:6,onnotice(){}});
 const originalFetch=globalThis.fetch;globalThis.fetch=async()=>{throw Error('Red real prohibida');};
 let sends=0,tokens=0,mode=202,onSend=null;
 const events=[];
-const graph=graphMail({env:{GRAPH_TENANT_ID:'fictitious',GRAPH_CLIENT_ID:'fictitious',GRAPH_CLIENT_SECRET:'never-log-this',GRAPH_SENDER:'coordination@example.test'},request:async(url,options)=>{
+const graph=graphMail({env:{GRAPH_TENANT_ID:'11111111-1111-4111-8111-111111111111',GRAPH_CLIENT_ID:'22222222-2222-4222-8222-222222222222',GRAPH_CLIENT_SECRET:'never-log-this',GRAPH_SENDER:'coordination@example.test'},request:async(url,options)=>{
  if(String(url).includes('/token')){tokens++;return Response.json({access_token:'never-store-this'});}
  assert.match(String(url),/\/sendMail$/);sends++;
  const body=JSON.parse(options.body),correlation=options.headers['client-request-id'];

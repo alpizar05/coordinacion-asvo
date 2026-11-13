@@ -32,6 +32,7 @@ const exists=async(sql,name)=>(await sql`select to_regclass(${name}) as object`)
 async function businessSnapshot(sql){
   const tables=['app_migrations','volunteers','requests','outings','registrations','links','demo_mail','registration_mail_outbox','request_outing_photos'];
   const result={};for(const table of tables)result[table]=await sql.unsafe(`select * from ${table} order by 1`);
+  for(const link of result.links)delete link.revoked_at;
   for(const mail of result.registration_mail_outbox){delete mail.delivery_state;delete mail.active_attempt;}
   return JSON.parse(JSON.stringify(result));
 }
@@ -83,7 +84,7 @@ try{
   console.log('OK: adopción compatible, extensiones históricas, restricción validada y marcas/datos/cola/enlaces intactos.');
 
   // Apply the real additive photo migration to an adopted legacy database, retaining business data.
-  assert.deepEqual((await runMigrations(legacy)).executed,['0002_photo_upload_lifecycle','0003_mail_attempt_outcomes']);
+  assert.deepEqual((await runMigrations(legacy)).executed,['0002_photo_upload_lifecycle','0003_mail_attempt_outcomes','0004_private_link_revocation']);
   assert.deepEqual(await businessSnapshot(legacy),oldData);
   assert.deepEqual((await runMigrations(legacy)).executed,[]);
   assert.equal(await exists(legacy,'photo_upload_items'),true);

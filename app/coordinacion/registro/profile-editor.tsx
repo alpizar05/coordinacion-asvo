@@ -2,7 +2,7 @@
 
 import { ActionModal } from '../action-modal';
 import { FormField } from '../../form-feedback/form-feedback';
-import { editProfile } from '../../staff-actions';
+import { editProfile } from '../../actions/volunteers';
 import { profileFieldLabels, validateProfile, type ProfileField, type ProfileInitial } from '../../../lib/profile-validation';
 
 const groups: { title:string; fields: {name:ProfileField;type?:string}[] }[] = [

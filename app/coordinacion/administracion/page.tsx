@@ -4,7 +4,7 @@ import { SectionWorkspace } from '../section-workspace';
 import { notFound, redirect } from 'next/navigation';
 import { canAdminister, staff } from '../../../lib/auth';
 import { demo, sql } from '../../../lib/db';
-import { grant } from '../../staff-actions';
+import { grant } from '../../actions/administration';
 import CoordinationBreadcrumb from '../breadcrumb';
 import { Importer, PolicyImporter } from '../registro/importer';
 import { StatusRibbon } from '../../status-ribbon';

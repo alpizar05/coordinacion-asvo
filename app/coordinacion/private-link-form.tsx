@@ -2,8 +2,8 @@
 import {navigationSaved} from './navigation-position';
 import {useRef,useState} from 'react';
 import {FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback} from '../form-feedback/form-feedback';
-import {createOutingInvitation} from '../staff-actions';
-import {generateBrief} from './salidas/[id]/resumen/actions';
+import {createOutingInvitation} from '../actions/communications';
+import {generateBrief} from '../actions/communications';
 import type {FieldErrors} from '../../lib/form-result';
 export function PrivateLinkForm({id,kind,leads=[],onGenerated,onPending,disabled=false}:{id:string;kind:'invitation'|'brief';leads?:{id:string;name:string}[];onGenerated:(link:string)=>void;onPending?:(value:boolean)=>void;disabled?:boolean}){
  const form=useRef<HTMLFormElement>(null),busy=useRef(false);const[pending,setPending]=useState(false);

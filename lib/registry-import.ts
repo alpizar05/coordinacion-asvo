@@ -1,3 +1,4 @@
+import 'server-only';
 import {scalarInputErrors} from './form-input';
 import {parseRegistryCsv as parseRows} from './registry-csv';
 import {createHash,createHmac,timingSafeEqual} from 'node:crypto';

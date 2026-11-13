@@ -1,3 +1,5 @@
+import 'server-only';
+import {readGraphConfiguration} from './server-config.mjs';
 import {graphAccessToken,graphItemId} from './graph-response.mjs';
 import { randomUUID } from 'node:crypto';
 import sharp from 'sharp';
@@ -21,7 +23,7 @@ export async function preparePhoto(file: File) {
 
 export function graphPhotoStore(options:{fetch?:typeof fetch;config?:()=>{tenant:string;client:string;secret:string;drive:string;folder:string};timeoutMs?:number;demo?:boolean}={}):import('./photo-upload-workflow').PhotoStore {
  const request=options.fetch??fetch,timeout=options.timeoutMs??12000;
- const config=options.config??(()=>{const c={tenant:process.env.GRAPH_TENANT_ID||'',client:process.env.GRAPH_CLIENT_ID||'',secret:process.env.GRAPH_CLIENT_SECRET||'',drive:process.env.SHAREPOINT_PHOTO_DRIVE_ID||'',folder:process.env.SHAREPOINT_PHOTO_FOLDER_ID||''};if(Object.values(c).some(value=>!value))throw Error('Configurá la carpeta privada de fotos en SharePoint.');return c;});
+ const config=options.config??(()=>readGraphConfiguration('photos'));
  async function token(){const c=config();const response=await request(`https://login.microsoftonline.com/${encodeURIComponent(c.tenant)}/oauth2/v2.0/token`,{method:'POST',body:new URLSearchParams({client_id:c.client,client_secret:c.secret,scope:'https://graph.microsoft.com/.default',grant_type:'client_credentials'}),signal:AbortSignal.timeout(Math.min(timeout,8000))});if(!response.ok){await graphDiagnostic('sharepoint-auth',response);throw Error('No se pudo acceder a SharePoint.');}return graphAccessToken(await response.json());}
  const path=(target:import('./photo-upload-workflow').PhotoTarget)=>`https://graph.microsoft.com/v1.0/drives/${encodeURIComponent(target.drive)}/items/${encodeURIComponent(target.folder)}:/${encodeURIComponent(target.name)}`;
  return {

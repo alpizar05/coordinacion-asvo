@@ -12,7 +12,8 @@ if (process.env.ASVO_DEMO !== '1' || !['localhost','127.0.0.1','[::1]'].includes
 }
 process.env.NODE_ENV = 'development';
 registerHooks({ resolve(specifier, context, nextResolve) {
-  if (['next/headers','next/navigation'].includes(specifier)) return nextResolve(specifier + '.js', context);
+  if (specifier==='next/headers')return nextResolve(new URL('../tests/authorization/request-context.mjs',import.meta.url).href,context);
+  if (specifier==='next/navigation') return nextResolve(specifier + '.js', context);
   if (specifier.startsWith('.') && context.parentURL && !/\.[a-z]+$/.test(specifier)) {
     const candidate = new URL(specifier + '.ts', context.parentURL);
     if (existsSync(fileURLToPath(candidate))) return nextResolve(candidate.href, context);

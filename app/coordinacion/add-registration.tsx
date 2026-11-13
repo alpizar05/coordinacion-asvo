@@ -9,7 +9,7 @@ import { StaffParticipationFields } from './staff-participation-fields';
 import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
 import { fieldErrorMessages } from '../../lib/form-result';
-import { addRegistration, findRegistrationVolunteers } from './add-registration-actions';
+import { addRegistration, findRegistrationVolunteers } from '../actions/registrations';
 
 type Person = { id: string; name: string; identification: string };
 export function AddRegistration({ outing }: { outing: { id: string; starts: string; ends: string; flexible: boolean; general: boolean } }) {

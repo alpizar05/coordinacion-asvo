@@ -48,7 +48,7 @@ const optionsFor=(id,f,extra={})=>({sql,principal:actor,scope:'test-photo:'+id,f
 const add=()=>form({action:'agregar',photo:file(),alt:'Foto ficticia',credit:'ASVO DEMO',permission:'on',photoOperation:randomUUID()});
 const countPhotos=async id=>(await sql`select count(*)::int as n from outing_photos where outing_id=${id} and position is not null`)[0].n;
 try{
- assert.deepEqual((await sql`select id from asvo_schema_migrations order by id`).map(r=>r.id),['0001_initial','0002_photo_upload_lifecycle','0003_mail_attempt_outcomes']);
+ assert.deepEqual((await sql`select id from asvo_schema_migrations order by id`).map(r=>r.id),['0001_initial','0002_photo_upload_lifecycle','0003_mail_attempt_outcomes','0004_private_link_revocation']);
  await sql`insert into grants(subject,role,unit)values(${actor.subject},'general','')`;
  const o=await outing();monitored=o.id;
  // Actual provider adapter, fake Graph; NOWAIT proves that provider calls do not retain row locks.

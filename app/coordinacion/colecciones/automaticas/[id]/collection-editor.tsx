@@ -3,7 +3,7 @@ import {preserveCurrentNavigation} from '../../../navigation-position';
 import {useEffect,useRef,useState,type ReactNode} from 'react';
 import {useRouter} from 'next/navigation';
 import {SectionWorkspace,type WorkspaceSection} from '../../../section-workspace';
-import {saveAutomaticCollection} from '../../../../staff-actions';
+import {saveAutomaticCollection} from '../../../../actions/series';
 import {validateCommonSeries} from '../../../../../lib/outing-form-validation';
 import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedback} from '../../../../form-feedback/form-feedback';
 export function AutomaticCollectionEditor({id,hidden,sections,initialError}:{id:string;hidden:ReactNode;sections:WorkspaceSection[];initialError?:string}){

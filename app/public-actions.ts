@@ -1,4 +1,6 @@
 'use server';
+import {trustedClientAddress} from '../lib/security-rules.mjs';
+import {consumePrivateBudget,rateLimitMessage} from '../lib/abuse-limits';
 import {validPrivateToken} from '../lib/authorization';
 
 import { randomUUID } from 'node:crypto';
@@ -14,7 +16,7 @@ import type { RegistrationActionResult } from '../lib/registration-validation';
 export async function register(outingId:string,schedule:string,token:string,form:FormData):Promise<RegistrationActionResult>{
   if(!uuid(outingId))return {error:'La convocatoria no está disponible.'};
   const header=await headers();
-  const ip=header.get('x-vercel-forwarded-for')?.split(',')[0]?.trim()||'local';
+  const ip=trustedClientAddress(process.env,header.get('x-vercel-forwarded-for'));
   try{
     const result=await sql.begin(async tx=>{
       const received=await receivePublicRegistration(tx,outingId,schedule,token,form,ip);
@@ -32,6 +34,8 @@ export async function register(outingId:string,schedule:string,token:string,form
 export async function submitPrivateRegistration(token:string,form:FormData):Promise<RegistrationActionResult>{
   if(!validPrivateToken(token))return {error:'El enlace no es válido. Contactá a Coordinación.'};
   try{
+    const h=await headers();
+    if(!await consumePrivateBudget(sql,'private',token,trustedClientAddress(process.env,h.get('x-vercel-forwarded-for'))))return {error:rateLimitMessage};
     const result=await sql.begin(tx=>changePrivateRegistration(tx,token,form));
     if(result.saved)await dispatchRegistrationUpdates();
     return result;

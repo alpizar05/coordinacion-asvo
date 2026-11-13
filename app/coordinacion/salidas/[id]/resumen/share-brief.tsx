@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {PrivateLinkForm} from '../../../private-link-form';
-import { revokeBrief } from './actions';
+import { revokeBrief } from '../../../../actions/communications';
 import { StatusRibbon } from '../../../../status-ribbon';
 
 export function ShareBrief({ id, leads }: { id: string; leads: { id: string; name: string }[] }) {

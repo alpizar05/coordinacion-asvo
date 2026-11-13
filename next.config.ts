@@ -1,18 +1,14 @@
 import type { NextConfig } from 'next';
+import {securityHeaders,privateHeaders,privateRequestLogPatterns} from './lib/security-headers.mjs';
 const config: NextConfig = {
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
+  logging: { incomingRequests:{ignore:privateRequestLogPatterns},fetches:{fullUrl:false} },
   async headers() {
-    return [{source:'/convocatorias/:id',headers:[
-      {key:'Referrer-Policy',value:'no-referrer'},
-    ]},{source:'/resumen-salida/:path*',headers:[
-      {key:'Cache-Control',value:'private, no-store'},
-      {key:'Referrer-Policy',value:'no-referrer'},
-      {key:'X-Robots-Tag',value:'noindex, nofollow'},
-    ]},{source:'/privado/:path*',headers:[
-      {key:'Cache-Control',value:'private, no-store'},
-      {key:'Referrer-Policy',value:'no-referrer'},
-      {key:'X-Robots-Tag',value:'noindex, nofollow'},
-    ]}];
+    return [
+      {source:'/:path*',headers:securityHeaders(process.env)},
+      ...['/coordinacion/:path*','/privado/:path*','/resumen-salida/:path*','/api/auth/:path*'].map(source=>({source,headers:privateHeaders})),
+      {source:'/convocatorias/:id',has:[{type:'query' as const,key:'invitacion'}],headers:privateHeaders},
+    ];
   },
 };
 export default config;

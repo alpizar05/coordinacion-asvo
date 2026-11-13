@@ -6,7 +6,7 @@ import { FlexibleDatesHelp } from '../../flexible-dates-help';
 import { useEffect, useRef, useState } from 'react';
 import { CoordinationModal } from '../../coordination-modal';
 import { useRouter } from 'next/navigation';
-import { createOuting } from '../../../staff-actions';
+import { createOuting } from '../../../actions/outings';
 import { outingPhotoBatchMaxBytes, outingPhotoLimit, outingPhotoMaxBytes } from '../../../../lib/outing-photo-limits';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
 import { PhotoDialog } from '../../photo-dialog';

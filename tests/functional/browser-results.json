@@ -1,0 +1,12 @@
+{
+  "scope": "Focused CUA regression of contextual navigation after action-module extraction; not the full navigation browser suite",
+  "target": "http://localhost:3032",
+  "data": "Disposable local PostgreSQL database, six fictitious volunteers and registrations; external fetch blocked; no real provider credentials",
+  "cases": [
+    {"name": "Desktop filtered requests to person and contextual return", "result": "passed", "evidence": "Original date/state URL restored; focus returned to source person"},
+    {"name": "390x844 filtered requests to last person and contextual return", "result": "passed", "evidence": "Same criteria; source person focused; scrollY 954.5; no horizontal overflow"},
+    {"name": "Requests to outing to person to outing to requests", "result": "passed", "evidence": "Inscripciones tab and parent return chain retained; source person focused; original criteria; scrollY 982; no horizontal overflow"}
+  ],
+  "cleanup": "Temporary tab closed, viewport reset, isolated Next server stopped, database/copy/fixtures removed",
+  "limitations": ["No exhaustive browser rerun", "No physical screen-reader certification", "No real Graph/Entra/SharePoint calls"]
+}

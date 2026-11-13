@@ -1,7 +1,7 @@
 'use client';
 
 import { ActionModal } from './action-modal';
-import { sendReportReminder } from './report-reminder-actions';
+import { sendReportReminder } from '../actions/communications';
 
 export function ReportReminder({ outingId, registrationId, name, email, title, starts, ends, activeLink, demo, open, onClose }: {
   open?: boolean; onClose?: () => void;

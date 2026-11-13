@@ -3,7 +3,7 @@ import { useRef,useState } from 'react';
 import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateEntryManagement,staffRegistrationLabels } from '../../lib/staff-registration-validation';
 import { fieldErrorMessages } from '../../lib/form-result';
-import { manageRegistration } from './manage-registration-actions';
+import { manageRegistration } from '../actions/registrations';
 
 type Entry={id:string;version:string;identification:string;starts:string;ends:string};
 export function ManageRegistrationForm({entry,outing,action,title,onBack,onSaved,onPending}:{entry:Entry;outing:{flexible:boolean;first_day:string;last_day:string};action:string;title:string;onBack:()=>void;onSaved:()=>void;onPending:(value:boolean)=>void}){

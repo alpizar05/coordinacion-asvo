@@ -14,7 +14,7 @@ import { notFound } from 'next/navigation';
 import { allows, canAdminister, canOperate, staff } from '../../../../lib/auth';
 import { sql } from '../../../../lib/db';
 import { displayDate, uuid } from '../../../../lib/registration';
-import { recordVolunteerIncident, verifyPolicy } from '../../../staff-actions';
+import { recordVolunteerIncident, verifyPolicy } from '../../../actions/volunteers';
 
 export default async function VolunteerProfile({ params, searchParams }: {
   params: Promise<{ id: string }>;

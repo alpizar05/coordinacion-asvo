@@ -2,7 +2,7 @@
 import { ActionModal } from './action-modal';
 import { FormField } from '../form-feedback/form-feedback';
 import { validateSplitGroup,staffRegistrationLabels } from '../../lib/staff-registration-validation';
-import { splitOutingGroup } from '../staff-actions';
+import { splitOutingGroup } from '../actions/outings';
 
 export function SplitGroupForm({outingId,starts,ends,members,occupied,title}:{outingId:string;starts:string;ends:string;members:string[];occupied:number;title:string}){
  return <ActionModal title="Crear salida para este grupo" saveLabel="Crear salida y trasladar grupo" validate={form=>validateSplitGroup(form,occupied)} fieldLabels={staffRegistrationLabels} action={async form=>{

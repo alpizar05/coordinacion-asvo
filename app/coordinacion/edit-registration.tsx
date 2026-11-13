@@ -9,7 +9,7 @@ import { StaffParticipationFields } from './staff-participation-fields';
 import { FormFeedbackProvider,FormErrorSummary,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
 import { fieldErrorMessages } from '../../lib/form-result';
-import { loadEditableRegistration, saveEditedRegistration } from './edit-registration-actions';
+import { loadEditableRegistration, saveEditedRegistration } from '../actions/registrations';
 
 type Data = NonNullable<Awaited<ReturnType<typeof loadEditableRegistration>>['data']>;
 export function EditRegistration({ id, open, onClose }: { id: string; open: boolean; onClose: () => void }) {
