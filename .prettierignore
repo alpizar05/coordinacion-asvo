@@ -1,0 +1,7 @@
+node_modules/
+.next/
+coverage/
+.local-postgres/
+.env*
+!.env.example
+.codex/

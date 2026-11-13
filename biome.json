@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": ["app/**", "lib/**", "scripts/**", "tests/**", "next.config.ts"],
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "correctness": {
+        "noUnreachable": "error",
+        "noUnsafeFinally": "error",
+        "useValidForDirection": "error"
+      },
+      "suspicious": {
+        "noDebugger": "error",
+        "noCompareNegZero": "error",
+        "noDuplicateJsxProps": "error",
+        "noDuplicateObjectKeys": "error"
+      },
+      "preset": "none"
+    }
+  }
+}

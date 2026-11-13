@@ -10,7 +10,7 @@ async function finish(run){return new Promise((resolve,reject)=>{const timer=set
 try{
  for(const name of ['app','lib','public','tsconfig.json','next.config.ts','package.json'])await cp(join(root,name),join(temp,name),{recursive:true});
  await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
- const built=await finish(launch(['build','--webpack']));assert.equal(built.code,0,built.output.slice(-5000));
+ const built=await finish(launch(['build','--webpack']));assert.equal(built.code,0,built.output.slice(-5000));assert.doesNotMatch(built.output,/\[test-(?:network|database)-blocked\]/);
  // Real routes and header resolution; invalid capability causes no DB lookup.
  const port=await new Promise((resolve,reject)=>{const s=createServer();s.once('error',reject);s.listen(0,'127.0.0.1',()=>{const p=s.address().port;s.close(()=>resolve(p));});});
  const started=launch(['start','--hostname','127.0.0.1','--port',String(port)]);server=started.child;
@@ -21,7 +21,7 @@ try{
   if(path==='/api/auth/providers')assert.equal(response.status,200);else{assert.equal(response.status,200);assert.match(await response.text(),/venció|no disponible/);}
  }
  assert.equal((await get('/api/cron/correos')).status,401,'Cron refuses unauthenticated calls');
- server.kill('SIGTERM');await new Promise(r=>server.once('close',r));server=null;logs=started.output();assert.doesNotMatch(logs,/External calls prohibited|ECONNREFUSED/);
+ server.kill('SIGTERM');await new Promise(r=>server.once('close',r));server=null;logs=started.output();assert.doesNotMatch(logs,/External calls prohibited|ECONNREFUSED|\[test-(?:network|database)-blocked\]/);
  // Actual compiler failure, not merely a marker inventory. No source project is altered.
  await rm(join(temp,'app'),{recursive:true,force:true});await rm(join(temp,'.next'),{recursive:true,force:true});await mkdir(join(temp,'app'));
  await writeFile(join(temp,'app/layout.tsx'),'export default function Layout({children}:{children:React.ReactNode}){return <html><body>{children}</body></html>}');

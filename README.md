@@ -343,3 +343,9 @@ Creación y edición separan autorización, preparación, Graph y confirmación 
 ### Acciones por funcionalidad
 
 La interfaz de Coordinación usa `app/actions/{outings,series,registrations,reports,volunteers,communications,session,administration}.ts`. `app/staff-actions.ts` conserva únicamente adaptadores compatibles. Consultá [organización, transacciones, compatibilidad y pruebas](docs/organizacion-por-funcionalidad.md). La reorganización no requiere migración ni cambia la cola/cron. `npm run test:integration -- --only=functional-actions` verifica los casos de uso; la suite completa incluye la auditoría de límites y ciclos.
+
+## Integración continua preparada y equivalencia
+
+La [auditoría de CI y equivalencia](docs/ci-y-equivalencia.md) inventaría la refactorización, las pruebas ejecutadas y sus límites. El workflow local `.github/workflows/ci.yml` separa calidad, unitarias, contratos, integración, build y seguridad; tiene únicamente disparo manual. **Publicado posteriormente con autorización, manteniendo solo disparo manual; primera ejecución remota pendiente.** La suite de navegador conserva su dependencia de CUA y no se presenta como CI autónomo.
+
+Comandos adicionales: `npm run lint`, `npm run format:check`, `npm run test:ci`, `npm run ci:typecheck`, `npm run ci:install:verify`, `npm run security:secrets` y `npm run security:dependencies`. Para CI sin dotenv: `npm run test:integration:ci`, con `CI_DATABASE_URL` exclusivamente local y sin variables Auth/Graph/SharePoint heredadas. No usar credenciales beta. La primera ejecución Linux/contenedor, runtime LTS y verificación visual completa siguen pendientes antes de activar protecciones de repositorio.

@@ -34,7 +34,15 @@
     "photos:cleanup": "node --env-file=.env.local scripts/photo-cleanup.mjs --apply",
     "mail:review": "node --env-file=.env.local scripts/mail-review.mjs",
     "config:check": "node --env-file=.env.local scripts/check-config.mjs --mode=development",
-    "test:security:build": "node scripts/test-security-build.mjs"
+    "test:security:build": "node scripts/test-security-build.mjs",
+    "lint": "biome lint --error-on-warnings app lib scripts tests next.config.ts",
+    "format:check": "prettier --check .github/workflows/ci.yml biome.json .prettierrc.json .secretlintrc.json package.json package-lock.json \"scripts/ci/**/*.{mjs,json}\" \"tests/ci/**/*.mjs\" docs/ci-y-equivalencia.md",
+    "test:ci": "node --test tests/ci/*.test.mjs",
+    "test:integration:ci": "node scripts/ci/integration.mjs",
+    "security:secrets": "node scripts/ci/secrets.mjs",
+    "security:dependencies": "node scripts/ci/dependencies.mjs",
+    "ci:install:verify": "node scripts/ci/clean-install.mjs",
+    "ci:typecheck": "node scripts/ci/typecheck.mjs"
   },
   "type": "module",
   "dependencies": {
@@ -47,10 +55,16 @@
     "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.6.7",
+    "@secretlint/secretlint-rule-preset-recommend": "13.1.0",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "typescript": "^7.0.2"
+    "prettier": "3.10.1",
+    "secretlint": "13.1.0",
+    "typescript": "^7.0.2",
+    "yaml": "2.9.1"
   },
-  "private": true
+  "private": true,
+  "packageManager": "npm@11.7.0"
 }

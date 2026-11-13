@@ -84,3 +84,9 @@ La [reorganización por funcionalidad](../docs/organizacion-por-funcionalidad.md
 `npm run test:integration -- --only=security` usa una base desechable para expiración, alcance, revocación/autorización, replay, conservación de recibos, HMAC, presupuestos atómicos y conexiones compartidas. El grupo completo conserva los 17 grupos anteriores.
 
 `npm run test:security:build` compila una copia temporal sin .env, configuración ficticia y fetch externo bloqueado; comprueba headers HTTP reales, Auth.js/providers, cron no autorizado y fallo de compilación si un Client Component importa DB. Necesita un puerto loopback temporal. No usa la base de aplicación. Retira servidor/copia; resultado resumido en `tests/security/build-results.json`. No verifica login Microsoft ni Vercel/CDN reales.
+
+## CI preparada (sin activar)
+
+Consultar [auditoría de equivalencia y CI](../docs/ci-y-equivalencia.md). El workflow se publica solo con disparo manual; su primera ejecución remota continúa pendiente. `test:ci` valida configuración/aislamiento/lockfile/detección de secretos, separado de las 92 unitarias del dominio. `test:integration:ci` no carga dotenv: recibe solo `CI_DATABASE_URL` loopback y rechaza credenciales de aplicación/proveedor. Reutiliza los mismos 18 grupos y su limpieza; no usa una versión falsa del dominio.
+
+`ci:typecheck` prueba una copia sin next-env.d.ts/.next anteriores, ejecutando `next typegen` y TypeScript. `ci:install:verify` prueba npm ci con scripts deshabilitados en otra carpeta y comprueba sharp. Lint/formato, secretos y dependencias son comandos separados. Los informes de seguridad saneados quedan en coverage ignorado. La suite browser.mjs conserva su dependencia CUA: no hay job de navegador autónomo y su evidencia anterior no se reetiquetó como una ejecución nueva.
