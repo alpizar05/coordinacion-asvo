@@ -22,6 +22,7 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run test:ci
       - run: npm run ci:typecheck
       - run: npm run lint
@@ -39,6 +40,7 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run test:unit:coverage
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -60,13 +62,14 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run test:contracts
   integration:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     services:
       postgres:
-        image: postgres:18.0-alpine@sha256:48c8ad3a7284b82be4482a52076d47d879fd6fb084a1cbfccbd551f9331b0e40
+        image: postgres:18.7-alpine@sha256:75dcac3dfb1cd01ca3536910bbc84128759362f8b118bf8c55b38a94f68f3b73
         env:
           POSTGRES_USER: asvo_ci
           POSTGRES_PASSWORD: fictitious-ci-only
@@ -86,6 +89,7 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run test:integration:ci
         env:
           CI_DATABASE_URL: postgres://asvo_ci:fictitious-ci-only@127.0.0.1:5432/asvo_ci_admin
@@ -102,6 +106,7 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run ci:install:verify
       - run: npm run test:security:build
   security:
@@ -118,5 +123,6 @@ jobs:
           cache: npm
       - run: npm install --global npm@11.7.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/ci/check-runtime.mjs
       - run: npm run security:secrets
       - run: npm run security:dependencies

@@ -1,5 +1,9 @@
 # Suites de prueba de ASVO
 
+## Runtime comprobado
+
+Node 26.13.1, npm 11.7.0 y PostgreSQL 18.7 local desechable. `node scripts/ci/check-runtime.mjs` verifica los procesos efectivos; `test:integration:ci` exige server_version_num 180007 antes de crear fixtures. Ver [preparación, comandos y evidencia](../docs/validacion-node26-postgres18.md). No se consultan proveedores para comprobar versiones.
+
 ## Comandos
 
 ```sh

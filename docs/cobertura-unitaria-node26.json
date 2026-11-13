@@ -1,0 +1,956 @@
+{
+  "generatedAt": "2026-11-13T20:13:00.179Z",
+  "runtime": "v26.13.1",
+  "engine": "node:test / V8",
+  "scope": "Explicit pure-module subset only; not platform coverage. See tests/unit/modules.mjs.",
+  "totals": {
+    "lines": {
+      "hit": 1149,
+      "found": 1149,
+      "percent": 100
+    },
+    "branches": {
+      "hit": 1223,
+      "found": 1267,
+      "percent": 96.53
+    },
+    "functions": {
+      "hit": 213,
+      "found": 214,
+      "percent": 99.53
+    }
+  },
+  "modules": [
+    {
+      "path": "lib/authorization.ts",
+      "lines": {
+        "hit": 48,
+        "found": 48,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 40,
+        "found": 41,
+        "percent": 97.56
+      },
+      "functions": {
+        "hit": 13,
+        "found": 13,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 35,
+          "block": "25",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/filter-validation.ts",
+      "lines": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 10,
+        "found": 10,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/form-dates.mjs",
+      "lines": {
+        "hit": 7,
+        "found": 7,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 5,
+        "found": 5,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/form-input.ts",
+      "lines": {
+        "hit": 18,
+        "found": 18,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 14,
+        "found": 14,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 6,
+        "found": 6,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/form-result.ts",
+      "lines": {
+        "hit": 17,
+        "found": 17,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/graph-response.mjs",
+      "lines": {
+        "hit": 11,
+        "found": 11,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 19,
+        "found": 19,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 2,
+        "found": 2,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/historical-import-plan.mjs",
+      "lines": {
+        "hit": 67,
+        "found": 67,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 91,
+        "found": 91,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 28,
+        "found": 28,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/local-demo.mjs",
+      "lines": {
+        "hit": 18,
+        "found": 18,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 17,
+        "found": 17,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 4,
+        "found": 4,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/mail-attempt-rules.mjs",
+      "lines": {
+        "hit": 22,
+        "found": 22,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 30,
+        "found": 30,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 4,
+        "found": 4,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/mail-cron.ts",
+      "lines": {
+        "hit": 24,
+        "found": 24,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 14,
+        "found": 14,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/migration-sql.mjs",
+      "lines": {
+        "hit": 34,
+        "found": 34,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 50,
+        "found": 50,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 2,
+        "found": 2,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/navigation-context.ts",
+      "lines": {
+        "hit": 129,
+        "found": 129,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 146,
+        "found": 156,
+        "percent": 93.59
+      },
+      "functions": {
+        "hit": 22,
+        "found": 22,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 14,
+          "block": "35",
+          "branch": "0"
+        },
+        {
+          "line": 46,
+          "block": "65",
+          "branch": "0"
+        },
+        {
+          "line": 75,
+          "block": "91",
+          "branch": "0"
+        },
+        {
+          "line": 76,
+          "block": "95",
+          "branch": "0"
+        },
+        {
+          "line": 80,
+          "block": "98",
+          "branch": "0"
+        },
+        {
+          "line": 88,
+          "block": "105",
+          "branch": "0"
+        },
+        {
+          "line": 90,
+          "block": "111",
+          "branch": "0"
+        },
+        {
+          "line": 122,
+          "block": "138",
+          "branch": "0"
+        },
+        {
+          "line": 122,
+          "block": "139",
+          "branch": "0"
+        },
+        {
+          "line": 122,
+          "block": "140",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/navigation-store.ts",
+      "lines": {
+        "hit": 28,
+        "found": 28,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 24,
+        "found": 25,
+        "percent": 96
+      },
+      "functions": {
+        "hit": 11,
+        "found": 12,
+        "percent": 91.67
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 25,
+          "block": "21",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/outing-decision-validation.ts",
+      "lines": {
+        "hit": 10,
+        "found": 10,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/outing-form-validation.ts",
+      "lines": {
+        "hit": 73,
+        "found": 73,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 132,
+        "found": 145,
+        "percent": 91.03
+      },
+      "functions": {
+        "hit": 16,
+        "found": 16,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 10,
+          "block": "2",
+          "branch": "0"
+        },
+        {
+          "line": 30,
+          "block": "31",
+          "branch": "0"
+        },
+        {
+          "line": 34,
+          "block": "37",
+          "branch": "0"
+        },
+        {
+          "line": 34,
+          "block": "38",
+          "branch": "0"
+        },
+        {
+          "line": 36,
+          "block": "42",
+          "branch": "0"
+        },
+        {
+          "line": 41,
+          "block": "69",
+          "branch": "0"
+        },
+        {
+          "line": 58,
+          "block": "98",
+          "branch": "0"
+        },
+        {
+          "line": 58,
+          "block": "100",
+          "branch": "0"
+        },
+        {
+          "line": 58,
+          "block": "102",
+          "branch": "0"
+        },
+        {
+          "line": 58,
+          "block": "103",
+          "branch": "0"
+        },
+        {
+          "line": 58,
+          "block": "104",
+          "branch": "0"
+        },
+        {
+          "line": 62,
+          "block": "108",
+          "branch": "0"
+        },
+        {
+          "line": 72,
+          "block": "139",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/outing-logistics.ts",
+      "lines": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 5,
+        "found": 5,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/outing-report-options.ts",
+      "lines": {
+        "hit": 17,
+        "found": 17,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 7,
+        "found": 7,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/outing-report-validation.ts",
+      "lines": {
+        "hit": 34,
+        "found": 34,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 38,
+        "found": 39,
+        "percent": 97.44
+      },
+      "functions": {
+        "hit": 5,
+        "found": 5,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 10,
+          "block": "33",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/participation-dates.ts",
+      "lines": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 9,
+        "found": 9,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/participation-rules.ts",
+      "lines": {
+        "hit": 32,
+        "found": 32,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 40,
+        "found": 40,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 11,
+        "found": 11,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/photo-metadata.ts",
+      "lines": {
+        "hit": 23,
+        "found": 23,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 32,
+        "found": 33,
+        "percent": 96.97
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 16,
+          "block": "28",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/profile-validation.ts",
+      "lines": {
+        "hit": 32,
+        "found": 32,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 16,
+        "found": 16,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 2,
+        "found": 2,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/registration-changes.ts",
+      "lines": {
+        "hit": 15,
+        "found": 15,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 13,
+        "found": 15,
+        "percent": 86.67
+      },
+      "functions": {
+        "hit": 4,
+        "found": 4,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 10,
+          "block": "4",
+          "branch": "0"
+        },
+        {
+          "line": 14,
+          "block": "14",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/registration-logistics.ts",
+      "lines": {
+        "hit": 14,
+        "found": 14,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 13,
+        "found": 13,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/registration-mail-template.mjs",
+      "lines": {
+        "hit": 63,
+        "found": 63,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 35,
+        "found": 41,
+        "percent": 85.37
+      },
+      "functions": {
+        "hit": 8,
+        "found": 8,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 1,
+          "block": "2",
+          "branch": "0"
+        },
+        {
+          "line": 3,
+          "block": "5",
+          "branch": "0"
+        },
+        {
+          "line": 4,
+          "block": "6",
+          "branch": "0"
+        },
+        {
+          "line": 19,
+          "block": "14",
+          "branch": "0"
+        },
+        {
+          "line": 24,
+          "block": "23",
+          "branch": "0"
+        },
+        {
+          "line": 34,
+          "block": "32",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/registration-rules.ts",
+      "lines": {
+        "hit": 21,
+        "found": 21,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 8,
+        "found": 8,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/registration-validation.ts",
+      "lines": {
+        "hit": 70,
+        "found": 70,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 59,
+        "found": 59,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 4,
+        "found": 4,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/registry-csv.ts",
+      "lines": {
+        "hit": 28,
+        "found": 28,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 44,
+        "found": 48,
+        "percent": 91.67
+      },
+      "functions": {
+        "hit": 5,
+        "found": 5,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 10,
+          "block": "14",
+          "branch": "0"
+        },
+        {
+          "line": 10,
+          "block": "15",
+          "branch": "0"
+        },
+        {
+          "line": 11,
+          "block": "17",
+          "branch": "0"
+        },
+        {
+          "line": 14,
+          "block": "25",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/registry-validation.ts",
+      "lines": {
+        "hit": 31,
+        "found": 31,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 30,
+        "found": 30,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/runtime-config.mjs",
+      "lines": {
+        "hit": 71,
+        "found": 71,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 94,
+        "found": 98,
+        "percent": 95.92
+      },
+      "functions": {
+        "hit": 18,
+        "found": 18,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 31,
+          "block": "46",
+          "branch": "0"
+        },
+        {
+          "line": 32,
+          "block": "48",
+          "branch": "0"
+        },
+        {
+          "line": 47,
+          "block": "60",
+          "branch": "0"
+        },
+        {
+          "line": 63,
+          "block": "79",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/security-headers.mjs",
+      "lines": {
+        "hit": 14,
+        "found": 14,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 4,
+        "found": 5,
+        "percent": 80
+      },
+      "functions": {
+        "hit": 1,
+        "found": 1,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": [
+        {
+          "line": 10,
+          "block": "3",
+          "branch": "0"
+        }
+      ]
+    },
+    {
+      "path": "lib/security-rules.mjs",
+      "lines": {
+        "hit": 13,
+        "found": 13,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 17,
+        "found": 17,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/staff-registration-validation.ts",
+      "lines": {
+        "hit": 29,
+        "found": 29,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 22,
+        "found": 22,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 3,
+        "found": 3,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/volunteer-search-criteria.ts",
+      "lines": {
+        "hit": 12,
+        "found": 12,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 8,
+        "found": 8,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 2,
+        "found": 2,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    },
+    {
+      "path": "lib/workflow-transitions.ts",
+      "lines": {
+        "hit": 97,
+        "found": 97,
+        "percent": 100
+      },
+      "branches": {
+        "hit": 119,
+        "found": 119,
+        "percent": 100
+      },
+      "functions": {
+        "hit": 19,
+        "found": 19,
+        "percent": 100
+      },
+      "uncoveredLines": [],
+      "uncoveredBranches": []
+    }
+  ]
+}

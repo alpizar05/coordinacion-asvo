@@ -8,7 +8,7 @@ registerHooks({resolve(s,c,next){
  if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const path=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(path)))return next(path.href,c);}
  return next(s,c);
 },load(url,context,next){
- if(url.endsWith('.ts'))return {format:'module',source:stripTypeScriptTypes(readFileSync(new URL(url),'utf8'),{mode:'transform',sourceUrl:url}),shortCircuit:true};
+ if(url.endsWith('.ts'))return {format:'module',source:stripTypeScriptTypes(readFileSync(new URL(url),'utf8'),{mode:'strip',sourceUrl:url}),shortCircuit:true};
  return next(url,context);
 }});
 const {sql,demoCoordinator,demoAdmin}=await import('../lib/db.ts');

@@ -26,6 +26,10 @@ Next.js App Router y PostgreSQL. Las mutaciones pasan por acciones de servidor y
 
 El módulo futuro de capacitaciones vinculará cada curso completado al UUID de la persona y a un catálogo. Guardará fecha, entidad, evidencia en SharePoint, verificador y vigencia. SCI y CBF de BRIF son ejemplos pendientes de confirmar con las unidades.
 
+## Versiones soportadas
+
+Next.js **16.x (Active LTS)**, con parche reproducible **16.4.5** fijado en package.json y lockfile. Webpack es la referencia del despliegue observado; CI conserva build/arranque Webpack y comprobación adicional de Turbopack. Los parches se revisan y validan antes de actualizar el pin; LTS no significa congelarlo indefinidamente. Ver [política de versiones](docs/politica-de-versiones.md).
+
 ## Decisiones del piloto
 
 - Definir copias de seguridad, prueba de restauración, retención y exportaciones de Neon, y separar Preview de Production.
@@ -36,14 +40,15 @@ El módulo futuro de capacitaciones vinculará cada curso completado al UUID de 
 
 ## Despliegue local
 
-Ejecutá estos comandos desde la carpeta `coordinacion-asvo`. La evidencia local más reciente usa Node.js 25.2.1 y npm 11.7.0, fijados para CI; validar una versión LTS soportada por el alojamiento sigue pendiente. No confundir ese pin de CI con la configuración remota de Vercel. El entorno de prueba funciona con `ASVO_DEMO=1` y `npm run dev`.
+Ejecutá estos comandos desde la carpeta `coordinacion-asvo`. La validación local usa **Node.js 26.13.1, npm 11.7.0 y PostgreSQL 18.7**, con pines preparados para CI manual. Ver [versiones efectivas, comandos y límites](docs/validacion-node26-postgres18.md). Vercel está configurado en 26.x y el build observado usó 26.13.1 según el registro aportado por el usuario; el parche de las funciones no se comprobó. La primera CI remota y la matriz visual CUA siguen pendientes. El entorno de prueba funciona con `ASVO_DEMO=1` y `npm run dev`.
 
 ### Primera instalación en Mac con Apple Silicon
 
-Instalá las dependencias y PostgreSQL dentro del proyecto:
+Seleccioná primero Node 26.13.1 con tu gestor de versiones y npm 11.7.0. No es necesario modificar el Node global. Para reproducir la matriz exacta, usá PostgreSQL 18.7 desechable según la guía enlazada. La alternativa persistente anterior sigue disponible dentro del proyecto:
 
 ```sh
-npm ci
+npm ci --ignore-scripts --no-audit --no-fund
+# Alternativa persistente de desarrollo (PostgreSQL 18.6, no reproduce la matriz CI 18.7):
 npm install --prefix .local-postgres/runtime --no-save --package-lock=false @embedded-postgres/darwin-arm64@18.6.0-beta.19
 ```
 
@@ -159,7 +164,7 @@ Ver [comandos, compatibilidad y verificación local](docs/operaciones-base-datos
 - `npm run test:unit`: 92 pruebas en la última evidencia registrada, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
 - `npm run test:unit:coverage`: LCOV y resumen por módulo en `coverage/`, sobre un denominador explícito de 35 módulos puros; no mide toda la plataforma.
 - `npm run test:contracts`: cinco inventarios/contratos (fronteras, autorización, Auth.js y correo), sin proveedores reales.
-- `npm run test:ci`: seis comprobaciones de la pipeline, separadas de las unitarias del dominio.
+- `npm run test:ci`: siete comprobaciones de la pipeline, separadas de las unitarias del dominio.
 - `npm run test:integration`: 18 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
 - `npm run test:integration -- --only=summary`: ejecuta un grupo concreto con el mismo aislamiento.
 

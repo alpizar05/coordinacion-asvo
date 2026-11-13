@@ -30,6 +30,16 @@ test('CI remains manual and read-only, with immutable actions/image and no provi
     assert.ok(job['timeout-minutes'] <= 20);
     const steps = job.steps;
     assert.ok(steps.some((s) => s.run === 'npm ci --ignore-scripts --no-audit --no-fund'));
+    assert.ok(steps.some((s) => s.run === 'node scripts/ci/check-runtime.mjs'));
+    assert.ok(
+      steps.some(
+        (s) =>
+          s.run ===
+          'npm install --global npm@' +
+            JSON.parse(file('scripts/ci/runtime.json')).npm +
+            ' --ignore-scripts --no-audit --no-fund',
+      ),
+    );
     for (const step of steps.filter((s) => s.uses)) {
       assert.match(step.uses, /^actions\/[\w-]+@[a-f0-9]{40}$/);
       if (step.uses.startsWith('actions/checkout'))
@@ -38,7 +48,7 @@ test('CI remains manual and read-only, with immutable actions/image and no provi
   }
   assert.match(
     workflow.jobs.integration.services.postgres.image,
-    /^postgres:18\.0-alpine@sha256:[a-f0-9]{64}$/,
+    /^postgres:18\.7-alpine@sha256:[a-f0-9]{64}$/,
   );
   assert.equal(workflow.jobs.security.steps[0].with['fetch-depth'], 0);
   assert.ok(workflow.jobs.build.steps.some((s) => s.run === 'npm run test:security:build'));
@@ -77,6 +87,13 @@ test('lockfile/package manifest and exact tooling versions agree; migrations ret
     lock = JSON.parse(file('package-lock.json'));
   for (const key of ['dependencies', 'devDependencies'])
     assert.deepEqual(lock.packages[''][key], pkg[key]);
+  assert.match(
+    pkg.dependencies.next,
+    /^16\.\d+\.\d+$/,
+    'Next must use an exact stable patch in the supported 16.x branch',
+  );
+  assert.equal(lock.packages['node_modules/next'].version, pkg.dependencies.next);
+  assert.equal(JSON.parse(file('node_modules/next/package.json')).version, pkg.dependencies.next);
   const runtime = JSON.parse(file('scripts/ci/runtime.json'));
   assert.equal(file('.node-version').trim(), runtime.node);
   assert.equal(pkg.packageManager, 'npm@' + runtime.npm);
@@ -175,4 +192,18 @@ test('build guard exposes forbidden effects even when the caller catches errors'
   assert.equal(result.status, 0);
   assert.match(result.stderr, /\[test-network-blocked\]/);
   assert.match(result.stderr, /\[test-database-blocked\]/);
+});
+
+test('effective runtime and child processes match the prepared pins', () => {
+  const result = spawnSync(process.execPath, ['scripts/ci/check-runtime.mjs'], {
+    env: cleanTestEnvironment(),
+    encoding: 'utf8',
+  });
+  assert.equal(result.status, 0, result.stderr);
+  const report = JSON.parse(result.stdout);
+  const runtime = JSON.parse(file('scripts/ci/runtime.json'));
+  assert.equal(report.node, runtime.node);
+  assert.equal(report.childNode, runtime.node);
+  assert.equal(report.pathNode, runtime.node);
+  assert.equal(report.npm, runtime.npm);
 });

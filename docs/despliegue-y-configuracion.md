@@ -2,6 +2,8 @@
 
 Guía operativa actualizada el 9 de noviembre de 2026. Describe la beta desplegada y cómo reproducir su configuración. No contiene contraseñas, secretos, conexiones de base de datos ni datos personales de participantes. Los identificadores de recursos que aparecen aquí no son credenciales.
 
+La [política de versiones](politica-de-versiones.md) fija Next.js 16.4.5 de la rama 16.x Active LTS. Webpack es el compilador del build observado y la referencia de validación del despliegue; no es una versión LTS independiente.
+
 ## 1. Herramientas y responsabilidades
 
 | Herramienta | Uso |
@@ -51,7 +53,7 @@ npm run check
 npm run build -- --webpack
 ```
 
-Usá la versión de Node admitida por las dependencias; esta beta se desplegó con **Node.js 24.x** en Vercel. Los scripts de prueba que ejecutan TypeScript directamente requieren Node 22.18 o posterior.
+Según la configuración y el log aportados por el usuario, Vercel tiene **Node.js 26.x** y el build observado ejecutó **v26.13.1**. El parche exacto de las funciones no se comprobó. Local y CI preparada fijan Node 26.13.1 y npm 11.7.0; se validaron con PostgreSQL 18.7 desechable. Ver [evidencia y límites](validacion-node26-postgres18.md). Esta validación no cambia la configuración del proveedor ni comandos de despliegue.
 
 En Vercel, importá el repositorio y configurá:
 
@@ -63,7 +65,7 @@ En Vercel, importá el repositorio y configurá:
 | Root Directory | Carpeta que contiene `package.json`; raíz si clonaste este repositorio |
 | Install Command | `npm ci` o detección automática con lockfile |
 | Build Command | `npm run build -- --webpack` |
-| Node.js | 24.x |
+| Node.js | Vercel: 26.x; build observado: 26.13.1; parche de funciones sin comprobar |
 
 Se utilizó Webpack porque Turbopack presentó un fallo interno durante la preparación. No cambies esta opción sin verificar una compilación completa.
 

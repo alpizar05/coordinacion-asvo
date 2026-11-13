@@ -28,7 +28,7 @@ No se accedió a archivos `.env.production.local`, DB beta, permisos reales, Gra
 | `quality`     | Instalación, contrato de CI, TypeScript en copia nueva con `next typegen`, Biome y formato de los archivos administrados de CI |
 | `unit`        | Suite pura y suite aislada de navegación; cobertura por módulo y artefactos LCOV/resumen de siete días                         |
 | `contracts`   | Fronteras funcionales/server-only, inventario de autorización, Auth.js y correo con dobles                                     |
-| `integration` | Servicio PostgreSQL 18.0 Alpine con digest; runner sin dotenv, una DB desechable por grupo; Graph simulado                     |
+| `integration` | Servicio PostgreSQL 18.7 Alpine con digest; runner sin dotenv, una DB desechable por grupo; Graph simulado                     |
 | `build`       | Compilación y arranque Next en copia temporal sin .env, endpoints locales, headers y rechazo de importación DB al cliente      |
 | `security`    | Escáner de secretos de archivos publicables e historial disponible, más `npm audit` de producción/desarrollo                   |
 
@@ -38,9 +38,9 @@ Acciones oficiales fijadas por SHA, permisos `contents: read`, checkout sin cred
 
 - `npm ci --ignore-scripts --no-audit --no-fund`, con `package-lock.json` versionado. No ejecuta postinstall/prepare del proyecto o dependencias. Las pruebas/build son pasos explícitos. Verificado en una carpeta temporal; lockfile intacto y módulo nativo `sharp` operativo. Esa misma instalación ejecuta explícitamente `next build` con Turbopack en copia sin .env, DB imposible y fetch bloqueado; el job también conserva el build/HTTP con Webpack de la suite de seguridad.
 - Herramientas nuevas fijadas por versión exacta: Biome, Prettier, YAML y Secretlint/preset. Versiones de Node/npm de CI en `.node-version` y `scripts/ci/runtime.json`; npm también en `packageManager`.
-- CI replica **Node 25.2.1 / npm 11.7.0**, la combinación local comprobada. No se agrega `engines.node=25` al paquete: no se impone ese runtime al despliegue de Vercel. Node 25 no es una elección LTS; antes de activar CI de forma permanente se debe validar una versión LTS soportada por el alojamiento y actualizar los pines juntos. No se afirma que la matriz Linux/LTS ya se haya verificado.
+- CI prepara **Node 26.13.1 / npm 11.7.0**, probados localmente con PostgreSQL 18.7. Cada job comprueba el proceso efectivo, el Node hijo por ruta absoluta y PATH y npm; integración consulta server_version antes de crear fixtures. No se agrega engines.node ni se cambia Vercel. La matriz Ubuntu/contenedor continúa pendiente. Ver [validación actual](validacion-node26-postgres18.md).
 - El parser de ESLint consultado exige TypeScript `<6.1` y el proyecto usa TypeScript 7.0.2. No se utilizó `--force`/`--legacy-peer-deps`; Biome realiza lint sintáctico y TypeScript verifica tipos. No se cambió el compilador.
-- La imagen oficial PostgreSQL se fija por digest de manifiesto; el pin se consultó como metadato público. No se ejecutó Docker/Linux en esta máquina: la integración local usó PostgreSQL 18.6 del entorno local. La compatibilidad exacta con el contenedor 18.0 y sus avisos de seguridad queda para la primera ejecución autorizada, no se presenta como comprobada.
+- Imagen oficial postgres:18.7-alpine fijada por digest de índice verificado en Docker Hub. No se ejecutó Docker/Linux en esta máquina: la validación actual usa PostgreSQL 18.7 compilado de fuente oficial, checksum verificado, en un clúster temporal. La preparación original usó 18.6; no equivale a ejecutar el contenedor de CI. Su primera ejecución y revisión de seguridad siguen pendientes.
 
 ### Formato y lint: alcance explícito
 
@@ -94,7 +94,7 @@ La salida JSON del escáner puede contener el código fuente original. El wrappe
 - `test:security:build`: compilación, arranque y HTTP locales, headers y rechazo real de importación DB desde cliente; copia/servidor retirados.
 - `security:secrets` / `security:dependencies`: comprobaciones locales con informes saneados en `coverage/` ignorado por Git.
 
-Los seis contratos específicos de CI se ejecutan por separado: no se suman a las 92 unitarias ni a su denominador de cobertura.
+Los siete contratos específicos actuales de CI (seis en la preparación inicial y uno de runtime efectivo) se ejecutan por separado: no se suman a las 92 unitarias ni a su denominador de cobertura.
 
 ### Navegador: dependencia de CUA conservada
 
@@ -105,7 +105,7 @@ Evidencias anteriores: 26 grupos de navegación asistida registrados en `tests/n
 ## Publicación y activación posteriores
 
 1. Revisar este diff y los pendientes. Esta preparación no modifica la aplicación funcional ni añade migraciones; las dependencias nuevas son herramientas de desarrollo.
-2. Validar runtime LTS de destino y la primera ejecución Linux/PostgreSQL del workflow. Verificar renovación de pines/imagen y avisos de seguridad; no afirmar CI verde remoto antes de ejecutarlo.
+2. Ejecutar con autorización la primera CI Linux/PostgreSQL del workflow; Node 26.13.1 y PostgreSQL 18.7 ya se validaron localmente. Verificar renovación de pines/imagen y avisos de seguridad; no afirmar CI verde remoto antes de ejecutarlo.
 3. Con autorización expresa, subir el archivo manual y ejecutarlo por primera vez. Solo después valorar disparadores PR/push, required checks o protección de ramas: **no se configuraron aquí**.
 4. Repetir la suite CUA con datos ficticios, desktop/móvil, enlaces públicos/privados, fotos, informe del 70, modales, errores/foco y regreso contextual. Registrar fallos y retirar fixtures.
 5. Revisar estado/plan de migraciones y configuración offline del entorno que se vaya a publicar, usando credenciales de mantenimiento elegidas explícitamente. No hay migración nueva de esta tarea. No copiar credenciales ficticias de CI a Vercel.
@@ -117,3 +117,11 @@ Referencias: [servicios PostgreSQL en GitHub Actions](https://docs.github.com/en
 ## Registro de publicación posterior
 
 El 13 de noviembre de 2026 se autorizó publicar esta preparación. No hay migración de base nueva. Se conserva únicamente workflow_dispatch, sin ejecución manual solicitada, disparadores PR/push, required checks ni cambios de reglas. La autorización de publicación no convierte las comprobaciones Linux/LTS/CUA pendientes en controles verificados. Las comprobaciones locales de tipo, seis contratos CI, lint, formato y secretos se repitieron antes del commit.
+
+## Validación posterior de runtime
+
+El 13 de noviembre se verificó Node 26.13.1/npm 11.7.0 y PostgreSQL 18.7 local aislado. Los resultados anteriores corresponden a la preparación inicial; [la evidencia nueva](validacion-node26-postgres18.md) registra versiones, incompatibilidad corregida, siete controles CI y suites completas. Sin publicación, ejecución remota ni nueva matriz CUA.
+
+## Política de Next.js
+
+Next.js 16.4.5 queda fijado exactamente en manifest/lockfile; el contrato CI comprueba también el paquete instalado. La rama 16.x figura como Active LTS en la política oficial consultada; requiere revisar y verificar parches futuros. Build/arranque Webpack reproduce el compilador del despliegue observado; Turbopack es comprobación adicional. No se modifica npm run build ni el comando/configuración de Vercel. Ver [política](politica-de-versiones.md).
