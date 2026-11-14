@@ -1,3 +1,4 @@
+import {PhotoMutationError} from './photo-result';
 import {createHash,randomUUID} from 'node:crypto';
 import type postgres from 'postgres';
 import type {Transaction} from './registration';
@@ -9,7 +10,8 @@ export type PhotoStore={target:()=>Omit<PhotoTarget,'name'>|null;put:(photo:Prep
  find:(target:PhotoTarget)=>Promise<{item:string;etag:string}|null>;remove:(target:PhotoTarget,item:string,etag:string)=>Promise<void>};
 export class PhotoUploadError extends Error{
  fieldErrors:Record<string,string>;
- constructor(key:string,message:string){super(message);this.fieldErrors={[`${key}-photo`]:message};}
+ readonly kind:'validation'|'provider';
+ constructor(key:string,message:string,kind:'validation'|'provider'='validation'){super(message);this.kind=kind;this.fieldErrors={[`${key}-photo`]:message};}
 }
 export async function currentPhotoPrincipal(tx:Transaction,principal:NonNullable<StaffPrincipal>){
  const grants=await tx<{role:string;unit:string}[]>`select role,unit from grants where subject=${principal.subject} for share`;
@@ -87,13 +89,13 @@ export async function withPhotoUploads<T extends object>(options:{sql:postgres.S
  const fingerprint=photoOperationKey(principal.subject,options.scope,options.form,prepared),nonce=options.form.get('photoOperation');
  const operation=typeof nonce==='string'&&nonce?hash(JSON.stringify([principal.subject,options.scope,nonce])):fingerprint,attempt=randomUUID();
  const [previous]=await sql`select result,fingerprint from photo_upload_operations where id=${operation} and state='committed' and actor=${principal.subject}`;
- if(previous){if(previous.fingerprint!==fingerprint)throw Error('Esta operación ya se guardó con otros datos. Actualizá la página.');return previous.result as T;}
+ if(previous){if(previous.fingerprint!==fingerprint)throw new PhotoMutationError('Esta operación ya se guardó con otros datos. Actualizá la página.');return previous.result as T;}
  const snapshot=await sql.begin(async tx=>options.validate(tx,await currentPhotoPrincipal(tx,principal)));
  const acquired=await sql.begin(async tx=>{
   await tx`insert into photo_upload_operations(id,actor,scope,fingerprint,state,attempt,lease_until) values(${operation},${principal.subject},${options.scope},${fingerprint},'uploading',${attempt},clock_timestamp()+interval '10 minutes') on conflict do nothing`;
   const [op]=await tx`select *,lease_until>clock_timestamp() as live from photo_upload_operations where id=${operation} for update`;
-  if(op.state==='committed'){if(op.fingerprint!==fingerprint)throw Error('Esta operación ya se guardó con otros datos. Actualizá la página.');return {result:op.result};}
-  if(op.state==='uploading'&&op.attempt!==attempt&&op.live)throw Error('Esta carga todavía está en proceso. Esperá antes de reintentar.');
+  if(op.state==='committed'){if(op.fingerprint!==fingerprint)throw new PhotoMutationError('Esta operación ya se guardó con otros datos. Actualizá la página.');return {result:op.result};}
+  if(op.state==='uploading'&&op.attempt!==attempt&&op.live)throw new PhotoMutationError('Esta carga todavía está en proceso. Esperá antes de reintentar.');
   if(op.attempt!==attempt)await tx`update photo_upload_items set state='cleanup',retry_at=clock_timestamp()+interval '15 minutes' where operation_id=${operation} and attempt=${op.attempt} and state in ('planned','uploaded')`;
   await tx`update photo_upload_operations set state='uploading',fingerprint=${fingerprint},attempt=${attempt},lease_until=clock_timestamp()+interval '10 minutes' where id=${operation}`;
   return {};
@@ -107,13 +109,13 @@ export async function withPhotoUploads<T extends object>(options:{sql:postgres.S
    const id=randomUUID(),target={...destination,name:`${id}.${image.format}`};
    await sql`insert into photo_upload_items(id,operation_id,attempt,photo_key,drive,folder,name,state)values(${id},${operation},${attempt},${key},${target.drive},${target.folder},${target.name},'planned')`;
    let original;
-   try{original=await store.put(image,target);}catch{throw new PhotoUploadError(key,'No se pudo guardar esta foto en SharePoint. El archivo y sus datos se conservan para reintentar.');}
+   try{original=await store.put(image,target);}catch{throw new PhotoUploadError(key,'No se pudo guardar esta foto en SharePoint. El archivo y sus datos se conservan para reintentar.','provider');}
    await sql`update photo_upload_items set item=${original.item},state=case when state='planned' then 'uploaded' else state end,uncertain=false where id=${id}`;
    uploads.set(key,{...original,thumbnail:image.thumbnail,display:image.display});
   }
   const saved=await sql.begin(async tx=>{
    const [op]=await tx`select *,lease_until>clock_timestamp() as live from photo_upload_operations where id=${operation} for update`;
-   if(op.state!=='uploading'||op.attempt!==attempt||!op.live)throw Error('La carga cambió o venció. Tus datos se conservan para reintentar.');
+   if(op.state!=='uploading'||op.attempt!==attempt||!op.live)throw new PhotoMutationError('La carga cambió o venció. Tus datos se conservan para reintentar.');
    const user=await currentPhotoPrincipal(tx,principal);
    await options.authorize(tx,user);
    const result=await options.commit(tx,user,uploads,snapshot);

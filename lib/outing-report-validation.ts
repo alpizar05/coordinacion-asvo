@@ -2,7 +2,8 @@ import {validFormDate as date} from './form-dates.mjs';
 import {labourOptions,activityOptions} from './outing-report-options';
 export type ReportValues = { labour: string[]; location: string; activity: string; starts: string; ends: string;
   actions: string; host: string; observations: string };
-export type ReportErrors = Partial<Record<keyof ReportValues | 'participants' | 'accuracy' | 'email' | 'form', string>>;
+export type ReportField = keyof ReportValues | 'participants' | 'accuracy';
+export type ReportErrors = Partial<Record<ReportField, string>>;
 
 export function validateReport(values: ReportValues, attended: string[], accuracy: boolean, draft = false): ReportErrors {
   const errors: ReportErrors = {};

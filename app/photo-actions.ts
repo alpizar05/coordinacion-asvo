@@ -1,4 +1,6 @@
 'use server';
+import {validatePhoto} from '../lib/outing-form-validation';
+import {PhotoMutationError} from '../lib/photo-result';
 import type {FormResult} from '../lib/form-result';
 import {revalidatePath} from 'next/cache';
 import {redirect} from 'next/navigation';
@@ -19,6 +21,8 @@ export async function attachOutingPhoto(id:string,form:FormData):Promise<FormRes
 }
 async function mutatePhoto(id:string,form:FormData):Promise<FormResult>{
  const principal=await staff();if(!principal||!uuid(id))return {error:'No tenés permiso para gestionar esta convocatoria.'};
+ const action=field(form,'action');
+ if(['agregar','galeria','editar'].includes(action)){const fieldErrors=validatePhoto(form,{mode:action==='agregar'?'upload':action==='editar'?'edit':'gallery'});if(action==='galeria'&&!form.has('alt'))delete fieldErrors.alt;if(Object.keys(fieldErrors).length)return {fieldErrors};}
  const file=form.get('photo'),files=field(form,'action')==='agregar'&&file instanceof File?[{key:'upload',file}]:[];
  try{
   await withPhotoUploads({sql,principal,scope:`photo:${id}`,form,files,prepare:preparePhoto,store:graphPhotoStore(),
@@ -27,9 +31,12 @@ async function mutatePhoto(id:string,form:FormData):Promise<FormResult>{
    commit:async(tx,user,uploads,snapshot)=>{await savePhotoMutation(tx,id,form,user,{expectedVersion:String(snapshot),prepared:uploads.get('upload')});return {saved:true};},
   });
  }catch(error){
-  if(error instanceof PhotoUploadError)return {fieldErrors:{photo:Object.values(error.fieldErrors)[0]}};
-  if(error&&typeof error==='object'&&'fieldErrors'in error)return {fieldErrors:error.fieldErrors as Record<string,string>};
-  const message=error instanceof Error?error.message:'';return {error:/^(Elegí|Usá|La convocatoria|Configurá|No se pudo|SharePoint|Agregá|Esta convocatoria|Acceso denegado)/.test(message)?message:'No se pudo procesar la foto. Tus datos se conservan para reintentar.'};
+  if(error instanceof PhotoUploadError){
+   if(error.kind==='provider')return {error:error.message};
+   const messages=Object.values(error.fieldErrors).flat();return {fieldErrors:{photo:messages}};
+  }
+  if(error instanceof PhotoMutationError)return error.fieldErrors?{fieldErrors:error.fieldErrors}:{error:error.message};
+  return {error:'No se pudo procesar la foto. Tus datos se conservan para reintentar.'};
  }
  revalidatePath(`/coordinacion/salidas/${id}`);revalidatePath(`/convocatorias/${id}`);return {saved:true};
 }

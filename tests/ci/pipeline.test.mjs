@@ -161,6 +161,7 @@ test('CI keeps contracts and SQL suites separate while preserving the complete i
     'schema-migrations',
     'db-commands',
     'functional-actions',
+    'brief-contracts',
     'authorization',
     'security',
     'registration',
@@ -206,4 +207,25 @@ test('effective runtime and child processes match the prepared pins', () => {
   assert.equal(report.childNode, runtime.node);
   assert.equal(report.pathNode, runtime.node);
   assert.equal(report.npm, runtime.npm);
+});
+
+test('UI harness models offline Next metadata without allowing other network or DB access', () => {
+  const code = `
+    import assert from 'node:assert/strict';import net from 'node:net';
+    for(const url of ['https://registry.npmjs.org/-/package/next/dist-tags','https://registry.npmjs.org/-/npm/v1/security/advisories/bulk'])assert.equal((await fetch(url)).status,503);
+    await assert.rejects(()=>fetch('https://provider.invalid'),/prohíbe/);
+    assert.throws(()=>net.createConnection({host:'127.0.0.1',port:1}),/no debe consultar/);
+  `;
+  const result = spawnSync(
+    process.execPath,
+    ['--import', './tests/action-modal/no-network.mjs', '--input-type=module', '-e', code],
+    {
+      env: cleanTestEnvironment(),
+      encoding: 'utf8',
+    },
+  );
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /\[test-next-metadata-offline-double\]/);
+  assert.match(result.stderr, /\[test-network-blocked\]/);
+  assert.match(result.stderr, /\[test-database-blocked\]/);
 });

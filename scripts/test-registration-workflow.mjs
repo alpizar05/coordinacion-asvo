@@ -121,7 +121,7 @@ try {
     starts: '2030-01-10', ends: '2030-01-12', actions: 'Se limpiaron senderos.', host: 'Persona responsable de prueba', observations: '' };
   assert.ok(validateReport(reportValues,[],true).participants,'No se supone asistencia sin confirmarla');
   assert.ok(validateReport({ ...reportValues, ends: '2029-01-01' },[reserved[0].id],true).ends);
-  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[]))).errors?.participants,'Detecta un cambio de lista');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[]))).error,'Detecta un cambio de lista');
   const incomplete = { labour: [], location: '', activity: '', starts: '', ends: '', actions: 'Avance guardado', host: '', observations: '' };
   const draft = await locked(tx => saveOutingReport(tx,briefToken,incomplete,[],false,[reserved[0].id],'borrador'));
   assert.ok(draft.id,'Guarda un borrador incompleto sin confirmar asistencia');
@@ -129,10 +129,10 @@ try {
   assert.equal(draftReport.status,'borrador');
   assert.equal(draftReport.submitted_at,null);
   assert.equal(draftReport.starts,'');
-  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,incomplete,[],false,[reserved[0].id],'finalizar'))).errors,'No finaliza campos incompletos');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,incomplete,[],false,[reserved[0].id],'finalizar'))).fieldErrors,'No finaliza campos incompletos');
   assert.equal((await locked(tx => saveOutingReport(tx,briefToken,{...incomplete,observations:'Nuevo avance'},[],false,[reserved[0].id],'borrador'))).id,draft.id,'Retoma el mismo borrador');
   const savedReport = await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[reserved[0].id]));
-  assert.ok(savedReport.id,'El 70 presenta su informe mediante el enlace privado');
+  assert.equal(savedReport.saved,true,'El 70 presenta su informe mediante el enlace privado');assert.ok(savedReport.id);
   const [report] = await readOutingReports(outingId);
   assert.equal(report.participants[0].attended,true);
   assert.deepEqual(report.labour_types,['BRIF','Mantenimiento y otros'],'Se conservan varias labores seleccionadas');
@@ -142,8 +142,8 @@ try {
   assert.equal(report.lead_registration_id,reserved[0].id,'La identidad proviene del enlace y no del formulario');
   assert.equal(report.status,'finalizado');
   assert.ok(report.submitted_at);
-  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,{ ...reportValues, observations: 'Corrección del 70' },[reserved[0].id],true,[reserved[0].id]))).errors?.form,'No edita informes finalizados');
-  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[],false,[reserved[0].id],'borrador'))).errors?.form,'No convierte un informe finalizado en borrador');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,{ ...reportValues, observations: 'Corrección del 70' },[reserved[0].id],true,[reserved[0].id]))).error,'No edita informes finalizados');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[],false,[reserved[0].id],'borrador'))).error,'No convierte un informe finalizado en borrador');
   assert.equal((await readOutingReports(outingId))[0].observations,'','El informe finalizado queda intacto');
 
   assert.equal(await briefAccess('token-invalido'),undefined);
@@ -155,7 +155,7 @@ try {
   assert.equal((await sql`select details from registrations where id=${reserved[0].id}`)[0].details.assigned70,false);
   await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true));
   assert.equal(await briefAccess(briefToken),undefined,'Quitar y reasignar 70 no reactiva un enlace revocado');
-  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[reserved[0].id]))).errors?.form,'Un enlace revocado no puede presentar informes');
+  assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[reserved[0].id]))).error,'Un enlace revocado no puede presentar informes');
   assert.ok(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','','')),'Mover a espera requiere motivo');
   assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','Cambio de coordinación','')),undefined);
   assert.equal((await sql`select details from registrations where id=${reserved[0].id}`)[0].details.assigned70,undefined,'Mover a espera retira la asignación de 70');

@@ -31,7 +31,7 @@ No se modifica el formulario al validar ni se llama a `reset()` al fallar. No ca
 
 ## Integración con ActionModal
 
-El contrato anterior sigue funcionando: `error`, `saved`, `destination`, `successMessage`, apertura local/controlada y validación nativa para formularios no migrados.
+Las acciones requieren `Promise<FormResult>`; se conservan `error`, `saved`, `destination`, `successMessage`, apertura local/controlada y validación nativa para formularios no migrados. `checkedFormResult` rechaza respuestas ausentes o mal formadas: solo `saved === true` confirma y cierra. RegistryModal comparte las propiedades tipadas y RegistryForm la frontera runtime. Ver [contratos y evidencia](contratos-action-modal.md).
 
 Para migrar un formulario, crear un adaptador cliente como `app/coordinacion/registro/profile-editor.tsx`. Recibir únicamente los datos serializables necesarios; importar allí el validador puro y la Server Action. No pasar una función ordinaria desde un Server Component a un Client Component.
 
@@ -197,3 +197,7 @@ La separación posterior de pruebas mueve las comprobaciones puras a `npm run te
 ## Validación de entradas en servidor
 
 La siguiente etapa reutiliza este contrato y añade lectura escalar segura, reglas comunes de participación y cobertura, parser de metadatos de fotos/CSV y validación de respuestas usadas de Graph. Ver [contratos, diferencias autorizadas y comprobaciones](validacion-de-entradas.md). No cambia la conservación de archivos, los componentes de foco ni las notificaciones.
+
+## Contrato del informe del 70 tras E1
+
+El servicio saveOutingReport ahora devuelve FormResult con saved/id/status en éxito y error/fieldErrors en fallo. La acción ya no adapta errors legado ni deduce éxito por ausencia de errores. Borrador y Finalizar conservan reglas, transacción y evidencia de asistencia. [Cambios, pruebas y límites visuales](contratos-informe-70.md).

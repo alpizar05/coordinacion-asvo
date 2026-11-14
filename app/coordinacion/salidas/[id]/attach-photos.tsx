@@ -5,6 +5,7 @@ import { useRef,useState } from 'react';
 import { StatusRibbon } from '../../../status-ribbon';
 import { attachOutingPhoto } from '../../../photo-actions';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
+import {checkedFormResult,type FormResult} from '../../../../lib/form-result';
 import { PhotoDialog, type PhotoChoice } from '../../photo-dialog';
 
 export function AttachPhotos({ id, gallery, initial }: {
@@ -13,7 +14,7 @@ export function AttachPhotos({ id, gallery, initial }: {
   const photoOperation=useRef('');
   const [added,setAdded] = useState<string[]>([]);
   const [saved,setSaved] = useState('');
-  async function save(photo: PhotoChoice) {
+  async function save(photo: PhotoChoice):Promise<FormResult> {
     const form = new FormData();if(!photoOperation.current)photoOperation.current=crypto.randomUUID();form.set('photoOperation',photoOperation.current);
     form.set('alt',photo.alt); form.set('credit',photo.credit);
     if (photo.kind === 'upload') {
@@ -21,14 +22,15 @@ export function AttachPhotos({ id, gallery, initial }: {
     } else {
       form.set('action',photo.kind === 'edit' ? 'editar' : 'galeria'); form.set('photoId',photo.id);
     }
-    const result = await attachOutingPhoto(id,form);
-    if (!result.saved) return result;
+    const result = checkedFormResult(await attachOutingPhoto(id,form));
+    if (result.saved !== true) return result;
     photoOperation.current='';
     navigationSaved();
     if (photo.kind === 'gallery') setAdded(current => [...current,photo.id]);
     setSaved(initial ? 'Datos de foto actualizados.' : 'Foto agregada.');
+    return result;
   }
-  return <><PhotoDialog gallery={gallery} selected={added}
+  return <><PhotoDialog operation="persist" gallery={gallery} selected={added}
     initial={initial ? { kind: 'edit',...initial } : undefined} onSave={save} />
     <StatusRibbon message={saved} onExpire={setSaved} /></>;
 }

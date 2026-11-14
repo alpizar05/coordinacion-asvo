@@ -18,7 +18,7 @@ export async function createOuting(form: FormData): Promise<FormResult & {target
     const user=await staff();if(!user)throw Error('Acceso denegado.');
     return { saved:true,destination: await createStaffOuting(sql,user,form) };
   } catch (error) {
-    if(error instanceof PhotoUploadError)return {fieldErrors:error.fieldErrors};
+    if(error instanceof PhotoUploadError)return error.kind==='provider'?{error:error.message}:{fieldErrors:error.fieldErrors};
     if (error instanceof OutingCreationError) return error.fieldErrors?{fieldErrors:error.fieldErrors}:{error:error.target?undefined:error.message,fieldErrors:error.target?{[error.target]:error.message}:undefined,target:error.target};
     logSafeFailure('outings.create',error);
     return { error: 'No se pudo crear la convocatoria. Revisá los datos e intentá de nuevo.' };

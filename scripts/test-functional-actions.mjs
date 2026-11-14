@@ -58,12 +58,57 @@ try{
  assert.equal((await invoke('general',async()=>registrations.manageRegistration(entry.id,await entryForm(entry.id,'asignar70')))).value.saved,true);
  const invitation=await invoke('general',()=>communications.createOutingInvitation(outing,{},form({identification:'892340567'})));assert.equal(invitation.value.saved,true);const invitationToken=new URL(invitation.value.link).searchParams.get('invitacion');assert.ok(await activeOutingInvitation(outing,invitationToken));
  const brief=await invoke('general',()=>communications.generateBrief(outing,{},form({lead:entry.id})));assert.equal(brief.value.saved,true);const token=new URL(brief.value.link).pathname.split('/').at(-1);assert.ok(await briefAccess(token));
- // Private report draft/finalized semantics are unchanged by moving the server action.
- const draft=form({intent:'borrador',version:'new'});assert.equal((await invoke(null,()=>reports.submitReport(token,{},draft))).value.saved,true);
+ // Report contracts exercise the real service/action and persistence, not substituted business rules.
+ const reportSnapshot=async()=>({rows:await sql`select * from outing_reports where outing_id=${outing}`,
+   audit:(await sql`select count(*)::int n from audit where target=${outing}`)[0].n,
+   mail:(await sql`select count(*)::int n from registration_mail_outbox`)[0].n,
+   demo:(await sql`select count(*)::int n from demo_mail`)[0].n});
+ async function reportFailure(work,{fields=false}={}){
+  const before=await reportSnapshot(),response=await invoke(null,work);
+  assert.notEqual(response.value.saved,true);assert.equal(response.value.destination,undefined);assert.equal(response.effects.length,0);
+  if(fields)assert.ok(response.value.fieldErrors);else {assert.ok(response.value.error);assert.equal(response.value.fieldErrors,undefined);}
+  assert.deepEqual(await reportSnapshot(),before);return response.value;
+ }
+ const reportBaseline=await reportSnapshot();
+ const draft=form({intent:'borrador',version:'new'});
+ await reportFailure(()=>reports.submitReport('invalid',{},draft));
+ await reportFailure(()=>reports.submitReport('x'.repeat(43),{},draft));
+ await sql`update outing_brief_links set expires_at=clock_timestamp()-interval '1 second' where digest=${(await import('../lib/registration.ts')).digest(token)}`;
+ await reportFailure(()=>reports.submitReport(token,{},draft));
+ await sql`update outing_brief_links set expires_at=clock_timestamp()+interval '7 days' where digest=${(await import('../lib/registration.ts')).digest(token)}`;
+ await sql`update registrations set details=details-'assigned70' where id=${entry.id}`;
+ await reportFailure(()=>reports.submitReport(token,{},draft));
+ await sql`update registrations set details=details||'{"assigned70":true}'::jsonb where id=${entry.id}`;
+ await sql`update volunteers set email=null where id=${person}`;
+ await reportFailure(()=>reports.submitReport(token,{},draft));
+ await sql`update volunteers set email='person@example.test' where id=${person}`;
+ const invalidFinal=form({intent:'finalizar',version:'new',roster:entry.id});
+ const invalidReport=await reportFailure(()=>reports.submitReport(token,{},invalidFinal),{fields:true});
+ for(const key of ['labour','activity','location','starts','ends','actions','host','participants','accuracy'])assert.ok(invalidReport.fieldErrors[key]);
+ assert.equal(invalidReport.errors,undefined,'No legacy error mirror');
+ const saved=await invoke(null,()=>reports.submitReport(token,{},draft));assert.equal(saved.value.saved,true);
+ assert.equal(saved.value.destination,`/resumen-salida/${token}/informe?borrador=1`);assert.equal(saved.effects.length,2);
  const [savedDraft]=await sql`select updated_at,status,participants from outing_reports where outing_id=${outing}`;assert.equal(savedDraft.status,'borrador');assert.ok(savedDraft.participants.every(p=>!p.attended));
+ assert.equal((await sql`select count(*)::int n from volunteer_attendance_evidence where outing_id=${outing}`)[0].n,0);
+ await reportFailure(()=>reports.submitReport(token,{},draft)); // Version 'new' is now stale.
  const final=form({intent:'finalizar',version:savedDraft.updated_at.toISOString(),location:'Local ficticio',activity:activityOptions[0],labour:labourOptions[0],starts:'2035-01-10',ends:'2035-01-12',actions:'Trabajo ficticio',host:'Responsable ficticio',accuracy:'on',attended:entry.id,roster:entry.id});
- assert.equal((await invoke(null,()=>reports.submitReport(token,{},final))).value.saved,true);const locked=await invoke(null,()=>reports.submitReport(token,{},final));assert.match(locked.value.error,/finalizado/);assert.deepEqual(locked.value,(await invoke(null,()=>oldReport.submitReport(token,{},final))).value);assert.equal(locked.effects.length,0);
+ const changedRoster=form(Object.fromEntries(final));changedRoster.delete('roster');await reportFailure(()=>reports.submitReport(token,{},changedRoster));
+ await sql.unsafe(`create function asvo_report_contract_failure() returns trigger language plpgsql as $$begin
+   if NEW.actions='__REPORT_CONTRACT_SQL_FAILURE__' then raise exception 'Synthetic report persistence failure'; end if;
+   return NEW; end$$; create trigger asvo_report_contract_failure before insert or update on outing_reports for each row execute function asvo_report_contract_failure()`);
+ const persistenceFailure=form(Object.fromEntries(final));persistenceFailure.set('actions','__REPORT_CONTRACT_SQL_FAILURE__');
+ await reportFailure(()=>reports.submitReport(token,{},persistenceFailure));
+ await sql.unsafe('drop trigger asvo_report_contract_failure on outing_reports; drop function asvo_report_contract_failure()');
+ const finalSaved=await invoke(null,()=>reports.submitReport(token,{},final));assert.equal(finalSaved.value.saved,true);
+ assert.equal(finalSaved.value.destination,`/resumen-salida/${token}/informe?enviado=1`);assert.equal(finalSaved.effects.length,2);
+ const locked=await reportFailure(()=>reports.submitReport(token,{},final));assert.match(locked.error,/finalizado/);
+ await reportFailure(()=>oldReport.submitReport(token,{},final)); // Adapter remains a verified consumer.
+ assert.equal((await sql`select count(*)::int n from outing_reports where outing_id=${outing}`)[0].n,1);
+ assert.equal((await sql`select count(*)::int n from audit where target=${outing} and action in ('Guardó borrador de informe','Finalizó informe de salida')`)[0].n,2);
+ assert.equal((await sql`select count(*)::int n from volunteer_attendance_evidence where outing_id=${outing}`)[0].n,1);
  await invoke('general',()=>communications.revokeBrief(outing));assert.equal(await briefAccess(token),undefined);
+ await reportFailure(()=>reports.submitReport(token,{},final));
+ const reportAfter=await reportSnapshot();assert.equal(reportAfter.mail,reportBaseline.mail);assert.equal(reportAfter.demo,reportBaseline.demo,'Report retries/finalization do not enqueue mail');
  // Reminders use the existing queue after commit, with no real transport in demo.
  const past=randomUUID();await sql`insert into outings(id,request_id,title,location,unit,starts,ends,flexible,capacity,status)values(${past},${request},'DEMO pasada','Local','Voluntariado General','2020-01-01','2020-01-02',false,2,'abierta')`;
  const pastEntry=randomUUID();await sql`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)values(${pastEntry},${past},${person},'892340567','2020-01-01','2020-01-02','confirmada','{"assigned70":true}'::jsonb)`;

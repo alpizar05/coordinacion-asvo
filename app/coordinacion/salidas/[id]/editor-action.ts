@@ -17,6 +17,6 @@ export async function saveOutingEdit(id:string,form:FormData):Promise<FormResult
    validate:async(tx,user)=>{await saveOutingEditor(tx,id,form,{actor:user.subject,canOperate:unit=>canOperate(user,unit),preflightOnly:true});return null;},
    commit:async(tx,user,uploads)=>{await saveOutingEditor(tx,id,form,{actor:user.subject,canOperate:unit=>canOperate(user,unit),uploads});return {saved:true};},
   });
- }catch(error){if(error instanceof PhotoUploadError)return {fieldErrors:error.fieldErrors};if(error instanceof OutingEditError)return error.fieldErrors?{fieldErrors:error.fieldErrors}:error.target==='form'?{error:error.message}:{fieldErrors:{[error.target]:error.message}};return {error:'No se pudo guardar. Tus cambios y archivos se conservan para reintentar.'};}
+ }catch(error){if(error instanceof PhotoUploadError)return error.kind==='provider'?{error:error.message}:{fieldErrors:error.fieldErrors};if(error instanceof OutingEditError)return error.fieldErrors?{fieldErrors:error.fieldErrors}:error.target==='form'?{error:error.message}:{fieldErrors:{[error.target]:error.message}};return {error:'No se pudo guardar. Tus cambios y archivos se conservan para reintentar.'};}
  await dispatchRegistrationUpdates();revalidatePath(`/coordinacion/salidas/${id}`);revalidatePath(`/convocatorias/${id}`);revalidatePath('/');return {saved:true};
 }

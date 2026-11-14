@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { commonOutingFields,supportRequestFields } from '../../../../lib/collection-fields';
 import { outingLogisticsFields } from '../../../../lib/outing-logistics';
 import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
+import type {PhotoPreparationResult} from '../../../../lib/photo-result';
 import { PhotoDialog,PhotoPreview,type PhotoChoice } from '../../photo-dialog';
 import { CoordinationModal } from '../../coordination-modal';
 import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedback} from '../../../form-feedback/form-feedback';
@@ -51,7 +52,7 @@ export function OutingEditor(props:OutingEditorProps){
   </div>;
  }
  function photoChange(next:Photo[]){setPhotos(next);setPhotoMode('personal');setDirty(true);}
- const addPhoto=(choice:PhotoChoice)=>{if(photos.length>=6)return 'Podés agregar hasta seis fotos.';photoChange([...photos,{...choice,permission:choice.kind==='upload'?true:undefined,kind:choice.kind==='edit'?'existing':choice.kind,key:choice.kind==='upload'?`new-${crypto.randomUUID()}`:choice.id}]);};
+ const addPhoto=(choice:PhotoChoice):PhotoPreparationResult=>{if(photos.length>=6)return {error:'Podés agregar hasta seis fotos.'};photoChange([...photos,{...choice,permission:choice.kind==='upload'?true:undefined,kind:choice.kind==='edit'?'existing':choice.kind,key:choice.kind==='upload'?`new-${crypto.randomUUID()}`:choice.id}]);return {prepared:true};};
  async function save(){
   if(!form.current||busy.current)return;
   const data=new FormData(form.current);if(!photoOperation.current)photoOperation.current=crypto.randomUUID();data.set('photoOperation',photoOperation.current);data.set('version',props.version);data.set('photoMode',photoMode);
@@ -95,11 +96,11 @@ export function OutingEditor(props:OutingEditorProps){
       <section className="card editor-section" tabIndex={-1} data-feedback-fields="photos" data-feedback-label="Fotos de la convocatoria" hidden={section!=='photos'} aria-labelledby="editor-photos"><h2 id="editor-photos">Fotos</h2><p><span className="pill">{photos.length} de 6</span> La primera foto será la portada.</p><p className="muted">Los cambios de fotos se aplican al guardar la convocatoria.</p>
        {photoMode==='inherit'?<p>Se restaurarán las fotos generales al guardar. <button type="button" onClick={()=>{setPhotoMode('keep');setDirty(true);}}>Conservar selección actual</button></p>:<>
        <ol className="editor-photo-list">{photos.map((p,i)=><li key={p.key}>{p.file?<PhotoPreview file={p.file} alt={p.alt}/>:<img src={`/api/fotos/${p.id}?v=tarjeta`} alt={p.alt}/>}<div><strong>{i===0?'Portada · ':''}{p.alt}</strong><p className="muted">{p.credit}</p><div className="actions">
-       <PhotoDialog feedbackLabel={`Foto ${i+1}${p.file?` · ${p.file.name}`:''}`} feedbackFields={`${p.key} ${p.key}-photo ${p.key}-alt ${p.key}-credit ${p.key}-permission`} gallery={props.gallery} initial={p.kind==='upload'?{kind:'upload',file:p.file!,alt:p.alt,credit:p.credit}:{kind:'edit',id:p.id!,alt:p.alt,credit:p.credit}} onSave={choice=>photoChange(photos.map(current=>current.key===p.key?{...current,alt:choice.alt,credit:choice.credit}:current))}/>
+       <PhotoDialog operation="prepare" feedbackLabel={`Foto ${i+1}${p.file?` · ${p.file.name}`:''}`} feedbackFields={`${p.key} ${p.key}-photo ${p.key}-alt ${p.key}-credit ${p.key}-permission`} gallery={props.gallery} initial={p.kind==='upload'?{kind:'upload',file:p.file!,alt:p.alt,credit:p.credit}:{kind:'edit',id:p.id!,alt:p.alt,credit:p.credit}} onSave={choice=>{photoChange(photos.map(current=>current.key===p.key?{...current,alt:choice.alt,credit:choice.credit}:current));return {prepared:true};}}/>
        {i>0&&<button type="button" onClick={()=>photoChange([p,...photos.filter(x=>x.key!==p.key)])}>Hacer portada</button>}
        {i>0&&<button type="button" aria-label={`Subir foto ${i+1}`} onClick={()=>{const next=[...photos];[next[i-1],next[i]]=[next[i],next[i-1]];photoChange(next);}}>↑</button>}
        <button type="button" onClick={()=>photoChange(photos.filter(x=>x.key!==p.key))}>Quitar</button></div></div></li>)}</ol>
-       <PhotoDialog feedbackFields="photos" feedbackLabel="Fotos de la convocatoria" gallery={props.gallery} selected={photos.filter(p=>p.id).map(p=>p.id!)} disabled={photos.length>=6} maxUploadBytes={Math.max(0,3.75*1024*1024-photos.reduce((n,p)=>n+(p.file?.size||0),0))} onSave={addPhoto}/></>}
+       <PhotoDialog operation="prepare" feedbackFields="photos" feedbackLabel="Fotos de la convocatoria" gallery={props.gallery} selected={photos.filter(p=>p.id).map(p=>p.id!)} disabled={photos.length>=6} maxUploadBytes={Math.max(0,3.75*1024*1024-photos.reduce((n,p)=>n+(p.file?.size||0),0))} onSave={addPhoto}/></>}
        <p hidden={!props.isSeries} className="muted">{props.inheritsPhotos?'El bloque usa las fotos generales; personalizarlas afecta solo este bloque.':'El bloque tiene una galería propia.'}</p>
        {props.isSeries&&props.hasGeneralPhotos&&photoMode!=='inherit'&&<button type="button" onClick={()=>{setPhotoMode('inherit');setDirty(true);}}>Usar fotos generales</button>}
       </section>

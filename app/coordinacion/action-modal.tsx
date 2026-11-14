@@ -3,20 +3,22 @@ import { preserveCurrentNavigation, navigationSaved } from './navigation-positio
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { fieldErrorMessages, type FieldErrors, type FormResult } from '../../lib/form-result';
+import { checkedFormResult, fieldErrorMessages, type FieldErrors, type FormResult } from '../../lib/form-result';
 import { FormFeedbackProvider, FormErrorSummary, useFormFeedback } from '../form-feedback/form-feedback';
 import { StatusRibbon } from '../status-ribbon';
 import { CoordinationModal } from './coordination-modal';
 
-export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', successMessage = 'Cambios guardados.', validate, fieldLabels, fieldDependencies, revealField, open: controlledOpen, onClose }: {
+export type ActionModalProps = {
   validate?: (data: FormData) => FieldErrors;
   fieldLabels?: Record<string,string>;
   fieldDependencies?: Record<string,string[]>;
   revealField?: (name: string) => void | Promise<void>;
   successMessage?: string;
   open?: boolean; onClose?: () => void;
-  title: string; action: (form: FormData) => Promise<unknown>; children: ReactNode; wide?: boolean; id?: string; saveLabel?: string;
-}) {
+  title: string; action: (form: FormData) => Promise<FormResult>; children: ReactNode; wide?: boolean; id?: string; saveLabel?: string;
+};
+
+export function ActionModal({ title, action, children, wide = false, id, saveLabel = 'Guardar cambios', successMessage = 'Cambios guardados.', validate, fieldLabels, fieldDependencies, revealField, open: controlledOpen, onClose }: ActionModalProps) {
   const [localOpen, setLocalOpen] = useState(false);
   const open = controlledOpen ?? localOpen;
   const setOpen = (value: boolean) => { setLocalOpen(value); if (!value) onClose?.(); };
@@ -45,8 +47,8 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
         if (Object.values(clientErrors).some(value=>fieldErrorMessages(value).length)) { feedback.showErrors(clientErrors); return; }
         inFlight.current=true;setPending(true);
         try {
-          const result = await action(data) as FormResult | undefined;
-          if (!result?.saved) {
+          const result = checkedFormResult(await action(data));
+          if (result.saved !== true) {
             feedback.showErrors(result?.fieldErrors,result?.error || (Object.values(result?.fieldErrors || {}).some(value=>fieldErrorMessages(value).length) ? '' : 'No se pudo guardar. Revisá los datos e intentá de nuevo.'));
           } else {
             navigationSaved();setDirty(false); setOpen(false);

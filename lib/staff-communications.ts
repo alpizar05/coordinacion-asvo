@@ -19,24 +19,28 @@ export async function createStaffInvitation(tx:import("./registration").Transact
 
 }
 
-export async function generateStaffBrief(tx:import("./registration").Transaction,id:string,lead:string,token:string,user:import("./authorization").StaffPrincipal){
+export type BriefLinkResult = FormResult<'lead', {link:string}>;
+
+export async function generateStaffBrief(tx:import("./registration").Transaction,id:string,lead:string,token:string,user:import("./authorization").StaffPrincipal):Promise<FormResult<'lead'>>{
     const [outing] = await tx`select unit,status from outings where id=${id} for update`;
-    requireStaff(user,!!outing && allows(user,'briefs.generate',{unit:outing.unit}));
-    if (!['abierta','confirmada','completada'].includes(outing.status)) return 'No se puede compartir una salida cancelada o en borrador.';
+    if (!user || !outing || !allows(user,'briefs.generate',{unit:outing.unit})) return {error:'No tenés permiso para generar enlaces de esta salida.'};
+    if (!['abierta','confirmada','completada'].includes(outing.status)) return {error:'No se puede compartir una salida cancelada o en borrador.'};
     const [person] = await tx`select id from registrations where id=${lead} and outing_id=${id}
       and status='confirmada' and details->'assigned70'='true'::jsonb`;
-    if (!person) return 'La persona debe tener inscripción confirmada y estar asignada como 70.';
+    if (!person) return {error:'La persona debe tener inscripción confirmada y estar asignada como 70.'};
     await tx`update outing_brief_links set revoked_at=now() where outing_id=${id} and lead_registration_id=${lead} and revoked_at is null`;
     await tx`insert into outing_brief_links(digest,outing_id,lead_registration_id,created_by) values (${digest(token)},${id},${lead},${user.subject})`;
     await audit(tx,user.subject,'Generó resumen para 70',id,`Inscripción: ${lead}`);
+    return {saved:true};
 
 }
 
-export async function revokeStaffBrief(tx:import("./registration").Transaction,id:string,user:import("./authorization").StaffPrincipal){
+export async function revokeStaffBrief(tx:import("./registration").Transaction,id:string,user:import("./authorization").StaffPrincipal):Promise<FormResult>{
     const [outing] = await tx`select unit from outings where id=${id} for update`;
-    requireStaff(user,!!outing && allows(user,'briefs.revoke',{unit:outing.unit}));
+    if (!user || !outing || !allows(user,'briefs.revoke',{unit:outing.unit})) return {error:'No tenés permiso para revocar enlaces de esta salida.'};
     await tx`update outing_brief_links set revoked_at=now() where outing_id=${id} and revoked_at is null`;
     await audit(tx,user.subject,'Revocó enlaces de resumen para 70',id);
+    return {saved:true};
 
 }
 

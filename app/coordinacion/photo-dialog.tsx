@@ -7,10 +7,14 @@ import type {GalleryPhoto} from '../../lib/outing-photo-gallery';
 import {outingPhotoMaxBytes} from '../../lib/outing-photo-limits';
 import {validatePhoto} from '../../lib/outing-form-validation';
 import type {FormResult} from '../../lib/form-result';
+import {checkedPhotoResult,type PhotoPreparationResult} from '../../lib/photo-result';
 import {FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback} from '../form-feedback/form-feedback';
 export type PhotoChoice={alt:string;credit:string}&({kind:'upload';file:File}|{kind:'gallery';id:string}|{kind:'edit';id:string});
 export function PhotoPreview({file,alt}:{file:File;alt:string}){const[url,setUrl]=useState('');useEffect(()=>{const value=URL.createObjectURL(file);setUrl(value);return()=>URL.revokeObjectURL(value);},[file]);return url?<img className="photo-dialog-preview" src={url} alt={alt}/>:null;}
-export function PhotoDialog({gallery=[],selected=[],initial,disabled=false,maxUploadBytes=outingPhotoMaxBytes,onSave,feedbackFields,feedbackLabel}:{gallery?:GalleryPhoto[];selected?:string[];initial?:PhotoChoice;disabled?:boolean;maxUploadBytes?:number;onSave:(photo:PhotoChoice)=>void|string|FormResult|Promise<void|string|FormResult>;feedbackFields?:string;feedbackLabel?:string}){
+export type PhotoDialogProps={gallery?:GalleryPhoto[];selected?:string[];initial?:PhotoChoice;disabled?:boolean;maxUploadBytes?:number;feedbackFields?:string;feedbackLabel?:string}&(
+ {operation:'prepare';onSave:(photo:PhotoChoice)=>PhotoPreparationResult|Promise<PhotoPreparationResult>}|
+ {operation:'persist';onSave:(photo:PhotoChoice)=>Promise<FormResult>});
+export function PhotoDialog({gallery=[],selected=[],initial,disabled=false,maxUploadBytes=outingPhotoMaxBytes,onSave,operation,feedbackFields,feedbackLabel}:PhotoDialogProps){
  const[open,setOpen]=useState(false),[mode,setMode]=useState<'gallery'|'upload'>('gallery'),[file,setFile]=useState<File|null>(null),[photoId,setPhotoId]=useState(''),[alt,setAlt]=useState(''),[credit,setCredit]=useState(''),[permission,setPermission]=useState(false),[dirty,setDirty]=useState(false),[pending,setPending]=useState(false);
  const form=useRef<HTMLFormElement>(null),busy=useRef(false),id=useId();
  const data=()=>{const f=new FormData();if(file)f.set('photo',file);f.set('photoId',photoId);f.set('alt',alt);f.set('credit',credit);if(permission)f.set('permission','on');return f;};
@@ -23,7 +27,7 @@ export function PhotoDialog({gallery=[],selected=[],initial,disabled=false,maxUp
    if(choice.kind==='upload'){
     const url=URL.createObjectURL(choice.file);try{const image=new Image();image.src=url;await image.decode();if(image.naturalWidth*image.naturalHeight>24_000_000){feedback.showErrors({photo:'La imagen supera 24 megapíxeles.'});return;}}catch{feedback.showErrors({photo:'No se pudo leer la imagen. Elegí un JPG, PNG o WebP válido.'});return;}finally{URL.revokeObjectURL(url);}
    }
-   const result=await onSave(choice);if(typeof result==='string')feedback.showErrors({},result);else if(result&&!result.saved)feedback.showErrors(result.fieldErrors,result.error);else{setDirty(false);setOpen(false);}
+   const result=checkedPhotoResult(await onSave(choice),operation);if(result.saved===true||('prepared'in result&&result.prepared===true)){setDirty(false);setOpen(false);}else feedback.showErrors(result.fieldErrors,result.error);
   }catch{feedback.showErrors({},'No se pudo guardar la foto. El archivo y sus datos se conservan para reintentar.');}finally{busy.current=false;setPending(false);}
  }
  return <><button type="button" disabled={disabled} aria-haspopup="dialog" data-feedback-fields={feedbackFields} data-feedback-label={feedbackLabel} onClick={()=>{setFile(initial?.kind==='upload'?initial.file:null);setPhotoId(initial&&initial.kind!=='upload'?initial.id:'');setAlt(initial?.alt||'');setCredit(initial?.credit||'');setPermission(!!initial);setMode(initial?.kind==='upload'||!gallery.length?'upload':'gallery');feedback.reset();setDirty(false);setOpen(true);}}>{initial?'Editar foto':'Agregar foto'}</button>

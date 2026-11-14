@@ -2,7 +2,8 @@ import {requireDisposableTestDatabase} from '../tests/integration/target.mjs';re
 import {registerHooks,stripTypeScriptTypes} from 'node:module';import {existsSync,readFileSync} from 'node:fs';import {fileURLToPath} from 'node:url';import {randomUUID} from 'node:crypto';import assert from 'node:assert/strict';import sharp from 'sharp';
 import {requestContext} from '../tests/authorization/request-context.mjs';
 registerHooks({resolve(s,c,next){if(['next/headers','next/cache','next/navigation','next-auth'].includes(s))return next(new URL('../tests/authorization/request-context.mjs',import.meta.url).href,c);if(s.startsWith('.')&&c.parentURL&&!/\.[a-z]+$/.test(s)){const path=new URL(s+'.ts',c.parentURL);if(existsSync(fileURLToPath(path)))return next(path.href,c);}return next(s,c);},load(url,c,next){if(url.endsWith('.ts'))return {format:'module',source:stripTypeScriptTypes(readFileSync(new URL(url),'utf8'),{mode:'strip',sourceUrl:url}),shortCircuit:true};return next(url,c);}});
-const {sql}=await import('../lib/db.ts');
+const {sql,demoCoordinator}=await import('../lib/db.ts');
+const {attachOutingPhoto}=await import('../app/photo-actions.ts');
 const {preparePhoto,graphPhotoStore}=await import('../lib/outing-photos.ts');
 const {withPhotoUploads,cleanupPhotoOrphans,PhotoUploadError}=await import('../lib/photo-upload-workflow.ts');
 const {saveOutingEditor,outingEditVersion}=await import('../lib/outing-editor.ts');
@@ -51,6 +52,16 @@ try{
  assert.deepEqual((await sql`select id from asvo_schema_migrations order by id`).map(r=>r.id),['0001_initial','0002_photo_upload_lifecycle','0003_mail_attempt_outcomes','0004_private_link_revocation']);
  await sql`insert into grants(subject,role,unit)values(${actor.subject},'general','')`;
  const o=await outing();monitored=o.id;
+ await sql`insert into grants(subject,role,unit)values(${demoCoordinator},'general','') on conflict do nothing`;
+ const invoke=async(work,role='general')=>{const context={cookies:role?{'asvo-demo':role}:{},effects:[]};return requestContext.run(context,async()=>({result:await work(),effects:context.effects}));};
+ // Real action boundary: independent fields together, no invalidation or false success.
+ const invalid=add();invalid.set('photo',new File(['x'],'bad.txt',{type:'text/plain'}));invalid.set('alt','');invalid.set('credit','x'.repeat(151));invalid.delete('permission');
+ const rejected=await invoke(()=>attachOutingPhoto(o.id,invalid));assert.deepEqual(Object.keys(rejected.result.fieldErrors).sort(),['alt','credit','permission','photo']);assert.equal(rejected.effects.length,0);assert.equal(await countPhotos(o.id),0);
+ const unreadable=add();unreadable.set('photo',new File(['not-image'],'bad.png',{type:'image/png'}));const decoding=await invoke(()=>attachOutingPhoto(o.id,unreadable));assert.ok(decoding.result.fieldErrors.photo.length);assert.equal(decoding.effects.length,0);assert.ok(unreadable.get('photo') instanceof File);
+ assert.ok((await invoke(()=>attachOutingPhoto(o.id,add()),null)).result.error);
+ const badGallery=form({action:'galeria',photoId:'invalid',alt:'',credit:'x'.repeat(151)});
+ assert.deepEqual(Object.keys((await invoke(()=>attachOutingPhoto(o.id,badGallery))).result.fieldErrors).sort(),['alt','credit','photoId']);
+
  // Actual provider adapter, fake Graph; NOWAIT proves that provider calls do not retain row locks.
  checkLocks=true;const f=add(),before=[...f],first=await withPhotoUploads(optionsFor(o.id,f));assert.equal(first.saved,true);assert.equal(await countPhotos(o.id),1);assert.deepEqual([...f],before);
  const firstPuts=puts;assert.equal((await withPhotoUploads(optionsFor(o.id,f))).saved,true);assert.equal(puts,firstPuts);assert.equal(await countPhotos(o.id),1);
@@ -64,7 +75,7 @@ try{
  const invalidFiles=[{key:'first',file:new File(['x'],'first.png')},{key:'second',file:new File(['y'],'second.png')}];
  await assert.rejects(()=>withPhotoUploads(optionsFor(o.id,add(),{files:invalidFiles})),error=>error instanceof PhotoUploadError&&Object.keys(error.fieldErrors).length===2&&!!error.fieldErrors['first-photo']&&!!error.fieldErrors['second-photo']);
  // A rejected provider request preserves the selected file and permits retry.
- const failedPut=add();putMode='failure';await assert.rejects(()=>withPhotoUploads(optionsFor(o.id,failedPut)),PhotoUploadError);putMode='';assert.ok(failedPut.get('photo') instanceof File);
+ const failedPut=add();putMode='failure';await assert.rejects(()=>withPhotoUploads(optionsFor(o.id,failedPut)),error=>error instanceof PhotoUploadError&&error.kind==='provider');putMode='';assert.ok(failedPut.get('photo') instanceof File);
  // Concurrent version change during PUT: compensate only the new original.
  const conflict=add(),priorPhotos=await countPhotos(o.id),priorDeletes=deletes;
  onPut=async()=>{await sql`update outings set title='Cambio concurrente' where id=${o.id}`;};
@@ -129,6 +140,20 @@ try{
   authorize:(tx,user)=>authorizeCreationPhotos(tx,create,user),validate:(tx,user)=>saveOutingCreation(tx,create,user,{preflightOnly:true}),commit:(tx,user,uploads,snapshot)=>saveOutingCreation(tx,create,user,{uploads,expectedSnapshot:snapshot.snapshot})};
  const beforePuts=puts;const created=await withPhotoUploads(creation);assert.ok(created.destination);assert.equal(puts,beforePuts+1);assert.equal((await withPhotoUploads(creation)).destination,created.destination);assert.equal(puts,beforePuts+1);
  const blocks=await sql`select p.original_item from outing_photos p join outings o on o.id=p.outing_id where o.title='Nueva ficticia'`;assert.equal(blocks.length,2);assert.equal(new Set(blocks.map(p=>p.original_item)).size,1);
+ // Action commit using gallery has no external upload; retry is deduplicated.
+ const target=await outing();const source=(await sql`select id from outing_photos where outing_id=${o.id} and position is not null limit 1`)[0];
+ const link=form({action:'galeria',photoId:source.id,alt:'Contrato',credit:'ASVO DEMO',photoOperation:randomUUID()});
+ const saved=await invoke(()=>attachOutingPhoto(target.id,link));assert.equal(saved.result.saved,true);assert.ok(saved.effects.length);assert.equal(await countPhotos(target.id),1);
+ assert.equal((await invoke(()=>attachOutingPhoto(target.id,link))).result.saved,true);assert.equal(await countPhotos(target.id),1);
+ // A persistence failure is general, retains the submitted data and never invalidates.
+ const broken=form({action:'galeria',photoId:source.id,alt:'Reintento',credit:'DEMO',photoOperation:randomUUID()});
+ await sql`create function fail_photo_contract_audit() returns trigger language plpgsql as $$ begin raise exception 'Synthetic database failure'; end $$`;
+ await sql`create trigger fail_photo_contract_audit before insert on audit for each row execute function fail_photo_contract_audit()`;
+ const failed=await invoke(()=>attachOutingPhoto(target.id,broken));assert.ok(failed.result.error);assert.ok(!failed.result.error.includes('Synthetic'));assert.equal(failed.result.fieldErrors,undefined);assert.equal(failed.effects.length,0);assert.equal(await countPhotos(target.id),1);assert.equal(broken.get('alt'),'Reintento');
+ await sql`drop trigger fail_photo_contract_audit on audit`;await sql`drop function fail_photo_contract_audit()`;
+ assert.equal((await invoke(()=>attachOutingPhoto(target.id,broken))).result.saved,true);assert.equal(await countPhotos(target.id),2);
+ const restricted=await outing('BRIF');await sql`delete from grants where subject=${demoCoordinator}`;await sql`insert into grants(subject,role,unit)values(${demoCoordinator},'unidad','BRIF')`;
+ const noSource=await invoke(()=>attachOutingPhoto(restricted.id,link));assert.ok(noSource.result.error);assert.equal(noSource.result.fieldErrors,undefined);assert.equal(noSource.effects.length,0);
  // GET returns denied photos without exposing bytes; public and staff cases remain covered by authorization suite.
  const denied=await outing('BRIF');const photo=randomUUID();await sql`insert into outing_photos(id,outing_id,position,alt,credit,thumbnail,display_image)values(${photo},${denied.id},1,'Ficticia','',${png},${png})`;await sql`update outings set registration_deadline='2000-01-01' where id=${denied.id}`;
  assert.equal((await requestContext.run({cookies:{}},()=>GET(new Request('http://localhost/api/fotos/'+photo),{params:Promise.resolve({id:photo})}))).status,404);

@@ -5,6 +5,7 @@ import { readOutingReports } from '../../../../lib/outing-report';
 import { sql } from '../../../../lib/db';
 import { ReportForm } from './report-form';
 import { OutingReportView } from '../../../outing-report-view';
+import { reportConfirmation } from '../../../../lib/report-result';
 import { StatusRibbon } from '../../../status-ribbon';
 
 export const dynamic = 'force-dynamic';
@@ -26,11 +27,11 @@ export default async function Page({ params, searchParams }: {
   const savedLabour = report ? report.labour_types.length ? report.labour_types : labourOptions.filter(option => option === report.labour) : defaults.labour;
   const query = await searchParams;
   const editing = !report || report.status === 'borrador';
+  const confirmation = reportConfirmation(report?.status,query);
   return <div className="outing-report-page">
     <Link href={`/resumen-salida/${token}`}>‹ Volver al resumen de la salida</Link>
     <h1>Informe de salida</h1><p>{brief.outing.title}</p>
-    {query.enviado === '1' && <StatusRibbon message="Informe finalizado. La tarea está completada y el informe ya no se puede editar." />}
-    {query.borrador === '1' && editing && <StatusRibbon message="Borrador guardado. Podés continuar después; el informe sigue pendiente." />}
+    {confirmation && <StatusRibbon message={confirmation} />}
     {report?.status === 'borrador' && <p className="note">Borrador · Sin finalizar. Los cambios guardados se precargan a continuación.</p>}
     {editing ? <ReportForm key={`${report?.id??'new'}:${report?.updated_at?.toISOString()??'new'}`} token={token} version={report?.updated_at?.toISOString()??'new'} lead={{ name: String(lead.name), email: String(lead.email || '') }}
       initial={{ labour: savedLabour, location: report?.location ?? brief.outing.location,

@@ -91,6 +91,18 @@ La [reorganización por funcionalidad](../docs/organizacion-por-funcionalidad.md
 
 ## CI preparada (sin activar)
 
-Consultar [auditoría de equivalencia y CI](../docs/ci-y-equivalencia.md). El workflow se publica solo con disparo manual; su primera ejecución remota continúa pendiente. `test:ci` valida configuración/aislamiento/lockfile/detección de secretos, separado de las 92 unitarias del dominio. `test:integration:ci` no carga dotenv: recibe solo `CI_DATABASE_URL` loopback y rechaza credenciales de aplicación/proveedor. Reutiliza los mismos 18 grupos y su limpieza; no usa una versión falsa del dominio.
+Consultar [auditoría de equivalencia y CI](../docs/ci-y-equivalencia.md). El workflow se publica solo con disparo manual; su primera ejecución remota continúa pendiente. `test:ci` valida configuración/aislamiento/lockfile/detección de secretos, separado de las 101 unitarias del dominio. `test:integration:ci` no carga dotenv: recibe solo `CI_DATABASE_URL` loopback y rechaza credenciales de aplicación/proveedor. Reutiliza los mismos 19 grupos y su limpieza; no usa una versión falsa del dominio.
 
 `ci:typecheck` prueba una copia sin next-env.d.ts/.next anteriores, ejecutando `next typegen` y TypeScript. `ci:install:verify` prueba npm ci con scripts deshabilitados en otra carpeta y comprueba sharp. Lint/formato, secretos y dependencias son comandos separados. Los informes de seguridad saneados quedan en coverage ignorado. La suite browser.mjs conserva su dependencia CUA: no hay job de navegador autónomo y su evidencia anterior no se reetiquetó como una ejecución nueva.
+
+## E2: contratos de enlaces privados del 70
+
+El grupo `brief-contracts` usa acciones, políticas y SQL reales con un contexto de petición ficticio. Prueba formatos/permisos, selección desactualizada, vigencia, sustitución por persona, concurrencia, revocación total, rollback por fallo de auditoría, reintentos, no-op auditado y fallo de conexión. No usa Graph ni correo. Ejecutar mediante `test:integration:ci -- --only=brief-contracts` con CI_DATABASE_URL administrativa loopback del servidor desechable, nunca contra beta. Ver [evidencia y límites visuales](../docs/contratos-enlaces-70.md).
+
+## ActionModal y wrappers
+
+[Contratos, evidencia CUA y límites](../docs/contratos-action-modal.md). `ci:typecheck` incluye los casos negativos en `tests/types`; las pruebas unitarias de frontera están en `tests/unit/form-result.test.mjs`. Para repetir la inspección CUA: `node tests/action-modal/fixture.mjs` con el runtime fijado, abrir la URL local anunciada y detener con SIGINT/SIGTERM. Crea y retira una copia temporal; no cargar dotenv ni datos reales. No es CI autónoma. El preload simula dos consultas de metadatos de Next como offline (503), bloquea el resto de red y la base; no es análisis de dependencias.
+
+## Contratos de fotografías
+
+[Patrón y evidencia](../docs/contratos-fotografias.md). Unitarias: `tests/unit/photo-result.test.mjs`; tipos negativos: `tests/types/photo-dialog-contract.ts` mediante ci:typecheck. El grupo photo-uploads de integración usa base desechable y Graph simulado, e incluye la acción de adjuntar, errores múltiples, rollback/reintento y origen sin permiso. Ejecutar con CI_DATABASE_URL administrativa loopback autorizada mediante `npm run test:integration:ci -- --only=photo-uploads`. La matriz DOM/CUA de PhotoDialog sigue pendiente.

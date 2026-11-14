@@ -179,12 +179,13 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
 
               {isCover && <span className="outing-photo-cover">Portada</span>}
               <strong>{photo.alt || (item.kind === 'new' ? item.photo.file.name : '')}</strong>
-              <PhotoDialog feedbackLabel={`Foto ${selectedPhotos.indexOf(item)+1}${item.kind==='new'?` · ${item.photo.file.name}`:''}`} feedbackFields={item.kind==='new'?`new-${photo.id} new-${photo.id}-photo new-${photo.id}-alt new-${photo.id}-credit new-${photo.id}-permission`:`existing-${photo.id} existing-${photo.id}-alt existing-${photo.id}-credit`} initial={item.kind === 'new'
+              <PhotoDialog operation="prepare" feedbackLabel={`Foto ${selectedPhotos.indexOf(item)+1}${item.kind==='new'?` · ${item.photo.file.name}`:''}`} feedbackFields={item.kind==='new'?`new-${photo.id} new-${photo.id}-photo new-${photo.id}-alt new-${photo.id}-credit new-${photo.id}-permission`:`existing-${photo.id} existing-${photo.id}-alt existing-${photo.id}-credit`} initial={item.kind === 'new'
                 ? { kind: 'upload', file: item.photo.file, alt: item.photo.alt, credit: item.photo.credit }
                 : { kind: 'edit', id: item.photo.id, alt: item.photo.alt, credit: item.photo.credit || '' }}
                 onSave={choice => {
                   if (item.kind === 'new') setNewPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, alt: choice.alt, credit: choice.credit } : entry));
                   else setPhotos(current => current.map(entry => entry.id === photo.id ? { ...entry, alt: choice.alt, credit: choice.credit } : entry));
+                  return {prepared:true};
                 }} />
               <div className="actions">
                 {!isCover && <button type="button" onClick={() => setCover(identity)}>Hacer portada</button>}
@@ -198,12 +199,14 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
           </li>;
         })}
       </ul>}
-      <PhotoDialog feedbackFields="photos" feedbackLabel="Fotos de la convocatoria" gallery={gallery} selected={photos.map(photo => photo.id)} disabled={!hasPhotoSpace || pending}
+      <PhotoDialog operation="prepare" feedbackFields="photos" feedbackLabel="Fotos de la convocatoria" gallery={gallery} selected={photos.map(photo => photo.id)} disabled={!hasPhotoSpace || pending}
         maxUploadBytes={outingPhotoBatchMaxBytes - newPhotos.reduce((sum,photo) => sum + photo.file.size,0)}
         onSave={choice => {
-          if (!hasPhotoSpace) return 'La convocatoria admite hasta seis fotos.';
+          if (!hasPhotoSpace) return {error:'La convocatoria admite hasta seis fotos.'};
           if (choice.kind === 'upload') setNewPhotos(current => [...current, { id: nextPhotoId.current++, file: choice.file, alt: choice.alt, credit: choice.credit }]);
           else if (choice.kind === 'gallery') setPhotos(current => [...current, { id: choice.id, alt: choice.alt, credit: choice.credit }]);
+          else return {error:'Elegí una foto para agregar.'};
+          return {prepared:true};
         }} />
       </fieldset>
     </fieldset>

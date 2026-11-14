@@ -8,7 +8,15 @@ import { cleanTestEnvironment } from '../../tests/test-process.mjs';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const directory = await mkdtemp(join(tmpdir(), 'asvo-ci-types-'));
 try {
-  for (const name of ['app', 'lib', 'public', 'tsconfig.json', 'next.config.ts', 'package.json'])
+  for (const name of [
+    'app',
+    'lib',
+    'public',
+    'tests/types',
+    'tsconfig.json',
+    'next.config.ts',
+    'package.json',
+  ])
     await cp(join(root, name), join(directory, name), { recursive: true });
   await symlink(join(root, 'node_modules'), join(directory, 'node_modules'), 'dir');
   const env = {

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-14",
+  "environment": "local fictitious UI-only harness; actual shared components",
+  "viewports": [
+    "desktop browser default",
+    "390x844"
+  ],
+  "verified": [
+    "multiple independent errors and messages",
+    "first invalid focus and accessible associations",
+    "hidden section revealed from summary and server error",
+    "text and fictitious selected file retained on failure",
+    "invalid/missing/legacy/contradictory response and thrown error keep modal open",
+    "explicit saved true closes and confirms",
+    "controlled modal",
+    "RegistryModal attendance validation",
+    "RegistryForm incident retains on failure and resets after success",
+    "mobile keyboard and bounds",
+    "unique DOM ids"
+  ],
+  "evidence": "evidence/mobile-errors.png",
+  "limits": [
+    "not all six real screens",
+    "no physical device or actual screen-reader certification",
+    "successful authorized destination navigation not verified by CUA",
+    "real list scroll/context restoration not mounted in this harness"
+  ],
+  "externalEffects": "none; blocked DB/network; exact Next metadata URLs modeled offline HTTP503"
+}

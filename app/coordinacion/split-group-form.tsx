@@ -7,7 +7,7 @@ import { splitOutingGroup } from '../actions/outings';
 export function SplitGroupForm({outingId,starts,ends,members,occupied,title}:{outingId:string;starts:string;ends:string;members:string[];occupied:number;title:string}){
  return <ActionModal title="Crear salida para este grupo" saveLabel="Crear salida y trasladar grupo" validate={form=>validateSplitGroup(form,occupied)} fieldLabels={staffRegistrationLabels} action={async form=>{
   const result=await splitOutingGroup(outingId,starts,ends,form);
-  if(result.saved&&result.destination){
+  if(result.saved === true && result.destination){
    const destination=new URL(result.destination,window.location.origin),current=new URL(window.location.href);
    for(const [name,value]of current.searchParams)if(!['error','errorGrupo','grupoCreado','gestionada','confirmacion'].includes(name)&&!destination.searchParams.has(name))destination.searchParams.set(name,value);
    return {...result,destination:`${destination.pathname}${destination.search}${destination.hash}`};

@@ -76,7 +76,7 @@ export function outingTransition(status:string,action:OutingStateAction,facts:{f
  return {error:'unknown-action'} as const;
 }
 /** Keep the existing SQL guard: only a draft can be replaced, even for a historical unknown status. */
-export function reportTransition(existingStatus:string|undefined,mode:'borrador'|'finalizar'){
+export function reportTransition(existingStatus:string|undefined,mode:'borrador'|'finalizar'): {locked:boolean;writable:boolean;draft:boolean;status:'borrador'|'finalizado';creditsAttendance:boolean;audit:string} {
  const draft=mode==='borrador';
  return {locked:existingStatus==='finalizado',writable:existingStatus===undefined||existingStatus==='borrador',draft,
   status:draft?'borrador':'finalizado',creditsAttendance:!draft,
