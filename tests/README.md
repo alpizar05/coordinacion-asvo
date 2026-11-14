@@ -91,7 +91,7 @@ La [reorganización por funcionalidad](../docs/organizacion-por-funcionalidad.md
 
 ## CI preparada (sin activar)
 
-Consultar [auditoría de equivalencia y CI](../docs/ci-y-equivalencia.md). El workflow se publica solo con disparo manual; su primera ejecución remota continúa pendiente. `test:ci` valida configuración/aislamiento/lockfile/detección de secretos, separado de las 101 unitarias del dominio. `test:integration:ci` no carga dotenv: recibe solo `CI_DATABASE_URL` loopback y rechaza credenciales de aplicación/proveedor. Reutiliza los mismos 19 grupos y su limpieza; no usa una versión falsa del dominio.
+Consultar [auditoría de equivalencia y CI](../docs/ci-y-equivalencia.md). El workflow se publica solo con disparo manual; su primera ejecución remota continúa pendiente. `test:ci` valida configuración/aislamiento/lockfile/detección de secretos, separado de las 103 unitarias del dominio. `test:integration:ci` no carga dotenv: recibe solo `CI_DATABASE_URL` loopback y rechaza credenciales de aplicación/proveedor. Reutiliza los mismos 23 grupos y su limpieza; no usa una versión falsa del dominio.
 
 `ci:typecheck` prueba una copia sin next-env.d.ts/.next anteriores, ejecutando `next typegen` y TypeScript. `ci:install:verify` prueba npm ci con scripts deshabilitados en otra carpeta y comprueba sharp. Lint/formato, secretos y dependencias son comandos separados. Los informes de seguridad saneados quedan en coverage ignorado. La suite browser.mjs conserva su dependencia CUA: no hay job de navegador autónomo y su evidencia anterior no se reetiquetó como una ejecución nueva.
 
@@ -106,3 +106,19 @@ El grupo `brief-contracts` usa acciones, políticas y SQL reales con un contexto
 ## Contratos de fotografías
 
 [Patrón y evidencia](../docs/contratos-fotografias.md). Unitarias: `tests/unit/photo-result.test.mjs`; tipos negativos: `tests/types/photo-dialog-contract.ts` mediante ci:typecheck. El grupo photo-uploads de integración usa base desechable y Graph simulado, e incluye la acción de adjuntar, errores múltiples, rollback/reintento y origen sin permiso. Ejecutar con CI_DATABASE_URL administrativa loopback autorizada mediante `npm run test:integration:ci -- --only=photo-uploads`. La matriz DOM/CUA de PhotoDialog sigue pendiente.
+
+## Destacada de portada
+
+[Contratos y límites](../docs/contratos-destacada-portada.md). El grupo homepage-feature-contracts se ejecuta con el runner protegido: `npm run test:integration:ci -- --only=homepage-feature-contracts`, usando únicamente CI_DATABASE_URL administrativa loopback de PostgreSQL 18.7 desechable UTF-8. Incluye la acción con redirect, servicio y adaptador reales; errores/permisos, elegibilidad, no-op, auditoría/rollback, concurrencia y conexión cerrada, sin proveedores ni correo. Tipos negativos en tests/types/homepage-feature-contract.ts mediante ci:typecheck. Matriz CUA pendiente.
+
+## Decisiones de inscripción y 70
+
+[Contratos y límites](../docs/contratos-decisiones-inscripcion-70.md). Grupo registration-decision-contracts con el runner protegido: `npm run test:integration:ci -- --only=registration-decision-contracts`, con CI_DATABASE_URL administrativa loopback de PostgreSQL 18.7 desechable UTF-8. Las pruebas usan decisiones y SQL reales, sin correo/Graph. Distinguen rechazo de reapertura con promoción FIFO legítima de fallo SQL con rollback total. registration/workflow-transitions conservan escenarios históricos con expectativas del nuevo contrato. Tipos negativos en tests/types/registration-decision-contract.ts mediante ci:typecheck. Matriz CUA pendiente.
+
+## Gestión antigua y compatibilidad
+
+[Contratos y límites](../docs/contratos-gestion-antigua.md). Grupo legacy-operation-contracts con el runner protegido: `npm run test:integration:ci -- --only=legacy-operation-contracts`, usando CI_DATABASE_URL loopback de PostgreSQL 18.7 desechable UTF-8. Comprueba redirects, errores múltiples, fallos/rollback/reintento, filtros, FIFO, serie versionada, fotos idempotentes y terminales sin proveedores. Unitarias de presentación en tests/unit/legacy-operation-result.test.mjs; tipos en tests/types/legacy-operation-contract.ts. La UX antigua con redirect no se declara equivalente a conservar formularios montados; CUA pendiente.
+
+## Crear serie manual
+
+[Contratos y límites](../docs/contratos-serie-manual.md). Grupo manual-series-contracts con el runner protegido: `npm run test:integration:ci -- --only=manual-series-contracts`, usando CI_DATABASE_URL loopback de PostgreSQL 18.7 desechable UTF-8. Errores múltiples, permisos/selección desactualizada, rollback/reintento, miembros sin repetir, payload, adaptador y concurrencia/repetición históricas. No modifica R5 ni envía mensajes. Tipos negativos en tests/types/manual-series-contract.ts mediante ci:typecheck. CUA pendiente.

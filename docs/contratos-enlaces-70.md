@@ -63,3 +63,45 @@ No se ejecutó una nueva matriz visual CUA desktop/celular. Por lectura del fluj
 Pendiente CUA: selección inválida con foco, conflicto general conservando selección y contexto, enlace previo visible después de fallar generación/revocación, reintento correcto, ribbon solo en éxito, teclado y móvil. También siguen pendientes CI remota, contenedor Linux e infraestructura/proveedores. Turbopack adicional no se repitió aquí; su verificación existente se conserva, Webpack es la referencia usada en esta etapa.
 
 No hay migraciones nuevas ni cambios de proveedor. El runner retira sus DBs y triggers sintéticos. Limpieza final comprobada: consulta SQL de versión 18.7 y cero bases de fixtures; servidor detenido, clúster/binarios/fuentes/logs temporales retirados y copias de tipos/build eliminadas por sus ejecutores. E2 queda implementada y verificada a nivel funcional/automatizado local; el pendiente visual no cierra E7 ni autoriza publicar.
+
+## Reauditoría específica C05 — Generar enlace del 70
+
+14/11/2026, sobre `473369105b3257d03ce0b4df9788f850e150c812`. E2 ya implementó esta familia y fue publicada después por autorización expresa. Esta revisión no publica ni modifica código funcional. Se revisaron el servicio, acción canónica, adaptador, PrivateLinkForm, ShareBrief y los consumidores de pruebas; no hay otro contrato ambiguo activo de generación que justifique una migración nueva.
+
+| Borde | Estado comprobado por lectura del código actual |
+| --- | --- |
+| generateStaffBrief | Promise<FormResult<'lead'>>, saved explícito solo tras escrituras y auditoría; excepciones abortan la transacción |
+| generateBrief | BriefLinkResult reutiliza FormResult con link obligatorio en éxito; resultado de fallo no incluye enlace ni destino |
+| Formato de entrada | UUID inválido de salida como general y lead inválido como campo se devuelven juntos; solo existe un selector editable |
+| Permisos/selección antigua | Consultas actuales bajo bloqueo; falta de asignación, estado o acceso como general, sin revocar el enlace existente |
+| Persistencia/configuración | Excepción como general seguro, sin invalidación ni falsa confirmación; URL construida antes de persistir |
+| Consumidor | saved === true y enlace no vacío antes de onGenerated/navigationSaved; falla conserva selector, formulario y enlace previo |
+| Adaptador | Mantiene argumentos y retorno preciso; sigue usado por pruebas reales de autorización/contratos, no se retira |
+
+El argumento `_previous` permite el estado inicial compatible del formulario; no es el resultado de una operación ni un retorno silencioso. No se requiere convertirlo a otro contrato. Las invitaciones, revocaciones y recordatorios comparten archivo/componente, pero no se migraron en esta reauditoría C05.
+
+No se agregó version: la precondición vigente es la asignación y estado de inscripción consultados bajo bloqueo. Tampoco se agrega idempotencia nueva: dos generaciones válidas siguen reemplazando el enlace de la misma persona; solo el último permanece activo. Esto no equivale a duplicar inscripciones, correos o enlaces activos y no promete exactamente una vez ante pérdida de respuesta después del commit. Se conservan siete días, digest del token, auditoría atómica y ausencia de correo.
+
+### Evidencia vigente y límites de esta revisión
+
+La suite brief-contracts existente prueba conjuntamente entradas independientes inválidas, permisos, selección desactualizada, fallo de auditoría con rollback, reintento, concurrencia, payload, vigencia y fallo de conexión. La última integración completa sobre el mismo código funcional pasó los 19 grupos con PostgreSQL 18.7 local desechable UTF-8 y Graph/correo simulados, durante E3. La revalidación documental C04 posterior pasó 101 unitarias, ocho controles CI, contratos, TypeScript, lint y formato con Node 26.13.1/npm 11.7.0.
+
+En esta revisión C05 se verificaron referencias/consumidores, coherencia del seguimiento, enlaces de documentación y diff; no se repitieron esas suites ni compilación, porque no hubo cambios funcionales ni nuevos fallos que lo justifiquen. La cobertura unitaria no acredita por sí sola el servicio SQL ni el DOM. No se accedió a una base, beta, dotenv privados o proveedores ni se generaron tokens reales.
+
+La matriz visual específica de generación sigue pendiente: foco del selector, errores generales conservando selección/enlace previo, reintento, confirmación y regreso contextual en desktop/celular. No se presenta como verificada por la CUA anterior de ActionModal. C05 está resuelta funcionalmente y no necesita otro prompt de implementación; conservar el pendiente visual en E7.
+
+## Reauditoría específica C06 — Revocar enlaces del 70
+
+14/11/2026, sobre `473369105b3257d03ce0b4df9788f850e150c812`. Revisión de AGENTS, inventario, implementación anterior y consumidores de revocación. C06 ya fue implementada en E2; no se encontró otro contrato heredado activo ni se modificó código funcional. Esta revisión no publica nada y conserva los cambios documentales previos.
+
+- Servicio y acción: `revokeStaffBrief` y `revokeBrief` declaran Promise<FormResult>. UUID inválido, ausencia de sesión, recurso inexistente, falta de permiso o fallo de conexión/persistencia son errores generales. No existe un campo editable al que asociarlos; errores múltiples por campo y versión de formulario no aplican a este botón.
+- Persistencia: bloqueo de salida, política briefs.revoke, actualización de todos sus enlaces activos y auditoría en la misma transacción. Solo un commit con saved true permite revalidar y confirmar. No se cambia alcance a una sola persona ni se afecta otra salida.
+- Cliente: ShareBrief limpia el mensaje de éxito anterior al intentar revocar. Solo saved === true marca revoked y muestra ribbon; el fallo conserva enlace/visibilidad y muestra error general, con posibilidad de reintento. No agrega navegación, resets, modal ni motivo obligatorio. No usa el texto del error para decidir éxito.
+- Repetición: revocar sin enlaces activos sigue siendo una operación válida auditada. No se introduce no-op global ni se elimina esa auditoría. El botón respeta pending/revoking; no se promete exactamente una vez ante pérdida de respuesta después del commit.
+- Compatibilidad: el adaptador de resumen/actions sigue devolviendo Promise<FormResult> y tiene consumidores en authorization y brief-contracts. Se conserva, junto con nombres, argumentos y contrato público. No se migraron generación, invitaciones ni recordatorios en esta revisión.
+
+La evidencia SQL existente en brief-contracts cubre UUID inválido, sin sesión/admin sin Coordinación/unidad ajena/recurso inexistente, rollback de revocación al fallar auditoría, reintento correcto, alcance de toda la salida, otra salida intacta, repetición auditada y conexión cerrada. Exige ausencia de revalidación/éxito y de cambios parciales en fallos, y cero correo/fetch externo. Estos casos no cambian cupos, espera, herencia, permisos efectivos ni estados de inscripciones/informes.
+
+**Ejecución y límites:** se revisaron ramas, tipos, referencias activas, documentación y diff. No se repitieron suites ni compilación porque el código funcional permanece igual al validado: última integración de 19 grupos con PostgreSQL 18.7 desechable UTF-8 durante E3; última revalidación de 101 unitarias, ocho controles CI, contratos, TypeScript, lint y formato con Node 26.13.1/npm 11.7.0 durante C04. Esa evidencia anterior no se presenta como una ejecución nueva. No se accedió a bases, beta, dotenv privados ni proveedores.
+
+Pendiente CUA desktop/celular: error sin ocultar el enlace previo, reintento, confirmación únicamente en éxito, teclado y conservación de contexto. Es una acción sin campos: no corresponde fabricar foco de campo ni un resumen de correcciones. La inspección del cliente no sustituye esa prueba DOM. C06 queda reconocida como funcionalmente resuelta; el pendiente visual se mantiene en E7.

@@ -10,8 +10,8 @@ import { staff, staffScope } from '../../../lib/auth';
 import { registrationToday } from '../../../lib/outing-invitations';
 import { sql } from '../../../lib/db';
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ creadas?: string }> }) {
-  const { creadas } = await searchParams;
+export default async function Page({ searchParams }: { searchParams: Promise<{ creadas?: string; destacadaError?:string; error?:string }> }) {
+  const { creadas, destacadaError, error } = await searchParams;
   const user = await staff();
   if (!user) redirect('/coordinacion');
 
@@ -44,6 +44,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ c
     from scoped_outings o join requests r on r.id=o.request_id
     group by r.id having count(*) > 1` : [];
   return <><ContextReturnLink/>{operates && <CoordinationBreadcrumb current="Convocatorias de salida" />}<h1>{operates ? "Convocatorias de salida" : "Coordinación"}</h1>
+  {error && <p className="note" role="alert">{error}</p>}
+  {destacadaError && <p id="destacada" className="note" role="alert">{destacadaError}</p>}
   {!user.grants.length && <p>Tu cuenta está a la espera de permisos de ASVO.</p>}
   {!!available.length && <section className="card" id="salidas" data-navigation-list-container="outings">
     <div className="outings-table-heading">

@@ -28,7 +28,7 @@ El módulo futuro de capacitaciones vinculará cada curso completado al UUID de 
 
 ## Contratos heredados de operaciones
 
-El [inventario y plan por familias](docs/inventario-contratos-heredados.md) distingue contratos activos, compatibilidad y resultados legítimamente distintos de FormResult. La auditoría inicial fue documental; la [etapa del informe del 70](docs/contratos-informe-70.md) ya se implementó y verificó localmente. También se implementó la [etapa de enlaces privados del 70](docs/contratos-enlaces-70.md). También quedó completada la frontera de [ActionModal y wrappers](docs/contratos-action-modal.md), con pruebas locales y CUA acotada. También se migró [PhotoDialog: preparación y persistencia](docs/contratos-fotografias.md). Las demás familias y las matrices visuales completas permanecen pendientes.
+El [inventario y plan por familias](docs/inventario-contratos-heredados.md) distingue contratos activos, compatibilidad y resultados legítimamente distintos de FormResult. La auditoría inicial fue documental; la [etapa del informe del 70](docs/contratos-informe-70.md) ya se implementó y verificó localmente; C01 reauditada sin cambios funcionales adicionales. También se implementó la [etapa de enlaces privados del 70](docs/contratos-enlaces-70.md); las revisiones específicas de generación C05 y revocación C06 confirmaron que no requieren otra migración funcional. También quedó completada la frontera de [ActionModal y wrappers](docs/contratos-action-modal.md), con pruebas locales y CUA acotada. También se migró [PhotoDialog: preparación y persistencia](docs/contratos-fotografias.md), incluyendo C04 (errores de persistencia), reauditada sin requerir cambios funcionales adicionales. También se documenta la [etapa de destacada de portada](docs/contratos-destacada-portada.md). Se migraron también las [decisiones de inscripción y 70](docs/contratos-decisiones-inscripcion-70.md), conservando FIFO y los efectos de negocio vigentes. Se completaron además los [contratos de gestión antigua y compatibilidad](docs/contratos-gestion-antigua.md). También se completó [Crear serie manual](docs/contratos-serie-manual.md), conservando la semántica de repetición existente. La auditoría transversal y las matrices visuales completas permanecen pendientes.
 
 ## Versiones soportadas
 
@@ -165,11 +165,11 @@ Ver [comandos, compatibilidad y verificación local](docs/operaciones-base-datos
 
 ## Pruebas separadas y cobertura
 
-- `npm run test:unit`: 101 pruebas en la última evidencia registrada, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
+- `npm run test:unit`: 103 pruebas en la última evidencia registrada, incluidas las 20 de navegación; sin `.env`, base, red ni credenciales.
 - `npm run test:unit:coverage`: LCOV y resumen por módulo en `coverage/`, sobre un denominador explícito de 36 módulos puros; no mide toda la plataforma.
 - `npm run test:contracts`: cinco inventarios/contratos (fronteras, autorización, Auth.js y correo), sin proveedores reales.
 - `npm run test:ci`: siete comprobaciones de la pipeline, separadas de las unitarias del dominio.
-- `npm run test:integration`: 19 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
+- `npm run test:integration`: 23 grupos sobre bases locales desechables, con destino protegido y limpieza al finalizar. Requiere `.env.local` demo local y permiso para crear bases.
 - `npm run test:integration -- --only=summary`: ejecuta un grupo concreto con el mismo aislamiento.
 
 Ver [inventario y comandos](tests/README.md) y [medición inicial, exclusiones y umbrales propuestos](docs/pruebas-y-cobertura.md). Los scripts antiguos de integración ya no aceptan la base de uso diario: ejecutalos mediante el grupo correspondiente. TypeScript, compilación y navegador siguen siendo comprobaciones separadas.

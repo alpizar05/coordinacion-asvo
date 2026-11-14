@@ -88,9 +88,9 @@ try {
   const entries = await sql`select id,status from registrations where outing_id=${outingId} order by received_at,id`;
   const reserved = entries.filter(row => row.status === 'revisión');
   const firstWaiter = entries.find(row => row.status === 'espera');
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','2030-01-10/2030-01-12')),undefined);
-  assert.ok(await locked(tx => assignRegistration70(tx,firstWaiter.id,'prueba',true)), 'No se asigna 70 a una inscripción en espera');
-  assert.equal(await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true)),undefined);
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','2030-01-10/2030-01-12')),{saved:true});
+  assert.ok((await locked(tx => assignRegistration70(tx,firstWaiter.id,'prueba',true))).error, 'No se asigna 70 a una inscripción en espera');
+  assert.deepEqual(await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true)),{saved:true});
   const editDetails = { transporte: true, ofreceTransporte: 3, alimentacion: 'Sin gluten', interes70: true, otro: 'Observación de prueba' };
   const editVersion = async () => registrationVersion((await sql`select starts::text,ends::text,status,details from registrations where id=${reserved[0].id}`)[0]);
   const originalVersion = await editVersion();
@@ -151,18 +151,18 @@ try {
   assert.equal(await briefAccess(briefToken),undefined,'Los enlaces vencidos no permiten consultar datos');
   await sql`update outing_brief_links set expires_at=now()+interval '7 days' where digest=${digest(briefToken)}`;
 
-  assert.equal(await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',false)),undefined);
+  assert.deepEqual(await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',false)),{saved:true});
   assert.equal((await sql`select details from registrations where id=${reserved[0].id}`)[0].details.assigned70,false);
   await locked(tx => assignRegistration70(tx,reserved[0].id,'prueba',true));
   assert.equal(await briefAccess(briefToken),undefined,'Quitar y reasignar 70 no reactiva un enlace revocado');
   assert.ok((await locked(tx => saveOutingReport(tx,briefToken,reportValues,[reserved[0].id],true,[reserved[0].id]))).error,'Un enlace revocado no puede presentar informes');
-  assert.ok(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','','')),'Mover a espera requiere motivo');
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','Cambio de coordinación','')),undefined);
+  assert.ok((await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','',''))).error,'Mover a espera requiere motivo');
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','espera','Cambio de coordinación','')),{saved:true});
   assert.equal((await sql`select details from registrations where id=${reserved[0].id}`)[0].details.assigned70,undefined,'Mover a espera retira la asignación de 70');
   let rows = await sql`select id,status from registrations where outing_id=${outingId}`;
   assert.equal(rows.find(row => row.id === reserved[0].id).status,'espera','La persona movida no recupera inmediatamente su cupo');
   assert.equal(rows.find(row => row.id === firstWaiter.id).status,'revisión','La siguiente persona ocupa el cupo');
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[1].id,'prueba','rechazar','Rechazo de prueba','')),undefined);
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,reserved[1].id,'prueba','rechazar','Rechazo de prueba','')),{saved:true});
   assert.ok((await locked(tx => editStaffRegistration(tx,reserved[1].id,'coordinador-prueba','anterior','2030-01-10','2030-01-12',{}))).error,'No edita inscripciones rechazadas');
   rows = await sql`select id,status from registrations where outing_id=${outingId}`;
   assert.equal(rows.find(row => row.id === reserved[0].id).status,'revisión','La lista conserva su prioridad por recepción');
@@ -185,21 +185,21 @@ try {
   const [volunteerCancellation] = await sql`select * from demo_mail where recipient like ${emailPrefix + '%'} order by id desc limit 1`;
   assert.equal(volunteerCancellation.url,'');
   assert.doesNotMatch(volunteerCancellation.body,/\/privado\//);
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),undefined,
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),{saved:true},
     'Coordinación puede confirmar una inscripción cancelada por voluntariado');
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Prueba de nueva cancelación','')),undefined);
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Prueba de nueva cancelación','')),{saved:true});
   assert.ok((await locked(tx => editStaffRegistration(tx,firstWaiter.id,'coordinador-prueba','anterior','2030-01-10','2030-01-12',{}))).error,'No edita inscripciones canceladas');
   await sql`update policies set verified_at=null where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
-  assert.match(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),/póliza/);
+  assert.match((await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','',''))).error,/póliza/);
   await sql`update policies set verified_at=now() where volunteer_id=(select volunteer_id from registrations where id=${firstWaiter.id})`;
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),undefined,
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),{saved:true},
     'También puede confirmar una inscripción cancelada por coordinación');
   await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','cancelar','Restablecer escenario',''));
   assert.equal(await locked(tx => occupiedSeats(tx,outingId)),1,'La cancelación libera el cupo');
   assert.equal((await receive(people[3])).status,'revisión','El cupo liberado queda disponible para otra persona');
-  assert.match(await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','','')),/cupos están ocupados/);
+  assert.match((await locked(tx => changeRegistrationStatus(tx,firstWaiter.id,'prueba','confirmar','',''))).error,/cupos están ocupados/);
 
-  assert.equal(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','')),undefined);
+  assert.deepEqual(await locked(tx => changeRegistrationStatus(tx,reserved[0].id,'prueba','confirmar','','')),{saved:true});
   const [editMail] = await sql`select d.url from demo_mail d join volunteers v on v.email=d.recipient
     join registrations r on r.volunteer_id=v.id where r.id=${reserved[0].id} order by d.id desc limit 1`;
   const edit = new FormData(); edit.set('action','editar'); edit.set('starts','2030-01-11'); edit.set('ends','2030-01-12');

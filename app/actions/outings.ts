@@ -9,6 +9,7 @@ import {PhotoUploadError} from "../../lib/photo-upload-workflow";
 import {OutingCreationError} from "../../lib/outing-creation";
 import {sql} from "../../lib/db";
 import {field, uuid} from "../../lib/registration";
+import {legacyResultMessage,type LegacyOutingResult} from '../../lib/legacy-operation-result';
 import {manageOutingRecord} from "../../lib/staff-outing-management";
 import {logSafeFailure} from '../../lib/server-config.mjs';
 import {createStaffOuting} from "../../lib/create-staff-outing";
@@ -25,30 +26,33 @@ export async function createOuting(form: FormData): Promise<FormResult & {target
   }
 }
 
-export async function manageOuting(id: string, form: FormData) {
-  if (!uuid(id)) return;
-  const user = await staff();
-  const result=await sql.begin(tx=>manageOutingRecord(tx,id,form,user));
-  await dispatchRegistrationUpdates();
-  if (result === 'eliminada') redirect('/coordinacion/convocatorias?confirmacion=eliminada#salidas');
+export async function manageOuting(id: string, form: FormData):Promise<never> {
+  if (!uuid(id)) redirect('/coordinacion/convocatorias?error='+encodeURIComponent('La convocatoria no es válida.'));
+  let result:LegacyOutingResult;
+  try{const user=await staff();result=await sql.begin(tx=>manageOutingRecord(tx,id,form,user));}
+  catch{result={error:'No se pudo gestionar la convocatoria. Volvé a intentarlo.'};}
+  const saved=result.saved === true;
+  if(saved)await dispatchRegistrationUpdates();
+  if (result.saved === true && result.outcome === 'deleted') redirect('/coordinacion/convocatorias?confirmacion=eliminada#salidas');
   const back = `/coordinacion/salidas/${id}`;
   const action = field(form, 'action');
-  if (result === 'completada') redirect(`${back}?completada=1`);
-  if (action === 'agrupación') redirect(`${back}${result ? `?error=${encodeURIComponent(result)}` : '?confirmacion=agrupacion'}#agrupaciones`);
-  if (!result && action === 'cancelar-salida') redirect(`${back}?confirmacion=cancelada`);
+  if (result.saved === true && result.outcome === 'completed') redirect(`${back}?completada=1`);
+  const message=saved?'':legacyResultMessage(result);
+  if (action === 'agrupación') redirect(`${back}${saved ? '?confirmacion=agrupacion' : `?error=${encodeURIComponent(message)}`}#agrupaciones`);
+  if (saved && action === 'cancelar-salida') redirect(`${back}?confirmacion=cancelada`);
   const query = new URLSearchParams({ editar: '1' });
-  if (!result) query.set('confirmacion','salida');
-  if (result === 'unidad-incompatible') {
-    query.set('error', 'El cambio de unidad afectaría inscripciones activas o pendientes.');
+  if (saved) query.set('confirmacion','salida');
+  if (result.issue === 'unit-conflict') {
+    query.set('error', message);
     query.set('unidadPropuesta', field(form, 'unit'));
-  } else if (result) query.set('error', result);
+  } else if (!saved) query.set('error', message);
   const terminalAction = ['eliminar', 'cancelar-salida'].includes(action);
-  if (terminalAction && result) query.set('gestion', '1');
+  if (terminalAction && !saved) query.set('gestion', '1');
   const sections: Record<string, string> = {
     completar: '#completar-salida', datos: '#datos-salida', informacion: '#informacion-salida', solicitud: '#solicitud-apoyo',
     'heredar-fotos': '#fotos', fechas: '#fechas', cupo: '#cupos', visibilidad: '#visibilidad',
   };
-  const anchor = terminalAction ? '#gestionar-salida' : sections[action] ?? (result ? '#fotos' : '');
+  const anchor = terminalAction ? '#gestionar-salida' : sections[action] ?? (!saved ? '#fotos' : '');
   redirect(`${back}?${query}${anchor}`);
 }
 

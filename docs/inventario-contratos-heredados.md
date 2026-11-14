@@ -1,6 +1,6 @@
 # Inventario y plan de contratos heredados de resultados
 
-Fecha: 13 de noviembre de 2026. Base revisada: commit `a0061d7a22bdd702b4ccf4a120759a506b7d4351`, árbol funcional sin cambios. La auditoría inicial solo analizó y documentó. Posteriormente se implementó E1 localmente: ver [contratos del informe y evidencia](contratos-informe-70.md). Posteriormente también se implementó E2: ver [contratos de enlaces del 70](contratos-enlaces-70.md). C02 (ActionModal y wrappers) también se completó localmente: ver [evidencia y límites](contratos-action-modal.md). E3 (C03/C04) se implementó localmente: ver [contratos de fotografías](contratos-fotografias.md), con matriz visual pendiente. Los restantes casos conservan su estado inicial.
+Fecha: 13 de noviembre de 2026. Base revisada: commit `a0061d7a22bdd702b4ccf4a120759a506b7d4351`, árbol funcional sin cambios. La auditoría inicial solo analizó y documentó. Posteriormente se implementó E1 localmente: ver [contratos del informe y evidencia](contratos-informe-70.md). Posteriormente también se implementó E2: ver [contratos de enlaces del 70](contratos-enlaces-70.md). C02 (ActionModal y wrappers) también se completó localmente: ver [evidencia y límites](contratos-action-modal.md). E3 (C03/C04) se implementó localmente: ver [contratos de fotografías](contratos-fotografias.md), con matriz visual pendiente. E4/C08, E5/C07 y C09 (parte de E6) también están implementadas: ver [decisiones](contratos-decisiones-inscripcion-70.md), [destacada](contratos-destacada-portada.md) y [gestión antigua](contratos-gestion-antigua.md). C10 también está implementada; ver [contratos de serie manual](contratos-serie-manual.md). Quedan la auditoría E7 y los límites visuales/remotos explícitos de cada familia.
 
 ## Alcance y evidencia
 
@@ -20,7 +20,7 @@ No se leyeron dotenv privados ni se accedió a beta, proveedores, permisos reale
 
 - [FormResult](../lib/form-result.ts): éxito explícito `saved: true`, destino opcional y payload genérico; fallo con `error` y/o `fieldErrors`, cada campo admite varios mensajes. El fallo permite propiedades opcionales: `{}` es válido como estado inicial, pero no debe interpretarse como una operación exitosa ni convertirse en un nuevo resultado ambiguo de comandos.
 - [Feedback](../app/form-feedback/form-feedback.tsx): resumen, mensajes accesibles, identificadores por instancia, primer intento, revalidación localizada, apertura de secciones y foco. `showErrors` emite `asvo:form-errors`, con prioridad sobre restauración de posición. No reiniciar ni desmontar formularios al fallar.
-- [ActionModal](../app/coordinacion/action-modal.tsx): requiere `result?.saved` truthy para cerrar/confirmar; undefined falla con mensaje genérico. El contrato exige el literal true, pero el cast no impone ese valor en ejecución. Captura excepciones y conserva formulario, dirty y modal. El límite actual es su tipo amplio y cast, no que cualquier respuesta ya produzca éxito.
+- [ActionModal](../app/coordinacion/action-modal.tsx): exige Promise<FormResult>, valida la respuesta en ejecución y solo confirma saved === true. Conserva formulario, dirty y modal al fallar. Este punto refleja la implementación posterior C02; los hallazgos iniciales se conservan en su sección histórica.
 - [Confirmaciones](../app/status-ribbon.tsx): superficie compartida temporal, cinco segundos; para éxito, no para errores persistentes. Una confirmación de cola no significa entrega del correo.
 - [Navegación](contexto-de-navegacion.md): `navigationSaved`, destinos internos mediante `preserveCurrentNavigation`, filtros/pestaña/registro y restauración. Conservar los adapters de navegación; no copiar parámetros o tokens privados a almacenamiento nuevo.
 
@@ -30,22 +30,22 @@ No se propone otra unión de resultados global ni una capa genérica de operacio
 
 | ID | Familia/borde | Situación actual | Prioridad / riesgo |
 | --- | --- | --- | --- |
-| C01 | Informe del 70 | E1 implementada y verificada en contratos/SQL; nueva matriz visual pendiente | P1 / medio |
-| C02 | ActionModal y wrappers | Promise unknown y cast, con guard de éxito existente | P2 / medio por alcance transversal |
-| C03 | PhotoDialog y preparación/persistencia | string/void/FormResult mezclados; void cierra | P1 / medio-alto |
-| C04 | Errores de persistencia de fotos | Mensajes filtrados por prefijo, primer error de carga proyectado | P2 / medio-alto |
-| C05 | Generar enlace del 70 | E2 implementada/verificada localmente; comprobación visual pendiente | P2 / medio |
-| C06 | Revocar enlaces del 70 | E2 implementada/verificada localmente; confirmación explícita, visual pendiente | P1 / medio |
-| C07 | Destacada de portada | Servicio string/undefined y acción con redirect | P2 / medio |
-| C08 | Decisiones de inscripción/70 | Helpers string/undefined bajo acción estructurada activa | P2 / alto por cupos/cola |
-| C09 | Gestión antigua de salida/inscripción/serie/foto | Compatibilidad o JSX inalcanzable; no flujo editor actual | P3 / medio-alto si se retira sin comprobar |
-| C10 | Crear serie manual | Servicio ID/null; acción FormResult activa | P3 / bajo; tipado opcional, no defecto demostrado |
+| C01 | Informe del 70 | Implementado en 4733691; reauditoría específica sin cambios funcionales necesarios; visual pendiente | Seguimiento visual |
+| C02 | ActionModal y wrappers | Implementado: FormResult tipado y frontera runtime; CUA acotada, matriz completa pendiente | Seguimiento visual |
+| C03 | PhotoDialog y preparación/persistencia | Implementado en 4733691: preparación explícita y persistencia FormResult; visual pendiente | Seguimiento visual |
+| C04 | Errores de persistencia de fotos | Implementado junto a C03 en 4733691; reauditoría sin otro cambio funcional necesario | Seguimiento visual |
+| C05 | Generar enlace del 70 | Implementado en 4733691; reauditoría específica sin cambios funcionales necesarios; visual pendiente | Seguimiento visual |
+| C06 | Revocar enlaces del 70 | Implementado en 4733691; reauditoría específica sin cambios funcionales necesarios; visual pendiente | Seguimiento visual |
+| C07 | Destacada de portada | E5 implementada: FormResult explícito y redirect compatible, errores sin confirmación; CUA pendiente | Seguimiento visual |
+| C08 | Decisiones de inscripción/70 | E4 implementada: FormResult en helpers/consumidores; FIFO histórico conservado; CUA pendiente | Seguimiento visual |
+| C09 | Gestión antigua de salida/inscripción/serie/foto | E6/C09 implementada: contratos explícitos y redirects compatibles; Solicitud de apoyo sigue activa | Seguimiento visual / R2 |
+| C10 | Crear serie manual | Implementada: FormResult con ID/destino requeridos; repetición histórica conservada, R5 aparte | Seguimiento visual / E7 |
 
 Prioridad indica orden técnico recomendado, no un incidente de producción confirmado. C06 registró inicialmente un retorno void ante UUID inválido que el consumidor podía tratar como éxito; E2 lo corrigió y lo comprobó con la acción real. No se afirma que la UI normal genere ese UUID.
 
-## C01 — Informe del 70: E1 implementada localmente
+## C01 — Informe del 70: E1 implementada y reauditada
 
-**Estado posterior:** servicio, acción, adaptador y consumidores de pruebas usan el contrato explícito; sin espejo errors legado. Ver [evidencia y límites de E1](contratos-informe-70.md). Las pruebas visuales completas siguen pendientes. Los párrafos siguientes conservan el hallazgo inicial para contrastar el cambio.
+**Estado posterior:** E1 implementada en 4733691 y reauditada el 14/11 sin pendientes funcionales adicionales. Servicio, acción, adaptador y consumidores de pruebas usan el contrato explícito; sin espejo errors legado. Ver [evidencia y límites de E1](contratos-informe-70.md). Las pruebas visuales completas siguen pendientes. Los párrafos siguientes conservan el hallazgo inicial para contrastar el cambio.
 
 **Acción y consumidores.** [submitReport](../app/actions/reports.ts) → [saveOutingReport](../lib/outing-report.ts). Consumidor UI activo: [ReportForm](../app/resumen-salida/[token]/informe/report-form.tsx), montado desde su page. El [punto de entrada antiguo](../app/resumen-salida/[token]/informe/actions.ts) delega, sin consumidor JSX; permanece en pruebas.
 
@@ -75,7 +75,7 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C03 — PhotoDialog: distinguir preparar de persistir
 
-**Estado posterior (14/11):** migración local de contratos explícitos, errores tipados y consumidores conjuntos. [Evidencia y límites](contratos-fotografias.md). Los párrafos siguientes conservan el hallazgo inicial; la matriz CUA sigue pendiente.
+**Estado posterior (14/11):** contratos explícitos, errores tipados y consumidores conjuntos implementados en 4733691. C04 reauditada por separado sin otro cambio funcional necesario. [Evidencia y límites](contratos-fotografias.md). Los párrafos siguientes conservan el hallazgo inicial; la matriz CUA sigue pendiente.
 
 **Consumidores activos.** [PhotoDialog](../app/coordinacion/photo-dialog.tsx) recibe callbacks de NewOutingForm, OutingEditor y [AttachPhotos](../app/coordinacion/salidas/[id]/attach-photos.tsx). Los dos primeros solo preparan estado en memoria; AttachPhotos llama attachOutingPhoto para persistir.
 
@@ -89,7 +89,7 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C04 — Frontera de errores de fotografías
 
-**Estado posterior (14/11):** migración local de contratos explícitos, errores tipados y consumidores conjuntos. [Evidencia y límites](contratos-fotografias.md). Los párrafos siguientes conservan el hallazgo inicial; la matriz CUA sigue pendiente.
+**Estado posterior (14/11):** contratos explícitos, errores tipados y consumidores conjuntos implementados en 4733691. C04 reauditada por separado sin otro cambio funcional necesario. [Evidencia y límites](contratos-fotografias.md). Los párrafos siguientes conservan el hallazgo inicial; la matriz CUA sigue pendiente.
 
 **Acción/consumidores.** [mutatePhoto/attachOutingPhoto](../app/photo-actions.ts) → AttachPhotos → PhotoDialog; managePhoto es otra envoltura con redirect. OutingEditor usa saveOutingEdit, un camino diferente.
 
@@ -103,7 +103,7 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C05 — Generar enlace privado del 70
 
-**Estado posterior:** E2 implementada localmente. Servicio y acción retornan FormResult explícito, con link obligatorio en el éxito de generación; los conflictos conservan su categoría general. [Evidencia y límites](contratos-enlaces-70.md). Los párrafos siguientes registran el hallazgo inicial.
+**Estado posterior:** E2 implementada en 4733691 y C05 reauditada el 14/11 sin pendientes funcionales adicionales. Servicio y acción retornan FormResult explícito, con link obligatorio en el éxito de generación; los conflictos conservan su categoría general. [Evidencia y límites](contratos-enlaces-70.md). Los párrafos siguientes registran el hallazgo inicial.
 
 **Acción/consumidor.** generateBrief en [communications](../app/actions/communications.ts) → generateStaffBrief en [staff-communications](../lib/staff-communications.ts); [PrivateLinkForm](../app/coordinacion/private-link-form.tsx) dentro de ShareBrief consume `{saved,link}`/errores. Adaptador resumen/actions.ts permanece para pruebas, sin JSX.
 
@@ -117,7 +117,7 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C06 — Revocar enlaces del 70
 
-**Estado posterior:** E2 implementada localmente. UUID inválido, permisos y fallos devuelven error general; cliente solo confirma/oculta enlace tras saved === true. Se conserva el no-op auditado. [Evidencia y límites](contratos-enlaces-70.md). Los párrafos siguientes registran el hallazgo inicial.
+**Estado posterior:** E2 implementada en 4733691 y C06 reauditada el 14/11 sin pendientes funcionales adicionales. UUID inválido, permisos y fallos devuelven error general; cliente solo confirma/oculta enlace tras saved === true. Se conserva el no-op auditado. [Evidencia y límites](contratos-enlaces-70.md). Los párrafos siguientes registran el hallazgo inicial.
 
 **Acción/consumidor.** revokeBrief → revokeStaffBrief; [ShareBrief](../app/coordinacion/salidas/[id]/resumen/share-brief.tsx) espera resolución de Promise y anuncia revocación. Adaptador resumen/actions.ts y pruebas son consumidores de compatibilidad.
 
@@ -131,6 +131,8 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C07 — Convocatoria destacada
 
+**Estado posterior (14/11):** E5 implementada con FormResult en el servicio y éxito explícito en el adaptador HTTP, sin retornos silenciosos. Nueva suite SQL protegida; [evidencia y límites](contratos-destacada-portada.md). Los párrafos siguientes conservan el hallazgo inicial.
+
 **Acción/consumidores.** setHomepageFeature → saveHomepageFeature en [outing-series](../lib/outing-series.ts). [HomepageFeatureControl](../app/coordinacion/homepage-feature-control.tsx) activo en detalle de salida y serie automática; staff-actions conserva adaptador.
 
 **Contrato.** String de error/undefined de éxito; UUID/kind inválidos retornan silenciosamente. La acción redirige con destacadaError o confirmacion y fragmento #destacada. No analiza la redacción para el resultado, solo truthiness. Retirar selección inexistente puede no escribir/auditar y aun así volver a selección automática.
@@ -142,6 +144,8 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 **Pruebas/etapa.** No se localizaron referencias explícitas a homepage/feature/destacada en scripts/test-*.mjs; la suite functional-actions actual no demuestra este control de portada. Esto no descarta efectos indirectos, pero falta una prueba identificable de la operación. Agregar casos explícitos de destacar, retirar, no-op, plazo, permiso y error sin confirmación. Riesgo medio; familia independiente después de enlaces.
 
 ## C08 — Helpers de decisiones de inscripción activos
+
+**Estado posterior (14/11):** E4 implementada y verificada localmente. Helpers y consumidores usan FormResult explícito; se mantiene la promoción FIFO legítima aunque la reapertura solicitada sea rechazada. [Evidencia y límites](contratos-decisiones-inscripcion-70.md). Los párrafos siguientes conservan el hallazgo inicial.
 
 **Servicio/consumidores.** assignRegistration70 y changeRegistrationStatus en [registration-workflow](../lib/registration-workflow.ts) devuelven string o undefined. Los consume manageStaffEntry, que ya devuelve FormResult y es usado por manageRegistration → ManageRegistrationForm/RegistrationActions (menú desktop y panel inferior móvil). También manageLegacyEntry y pruebas directas.
 
@@ -155,23 +159,27 @@ Prioridad indica orden técnico recomendado, no un incidente de producción conf
 
 ## C09 — Compatibilidad y ramas de edición antiguas
 
+**Estado posterior (14/11):** C09 implementada/verificada como parte de E6. Se conservan adaptadores, redirects y la promoción FIFO legítima; sin strings/void ambiguos en los servicios migrados. Solicitud de apoyo mantiene un consumidor alcanzable de manageOuting fuera de edición. [Contratos, pruebas y límites](contratos-gestion-antigua.md). La tabla y párrafos siguientes conservan el inventario inicial, con la corrección de alcanzabilidad.
+
 **Casos y consumidores reales.**
 
-| Camino | Contrato | Uso encontrado / decisión |
+| Camino | Contrato inicial (histórico) | Uso encontrado / decisión |
 | --- | --- | --- |
-| manageOuting → manageOutingRecord | string/undefined; códigos completada, eliminada, unidad-incompatible mezclados con errores; redirect con query/fragmento | Referencias JSX en page de salida, pero los formularios se evalúan en information/tools cuando editing; el return final muestra esos paneles solo cuando no editing. El editor actual usa saveOutingEdit; editEnd sí se pasa al editor y usa OutingDecisionForm, no debe borrarse. Hay pruebas directas functional-actions y adaptador staff-actions. |
+| manageOuting → manageOutingRecord | string/undefined; códigos completada, eliminada, unidad-incompatible mezclados con errores; redirect con query/fragmento | Solicitud de apoyo sigue alcanzable con canEditRequest fuera de edición. Otros formularios bajo editing en information/tools no se muestran con el return actual. El editor usa saveOutingEdit y editEnd/OutingDecisionForm; no borrar esos caminos ni la solicitud activa. Hay pruebas functional-actions/legacy-operation-contracts y adaptador staff-actions. |
 | manageEntry → manageLegacyEntry | void si UUID/ref inválido; objeto back para éxito/error; acción redirige a back o /coordinacion | Sin consumidor JSX localizado; conserva adaptador staff-actions. El flujo actual es manageRegistration. Tests/inventario pueden exigir exportación; no retirar automáticamente. |
 | updateAutomaticCollection | FormResult de fallo o redirect de éxito | Sin consumidor JSX; CollectionEditor usa saveAutomaticCollection. Adaptador staff-actions; verificar importadores y contrato publicado antes de retirar. |
 | managePhoto | Resultado FormResult convertido a mensaje general y redirect, perdiendo campo específico | Referencia JSX dentro de rama editing inalcanzable del panel information; AttachPhotos usa attachOutingPhoto. No equivale al flujo actual del diálogo. |
 | privateAction | FormResult interno convertido a redirect actualizada/error booleano | Compatibilidad y test-registration-workflow; UI privada usa submitPrivateRegistration. Conservar mientras existan consumidores autorizados. |
 
-**Permisos/efectos.** manageOutingRecord bloquea salida y requiere unidad; gestiona fechas, cupo, solicitudes compartidas, cancelaciones y cola/auditoría. manageLegacyEntry conserva permisos y cambio bajo bloqueo, filtros históricos y dispatch. Las envolturas no deben confirmar ni enviar después de una validación fallida. Revisar efectos existentes por camino, no suponer que un nombre legacy implica que nunca pueda invocarse directamente.
+**Permisos/efectos.** manageOutingRecord bloquea salida y requiere unidad; gestiona fechas, cupo, solicitudes compartidas, cancelaciones y cola/auditoría. manageLegacyEntry conserva permisos y cambio bajo bloqueo, filtros históricos y dispatch. Las envolturas no deben confirmar tras fallo. C09 conserva despacho explícito cuando una reapertura rechazada pudo promover legítimamente la espera; no equivale a confirmar la reapertura. Los errores puros de controles no habilitan ese despacho. Revisar efectos existentes por camino, no suponer que un nombre legacy implica que nunca pueda invocarse directamente.
 
 **Conservación/objetivo.** Donde hay redirect no se conserva el formulario montado: no atribuirle las garantías del editor nuevo. La migración mínima futura es clasificar compatibilidad, decidir conservar/deprecar, tipar el servicio si sigue necesario y mantener el redirect externo. No convertir redirects en objetos a ciegas, ni atraparlos como fallos de guardado. No borrar exports solo por falta de JSX. Limpieza de ramas muertas corresponde a R2, coordinada pero separada de R1.
 
 **Pruebas/etapa.** functional-actions compara redirects de manageOuting y adaptador, incluidos anchors/errores; registration prueba privateAction; auditor de fronteras exige delegación de los adapters. Para manageEntry/updateAutomaticCollection/managePhoto no se identificó una matriz dinámica completa que legitime su retiro. Inventariar compatibilidad externa y agregar tests de invalidez/redirect antes de modificar. P3, riesgo medio-alto por API y navegación histórica; no es la primera familia de formularios activos.
 
 ## C10 — Crear serie manual: resultado especializado permitido
+
+**Estado posterior (14/11):** C10 implementada/verificada localmente con el contrato compartido, ID/destino obligatorios en éxito y errores técnicos generales seguros. Adaptador y formulario migrados juntos; no cambia la idempotencia R5. [Evidencia y límites](contratos-serie-manual.md). Los párrafos siguientes conservan el hallazgo inicial.
 
 **Acción/consumidor.** saveManualSeries → createOutingCollection → CollectionForm. ID o null por selección no disponible; acción ya devuelve error general o saved/destination.
 
@@ -208,7 +216,7 @@ Comandos futuros según familia: `npm run ci:typecheck`, `npm run lint`, `npm ru
 
 ## Pendientes y decisiones
 
-La auditoría por sí sola no completó implementaciones. E1 fue implementada y verificada después en local; ver su informe enlazado. E2 también fue implementada/verificada localmente. Próximo paso técnico: E3 (fotografías), manteniendo las verificaciones visuales de E1/E2 pendientes. Mantener por separado R3 (políticas de sesión), R2 (JSX/adapters sin uso) y R5 (idempotencia restante). No mezclar su alcance con completar resultados.
+La auditoría por sí sola no completó implementaciones. E1 fue implementada y verificada después en local; ver su informe enlazado. E2 también fue implementada/verificada localmente. C02, E3 (C03/C04), E4 (C08) y E5 (C07) también están implementadas; la reauditoría específica de C04 sobre 4733691 no encontró un pendiente funcional adicional. C09 también está implementada como parte de E6. C10 también está implementada. Próximo paso técnico: auditoría E7, manteniendo las verificaciones visuales pendientes de cada familia. Mantener por separado R3 (políticas de sesión), R2 (JSX/adapters sin uso) y R5 (idempotencia restante). No mezclar su alcance con completar resultados.
 
 Se necesita decisión antes de retirar compatibilidad externa de C09 o de modificar semántica de no-op; la opción conservadora es preservarlas. No hace falta cambiar reglas de cupos, borrador/finalización o permisos para ejecutar E1.
 

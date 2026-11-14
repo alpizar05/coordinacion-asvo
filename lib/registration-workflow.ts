@@ -1,3 +1,4 @@
+import type {FormResult} from './form-result';
 import {outingIsOpen,registrationStaffMutable,registrationCanReopen,staffRegistrationTransition,reservationTransition,promotionTransition,assign70Transition} from './workflow-transitions';
 import { appUrl, demo, sql } from './db';
 import { audit, hours, type Transaction } from './registration';
@@ -35,47 +36,48 @@ export async function dispatchRegistrationUpdates() {
   catch { console.error('Los correos de inscripción siguen pendientes de envío.'); }
 }
 
-export async function assignRegistration70(tx: Transaction, id: string, actor: string, assigned: boolean) {
+export async function assignRegistration70(tx: Transaction, id: string, actor: string, assigned: boolean):Promise<FormResult> {
   const [entry] = await tx`select r.status,o.status as outing_status from registrations r
     join outings o on o.id=r.outing_id where r.id=${id}`;
   const decision=assign70Transition(entry?.status??'',entry?.outing_status??'',assigned);
-  if('error' in decision)return decision.error;
+  if('error' in decision)return {error:decision.error};
   await tx`update registrations set details=jsonb_set(coalesce(details,'{}'::jsonb),'{assigned70}',${tx.json(assigned)}::jsonb) where id=${id}`;
   if (!assigned) await tx`update outing_brief_links set revoked_at=now() where lead_registration_id=${id} and revoked_at is null`;
   await audit(tx,actor,decision.audit,id);
   await notifyRegistration(tx,id,decision.message);
+  return {saved:true};
 }
 
 // Caller holds the outing lock; adapter versions are checked under that same lock.
-export async function changeRegistrationStatus(tx: Transaction, id: string, actor: string, action: string, reason: string, approveDates: string) {
+export async function changeRegistrationStatus(tx: Transaction, id: string, actor: string, action: string, reason: string, approveDates: string):Promise<FormResult> {
   const [entry] = await tx`select *,starts::text as first_day,ends::text as last_day from registrations where id=${id}`;
   const reopening = entry && registrationCanReopen(entry.status,action);
-  if (!entry || !registrationStaffMutable(entry.status,action)) return 'Esta inscripción ya no está activa.';
+  if (!entry || !registrationStaffMutable(entry.status,action)) return {error:'Esta inscripción ya no está activa.'};
   const [outing] = await tx`select *,starts::text as first_day,ends::text as last_day from outings where id=${entry.outing_id}`;
-  if (!outing || !outingIsOpen(outing.status)) return 'La salida debe estar abierta o confirmada.';
+  if (!outing || !outingIsOpen(outing.status)) return {error:'La salida debe estar abierta o confirmada.'};
   const decision=staffRegistrationTransition(entry.status,outing.status,action,reason);
-  if('error' in decision)return decision.error;
+  if('error' in decision)return {error:decision.error};
   if(action==='confirmar'){
     const outside = entry.first_day < outing.first_day || entry.last_day > outing.last_day;
     if (outside && (!outing.flexible || approveDates !== `${entry.first_day}/${entry.last_day}`)) {
-      return 'Revisá y aprobá las fechas fuera del rango publicado.';
+      return {error:'Revisá y aprobá las fechas fuera del rango publicado.'};
     }
     if (reopening) {
       if ((await tx`select 1 from registrations where outing_id=${outing.id} and volunteer_id=${entry.volunteer_id}
-        and id<>${id} and status in ('validación','revisión','espera','confirmada')`).length) return 'La persona ya tiene otra inscripción activa en esta salida.';
+        and id<>${id} and status in ('validación','revisión','espera','confirmada')`).length) return {error:'La persona ya tiene otra inscripción activa en esta salida.'};
       await promoteWaitlist(tx,outing.id,actor);
     }
-    if ((entry.status === 'espera' || reopening) && await occupiedSeats(tx,outing.id) >= outing.capacity) return 'Todos los cupos están ocupados.';
+    if ((entry.status === 'espera' || reopening) && await occupiedSeats(tx,outing.id) >= outing.capacity) return {error:'Todos los cupos están ocupados.'};
     const [person] = await tx`select units from volunteers where id=${entry.volunteer_id}`;
-    if (!person || (outing.unit !== 'Voluntariado General' && !person.units.includes(outing.unit))) return 'La ficha no pertenece a la unidad requerida.';
+    if (!person || (outing.unit !== 'Voluntariado General' && !person.units.includes(outing.unit))) return {error:'La ficha no pertenece a la unidad requerida.'};
     const [policy] = await tx`select id from policies where volunteer_id=${entry.volunteer_id} and verified_at is not null
       and starts<=${entry.first_day}::date and ends>=${entry.last_day}::date order by verified_at desc limit 1`;
-    if (!policy) return 'Falta una póliza vigente para todo el periodo.';
+    if (!policy) return {error:'Falta una póliza vigente para todo el periodo.'};
     await tx`update registrations set status=${decision.status},policy_id=${policy.id},details=case when ${!!reopening} then details-'assigned70' else details end where id=${id}`;
     await audit(tx,actor,decision.audit,id);
     if (outside) await audit(tx,actor,'Aprobó fechas fuera del rango',id,`${entry.first_day} al ${entry.last_day}`);
     await notifyRegistration(tx,id,decision.message);
-    return;
+    return {saved:true};
   }
   const status=decision.status;
   await tx`update registrations set status=${status},details=details-'assigned70' where id=${id}`;
@@ -83,6 +85,7 @@ export async function changeRegistrationStatus(tx: Transaction, id: string, acto
   await audit(tx,actor,decision.audit,id,reason);
   await notifyRegistration(tx,id,decision.message);
   await promoteWaitlist(tx,outing.id,actor,action === 'espera' ? [id] : []);
+  return {saved:true};
 }
 
 export async function receiveRegistration(tx: Transaction, input: {

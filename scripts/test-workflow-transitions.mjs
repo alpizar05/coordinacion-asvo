@@ -66,7 +66,7 @@ try{
  const before=await snapshot();
  await assert.rejects(()=>locked(atomic,async tx=>{await tx`select set_config('asvo.fail_mail_registration',${b.id},true)`;return changeRegistrationStatus(tx,a.id,'ficticio','cancelar','Motivo','');}),/synthetic mail failure/);
  assert.deepEqual(await snapshot(),before,'Cancellation, promotion, audits, links and outbox are one transaction');
- assert.equal(await locked(atomic,tx=>changeRegistrationStatus(tx,a.id,'ficticio','cancelar','Motivo','')),undefined);
+ assert.deepEqual(await locked(atomic,tx=>changeRegistrationStatus(tx,a.id,'ficticio','cancelar','Motivo','')),{saved:true});
  assert.equal((await sql`select count(*)::int as n from audit where target=${b.id} and action='Asignó cupo desde lista de espera'`)[0].n,1);
  // Failure during bulk outing cancellation also rolls back previously queued messages.
  const bulkBefore=await snapshot();
@@ -126,7 +126,7 @@ try{
  // Unknown historical states survive rejected operations; no migration or normalization is run.
  const historical=await outing('histórico desconocido'),historicalEntry=randomUUID(),p=await person();
  await sql`insert into registrations(id,outing_id,volunteer_id,identification,starts,ends,status,details)values(${historicalEntry},${historical},${p.id},${p.identification},'2000-01-01','2000-01-02','completada','{}'::jsonb)`;
- const historicalSnapshot=await snapshot();assert.ok(await locked(historical,tx=>changeRegistrationStatus(tx,historicalEntry,'ficticio','confirmar','','')));assert.ok((await decision(historical,'completar',{confirmCompleted:'on'})).error);assert.deepEqual(await snapshot(),historicalSnapshot);
+ const historicalSnapshot=await snapshot();assert.ok((await locked(historical,tx=>changeRegistrationStatus(tx,historicalEntry,'ficticio','confirmar','',''))).error);assert.ok((await decision(historical,'completar',{confirmCompleted:'on'})).error);assert.deepEqual(await snapshot(),historicalSnapshot);
  assert.equal(await locked(id,tx=>occupiedSeats(tx,id)),3);
  assert.ok((await sql`select recipient from registration_mail_outbox`).every(row=>row.recipient.endsWith('.test')));assert.equal(network,0);
  console.log('OK: transiciones, recuperación cancelada, promociones FIFO, decisiones/versiones simultáneas, outbox/auditoría atómicos ante fallos, informes borrador/finalizado y estados históricos intactos. Cero red/envíos reales.');

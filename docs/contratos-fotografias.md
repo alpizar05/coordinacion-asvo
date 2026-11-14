@@ -43,3 +43,24 @@ No se ejecutó una nueva matriz visual CUA de PhotoDialog en esta etapa. Siguen 
 Se detectaron dos ajustes del entorno de prueba, sin modificar reglas del producto: el archivo oficial Node incluye una versión npm distinta y se seleccionó npm 11.7.0; el primer clúster SQL_ASCII falló en la prueba existente de nombres acentuados y se recreó como UTF-8 antes de repetir la suite. Mantener estas condiciones al reproducir.
 
 E3 funcional/automatizada solo se cierra con las suites documentadas; la matriz visual queda explícitamente pendiente. E4/E5, compatibilidad restante E6 y auditoría E7 conservan su seguimiento.
+
+## Reauditoría específica de errores de persistencia (C04)
+
+14/11/2026, base `473369105b3257d03ce0b4df9788f850e150c812`. La implementación anterior ya incluía C04 y se publicó por autorización posterior a esa etapa. Esta revisión no publica nada y no agrega cambios funcionales artificiales. El índice del inventario aún describía como actuales los hallazgos iniciales, y su siguiente paso seguía indicando E3: se corrigió el seguimiento sin marcar completa la matriz visual.
+
+Se revisaron `photo-actions`, `photo-mutation`, `photo-upload-workflow`, las acciones de creación/editor y AttachPhotos/PhotoDialog. El servicio interno savePhotoMutation puede devolver void tras una mutación o un no-op: no es el contrato cliente ni se interpreta como éxito mediante texto. El workflow confirma la transacción y la acción devuelve FormResult. No requiere otra unión de resultados ni retirar ese protocolo interno.
+
+| Caso | Contrato observable conservado | Evidencia existente |
+| --- | --- | --- |
+| Metadatos/archivo/selección inválidos | fieldErrors conjuntos, incluidos varios mensajes; sin invalidación | photo-uploads: acción real y FormData ficticio; unitarias de photo-result |
+| Archivo ilegible | Error del control photo; archivo conservado | photo-uploads: decoding y preparación de varios archivos |
+| Graph rechaza o responde ambiguamente | Error general de proveedor; sin éxito; compensación y seguimiento durable | photo-uploads: failure, timeout, malformed y protección de referencias |
+| Versión obsoleta/carga concurrente | Error general; rollback y referencias protegidas | photo-uploads: cambio durante PUT, lease y dos intentos |
+| Permiso insuficiente | Error general; autorización antes de bytes y antes de commit | photo-uploads y autorización; origen de galería sin permiso |
+| Falla auditoría/SQL | Error general seguro; sin invalidación ni confirmación; reintento posible | photo-uploads: trigger ficticio, rollback, reintento y conteo |
+| Guardado correcto/repetido | saved true solo tras confirmación; sin foto duplicada | photo-uploads: commit, ledger y replay de galería |
+| Fallo en cliente | Modal y estado no se limpian; no se llama navigationSaved | Revisión de ramas de PhotoDialog/AttachPhotos y pruebas de frontera; comprobación DOM específica pendiente |
+
+`managePhoto` sigue teniendo consumidores activos para portada/orden/retiro en el detalle. Conserva el redirect compatible y no se eliminó. No se transforman esos botones sin campos en errores artificiales de controles. Un error de transporte que rechaza la acción sigue siendo general mediante el catch cliente. No se introdujeron cambios de permisos, bloqueos, auditoría, notificaciones, herencia ni reglas de cupos.
+
+Revalidación de esta revisión con Node 26.13.1 y npm 11.7.0: 101 unitarias y cobertura de 37 módulos, ocho controles CI, contratos, TypeScript, lint y formato. Los 19 grupos SQL y la compilación Webpack citados arriba corresponden a la ejecución anterior sobre el mismo código funcional; no se volvieron a ejecutar ni se usó una base de aplicación en esta revisión documental. No se presenta esa evidencia previa como una nueva corrida. Sin Graph/correo, dotenv, fixtures persistentes ni acceso a beta. La matriz CUA específica permanece pendiente.

@@ -7,16 +7,20 @@ import {commonOutingFields} from "./collection-fields";
 import {audit, field, outingIsEditable} from "./registration";
 import {outingUnitHasConflict} from "./outing-unit-conflict";
 
-export async function saveManualSeries(tx:import("./registration").Transaction,selected:string[],name:string,description:string,user:NonNullable<import("./authorization").StaffPrincipal>,general:boolean,scopes:string[]){
+export type ManualSeriesField='name'|'description'|'outing';
+export type ManualSeriesSaveResult=FormResult<ManualSeriesField,{id:string}>;
+export type ManualSeriesCreateResult=FormResult<ManualSeriesField,{destination:string}>;
+
+export async function saveManualSeries(tx:import("./registration").Transaction,selected:string[],name:string,description:string,user:NonNullable<import("./authorization").StaffPrincipal>,general:boolean,scopes:string[]):Promise<ManualSeriesSaveResult>{
     const outings = await tx`select id from outings where id = any(${selected}::uuid[])
       and (${general} or unit = any(${scopes}::text[])) order by id for share`;
-    if (outings.length !== selected.length) return null;
-    const [collection] = await tx`insert into outing_collections(name,description,created_by)
+    if (outings.length !== selected.length) return {error:'Una de las salidas seleccionadas ya no está disponible para tu rol. Revisá la selección.'};
+    const [collection] = await tx<{id:string}[]>`insert into outing_collections(name,description,created_by)
       values (${name},${description},${user.subject}) returning id`;
     await tx`insert into outing_collection_members(collection_id,outing_id)
       select ${collection.id}::uuid,id from unnest(${selected}::uuid[]) as members(id)`;
     await audit(tx, user.subject, 'Creó colección de salidas', collection.id);
-    return collection.id;
+    return {saved:true,id:collection.id};
 
 }
 
@@ -87,14 +91,14 @@ export async function saveCommonSeries(tx:import("./registration").Transaction,i
 
 }
 
-export async function saveHomepageFeature(tx:import("./registration").Transaction,kind:"outing"|"request",id:string,user:import("./authorization").StaffPrincipal,clear:boolean){
+export async function saveHomepageFeature(tx:import("./registration").Transaction,kind:"outing"|"request",id:string,user:import("./authorization").StaffPrincipal,clear:boolean):Promise<FormResult>{
     const blocks = await tx<{ unit: string; available: boolean }[]>`
       select unit,(status='abierta' and listed and coalesce(registration_deadline,starts) >= ${registrationToday}) as available
       from outings where ${kind === 'outing' ? tx`id=${id}` : tx`request_id=${id}`}
       order by id for share`;
-    requireStaff(user, allows(user,'series.feature',{units:blocks.map(block=>block.unit)}));
+    if(!user||!allows(user,'series.feature',{units:blocks.map(block=>block.unit)}))return {error:'No tenés permiso para destacar esta convocatoria.'};
     if (!clear && !blocks.some(block => block.available)) {
-      return 'Solo podés destacar convocatorias públicas con inscripciones abiertas.';
+      return {error:'Solo podés destacar convocatorias públicas con inscripciones abiertas.'};
     }
     if (clear) {
       const removed = await tx`delete from homepage_feature
@@ -107,5 +111,5 @@ export async function saveHomepageFeature(tx:import("./registration").Transactio
         on conflict (singleton) do update set outing_id=excluded.outing_id,request_id=excluded.request_id`;
       await audit(tx,user.subject,'Destacó convocatoria en portada',id);
     }
-
+    return {saved:true};
 }

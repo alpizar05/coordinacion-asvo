@@ -11,6 +11,7 @@ import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedba
 import { ActiveFilters } from '../../active-filters';
 import { TableFilters } from '../../table-filters';
 import { useState } from 'react';
+import {checkedFormResult,fieldErrorMessages} from '../../../../lib/form-result';
 import { createOutingCollection } from '../../../actions/series';
 import type { OutingRow } from '../../outings-table';
 
@@ -33,7 +34,7 @@ export function CollectionForm({ outings }: { outings: OutingRow[] }) {
     return terms.every(term => text.includes(term));
   });
 
-  return <FormFeedbackProvider feedback={feedback}><form ref={form} noValidate onChange={e=>{const t=e.target;if(t instanceof HTMLInputElement||t instanceof HTMLTextAreaElement)feedback.changed(t.name);}} onSubmit={async e=>{e.preventDefault();if(busy.current)return;const data=new FormData(e.currentTarget),errors=validateManualSeries(data);if(Object.keys(errors).length){feedback.showErrors(errors);return;}busy.current=true;setPending(true);try{const result=await createOutingCollection({},data);if(result.saved&&result.destination)router.push(result.destination);else feedback.showErrors(result.fieldErrors,result.error);}catch{feedback.showErrors({},'No se pudo crear la serie. La selección y los datos se conservan.');}finally{busy.current=false;setPending(false);}}}><FormErrorSummary/><FormFeedbackBindings form={form}/>
+  return <FormFeedbackProvider feedback={feedback}><form ref={form} noValidate onChange={e=>{const t=e.target;if(t instanceof HTMLInputElement||t instanceof HTMLTextAreaElement)feedback.changed(t.name);}} onSubmit={async e=>{e.preventDefault();if(busy.current)return;const data=new FormData(e.currentTarget),errors=validateManualSeries(data);if(Object.keys(errors).length){feedback.showErrors(errors);return;}busy.current=true;setPending(true);try{const result=checkedFormResult(await createOutingCollection({},data));if(result.saved === true&&result.destination)router.push(result.destination);else feedback.showErrors(result.fieldErrors,result.error||(Object.values(result.fieldErrors||{}).some(value=>fieldErrorMessages(value).length)?'':'No se pudo confirmar la creación de la serie. La selección y los datos se conservan.'));}catch{feedback.showErrors({},'No se pudo crear la serie. La selección y los datos se conservan.');}finally{busy.current=false;setPending(false);}}}><FormErrorSummary/><FormFeedbackBindings form={form}/>
     <SectionWorkspace title="Nueva convocatoria en serie" active={step} onSelect={setStep} trackChanges discardHref="/coordinacion/convocatorias#colecciones" pending={pending}
       notice={pending?'Guardando…':`${selected.length} ${selected.length===1?'salida seleccionada':'salidas seleccionadas'}`}
       toolbar={<button type="submit" className="coord-button-primary" disabled={pending}>{pending?'Guardando…':'Crear serie'}</button>}

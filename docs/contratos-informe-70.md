@@ -57,3 +57,32 @@ No se ejecutó una nueva sesión CUA ni una matriz visual desktop/celular. El fo
 No se repitió Turbopack en esta etapa: el cambio de frontera se comprobó con Webpack, el compilador de referencia del despliegue; la comprobación adicional y el CI manual existentes se conservan. Primera CI remota, contenedor Linux, infraestructura, permisos reales y proveedores siguen pendientes por separado.
 
 Sin migraciones, cambios de configuración de proveedor, correos/cargas reales o publicación. Limpieza final comprobada: PostgreSQL 18.7 sin bases asvo de fixtures, servidor detenido y clúster/binarios/fuentes/logs temporales retirados; las copias de tipos/build fueron retiradas por sus ejecutores. Los triggers sintéticos desaparecieron con las bases desechables. E1 queda completada a nivel funcional/automatizado local; el pendiente visual permanece explícito en TODO y no cierra la auditoría transversal E7.
+
+## Reauditoría específica C01 — Informe del 70
+
+14/11/2026, código funcional de `473369105b3257d03ce0b4df9788f850e150c812`. E1 ya se implementó y fue publicada posteriormente con autorización expresa. Esta revisión no publica ni cambia código funcional. Se contrastaron AGENTS, inventario, la familia anterior, servicio, acción, adaptador, formulario/página, resultados puros y consumidores de pruebas.
+
+No se encontró un contrato heredado activo adicional que requiera otra migración. Los párrafos del inventario sobre id/status sin saved y espejo errors son hallazgos históricos, no la implementación vigente. Se actualizó su estado para evitar repetir E1.
+
+| Borde o caso | Estado vigente y comportamiento que se conserva |
+| --- | --- |
+| saveOutingReport | Promise<ReportSaveResult>; éxito exige saved true, id y status; errores independientes del validador en fieldErrors |
+| submitReport y adaptador | ReportSubmissionResult; destino solo después de commit y validación del resultado; adaptador activo en pruebas, sin retiro |
+| Borrador | Admite incompletitud final, conserva versión y contenido; no submitted_at ni evidencia de asistencia |
+| Finalización | Validación completa, estado finalizado y auditoría atómicos; edición posterior rechazada |
+| Permisos/enlace/roster/versión/conexión | Generales, sin controles artificiales; vigencia y asignación se revalidan en servidor y bajo los bloqueos vigentes |
+| Respuesta inválida o contradictoria | reportSubmissionResult no autoriza navegación ni invalidación; no interpreta texto para decidir éxito |
+| Formulario ante error | Conserva estado y secciones montadas; revealField abre la sección del error, feedback conserva prioridad del foco; sin replace/refresh de éxito |
+| Confirmación | reportConfirmation exige un informe persistido en el estado correspondiente; un flag de URL aislado no confirma |
+
+Se conservaron los contratos HTTP, rutas y argumentos, guardias contra abuso, auditoría y límites transaccionales. El informe no envía correo ni altera cupos/espera, y no completa por sí solo la convocatoria. `_previous` es estado inicial compatible del formulario, no un resultado ambiguo de persistencia. Las consultas de lectura pueden tener resultados distintos de FormResult y no se migraron artificialmente.
+
+### Evidencia vigente y alcance de esta revisión
+
+`tests/unit/report-result.test.mjs` comprueba borrador/final, respuestas legadas/contradictorias, errores generales y múltiples mensajes sin mutación, y confirmaciones condicionadas al estado persistido. `test-functional-actions` cubre acción y adaptador con SQL real, entradas inválidas, errores múltiples, borrador incompleto, selección/versión obsoleta, fallo de persistencia, reintento, finalización y repetición bloqueada; exige ausencia de destino, invalidaciones y correo en fallos. Las suites de transiciones y autorización conservan concurrencia y rollback de auditoría.
+
+La última integración completa sobre este mismo código funcional pasó 19 grupos con PostgreSQL 18.7 local desechable UTF-8 durante E3. La revalidación posterior C04 pasó 101 unitarias, ocho controles CI, contratos, TypeScript, lint y formato con Node 26.13.1/npm 11.7.0. No se repitieron suites, compilación ni escrituras SQL en esta revisión documental: no hubo cambios funcionales ni fallos nuevos que lo justifiquen. Las cifras de la tabla original corresponden a la ejecución histórica de E1 y no se sustituyen como si hubiera sido una corrida nueva.
+
+Aquí se verificaron referencias activas, coherencia de documentación, enlaces locales y diff. No se leyeron dotenv privados ni se accedió a beta/proveedores. No se generaron fixtures, tokens, mensajes, cambios de permisos o migraciones. Se conservaron los cambios documentales previos de C04/C05.
+
+Sigue pendiente CUA específica desktop/celular para foco/secciones, conservación de datos, borrador precargado, finalización bloqueada y navegación. Las pruebas SQL/unitarias y la CUA anterior de ActionModal no acreditan esos recorridos. C01 está resuelta funcionalmente; la matriz visual continúa en E7.

@@ -2,7 +2,7 @@
 import { useRef,useState } from 'react';
 import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateEntryManagement,staffRegistrationLabels } from '../../lib/staff-registration-validation';
-import { fieldErrorMessages } from '../../lib/form-result';
+import { checkedFormResult,fieldErrorMessages } from '../../lib/form-result';
 import { manageRegistration } from '../actions/registrations';
 
 type Entry={id:string;version:string;identification:string;starts:string;ends:string};
@@ -17,7 +17,7 @@ export function ManageRegistrationForm({entry,outing,action,title,onBack,onSaved
   const data=new FormData(event.currentTarget),errors=validateEntryManagement(data,action,approval);
   if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
   inFlight.current=true;setPending(true);onPending(true);
-  try{const result=await manageRegistration(entry.id,data);if(!result.saved)feedback.showErrors(result.fieldErrors,result.error);else onSaved();}
+  try{const result=checkedFormResult(await manageRegistration(entry.id,data));if(result.saved !== true)feedback.showErrors(result.fieldErrors,result.error);else onSaved();}
   catch{feedback.showErrors({},'No se pudo gestionar la inscripción. Tus datos se conservan para reintentar.');}
   finally{inFlight.current=false;setPending(false);onPending(false);}
  }}>

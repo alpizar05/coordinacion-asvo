@@ -1,4 +1,5 @@
 'use server';
+import type {ManualSeriesCreateResult} from '../lib/outing-series';
 import * as session from "./actions/session";
 import * as administration from "./actions/administration";
 import * as communications from "./actions/communications";
@@ -70,7 +71,7 @@ export async function recordVolunteerIncident(id:string,form:FormData):Promise<F
   return volunteers.recordVolunteerIncident(id,form);
 }
 
-export async function createOutingCollection(_previous: FormResult, form: FormData):Promise<FormResult> {
+export async function createOutingCollection(_previous: FormResult, form: FormData):Promise<ManualSeriesCreateResult> {
   return series.createOutingCollection(_previous,form);
 }
 

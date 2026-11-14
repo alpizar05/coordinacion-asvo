@@ -19,8 +19,7 @@ export async function manageStaffEntry(tx:Transaction,id:string,form:FormData,co
   const fieldErrors=validateEntryManagement(form,action,approval);
   if(Object.keys(fieldErrors).length)return {fieldErrors};
   if(action==='asignar70'||action==='quitar70'){
-    const error=await assignRegistration70(tx,id,context.actor,action==='asignar70');
-    return error?{error}:{saved:true};
+    return assignRegistration70(tx,id,context.actor,action==='asignar70');
   }
   if(action==='validar'){
     const [person]=await tx`select id,email from volunteers where identification=${identification(field(form,'identification'))}`;
@@ -30,6 +29,5 @@ export async function manageStaffEntry(tx:Transaction,id:string,form:FormData,co
     await recoverRegistration(tx,id,{id:String(outing.id),capacity:Number(outing.capacity)},person.id,context.actor);
     return {saved:true};
   }
-  const error=await changeRegistrationStatus(tx,id,context.actor,action,field(form,'reason'),field(form,'approveDates'));
-  return error?{error}:{saved:true};
+  return changeRegistrationStatus(tx,id,context.actor,action,field(form,'reason'),field(form,'approveDates'));
 }

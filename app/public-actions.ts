@@ -42,7 +42,7 @@ export async function submitPrivateRegistration(token:string,form:FormData):Prom
   }catch{return {error:'No se pudo aplicar el cambio. Tus datos se conservan para reintentar.'};}
 }
 /** Compatibility for existing links/tests; new forms consume structured errors without redirecting. */
-export async function privateAction(token:string,form:FormData){
+export async function privateAction(token:string,form:FormData):Promise<never>{
   const result=await submitPrivateRegistration(token,form);
-  redirect(`/privado/${token}?${result.saved?'actualizada=1':'error=1'}`);
+  redirect(`/privado/${validPrivateToken(token)?token:'invalido'}?${result.saved === true?'actualizada=1':'error=1'}`);
 }

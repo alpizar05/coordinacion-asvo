@@ -1,6 +1,8 @@
 'use server';
 import {validatePhoto} from '../lib/outing-form-validation';
 import {PhotoMutationError} from '../lib/photo-result';
+import {legacyResultMessage} from '../lib/legacy-operation-result';
+import {checkedFormResult} from '../lib/form-result';
 import type {FormResult} from '../lib/form-result';
 import {revalidatePath} from 'next/cache';
 import {redirect} from 'next/navigation';
@@ -10,11 +12,14 @@ import {field,uuid} from '../lib/registration';
 import {preparePhoto,graphPhotoStore} from '../lib/outing-photos';
 import {PhotoUploadError,withPhotoUploads} from '../lib/photo-upload-workflow';
 import {authorizePhotoMutation,savePhotoMutation} from '../lib/photo-mutation';
-export async function managePhoto(id:string,form:FormData){
- const result=await mutatePhoto(id,form),back=`/coordinacion/salidas/${id}`;
- const error=result.saved?'':result.error||'Revisá los datos de la foto.';
- redirect(error?`${back}?editar=1&error=${encodeURIComponent(error)}#fotos`:`${back}?editar=1&confirmacion=foto#fotos`);
+export async function managePhoto(id:string,form:FormData):Promise<never>{
+ if(!uuid(id))redirect('/coordinacion/convocatorias?error='+encodeURIComponent('La convocatoria no es válida.'));
+ let result:FormResult;
+ try{result=checkedFormResult(await mutatePhoto(id,form));}catch{result={error:'No se pudo procesar la foto. Volvé a intentarlo.'};}
+ const back=`/coordinacion/salidas/${id}`;
+ redirect(result.saved === true?`${back}?editar=1&confirmacion=foto#fotos`:`${back}?editar=1&error=${encodeURIComponent(legacyResultMessage(result))}#fotos`);
 }
+
 export async function attachOutingPhoto(id:string,form:FormData):Promise<FormResult>{
  if(!['agregar','galeria','editar'].includes(field(form,'action')))return {error:'Elegí cómo agregar la foto.'};
  return mutatePhoto(id,form);
