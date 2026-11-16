@@ -6,9 +6,9 @@ import {FormFeedbackProvider,FormErrorSummary,useFormFeedback} from '../form-fee
 import {StatusRibbon} from '../status-ribbon';
 import {ActionModal,type ActionModalProps} from './action-modal';
 import {validateRegistryForm,type RegistryFormKind} from '../../lib/registry-validation';
-import {checkedFormResult,type FormResult} from '../../lib/form-result';
+import {checkedFormResult} from '../../lib/form-result';
 export function RegistryModal({kind,...props}:{kind:RegistryFormKind}&Omit<ActionModalProps,'validate'>){return <ActionModal {...props} validate={form=>validateRegistryForm(form,kind)}/>;}
-export function RegistryForm({kind,action,children,successMessage}:{kind:RegistryFormKind;action:(f:FormData)=>Promise<FormResult>;children:ReactNode;successMessage:string}){
+export function RegistryForm({kind,action,children,successMessage}:{kind:RegistryFormKind;action:ActionModalProps['action'];children:ReactNode;successMessage:string}){
  const form=useRef<HTMLFormElement>(null),busy=useRef(false),router=useRouter();
  const [pending,setPending]=useState(false),[success,setSuccess]=useState({id:0,message:''});
  const feedback=useFormFeedback({form,validate:f=>validateRegistryForm(f,kind),dependencies:{starts:['ends'],role:['unit']}});

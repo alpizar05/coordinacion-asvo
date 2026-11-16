@@ -12,7 +12,7 @@ import type { GalleryPhoto } from '../../../../lib/outing-photo-gallery';
 import { PhotoDialog } from '../../photo-dialog';
 import {FormFeedbackProvider,FormErrorSummary,FormFeedbackBindings,useFormFeedback} from '../../../form-feedback/form-feedback';
 import {validateNewOuting} from '../../../../lib/outing-form-validation';
-import type {FieldErrors} from '../../../../lib/form-result';
+import {checkedFormResult,type FieldErrors} from '../../../../lib/form-result';
 import { OutingPeriods, type OutingPeriod } from '../../outing-periods';
 
 export type OutingTemplate = {
@@ -93,7 +93,7 @@ export function NewOutingForm({ clone, gallery, templates, units }: {
     const coverSlot=newPhotos.findIndex(photo=>currentCover===photo.file);data.set('photoCover',coverSlot<0?String(currentCover):`new-${coverSlot}`);
     const errors=validateNewOuting(data);if(Object.keys(errors).length){feedback.showErrors(mapErrors(errors));return;}
     busy.current=true;setPending(true);
-    try{const result=await createOuting(data);if(result.saved&&result.destination){setDirty(false);router.push(result.destination);}else feedback.showErrors(mapErrors(result.fieldErrors||{}),result.error);}
+    try{const result=checkedFormResult(await createOuting(data));if(result.saved === true&&result.destination){setDirty(false);router.push(result.destination);}else feedback.showErrors(mapErrors(result.fieldErrors||{}),result.saved === true?'No se pudo confirmar la creación. Tus datos y fotos se conservan para reintentar.':result.error);}
     catch{feedback.showErrors({},'No se pudo guardar. Los datos y archivos se conservan para reintentar.');}finally{busy.current=false;setPending(false);}
   }}>
     <FormErrorSummary/><FormFeedbackBindings form={formRef}/>

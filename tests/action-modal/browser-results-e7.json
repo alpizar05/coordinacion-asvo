@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-16",
+  "environment": "CUA IAB, isolated UI copy, fake server actions, no DB or providers",
+  "viewports": [
+    "desktop default",
+    "390x844"
+  ],
+  "verified": [
+    "multiple field errors and first invalid focus",
+    "hidden section revealed from error summary",
+    "file input value retained after failures; bytes not inspected",
+    "missing, string, truthy, contradictory and thrown responses keep modal open",
+    "delayed double click: calls 7 -> 8, controls disabled; calls remain 8 after failure",
+    "retry saved: calls 8 -> 9, close and success ribbon",
+    "private link missing/contradictory/throw/fields: no generated link",
+    "private link saved: link and confirmation",
+    "contradictory revoke: persistent error, no success",
+    "controlled mobile modal, two error IDs and aria-describedby",
+    "mobile dialog 358px within 390px, no horizontal overflow",
+    "RegistryModal multiple corrections, general failure retained, successful retry",
+    "RegistryForm missing result retained then successful retry"
+  ],
+  "limitations": [
+    "not a full business-screen or screen-reader matrix",
+    "no native mobile device",
+    "no fresh multi-level navigation suite",
+    "file payload bytes not inspected"
+  ],
+  "results": [
+    {
+      "case": "legacy",
+      "open": true,
+      "file": "C:\\fakepath\\ficticio.txt"
+    },
+    {
+      "case": "truthy",
+      "open": true,
+      "file": "C:\\fakepath\\ficticio.txt"
+    },
+    {
+      "case": "contradictory",
+      "open": true,
+      "file": "C:\\fakepath\\ficticio.txt"
+    },
+    {
+      "case": "throw",
+      "open": true,
+      "file": "C:\\fakepath\\ficticio.txt"
+    },
+    {
+      "case": "general",
+      "open": true,
+      "file": "C:\\fakepath\\ficticio.txt"
+    },
+    {
+      "case": "link-fields",
+      "privateLinkVisible": 0
+    },
+    {
+      "case": "link-missing",
+      "privateLinkVisible": 0
+    },
+    {
+      "case": "link-throw",
+      "privateLinkVisible": 0
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 'use client';
+import {checkedFormResult} from '../../../../lib/form-result';
 import {preserveCurrentNavigation} from '../../navigation-position';
 import { useEffect,useRef,useState,type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
@@ -60,7 +61,7 @@ export function OutingEditor(props:OutingEditorProps){
   for(const p of photos)if(p.file)data.set(`photo-${p.key}`,p.file);
   const errors=validateOutingEdit(data,props.initial,props.defaults,props.isSeries,0,props.request,props.related.length>1);if(Object.keys(errors).length){feedback.showErrors(errors);return;}
   busy.current=true;setPending(true);
-  try{const result=await saveOutingEdit(props.id,data);if(result.saved){setDirty(false);router.replace(preserveCurrentNavigation(`${back}?guardada=1`));router.refresh();}
+  try{const result=checkedFormResult(await saveOutingEdit(props.id,data));if(result.saved === true){setDirty(false);router.replace(preserveCurrentNavigation(`${back}?guardada=1`));router.refresh();}
    else feedback.showErrors(result.fieldErrors,result.error);}
   catch{feedback.showErrors({},'No se pudo guardar. Los datos y archivos se conservan para reintentar.');}
   finally{busy.current=false;setPending(false);}

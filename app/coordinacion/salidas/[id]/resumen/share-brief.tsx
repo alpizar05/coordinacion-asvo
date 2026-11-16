@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef,useState } from 'react';
+import {checkedFormResult} from '../../../../../lib/form-result';
 import {PrivateLinkForm} from '../../../private-link-form';
 import { revokeBrief } from '../../../../actions/communications';
 import { StatusRibbon } from '../../../../status-ribbon';
@@ -10,6 +11,7 @@ export function ShareBrief({ id, leads }: { id: string; leads: { id: string; nam
   const [message, setMessage] = useState('');
   const [revoked, setRevoked] = useState(false);
   const [revoking, setRevoking] = useState(false);
+  const revokeInFlight=useRef(false);
   const [error,setError] = useState('');
 
   return <section className="card brief-share">
@@ -27,10 +29,11 @@ export function ShareBrief({ id, leads }: { id: string; leads: { id: string; nam
       </div>
     </div>}
     <button type="button" className="coord-button-danger" disabled={revoking || pending} onClick={async () => {
-      setRevoking(true); setError(''); setMessage('');
-      try { const result = await revokeBrief(id); if (result.saved === true) { setRevoked(true); setMessage('Los enlaces del resumen fueron revocados.'); } else setError(result.error || 'No se pudo confirmar la revocación. Volvé a intentarlo.'); }
+      if(revokeInFlight.current)return;
+      revokeInFlight.current=true;setRevoking(true); setError(''); setMessage('');
+      try { const result = checkedFormResult(await revokeBrief(id)); if (result.saved === true) { setRevoked(true); setMessage('Los enlaces del resumen fueron revocados.'); } else setError(result.error || 'No se pudo confirmar la revocación. Volvé a intentarlo.'); }
       catch { setError('No se pudieron revocar los enlaces. Volvé a intentarlo.'); }
-      finally { setRevoking(false); }
+      finally { revokeInFlight.current=false;setRevoking(false); }
     }}>{revoking ? 'Revocando…' : 'Revocar enlaces del resumen'}</button>
     {error && <p className="note" role="alert">{error}</p>}
     <StatusRibbon message={message} onExpire={setMessage} />

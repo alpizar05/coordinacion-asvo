@@ -8,10 +8,7 @@ export function ReportReminder({ outingId, registrationId, name, email, title, s
   outingId:string; registrationId:string; name:string; email:string; title:string; starts:string; ends:string; activeLink:boolean; demo:boolean;
 }) {
   return <>
-    <ActionModal open={open} onClose={onClose} title={activeLink ? 'Enviar recordatorio' : 'Preparar enlace y recordar'} saveLabel="Enviar recordatorio" successMessage={demo ? 'Recordatorio disponible en Bandeja de prueba.' : 'Recordatorio registrado. Consultá su estado de envío en el seguimiento.'} action={async form => {
-      const result = await sendReportReminder(outingId,registrationId,form);
-      return result;
-    }}>
+    <ActionModal open={open} onClose={onClose} title={activeLink ? 'Enviar recordatorio' : 'Preparar enlace y recordar'} saveLabel="Enviar recordatorio" successMessage={demo ? 'Recordatorio disponible en Bandeja de prueba.' : 'Recordatorio registrado. Consultá su estado de envío en el seguimiento.'} action={sendReportReminder.bind(null,outingId,registrationId)}>
       <p><strong>Destinatario:</strong> {name}<br />{email}</p>
       <input type="hidden" name="email" value={email} />
       <p><strong>Asunto:</strong> ASVO · Recordatorio de informe · {title}</p>

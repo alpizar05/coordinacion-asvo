@@ -6,12 +6,13 @@ import {ActionModal} from '../coordinacion/action-modal';
 import {RegistryModal,RegistryForm} from '../coordinacion/registry-form';
 import {FormField} from '../form-feedback/form-feedback';
 import {ConfirmationProvider} from '../status-ribbon';
+import {ShareBrief} from '../coordinacion/salidas/[id]/resumen/share-brief';
 import '../coordinacion/coordination.css';
 
 export default function Fixture(){
  const [section,setSection]=useState('first'),[calls,setCalls]=useState(0),[open,setOpen]=useState(false);
  const [ready,setReady]=useState(false);useEffect(()=>setReady(true),[]);
- const select=<label>Respuesta ficticia<select name="fixtureMode" defaultValue="fields">{['fields','hidden','general','missing','legacy','truthy','contradictory','throw','saved'].map(value=><option key={value}>{value}</option>)}</select></label>;
+ const select=<label>Respuesta ficticia<select name="fixtureMode" defaultValue="fields">{['fields','hidden','general','missing','legacy','truthy','contradictory','throw','delayed','saved'].map(value=><option key={value}>{value}</option>)}</select></label>;
  async function action(data){
   const mode=String(data.get('fixtureMode')||'fields');
   setCalls(n=>n+1);
@@ -23,6 +24,7 @@ export default function Fixture(){
   if(mode==='truthy')return {saved:'true'};
   if(mode==='contradictory')return {saved:true,error:'No se guardó'};
   if(mode==='throw')throw Error('Synthetic exception');
+  if(mode==='delayed'){await new Promise(resolve=>setTimeout(resolve,3000));return {error:'Reintento ficticio disponible'};}
   return {saved:true};
  }
  const fields=<>{select}
@@ -44,5 +46,6 @@ export default function Fixture(){
    {select}<FormField name="occurred_on" label="Fecha ficticia"><input name="occurred_on" type="date" defaultValue="2035-01-10"/></FormField>
    <FormField name="description" label="Descripción ficticia"><textarea name="description" defaultValue="Texto conservado"/></FormField><button>Guardar inline</button>
   </RegistryForm>
+  <ShareBrief id="fictitious-outing" leads={['fields','missing','contradictory','throw','saved'].map(id=>({id,name:`Prueba ${id}`}))}/>
  </section></ConfirmationProvider>;
 }

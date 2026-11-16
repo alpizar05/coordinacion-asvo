@@ -29,3 +29,14 @@ test('malformed or empty errors cannot escape as silent failures or successes',(
     const result=checkedFormResult(value);assert.notEqual(result.saved,true);assert.ok(result.error);assert.equal(result.fieldErrors,undefined);
   }
 });
+test('opaque payloads, promise objects and preparation are never submitted-operation success',()=>{
+  for(const response of [new Error('Rejected'),Promise.resolve({saved:true}),{prepared:true},
+    {link:'/private-link'},{id:'fictitious',status:'finalizado'}]){
+    const result=checkedFormResult(response);
+    assert.notEqual(result.saved,true);assert.ok(result.error);assert.equal(result.destination,undefined);
+  }
+  // The feedback projection deliberately cannot masquerade as a payload decoder.
+  const response=Object.freeze({saved:true,link:'/private-link',id:'fictitious'});
+  assert.deepEqual(Object.keys(checkedFormResult(response)).sort(),['destination','saved']);
+  assert.equal(response.link,'/private-link');
+});
