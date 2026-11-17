@@ -1,0 +1,1856 @@
+{
+  "date": "2026-11-17",
+  "cases": [
+    {
+      "case": "desktop-gallery-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Galería conservada"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 1\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button (disabled) Selección de galería\n\t\t\t55 image Galería conservada\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (disabled) Descripción de la foto, Value: Galería conservada\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (disabled) Crédito de la foto, Value: Crédito ficticio\n\t\t52 container\n\t\t\t53 button (disabled) Cancelar\n\t\t\t54 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "desktop-gallery-tab-escape-blocked",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Galería conservada"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "H2",
+          "text": "Agregar foto"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 1\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button (disabled) Selección de galería\n\t\t\t55 image Galería conservada\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (disabled) Descripción de la foto, Value: Galería conservada\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (disabled) Crédito de la foto, Value: Crédito ficticio\n\t\t52 container\n\t\t\t53 button (disabled) Cancelar\n\t\t\t54 button (disabled) Guardando…\n\nThe focused UI element is 3 heading Agregar foto, Value: 2"
+    },
+    {
+      "case": "desktop-gallery-error",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": false,
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": false,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Agregar foto"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Galería conservada"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": "alt",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": false,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 49 text field (settable) Descripción de la foto, Value: Galería conservada"
+    },
+    {
+      "case": "desktop-gallery-prepare-retry-success",
+      "observed": {
+        "buttons": [],
+        "controls": [],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Agregar foto"
+        },
+        "open": false,
+        "overflow": false,
+        "tabs": [],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 38 pop up button Agregar foto"
+    },
+    {
+      "case": "desktop-upload-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Archivo conservado"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito local"
+          },
+          {
+            "checked": true,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 0\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Archivo conservado\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (disabled) Descripción de la foto, Value: Archivo conservado\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (disabled) Crédito de la foto, Value: Crédito local\n\t\t\t16 checkbox (disabled, settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button (disabled) Cancelar\n\t\t\t19 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "desktop-upload-tab-blocked",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Archivo conservado"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito local"
+          },
+          {
+            "checked": true,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 14, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 0\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Archivo conservado\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (disabled) Descripción de la foto, Value: Archivo conservado\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (disabled) Crédito de la foto, Value: Crédito local\n\t\t\t16 checkbox (disabled, settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button (disabled) Cancelar\n\t\t\t19 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "mobile-gallery-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Galería móvil"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "ASVO ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 1\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button (disabled) Selección de galería\n\t\t\t55 image Galería móvil\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (disabled) Descripción de la foto, Value: Galería móvil\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (disabled) Crédito de la foto, Value: ASVO ficticio\n\t\t52 container\n\t\t\t53 button (disabled) Cancelar\n\t\t\t54 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "mobile-gallery-tab-escape-blocked",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Galería móvil"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "ASVO ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "H2",
+          "text": "Agregar foto"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 1\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button (disabled) Selección de galería\n\t\t\t55 image Galería móvil\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (disabled) Descripción de la foto, Value: Galería móvil\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (disabled) Crédito de la foto, Value: ASVO ficticio\n\t\t52 container\n\t\t\t53 button (disabled) Cancelar\n\t\t\t54 button (disabled) Guardando…\n\nThe focused UI element is 3 heading Agregar foto, Value: 2"
+    },
+    {
+      "case": "mobile-gallery-error",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": false,
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": false,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Agregar foto"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Galería móvil"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "ASVO ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": "alt",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": false,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button Cerrar\n\t\t6 container\n\t\t\t56 text Fallo ficticio. Archivo y metadatos conservados.\n\t\t\t57 container\n\t\t\t\t58 text Revisá  2 campos  para  guardar .\n\t\t\t59 content list\n\t\t\t\t60 container\n\t\t\t\t\t61 AXListMarker • \n\t\t\t\t\t62 button Descripción de la foto: Revisá la descripción ficticia.\n\t\t\t\t\t\t63 text Descripción de la foto\n\t\t\t\t\t\t64 text : \n\t\t\t\t\t\t65 text Revisá la descripción ficticia.\n\t\t\t\t66 container\n\t\t\t\t\t67 AXListMarker • \n\t\t\t\t\t68 button Crédito de la foto: Revisá el crédito ficticio.\n\t\t\t\t\t\t69 text Crédito de la foto\n\t\t\t\t\t\t70 text : \n\t\t\t\t\t\t71 text Revisá el crédito ficticio.\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox Galería, Value: 1\n\t\t\t\t9 checkbox Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button Selección de galería\n\t\t\t55 image Galería móvil\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (settable) Descripción de la foto, Value: Galería móvil\n\t\t\t72 text Revisá la descripción ficticia.\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (settable) Crédito de la foto, Value: ASVO ficticio\n\t\t\t73 text Revisá el crédito ficticio.\n\t\t52 container\n\t\t\t53 button Cancelar\n\t\t\t54 button Agregar foto\n\nThe focused UI element is 49 text field (settable) Descripción de la foto, Value: Galería móvil"
+    },
+    {
+      "case": "mobile-summary-focus",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": false,
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": false,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Agregar foto"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Galería móvil"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "ASVO ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": "credit",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": false,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 51 text field (settable) Crédito de la foto, Value: ASVO ficticio"
+    },
+    {
+      "case": "mobile-gallery-retry-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Elegir foto de la galería"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Galería móvil"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "ASVO ficticio"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariad"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t56 text Fallo ficticio. Archivo y metadatos conservados.\n\t\t\t57 container\n\t\t\t\t58 text Revisá  2 campos  para  guardar .\n\t\t\t59 content list\n\t\t\t\t60 container\n\t\t\t\t\t61 AXListMarker • \n\t\t\t\t\t62 button Descripción de la foto: Revisá la descripción ficticia.\n\t\t\t\t\t\t63 text Descripción de la foto\n\t\t\t\t\t\t64 text : \n\t\t\t\t\t\t65 text Revisá la descripción ficticia.\n\t\t\t\t66 container\n\t\t\t\t\t67 AXListMarker • \n\t\t\t\t\t68 button Crédito de la foto: Revisá el crédito ficticio.\n\t\t\t\t\t\t69 text Crédito de la foto\n\t\t\t\t\t\t70 text : \n\t\t\t\t\t\t71 text Revisá el crédito ficticio.\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 1\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 0\n\t\t\t10 text Selección de galería\n\t\t\t11 button (disabled) Selección de galería\n\t\t\t55 image Galería móvil\n\t\t\t48 text Descripción de la foto\n\t\t\t49 text field (disabled) Descripción de la foto, Value: Galería móvil\n\t\t\t72 text Revisá la descripción ficticia.\n\t\t\t50 text Crédito de la foto\n\t\t\t51 text field (disabled) Crédito de la foto, Value: ASVO ficticio\n\t\t\t73 text Revisá el crédito ficticio.\n\t\t52 container\n\t\t\t53 button (disabled) Cancelar\n\t\t\t54 button (disabled) Guardando…\n\nThe focused UI element is 0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture"
+    },
+    {
+      "case": "mobile-gallery-persist-success",
+      "observed": {
+        "buttons": [],
+        "controls": [],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Agregar foto"
+        },
+        "open": false,
+        "overflow": false,
+        "tabs": [],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container\n\t\t2 link Description: Saltar al contenido principal, Value: localhost:3037/photo-fixture#contenido\n\t\t3 link Description: ASVO, inicio, Value: localhost:3037/\n\t\t4 pop up button Menú\n\t\t\t5 text Menú\n\t\t6 container contenido\n\t\t\t7 heading Prueba local de fotografías, Value: 1\n\t\t\t\t8 text Prueba local de fotografías\n\t\t\t9 text Sin persistencia ni proveedores.\n\t\t\t10 container\n\t\t\t\t11 text Resultado simulado\n\t\t\t\t12 pop up button (collapsed, settable) Resultado simulado, Value: delay-retry-success, Secondary Actions: Expand\n\t\t\t\t\t13 menu\n\t\t\t\t\t\t14 error\n\t\t\t\t\t\t15 delay-error\n\t\t\t\t\t\t16 success\n\t\t\t\t\t\t17 retry-success\n\t\t\t\t\t\t18 delay-success\n\t\t\t\t\t\t19 (selected) delay-retry-success\n\t\t\t\t\t\t20 throw\n\t\t\t\t\t\t21 missing\n\t\t\t22 container Invocaciones\n\t\t\t\t23 text 2\n\t\t\t24 text  / \n\t\t\t25 container Preparadas\n\t\t\t\t26 text 0\n\t\t\t27 text  / \n\t\t\t28 container Guardadas\n\t\t\t\t29 text 1\n\t\t\t30 container Última elección\n\t\t\t\t31 text gallery: Galería móvil / ASVO ficticio\n\t\t\t32 container Preparación\n\t\t\t\t33 heading Nueva salida / preparación, Value: 2\n\t\t\t\t\t34 text Nueva salida / preparación\n\t\t\t\t35 pop up button Agregar foto\n\t\t\t36 container Persistencia\n\t\t\t\t37 heading Detalle de salida / persistencia, Value: 2\n\t\t\t\t\t38 text Detalle de salida / persistencia\n\t\t\t\t39 pop up button Agregar foto\n\t\t\t40 container Edición\n\t\t\t\t41 heading Metadatos de una foto existente, Value: 2\n\t\t\t\t\t42 text Metadatos de una foto existente\n\t\t\t\t43 pop up button Editar foto\n\t\t\t44 container Referencia de Coordinación\n\t\t\t\t45 heading Otro modal, Value: 2\n\t\t\t\t\t46 text Otro modal\n\t\t\t\t47 pop up button Formulario de referencia\n\t\t\t48 container Referencia pública\n\t\t\t\t49 heading Superficie pública representativa, Value: 2\n\t\t\t\t\t50 text Superficie pública representativa\n\t\t\t\t51 button Acción pública\n\t\t\t\t52 button Secundaria pública\n\t\t53 container\n\t\t\t54 text Conservación, educación y acción.\n\t\t\t55 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas\n\t\t56 text Costa Rica\n\t\t57 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t\t58 image\n\nThe focused UI element is 39 pop up button Agregar foto"
+    },
+    {
+      "case": "mobile-upload-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Subida móvil conservada"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Autor ficticio"
+          },
+          {
+            "checked": true,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 0\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Subida móvil conservada\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (disabled) Descripción de la foto, Value: Subida móvil conservada\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (disabled) Crédito de la foto, Value: Autor ficticio\n\t\t\t16 checkbox (disabled, settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button (disabled) Cancelar\n\t\t\t19 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "mobile-upload-tab-blocked",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Subida móvil conservada"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Autor ficticio"
+          },
+          {
+            "checked": true,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIALOG",
+          "text": "Agregar foto×GaleríaSubir nuevaSelección de galerí"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t6 container\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 0\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Subida móvil conservada\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (disabled) Descripción de la foto, Value: Subida móvil conservada\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (disabled) Crédito de la foto, Value: Autor ficticio\n\t\t\t16 checkbox (disabled, settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button (disabled) Cancelar\n\t\t\t19 button (disabled) Guardando…\n\nThe focused UI element is 1 container Agregar foto"
+    },
+    {
+      "case": "mobile-upload-error-retained",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": false,
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Agregar foto"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Subida móvil conservada"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "Autor ficticio"
+          },
+          {
+            "checked": true,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "focus": {
+          "name": "alt",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": false,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": false,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button Cerrar\n\t\t6 container\n\t\t\t22 text Fallo ficticio. Archivo y metadatos conservados.\n\t\t\t23 container\n\t\t\t\t24 text Revisá  2 campos  para  guardar .\n\t\t\t25 content list\n\t\t\t\t26 container\n\t\t\t\t\t27 AXListMarker • \n\t\t\t\t\t28 button Descripción de la foto: Revisá la descripción ficticia.\n\t\t\t\t\t\t29 text Descripción de la foto\n\t\t\t\t\t\t30 text : \n\t\t\t\t\t\t31 text Revisá la descripción ficticia.\n\t\t\t\t32 container\n\t\t\t\t\t33 AXListMarker • \n\t\t\t\t\t34 button Crédito de la foto: Revisá el crédito ficticio.\n\t\t\t\t\t\t35 text Crédito de la foto\n\t\t\t\t\t\t36 text : \n\t\t\t\t\t\t37 text Revisá el crédito ficticio.\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox Galería, Value: 0\n\t\t\t\t9 checkbox Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Subida móvil conservada\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (settable) Descripción de la foto, Value: Subida móvil conservada\n\t\t\t38 text Revisá la descripción ficticia.\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (settable) Crédito de la foto, Value: Autor ficticio\n\t\t\t39 text Revisá el crédito ficticio.\n\t\t\t16 checkbox (settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button Cancelar\n\t\t\t19 button Agregar foto\n\nThe focused UI element is 13 text field (settable) Descripción de la foto, Value: Subida móvil conservada"
+    },
+    {
+      "case": "mobile-upload-discard-pending",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": true,
+            "text": "×"
+          },
+          {
+            "disabled": true,
+            "text": "Seguir editando"
+          },
+          {
+            "disabled": true,
+            "text": "Descartar cambios"
+          },
+          {
+            "disabled": false,
+            "text": "Descripción de la foto: Revisá la descripción ficticia."
+          },
+          {
+            "disabled": false,
+            "text": "Crédito de la foto: Revisá el crédito ficticio."
+          },
+          {
+            "disabled": true,
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "text": "Subir nueva"
+          },
+          {
+            "disabled": true,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": true,
+            "text": "Guardando…"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": "C:\\fakepath\\fixture.png"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": "true",
+            "linked": true,
+            "name": "alt",
+            "value": "Subida móvil conservada"
+          },
+          {
+            "checked": false,
+            "disabled": true,
+            "invalid": "true",
+            "linked": true,
+            "name": "credit",
+            "value": "Autor ficticio"
+          },
+          {
+            "checked": true,
+            "disabled": true,
+            "invalid": null,
+            "linked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariad"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [
+          {
+            "disabled": true,
+            "pressed": "false",
+            "text": "Galería"
+          },
+          {
+            "disabled": true,
+            "pressed": "true",
+            "text": "Subir nueva"
+          }
+        ],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Agregar foto\n\t\t2 container\n\t\t\t3 heading Agregar foto, Value: 2\n\t\t\t\t4 text Agregar foto\n\t\t\t5 button (disabled) Cerrar\n\t\t40 container\n\t\t\t41 text Tenés cambios sin guardar. ¿Querés descartarlos?\n\t\t\t42 button (disabled) Seguir editando\n\t\t\t43 button (disabled) Descartar cambios\n\t\t6 container\n\t\t\t22 text Fallo ficticio. Archivo y metadatos conservados.\n\t\t\t23 container\n\t\t\t\t24 text Revisá  2 campos  para  guardar .\n\t\t\t25 content list\n\t\t\t\t26 container\n\t\t\t\t\t27 AXListMarker • \n\t\t\t\t\t28 button Descripción de la foto: Revisá la descripción ficticia.\n\t\t\t\t\t\t29 text Descripción de la foto\n\t\t\t\t\t\t30 text : \n\t\t\t\t\t\t31 text Revisá la descripción ficticia.\n\t\t\t\t32 container\n\t\t\t\t\t33 AXListMarker • \n\t\t\t\t\t34 button Crédito de la foto: Revisá el crédito ficticio.\n\t\t\t\t\t\t35 text Crédito de la foto\n\t\t\t\t\t\t36 text : \n\t\t\t\t\t\t37 text Revisá el crédito ficticio.\n\t\t\t7 container Origen de la foto\n\t\t\t\t8 checkbox (disabled) Galería, Value: 0\n\t\t\t\t9 checkbox (disabled) Subir nueva, Value: 1\n\t\t\t10 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t11 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t20 text fixture.png\n\t\t\t21 image Subida móvil conservada\n\t\t\t12 text Descripción de la foto\n\t\t\t13 text field (disabled) Descripción de la foto, Value: Subida móvil conservada\n\t\t\t38 text Revisá la descripción ficticia.\n\t\t\t14 text Crédito de la foto\n\t\t\t15 text field (disabled) Crédito de la foto, Value: Autor ficticio\n\t\t\t39 text Revisá el crédito ficticio.\n\t\t\t16 checkbox (disabled, settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t17 container\n\t\t\t18 button (disabled) Cancelar\n\t\t\t19 button (disabled) Guardando…\n\nThe focused UI element is 0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture"
+    },
+    {
+      "case": "mobile-upload-persist-retry-success",
+      "observed": {
+        "buttons": [],
+        "controls": [],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Agregar foto"
+        },
+        "open": false,
+        "overflow": false,
+        "tabs": [],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container\n\t\t2 link Description: Saltar al contenido principal, Value: localhost:3037/photo-fixture#contenido\n\t\t3 link Description: ASVO, inicio, Value: localhost:3037/\n\t\t4 pop up button Menú\n\t\t\t5 text Menú\n\t\t6 container contenido\n\t\t\t7 heading Prueba local de fotografías, Value: 1\n\t\t\t\t8 text Prueba local de fotografías\n\t\t\t9 text Sin persistencia ni proveedores.\n\t\t\t10 container\n\t\t\t\t11 text Resultado simulado\n\t\t\t\t12 pop up button (collapsed, settable) Resultado simulado, Value: delay-retry-success, Secondary Actions: Expand\n\t\t\t\t\t13 menu\n\t\t\t\t\t\t14 error\n\t\t\t\t\t\t15 delay-error\n\t\t\t\t\t\t16 success\n\t\t\t\t\t\t17 retry-success\n\t\t\t\t\t\t18 delay-success\n\t\t\t\t\t\t19 (selected) delay-retry-success\n\t\t\t\t\t\t20 throw\n\t\t\t\t\t\t21 missing\n\t\t\t22 container Invocaciones\n\t\t\t\t23 text 4\n\t\t\t24 text  / \n\t\t\t25 container Preparadas\n\t\t\t\t26 text 0\n\t\t\t27 text  / \n\t\t\t28 container Guardadas\n\t\t\t\t29 text 2\n\t\t\t30 container Última elección\n\t\t\t\t31 text upload: Subida móvil conservada / Autor ficticio\n\t\t\t32 container Preparación\n\t\t\t\t33 heading Nueva salida / preparación, Value: 2\n\t\t\t\t\t34 text Nueva salida / preparación\n\t\t\t\t35 pop up button Agregar foto\n\t\t\t36 container Persistencia\n\t\t\t\t37 heading Detalle de salida / persistencia, Value: 2\n\t\t\t\t\t38 text Detalle de salida / persistencia\n\t\t\t\t39 pop up button Agregar foto\n\t\t\t40 container Edición\n\t\t\t\t41 heading Metadatos de una foto existente, Value: 2\n\t\t\t\t\t42 text Metadatos de una foto existente\n\t\t\t\t43 pop up button Editar foto\n\t\t\t44 container Referencia de Coordinación\n\t\t\t\t45 heading Otro modal, Value: 2\n\t\t\t\t\t46 text Otro modal\n\t\t\t\t47 pop up button Formulario de referencia\n\t\t\t48 container Referencia pública\n\t\t\t\t49 heading Superficie pública representativa, Value: 2\n\t\t\t\t\t50 text Superficie pública representativa\n\t\t\t\t51 button Acción pública\n\t\t\t\t52 button Secundaria pública\n\t\t53 container\n\t\t\t54 text Conservación, educación y acción.\n\t\t\t55 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas\n\t\t56 text Costa Rica\n\t\t57 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t\t58 image\n\nThe focused UI element is 39 pop up button Agregar foto"
+    },
+    {
+      "case": "mobile-rejection-general",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Guardar cambios"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Descripción conservada"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito conservado"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "5"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIV",
+          "text": "No se pudo guardar la foto. El archivo y sus datos"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Editar foto\n\t\t2 container\n\t\t\t3 heading Editar foto, Value: 2\n\t\t\t\t4 text Editar foto\n\t\t\t5 button Cerrar\n\t\t6 container\n\t\t\t7 text No se pudo guardar la foto. El archivo y sus datos se conservan para reintentar.\n\t\t\t8 image Descripción conservada\n\t\t\t9 text Descripción de la foto\n\t\t\t10 text field (settable) Descripción de la foto, Value: Descripción conservada\n\t\t\t11 text Crédito de la foto\n\t\t\t12 text field (settable) Crédito de la foto, Value: Crédito conservado\n\t\t13 container\n\t\t\t14 button Cancelar\n\t\t\t15 button Guardar cambios\n\nThe focused UI element is 16 container"
+    },
+    {
+      "case": "mobile-missing-result",
+      "observed": {
+        "buttons": [
+          {
+            "disabled": false,
+            "text": "×"
+          },
+          {
+            "disabled": false,
+            "text": "Cancelar"
+          },
+          {
+            "disabled": false,
+            "text": "Guardar cambios"
+          }
+        ],
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "alt",
+            "value": "Descripción conservada"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "invalid": null,
+            "linked": true,
+            "name": "credit",
+            "value": "Crédito conservado"
+          }
+        ],
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "6"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "focus": {
+          "name": null,
+          "tag": "DIV",
+          "text": "No se pudo confirmar el guardado. Tus datos se con"
+        },
+        "open": true,
+        "overflow": false,
+        "tabs": [],
+        "url": "http://localhost:3037/photo-fixture",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 15, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3037/photo-fixture\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3037/photo-fixture\n\t1 container Editar foto\n\t\t2 container\n\t\t\t3 heading Editar foto, Value: 2\n\t\t\t\t4 text Editar foto\n\t\t\t5 button Cerrar\n\t\t6 container\n\t\t\t7 text No se pudo confirmar el guardado. Tus datos se conservan para reintentar.\n\t\t\t8 image Descripción conservada\n\t\t\t9 text Descripción de la foto\n\t\t\t10 text field (settable) Descripción de la foto, Value: Descripción conservada\n\t\t\t11 text Crédito de la foto\n\t\t\t12 text field (settable) Crédito de la foto, Value: Crédito conservado\n\t\t13 container\n\t\t\t14 button Cancelar\n\t\t\t15 button Guardar cambios\n\nThe focused UI element is 16 container"
+    }
+  ]
+}

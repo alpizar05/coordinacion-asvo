@@ -1,0 +1,66 @@
+{
+  "name": "mobile-logistics-final-proof",
+  "date": "2026-11-17T19:23:00.146Z",
+  "ax": "Browser tab: 22, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=2786f5e6-4588-4c46-b531-be7084adb13e&pestana=logistica\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=2786f5e6-4588-4c46-b531-be7084adb13e&pestana=logistica\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=2786f5e6-4588-4c46-b531-be7084adb13e&pestana=logistica#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t161 link Description: ‹ Volver a Resumen, Value: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=informes\n\t\t162 container Ubicación en Coordinación\n\t\t\t163 content list\n\t\t\t\t164 text Coordinación\n\t\t\t\t165 container\n\t\t\t\t\t166 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t167 container\n\t\t\t\t\t168 text Recordatorio Mobile\n\t\t169 container\n\t\t\t170 text Estado ·  completada\n\t\t\t171 link Description: Inscripciones: 2/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=2786f5e6-4588-4c46-b531-be7084adb13e&pestana=logistica#inscripciones\n\t\t\t172 heading Recordatorio Mobile, Value: 1\n\t\t\t\t173 text Recordatorio Mobile\n\t\t\t174 definition list\n\t\t\t\t175 container Lugar\n\t\t\t\t\t176 text Lugar\n\t\t\t\t177 text Lugar Ficticio\n\t\t\t\t178 container Unidad\n\t\t\t\t\t179 text Unidad\n\t\t\t\t180 text Voluntariado General\n\t\t\t\t181 container Fechas\n\t\t\t\t\t182 text Fechas\n\t\t\t\t183 container\n\t\t\t\t\t184 text 10/11/2026  al  12/11/2026\n\t\t\t\t185 container Modalidad\n\t\t\t\t\t186 text Modalidad\n\t\t\t\t187 text Fechas flexibles\n\t\t\t\t188 container Visibilidad\n\t\t\t\t\t189 text Visibilidad\n\t\t\t\t190 text Privada por enlace\n\t\t\t\t191 container Fecha límite de inscripción\n\t\t\t\t\t192 text Fecha límite de inscripción\n\t\t\t\t193 text 20/11/2026\n\t\t194 text Convocatoria de solo lectura.\n\t\t195 tab group Contenido de la salida\n\t\t\t196 tab (selectable, settable, boolean) Inscripciones, Value: 0\n\t\t\t197 tab (selected, settable, boolean) Logística, Value: 1\n\t\t\t198 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t199 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t200 container Logística\n\t\t\t201 container\n\t\t\t\t202 heading Condiciones de la salida, Value: 2\n\t\t\t\t\t203 text Condiciones de la salida\n\t\t\t\t204 definition list\n\t\t\t\t\t205 container Transporte\n\t\t\t\t\t\t206 text Transporte\n\t\t\t\t\t207 text Punto de encuentro ficticio\n\t\t\t\t\t208 container Alimentación\n\t\t\t\t\t\t209 text Alimentación\n\t\t\t\t\t210 text Alimentación ficticia\n\t\t\t\t\t211 container Hospedaje\n\t\t\t\t\t\t212 text Hospedaje\n\t\t\t\t\t213 text Hospedaje ficticio\n\t\t\t214 container Logística de participación\n\t\t\t\t215 heading Logística de participación, Value: 2, ID: logistica-participacion\n\t\t\t\t\t216 text Logística de participación\n\t\t\t\t217 container Resumen de transporte\n\t\t\t\t\t218 heading Transporte · Personas confirmadas, Value: 3\n\t\t\t\t\t\t219 text Transporte · Personas confirmadas\n\t\t\t\t\t220 container\n\t\t\t\t\t\t221 text 1 persona con vehículo propio\n\t\t\t\t\t222 container\n\t\t\t\t\t\t223 text 2 espacios ofrecidos\n\t\t\t\t\t224 pop up button (collapsed) Ver transporte, Secondary Actions: Expand\n\t\t\t\t225 container Resumen de alimentación\n\t\t\t\t\t226 heading Alimentación · Personas confirmadas, Value: 3\n\t\t\t\t\t\t227 text Alimentación · Personas confirmadas\n\t\t\t\t\t228 container\n\t\t\t\t\t\t229 text 1 persona indicó  restricciones alimentarias\n\t\t\t\t\t230 pop up button (collapsed) Ver restricciones, Secondary Actions: Expand\n\t158 container\n\t\t159 text Conservación, educación y acción.\n\t\t160 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t231 button Open Next.js Dev Tools\n\t\t232 container\n\t\t\t233 text Rendering . . .\n\t234 text Coordinación de Voluntariado | ASVO\n\nThe focused UI element is 197 tab (selected, settable, boolean) Logística, Value: 1",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Logística"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver transporte"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver restricciones"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 405,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=2786f5e6-4588-4c46-b531-be7084adb13e&pestana=logistica",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

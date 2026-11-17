@@ -1,0 +1,5 @@
+Integración: homepage-feature-contracts (base local desechable).
+(node:85859) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: portada tipada, errores generales sin confirmación, permisos/estado/plazo, selección individual/serie, no-op, auditoría atómica, reintento, concurrencia y fallback de catálogo sin correo ni red.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

@@ -1,0 +1,34 @@
+{
+  "name": "mobile-70-brief",
+  "date": "2026-11-17T19:01:19.338Z",
+  "ax": "Browser tab: 21, Title: \"Resumen privado de salida | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\".\n1 AXWebArea Resumen privado de salida | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container\n\t\t8 container\n\t\t\t9 text TU GUÍA DE SALIDA · 70\n\t\t10 heading Informe Mobile, Value: 1\n\t\t\t11 text Informe Mobile\n\t\t12 text Lugar Ficticio\n\t\t13 container\n\t\t\t14 text 10/11/2026  al  12/11/2026  ·  Voluntariado General\n\t\t15 container\n\t\t\t16 text Fechas flexibles  ·  completada\n\t\t17 container\n\t\t\t18 text Tu asignación como 70: Kai Responsable\n\t\t19 container Resumen de preparación\n\t\t\t20 link Description: 2 participantes confirmados, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-participantes\n\t\t\t21 link Description: 2 espacios de transporte ofrecidos, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-transporte\n\t\t\t22 link Description: 1 persona con restricciones indicadas, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-alimentacion\n\t\t23 container\n\t\t\t24 text Actualizado:  17/11/26, 1:01 p. m.  · Costa Rica\n\t\t25 button Actualizar\n\t\t26 container Secciones de la guía de salida\n\t\t\t27 link Description: Participantes, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-participantes\n\t\t\t28 link Description: Transporte, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-transporte\n\t\t\t29 link Description: Alimentación, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-alimentacion\n\t\t\t30 link Description: Indicaciones, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-indicaciones\n\t\t\t31 link Description: Informe, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#brief-informe\n\t\t32 container Participantes confirmados, ID: brief-participantes\n\t\t\t33 heading Participantes confirmados, Value: 2, ID: brief-participantes-title\n\t\t\t\t34 text Participantes confirmados\n\t\t\t35 text La lista refleja inscripciones confirmadas. La asistencia real se confirma en el informe.\n\t\t\t36 container Participantes y fechas de participación\n\t\t\t\t37 table\n\t\t\t\t\t38 row\n\t\t\t\t\t\t39 cell\n\t\t\t\t\t\t\t40 text Kai Responsable Vos · 70\n\t\t\t\t\t\t41 cell\n\t\t\t\t\t\t\t42 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t43 cell\n\t\t\t\t\t\t\t44 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t\t\t\t45 row\n\t\t\t\t\t\t46 cell\n\t\t\t\t\t\t\t47 text Lia Participante\n\t\t\t\t\t\t48 cell\n\t\t\t\t\t\t\t49 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t50 cell\n\t\t\t\t\t\t\t51 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t52 container Transporte, ID: brief-transporte\n\t\t\t53 heading Transporte, Value: 2, ID: brief-transporte-title\n\t\t\t\t54 text Transporte\n\t\t\t55 text Punto de encuentro ficticio\n\t\t\t56 container\n\t\t\t\t57 text 2  espacios ofrecidos  ·  1 persona con transporte propio\n\t\t\t58 content list\n\t\t\t\t59 container\n\t\t\t\t\t60 text Kai Responsable Puede llevar 2 personas Participa del  10/11/2026  al  12/11/2026\n\t\t\t\t\t61 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t\t62 text Los espacios son ofrecimientos; todavía no representan una distribución de pasajeros acordada. Las ofertas sin cantidad no se suman al total.\n\t\t63 container Alimentación, ID: brief-alimentacion\n\t\t\t64 heading Alimentación, Value: 2, ID: brief-alimentacion-title\n\t\t\t\t65 text Alimentación\n\t\t\t66 text Alimentación ficticia\n\t\t\t67 heading Restricciones indicadas por participantes, Value: 3\n\t\t\t\t68 text Restricciones indicadas por participantes\n\t\t\t69 content list\n\t\t\t\t70 container\n\t\t\t\t\t71 text Lia Participante Preferencia FICTICIA\n\t\t72 container Indicaciones y logística, ID: brief-indicaciones\n\t\t\t73 heading Indicaciones y logística, Value: 2, ID: brief-indicaciones-title\n\t\t\t\t74 text Indicaciones y logística\n\t\t\t75 heading Requisitos, Value: 3\n\t\t\t\t76 text Requisitos\n\t\t\t77 text Sin requisitos registrados. Consultá a Coordinación.\n\t\t\t78 definition list\n\t\t\t\t79 container Hospedaje\n\t\t\t\t\t80 text Hospedaje\n\t\t\t\t81 text Hospedaje ficticio\n\t\t\t82 heading Otras indicaciones, Value: 3\n\t\t\t\t83 text Otras indicaciones\n\t\t\t84 text Sin otras indicaciones registradas.\n\t\t85 container brief-informe\n\t\t\t86 heading Informe de salida, Value: 2\n\t\t\t\t87 text Informe de salida\n\t\t\t88 text Describí las labores realizadas y confirmá quiénes participaron realmente.\n\t\t\t89 link Description: Completar informe de salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\n\t\t90 text Uso exclusivo para coordinar esta salida. El enlace es personal y permite consultar datos de participantes. No lo compartás fuera del equipo responsable.\n\t91 container\n\t\t92 text Conservación, educación y acción.\n\t\t93 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\nThe focused UI element is 1 AXWebArea Resumen privado de salida | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×ConvocatoriasCoordinaciónTu g"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

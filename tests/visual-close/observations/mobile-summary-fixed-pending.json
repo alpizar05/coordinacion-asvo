@@ -1,0 +1,270 @@
+{
+  "name": "mobile-summary-fixed-pending",
+  "date": "2026-11-17T22:00:49.607Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Fabio Rechazo\n\t\t\t7 button (disabled) Cerrar panel\n\t\t8 container\n\t\t\t9 heading Confirmar cupo, Value: 3\n\t\t\t\t10 text Confirmar cupo\n\t\t\t11 button (disabled) Volver\n\t\t\t12 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Gestionar inscripción"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Actualizar"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(82, 106, 61)",
+        "disabled": false,
+        "name": "Filtros de Resumen · filtros activos",
+        "text": ""
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(83, 91, 75)",
+        "disabled": false,
+        "name": "Quitar filtro Unidad: Voluntariado General",
+        "text": "Voluntariado General×"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(83, 91, 75)",
+        "disabled": false,
+        "name": null,
+        "text": "Restablecer"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Ver:Inscripciones en revisión8⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": "Cerrar panel",
+        "text": "×"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Volver"
+      },
+      {
+        "background": "rgb(64, 85, 46)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardando…"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripciónFabio Rechazo×Confirmar cupoVolverGuardando…",
+        "title": "_R_28r32atrj9erlb_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 476,
+    "url": "http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": ""
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Voluntariado General×"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Ver:Inscripciones en revisión8⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "×"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Volver"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Gestionar ⌄"
+      }
+    ]
+  }
+}

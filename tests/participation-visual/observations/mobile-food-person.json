@@ -1,0 +1,59 @@
+{
+  "name": "mobile-food-person",
+  "date": "2026-11-17T19:04:57.010Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 link Description: ‹ Volver a logística de la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?pestana=logistica&desglose=alimentacion&navContext=452ba447-bab0-432d-848b-ed233084ff4d\n\t\t10 container Ubicación en Coordinación\n\t\t\t11 content list\n\t\t\t\t12 text Coordinación\n\t\t\t\t13 container\n\t\t\t\t\t14 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t15 container\n\t\t\t\t\t16 text Lia Participante\n\t\t17 container\n\t\t\t18 heading Lia Participante, Value: 1\n\t\t\t\t19 text Lia Participante\n\t\t\t20 text Identificación \n\t\t\t21 text 800100012\n\t\t\t22 content list Unidades de voluntariado\n\t\t\t\t23 container\n\t\t\t\t\t24 text Voluntariado General  · Obligatorio\n\t\t25 pop up button Sección: Información personal\n\t\t26 container Información personal\n\t\t\t27 container\n\t\t\t\t28 heading Contacto y datos personales, Value: 2\n\t\t\t\t\t29 text Contacto y datos personales\n\t\t\t\t30 definition list\n\t\t\t\t\t31 container Correo\n\t\t\t\t\t\t32 text Correo\n\t\t\t\t\t33 text persona12@example.test\n\t\t\t\t\t34 container WhatsApp\n\t\t\t\t\t\t35 text WhatsApp\n\t\t\t\t\t36 text 80000000\n\t\t\t\t\t37 container Fecha de nacimiento\n\t\t\t\t\t\t38 text Fecha de nacimiento\n\t\t\t\t\t39 text Pendiente\n\t\t\t\t\t40 container Ubicación\n\t\t\t\t\t\t41 text Ubicación\n\t\t\t\t\t42 text Pendiente\n\t\t\t\t\t43 container Voluntariado desde\n\t\t\t\t\t\t44 text Voluntariado desde\n\t\t\t\t\t45 text Año pendiente\n\t\t\t\t\t46 container Persona asociada\n\t\t\t\t\t\t47 text Persona asociada\n\t\t\t\t\t48 text Por confirmar\n\t\t\t49 container\n\t\t\t\t50 heading Emergencias y salud, Value: 2\n\t\t\t\t\t51 text Emergencias y salud\n\t\t\t\t52 definition list\n\t\t\t\t\t53 container Contacto de emergencia\n\t\t\t\t\t\t54 text Contacto de emergencia\n\t\t\t\t\t55 text Pendiente\n\t\t\t\t\t56 container Teléfono de emergencia\n\t\t\t\t\t\t57 text Teléfono de emergencia\n\t\t\t\t\t58 text Pendiente\n\t\t\t\t\t59 container Parentesco\n\t\t\t\t\t\t60 text Parentesco\n\t\t\t\t\t61 text Pendiente\n\t\t\t\t\t62 container Condición médica\n\t\t\t\t\t\t63 text Condición médica\n\t\t\t\t\t64 text Pendiente\n\t65 container\n\t\t66 text Conservación, educación y acción.\n\t\t67 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t68 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t69 image\n\t70 text Lia Participante\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Información personal⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800",
+    "values": [
+      {
+        "checked": true,
+        "disabled": true,
+        "name": null,
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "Control y Protección/COVIRENA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "UEA"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

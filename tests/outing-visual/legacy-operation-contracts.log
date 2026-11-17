@@ -1,0 +1,5 @@
+Integración: legacy-operation-contracts (base local desechable).
+(node:85821) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: contratos legacy explícitos, errores múltiples, redirects compatibles sin confirmaciones falsas, rollback/reintento, no-op, conflictos de unidad/serie, foto idempotente y terminales; sin red real.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

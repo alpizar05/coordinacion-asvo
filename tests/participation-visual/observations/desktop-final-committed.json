@@ -1,0 +1,23 @@
+{
+  "name": "desktop-final-committed",
+  "date": "2026-11-17T19:01:11.597Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 10 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme DesktopInforme finalizadoEste informe es definitivo y ya no se "
+    },
+    "buttons": [],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 53.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1",
+    "values": [],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

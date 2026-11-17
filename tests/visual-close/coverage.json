@@ -1,0 +1,197 @@
+[
+  {
+    "familia": "Navegación/listas",
+    "viewport": "desktop",
+    "recorridos": [
+      "M01",
+      "M02",
+      "M05",
+      "M08",
+      "M31",
+      "M36",
+      "M40"
+    ],
+    "counts": {
+      "pendiente": 63,
+      "no aplicable": 21
+    }
+  },
+  {
+    "familia": "Navegación/listas",
+    "viewport": "celular",
+    "recorridos": [
+      "M01",
+      "M02",
+      "M05",
+      "M08",
+      "M31",
+      "M36",
+      "M40"
+    ],
+    "counts": {
+      "pendiente": 63,
+      "no aplicable": 21
+    }
+  },
+  {
+    "familia": "Inscripciones/logística",
+    "viewport": "desktop",
+    "recorridos": [
+      "M03",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M17"
+    ],
+    "counts": {
+      "pendiente": 56,
+      "no aplicable": 16,
+      "verificada": 36
+    }
+  },
+  {
+    "familia": "Inscripciones/logística",
+    "viewport": "celular",
+    "recorridos": [
+      "M03",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M17"
+    ],
+    "counts": {
+      "pendiente": 56,
+      "no aplicable": 16,
+      "verificada": 36
+    }
+  },
+  {
+    "familia": "Convocatorias/series/fotos",
+    "viewport": "desktop",
+    "recorridos": [
+      "M06",
+      "M07",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30"
+    ],
+    "counts": {
+      "pendiente": 73,
+      "verificada": 63,
+      "no aplicable": 43,
+      "bloqueada": 1
+    }
+  },
+  {
+    "familia": "Convocatorias/series/fotos",
+    "viewport": "celular",
+    "recorridos": [
+      "M06",
+      "M07",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30"
+    ],
+    "counts": {
+      "pendiente": 78,
+      "no aplicable": 43,
+      "verificada": 59
+    }
+  },
+  {
+    "familia": "Registro/Administración",
+    "viewport": "desktop",
+    "recorridos": [
+      "M32",
+      "M33",
+      "M34",
+      "M35",
+      "M37",
+      "M38",
+      "M39"
+    ],
+    "counts": {
+      "verificada": 55,
+      "no aplicable": 14,
+      "pendiente": 15
+    }
+  },
+  {
+    "familia": "Registro/Administración",
+    "viewport": "celular",
+    "recorridos": [
+      "M32",
+      "M33",
+      "M34",
+      "M35",
+      "M37",
+      "M38",
+      "M39"
+    ],
+    "counts": {
+      "verificada": 56,
+      "no aplicable": 14,
+      "pendiente": 14
+    }
+  },
+  {
+    "familia": "Comunicaciones/70",
+    "viewport": "desktop",
+    "recorridos": [
+      "M04",
+      "M16",
+      "M41",
+      "M42",
+      "M43"
+    ],
+    "counts": {
+      "pendiente": 30,
+      "no aplicable": 8,
+      "verificada": 22
+    }
+  },
+  {
+    "familia": "Comunicaciones/70",
+    "viewport": "celular",
+    "recorridos": [
+      "M04",
+      "M16",
+      "M41",
+      "M42",
+      "M43"
+    ],
+    "counts": {
+      "pendiente": 30,
+      "no aplicable": 8,
+      "verificada": 22
+    }
+  }
+]

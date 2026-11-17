@@ -1,0 +1,62 @@
+{
+  "name": "mobile-revoke-general-pending",
+  "date": "2026-11-17T18:49:45.555Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 134\n~\t\t\t\t33 pop up button (disabled, collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand\n~\t\t\t\t38 button (disabled) Generar enlace privado\n~\t\t\t39 button (disabled) Revocando…\nThe focused UI element is 7 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "CoordinaciónCerrar sesiónResumenPendientes y próximas salidas.Convocatorias de salidaCreá y gestioná las salidas.Informe"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar enlace privado"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar enlace"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Revocando…"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 431.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "name": "mobile-summary-double-focus-reproduced",
+  "date": "2026-11-17T19:09:14.635Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?dias=7&pestana=revision\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?dias=7&pestana=revision\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion?dias=7&pestana=revision#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 text Resumen\n\t\t14 heading Resumen, Value: 1\n\t\t\t15 text Resumen\n\t\t16 container\n\t\t\t17 text Actualizado a las  01:09 p. m.  · Costa Rica\n\t\t18 button Actualizar\n\t\t19 link Description: Nueva convocatoria, Value: localhost:3046/coordinacion/salidas/nueva\n\t\t20 pop up button Filtros de Resumen\n\t\t21 container Requiere atención\n\t\t\t22 heading Requiere atención, Value: 2, ID: summary-attention\n\t\t\t\t23 text Requiere atención\n\t\t\t24 pop up button Ver: Inscripciones en revisión 8\n\t\t\t\t25 text Ver:\n\t\t\t\t26 text Inscripciones en revisión\n\t\t\t\t27 text 8\n\t\t\t28 content list\n\t\t\t\t29 container [FICTITIOUS-LONG-VALUE]00001001\n\t\t\t\t\t30 text Ana Confirmada\n\t\t\t\t\t31 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=fdfac08d-6f73-4b0b-8c82-af6297f34858\n\t\t\t\t\t32 container\n\t\t\t\t\t\t33 text 20/11/2026  al  22/11/2026\n\t\t\t\t\t34 container\n\t\t\t\t\t\t35 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t36 pop up button Gestionar inscripción de Ana Confirmada\n\t\t\t\t37 container [FICTITIOUS-LONG-VALUE]00001003\n\t\t\t\t\t38 text Carla Espera\n\t\t\t\t\t39 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=90dd1cb7-d059-4477-ba60-9bc40de193c1\n\t\t\t\t\t40 container\n\t\t\t\t\t\t41 text 20/11/2026  al  22/11/2026\n\t\t\t\t\t42 container\n\t\t\t\t\t\t43 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t44 pop up button Gestionar inscripción de Carla Espera\n\t\t\t\t45 container [FICTITIOUS-LONG-VALUE]00002001\n\t\t\t\t\t46 text Ana Confirmada\n\t\t\t\t\t47 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=879b91a9-9836-4cde-a379-e1404152eb34\n\t\t\t\t\t48 container\n\t\t\t\t\t\t49 text 20/11/2026  al  22/11/2026\n\t\t\t\t\t50 container\n\t\t\t\t\t\t51 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t52 pop up button Gestionar inscripción de Ana Confirmada\n\t\t\t\t53 container [FICTITIOUS-LONG-VALUE]00005015\n\t\t\t\t\t54 text Omar Grupo\n\t\t\t\t\t55 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?navContext=367bdf58-02ac-4cb2-8b02-6c035c1f524a\n\t\t\t\t\t56 container\n\t\t\t\t\t\t57 text 20/11/2026  al  20/11/2026\n\t\t\t\t\t58 container\n\t\t\t\t\t\t59 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t60 pop up button Gestionar inscripción de Omar Grupo\n\t\t\t\t61 container [FICTITIOUS-LONG-VALUE]00005016\n\t\t\t\t\t62 text Paz Grupo\n\t\t\t\t\t63 link Description: Agrupacion Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?navContext=decb7f3d-d7d6-45b4-b513-dab783f84084\n\t\t\t\t\t64 container\n\t\t\t\t\t\t65 text 22/11/2026  al  22/11/2026\n\t\t\t\t\t66 container\n\t\t\t\t\t\t67 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t68 pop up button Gestionar inscripción de Paz Grupo\n\t\t\t\t69 container [FICTITIOUS-LONG-VALUE]00006015\n\t\t\t\t\t70 text Omar Grupo\n\t\t\t\t\t71 link Description: Grupo Ficticio Mobile, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?navContext=25fcc8e1-74a5-4e26-94d0-a8d82ca2f981\n\t\t\t\t\t72 container\n\t\t\t\t\t\t73 text 20/11/2026  al  20/11/2026\n\t\t\t\t\t74 container\n\t\t\t\t\t\t75 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t76 pop up button Gestionar inscripción de Omar Grupo\n\t\t\t\t77 container [FICTITIOUS-LONG-VALUE]00006016\n\t\t\t\t\t78 text Paz Grupo\n\t\t\t\t\t79 link Description: Agrupacion Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?navContext=2353b3c0-58ee-4799-ae1d-700ce8db1630\n\t\t\t\t\t80 container\n\t\t\t\t\t\t81 text 22/11/2026  al  22/11/2026\n\t\t\t\t\t82 container\n\t\t\t\t\t\t83 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t84 pop up button Gestionar inscripción de Paz Grupo\n\t\t\t\t85 container [FICTITIOUS-LONG-VALUE]4a63060d\n\t\t\t\t\t86 text Hugo Nuevo\n\t\t\t\t\t87 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=de3d18b0-e470-49f8-8c0f-23048237b570\n\t\t\t\t\t88 container\n\t\t\t\t\t\t89 text 20/11/2026  al  22/11/2026\n\t\t\t\t\t90 container\n\t\t\t\t\t\t91 text Recibida hoy  ·  Comienza en 3 días\n\t\t\t\t\t92 pop up button Gestionar inscripción de Hugo Nuevo\n\t\t93 container Próximas salidas\n\t\t\t94 heading Próximas salidas, Value: 2, ID: summary-upcoming\n\t\t\t\t95 text Próximas salidas\n\t\t\t96 container\n\t\t\t\t97 text Próximos  7  días ·  9  salidas\n\t\t\t98 content list [FICTITIOUS-LONG-VALUE]0000000000\n\t\t\t\t99 container [FICTITIOUS-LONG-VALUE]0000000101\n\t\t\t\t\t100 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=4cc37e1c-990f-46e9-bf61-a71361f52d58\n\t\t\t\t\t101 container\n\t\t\t\t\t\t102 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t103 container\n\t\t\t\t\t\t104 text 4 / 4  inscripciones  · 2 en espera\n\t\t\t\t\t105 container\n\t\t\t\t\t\t106 text 70: Sin asignar\n\t\t\t\t\t107 text 1 persona confirmada tiene transporte propio\n\t\t\t\t\t108 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?pestana=logistica&navContext=0643c408-b46b-47a4-a17f-37833a2b1a00\n\t\t\t\t109 container [FICTITIOUS-LONG-VALUE]0000000102\n\t\t\t\t\t110 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=822c65cc-07bf-4098-a294-7ecdec3ea020\n\t\t\t\t\t111 container\n\t\t\t\t\t\t112 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t113 container\n\t\t\t\t\t\t114 text 4 / 4  inscripciones  · 1 en espera\n\t\t\t\t\t115 container\n\t\t\t\t\t\t116 text 70: Sin asignar\n\t\t\t\t\t117 text 1 persona confirmada tiene transporte propio\n\t\t\t\t\t118 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?pestana=logistica&navContext=33cf55ec-ba94-4314-9ca9-27822064a71f\n\t\t\t\t119 container [FICTITIOUS-LONG-VALUE]0000000103\n\t\t\t\t\t120 link Description: Alta Revision Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?navContext=58803fae-f198-4ecf-afbf-4596760aa6e3\n\t\t\t\t\t121 container\n\t\t\t\t\t\t122 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t123 container\n\t\t\t\t\t\t124 text 1 / 6  inscripciones\n\t\t\t\t\t125 container\n\t\t\t\t\t\t126 text 70: Sin asignar\n\t\t\t\t\t127 text 1 persona confirmada tiene transporte propio\n\t\t\t\t\t128 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?pestana=logistica&navContext=67b5c91d-cbce-482f-baf4-92127b1d38c8\n\t\t\t\t129 container [FICTITIOUS-LONG-VALUE]0000000104\n\t\t\t\t\t130 link Description: Alta Revision Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?navContext=382c0a29-7466-4f0e-8456-8933a5affca9\n\t\t\t\t\t131 container\n\t\t\t\t\t\t132 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t133 container\n\t\t\t\t\t\t134 text 1 / 6  inscripciones\n\t\t\t\t\t135 container\n\t\t\t\t\t\t136 text 70: Sin asignar\n\t\t\t\t\t137 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t138 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?pestana=logistica&navContext=7384a937-ec99-46a6-96d6-b8d4ea0d9caf\n\t\t\t\t139 container [FICTITIOUS-LONG-VALUE]0000000105\n\t\t\t\t\t140 link Description: Agrupacion Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?navContext=bd6305c2-f3d7-4c60-b527-e4a48765d2ac\n\t\t\t\t\t141 container\n\t\t\t\t\t\t142 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t143 container\n\t\t\t\t\t\t144 text 1 / 6  inscripciones\n\t\t\t\t\t145 container\n\t\t\t\t\t\t146 text 70: Sin asignar\n\t\t\t\t\t147 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t148 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=logistica&navContext=7abb4fb1-c657-4f5a-a315-0014cc509eff\n\t\t\t\t149 container [FICTITIOUS-LONG-VALUE]0000000106\n\t\t\t\t\t150 link Description: Agrupacion Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?navContext=3eaa68f6-5c2a-4755-aa4d-9c8566c28657\n\t\t\t\t\t151 container\n\t\t\t\t\t\t152 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t153 container\n\t\t\t\t\t\t154 text 1 / 6  inscripciones\n\t\t\t\t\t155 container\n\t\t\t\t\t\t156 text 70: Sin asignar\n\t\t\t\t\t157 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t158 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=logistica&navContext=ba94f386-eb13-42b1-9fbf-cc517adebecb\n\t\t\t\t159 container [FICTITIOUS-LONG-VALUE]0000000112\n\t\t\t\t\t160 link Description: Invitacion Ficticia, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?navContext=7d853c37-5a3e-4c86-a417-8a2af2f81658\n\t\t\t\t\t161 container\n\t\t\t\t\t\t162 text 20/11/2026  al  22/11/2026  ·  Voluntariado General\n\t\t\t\t\t163 container\n\t\t\t\t\t\t164 text 0 / 6  inscripciones\n\t\t\t\t\t165 container\n\t\t\t\t\t\t166 text 70: Sin asignar\n\t\t\t\t\t167 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t168 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=logistica&navContext=0dff4432-f2ab-46a0-99f5-beeb8efced31\n\t\t\t\t169 container [FICTITIOUS-LONG-VALUE]51e7f3f529\n\t\t\t\t\t170 link Description: Grupo Ficticio Mobile, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?navContext=3bf9db31-6a5e-4000-9e8d-ef914c2872f3\n\t\t\t\t\t171 container\n\t\t\t\t\t\t172 text 20/11/2026  al  20/11/2026  ·  Voluntariado General\n\t\t\t\t\t173 container\n\t\t\t\t\t\t174 text 2 / 2  inscripciones\n\t\t\t\t\t175 container\n\t\t\t\t\t\t176 text 70: Sin asignar\n\t\t\t\t\t177 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t178 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?pestana=logistica&navContext=56f25c95-ac00-4b82-9848-41a2b266af1d\n\t\t\t\t179 container [FICTITIOUS-LONG-VALUE]56521d2ba0\n\t\t\t\t\t180 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?navContext=d8f4255c-3c7a-4e0e-92dc-32e3bc36b87e\n\t\t\t\t\t181 container\n\t\t\t\t\t\t182 text 20/11/2026  al  20/11/2026  ·  Voluntariado General\n\t\t\t\t\t183 container\n\t\t\t\t\t\t184 text 2 / 2  inscripciones\n\t\t\t\t\t185 container\n\t\t\t\t\t\t186 text 70: Sin asignar\n\t\t\t\t\t187 text Sin transporte propio indicado por personas confirmadas\n\t\t\t\t\t188 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?pestana=logistica&navContext=370785b5-96f4-428c-9a9c-f7225db778bf\n\t\t\t189 link Description: Ver convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias?navContext=0908efa8-3dd3-40ea-84ef-2a83c03b38fe\n\t\t190 text Inscripción confirmada.\n\t191 container\n\t\t192 text Conservación, educación y acción.\n\t\t193 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t194 button Open Next.js Dev Tools\n\t\t195 container\n\t\t\t196 text Rendering . . .\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?dias=7&pestana=revision",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Filtros de Resumen",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver:Inscripciones en revisión8⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 870,
+    "url": "http://localhost:3046/coordinacion?dias=7&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "7"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

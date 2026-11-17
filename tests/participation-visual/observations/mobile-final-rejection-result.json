@@ -1,0 +1,129 @@
+{
+  "name": "mobile-final-rejection-result",
+  "date": "2026-11-17T19:03:35.274Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 74-88, 115-116\n~\t\t\t73 text No se pudo guardar el informe. Los datos se conservan para reintentar.\n~\t\t\t16 text Guardá un borrador o finalizá el informe\n~\t\t\t17 button Guardar borrador\n~\t\t\t18 button Finalizar informe\n~\t\t\t19 pop up button Sección: Datos de la gira\n~\t\t\t\t\t98 text field (settable) Área silvestre protegida o lugar visitado, Value: Lugar Ficticio\n~\t\t\t\t\t100 date field (settable) Fecha de inicio real, Value: 2026-11-10\n+\t\t\t\t\t\t120 container\n+\t\t\t\t\t\t\t121 stepper\n+\t\t\t\t\t\t\t122 stepper\n+\t\t\t\t\t\t\t123 stepper\n+\t\t\t\t\t\t124 pop up button Show date picker Show date picker\n~\t\t\t\t\t107 date field (settable) Fecha de finalización real, Value: 2026-11-12\n+\t\t\t\t\t\t125 container\n+\t\t\t\t\t\t\t126 stepper\n+\t\t\t\t\t\t\t127 stepper\n+\t\t\t\t\t\t\t128 stepper\n+\t\t\t\t\t\t129 pop up button Show date picker Show date picker\n~\t\t\t\t\t114 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad, Value: Responsable FICTICIO Mobile\nThe focused UI element is 130 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo guardar el informe. Los datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Datos de la gira⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": "Responsable FICTICIO Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": "Salida general (mantenimiento, colaboración en oficinas, ferias)"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": "Acciones FICTICIAS Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

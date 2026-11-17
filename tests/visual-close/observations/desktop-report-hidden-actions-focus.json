@@ -1,0 +1,273 @@
+{
+  "name": "desktop-report-hidden-actions-focus",
+  "date": "2026-11-17T22:06:19.376Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 53-79\n+\t\t\t86 container Labores y acciones\n+\t\t\t\t87 container\n+\t\t\t\t\t88 heading Labores y acciones, Value: 2\n+\t\t\t\t\t\t89 text Labores y acciones\n+\t\t\t\t\t90 container Tipo de labor realizada\n+\t\t\t\t\t\t91 text Tipo de labor realizada\n+\t\t\t\t\t\t92 checkbox (settable, integer) Description: BRIF, Value: 0\n+\t\t\t\t\t\t93 checkbox (settable, integer) Description: UCP-COVIRENAS, Value: 0\n+\t\t\t\t\t\t94 checkbox (settable, integer) Description: UEA, Value: 0\n+\t\t\t\t\t\t95 checkbox (settable, integer) Description: Mantenimiento y otros, Value: 1\n+\t\t\t\t\t96 text Tipo de gira según la actividad realizada\n+\t\t\t\t\t97 pop up button (collapsed, settable) Tipo de gira según la actividad realizada, Value: Salida general (mantenimiento, colaboración en oficinas, ferias), Secondary Actions: Expand\n+\t\t\t\t\t\t98 menu\n+\t\t\t\t\t\t\t99 Seleccioná una opción\n+\t\t\t\t\t\t\t100 Salida BRIF\n+\t\t\t\t\t\t\t101 Salida COVIRENAS (control de turismo, presencia, patrullajes, retenes)\n+\t\t\t\t\t\t\t102 Salida UEA (monitoreos, conteos, charlas, exposiciones)\n+\t\t\t\t\t\t\t103 (selected) Salida general (mantenimiento, colaboración en oficinas, ferias)\n+\t\t\t\t\t\t\t104 Salida a estaciones de ASVO (Montezuma, Tortuguero, Buena Vista)\n+\t\t\t\t\t\t\t105 Salida empresarial\n+\t\t\t\t\t\t\t106 Gira de junta directiva\n+\t\t\t\t\t107 text Acciones realizadas\n+\t\t\t\t\t108 text entry area (settable) Acciones realizadas\n+\t\t\t\t\t109 text Completá este campo.\nThe focused UI element is 108 text entry area (settable) Acciones realizadas",
+  "dom": {
+    "active": {
+      "name": "actions",
+      "tag": "TEXTAREA",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": false,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(83, 105, 66)",
+        "disabled": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "5Revisión final"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_r_0_-field-actions-error",
+        "id": "_r_0_-field-actions",
+        "linked": true,
+        "name": "actions"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 519.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "type": "checkbox",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "type": "checkbox",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "type": "checkbox",
+        "value": "UEA"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "labour",
+        "type": "checkbox",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "type": "select-one",
+        "value": "Salida general (mantenimiento, colaboración en oficinas, ferias)"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "type": "textarea",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "5Revisión final"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "labour",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "labour",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "labour",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "labour",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "activity",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "actions",
+        "text": null
+      }
+    ]
+  }
+}

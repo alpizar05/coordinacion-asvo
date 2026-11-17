@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:17
+    image: postgres:18.7
     environment:
       POSTGRES_USER: asvo
       POSTGRES_PASSWORD: asvo
@@ -8,6 +8,8 @@ services:
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
-      - asvo-data:/var/lib/postgresql/data
+      - asvo-data-pg18:/var/lib/postgresql
 volumes:
+  # Conservado: no montar datos PostgreSQL 17 directamente en un servidor 18.
   asvo-data:
+  asvo-data-pg18:

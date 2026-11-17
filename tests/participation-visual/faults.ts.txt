@@ -1,0 +1,17 @@
+import {cookies} from 'next/headers';
+const attempts=new Map<string,number>();
+export async function decorate(kind:string,form:FormData|null,real:()=>Promise<unknown>){
+ const c=await cookies(),scenario=c.get('audit-scenario')?.value||'faults',run=c.get('audit-case')?.value||'default';
+ const operation=kind==='manage'?String(form?.get('action')):kind==='report'?String(form?.get('intent')):'';
+ const key=run+':'+kind+':'+operation,n=(attempts.get(key)||0)+1;attempts.set(key,n);
+ console.log('[visual-attempt]',JSON.stringify({case:run,kind,operation,n}));await new Promise(r=>setTimeout(r,1800));
+ if(scenario==='faults'){
+  if(n===1)return kind==='add'||kind==='brief'||kind==='invitation'||kind==='report'||kind==='split'?{saved:true}:{saved:'yes'};
+  if(n===2&&kind==='add')return {saved:true,status:'INVALID'};
+  const offset=kind==='add'?1:0;
+  if(n===2+offset){const fields=kind==='add'?['starts','food']:kind==='edit'?['ends','food']:kind==='split'?['title','capacity']:kind==='brief'?['lead']:kind==='invitation'?['identification']:kind==='report'?['actions','host']:kind==='manage'?(operation==='validar'?['identification']:['espera','rechazar','cancelar'].includes(operation)?['reason']:form?.has('approveDates')?['approveDates']:[]):[];return {error:'Fallo general ficticio antes de persistir.',fieldErrors:Object.fromEntries(fields.map(f=>[f,['Revisá '+f+' ficticio.','Segundo mensaje '+f+'.']]))};}
+  if(n===3+offset)throw Error('Rechazo ficticio anterior al commit');
+ }
+ const result=await real();const info=result&&typeof result==='object'?result:{};console.log('[visual-result]',JSON.stringify({case:run,kind,operation,saved:'saved'in info&&info.saved===true,status:'status'in info?info.status:undefined}));return result;
+}
+export async function delayed<T>(real:()=>Promise<T>){await new Promise(r=>setTimeout(r,1400));return real();}

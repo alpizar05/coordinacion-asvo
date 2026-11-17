@@ -1,0 +1,112 @@
+{
+  "name": "mobile-summary-manage-stable",
+  "date": "2026-11-17T19:07:48.383Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 104-111, 209, 215\n~\t\t\t27 pop up button Ver: Inscripciones en revisión 9\n~\t\t\t\t30 text 9\n~\t213 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n~\t\t214 image\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Filtros de Resumen · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Quitar filtro Unidad: Voluntariado General",
+        "text": "Voluntariado General×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver:Inscripciones en revisión9⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 2253.5,
+    "url": "http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "7"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+import postgres from 'postgres';import {readFile,writeFile} from 'node:fs/promises';import {join} from 'node:path';
+const active=JSON.parse(await readFile(new URL('./active.json',import.meta.url),'utf8')),u=new URL(active.url);if(u.hostname!=='127.0.0.1'||u.port!=='55528'||u.pathname!=='/postgres')throw Error('Destino no autorizado');const sql=postgres(u.href,{max:1});try{
+ const[target]=await sql`select current_setting('data_directory') as path,current_setting('server_version') as version`;if(target.path!==join(active.temp,'pg'))throw Error('Clúster incorrecto');
+ const outings=await sql`select id,request_id,title,location,unit,starts::text,ends::text,capacity,flexible,status,listed,registration_deadline::text,outing_overrides,requirements,logistics,transport_details,food_details,lodging_details from outings order by id`;
+ const requests=await sql`select id,organization,activity,outing_defaults,outing_photos_initialized from requests order by id`;
+ const photos=await sql`select id,outing_id,position,alt,credit,original_drive,original_item,octet_length(thumbnail) as thumbnail_bytes from outing_photos order by outing_id,position nulls last,id`;
+ const collections=await sql`select id,name,description from outing_collections order by id`;const members=await sql`select collection_id,outing_id from outing_collection_members order by collection_id,outing_id`;
+ const registrations=await sql`select outing_id,status from registrations order by outing_id`;const feature=await sql`select outing_id,request_id from homepage_feature`;
+ const[audit]=await sql`select count(*)::int as n from audit`;const mail=await sql`select delivery_state,count(*)::int as n from registration_mail_outbox group by delivery_state`;
+ const state={stage:process.argv[2],target,outings,requests,photos,collections,members,registrations,feature,audit,mail};let all=[];try{all=JSON.parse(await readFile(new URL('./persistence.json',import.meta.url),'utf8'));}catch{}all.push(state);await writeFile(new URL('./persistence.json',import.meta.url),JSON.stringify(all,null,2));console.log(JSON.stringify({stage:state.stage,outings:outings.length,photos:photos.length,audit:audit.n,pg:target.version}));
+}finally{await sql.end();}

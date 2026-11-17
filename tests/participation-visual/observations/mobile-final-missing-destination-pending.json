@@ -1,0 +1,129 @@
+{
+  "name": "mobile-final-missing-destination-pending",
+  "date": "2026-11-17T19:03:28.974Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\n1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t9 heading Informe de salida, Value: 1\n\t\t\t10 text Informe de salida\n\t\t11 text Informe Mobile\n\t\t13 text Borrador · Sin finalizar. Los cambios guardados se precargan a continuación.\n\t\t14 container\n\t\t\t15 text Informe de salida\n\t\t\t16 text Guardando…\n\t\t\t17 button (disabled) Guardar borrador\n\t\t\t18 button (disabled) Finalizar informe\n\t\t\t19 pop up button (disabled) Sección: Revisión final\n\t\t\t49 container Revisión final\n\t\t\t\t50 container\n\t\t\t\t\t51 heading Revisión del informe, Value: 2\n\t\t\t\t\t\t52 text Revisión del informe\n\t\t\t\t\t53 definition list\n\t\t\t\t\t\t54 container Lugar\n\t\t\t\t\t\t\t55 text Lugar\n\t\t\t\t\t\t56 text Lugar Ficticio\n\t\t\t\t\t\t57 container Fechas reales\n\t\t\t\t\t\t\t58 text Fechas reales\n\t\t\t\t\t\t59 container\n\t\t\t\t\t\t\t60 text 2026-11-10  —  2026-11-12\n\t\t\t\t\t\t61 container Labores\n\t\t\t\t\t\t\t62 text Labores\n\t\t\t\t\t\t63 text Mantenimiento y otros\n\t\t\t\t\t\t64 container Asistencia\n\t\t\t\t\t\t\t65 text Asistencia\n\t\t\t\t\t\t66 container\n\t\t\t\t\t\t\t67 text 1  de  2  personas\n\t\t\t\t\t68 checkbox (disabled, settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 1\n\t\t\t\t\t69 text Guardar borrador permite continuar después y mantiene la tarea pendiente. Finalizar guarda el informe definitivo y bloquea la edición.\n\t46 container\n\t\t47 text Conservación, educación y acción.\n\t\t48 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t70 button Open Next.js Dev Tools\n\t\t71 container\n\t\t\t72 text Rendering . . .\n\nThe focused UI element is 7 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme MobileBorrador · Sin finalizar. Los cambios guardados se precar"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Sección: Revisión final⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 156,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": "Responsable FICTICIO Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": "Salida general (mantenimiento, colaboración en oficinas, ferias)"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": "Acciones FICTICIAS Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": true,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

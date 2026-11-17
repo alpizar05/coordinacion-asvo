@@ -1,0 +1,10 @@
+import {cookies} from 'next/headers';import {staff,allows} from './auth';import type {FormResult} from './form-result';
+const attempts=new Map<string,number>();
+const fields:Record<string,string[]>={create:['title','capacity'],block:['title','capacity'],edit:['title','capacity'],common:['title','confirm'],manual:['name','outing'],'decision-agrupación':['reason'],'decision-cancelar-salida':['reason'],'decision-completar':['confirmCompleted'],'decision-eliminar':['confirmDelete']};
+export async function decorate<T extends FormResult>(kind:string,real:()=>Promise<T>):Promise<T|FormResult>{
+ const user=await staff();if(!allows(user,'operations.read'))return real();
+ const run=(await cookies()).get('audit-run')?.value||'none',key=run+kind,n=(attempts.get(key)||0)+1;attempts.set(key,n);console.log('[visual-attempt]',JSON.stringify({run,kind,n}));await new Promise(r=>setTimeout(r,1600));
+ if(n===1)return {error:'Fallo general simulado antes de guardar.',fieldErrors:Object.fromEntries((fields[kind]||[]).map(f=>[f,['Corrección simulada '+f,'Segundo mensaje '+f]]))};
+ if(n===2)throw Error('Rechazo simulado antes de persistir.');
+ const result=await real();console.log('[visual-result]',JSON.stringify({run,kind,saved:result.saved===true,error:!!result.error,fields:Object.keys(result.fieldErrors||{})}));return result;
+}

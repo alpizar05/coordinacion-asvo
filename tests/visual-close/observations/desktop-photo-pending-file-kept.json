@@ -1,0 +1,355 @@
+{
+  "name": "desktop-photo-pending-file-kept",
+  "date": "2026-11-17T21:50:23.930Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\n\t2 container Editar foto\n\t\t3 container\n\t\t\t4 heading Editar foto, Value: 2\n\t\t\t\t5 text Editar foto\n\t\t\t6 button (disabled) Cerrar\n\t\t19 container\n\t\t\t20 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t21 button (disabled) Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t22 text fictitious.png\n\t\t\t23 image Foto FICTICIA revisada desktop\n\t\t\t24 text Descripción de la foto\n\t\t\t25 text field (disabled) Descripción de la foto, Value: Foto FICTICIA revisada desktop\n\t\t\t26 text Crédito de la foto\n\t\t\t27 text field (disabled) Crédito de la foto, Value: Equipo DEMO\n\t\t16 container\n\t\t\t17 button (disabled) Cancelar\n\t\t\t18 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Editar foto, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Editar foto"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "1Información general"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "2Fechas y cupos"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "3Participación y logística"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(82, 106, 61)",
+        "disabled": false,
+        "name": null,
+        "text": "4Fotos"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "5Publicación"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Hacer portada"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Subir foto 2",
+        "text": "↑"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "background": "rgb(64, 85, 46)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": true,
+        "name": null,
+        "text": "Guardando…"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar foto×Selección de galeríaElegir foto de la galeríaBuscar por lugar, convocatoria o descripciónFoto ficticia 12-1Lugar Ficticio · Fotos DesktopSeleccionar fotoFoto ficticia 11-1Lugar Ficticio · Galería CompletaSele",
+        "title": "_r_4_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 681.5,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "photo",
+        "type": "file",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "alt",
+        "type": "text",
+        "value": "Foto FICTICIA revisada desktop"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "credit",
+        "type": "text",
+        "value": "Equipo DEMO"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "1Información general"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "2Fechas y cupos"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "3Participación y logística"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "4Fotos"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "5Publicación"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Hacer portada"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "↑"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "×"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "photo",
+        "text": null
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "alt",
+        "text": null
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "credit",
+        "text": null
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "Guardando…"
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "name": "mobile-draft-rejection-pending",
+  "date": "2026-11-17T19:01:49.313Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t13 text Guardando…\n~\t\t\t14 button (disabled) Guardar borrador\n~\t\t\t15 button (disabled) Finalizar informe\n~\t\t\t16 pop up button (disabled) Sección: Labores y acciones\n~\t\t\t\t\t\t77 checkbox (disabled, settable, integer) Description: BRIF, Value: 0\n~\t\t\t\t\t\t78 checkbox (disabled, settable, integer) Description: UCP-COVIRENAS, Value: 0\n~\t\t\t\t\t\t79 checkbox (disabled, settable, integer) Description: UEA, Value: 0\n~\t\t\t\t\t\t80 checkbox (disabled, settable, integer) Description: Mantenimiento y otros, Value: 0\n~\t\t\t\t\t82 pop up button (disabled, collapsed, settable) Tipo de gira según la actividad realizada, Value: Seleccioná una opción, Secondary Actions: Expand\n~\t\t\t\t\t93 text entry area (disabled) Acciones realizadas\nThe focused UI element is 6 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme MobileFallo general ficticio antes de persistir.Revisá 2 campos"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Acciones realizadas: Revisá actions ficticio. Segundo mensaje actions."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Revisá host ficticio. Segundo mensaje host."
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Sección: Labores y acciones⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_39bn5ritperlb_-field-host-error",
+        "linked": true,
+        "name": "host"
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-actions-error",
+        "linked": true,
+        "name": "actions"
+      }
+    ],
+    "overflow": false,
+    "scroll": 395,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

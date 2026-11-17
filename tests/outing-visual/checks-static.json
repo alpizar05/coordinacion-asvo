@@ -1,0 +1,29 @@
+{
+  "node": "v26.13.1",
+  "results": [
+    {
+      "name": "ci:typecheck",
+      "code": 0
+    },
+    {
+      "name": "test:unit",
+      "code": 0
+    },
+    {
+      "name": "test:contracts",
+      "code": 0
+    },
+    {
+      "name": "lint",
+      "code": 0
+    },
+    {
+      "name": "format:check",
+      "code": 0
+    },
+    {
+      "name": "test:security:build",
+      "code": 0
+    }
+  ]
+}

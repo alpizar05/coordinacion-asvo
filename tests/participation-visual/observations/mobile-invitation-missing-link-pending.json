@@ -1,0 +1,106 @@
+{
+  "name": "mobile-invitation-missing-link-pending",
+  "date": "2026-11-17T18:47:42.176Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 114-124, 126-127\n~\t\t\t\t\t72 text field (disabled) Identificación de la persona voluntaria, Value: 800100008\n~\t\t\t\t\t73 button (disabled) Generando…\n+\t129 button Open Next.js Dev Tools\n+\t\t130 container\n+\t\t\t131 text Rendering . . .\nThe focused UI element is 47 container Herramientas",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "AsistenciaRevisá las diferencias entre informes finalizados. Las resoluciones no modifican los informes originales ni ca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generando…"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1696.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": "800100008"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Mobile · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

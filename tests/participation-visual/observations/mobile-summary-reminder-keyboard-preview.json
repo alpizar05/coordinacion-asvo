@@ -1,0 +1,103 @@
+{
+  "name": "mobile-summary-reminder-keyboard-preview",
+  "date": "2026-11-17T19:22:59.120Z",
+  "ax": "Browser tab: 22, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=informes\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=informes\n\t2 container Enviar recordatorio\n\t\t3 container\n\t\t\t4 heading Enviar recordatorio, Value: 2\n\t\t\t\t5 text Enviar recordatorio\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t8 text Destinatario:\n\t\t\t9 text Kai Responsable\n\t\t\t10 text persona11@example.test\n\t\t\t11 text Asunto:\n\t\t\t12 text  ASVO · Recordatorio de informe ·  Recordatorio Desktop\n\t\t\t13 container Vista previa del recordatorio\n\t\t\t\t14 container\n\t\t\t\t\t15 text ¡Hola,  Kai Responsable !\n\t\t\t\t16 container\n\t\t\t\t\t17 text Te recordamos presentar tu informe como 70 de la salida  Recordatorio Desktop , realizada del  10/11/2026  al  12/11/2026 .\n\t\t\t\t18 text Describí las labores realizadas y confirmá quiénes participaron realmente.\n\t\t\t\t19 container\n\t\t\t\t\t20 text Completar informe de salida  — botón con enlace privado.\n\t\t\t\t21 container\n\t\t\t\t\t22 text ¡Gracias por tu apoyo!\n\t\t\t\t\t23 text Coordinación de Voluntariado ASVO\n\t\t\t24 text El correo incluye un enlace vigente y personal. Si hace falta, se generará uno nuevo sin invalidar otros enlaces vigentes.\n\t\t25 container\n\t\t\t26 button Cancelar\n\t\t\t27 button Enviar recordatorio\n\nThe focused UI element is 4 heading Enviar recordatorio, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Enviar recordatorio"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Filtros de Resumen · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Quitar filtro Unidad: Voluntariado General",
+        "text": "Voluntariado General×"
+      },
+      {
+        "disabled": false,
+        "label": "Quitar filtro Periodo: Próximas salidas: 14 días",
+        "text": "Próximas salidas: 14 días×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver:Informes pendientes3⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Enviar recordatorio×Destinatario: Kai Responsablepersona11@example.testAsunto: ASVO · Recordatorio de informe · Recordatorio Desktop¡Hola, Kai Responsable!Te recordamos presentar tu informe como 70 de la salida Recordatorio Desktop, realizada del 10/11/2026 al 12/11/2026.Describí las labores realizadas y confirmá quiénes participaron realmente.Completar informe de salida — botón con enlace privado.¡Gracias por tu apoyo!Coordinación de Voluntariado ASVOEl correo incluye un enlace vigente y personal. Si hace falta, se generará uno nuevo sin invalidar otros enlaces vigentes.CancelarEnviar recordatorio",
+        "top": 31.3671875,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 444.5,
+    "url": "http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=informes",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "14"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "name": "mobile-photo-rejection-file-retained",
+  "date": "2026-11-17T21:31:37.507Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\n\t2 container Agregar foto\n\t\t3 container\n\t\t\t4 heading Agregar foto, Value: 2\n\t\t\t\t5 text Agregar foto\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t97 text No se pudo guardar la foto. El archivo y sus datos se conservan para reintentar.\n\t\t\t8 container Origen de la foto\n\t\t\t\t9 checkbox Galería, Value: 0\n\t\t\t\t10 checkbox Subir nueva, Value: 1\n\t\t\t92 text Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t93 button Archivo · JPG, PNG o WebP, hasta 3 MB\n\t\t\t94 text fictitious.png\n\t\t\t95 image Foto FICTICIA cierre móvil\n\t\t\t85 text Descripción de la foto\n\t\t\t86 text field (settable) Descripción de la foto, Value: Foto FICTICIA cierre móvil\n\t\t\t87 text Crédito de la foto\n\t\t\t88 text field (settable) Crédito de la foto, Value: Equipo DEMO\n\t\t\t96 checkbox (settable, integer) Description: La foto está autorizada para publicación., Value: 1\n\t\t89 container\n\t\t\t90 button Cancelar\n\t\t\t91 button Agregar foto\n\nThe focused UI element is 98 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo guardar la foto. El archivo y sus datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Fotos ⌄"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Galería"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Subir nueva"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "background": "rgb(64, 85, 46)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar foto×No se pudo guardar la foto. El archivo y sus datos se conservan para reintentar.GaleríaSubir nuevaSelección de galeríaElegir foto de la galeríaBuscar por lugar, convocatoria o descripciónFoto ficticia 12-1Lu",
+        "title": "_r_1_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 370,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "photo",
+        "type": "file",
+        "value": "C:\\fakepath\\fictitious.png"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "alt",
+        "type": "text",
+        "value": "Foto FICTICIA cierre móvil"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "credit",
+        "type": "text",
+        "value": "Equipo DEMO"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "permission",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Fotos ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "×"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Galería"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Subir nueva"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "photo",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "alt",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "credit",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "permission",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Agregar foto"
+      }
+    ]
+  }
+}

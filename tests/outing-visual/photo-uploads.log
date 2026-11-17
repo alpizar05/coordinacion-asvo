@@ -1,0 +1,6 @@
+Integración: photo-uploads (base local desechable).
+(node:85748) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[sharepoint][diagnostic] {"stage":"sharepoint-upload","status":500,"codes":[]}
+OK: Graph simulado sin bloqueos, autorización previa, revalidación, reintentos, tiempos de espera/cargas tardías, compensación durable, referencias compartidas/fencing, editor/herencia y creación por bloques. Cero proveedores reales.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

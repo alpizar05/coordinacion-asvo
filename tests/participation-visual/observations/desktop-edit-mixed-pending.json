@@ -1,0 +1,159 @@
+{
+  "name": "desktop-edit-mixed-pending",
+  "date": "2026-11-17T18:19:45.600Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t1 container Editar inscripción\n\t\t2 container\n\t\t\t3 heading Editar inscripción, Value: 2\n\t\t\t\t4 text Editar inscripción\n\t\t\t5 button (disabled) Cerrar\n\t\t10 container\n\t\t\t24 text No se pudo confirmar el guardado. Tus datos se conservan para reintentar.\n\t\t\t11 text Hugo Nuevo\n\t\t\t12 text Llegada\n\t\t\t13 date field (disabled, settable) Llegada, Value: 2026-11-20\n\t\t\t14 text Regreso\n\t\t\t15 date field (disabled, settable) Regreso, Value: 2026-11-22\n\t\t\t16 checkbox (disabled, settable, integer) Description: Tiene transporte propio, Value: 1\n\t\t\t17 text Personas que puede llevar\n\t\t\t18 stepper (disabled, settable, integer) Personas que puede llevar, Value: 2\n\t\t\t19 text Restricciones alimentarias\n\t\t\t20 text entry area (disabled) Restricciones alimentarias, Value: Edición FICTICIA\n\t\t\t21 checkbox (disabled, settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t22 text Otras observaciones\n\t\t\t23 text entry area (disabled) Otras observaciones\n\t\t7 container\n\t\t\t8 button (disabled) Cancelar\n\t\t\t9 button (disabled) Guardando…\n\nThe focused UI element is 1 container Editar inscripción",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Editar inscripción×No se pudo confirmar el guardado. Tus datos se conservan para reintentar.Hugo NuevoLlegadaRegreso Tie"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": true,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×No se pudo confirmar el guardado. Tus datos se conservan para reintentar.Hugo NuevoLlegadaRegreso Tiene transporte propioPersonas que puede llevarRestricciones alimentariasPreferencia FICTICIA alta Tiene interés en ser 70Otras observacionesCancelarGuardando…",
+        "top": 24,
+        "width": 576
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 214.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "rides",
+        "value": "2"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": "Edición FICTICIA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Alta Revision Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000103"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Alta Revision Desktop · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

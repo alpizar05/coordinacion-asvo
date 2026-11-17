@@ -10,7 +10,19 @@ export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect
  const [local,setLocal]=useState(initial||sections[0]?.key),[open,setOpen]=useState(false),[dirty,setDirty]=useState(false),[discard,setDiscard]=useState<string|null>(null);
  const params=useSearchParams(),selected=urlKey?params.get(urlKey):null;
  const current=active??(selected&&sections.some(s=>s.key===selected)?selected:local),id=useId(),router=useRouter(),root=useRef<HTMLDivElement>(null);
- const select=(key:string)=>{if(onSelect)onSelect(key);else setLocal(key);if(urlKey){const url=new URL(window.location.href);url.searchParams.set(urlKey,key);window.history.replaceState(null,'',url.href);}setOpen(false);};
+ const previousSection=useRef(current);
+ useEffect(()=>{
+  if(previousSection.current===current)return;
+  previousSection.current=current;
+  const frame=requestAnimationFrame(()=>{
+   const active=document.activeElement;
+   if(active!==document.body&&!(active instanceof HTMLElement&&root.current?.contains(active)&&active.closest('[hidden]')))return;
+   const panel=document.getElementById(`${id}-${current}`),target=panel?.querySelector<HTMLElement>('h2,h3,input:not(:disabled),select:not(:disabled),textarea:not(:disabled),button:not(:disabled)');
+   if(target){if(/^H[23]$/.test(target.tagName))target.tabIndex=-1;target.focus({preventScroll:true});}
+  });
+  return()=>cancelAnimationFrame(frame);
+ },[current,id]);
+ const select=(key:string)=>{if(pending)return;if(onSelect)onSelect(key);else setLocal(key);if(urlKey){const url=new URL(window.location.href);url.searchParams.set(urlKey,key);window.history.replaceState(null,'',url.href);}setOpen(false);};
  useEffect(()=>{const node=root.current;if(!node)return;const reveal=(event:Event)=>{const target=event.target;if(!(target instanceof Element))return;const section=sections.find(s=>document.getElementById(`${id}-${s.key}`)?.contains(target));if(section)select(section.key);};node.addEventListener('asvo:reveal-form',reveal);return()=>node.removeEventListener('asvo:reveal-form',reveal);},[sections,id,onSelect,urlKey]);
  useEffect(()=>{
   if(!trackChanges||!dirty)return;
@@ -22,12 +34,12 @@ export function SectionWorkspace({sections,title,toolbar,initial,active,onSelect
  const discardButton=discardHref?<button type="button" className={compactDiscard?'workspace-discard-compact':undefined} disabled={pending} onClick={()=>dirty?setDiscard(discardHref):router.push(discardHref)}>Descartar</button>:null;
  return <div ref={root} className={`section-workspace${compact?' section-workspace-compact':''}`} onChangeCapture={()=>{if(trackChanges)setDirty(true);}}>
   {(title||toolbar||discardHref)&&<div className={`section-workspace-bar${compactDiscard?' section-workspace-bar-compact-discard':''}`}><div><div className="section-workspace-bar-heading">{title&&<strong>{title}</strong>}</div>{notice&&<span role="status">{notice}</span>}</div><div className="actions">{discardButton}{toolbar}</div></div>}
-  <div className="section-workspace-layout"><nav className="section-workspace-nav" aria-label="Secciones">{sections.map((s,i)=><button type="button" key={s.key} aria-current={s.key===current?'step':undefined} aria-controls={`${id}-${s.key}`} onClick={()=>select(s.key)}><span aria-hidden="true">{i+1}</span>{s.label}</button>)}</nav>
-   <div className="section-workspace-content"><button type="button" className="section-workspace-trigger" aria-haspopup="dialog" onClick={()=>setOpen(true)}>Sección: {sections.find(s=>s.key===current)?.label}<span aria-hidden="true">⌄</span></button>
+  <div className="section-workspace-layout"><nav className="section-workspace-nav" aria-label="Secciones">{sections.map((s,i)=><button type="button" disabled={pending} key={s.key} aria-current={s.key===current?'step':undefined} aria-controls={`${id}-${s.key}`} onClick={()=>select(s.key)}><span aria-hidden="true">{i+1}</span>{s.label}</button>)}</nav>
+   <div className="section-workspace-content"><button type="button" className="section-workspace-trigger" disabled={pending} aria-haspopup="dialog" onClick={()=>setOpen(true)}>Sección: {sections.find(s=>s.key===current)?.label}<span aria-hidden="true">⌄</span></button>
     {sections.map(s=><div key={s.key} id={`${id}-${s.key}`} hidden={s.key!==current} className="section-workspace-panel" role="region" aria-label={s.label}>{s.content}</div>)}
    </div>
   </div>
-  <CoordinationModal open={open} onClose={()=>setOpen(false)} title="Elegir sección"><div className="editor-section-options">{sections.map(s=><button type="button" key={s.key} aria-pressed={s.key===current} onClick={()=>select(s.key)}>{s.label}</button>)}</div></CoordinationModal>
+  <CoordinationModal open={open} onClose={()=>setOpen(false)} pending={pending} title="Elegir sección"><div className="editor-section-options">{sections.map(s=><button type="button" disabled={pending} key={s.key} aria-pressed={s.key===current} onClick={()=>select(s.key)}>{s.label}</button>)}</div></CoordinationModal>
   <CoordinationModal open={!!discard} onClose={()=>setDiscard(null)} title="Descartar cambios" footer={<button type="button" className="coord-button-danger" onClick={()=>{const href=discard!;setDirty(false);setDiscard(null);router.push(href);}}>Descartar y salir</button>}><p>Hay cambios sin guardar. ¿Querés descartarlos y salir?</p></CoordinationModal>
  </div>;
 }

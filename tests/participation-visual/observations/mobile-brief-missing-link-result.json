@@ -1,0 +1,51 @@
+{
+  "name": "mobile-brief-missing-link-result",
+  "date": "2026-11-17T18:49:36.142Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 125-126\n+\t\t\t125 container\n+\t\t\t\t126 text No se pudo confirmar la generación del enlace. Los datos se conservan para reintentar.\n~\t\t\t\t33 pop up button (collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand\n~\t\t\t\t38 button Generar enlace privado\n~\t\t\t39 button Revocar enlaces del resumen\n+\t127 button Open Next.js Dev Tools\n+\t\t128 container\n+\t\t\t129 text Rendering . . .\nThe focused UI element is 125 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar la generación del enlace. Los datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar enlace privado"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 135,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000008011"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

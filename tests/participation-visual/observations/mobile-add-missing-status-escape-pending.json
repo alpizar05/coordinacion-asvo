@@ -1,0 +1,199 @@
+{
+  "name": "mobile-add-missing-status-escape-pending",
+  "date": "2026-11-17T18:20:31.597Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 2 container Agregar persona a la salida",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Agregar persona a la salida×Hugo NuevoIdentificación: 800100008Persona seleccionadaCambiar personaLlegadaRegreso Tiene t"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": true,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cambiar persona"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Agregando…"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar persona a la salida×Hugo NuevoIdentificación: 800100008Persona seleccionadaCambiar personaLlegadaRegreso Tiene transporte propioPersonas que puede llevarRestricciones alimentarias Tiene interés en ser 70Otras observacionesPodés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.CancelarAgregando…",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 508.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "rides",
+        "value": "0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": "Observación FICTICIA móvil"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Inscripciones Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000102"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Inscripciones Mobile · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "5"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

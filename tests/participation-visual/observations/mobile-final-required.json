@@ -1,0 +1,190 @@
+{
+  "name": "mobile-final-required",
+  "date": "2026-11-17T19:03:26.423Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 12\n+\t\t\t49 container\n+\t\t\t\t50 text Revisá  6 campos  para  guardar .\n+\t\t\t51 content list\n+\t\t\t\t52 container\n+\t\t\t\t\t53 AXListMarker • \n+\t\t\t\t\t54 button Acciones realizadas: Completá este campo.\n+\t\t\t\t\t\t55 text Acciones realizadas\n+\t\t\t\t\t\t56 text : \n+\t\t\t\t\t\t57 text Completá este campo.\n+\t\t\t\t58 container\n+\t\t\t\t\t59 AXListMarker • \n+\t\t\t\t\t60 button Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo.\n+\t\t\t\t\t\t61 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n+\t\t\t\t\t\t62 text : \n+\t\t\t\t\t\t63 text Completá este campo.\n+\t\t\t\t64 container\n+\t\t\t\t\t65 AXListMarker • \n+\t\t\t\t\t66 button Tipo de labor realizada: Seleccioná al menos un tipo de labor de la lista.\n+\t\t\t\t\t\t67 text Tipo de labor realizada\n+\t\t\t\t\t\t68 text : \n+\t\t\t\t\t\t69 text Seleccioná al menos un tipo de labor de la lista.\n+\t\t\t\t70 container\n+\t\t\t\t\t71 AXListMarker • \n+\t\t\t\t\t72 button Tipo de gira según la actividad realizada: Seleccioná un tipo de gira de la lista.\n+\t\t\t\t\t\t73 text Tipo de gira según la actividad realizada\n+\t\t\t\t\t\t74 text : \n+\t\t\t\t\t\t75 text Seleccioná un tipo de gira de la lista.\n+\t\t\t\t76 container\n+\t\t\t\t\t77 AXListMarker • \n+\t\t\t\t\t78 button Confirmación de asistencia: Confirmá al menos una persona que participó realmente.\n+\t\t\t\t\t\t79 text Confirmación de asistencia\n+\t\t\t\t\t\t80 text : \n+\t\t\t\t\t\t81 text Confirmá al menos una persona que participó realmente.\n+\t\t\t\t82 container\n+\t\t\t\t\t83 AXListMarker • \n+\t\t\t\t\t84 button Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe.\n+\t\t\t\t\t\t85 text Confirmo que revisé la asistencia y que este informe refleja lo realizado.\n+\t\t\t\t\t\t86 text : \n+\t\t\t\t\t\t87 text Confirmá que revisaste la asistencia y la información del informe.\n+\t\t\t\t\t88 text Completá este campo.\n+\t89 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n+\t\t90 image\nThe focused UI element is 45 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad",
+  "dom": {
+    "active": {
+      "name": "host",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Tipo de labor realizada: Seleccioná al menos un tipo de labor de la lista."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Tipo de gira según la actividad realizada: Seleccioná un tipo de gira de la lista."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Datos de la gira⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_39bn5ritperlb_-field-host-error",
+        "linked": true,
+        "name": "host"
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-labour-error",
+        "linked": true,
+        "name": null
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-activity-error",
+        "linked": true,
+        "name": "activity"
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-actions-error",
+        "linked": true,
+        "name": "actions"
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-participants-error",
+        "linked": true,
+        "name": null
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-accuracy-error",
+        "linked": true,
+        "name": "accuracy"
+      }
+    ],
+    "overflow": false,
+    "scroll": 1152.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

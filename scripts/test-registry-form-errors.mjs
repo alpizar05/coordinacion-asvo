@@ -16,10 +16,14 @@ try{await sql.begin(async tx=>{
  assert.ok((await prepareRegistryImport(tx,'nombre\nPrueba','volunteers')).fieldErrors.csv);
  assert.ok((await prepareRegistryImport(tx,'identificacion,tipo,numero\n"mal','policies')).fieldErrors.csv);
  const csv=`identificacion,nombre,primer_apellido,correo\n${ident},Persona nueva,Ficticia,persona@example.test\nINVALIDA,,Prueba,mal\n${ident},Duplicada,Prueba,correo@example.test\n`;
- const preview=await prepareRegistryImport(tx,csv,'volunteers');assert.equal(preview.rows.length,3);assert.equal(preview.rows[1].line,3);assert.ok(preview.rows[1].issues.some(i=>i.column==='nombre'));assert.ok(preview.rows[1].issues.some(i=>i.column==='correo'));assert.equal(preview.rows[2].valid,false);
+ const preview=await prepareRegistryImport(tx,csv,'volunteers');
+ const crlfPreview=await prepareRegistryImport(tx,csv.replace(/\n/g,'\r\n'),'volunteers');assert.equal(crlfPreview.token,preview.token,'La firma no depende de LF/CRLF multipart');
+ assert.equal(preview.rows.length,3);assert.equal(preview.rows[1].line,3);assert.ok(preview.rows[1].issues.some(i=>i.column==='nombre'));assert.ok(preview.rows[1].issues.some(i=>i.column==='correo'));assert.equal(preview.rows[2].valid,false);
  assert.equal(await count('volunteers'),before);assert.equal(await count('audit'),audits,'Previsualizar no escribe');
  const applyForm=form({csv,selected:['0'],preview:preview.token,versions:JSON.stringify(preview.rows.map(r=>r.version))});
  assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.confirm);
+ // Real multipart forms transport line endings as CRLF, after an LF preview.
+ applyForm.set('csv',csv.replace(/\n/g,'\r\n'));
  applyForm.set('confirm','on');const forged=form({csv,selected:['0'],confirm:'on',preview:'é'.repeat(64)});assert.ok((await applyRegistryImport(tx,forged,'volunteers',actor)).error);
 applyForm.append('selected','1');assert.ok((await applyRegistryImport(tx,applyForm,'volunteers',actor)).fieldErrors.selected);assert.equal(await count('audit'),audits);
  applyForm.delete('selected');applyForm.append('selected','0');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);const after=await count('audit');assert.equal((await applyRegistryImport(tx,applyForm,'volunteers',actor)).saved,true);assert.equal(await count('audit'),after);

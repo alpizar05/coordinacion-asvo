@@ -1,0 +1,29 @@
+{
+  "name": "mobile-final-locked-reload",
+  "date": "2026-11-17T19:04:09.493Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1\".\n1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t9 heading Informe de salida, Value: 1\n\t\t\t10 text Informe de salida\n\t\t11 text Informe Mobile\n\t\t12 text Informe finalizado. La tarea está completada y el informe ya no se puede editar.\n\t\t13 container\n\t\t\t14 heading Informe finalizado, Value: 2\n\t\t\t\t15 text Informe finalizado\n\t\t\t16 text Este informe es definitivo y ya no se puede editar.\n\t\t\t17 definition list\n\t\t\t\t18 container Persona responsable (70)\n\t\t\t\t\t19 text Persona responsable (70)\n\t\t\t\t20 text Kai Responsable\n\t\t\t\t21 container Correo electrónico\n\t\t\t\t\t22 text Correo electrónico\n\t\t\t\t23 text persona11@example.test\n\t\t\t\t24 container Estado\n\t\t\t\t\t25 text Estado\n\t\t\t\t26 text Finalizado\n\t\t\t\t27 container Finalizado\n\t\t\t\t\t28 text Finalizado\n\t\t\t\t29 text 17 nov 2026, 1:03 p. m.\n\t\t\t\t30 container Última actualización\n\t\t\t\t\t31 text Última actualización\n\t\t\t\t32 text 17 nov 2026, 1:03 p. m.\n\t\t\t\t33 container Tipo de labor realizada\n\t\t\t\t\t34 text Tipo de labor realizada\n\t\t\t\t35 text Mantenimiento y otros\n\t\t\t\t36 container Lugar visitado\n\t\t\t\t\t37 text Lugar visitado\n\t\t\t\t38 text Lugar Ficticio\n\t\t\t\t39 container Tipo de gira\n\t\t\t\t\t40 text Tipo de gira\n\t\t\t\t41 text Salida general (mantenimiento, colaboración en oficinas, ferias)\n\t\t\t\t42 container Fechas reales\n\t\t\t\t\t43 text Fechas reales\n\t\t\t\t44 container\n\t\t\t\t\t45 text 10/11/2026  al  12/11/2026\n\t\t\t\t46 container Persona funcionaria o responsable de la actividad\n\t\t\t\t\t47 text Persona funcionaria o responsable de la actividad\n\t\t\t\t48 text Responsable FICTICIO Mobile\n\t\t\t49 heading Acciones realizadas, Value: 3\n\t\t\t\t50 text Acciones realizadas\n\t\t\t51 text Acciones FICTICIAS Mobile\n\t\t\t52 heading Observaciones y recomendaciones, Value: 3\n\t\t\t\t53 text Observaciones y recomendaciones\n\t\t\t54 text Nota FICTICIA Mobile\n\t\t\t55 heading Asistencia confirmada por el 70, Value: 3\n\t\t\t\t56 text Asistencia confirmada por el 70\n\t\t\t57 container\n\t\t\t\t58 text 1  de  2  personas  participaron .\n\t\t\t59 content list\n\t\t\t\t60 container\n\t\t\t\t\t61 text Kai Responsable  ·  Participó\n\t\t\t\t62 container\n\t\t\t\t\t63 text Lia Participante  ·  No participó\n\t64 container\n\t\t65 text Conservación, educación y acción.\n\t\t66 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\nThe focused UI element is 1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×ConvocatoriasCoordinación‹ Vo"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

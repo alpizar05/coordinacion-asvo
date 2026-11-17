@@ -2,8 +2,9 @@
 
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 
-export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, managed, onClose, children, expanded = false, pending = false }: {
+export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, managed, onClose, children, expanded = false, pending = false, step }: {
   pending?: boolean;
+  step?: string | null;
   title: string;
   expanded?: boolean;
   subtitle?: string;
@@ -16,6 +17,11 @@ export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, man
   const id = useId();
   const trigger = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDialogElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    // A replaced action button can leave focus on body. Never override field-error focus.
+    if (panel.current?.open && document.activeElement === document.body) heading.current?.focus({preventScroll:true});
+  }, [step]);
 
   function positionPanel(dialog: HTMLDialogElement, button: HTMLButtonElement) {
     const rect = button.getBoundingClientRect();
@@ -59,7 +65,7 @@ export function RowActionPanel({ title, subtitle, triggerLabel, openOnError, man
       }}>
       <div className="registration-sheet-content">
         <header className="drawer-heading">
-          <div><h2 id={id}>{title}</h2>
+          <div><h2 ref={heading} id={id} tabIndex={-1}>{title}</h2>
             {subtitle && <p>{subtitle}</p>}
           </div>
           <button className="registration-sheet-close" type="button" aria-label="Cerrar panel" disabled={pending}

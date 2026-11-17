@@ -1,0 +1,220 @@
+{
+  "name": "mobile-add-mixed-result",
+  "date": "2026-11-17T18:20:37.538Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\n\t2 container Agregar persona a la salida\n\t\t3 container\n\t\t\t4 heading Agregar persona a la salida, Value: 2\n\t\t\t\t5 text Agregar persona a la salida\n\t\t\t6 button Cerrar\n\t\t46 container\n\t\t\t47 text Fallo general ficticio antes de persistir.\n\t\t\t75 container\n\t\t\t\t76 text Revisá  2 campos  para  guardar .\n\t\t\t77 content list\n\t\t\t\t78 container\n\t\t\t\t\t79 AXListMarker • \n\t\t\t\t\t80 button Llegada: Revisá starts ficticio. Segundo mensaje starts.\n\t\t\t\t\t\t81 text Llegada\n\t\t\t\t\t\t82 text : \n\t\t\t\t\t\t83 text Revisá starts ficticio. Segundo mensaje starts.\n\t\t\t\t84 container\n\t\t\t\t\t85 AXListMarker • \n\t\t\t\t\t86 button Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food.\n\t\t\t\t\t\t87 text Restricciones alimentarias\n\t\t\t\t\t\t88 text : \n\t\t\t\t\t\t89 text Revisá food ficticio. Segundo mensaje food.\n\t\t\t48 text Hugo Nuevo\n\t\t\t49 container\n\t\t\t\t50 text Identificación:  800100008\n\t\t\t51 text Persona seleccionada\n\t\t\t52 button Persona seleccionada\n\t\t\t53 text Llegada\n\t\t\t54 date field (settable) Llegada, Value: 2026-11-20\n\t\t\t\t90 container\n\t\t\t\t\t91 stepper\n\t\t\t\t\t92 stepper\n\t\t\t\t\t93 stepper\n\t\t\t\t94 pop up button Show date picker Show date picker\n\t\t\t95 container\n\t\t\t\t96 text Revisá starts ficticio. Segundo mensaje starts.\n\t\t\t60 text Regreso\n\t\t\t61 date field (settable) Regreso, Value: 2026-11-22\n\t\t\t\t97 container\n\t\t\t\t\t98 stepper\n\t\t\t\t\t99 stepper\n\t\t\t\t\t100 stepper\n\t\t\t\t101 pop up button Show date picker Show date picker\n\t\t\t67 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t68 text Restricciones alimentarias\n\t\t\t69 text entry area (settable) Restricciones alimentarias\n\t\t\t102 container\n\t\t\t\t103 text Revisá food ficticio. Segundo mensaje food.\n\t\t\t70 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t71 text Otras observaciones\n\t\t\t72 text entry area (settable) Otras observaciones, Value: Observación FICTICIA móvil\n\t\t\t73 text Podés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.\n\t\t\t74 text La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.\n\t\t43 container\n\t\t\t44 button Cancelar\n\t\t\t45 button Agregar inscripción\n\nThe focused UI element is 91 stepper",
+  "dom": {
+    "active": {
+      "name": "starts",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Llegada: Revisá starts ficticio. Segundo mensaje starts."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cambiar persona"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar inscripción"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar persona a la salida×Fallo general ficticio antes de persistir.Revisá 2 campos para guardar.Llegada: Revisá starts ficticio. Segundo mensaje starts.Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food.Hugo NuevoIdentificación: 800100008Persona seleccionadaCambiar personaLlegadaRevisá starts ficticio.Segundo mensaje starts.Regreso Tiene transporte propioPersonas que puede llevarRestricciones alimentariasRevisá food ficticio.Segundo mensaje food. Tiene interés en ser 70Otras observacionesPodés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.CancelarAgregar inscripción",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [
+      {
+        "description": "_R_ojd9bn5ritrj9erlb_-field-starts-error",
+        "linked": true,
+        "name": "starts"
+      },
+      {
+        "description": "_R_ojd9bn5ritrj9erlb_-field-food-error",
+        "linked": true,
+        "name": "food"
+      }
+    ],
+    "overflow": false,
+    "scroll": 508.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "rides",
+        "value": "0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": "Observación FICTICIA móvil"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Inscripciones Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000102"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Inscripciones Mobile · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "5"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

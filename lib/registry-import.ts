@@ -7,9 +7,12 @@ import {audit,field,type Transaction} from './registration';
 export type ImportKind='volunteers'|'policies';
 export type ImportRow={key:string;line:number;id:string;name:string;surname:string;email:string;kind:string;number:string;valid:boolean;checked:boolean;state:string;issues:{column:string;reason:string}[];current?:{id:string;name:string;surname:string;email:string|null};version:string};
 export type ImportPreview=FormResult & {rows?:ImportRow[];token?:string};
+// Multipart FormData normalizes LF to CRLF; sign and parse the same canonical text.
+const canonicalCsv=(value:string)=>typeof value==='string'?value.replace(/\r\n/g,'\n'):value;
 const hash=(s:string)=>createHash('sha256').update(s).digest('hex');
 function signature(value:string){const secret=process.env.AUTH_SECRET||(process.env.ASVO_DEMO==='1'&&process.env.NODE_ENV==='development'?'local-demo-import':null);if(!secret)throw Error('No está configurada la firma de previsualizaciones.');return createHmac('sha256',secret).update(value).digest('hex');}
 export async function prepareRegistryImport(tx:Transaction,csv:string,kind:ImportKind):Promise<ImportPreview>{
+ csv=canonicalCsv(csv);
  const parsed=parseRows(csv,kind);if('message'in parsed)return {fieldErrors:{csv:parsed.message}};
  const rows=parsed.rows;
  const ids=rows.map(r=>r.id);
@@ -31,7 +34,7 @@ export async function applyRegistryImport(tx:Transaction,form:FormData,kind:Impo
  if(Object.keys(scalarInputErrors(form,['preview','versions'])).length)return {error:'La previsualización no es válida. Volvé a revisar el CSV.'};
  if(form.getAll('selected').some(value=>typeof value!=='string'))malformed.selected='Revisá las filas seleccionadas.';
  if(Object.keys(malformed).length)return {fieldErrors:malformed};
- const csv=String(form.get('csv')??'');
+ const csv=canonicalCsv(String(form.get('csv')??''));
  const parsed=parseRows(csv,kind);if('message'in parsed)return {fieldErrors:{csv:parsed.message}};
  const selected=form.getAll('selected').map(String),errors:Record<string,string>={};
  if(!selected.length)errors.selected='Seleccioná al menos una fila válida.';

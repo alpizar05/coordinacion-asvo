@@ -1,0 +1,207 @@
+{
+  "name": "mobile-requests-edit-rejection-result",
+  "date": "2026-11-17T19:14:47.265Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t51 text No se pudo guardar. Los datos se conservan para reintentar.\n\t\t\t27 text Iris Nueva\n\t\t\t28 text Llegada\n\t\t\t29 date field (settable) Llegada, Value: 2026-11-20\n\t\t\t\t52 container\n\t\t\t\t\t53 stepper\n\t\t\t\t\t54 stepper\n\t\t\t\t\t55 stepper\n\t\t\t\t56 pop up button Show date picker Show date picker\n\t\t\t36 text Regreso\n\t\t\t37 date field (settable) Regreso, Value: 2026-11-22\n\t\t\t\t57 container\n\t\t\t\t\t58 stepper\n\t\t\t\t\t59 stepper\n\t\t\t\t\t60 stepper\n\t\t\t\t61 pop up button Show date picker Show date picker\n\t\t\t44 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t45 text Restricciones alimentarias\n\t\t\t46 text entry area (settable) Restricciones alimentarias\n\t\t\t47 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t48 text Otras observaciones\n\t\t\t49 text entry area (settable) Otras observaciones, Value: Dato FICTICIO actualizado desde solicitudes\n\t\t\t50 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 62 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo guardar. Los datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×No se pudo guardar. Los datos se conservan para reintentar.Iris NuevaLlegadaRegreso Tiene transporte propioPersonas que puede llevarRestricciones alimentarias Tiene interés en ser 70Otras observacionesSi cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.CancelarGuardar cambios",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 46,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "rides",
+        "value": "0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": "Dato FICTICIO actualizado desde solicitudes"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

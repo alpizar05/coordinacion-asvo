@@ -1,0 +1,5 @@
+
+> coordinacion-asvo@1.0.0 test:security:build
+> node scripts/test-security-build.mjs
+
+OK: isolated Next production build, real HTTP headers/Auth.js route/cron, server-only compiler rejection. No providers or application DB. Temporary copy removed.

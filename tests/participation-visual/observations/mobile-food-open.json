@@ -1,0 +1,77 @@
+{
+  "name": "mobile-food-open",
+  "date": "2026-11-17T19:04:56.365Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?pestana=logistica&navContext=428ab665-fed1-4edc-9976-eaa14d24a3a6&desglose=alimentacion\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?pestana=logistica&navContext=428ab665-fed1-4edc-9976-eaa14d24a3a6&desglose=alimentacion\n\t2 container Ver restricciones\n\t\t3 container\n\t\t\t4 heading Ver restricciones, Value: 2\n\t\t\t\t5 text Ver restricciones\n\t\t\t6 button Cerrar ver restricciones\n\t\t7 heading Restricciones alimentarias indicadas, Value: 4\n\t\t\t8 text Restricciones alimentarias indicadas\n\t\t9 container Detalle de restricciones alimentarias\n\t\t\t10 table\n\t\t\t\t11 row [FICTITIOUS-LONG-VALUE]008012\n\t\t\t\t\t12 cell\n\t\t\t\t\t\t13 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=688e515f-2982-4b5e-8b48-1891a00c2800\n\t\t\t\t\t14 cell\n\t\t\t\t\t\t15 text Preferencia FICTICIA\n\nThe focused UI element is 6 button Cerrar ver restricciones",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "×"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver transporte"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver restricciones"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar ver restricciones",
+        "text": "×"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Ver restricciones×Restricciones alimentarias indicadasPersona voluntariaRestricciones alimentariasLia ParticipantePreferencia FICTICIA",
+        "top": 302.984375,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1014.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?pestana=logistica&navContext=428ab665-fed1-4edc-9976-eaa14d24a3a6&desglose=alimentacion",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

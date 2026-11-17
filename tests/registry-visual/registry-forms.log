@@ -1,0 +1,3 @@
+Integración: registry-forms (base local desechable).
+OK: errores múltiples, ficha, unidades obligatorias, pólizas, incidentes, permisos ficticios, evidencia, CSV por fila/columna, preview sin escritura, confirmación, conflictos y reintentos sin duplicados; rollback local y cero red real.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

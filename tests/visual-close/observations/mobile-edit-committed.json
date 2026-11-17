@@ -1,0 +1,65 @@
+{
+  "name": "mobile-edit-committed",
+  "date": "2026-11-17T21:29:32.121Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t14 container\n\t\t\t\t\t15 text Alta Revision Desktop\n\t\t16 container\n\t\t\t17 text Estado ·  abierta\n\t\t\t18 link Description: Inscripciones: 1/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103#inscripciones\n\t\t\t19 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?editar=1\n\t\t\t20 heading Alta Revision Desktop, Value: 1\n\t\t\t\t21 text Alta Revision Desktop\n\t\t\t22 definition list\n\t\t\t\t23 container Lugar\n\t\t\t\t\t24 text Lugar\n\t\t\t\t25 text Lugar Ficticio\n\t\t\t\t26 container Unidad\n\t\t\t\t\t27 text Unidad\n\t\t\t\t28 text Voluntariado General\n\t\t\t\t29 container Fechas\n\t\t\t\t\t30 text Fechas\n\t\t\t\t31 container\n\t\t\t\t\t32 text 20/11/2026  al  22/11/2026\n\t\t\t\t33 container Modalidad\n\t\t\t\t\t34 text Modalidad\n\t\t\t\t35 text Fechas flexibles\n\t\t\t\t36 container Visibilidad\n\t\t\t\t\t37 text Visibilidad\n\t\t\t\t38 text Privada por enlace\n\t\t\t\t39 container Fecha límite de inscripción\n\t\t\t\t\t40 text Fecha límite de inscripción\n\t\t\t\t41 text 20/11/2026\n\t\t42 tab group Contenido de la salida\n\t\t\t43 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t44 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t45 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t46 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t47 container Inscripciones\n\t\t\t48 container Inscripciones\n\t\t\t\t49 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t50 text Inscripciones\n\t\t\t\t51 pop up button Agregar persona\n\t\t\t\t52 pop up button Filtrar inscripciones\n\t\t\t\t53 text 1 inscripción\n\t\t\t\t54 container Inscripciones de la salida\n\t\t\t\t\t55 table\n\t\t\t\t\t\t56 row\n\t\t\t\t\t\t\t57 cell\n\t\t\t\t\t\t\t\t58 text Persona voluntaria\n\t\t\t\t\t\t\t59 cell\n\t\t\t\t\t\t\t\t60 text Estado\n\t\t\t\t\t\t\t61 cell\n\t\t\t\t\t\t\t\t62 text Fechas solicitadas\n\t\t\t\t\t\t\t63 cell\n\t\t\t\t\t\t\t\t64 text Póliza\n\t\t\t\t\t\t\t65 cell\n\t\t\t\t\t\t\t\t66 text Recepción\n\t\t\t\t\t\t\t67 cell\n\t\t\t\t\t\t\t\t68 text Acciones\n\t\t\t\t\t\t69 row inscripcion-24392994-a11f-43f8-9552-52f6f140976c\n\t\t\t\t\t\t\t70 cell\n\t\t\t\t\t\t\t\t71 link Description: Hugo Nuevo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000008?navContext=2dbdb89b-2a8f-4c6e-95ec-3ef9a01254ea\n\t\t\t\t\t\t\t72 cell\n\t\t\t\t\t\t\t\t73 text En revisión\n\t\t\t\t\t\t\t74 cell\n\t\t\t\t\t\t\t\t75 text 20–22 nov. 2026\n\t\t\t\t\t\t\t76 cell\n\t\t\t\t\t\t\t\t77 pop up button Gestionar inscripción de Hugo Nuevo\n\t78 container\n\t\t79 text Conservación, educación y acción.\n\t\t80 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t81 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t82 image\n\nThe focused UI element is 77 pop up button Gestionar inscripción de Hugo Nuevo",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Gestionar ⌄"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 556.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "runtime_fixture_removed": true,
+  "temporary_app_and_cluster_removed": true,
+  "browser_tab_closed": true,
+  "viewport_reset": true,
+  "production_files_changed_by_this_task": false,
+  "evidence_only": true
+}

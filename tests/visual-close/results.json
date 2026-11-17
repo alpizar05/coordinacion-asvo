@@ -1,0 +1,372 @@
+{
+  "cases": [
+    {
+      "name": "desktop-add-open",
+      "file": "observations/desktop-add-open.json"
+    },
+    {
+      "name": "desktop-add-required",
+      "file": "observations/desktop-add-required.json"
+    },
+    {
+      "name": "desktop-add-missing-status-pending",
+      "file": "observations/desktop-add-missing-status-pending.json"
+    },
+    {
+      "name": "desktop-add-escape-blocked",
+      "file": "observations/desktop-add-escape-blocked.json"
+    },
+    {
+      "name": "desktop-add-discard-return",
+      "file": "observations/desktop-add-discard-return.json"
+    },
+    {
+      "name": "desktop-add-pending-six-seconds",
+      "file": "observations/desktop-add-pending-six-seconds.json"
+    },
+    {
+      "name": "desktop-add-payload-guard",
+      "file": "observations/desktop-add-payload-guard.json"
+    },
+    {
+      "name": "desktop-add-pending-escape-confirmed",
+      "file": "observations/desktop-add-pending-escape-confirmed.json"
+    },
+    {
+      "name": "desktop-add-mixed",
+      "file": "observations/desktop-add-mixed.json"
+    },
+    {
+      "name": "desktop-add-mixed-pending",
+      "file": "observations/desktop-add-mixed-pending.json"
+    },
+    {
+      "name": "desktop-add-rejection-pending",
+      "file": "observations/desktop-add-rejection-pending.json"
+    },
+    {
+      "name": "desktop-add-heading-escape-pending",
+      "file": "observations/desktop-add-heading-escape-pending.json"
+    },
+    {
+      "name": "desktop-add-rejection",
+      "file": "observations/desktop-add-rejection.json"
+    },
+    {
+      "name": "desktop-add-commit-pending",
+      "file": "observations/desktop-add-commit-pending.json"
+    },
+    {
+      "name": "desktop-add-commit-escape-blocked",
+      "file": "observations/desktop-add-commit-escape-blocked.json"
+    },
+    {
+      "name": "desktop-add-committed",
+      "file": "observations/desktop-add-committed.json"
+    },
+    {
+      "name": "desktop-manage-open",
+      "file": "observations/desktop-manage-open.json"
+    },
+    {
+      "name": "desktop-detail-loading",
+      "file": "observations/desktop-detail-loading.json"
+    },
+    {
+      "name": "desktop-edit-handoff",
+      "file": "observations/desktop-edit-handoff.json"
+    },
+    {
+      "name": "desktop-edit-pending-escape",
+      "file": "observations/desktop-edit-pending-escape.json"
+    },
+    {
+      "name": "desktop-edit-invalid-result",
+      "file": "observations/desktop-edit-invalid-result.json"
+    },
+    {
+      "name": "desktop-edit-mixed-pending",
+      "file": "observations/desktop-edit-mixed-pending.json"
+    },
+    {
+      "name": "desktop-edit-mixed",
+      "file": "observations/desktop-edit-mixed.json"
+    },
+    {
+      "name": "desktop-edit-summary-focus",
+      "file": "observations/desktop-edit-summary-focus.json"
+    },
+    {
+      "name": "desktop-discard-continue-return",
+      "file": "observations/desktop-discard-continue-return.json"
+    },
+    {
+      "name": "desktop-edit-discard-return",
+      "file": "observations/desktop-edit-discard-return.json"
+    },
+    {
+      "name": "mobile-manage-open",
+      "file": "observations/mobile-manage-open.json"
+    },
+    {
+      "name": "mobile-detail-loading",
+      "file": "observations/mobile-detail-loading.json"
+    },
+    {
+      "name": "mobile-detail-loaded",
+      "file": "observations/mobile-detail-loaded.json"
+    },
+    {
+      "name": "mobile-edit-handoff",
+      "file": "observations/mobile-edit-handoff.json"
+    },
+    {
+      "name": "mobile-edit-required",
+      "file": "observations/mobile-edit-required.json"
+    },
+    {
+      "name": "mobile-edit-rejection-pending",
+      "file": "observations/mobile-edit-rejection-pending.json"
+    },
+    {
+      "name": "mobile-edit-rejection",
+      "file": "observations/mobile-edit-rejection.json"
+    },
+    {
+      "name": "mobile-edit-commit-pending",
+      "file": "observations/mobile-edit-commit-pending.json"
+    },
+    {
+      "name": "mobile-edit-committed",
+      "file": "observations/mobile-edit-committed.json"
+    },
+    {
+      "name": "mobile-photo-open",
+      "file": "observations/mobile-photo-open.json"
+    },
+    {
+      "name": "mobile-photo-first-result",
+      "file": "observations/mobile-photo-first-result.json"
+    },
+    {
+      "name": "mobile-photo-summary-credit",
+      "file": "observations/mobile-photo-summary-credit.json"
+    },
+    {
+      "name": "mobile-photo-rejection-pending-tabs",
+      "file": "observations/mobile-photo-rejection-pending-tabs.json"
+    },
+    {
+      "name": "mobile-photo-rejection-file-retained",
+      "file": "observations/mobile-photo-rejection-file-retained.json"
+    },
+    {
+      "name": "mobile-photo-preparation-pending",
+      "file": "observations/mobile-photo-preparation-pending.json"
+    },
+    {
+      "name": "mobile-photo-prepared",
+      "file": "observations/mobile-photo-prepared.json"
+    },
+    {
+      "name": "mobile-parent-save-pending",
+      "file": "observations/mobile-parent-save-pending.json"
+    },
+    {
+      "name": "mobile-parent-error-file-kept",
+      "file": "observations/mobile-parent-error-file-kept.json"
+    },
+    {
+      "name": "mobile-long-form-summary-reveal",
+      "file": "observations/mobile-long-form-summary-reveal.json"
+    },
+    {
+      "name": "mobile-parent-prepared-photo-after-error",
+      "file": "observations/mobile-parent-prepared-photo-after-error.json"
+    },
+    {
+      "name": "desktop-prepared-photo-edit-open",
+      "file": "observations/desktop-prepared-photo-edit-open.json"
+    },
+    {
+      "name": "desktop-photo-required",
+      "file": "observations/desktop-photo-required.json"
+    },
+    {
+      "name": "desktop-photo-pending-file-kept",
+      "file": "observations/desktop-photo-pending-file-kept.json"
+    },
+    {
+      "name": "desktop-photo-mixed",
+      "file": "observations/desktop-photo-mixed.json"
+    },
+    {
+      "name": "desktop-photo-discard-prompt",
+      "file": "observations/desktop-photo-discard-prompt.json"
+    },
+    {
+      "name": "desktop-parent-discarded",
+      "file": "observations/desktop-parent-discarded.json"
+    },
+    {
+      "name": "desktop-profile-open",
+      "file": "observations/desktop-profile-open.json"
+    },
+    {
+      "name": "desktop-profile-tab",
+      "file": "observations/desktop-profile-tab.json"
+    },
+    {
+      "name": "desktop-profile-shift-tab",
+      "file": "observations/desktop-profile-shift-tab.json"
+    },
+    {
+      "name": "desktop-profile-pending-escape",
+      "file": "observations/desktop-profile-pending-escape.json"
+    },
+    {
+      "name": "desktop-profile-mixed",
+      "file": "observations/desktop-profile-mixed.json"
+    },
+    {
+      "name": "desktop-profile-independent-correction",
+      "file": "observations/desktop-profile-independent-correction.json"
+    },
+    {
+      "name": "mobile-profile-rejection-pending",
+      "file": "observations/mobile-profile-rejection-pending.json"
+    },
+    {
+      "name": "mobile-profile-rejection",
+      "file": "observations/mobile-profile-rejection.json"
+    },
+    {
+      "name": "mobile-profile-commit-pending",
+      "file": "observations/mobile-profile-commit-pending.json"
+    },
+    {
+      "name": "mobile-profile-committed",
+      "file": "observations/mobile-profile-committed.json"
+    },
+    {
+      "name": "mobile-profile-open",
+      "file": "observations/mobile-profile-open.json"
+    },
+    {
+      "name": "mobile-profile-required",
+      "file": "observations/mobile-profile-required.json"
+    },
+    {
+      "name": "mobile-profile-discard-state",
+      "file": "observations/mobile-profile-discard-state.json"
+    },
+    {
+      "name": "mobile-profile-discard-continue",
+      "file": "observations/mobile-profile-discard-continue.json"
+    },
+    {
+      "name": "mobile-profile-discard-return",
+      "file": "observations/mobile-profile-discard-return.json"
+    },
+    {
+      "name": "mobile-summary-confirm-step",
+      "file": "observations/mobile-summary-confirm-step.json"
+    },
+    {
+      "name": "mobile-summary-confirm-pending",
+      "file": "observations/mobile-summary-confirm-pending.json"
+    },
+    {
+      "name": "mobile-summary-confirmed-next-row",
+      "file": "observations/mobile-summary-confirmed-next-row.json"
+    },
+    {
+      "name": "desktop-summary-confirm-pending",
+      "file": "observations/desktop-summary-confirm-pending.json"
+    },
+    {
+      "name": "desktop-summary-before-fix-body",
+      "file": "observations/desktop-summary-before-fix-body.json"
+    },
+    {
+      "name": "desktop-summary-fixed-pending",
+      "file": "observations/desktop-summary-fixed-pending.json"
+    },
+    {
+      "name": "desktop-summary-fixed-next-row",
+      "file": "observations/desktop-summary-fixed-next-row.json"
+    },
+    {
+      "name": "mobile-summary-fixed-pending",
+      "file": "observations/mobile-summary-fixed-pending.json"
+    },
+    {
+      "name": "mobile-summary-fixed-next-row",
+      "file": "observations/mobile-summary-fixed-next-row.json"
+    },
+    {
+      "name": "mobile-logistics-transport-open",
+      "file": "observations/mobile-logistics-transport-open.json"
+    },
+    {
+      "name": "mobile-logistics-person",
+      "file": "observations/mobile-logistics-person.json"
+    },
+    {
+      "name": "mobile-logistics-native-back",
+      "file": "observations/mobile-logistics-native-back.json"
+    },
+    {
+      "name": "mobile-logistics-native-forward",
+      "file": "observations/mobile-logistics-native-forward.json"
+    },
+    {
+      "name": "mobile-logistics-context-return",
+      "file": "observations/mobile-logistics-context-return.json"
+    },
+    {
+      "name": "mobile-summary-context-restored",
+      "file": "observations/mobile-summary-context-restored.json"
+    },
+    {
+      "name": "desktop-logistics-food-open",
+      "file": "observations/desktop-logistics-food-open.json"
+    },
+    {
+      "name": "desktop-logistics-person",
+      "file": "observations/desktop-logistics-person.json"
+    },
+    {
+      "name": "desktop-logistics-context-return",
+      "file": "observations/desktop-logistics-context-return.json"
+    },
+    {
+      "name": "desktop-summary-context-restored",
+      "file": "observations/desktop-summary-context-restored.json"
+    },
+    {
+      "name": "desktop-report-invalid-final",
+      "file": "observations/desktop-report-invalid-final.json"
+    },
+    {
+      "name": "desktop-report-hidden-actions-focus",
+      "file": "observations/desktop-report-hidden-actions-focus.json"
+    },
+    {
+      "name": "mobile-report-hidden-accuracy-focus",
+      "file": "observations/mobile-report-hidden-accuracy-focus.json"
+    },
+    {
+      "name": "mobile-report-draft-pending",
+      "file": "observations/mobile-report-draft-pending.json"
+    },
+    {
+      "name": "desktop-report-draft-pending",
+      "file": "observations/desktop-report-draft-pending.json"
+    },
+    {
+      "name": "desktop-report-unconfirmed-result",
+      "file": "observations/desktop-report-unconfirmed-result.json"
+    }
+  ]
+}

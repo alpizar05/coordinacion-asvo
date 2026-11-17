@@ -1,0 +1,245 @@
+{
+  "name": "desktop-report-invalid-final",
+  "date": "2026-11-17T22:06:09.002Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\n1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t10 container contenido\n\t\t11 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t12 heading Informe de salida, Value: 1\n\t\t\t13 text Informe de salida\n\t\t14 text Informe Desktop\n\t\t15 container\n\t\t\t16 container\n\t\t\t\t17 text Revisá  4 campos  para  guardar .\n\t\t\t18 content list\n\t\t\t\t19 container\n\t\t\t\t\t20 AXListMarker • \n\t\t\t\t\t21 button Acciones realizadas: Completá este campo.\n\t\t\t\t\t\t22 text Acciones realizadas\n\t\t\t\t\t\t23 text : \n\t\t\t\t\t\t24 text Completá este campo.\n\t\t\t\t25 container\n\t\t\t\t\t26 AXListMarker • \n\t\t\t\t\t27 button Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo.\n\t\t\t\t\t\t28 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t\t29 text : \n\t\t\t\t\t\t30 text Completá este campo.\n\t\t\t\t31 container\n\t\t\t\t\t32 AXListMarker • \n\t\t\t\t\t33 button Confirmación de asistencia: Confirmá al menos una persona que participó realmente.\n\t\t\t\t\t\t34 text Confirmación de asistencia\n\t\t\t\t\t\t35 text : \n\t\t\t\t\t\t36 text Confirmá al menos una persona que participó realmente.\n\t\t\t\t37 container\n\t\t\t\t\t38 AXListMarker • \n\t\t\t\t\t39 button Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe.\n\t\t\t\t\t\t40 text Confirmo que revisé la asistencia y que este informe refleja lo realizado.\n\t\t\t\t\t\t41 text : \n\t\t\t\t\t\t42 text Confirmá que revisaste la asistencia y la información del informe.\n\t\t\t43 text Informe de salida\n\t\t\t44 text Guardá un borrador o finalizá el informe\n\t\t\t45 button Guardar borrador\n\t\t\t46 button Finalizar informe\n\t\t\t47 container Secciones\n\t\t\t\t48 button Datos de la gira\n\t\t\t\t49 button Labores y acciones\n\t\t\t\t50 button Asistencia\n\t\t\t\t51 button Observaciones\n\t\t\t\t52 button Revisión final\n\t\t\t53 container Datos de la gira\n\t\t\t\t54 container\n\t\t\t\t\t55 heading Datos de la gira, Value: 2\n\t\t\t\t\t\t56 text Datos de la gira\n\t\t\t\t\t57 heading Persona responsable (70), Value: 3\n\t\t\t\t\t\t58 text Persona responsable (70)\n\t\t\t\t\t59 text Kai Responsable\n\t\t\t\t\t60 text persona11@example.test Los datos del 70 provienen de su ficha. Revisá los datos precargados de la gira.\n\t\t\t\t\t61 text Área silvestre protegida o lugar visitado\n\t\t\t\t\t62 text field (settable) Área silvestre protegida o lugar visitado, Value: Lugar Ficticio\n\t\t\t\t\t63 text Fecha de inicio real\n\t\t\t\t\t64 date field (settable) Fecha de inicio real, Value: 2026-11-10\n\t\t\t\t\t\t65 container\n\t\t\t\t\t\t\t66 stepper\n\t\t\t\t\t\t\t67 stepper\n\t\t\t\t\t\t\t68 stepper\n\t\t\t\t\t\t69 pop up button Show date picker Show date picker\n\t\t\t\t\t70 text Fecha de finalización real\n\t\t\t\t\t71 date field (settable) Fecha de finalización real, Value: 2026-11-12\n\t\t\t\t\t\t72 container\n\t\t\t\t\t\t\t73 stepper\n\t\t\t\t\t\t\t74 stepper\n\t\t\t\t\t\t\t75 stepper\n\t\t\t\t\t\t76 pop up button Show date picker Show date picker\n\t\t\t\t\t77 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t78 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t79 text Completá este campo.\n\t80 container\n\t\t81 text Conservación, educación y acción.\n\t\t82 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t83 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t84 image\n\t85 text Informe de salida\n\nThe focused UI element is 78 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad",
+  "dom": {
+    "active": {
+      "name": "host",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": false,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(83, 105, 66)",
+        "disabled": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "5Revisión final"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_r_0_-field-host-error",
+        "id": "_r_0_-field-host",
+        "linked": true,
+        "name": "host"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 428,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "type": "text",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "type": "text",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "5Revisión final"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "location",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "starts",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "ends",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "host",
+        "text": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "name": "desktop-invitation-missing-link-result",
+  "date": "2026-11-17T18:48:09.704Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t\t\t114 container\n+\t\t\t\t\t115 text No se pudo confirmar la generación del enlace. Los datos se conservan para reintentar.\n~\t\t\t\t\t95 text field (settable) Identificación de la persona voluntaria, Value: 800100009\n~\t\t\t\t\t97 button Generar invitación\nThe focused UI element is 114 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar la generación del enlace. Los datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1204.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Invitacion Ficticia\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000112"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": "800100009"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

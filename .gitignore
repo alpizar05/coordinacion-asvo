@@ -7,5 +7,6 @@ node_modules/
 next-env.d.ts
 
 .local-postgres/
+.local-runtime/
 
 coverage/

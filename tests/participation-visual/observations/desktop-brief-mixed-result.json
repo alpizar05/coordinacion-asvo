@@ -1,0 +1,62 @@
+{
+  "name": "desktop-brief-mixed-result",
+  "date": "2026-11-17T18:48:46.961Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 145\n+\t\t\t149 container\n+\t\t\t\t150 text Fallo general ficticio antes de persistir.\n+\t\t\t\t151 container\n+\t\t\t\t\t152 text Revisá  1 campo  para  guardar .\n+\t\t\t\t153 content list\n+\t\t\t\t\t154 container\n+\t\t\t\t\t\t155 AXListMarker • \n+\t\t\t\t\t\t156 button Persona asignada como 70: Revisá lead ficticio. Segundo mensaje lead.\n+\t\t\t\t\t\t\t157 text Persona asignada como 70\n+\t\t\t\t\t\t\t158 text : \n+\t\t\t\t\t\t\t159 text Revisá lead ficticio. Segundo mensaje lead.\n~\t\t\t\t46 pop up button (collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand\n+\t\t\t\t160 text Revisá lead ficticio. Segundo mensaje lead.\n~\t\t\t\t51 button Generar enlace privado\n~\t\t\t52 button Revocar enlaces del resumen\nThe focused UI element is 46 pop up button (collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand",
+  "dom": {
+    "active": {
+      "name": "lead",
+      "tag": "SELECT",
+      "text": "Seleccioná una personaKai Responsable"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona asignada como 70: Revisá lead ficticio. Segundo mensaje lead."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar enlace privado"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_sinebn5ritrj9erlb_-field-lead-error",
+        "linked": true,
+        "name": "lead"
+      }
+    ],
+    "overflow": false,
+    "scroll": 334.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000007011"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

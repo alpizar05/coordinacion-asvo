@@ -31,3 +31,7 @@ El contrato de CI compara el pin exacto de Next con el paquete resuelto y el ins
 Ver [validación Node 26/PostgreSQL 18](validacion-node26-postgres18.md): ambos compiladores ya se verificaron con Next 16.4.5, incluyendo Webpack/HTTP aislado. Esta tarea solo fija la versión que estaba instalada y documenta el mantenimiento; no actualiza Next ni repite la matriz visual. Los contratos CI, lint y formato se comprueban después del pin. Primera CI remota, contenedor Ubuntu y matriz CUA permanecen pendientes.
 
 Comprobación posterior al pin: siete controles CI pasaron con Node 26.13.1/npm 11.7.0; lint y formato del alcance configurado también pasaron. No se repitieron integración SQL ni builds porque no cambió el paquete instalado ni código funcional. El runtime temporal se retiró; el Node global permanece intacto.
+
+## Entorno persistente seleccionado el 17/11/2026
+
+[Actualización efectiva local](entorno-local-versiones.md): Node 26.13.1 y npm 11.7.0 dentro del proyecto, PostgreSQL 18.7 sobre el clúster persistente con respaldo previo y conteos conservados. Activación por terminal con `source scripts/local-env.zsh`, sin reemplazar el global. Runner 18.7 con 24 grupos SQL verificado; no equivale a repetir CUA ni ejecutar CI remota. La validación aislada del 13/11 anterior se conserva como evidencia histórica.

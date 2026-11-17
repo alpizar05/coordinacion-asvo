@@ -1,0 +1,161 @@
+{
+  "name": "mobile-report-hidden-accuracy-focus",
+  "date": "2026-11-17T22:06:19.620Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 5-9, 47-52, 86-109\n+\t\t86 pop up button Menú\n+\t\t\t87 text Menú\n+\t\t\t88 pop up button Sección: Revisión final\n+\t\t\t89 container Revisión final\n+\t\t\t\t90 container\n+\t\t\t\t\t91 heading Revisión del informe, Value: 2\n+\t\t\t\t\t\t92 text Revisión del informe\n+\t\t\t\t\t93 definition list\n+\t\t\t\t\t\t94 container Lugar\n+\t\t\t\t\t\t\t95 text Lugar\n+\t\t\t\t\t\t96 text Lugar Ficticio\n+\t\t\t\t\t\t97 container Fechas reales\n+\t\t\t\t\t\t\t98 text Fechas reales\n+\t\t\t\t\t\t99 container\n+\t\t\t\t\t\t\t100 text 2026-11-10  —  2026-11-12\n+\t\t\t\t\t\t101 container Labores\n+\t\t\t\t\t\t\t102 text Labores\n+\t\t\t\t\t\t103 text Mantenimiento y otros\n+\t\t\t\t\t\t104 container Asistencia\n+\t\t\t\t\t\t\t105 text Asistencia\n+\t\t\t\t\t\t106 container\n+\t\t\t\t\t\t\t107 text 0  de  2  personas\n+\t\t\t\t\t108 checkbox (settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 0\n+\t\t\t\t\t109 text Confirmá que revisaste la asistencia y la información del informe. Guardar borrador permite continuar después y mantiene la tarea pendiente. Finalizar guarda el informe definitivo y bloquea la edición.\nThe focused UI element is 108 checkbox (settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 0",
+  "dom": {
+    "active": {
+      "name": "accuracy",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": false,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Revisión final⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_r_0_-field-accuracy-error",
+        "id": "_r_0_-field-accuracy",
+        "linked": true,
+        "name": "accuracy"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 759,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Revisión final⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "accuracy",
+        "text": null
+      }
+    ]
+  }
+}

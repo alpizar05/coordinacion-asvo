@@ -9,6 +9,8 @@ export function CoordinationModal({ open, onClose, title, children, footer, dirt
   const dialog = useRef<HTMLDialogElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
   const [discard, setDiscard] = useState(false);
+  const discardFocus = useRef<HTMLElement | null>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
   const discardNotice = useRef<HTMLDivElement>(null);
   const id = useId();
   useEffect(() => {
@@ -25,19 +27,19 @@ export function CoordinationModal({ open, onClose, title, children, footer, dirt
   useEffect(() => { if (discard) discardNotice.current?.focus(); }, [discard]);
   const requestClose = () => {
     if (pending) return;
-    if (dirty) setDiscard(true);
+    if (dirty) { discardFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null; setDiscard(true); }
     else onClose();
   };
   return <dialog ref={dialog} className={`coordination-modal${wide ? ' coordination-modal-wide' : ''}`} aria-labelledby={id}
     onCancel={event => { event.preventDefault(); requestClose(); }}
     onClick={event => { if (event.target === event.currentTarget) requestClose(); }}>
-    <header className="coordination-modal-heading"><h2 id={id}>{title}</h2>
+    <header className="coordination-modal-heading"><h2 ref={heading} id={id} tabIndex={-1}>{title}</h2>
       <button type="button" className="coordination-modal-close" aria-label="Cerrar" disabled={pending} onClick={requestClose}>×</button>
     </header>
     {discard && <div ref={discardNotice} tabIndex={-1} className="coordination-modal-discard" role="alert">
       <p>Tenés cambios sin guardar. ¿Querés descartarlos?</p>
-      <div className="actions"><button type="button" onClick={() => setDiscard(false)}>Seguir editando</button>
-        <button type="button" className="coord-button-danger" onClick={onClose}>Descartar cambios</button></div>
+      <div className="actions"><button type="button" disabled={pending} onClick={() => { setDiscard(false); const target=discardFocus.current; if(target?.isConnected && !target.matches(':disabled')) target.focus({preventScroll:true}); else heading.current?.focus({preventScroll:true}); }}>Seguir editando</button>
+        <button type="button" className="coord-button-danger" disabled={pending} onClick={onClose}>Descartar cambios</button></div>
     </div>}
     <div className="coordination-modal-body">{children}</div>
     <footer className="coordination-modal-footer"><button type="button" disabled={pending} onClick={requestClose}>Cancelar</button>{footer}</footer>

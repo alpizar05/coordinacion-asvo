@@ -1,0 +1,3 @@
+// Only the response boundary is delayed/mocked in the disposable copy.
+const attempts=new Map<string,number>();
+export async function photoResponse(key:string,real:()=>unknown){const n=(attempts.get(key)||0)+1;attempts.set(key,n);console.log('[visual-photo-prepare]',{key,n});await new Promise(r=>setTimeout(r,1600));if(n===1)return {error:'Preparación simulada no confirmada.',fieldErrors:{alt:['Revisá la descripción.','Otro detalle ficticio.'],credit:'Revisá el crédito.'}};if(n===2)throw Error('Rechazo local simulado');return real();}

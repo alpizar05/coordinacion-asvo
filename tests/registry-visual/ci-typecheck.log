@@ -1,0 +1,7 @@
+
+> coordinacion-asvo@1.0.0 ci:typecheck
+> node scripts/ci/typecheck.mjs
+
+Generating route types...
+✓ Types generated successfully
+OK: Next typegen y TypeScript en copia limpia, sin .env ni .next preexistente.

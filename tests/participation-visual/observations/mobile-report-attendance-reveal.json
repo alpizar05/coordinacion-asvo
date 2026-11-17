@@ -1,0 +1,150 @@
+{
+  "name": "mobile-report-attendance-reveal",
+  "date": "2026-11-17T19:03:27.765Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 52-57, 64-75, 96-116\n~\t\t\t\t50 text Revisá  2 campos  para  guardar .\n~\t\t\t19 pop up button Sección: Asistencia\n~\t\t\t91 container Asistencia\n~\t\t\t\t\t93 heading Participación real del equipo, Value: 2\n~\t\t\t\t\t\t94 text Participación real del equipo\n~\t\t\t\t\t95 text Marcá únicamente a quienes participaron realmente. Al finalizar, las personas sin marcar quedarán registradas como no participantes. El borrador no confirma asistencia.\n+\t\t\t\t\t96 container\n+\t\t\t\t\t\t97 text 0  de  2\n+\t\t\t\t\t98 text  personas seleccionadas provisionalmente.\n+\t\t\t\t\t99 container Confirmación de asistencia\n+\t\t\t\t\t\t100 text Confirmación de asistencia\n+\t\t\t\t\t\t101 checkbox (settable, integer) Description: Kai Responsable, Value: 0\n+\t\t\t\t\t\t102 checkbox (settable, integer) Description: Lia Participante, Value: 0\n+\t\t\t\t\t\t103 text Confirmá al menos una persona que participó realmente.\n+\t\t\t\t\t104 text Si falta una persona que participó, contactá a Coordinación para conciliar su inscripción antes de finalizar.\nThe focused UI element is 101 checkbox (settable, integer) Description: Kai Responsable, Value: 0",
+  "dom": {
+    "active": {
+      "name": "attended",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Asistencia⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_39bn5ritperlb_-field-participants-error",
+        "linked": true,
+        "name": null
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-accuracy-error",
+        "linked": true,
+        "name": "accuracy"
+      }
+    ],
+    "overflow": false,
+    "scroll": 720.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": "Responsable FICTICIO Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": "Salida general (mantenimiento, colaboración en oficinas, ferias)"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": "Acciones FICTICIAS Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

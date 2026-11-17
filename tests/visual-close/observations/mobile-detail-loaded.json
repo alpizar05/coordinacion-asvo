@@ -1,0 +1,80 @@
+{
+  "name": "mobile-detail-loaded",
+  "date": "2026-11-17T21:27:29.396Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Detalle de inscripción\n\t\t3 container\n\t\t\t4 heading Detalle de inscripción, Value: 2\n\t\t\t\t5 text Detalle de inscripción\n\t\t\t6 text Hugo Nuevo\n\t\t\t7 button Cerrar panel\n\t\t8 button Volver a gestionar\n\t\t9 text Hugo Nuevo\n\t\t10 container Participación\n\t\t\t11 heading Participación, Value: 3\n\t\t\t\t12 text Participación\n\t\t\t13 definition list\n\t\t\t\t14 container Identificación\n\t\t\t\t\t15 text Identificación\n\t\t\t\t16 text 800100008\n\t\t\t\t17 container Estado\n\t\t\t\t\t18 text Estado\n\t\t\t\t19 text En revisión\n\t\t\t\t20 container Recepción\n\t\t\t\t\t21 text Recepción\n\t\t\t\t22 text 17/11/26, 3:17 p. m.\n\t\t\t\t23 container Llegada\n\t\t\t\t\t24 text Llegada\n\t\t\t\t25 text 20/11/2026\n\t\t\t\t26 container Regreso\n\t\t\t\t\t27 text Regreso\n\t\t\t\t28 text 22/11/2026\n\t\t\t\t29 container Póliza para las fechas solicitadas\n\t\t\t\t\t30 text Póliza para las fechas solicitadas\n\t\t\t\t31 text Comprobada\n\t\t32 container Transporte\n\t\t\t33 heading Transporte, Value: 3\n\t\t\t\t34 text Transporte\n\t\t\t35 definition list\n\t\t\t\t36 container Transporte propio\n\t\t\t\t\t37 text Transporte propio\n\t\t\t\t38 text No indicó transporte propio\n\t\t\t\t39 container Personas que puede llevar\n\t\t\t\t\t40 text Personas que puede llevar\n\t\t\t\t41 text 0\n\t\t42 container Alimentación\n\t\t\t43 heading Restricciones alimentarias, Value: 3\n\t\t\t\t44 text Restricciones alimentarias\n\t\t\t45 text Dato ficticio conservado\n\t\t46 container Responsabilidad de 70\n\t\t\t47 heading Responsabilidad de 70, Value: 3\n\t\t\t\t48 text Responsabilidad de 70\n\t\t\t49 definition list\n\t\t\t\t50 container Interés expresado\n\t\t\t\t\t51 text Interés expresado\n\t\t\t\t52 text No indicó interés\n\t\t\t\t53 container Asignación actual\n\t\t\t\t\t54 text Asignación actual\n\t\t\t\t55 text Sin asignación de 70\n\t\t56 container Observaciones\n\t\t\t57 heading Otro detalle para esta salida, Value: 3\n\t\t\t\t58 text Otro detalle para esta salida\n\t\t\t59 text No indicó observaciones.\n\t\t60 container Historial de la inscripción\n\t\t\t61 heading Historial de la inscripción, Value: 3\n\t\t\t\t62 text Historial de la inscripción\n\t\t\t63 text Hora de Costa Rica. Se muestra la evidencia registrada; algunos eventos antiguos no incluyen el detalle de los cambios o el nombre de quien los realizó.\n\t\t\t64 content list\n\t\t\t\t65 container\n\t\t\t\t\t66 text 17 nov 2026, 3:17 p. m. Recibió inscripción Coordinación de prueba revisión\n\t\t\t\t67 container\n\t\t\t\t\t68 text 17 nov 2026, 3:17 p. m. Agregó inscripción desde Coordinación Coordinación de prueba revisión\n\t\t\t69 heading Notificaciones relacionadas, Value: 3\n\t\t\t\t70 text Notificaciones relacionadas\n\t\t\t71 text El correo se muestra por separado de la acción que lo originó. «Enviado» indica que Microsoft aceptó el envío; no confirma lectura.\n\t\t\t72 content list\n\t\t\t\t73 container\n\t\t\t\t\t74 text ASVO · Alta Revision Desktop · En revisión · con cupo reservado Bandeja de prueba Destinatario:  persona8@example.test Registrado: 17 nov 2026, 3:17 p. m.\n\t\t\t75 text Los correos de prueba anteriores a este historial no tenían vínculo con la inscripción y pueden no aparecer aquí. No se muestran enlaces privados ni tokens.\n\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Detalle de inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar panel",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Volver a gestionar"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Detalle de inscripciónHugo Nuevo×Volver a gestionarHugo NuevoParticipaciónIdentificación800100008EstadoEn revisiónRecepción17/11/26, 3:17 p. m.Llegada20/11/2026Regreso22/11/2026Póliza para las fechas solicitadasComprobad",
+        "title": "_r_4_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 556.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

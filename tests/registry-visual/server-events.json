@@ -1,0 +1,398 @@
+[
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "profile",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "policy",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "units",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "incident",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "grant",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "import",
+    "saved": false,
+    "error": true,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "import",
+    "saved": false,
+    "error": true,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "import",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "policyImport",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "attendance",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "profile",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "profile",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policy",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "policy",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "units",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "units",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "incident",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "incident",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "grant",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "grant",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "import",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "import",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "policyImport",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "policyImport",
+    "saved": true,
+    "error": false,
+    "fields": []
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 1
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 2
+  },
+  {
+    "event": "visual-attempt",
+    "kind": "attendance",
+    "n": 3
+  },
+  {
+    "event": "visual-real-result",
+    "kind": "attendance",
+    "saved": true,
+    "error": false,
+    "fields": []
+  }
+]

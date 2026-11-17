@@ -1,0 +1,129 @@
+{
+  "name": "mobile-final-missing-destination-result",
+  "date": "2026-11-17T19:03:31.002Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t\t73 text No se pudo confirmar el guardado del informe. Tus datos se conservan para reintentar.\n~\t\t\t16 text Guardá un borrador o finalizá el informe\n~\t\t\t17 button Guardar borrador\n~\t\t\t18 button Finalizar informe\n~\t\t\t19 pop up button Sección: Revisión final\n~\t\t\t\t\t68 checkbox (settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 1\nThe focused UI element is 74 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar el guardado del informe. Tus datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Revisión final⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 156,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": "Responsable FICTICIO Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": "Salida general (mantenimiento, colaboración en oficinas, ferias)"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": "Acciones FICTICIAS Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

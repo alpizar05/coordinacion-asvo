@@ -1,0 +1,71 @@
+{
+  "name": "mobile-reminder-return-focus",
+  "date": "2026-11-17T18:50:38.260Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t14 container\n\t\t\t\t\t15 text Recordatorio Mobile\n\t\t16 container\n\t\t\t17 text Estado ·  completada\n\t\t\t18 link Description: Inscripciones: 2/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108#inscripciones\n\t\t\t19 heading Recordatorio Mobile, Value: 1\n\t\t\t\t20 text Recordatorio Mobile\n\t\t\t21 definition list\n\t\t\t\t22 container Lugar\n\t\t\t\t\t23 text Lugar\n\t\t\t\t24 text Lugar Ficticio\n\t\t\t\t25 container Unidad\n\t\t\t\t\t26 text Unidad\n\t\t\t\t27 text Voluntariado General\n\t\t\t\t28 container Fechas\n\t\t\t\t\t29 text Fechas\n\t\t\t\t30 container\n\t\t\t\t\t31 text 10/11/2026  al  12/11/2026\n\t\t\t\t32 container Modalidad\n\t\t\t\t\t33 text Modalidad\n\t\t\t\t34 text Fechas flexibles\n\t\t\t\t35 container Visibilidad\n\t\t\t\t\t36 text Visibilidad\n\t\t\t\t37 text Privada por enlace\n\t\t\t\t38 container Fecha límite de inscripción\n\t\t\t\t\t39 text Fecha límite de inscripción\n\t\t\t\t40 text 20/11/2026\n\t\t41 text Convocatoria de solo lectura.\n\t\t42 tab group Contenido de la salida\n\t\t\t43 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t44 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t45 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t46 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t47 container Inscripciones\n\t\t\t48 container Inscripciones\n\t\t\t\t49 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t50 text Inscripciones\n\t\t\t\t51 pop up button Filtrar inscripciones\n\t\t\t\t52 text 2 inscripciones\n\t\t\t\t53 container Inscripciones de la salida\n\t\t\t\t\t54 table\n\t\t\t\t\t\t55 row\n\t\t\t\t\t\t\t56 cell\n\t\t\t\t\t\t\t\t57 text Persona voluntaria\n\t\t\t\t\t\t\t58 cell\n\t\t\t\t\t\t\t\t59 text Estado\n\t\t\t\t\t\t\t60 cell\n\t\t\t\t\t\t\t\t61 text Fechas solicitadas\n\t\t\t\t\t\t\t62 cell\n\t\t\t\t\t\t\t\t63 text Póliza\n\t\t\t\t\t\t\t64 cell\n\t\t\t\t\t\t\t\t65 text Recepción\n\t\t\t\t\t\t\t66 cell\n\t\t\t\t\t\t\t\t67 text Acciones\n\t\t\t\t\t\t68 row [FICTITIOUS-LONG-VALUE]08011\n\t\t\t\t\t\t\t69 cell\n\t\t\t\t\t\t\t\t70 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=6ba128f1-bef3-4d32-a70f-17959c9fb2c3\n\t\t\t\t\t\t\t\t71 text 70\n\t\t\t\t\t\t\t72 cell\n\t\t\t\t\t\t\t\t73 text Confirmada\n\t\t\t\t\t\t\t74 cell\n\t\t\t\t\t\t\t\t75 text 10–12 nov. 2026\n\t\t\t\t\t\t\t76 cell\n\t\t\t\t\t\t\t\t77 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t\t78 row [FICTITIOUS-LONG-VALUE]08012\n\t\t\t\t\t\t\t79 cell\n\t\t\t\t\t\t\t\t80 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=70ce4b0f-746c-40b1-81c9-7f02b87cbe04\n\t\t\t\t\t\t\t81 cell\n\t\t\t\t\t\t\t\t82 text Confirmada\n\t\t\t\t\t\t\t83 cell\n\t\t\t\t\t\t\t\t84 text 10–12 nov. 2026\n\t\t\t\t\t\t\t85 cell\n\t\t\t\t\t\t\t\t86 pop up button Gestionar inscripción de Lia Participante\n\t87 container\n\t\t88 text Conservación, educación y acción.\n\t\t89 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t90 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t91 image\n\nThe focused UI element is 77 pop up button Gestionar inscripción de Kai Responsable",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Gestionar ⌄"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 637.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

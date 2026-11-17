@@ -1,0 +1,5 @@
+Integración: registration-decision-contracts (base local desechable).
+(node:97647) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: decisiones/70 explícitas, campos y conflictos generales, versión/concurrencia, rollback de cola y promoción FIFO vigente, FIFO, compatibilidad y reintento sin éxitos ni notificaciones falsas.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

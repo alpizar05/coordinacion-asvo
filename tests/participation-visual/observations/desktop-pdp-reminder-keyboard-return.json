@@ -1,0 +1,66 @@
+{
+  "name": "desktop-pdp-reminder-keyboard-return",
+  "date": "2026-11-17T19:22:49.899Z",
+  "ax": "Browser tab: 22, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t10 container contenido\n\t\t11 container\n\t\t\t12 text COORDINACIÓN\n\t\t\t13 button Cerrar sesión\n\t\t14 container Menú de Coordinación\n\t\t\t15 content list\n\t\t\t\t16 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t17 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t18 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t19 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t20 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t21 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t22 container Ubicación en Coordinación\n\t\t\t23 content list\n\t\t\t\t24 text Coordinación\n\t\t\t\t25 container\n\t\t\t\t\t26 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t27 container\n\t\t\t\t\t28 text Recordatorio Desktop\n\t\t29 container\n\t\t\t30 text Estado ·  completada\n\t\t\t31 link Description: Inscripciones: 2/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107#inscripciones\n\t\t\t32 heading Recordatorio Desktop, Value: 1\n\t\t\t\t33 text Recordatorio Desktop\n\t\t\t34 definition list\n\t\t\t\t35 container Lugar\n\t\t\t\t\t36 text Lugar\n\t\t\t\t37 text Lugar Ficticio\n\t\t\t\t38 container Unidad\n\t\t\t\t\t39 text Unidad\n\t\t\t\t40 text Voluntariado General\n\t\t\t\t41 container Fechas\n\t\t\t\t\t42 text Fechas\n\t\t\t\t43 container\n\t\t\t\t\t44 text 10/11/2026  al  12/11/2026\n\t\t\t\t45 container Modalidad\n\t\t\t\t\t46 text Modalidad\n\t\t\t\t47 text Fechas flexibles\n\t\t\t\t48 container Visibilidad\n\t\t\t\t\t49 text Visibilidad\n\t\t\t\t50 text Privada por enlace\n\t\t\t\t51 container Fecha límite de inscripción\n\t\t\t\t\t52 text Fecha límite de inscripción\n\t\t\t\t53 text 20/11/2026\n\t\t54 text Convocatoria de solo lectura.\n\t\t55 tab group Contenido de la salida\n\t\t\t56 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t57 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t58 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t59 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t60 container Inscripciones\n\t\t\t61 container Inscripciones\n\t\t\t\t62 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t63 text Inscripciones\n\t\t\t\t64 container\n\t\t\t\t\t65 text Estado de inscripción\n\t\t\t\t\t66 pop up button (collapsed, settable) Estado de inscripción, Value: Todos, Secondary Actions: Expand\n\t\t\t\t\t\t67 menu\n\t\t\t\t\t\t\t68 (selected) Todos\n\t\t\t\t\t\t\t69 Solicitud anterior\n\t\t\t\t\t\t\t70 En revisión\n\t\t\t\t\t\t\t71 Lista de espera\n\t\t\t\t\t\t\t72 Confirmada\n\t\t\t\t\t\t\t73 Rechazada\n\t\t\t\t\t\t\t74 Cancelada por Coordinación\n\t\t\t\t\t\t\t75 Cancelada por voluntariado\n\t\t\t\t76 text 2 inscripciones\n\t\t\t\t77 container Inscripciones de la salida\n\t\t\t\t\t78 table\n\t\t\t\t\t\t79 row\n\t\t\t\t\t\t\t80 cell\n\t\t\t\t\t\t\t\t81 text Persona voluntaria\n\t\t\t\t\t\t\t82 cell\n\t\t\t\t\t\t\t\t83 text Estado\n\t\t\t\t\t\t\t84 cell\n\t\t\t\t\t\t\t\t85 text Fechas solicitadas\n\t\t\t\t\t\t\t86 cell\n\t\t\t\t\t\t\t\t87 text Póliza\n\t\t\t\t\t\t\t88 cell\n\t\t\t\t\t\t\t\t89 text Recepción\n\t\t\t\t\t\t\t90 cell\n\t\t\t\t\t\t\t\t91 text Acciones\n\t\t\t\t\t\t92 row [FICTITIOUS-LONG-VALUE]07011\n\t\t\t\t\t\t\t93 cell\n\t\t\t\t\t\t\t\t94 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=00695bb1-a521-4134-b14c-56c69f139375\n\t\t\t\t\t\t\t\t95 text 70\n\t\t\t\t\t\t\t96 cell\n\t\t\t\t\t\t\t\t97 text Confirmada\n\t\t\t\t\t\t\t98 cell\n\t\t\t\t\t\t\t\t99 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t\t100 cell\n\t\t\t\t\t\t\t\t101 text Comprobada\n\t\t\t\t\t\t\t102 cell\n\t\t\t\t\t\t\t\t103 text 17/11/26, 12:01 p. m.\n\t\t\t\t\t\t\t104 cell\n\t\t\t\t\t\t\t\t105 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t\t106 row [FICTITIOUS-LONG-VALUE]07012\n\t\t\t\t\t\t\t107 cell\n\t\t\t\t\t\t\t\t108 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=602cb5cb-b0a2-4b4c-8037-57268c47a26d\n\t\t\t\t\t\t\t109 cell\n\t\t\t\t\t\t\t\t110 text Confirmada\n\t\t\t\t\t\t\t111 cell\n\t\t\t\t\t\t\t\t112 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t\t113 cell\n\t\t\t\t\t\t\t\t114 text Comprobada\n\t\t\t\t\t\t\t115 cell\n\t\t\t\t\t\t\t\t116 text 17/11/26, 12:01 p. m.\n\t\t\t\t\t\t\t117 cell\n\t\t\t\t\t\t\t\t118 pop up button Gestionar inscripción de Lia Participante\n\t119 container\n\t\t120 text Conservación, educación y acción.\n\t\t121 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t122 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t123 image\n\nThe focused UI element is 105 pop up button Gestionar inscripción de Kai Responsable",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Gestionar ⌄"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 333.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

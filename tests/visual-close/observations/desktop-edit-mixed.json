@@ -1,0 +1,153 @@
+{
+  "name": "desktop-edit-mixed",
+  "date": "2026-11-17T21:25:42.062Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t23 text Fallo general ficticio antes de persistir.\n\t\t\t24 container\n\t\t\t\t25 text Revisá  2 campos  para  guardar .\n\t\t\t26 content list\n\t\t\t\t27 container\n\t\t\t\t\t28 AXListMarker • \n\t\t\t\t\t29 button Regreso: Revisá ends ficticio. Segundo mensaje ends.\n\t\t\t\t\t\t30 text Regreso\n\t\t\t\t\t\t31 text : \n\t\t\t\t\t\t32 text Revisá ends ficticio. Segundo mensaje ends.\n\t\t\t\t33 container\n\t\t\t\t\t34 AXListMarker • \n\t\t\t\t\t35 button Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food.\n\t\t\t\t\t\t36 text Restricciones alimentarias\n\t\t\t\t\t\t37 text : \n\t\t\t\t\t\t38 text Revisá food ficticio. Segundo mensaje food.\n\t\t\t12 text Hugo Nuevo\n\t\t\t13 text Llegada\n\t\t\t14 date field (settable) Llegada, Value: 2026-11-20\n\t\t\t\t39 container\n\t\t\t\t\t40 stepper\n\t\t\t\t\t41 stepper\n\t\t\t\t\t42 stepper\n\t\t\t\t43 pop up button Show date picker Show date picker\n\t\t\t15 text Regreso\n\t\t\t16 date field (settable) Regreso, Value: 2026-11-22\n\t\t\t\t44 container\n\t\t\t\t\t45 stepper\n\t\t\t\t\t46 stepper\n\t\t\t\t\t47 stepper\n\t\t\t\t48 pop up button Show date picker Show date picker\n\t\t\t49 container\n\t\t\t\t50 text Revisá ends ficticio. Segundo mensaje ends.\n\t\t\t17 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t18 text Restricciones alimentarias\n\t\t\t19 text entry area (settable) Restricciones alimentarias, Value: Dato ficticio conservado\n\t\t\t51 container\n\t\t\t\t52 text Revisá food ficticio. Segundo mensaje food.\n\t\t\t20 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t21 text Otras observaciones\n\t\t\t22 text entry area (settable) Otras observaciones, Value: Observación ficticia de cierre\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 45 stepper",
+  "dom": {
+    "active": {
+      "name": "ends",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Regreso: Revisá ends ficticio. Segundo mensaje ends."
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food."
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×Fallo general ficticio antes de persistir.Revisá 2 campos para guardar.Regreso: Revisá ends ficticio. Segundo mensaje ends.Restricciones alimentarias: Revisá food ficticio. Segundo mensaje food.Hugo Nu",
+        "title": "_r_3_"
+      }
+    ],
+    "invalid": [
+      {
+        "described": "_r_1_-field-ends-error",
+        "id": "_r_1_-field-ends",
+        "linked": true,
+        "name": "ends"
+      },
+      {
+        "described": "_r_1_-field-food-error",
+        "id": "_r_1_-field-food",
+        "linked": true,
+        "name": "food"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 214.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "",
+        "type": "select-one",
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "type": "textarea",
+        "value": "Dato ficticio conservado"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "type": "textarea",
+        "value": "Observación ficticia de cierre"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

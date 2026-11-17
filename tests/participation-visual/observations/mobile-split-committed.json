@@ -1,0 +1,106 @@
+{
+  "name": "mobile-split-committed",
+  "date": "2026-11-17T18:47:22.339Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t14 container\n\t\t\t\t\t15 text Agrupacion Mobile\n\t\t16 container\n\t\t\t17 text Estado ·  abierta\n\t\t\t18 link Description: Inscripciones: 3/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas#inscripciones\n\t\t\t19 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?editar=1&pestana=herramientas\n\t\t\t20 heading Agrupacion Mobile, Value: 1\n\t\t\t\t21 text Agrupacion Mobile\n\t\t\t22 definition list\n\t\t\t\t23 container Lugar\n\t\t\t\t\t24 text Lugar\n\t\t\t\t25 text Lugar Ficticio\n\t\t\t\t26 container Unidad\n\t\t\t\t\t27 text Unidad\n\t\t\t\t28 text Voluntariado General\n\t\t\t\t29 container Fechas\n\t\t\t\t\t30 text Fechas\n\t\t\t\t31 container\n\t\t\t\t\t32 text 20/11/2026  al  22/11/2026\n\t\t\t\t33 container Modalidad\n\t\t\t\t\t34 text Modalidad\n\t\t\t\t35 text Fechas flexibles\n\t\t\t\t36 container Visibilidad\n\t\t\t\t\t37 text Visibilidad\n\t\t\t\t38 text Privada por enlace\n\t\t\t\t39 container Fecha límite de inscripción\n\t\t\t\t\t40 text Fecha límite de inscripción\n\t\t\t\t41 text 20/11/2026\n\t\t42 tab group Contenido de la salida\n\t\t\t43 tab (selectable, settable, boolean) Inscripciones, Value: 0\n\t\t\t44 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t45 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t46 tab (selected, settable, boolean) Herramientas, Value: 1\n\t\t47 container Herramientas\n\t\t\t48 container Asistencia, ID: asistencia\n\t\t\t\t49 heading Asistencia, Value: 2, ID: attendance-title\n\t\t\t\t\t50 text Asistencia\n\t\t\t\t51 text Revisá las diferencias entre informes finalizados. Las resoluciones no modifican los informes originales ni calculan días u horas trabajadas.\n\t\t\t\t52 text No hay diferencias de asistencia por conciliar en los informes registrados.\n\t\t\t53 container\n\t\t\t\t54 heading Resumen para el 70, Value: 2\n\t\t\t\t\t55 text Resumen para el 70\n\t\t\t\t56 text Consultá las personas confirmadas, sus fechas, contactos y logística. Generá un enlace privado para la persona asignada como 70.\n\t\t\t\t57 link Description: Ver resumen e informes de la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106/resumen\n\t\t\t58 container\n\t\t\t\t59 heading Comunicado para WhatsApp, Value: 2\n\t\t\t\t\t60 text Comunicado para WhatsApp\n\t\t\t\t61 text Texto del comunicado\n\t\t\t\t62 text entry area (settable) Texto del comunicado, Value: Agrupacion Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106\n\t\t\t\t63 button Copiar\n\t\t\t\t64 link Description: Compartir en WhatsApp, Value: wa.me/?text=Agrupacion%20Mobile%0ALugar%20Ficticio%0A20%2F11%2F2026%20al%2022%2F11%2F2026%0ATransporte%3A%20Punto%20de%20encuentro%20ficticio%0AAlimentaci%C3%B3n%3A%20Alimentaci%C3%B3n%20ficticia%0AHospedaje%3A%20Hospedaje%20ficticio%0Ahttp%3A%2F%2Flocalhost%3A3046%2Fconvocatorias%2F22222222-2222-4222-8222-000000000106\n\t\t\t\t65 link Description: Ver convocatoria pública, Value: localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106\n\t\t\t66 container\n\t\t\t\t67 heading Invitación directa, Value: 2\n\t\t\t\t\t68 text Invitación directa\n\t\t\t\t69 text Generá un enlace para una persona del registro y compartilo directamente. El enlace dura siete días y admite un solo envío de inscripción.\n\t\t\t\t70 container\n\t\t\t\t\t71 text Identificación de la persona voluntaria\n\t\t\t\t\t72 text field (settable) Identificación de la persona voluntaria\n\t\t\t\t\t73 button Generar invitación\n\t\t\t74 container agrupaciones\n\t\t\t\t75 heading Agrupaciones sugeridas, Value: 2\n\t\t\t\t\t76 text Agrupaciones sugeridas\n\t\t\t\t77 container\n\t\t\t\t\t78 text Los días de llegada y regreso cuentan como días de participación. Capacidad total de la salida:  6 .  Cobertura de 70 pendiente de asignar.\n\t\t\t\t79 heading 20/11/2026 al 20/11/2026, Value: 3\n\t\t\t\t\t80 text 20/11/2026  al  20/11/2026\n\t\t\t\t81 container\n\t\t\t\t\t82 text 2  personas ·  2  con cupo\n\t\t\t\t83 content list\n\t\t\t\t\t84 container\n\t\t\t\t\t\t85 AXListMarker • \n\t\t\t\t\t\t86 link Description: Julia Grupo, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas#[FICTITIOUS-LONG-VALUE]06010\n\t\t\t\t\t\t87 text  ·  20/11/2026  al  20/11/2026  ·  Confirmada\n\t\t\t\t\t88 container\n\t\t\t\t\t\t89 AXListMarker • \n\t\t\t\t\t\t90 link Description: Omar Grupo, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas#[FICTITIOUS-LONG-VALUE]06015\n\t\t\t\t\t\t91 text  ·  20/11/2026  al  20/11/2026  ·  En revisión\n\t\t\t\t92 pop up button Crear salida para este grupo\n\t\t\t\t93 heading 22/11/2026 al 22/11/2026, Value: 3\n\t\t\t\t\t94 text 22/11/2026  al  22/11/2026\n\t\t\t\t95 container\n\t\t\t\t\t96 text 1  personas ·  1  con cupo\n\t\t\t\t97 content list\n\t\t\t\t\t98 container\n\t\t\t\t\t\t99 AXListMarker • \n\t\t\t\t\t\t100 link Description: Paz Grupo, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas#[FICTITIOUS-LONG-VALUE]06016\n\t\t\t\t\t\t101 text  ·  22/11/2026  al  22/11/2026  ·  En revisión\n\t\t\t\t102 pop up button Crear salida para este grupo\n\t\t\t\t103 container\n\t\t\t\t\t104 text Decisión de coordinación\n\t\t\t\t\t105 text entry area (settable) Decisión de coordinación\n\t\t\t\t\t106 button Registrar decisión\n\t107 container\n\t\t108 text Conservación, educación y acción.\n\t\t109 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t110 button Open Next.js Dev Tools\n\t\t111 container\n\t\t\t112 text Rendering . . .\n\nThe focused UI element is 92 pop up button Crear salida para este grupo",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 2138,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Mobile · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

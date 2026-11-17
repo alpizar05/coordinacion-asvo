@@ -1,0 +1,130 @@
+{
+  "name": "desktop-add-discard-return",
+  "date": "2026-11-17T21:13:26.829Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 35-38\nThe focused UI element is 33 button Cancelar",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Cancelar"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cambiar persona"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar inscripción"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar persona a la salida×No se pudo confirmar el estado de la inscripción. Los datos se conservan. Revisá la lista antes de reintentar.Hugo NuevoIdentificación: 800100008Persona seleccionadaCambiar personaLlegadaRegre",
+        "title": "_R_eojd9bn5ritrj9erlb_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 194,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "type": "textarea",
+        "value": "Preferencia FICTICIA cierre"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "type": "textarea",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "",
+        "type": "select-one",
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

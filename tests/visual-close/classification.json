@@ -1,0 +1,25 @@
+{
+  "excluded_from_named_claim": {
+    "desktop-add-escape-blocked": "Escape ocurrió después de terminar la primera demora; el aviso de descarte no demuestra bloqueo pending.",
+    "desktop-add-mixed": "La respuesta fue status inválido, no error mixto. Solo evidencia de rechazo de payload.",
+    "desktop-add-mixed-pending": "Lectura transitoria sin modal abierto; no usada para certificar pending ni error. Repetición estable con encabezado y seis segundos.",
+    "desktop-photo-discard-prompt": "No mostró aviso de descarte; no se usa para afirmar esa variante. Descarte de foto desktop queda pendiente.",
+    "mobile-profile-commit-pending": "La captura ya corresponde al cierre tras commit; no es prueba de pending. Ver mobile-profile-rejection-pending para bloqueo.",
+    "desktop-parent-discarded": "Captura anterior a completar la navegación; no se usa como destino estable."
+  },
+  "defect_before_fix": [
+    "mobile-summary-confirmed-next-row",
+    "desktop-summary-before-fix-body"
+  ],
+  "fix_after": [
+    "desktop-summary-fixed-next-row",
+    "mobile-summary-fixed-next-row"
+  ],
+  "method_limits": [
+    "Solo lectura AX/DOM; no lector hablado.",
+    "Captura de FileList usa value/fakepath y estado preparado, no certifica bytes.",
+    "disabledProperty no refleja fieldset; usar disabledEffective en las capturas nuevas.",
+    "Esperas de selector agotadas no dispararon reenvíos automáticos.",
+    "Primera demora se aumentó en copias de prueba de 1.6/1.8 s a 6 s; no cambió producción."
+  ]
+}

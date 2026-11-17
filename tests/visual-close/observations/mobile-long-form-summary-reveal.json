@@ -1,0 +1,175 @@
+{
+  "name": "mobile-long-form-summary-reveal",
+  "date": "2026-11-17T21:50:06.976Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 74-88, 92-94, 100\n~\t\t\t26 pop up button Sección: Fechas y cupos\n~\t\t\t\t70 container Fechas y cupos\n~\t\t\t\t\t71 heading Fechas y cupos, Value: 2, ID: editor-dates\n~\t\t\t\t\t\t72 text Fechas y cupos\n~\t\t\t\t\t73 container\n+\t\t\t\t\t\t74 text Inicio\n+\t\t\t\t\t\t75 date field (settable) Inicio, Value: 2035-01-23\n+\t\t\t\t\t\t\t76 container\n+\t\t\t\t\t\t\t\t77 stepper\n+\t\t\t\t\t\t\t\t78 stepper\n+\t\t\t\t\t\t\t\t79 stepper\n+\t\t\t\t\t\t\t80 pop up button Show date picker Show date picker\n+\t\t\t\t\t81 container\n+\t\t\t\t\t\t82 text Fin\n+\t\t\t\t\t\t83 date field (settable) Fin, Value: 2035-01-25\n+\t\t\t\t\t\t\t84 container\n+\t\t\t\t\t\t\t\t85 stepper\n+\t\t\t\t\t\t\t\t86 stepper\n+\t\t\t\t\t\t\t\t87 stepper\n+\t\t\t\t\t\t\t88 pop up button Show date picker Show date picker\n~\t\t\t\t\t\t90 text Modalidad\n~\t\t\t\t\t\t91 pop up button (collapsed, settable) Modalidad, Value: Fechas flexibles, Secondary Actions: Expand\n+\t\t\t\t\t\t\t92 menu\n+\t\t\t\t\t\t\t\t93 Fechas fijas\n+\t\t\t\t\t\t\t\t94 (selected) Fechas flexibles\n~\t\t\t\t\t\t96 text Cupo total\n~\t\t\t\t\t\t97 stepper (settable, integer) Cupo total, Value: 3\n~\t\t\t\t\t\t99 text Corrección simulada capacity Segundo mensaje capacity\nThe focused UI element is 97 stepper (settable, integer) Cupo total, Value: 3",
+  "dom": {
+    "active": {
+      "name": "capacity",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Fechas y cupos ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_R_59bn5ritrj9erlb_-field-capacity-error",
+        "id": "",
+        "linked": true,
+        "name": "capacity"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 745,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2035-01-23"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2035-01-25"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "mode",
+        "type": "select-one",
+        "value": "flexible"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "type": "number",
+        "value": "3"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Fechas y cupos ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "starts",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "ends",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "mode",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "capacity",
+        "text": null
+      }
+    ]
+  }
+}

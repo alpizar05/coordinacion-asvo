@@ -1,0 +1,100 @@
+{
+  "name": "desktop-invitation-rejection-pending",
+  "date": "2026-11-17T18:48:12.322Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 112-114\n~\t\t\t\t\t95 text field (disabled) Identificación de la persona voluntaria, Value: 800100009\n~\t\t\t\t\t97 button (disabled) Generando…\n+\t127 button Open Next.js Dev Tools\n+\t\t128 container\n+\t\t\t129 text Rendering . . .\nThe focused UI element is 60 container Herramientas",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "AsistenciaRevisá las diferencias entre informes finalizados. Las resoluciones no modifican los informes originales ni ca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Identificación de la persona voluntaria: Revisá identification ficticio. Segundo mensaje identification."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generando…"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "[FICTITIOUS-LONG-VALUE]-error",
+        "linked": true,
+        "name": "identification"
+      }
+    ],
+    "overflow": false,
+    "scroll": 1418,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Invitacion Ficticia\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000112"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": "800100009"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

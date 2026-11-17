@@ -1,0 +1,20 @@
+
+> coordinacion-asvo@1.0.0 test:ci
+> node --test tests/ci/*.test.mjs
+
+✔ CI remains manual and read-only, with immutable actions/image and no provider secrets (2.057417ms)
+✔ CI rejects remote targets, host overrides and inherited application credentials before SQL (0.622958ms)
+✔ lockfile/package manifest and exact tooling versions agree; migrations retain checksums (3.826375ms)
+✔ secret scan detects synthetic credential, keeps fixture exception narrow and masks values (312.551833ms)
+✔ CI keeps contracts and SQL suites separate while preserving the complete integration manifest (0.300416ms)
+✔ build guard exposes forbidden effects even when the caller catches errors (50.358958ms)
+✔ effective runtime and child processes match the prepared pins (219.339584ms)
+✔ UI harness models offline Next metadata without allowing other network or DB access (70.015042ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 791.688834

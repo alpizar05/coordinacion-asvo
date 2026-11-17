@@ -34,7 +34,12 @@ export function restoreNavigationPosition(frame:NavigationFrame,focus=true){
   }
   const state=navigationDialogState(frame);
   if(focus&&(!state.dialog||state.restorableDialog)){
-    if(row&&visible(row))row.querySelector<HTMLElement>('a,button')?.focus({preventScroll:true});
+    if(row&&visible(row)){
+      const active=document.activeElement;
+      // A modal may already have restored its trigger. Keep valid focus in the origin row.
+      const retained=active instanceof HTMLElement&&active!==row&&row.contains(active)&&visible(active)&&!active.matches(':disabled')&&!active.closest('[inert]');
+      if(!retained)row.querySelector<HTMLElement>('a,button')?.focus({preventScroll:true});
+    }
     else{const region=list?.closest<HTMLElement>('[tabindex]')??list?.closest<HTMLElement>('section')??container;if(region){if(!region.hasAttribute('tabindex'))region.tabIndex=-1;region.focus({preventScroll:true});}}
   }
 }

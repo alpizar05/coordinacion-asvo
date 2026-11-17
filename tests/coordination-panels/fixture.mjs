@@ -1,0 +1,13 @@
+/** Disposable real Coordination panels UI. Images, callbacks and gallery are fictitious. */
+import {mkdtemp,cp,symlink,mkdir,rm,writeFile} from 'node:fs/promises';import {tmpdir} from 'node:os';import {join} from 'node:path';import {fileURLToPath} from 'node:url';import {spawn,execFileSync} from 'node:child_process';
+import {cleanTestEnvironment} from '../test-process.mjs';
+const root=fileURLToPath(new URL('../../',import.meta.url)),temp=await mkdtemp(join(tmpdir(),'asvo-panels-ui-'));let child,logs='';
+try{for(const name of ['app','lib','public','package.json','tsconfig.json','next.config.ts'])await cp(join(root,name),join(temp,name),{recursive:true});await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
+ if(process.argv.includes('--before'))for(const name of ['app/coordinacion/coordination-modal.tsx','app/coordinacion/row-action-panel.tsx','app/coordinacion/coordination.css'])await writeFile(join(temp,name),execFileSync('git',['show','HEAD:'+name],{cwd:root}));
+ const route=join(temp,'app/panels-fixture');await mkdir(route);await cp(new URL('./page.jsx',import.meta.url),join(route,'page.jsx'));
+ await cp(new URL('./actions.js',import.meta.url),join(temp,'app/actions/registrations.ts'));
+ await writeFile(join(temp,'app/actions/communications.ts'),"'use server';export async function sendReportReminder(){return {error:'Recordatorio simulado: sin correo.'};}");
+ await writeFile(join(temp,'app/actions/volunteers.ts'),"'use server';export async function updateVolunteerUnits(){return {error:'Unidades simuladas: sin persistencia.'};}");
+ const port=process.argv.includes('--before')?'3040':'3039';
+ child=spawn(process.execPath,['--import',join(root,'tests/action-modal/no-network.mjs'),join(root,'node_modules/next/dist/bin/next'),'dev','--webpack','--hostname','127.0.0.1','--port',port],{cwd:temp,env:{...cleanTestEnvironment(),ASVO_DEMO:'0',APP_URL:'https://example.test',DATABASE_URL:'postgres://fiction:fiction@127.0.0.1:1/no_connection',NEXT_TELEMETRY_DISABLED:'1'},stdio:['ignore','pipe','pipe']});for(const s of [child.stdout,child.stderr])s.on('data',b=>{logs+=b;process.stdout.write(b);});for(const sig of ['SIGINT','SIGTERM'])process.once(sig,()=>child.kill('SIGTERM'));console.log(`Harness http://localhost:${port}/panels-fixture (${temp})`);await new Promise((resolve,reject)=>{child.once('error',reject);child.once('close',code=>code===0||code===null?resolve():reject(Error('Falló harness')));});if(/\[test-(?:network|database)-blocked\]/.test(logs))throw Error('Intento externo bloqueado');
+}finally{await rm(temp,{recursive:true,force:true});console.log('Fixture Coordination panels retirado');}

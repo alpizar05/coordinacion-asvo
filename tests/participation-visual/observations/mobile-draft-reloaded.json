@@ -1,0 +1,129 @@
+{
+  "name": "mobile-draft-reloaded",
+  "date": "2026-11-17T19:02:02.759Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\".\n1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t9 heading Informe de salida, Value: 1\n\t\t\t10 text Informe de salida\n\t\t11 text Informe Mobile\n\t\t12 text Borrador guardado. Podés continuar después; el informe sigue pendiente.\n\t\t13 text Borrador · Sin finalizar. Los cambios guardados se precargan a continuación.\n\t\t14 container\n\t\t\t15 text Informe de salida\n\t\t\t16 text Guardá un borrador o finalizá el informe\n\t\t\t17 button Guardar borrador\n\t\t\t18 button Finalizar informe\n\t\t\t19 pop up button Sección: Datos de la gira\n\t\t\t20 container Datos de la gira\n\t\t\t\t21 container\n\t\t\t\t\t22 heading Datos de la gira, Value: 2\n\t\t\t\t\t\t23 text Datos de la gira\n\t\t\t\t\t24 heading Persona responsable (70), Value: 3\n\t\t\t\t\t\t25 text Persona responsable (70)\n\t\t\t\t\t26 text Kai Responsable\n\t\t\t\t\t27 text persona11@example.test Los datos del 70 provienen de su ficha. Revisá los datos precargados de la gira.\n\t\t\t\t\t28 text Área silvestre protegida o lugar visitado\n\t\t\t\t\t29 text field (settable) Área silvestre protegida o lugar visitado, Value: Lugar Ficticio\n\t\t\t\t\t30 text Fecha de inicio real\n\t\t\t\t\t31 date field (settable) Fecha de inicio real, Value: 2026-11-10\n\t\t\t\t\t\t32 container\n\t\t\t\t\t\t\t33 stepper\n\t\t\t\t\t\t\t34 stepper\n\t\t\t\t\t\t\t35 stepper\n\t\t\t\t\t\t36 pop up button Show date picker Show date picker\n\t\t\t\t\t37 text Fecha de finalización real\n\t\t\t\t\t38 date field (settable) Fecha de finalización real, Value: 2026-11-12\n\t\t\t\t\t\t39 container\n\t\t\t\t\t\t\t40 stepper\n\t\t\t\t\t\t\t41 stepper\n\t\t\t\t\t\t\t42 stepper\n\t\t\t\t\t\t43 pop up button Show date picker Show date picker\n\t\t\t\t\t44 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t45 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t46 container\n\t\t47 text Conservación, educación y acción.\n\t\t48 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\nThe focused UI element is 1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×ConvocatoriasCoordinación‹ Vo"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Datos de la gira⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?borrador=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

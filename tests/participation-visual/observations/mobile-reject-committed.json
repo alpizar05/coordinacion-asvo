@@ -1,0 +1,136 @@
+{
+  "name": "mobile-reject-committed",
+  "date": "2026-11-17T18:22:27.092Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t14 container\n\t\t\t\t\t15 text Inscripciones Mobile\n\t\t16 container\n\t\t\t17 text Estado ·  abierta\n\t\t\t18 link Description: Inscripciones: 4/4, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102#inscripciones\n\t\t\t19 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?editar=1\n\t\t\t20 heading Inscripciones Mobile, Value: 1\n\t\t\t\t21 text Inscripciones Mobile\n\t\t\t22 definition list\n\t\t\t\t23 container Lugar\n\t\t\t\t\t24 text Lugar\n\t\t\t\t25 text Lugar Ficticio\n\t\t\t\t26 container Unidad\n\t\t\t\t\t27 text Unidad\n\t\t\t\t28 text Voluntariado General\n\t\t\t\t29 container Fechas\n\t\t\t\t\t30 text Fechas\n\t\t\t\t31 container\n\t\t\t\t\t32 text 20/11/2026  al  22/11/2026\n\t\t\t\t33 container Modalidad\n\t\t\t\t\t34 text Modalidad\n\t\t\t\t35 text Fechas flexibles\n\t\t\t\t36 container Visibilidad\n\t\t\t\t\t37 text Visibilidad\n\t\t\t\t38 text Privada por enlace\n\t\t\t\t39 container Fecha límite de inscripción\n\t\t\t\t\t40 text Fecha límite de inscripción\n\t\t\t\t41 text 20/11/2026\n\t\t42 tab group Contenido de la salida\n\t\t\t43 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t44 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t45 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t46 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t47 container Inscripciones\n\t\t\t48 container Inscripciones\n\t\t\t\t49 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t50 text Inscripciones\n\t\t\t\t51 pop up button Agregar persona\n\t\t\t\t52 pop up button Filtrar inscripciones\n\t\t\t\t53 text 8 inscripciones\n\t\t\t\t54 container Inscripciones de la salida\n\t\t\t\t\t55 table\n\t\t\t\t\t\t56 row\n\t\t\t\t\t\t\t57 cell\n\t\t\t\t\t\t\t\t58 text Persona voluntaria\n\t\t\t\t\t\t\t59 cell\n\t\t\t\t\t\t\t\t60 text Estado\n\t\t\t\t\t\t\t61 cell\n\t\t\t\t\t\t\t\t62 text Fechas solicitadas\n\t\t\t\t\t\t\t63 cell\n\t\t\t\t\t\t\t\t64 text Póliza\n\t\t\t\t\t\t\t65 cell\n\t\t\t\t\t\t\t\t66 text Recepción\n\t\t\t\t\t\t\t67 cell\n\t\t\t\t\t\t\t\t68 text Acciones\n\t\t\t\t\t\t69 row [FICTITIOUS-LONG-VALUE]02001\n\t\t\t\t\t\t\t70 cell\n\t\t\t\t\t\t\t\t71 link Description: Ana Confirmada, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=b949855d-8fc7-4181-9c48-46ad97117da7\n\t\t\t\t\t\t\t72 cell\n\t\t\t\t\t\t\t\t73 text Lista de espera\n\t\t\t\t\t\t\t74 cell\n\t\t\t\t\t\t\t\t75 text 20–22 nov. 2026\n\t\t\t\t\t\t\t76 cell\n\t\t\t\t\t\t\t\t77 pop up button Gestionar inscripción de Ana Confirmada\n\t\t\t\t\t\t78 row [FICTITIOUS-LONG-VALUE]02002\n\t\t\t\t\t\t\t79 cell\n\t\t\t\t\t\t\t\t80 link Description: Bruno Revision, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000002?navContext=0b8aaa5d-86d3-4cbc-84c2-ba665b3786f5\n\t\t\t\t\t\t\t81 cell\n\t\t\t\t\t\t\t\t82 text Confirmada\n\t\t\t\t\t\t\t83 cell\n\t\t\t\t\t\t\t\t84 text 20–22 nov. 2026\n\t\t\t\t\t\t\t85 cell\n\t\t\t\t\t\t\t\t86 pop up button Gestionar inscripción de Bruno Revision\n\t\t\t\t\t\t87 row [FICTITIOUS-LONG-VALUE]02003\n\t\t\t\t\t\t\t88 cell\n\t\t\t\t\t\t\t\t89 link Description: Carla Espera, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000003?navContext=c82e8378-29b0-4dae-b962-ed1753d4159c\n\t\t\t\t\t\t\t90 cell\n\t\t\t\t\t\t\t\t91 text En revisión\n\t\t\t\t\t\t\t92 cell\n\t\t\t\t\t\t\t\t93 text 20–22 nov. 2026\n\t\t\t\t\t\t\t94 cell\n\t\t\t\t\t\t\t\t95 pop up button Gestionar inscripción de Carla Espera\n\t\t\t\t\t\t96 row [FICTITIOUS-LONG-VALUE]02004\n\t\t\t\t\t\t\t97 cell\n\t\t\t\t\t\t\t\t98 link Description: Dario Cancelado, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000004?navContext=7d9cc385-a427-4fea-b86f-7772542c8f7d\n\t\t\t\t\t\t\t99 cell\n\t\t\t\t\t\t\t\t100 text Cancelada Por voluntariado\n\t\t\t\t\t\t\t101 cell\n\t\t\t\t\t\t\t\t102 text 20–22 nov. 2026\n\t\t\t\t\t\t\t103 cell\n\t\t\t\t\t\t\t\t104 pop up button Gestionar inscripción de Dario Cancelado\n\t\t\t\t\t\t105 row [FICTITIOUS-LONG-VALUE]02005\n\t\t\t\t\t\t\t106 cell\n\t\t\t\t\t\t\t\t107 text Ficha pendiente de conciliar\n\t\t\t\t\t\t\t108 cell\n\t\t\t\t\t\t\t\t109 text Solicitud anterior\n\t\t\t\t\t\t\t110 cell\n\t\t\t\t\t\t\t\t111 text 20–22 nov. 2026\n\t\t\t\t\t\t\t112 cell\n\t\t\t\t\t\t\t\t113 pop up button Gestionar\n\t\t\t\t\t\t114 row [FICTITIOUS-LONG-VALUE]02006\n\t\t\t\t\t\t\t115 cell\n\t\t\t\t\t\t\t\t116 link Description: Fabio Rechazo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000006?navContext=d8c48411-e3d1-4195-8ece-583715aa10de\n\t\t\t\t\t\t\t117 cell\n\t\t\t\t\t\t\t\t118 text En revisión\n\t\t\t\t\t\t\t119 cell\n\t\t\t\t\t\t\t\t120 text 20–22 nov. 2026\n\t\t\t\t\t\t\t121 cell\n\t\t\t\t\t\t\t\t122 pop up button Gestionar inscripción de Fabio Rechazo\n\t\t\t\t\t\t123 row [FICTITIOUS-LONG-VALUE]02007\n\t\t\t\t\t\t\t124 cell\n\t\t\t\t\t\t\t\t125 link Description: Gina Cancelacion, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000007?navContext=b5bbdb83-7815-4d22-be19-583f482d7971\n\t\t\t\t\t\t\t126 cell\n\t\t\t\t\t\t\t\t127 text En revisión\n\t\t\t\t\t\t\t128 cell\n\t\t\t\t\t\t\t\t129 text 20–22 nov. 2026\n\t\t\t\t\t\t\t130 cell\n\t\t\t\t\t\t\t\t131 pop up button Gestionar inscripción de Gina Cancelacion\n\t\t\t\t\t\t132 row [FICTITIOUS-LONG-VALUE]3060d\n\t\t\t\t\t\t\t133 cell\n\t\t\t\t\t\t\t\t134 link Description: Hugo Nuevo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000008?navContext=a1daceeb-258a-462a-aeed-805229b1c3dd\n\t\t\t\t\t\t\t135 cell\n\t\t\t\t\t\t\t\t136 text Lista de espera\n\t\t\t\t\t\t\t137 cell\n\t\t\t\t\t\t\t\t138 text 20–22 nov. 2026\n\t\t\t\t\t\t\t139 cell\n\t\t\t\t\t\t\t\t140 pop up button Gestionar inscripción de Hugo Nuevo\n\t\t141 text Inscripción rechazada.\n\t142 container\n\t\t143 text Conservación, educación y acción.\n\t\t144 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t145 button Open Next.js Dev Tools\n\t\t146 container\n\t\t\t147 text Rendering . . .\n\nThe focused UI element is 122 pop up button Gestionar inscripción de Fabio Rechazo",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Gestionar ⌄"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1331,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Inscripciones Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000102"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Inscripciones Mobile · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "5"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

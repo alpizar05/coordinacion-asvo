@@ -1,0 +1,217 @@
+{
+  "name": "mobile-parent-error-file-kept",
+  "date": "2026-11-17T21:49:54.739Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\n\t2 container\n\t\t3 link Description: Saltar al contenido principal, Value: localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1#contenido\n\t\t4 link Description: ASVO, inicio, Value: localhost:3045/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t\t7 container contenido\n\t\t\t8 text COORDINACIÓN\n\t\t\t9 container Ubicación en Coordinación\n\t\t\t\t10 content list\n\t\t\t\t\t11 text Coordinación\n\t\t\t\t\t12 container\n\t\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3045/coordinacion/convocatorias#salidas\n\t\t\t\t\t14 container\n\t\t\t\t\t\t15 text Fotos Mobile\n\t\t\t16 container\n\t\t\t\t17 text Estado ·  abierta Inscripciones:  0 / 3\n\t\t\t\t18 heading Fotos Mobile, Value: 1\n\t\t\t\t\t19 text Fotos Mobile\n\t\t\t\t20 text Editando  la convocatoria  ·  23/01/2035  al  25/01/2035\n\t\t\t21 container Acciones de edición\n\t\t\t\t22 text Modo edición\n\t\t\t\t23 text Cambios sin guardar\n\t\t\t\t24 button Descartar\n\t\t\t\t25 button Guardar cambios\n\t\t\t26 pop up button Sección: Información general\n\t\t\t53 container\n\t\t\t\t54 text Fallo general simulado antes de guardar.\n\t\t\t\t55 container\n\t\t\t\t\t56 text Revisá  2 campos  para  guardar .\n\t\t\t\t57 content list\n\t\t\t\t\t58 container\n\t\t\t\t\t\t59 AXListMarker • \n\t\t\t\t\t\t60 button Título: Corrección simulada title Segundo mensaje title\n\t\t\t\t\t\t\t61 text Título\n\t\t\t\t\t\t\t62 text : \n\t\t\t\t\t\t\t63 text Corrección simulada title Segundo mensaje title\n\t\t\t\t\t64 container\n\t\t\t\t\t\t65 AXListMarker • \n\t\t\t\t\t\t66 button Cupo total: Corrección simulada capacity Segundo mensaje capacity\n\t\t\t\t\t\t\t67 text Cupo total\n\t\t\t\t\t\t\t68 text : \n\t\t\t\t\t\t\t69 text Corrección simulada capacity Segundo mensaje capacity\n\t\t\t\t70 container Información general\n\t\t\t\t\t71 heading Información general, Value: 2, ID: editor-general\n\t\t\t\t\t\t72 text Información general\n\t\t\t\t\t73 text Título\n\t\t\t\t\t74 text field (settable) Description: Título, Value: Fotos Mobile\n\t\t\t\t\t75 container\n\t\t\t\t\t\t76 text Corrección simulada title Segundo mensaje title\n\t\t\t\t\t77 text Estación o lugar\n\t\t\t\t\t78 text field (settable) Description: Estación o lugar, Value: Lugar Ficticio\n\t\t\t\t\t79 text Unidad responsable\n\t\t\t\t\t80 pop up button (collapsed, settable) Description: Unidad responsable, Value: Voluntariado General, Secondary Actions: Expand\n\t\t\t\t\t\t81 menu\n\t\t\t\t\t\t\t82 BRIF\n\t\t\t\t\t\t\t83 Control y Protección/COVIRENA\n\t\t\t\t\t\t\t84 UEA\n\t\t\t\t\t\t\t85 (selected) Voluntariado General\n\t\t\t\t\t86 heading Solicitud de apoyo, Value: 3\n\t\t\t\t\t\t87 text Solicitud de apoyo\n\t\t\t\t\t88 text Información de la organización que solicita el apoyo.\n\t\t\t\t\t89 container\n\t\t\t\t\t\t90 text Organización solicitante\n\t\t\t\t\t\t91 text field (settable) Organización solicitante, Value: Organización Ficticia\n\t\t\t\t\t92 container\n\t\t\t\t\t\t93 text Contacto solicitante\n\t\t\t\t\t\t94 text field (settable) Contacto solicitante, Value: Contacto Ficticio\n\t\t\t\t\t95 container\n\t\t\t\t\t\t96 text Área silvestre protegida\n\t\t\t\t\t\t97 text field (settable) Área silvestre protegida, Value: Lugar Ficticio\n\t\t\t\t\t98 container\n\t\t\t\t\t\t99 text Tipo de actividad\n\t\t\t\t\t\t100 text field (settable) Tipo de actividad, Value: Mantenimiento\n\t\t47 container\n\t\t\t48 text Conservación, educación y acción.\n\t\t\t49 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas\n\t\t50 text Costa Rica\n\t\t51 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t\t52 image\n\nThe focused UI element is 74 text field (settable) Description: Título, Value: Fotos Mobile",
+  "dom": {
+    "active": {
+      "name": "title",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Información general ⌄"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_R_59bn5ritrj9erlb_-field-title-error",
+        "id": "",
+        "linked": true,
+        "name": "title"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 485.5,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "type": "text",
+        "value": "Fotos Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "type": "text",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unit",
+        "type": "select-one",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "request-organization",
+        "type": "text",
+        "value": "Organización Ficticia"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "request-contact",
+        "type": "text",
+        "value": "Contacto Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "request-area",
+        "type": "text",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "request-activity",
+        "type": "text",
+        "value": "Mantenimiento"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Información general ⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Título: Corrección simulada title Segundo mensaje title"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cupo total: Corrección simulada capacity Segundo mensaje capacity"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "title",
+        "text": "Título"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "location",
+        "text": "Estación o lugar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "unit",
+        "text": "Unidad responsable"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "request-organization",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "request-contact",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "request-area",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "request-activity",
+        "text": null
+      }
+    ]
+  }
+}

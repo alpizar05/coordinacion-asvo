@@ -1,0 +1,138 @@
+{
+  "name": "mobile-summary-manage-rejection-pending",
+  "date": "2026-11-17T19:07:33.555Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Iris Nueva\n\t\t\t7 button (disabled) Cerrar panel\n\t\t8 container\n\t\t\t9 heading Confirmar cupo, Value: 3\n\t\t\t\t10 text Confirmar cupo\n\t\t\t13 text Fallo general ficticio antes de persistir.\n\t\t\t11 button (disabled) Volver\n\t\t\t12 button (disabled) Guardando…\n\nThe focused UI element is 2 container Gestionar inscripción",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Gestionar inscripciónIris Nueva×Confirmar cupoFallo general ficticio antes de persistir.VolverGuardando…"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Filtros de Resumen · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Quitar filtro Unidad: Voluntariado General",
+        "text": "Voluntariado General×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver:Inscripciones en revisión10⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": true,
+        "label": "Cerrar panel",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Volver"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardando…"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripciónIris Nueva×Confirmar cupoFallo general ficticio antes de persistir.VolverGuardando…",
+        "top": 543.0390625,
+        "width": 390
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 2253.5,
+    "url": "http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=7&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "7"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

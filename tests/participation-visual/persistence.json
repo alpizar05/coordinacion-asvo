@@ -1,0 +1,3167 @@
+[
+  {
+    "stage": "decisions-before-split",
+    "date": "2026-11-17T18:45:39.325Z",
+    "version": "18.6",
+    "outings": [
+      {
+        "id": "22222222-2222-4222-8222-000000000101",
+        "request_id": "22222222-2222-4222-8222-000000001001",
+        "title": "Inscripciones Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000102",
+        "request_id": "22222222-2222-4222-8222-000000001002",
+        "title": "Inscripciones Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000103",
+        "request_id": "22222222-2222-4222-8222-000000001003",
+        "title": "Alta Revision Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000104",
+        "request_id": "22222222-2222-4222-8222-000000001004",
+        "title": "Alta Revision Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000105",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Agrupacion Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000106",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Agrupacion Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000107",
+        "request_id": "22222222-2222-4222-8222-000000001007",
+        "title": "Recordatorio Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000108",
+        "request_id": "22222222-2222-4222-8222-000000001008",
+        "title": "Recordatorio Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000109",
+        "request_id": "22222222-2222-4222-8222-000000001009",
+        "title": "Sin responsable",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000110",
+        "request_id": "22222222-2222-4222-8222-000000001010",
+        "title": "Informe Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000111",
+        "request_id": "22222222-2222-4222-8222-000000001011",
+        "title": "Informe Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000112",
+        "request_id": "22222222-2222-4222-8222-000000001012",
+        "title": "Invitacion Ficticia",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      }
+    ],
+    "registrations": [
+      {
+        "id": "22222222-2222-4222-8222-000000001001",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001002",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001003",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001004",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001005",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001006",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001007",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002001",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002002",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002003",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002004",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "cancelada por voluntariado",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002005",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002006",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002007",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005010",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005015",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005016",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006010",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006015",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006016",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007011",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007012",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008011",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008012",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010011",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010012",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011011",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011012",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "outing_id": "22222222-2222-4222-8222-000000000103",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "",
+          "interes70": false,
+          "transporte": true,
+          "alimentacion": "Edición FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Edición FICTICIA móvil",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      }
+    ],
+    "reports": [],
+    "audit": [
+      {
+        "action": "Recibió inscripción",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "Restricciones alimentarias: «Preferencia FICTICIA alta» → «Edición FICTICIA»"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "Observaciones: «Observación FICTICIA móvil» → «Edición FICTICIA móvil»"
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000002006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000002007",
+        "reason": "Cancelación FICTICIA"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000002005",
+        "reason": null
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000001002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000001006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000001007",
+        "reason": "Motivo FICTICIO de cancelación"
+      },
+      {
+        "action": "Reactivó y confirmó inscripción cancelada",
+        "target": "22222222-2222-4222-8222-000000001004",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000001005",
+        "reason": null
+      }
+    ],
+    "links": [
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "revoked": false,
+        "valid": true
+      }
+    ],
+    "invitations": {
+      "n": 0
+    },
+    "mail": {
+      "n": 0,
+      "accepted": 0
+    },
+    "demo": {
+      "n": 24
+    },
+    "reminders": []
+  },
+  {
+    "stage": "desktop-draft",
+    "date": "2026-11-17T18:59:45.524Z",
+    "version": "18.6",
+    "outings": [
+      {
+        "id": "22222222-2222-4222-8222-000000000101",
+        "request_id": "22222222-2222-4222-8222-000000001001",
+        "title": "Inscripciones Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000102",
+        "request_id": "22222222-2222-4222-8222-000000001002",
+        "title": "Inscripciones Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000103",
+        "request_id": "22222222-2222-4222-8222-000000001003",
+        "title": "Alta Revision Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000104",
+        "request_id": "22222222-2222-4222-8222-000000001004",
+        "title": "Alta Revision Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000105",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Agrupacion Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000106",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Agrupacion Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000107",
+        "request_id": "22222222-2222-4222-8222-000000001007",
+        "title": "Recordatorio Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000108",
+        "request_id": "22222222-2222-4222-8222-000000001008",
+        "title": "Recordatorio Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000109",
+        "request_id": "22222222-2222-4222-8222-000000001009",
+        "title": "Sin responsable",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000110",
+        "request_id": "22222222-2222-4222-8222-000000001010",
+        "title": "Informe Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000111",
+        "request_id": "22222222-2222-4222-8222-000000001011",
+        "title": "Informe Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000112",
+        "request_id": "22222222-2222-4222-8222-000000001012",
+        "title": "Invitacion Ficticia",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Grupo Ficticio Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Grupo Ficticio Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      }
+    ],
+    "registrations": [
+      {
+        "id": "22222222-2222-4222-8222-000000001001",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001002",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001003",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001004",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001005",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001006",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001007",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002001",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002002",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002003",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002004",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "cancelada por voluntariado",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002005",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002006",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002007",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005010",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005015",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005016",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006010",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006015",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006016",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007011",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007012",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008011",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008012",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010011",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010012",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011011",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011012",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "outing_id": "22222222-2222-4222-8222-000000000103",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "",
+          "interes70": false,
+          "transporte": true,
+          "alimentacion": "Edición FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Edición FICTICIA móvil",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      }
+    ],
+    "reports": [
+      {
+        "id": "d16f7b9d-acca-4410-bd2d-16b752ae1f39",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "status": "borrador",
+        "actions": "",
+        "host": "",
+        "participants": [
+          {
+            "id": "22222222-2222-4222-8222-000000010011",
+            "name": "Kai Responsable",
+            "attended": false
+          },
+          {
+            "id": "22222222-2222-4222-8222-000000010012",
+            "name": "Lia Participante",
+            "attended": false
+          }
+        ],
+        "submitted_at": null,
+        "updated_at": "2026-11-17T18:52:23.790Z"
+      }
+    ],
+    "audit": [
+      {
+        "action": "Recibió inscripción",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "Restricciones alimentarias: «Preferencia FICTICIA alta» → «Edición FICTICIA»"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "Observaciones: «Observación FICTICIA móvil» → «Edición FICTICIA móvil»"
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000002006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000002007",
+        "reason": "Cancelación FICTICIA"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000002005",
+        "reason": null
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000001002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000001006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000001007",
+        "reason": "Motivo FICTICIO de cancelación"
+      },
+      {
+        "action": "Reactivó y confirmó inscripción cancelada",
+        "target": "22222222-2222-4222-8222-000000001004",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000001005",
+        "reason": null
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005010",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005015",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000105",
+        "reason": "Nueva salida: Grupo Ficticio Desktop · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000105"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006010",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006015",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "Nueva salida: Grupo Ficticio Mobile · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "22222222-2222-4222-8222-000000000008"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000112",
+        "reason": "22222222-2222-4222-8222-000000000009"
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": null
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": null
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Guardó borrador de informe",
+        "target": "22222222-2222-4222-8222-000000000110",
+        "reason": "Informe: d16f7b9d-acca-4410-bd2d-16b752ae1f39"
+      }
+    ],
+    "links": [
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "revoked": false,
+        "valid": true
+      }
+    ],
+    "invitations": {
+      "n": 2
+    },
+    "mail": {
+      "n": 0,
+      "accepted": 0
+    },
+    "demo": {
+      "n": 30
+    },
+    "reminders": [
+      {
+        "registration_id": "22222222-2222-4222-8222-000000008011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      },
+      {
+        "registration_id": "22222222-2222-4222-8222-000000007011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      }
+    ]
+  },
+  {
+    "stage": "mobile-draft",
+    "date": "2026-11-17T19:03:02.291Z",
+    "version": "18.6",
+    "outings": [
+      {
+        "id": "22222222-2222-4222-8222-000000000101",
+        "request_id": "22222222-2222-4222-8222-000000001001",
+        "title": "Inscripciones Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000102",
+        "request_id": "22222222-2222-4222-8222-000000001002",
+        "title": "Inscripciones Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000103",
+        "request_id": "22222222-2222-4222-8222-000000001003",
+        "title": "Alta Revision Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000104",
+        "request_id": "22222222-2222-4222-8222-000000001004",
+        "title": "Alta Revision Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000105",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Agrupacion Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000106",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Agrupacion Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000107",
+        "request_id": "22222222-2222-4222-8222-000000001007",
+        "title": "Recordatorio Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000108",
+        "request_id": "22222222-2222-4222-8222-000000001008",
+        "title": "Recordatorio Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000109",
+        "request_id": "22222222-2222-4222-8222-000000001009",
+        "title": "Sin responsable",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000110",
+        "request_id": "22222222-2222-4222-8222-000000001010",
+        "title": "Informe Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000111",
+        "request_id": "22222222-2222-4222-8222-000000001011",
+        "title": "Informe Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000112",
+        "request_id": "22222222-2222-4222-8222-000000001012",
+        "title": "Invitacion Ficticia",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Grupo Ficticio Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Grupo Ficticio Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      }
+    ],
+    "registrations": [
+      {
+        "id": "22222222-2222-4222-8222-000000001001",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001002",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001003",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001004",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001005",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001006",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001007",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002001",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002002",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002003",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002004",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "cancelada por voluntariado",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002005",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002006",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002007",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005010",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005015",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005016",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006010",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006015",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006016",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007011",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007012",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008011",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008012",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010011",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010012",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011011",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011012",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "outing_id": "22222222-2222-4222-8222-000000000103",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "",
+          "interes70": false,
+          "transporte": true,
+          "alimentacion": "Edición FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Edición FICTICIA móvil",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      }
+    ],
+    "reports": [
+      {
+        "id": "d16f7b9d-acca-4410-bd2d-16b752ae1f39",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "status": "finalizado",
+        "labour_types": [
+          "Mantenimiento y otros"
+        ],
+        "activity": "Salida general (mantenimiento, colaboración en oficinas, ferias)",
+        "actions": "Acciones FICTICIAS verificadas",
+        "host": "Responsable FICTICIO",
+        "observations": "Nota FICTICIA de borrador Desktop",
+        "participants": [
+          {
+            "id": "22222222-2222-4222-8222-000000010011",
+            "name": "Kai Responsable",
+            "attended": true
+          },
+          {
+            "id": "22222222-2222-4222-8222-000000010012",
+            "name": "Lia Participante",
+            "attended": false
+          }
+        ],
+        "submitted_at": "2026-11-17T19:00:50.921Z",
+        "updated_at": "2026-11-17T19:00:50.926Z"
+      },
+      {
+        "id": "d86d677d-a9a3-4e7b-97ad-82f7a128f926",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "status": "borrador",
+        "labour_types": [],
+        "activity": "",
+        "actions": "",
+        "host": "",
+        "observations": "Nota FICTICIA Mobile",
+        "participants": [
+          {
+            "id": "22222222-2222-4222-8222-000000011011",
+            "name": "Kai Responsable",
+            "attended": false
+          },
+          {
+            "id": "22222222-2222-4222-8222-000000011012",
+            "name": "Lia Participante",
+            "attended": false
+          }
+        ],
+        "submitted_at": null,
+        "updated_at": "2026-11-17T19:01:53.378Z"
+      }
+    ],
+    "audit": [
+      {
+        "action": "Recibió inscripción",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "Restricciones alimentarias: «Preferencia FICTICIA alta» → «Edición FICTICIA»"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "Observaciones: «Observación FICTICIA móvil» → «Edición FICTICIA móvil»"
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000002006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000002007",
+        "reason": "Cancelación FICTICIA"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000002005",
+        "reason": null
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000001002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000001006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000001007",
+        "reason": "Motivo FICTICIO de cancelación"
+      },
+      {
+        "action": "Reactivó y confirmó inscripción cancelada",
+        "target": "22222222-2222-4222-8222-000000001004",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000001005",
+        "reason": null
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005010",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005015",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000105",
+        "reason": "Nueva salida: Grupo Ficticio Desktop · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000105"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006010",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006015",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "Nueva salida: Grupo Ficticio Mobile · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "22222222-2222-4222-8222-000000000008"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000112",
+        "reason": "22222222-2222-4222-8222-000000000009"
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": null
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": null
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Guardó borrador de informe",
+        "target": "22222222-2222-4222-8222-000000000110",
+        "reason": "Informe: d16f7b9d-acca-4410-bd2d-16b752ae1f39"
+      },
+      {
+        "action": "Finalizó informe de salida",
+        "target": "22222222-2222-4222-8222-000000000110",
+        "reason": "Informe: d16f7b9d-acca-4410-bd2d-16b752ae1f39"
+      },
+      {
+        "action": "Guardó borrador de informe",
+        "target": "22222222-2222-4222-8222-000000000111",
+        "reason": "Informe: d86d677d-a9a3-4e7b-97ad-82f7a128f926"
+      }
+    ],
+    "links": [
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "revoked": false,
+        "valid": true
+      }
+    ],
+    "invitations": {
+      "n": 2
+    },
+    "mail": {
+      "n": 0,
+      "accepted": 0
+    },
+    "demo": {
+      "n": 30
+    },
+    "reminders": [
+      {
+        "registration_id": "22222222-2222-4222-8222-000000008011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      },
+      {
+        "registration_id": "22222222-2222-4222-8222-000000007011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      }
+    ]
+  },
+  {
+    "stage": "final",
+    "date": "2026-11-17T19:44:46.421Z",
+    "version": "18.6",
+    "outings": [
+      {
+        "id": "22222222-2222-4222-8222-000000000101",
+        "request_id": "22222222-2222-4222-8222-000000001001",
+        "title": "Inscripciones Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000102",
+        "request_id": "22222222-2222-4222-8222-000000001002",
+        "title": "Inscripciones Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 4,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000103",
+        "request_id": "22222222-2222-4222-8222-000000001003",
+        "title": "Alta Revision Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000104",
+        "request_id": "22222222-2222-4222-8222-000000001004",
+        "title": "Alta Revision Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000105",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Agrupacion Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000106",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Agrupacion Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000107",
+        "request_id": "22222222-2222-4222-8222-000000001007",
+        "title": "Recordatorio Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000108",
+        "request_id": "22222222-2222-4222-8222-000000001008",
+        "title": "Recordatorio Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000109",
+        "request_id": "22222222-2222-4222-8222-000000001009",
+        "title": "Sin responsable",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000110",
+        "request_id": "22222222-2222-4222-8222-000000001010",
+        "title": "Informe Desktop",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000111",
+        "request_id": "22222222-2222-4222-8222-000000001011",
+        "title": "Informe Mobile",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "status": "completada",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000000112",
+        "request_id": "22222222-2222-4222-8222-000000001012",
+        "title": "Invitacion Ficticia",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "status": "abierta",
+        "capacity": 6,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "request_id": "22222222-2222-4222-8222-000000001006",
+        "title": "Grupo Ficticio Mobile",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      },
+      {
+        "id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "request_id": "22222222-2222-4222-8222-000000001005",
+        "title": "Grupo Ficticio Desktop",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "status": "abierta",
+        "capacity": 2,
+        "listed": false,
+        "flexible": true
+      }
+    ],
+    "registrations": [
+      {
+        "id": "22222222-2222-4222-8222-000000001001",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001002",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001003",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001004",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001005",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001006",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000001007",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002001",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000001",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "interes70": true,
+          "transporte": true,
+          "alimentacion": "Preferencia alimentaria FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002002",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000002",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Observación FICTICIA",
+          "transporte": true,
+          "ofreceTransporte": 1
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002003",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000003",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002004",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000004",
+        "status": "cancelada por voluntariado",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002005",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000005",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002006",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000006",
+        "status": "rechazada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000002007",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000007",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005010",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005015",
+        "outing_id": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000005016",
+        "outing_id": "22222222-2222-4222-8222-000000000105",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006010",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000010",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006015",
+        "outing_id": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "volunteer_id": "22222222-2222-4222-8222-000000000015",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-20",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000006016",
+        "outing_id": "22222222-2222-4222-8222-000000000106",
+        "volunteer_id": "22222222-2222-4222-8222-000000000016",
+        "status": "revisión",
+        "starts": "2026-11-22",
+        "ends": "2026-11-22",
+        "details": {}
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007011",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000007012",
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008011",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000008012",
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010011",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000010012",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011011",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000011",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "assigned70": true,
+          "transporte": true,
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "22222222-2222-4222-8222-000000011012",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "volunteer_id": "22222222-2222-4222-8222-000000000012",
+        "status": "confirmada",
+        "starts": "2026-11-10",
+        "ends": "2026-11-12",
+        "details": {
+          "alimentacion": "Preferencia FICTICIA"
+        }
+      },
+      {
+        "id": "482c7a34-0d81-44a0-afab-2e4fcccf0cca",
+        "outing_id": "22222222-2222-4222-8222-000000000104",
+        "volunteer_id": "22222222-2222-4222-8222-000000000009",
+        "status": "confirmada",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Dato FICTICIO actualizado desde solicitudes",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      },
+      {
+        "id": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "outing_id": "22222222-2222-4222-8222-000000000103",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "cancelada por coordinación",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "",
+          "interes70": false,
+          "transporte": true,
+          "alimentacion": "Edición FICTICIA",
+          "ofreceTransporte": 2
+        }
+      },
+      {
+        "id": "d73404ff-967f-42d8-a7b7-6663f6e1cdc4",
+        "outing_id": "22222222-2222-4222-8222-000000000101",
+        "volunteer_id": "22222222-2222-4222-8222-000000000009",
+        "status": "espera",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      },
+      {
+        "id": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "outing_id": "22222222-2222-4222-8222-000000000102",
+        "volunteer_id": "22222222-2222-4222-8222-000000000008",
+        "status": "revisión",
+        "starts": "2026-11-20",
+        "ends": "2026-11-22",
+        "details": {
+          "otro": "Edición FICTICIA móvil",
+          "interes70": false,
+          "transporte": false,
+          "alimentacion": "",
+          "ofreceTransporte": 0
+        }
+      }
+    ],
+    "reports": [
+      {
+        "id": "d16f7b9d-acca-4410-bd2d-16b752ae1f39",
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "status": "finalizado",
+        "labour_types": [
+          "Mantenimiento y otros"
+        ],
+        "activity": "Salida general (mantenimiento, colaboración en oficinas, ferias)",
+        "actions": "Acciones FICTICIAS verificadas",
+        "host": "Responsable FICTICIO",
+        "observations": "Nota FICTICIA de borrador Desktop",
+        "participants": [
+          {
+            "id": "22222222-2222-4222-8222-000000010011",
+            "name": "Kai Responsable",
+            "attended": true
+          },
+          {
+            "id": "22222222-2222-4222-8222-000000010012",
+            "name": "Lia Participante",
+            "attended": false
+          }
+        ],
+        "submitted_at": "2026-11-17T19:00:50.921Z",
+        "updated_at": "2026-11-17T19:00:50.926Z"
+      },
+      {
+        "id": "d86d677d-a9a3-4e7b-97ad-82f7a128f926",
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "status": "finalizado",
+        "labour_types": [
+          "Mantenimiento y otros"
+        ],
+        "activity": "Salida general (mantenimiento, colaboración en oficinas, ferias)",
+        "actions": "Acciones FICTICIAS Mobile",
+        "host": "Responsable FICTICIO Mobile",
+        "observations": "Nota FICTICIA Mobile",
+        "participants": [
+          {
+            "id": "22222222-2222-4222-8222-000000011011",
+            "name": "Kai Responsable",
+            "attended": true
+          },
+          {
+            "id": "22222222-2222-4222-8222-000000011012",
+            "name": "Lia Participante",
+            "attended": false
+          }
+        ],
+        "submitted_at": "2026-11-17T19:03:37.325Z",
+        "updated_at": "2026-11-17T19:03:37.327Z"
+      }
+    ],
+    "audit": [
+      {
+        "action": "Recibió inscripción",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "revisión"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "Restricciones alimentarias: «Preferencia FICTICIA alta» → «Edición FICTICIA»"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "espera"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": "Observaciones: «Observación FICTICIA móvil» → «Edición FICTICIA móvil»"
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000002006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000002007",
+        "reason": "Cancelación FICTICIA"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "db51f42d-d8aa-4d67-b4cb-cfef4a63060d",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000002005",
+        "reason": null
+      },
+      {
+        "action": "Asignó como 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Retiró asignación de 70",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000001002",
+        "reason": null
+      },
+      {
+        "action": "Movió a lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": "Motivo FICTICIO de espera"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001003",
+        "reason": null
+      },
+      {
+        "action": "rechazada",
+        "target": "22222222-2222-4222-8222-000000001006",
+        "reason": "Motivo FICTICIO de rechazo"
+      },
+      {
+        "action": "Asignó cupo desde lista de espera",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "22222222-2222-4222-8222-000000001007",
+        "reason": "Motivo FICTICIO de cancelación"
+      },
+      {
+        "action": "Reactivó y confirmó inscripción cancelada",
+        "target": "22222222-2222-4222-8222-000000001004",
+        "reason": null
+      },
+      {
+        "action": "Recuperó inscripción anterior",
+        "target": "22222222-2222-4222-8222-000000001005",
+        "reason": null
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005010",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000005015",
+        "reason": "Salida de origen: Agrupacion Desktop (22222222-2222-4222-8222-000000000105) → Grupo Ficticio Desktop (b7e871b7-08e4-434c-9d79-6b56521d2ba0)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000105",
+        "reason": "Nueva salida: Grupo Ficticio Desktop · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000105"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006010",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Trasladó inscripción a otra salida",
+        "target": "22222222-2222-4222-8222-000000006015",
+        "reason": "Salida de origen: Agrupacion Mobile (22222222-2222-4222-8222-000000000106) → Grupo Ficticio Mobile (a405cba4-6dba-45a8-a08d-f351e7f3f529)"
+      },
+      {
+        "action": "Separó agrupación",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "Nueva salida: Grupo Ficticio Mobile · 2 inscripciones"
+      },
+      {
+        "action": "Creó salida desde agrupación",
+        "target": "a405cba4-6dba-45a8-a08d-f351e7f3f529",
+        "reason": "Salida original: 22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000106",
+        "reason": "22222222-2222-4222-8222-000000000008"
+      },
+      {
+        "action": "Generó invitación a salida",
+        "target": "22222222-2222-4222-8222-000000000112",
+        "reason": "22222222-2222-4222-8222-000000000009"
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": null
+      },
+      {
+        "action": "Generó resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Revocó enlaces de resumen para 70",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": null
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000108",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "action": "Solicitó recordatorio de informe",
+        "target": "22222222-2222-4222-8222-000000000107",
+        "reason": "Inscripción: 22222222-2222-4222-8222-000000007011"
+      },
+      {
+        "action": "Guardó borrador de informe",
+        "target": "22222222-2222-4222-8222-000000000110",
+        "reason": "Informe: d16f7b9d-acca-4410-bd2d-16b752ae1f39"
+      },
+      {
+        "action": "Finalizó informe de salida",
+        "target": "22222222-2222-4222-8222-000000000110",
+        "reason": "Informe: d16f7b9d-acca-4410-bd2d-16b752ae1f39"
+      },
+      {
+        "action": "Guardó borrador de informe",
+        "target": "22222222-2222-4222-8222-000000000111",
+        "reason": "Informe: d86d677d-a9a3-4e7b-97ad-82f7a128f926"
+      },
+      {
+        "action": "Finalizó informe de salida",
+        "target": "22222222-2222-4222-8222-000000000111",
+        "reason": "Informe: d86d677d-a9a3-4e7b-97ad-82f7a128f926"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "482c7a34-0d81-44a0-afab-2e4fcccf0cca",
+        "reason": "revisión"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "482c7a34-0d81-44a0-afab-2e4fcccf0cca",
+        "reason": "revisión"
+      },
+      {
+        "action": "Recibió inscripción",
+        "target": "d73404ff-967f-42d8-a7b7-6663f6e1cdc4",
+        "reason": "espera"
+      },
+      {
+        "action": "Agregó inscripción desde Coordinación",
+        "target": "d73404ff-967f-42d8-a7b7-6663f6e1cdc4",
+        "reason": "espera"
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "482c7a34-0d81-44a0-afab-2e4fcccf0cca",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002003",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000002001",
+        "reason": null
+      },
+      {
+        "action": "Confirmó cupo",
+        "target": "22222222-2222-4222-8222-000000001001",
+        "reason": null
+      },
+      {
+        "action": "cancelada por coordinación",
+        "target": "5781a1d2-5d9f-4a82-b52a-4e3e0f0f3137",
+        "reason": "Cancelación FICTICIA desde solicitudes"
+      },
+      {
+        "action": "Editó inscripción desde Coordinación",
+        "target": "482c7a34-0d81-44a0-afab-2e4fcccf0cca",
+        "reason": "Observaciones: «Sin indicar» → «Dato FICTICIO actualizado desde solicitudes»"
+      }
+    ],
+    "links": [
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000107",
+        "lead_registration_id": "22222222-2222-4222-8222-000000007011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": true,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000108",
+        "lead_registration_id": "22222222-2222-4222-8222-000000008011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000110",
+        "lead_registration_id": "22222222-2222-4222-8222-000000010011",
+        "revoked": false,
+        "valid": true
+      },
+      {
+        "outing_id": "22222222-2222-4222-8222-000000000111",
+        "lead_registration_id": "22222222-2222-4222-8222-000000011011",
+        "revoked": false,
+        "valid": true
+      }
+    ],
+    "invitations": {
+      "n": 2
+    },
+    "mail": {
+      "n": 0,
+      "accepted": 0
+    },
+    "demo": {
+      "n": 39
+    },
+    "reminders": [
+      {
+        "registration_id": "22222222-2222-4222-8222-000000008011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      },
+      {
+        "registration_id": "22222222-2222-4222-8222-000000007011",
+        "recipient": "persona11@example.test",
+        "queued": false,
+        "demo": true
+      }
+    ]
+  }
+]

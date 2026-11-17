@@ -1,0 +1,203 @@
+{
+  "name": "desktop-report-draft-pending",
+  "date": "2026-11-17T22:06:42.852Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 83-84, 86-88\n+\t\t110 text Portal de voluntariado\n+\t\t111 container Navegación principal\n+\t\t\t112 content list\n+\t\t\t\t113 link Description: Convocatorias, Value: localhost:3046/\n+\t\t\t\t114 link Description: Coordinación, Value: localhost:3046/coordinacion\n+\t\t\t115 container Secciones\n+\t\t\t\t116 button (disabled) Datos de la gira\n+\t\t\t\t117 button (disabled) Labores y acciones\n+\t\t\t\t118 button (disabled) Asistencia\n+\t\t\t\t119 button (disabled) Observaciones\n+\t\t\t\t120 button (disabled) Revisión final\n+\t121 button Open Next.js Dev Tools\n+\t\t122 container\n+\t\t\t123 text Rendering . . .\nThe focused UI element is 10 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme DesktopRevisá 4 campos para guardar.Accione"
+    },
+    "buttons": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": true,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(83, 105, 66)",
+        "disabled": true,
+        "name": null,
+        "text": "5Revisión final"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_r_0_-field-accuracy-error",
+        "id": "_r_0_-field-accuracy",
+        "linked": true,
+        "name": "accuracy"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 320.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "accuracy",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "5Revisión final"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "accuracy",
+        "text": null
+      }
+    ]
+  }
+}

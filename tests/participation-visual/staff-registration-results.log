@@ -1,0 +1,6 @@
+Integración: staff-registration-results (base local desechable).
+(node:94880) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: fallo posterior al commit conserva alta/edición, auditoría y aviso; reintentos son duplicado/versión obsoleta sin avisos extra.
+OK: alta revisión/espera, errores conjuntos, permisos, adaptadores, duplicado concurrente, edición/estados/versiones, rollback y reintento sin avisos duplicados; cero proveedores reales.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

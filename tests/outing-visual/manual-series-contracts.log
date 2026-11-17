@@ -1,0 +1,5 @@
+Integración: manual-series-contracts (base local desechable).
+(node:85780) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: serie manual tipada, errores múltiples, permisos/selección actual, rollback y reintento, membresía sin repetidos, concurrencia y repetición histórica explícita; sin red ni correo.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

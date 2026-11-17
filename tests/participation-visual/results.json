@@ -1,0 +1,1969 @@
+{
+  "cases": [
+    {
+      "name": "desktop-add-open",
+      "date": "2026-11-17T18:18:37.866Z",
+      "file": "observations/desktop-add-open.json"
+    },
+    {
+      "name": "desktop-add-required",
+      "date": "2026-11-17T18:18:38.474Z",
+      "file": "observations/desktop-add-required.json"
+    },
+    {
+      "name": "desktop-add-missing-status-pending",
+      "date": "2026-11-17T18:19:03.395Z",
+      "file": "observations/desktop-add-missing-status-pending.json"
+    },
+    {
+      "name": "desktop-add-missing-status-escape-pending",
+      "date": "2026-11-17T18:19:03.587Z",
+      "file": "observations/desktop-add-missing-status-escape-pending.json"
+    },
+    {
+      "name": "desktop-add-missing-status-result",
+      "date": "2026-11-17T18:19:05.243Z",
+      "file": "observations/desktop-add-missing-status-result.json"
+    },
+    {
+      "name": "desktop-add-invalid-status-pending",
+      "date": "2026-11-17T18:19:05.708Z",
+      "file": "observations/desktop-add-invalid-status-pending.json"
+    },
+    {
+      "name": "desktop-add-invalid-status-result",
+      "date": "2026-11-17T18:19:07.301Z",
+      "file": "observations/desktop-add-invalid-status-result.json"
+    },
+    {
+      "name": "desktop-add-mixed-pending",
+      "date": "2026-11-17T18:19:07.686Z",
+      "file": "observations/desktop-add-mixed-pending.json"
+    },
+    {
+      "name": "desktop-add-mixed-result",
+      "date": "2026-11-17T18:19:09.307Z",
+      "file": "observations/desktop-add-mixed-result.json"
+    },
+    {
+      "name": "desktop-add-summary",
+      "date": "2026-11-17T18:19:16.774Z",
+      "file": "observations/desktop-add-summary.json"
+    },
+    {
+      "name": "desktop-add-rejection-pending",
+      "date": "2026-11-17T18:19:17.120Z",
+      "file": "observations/desktop-add-rejection-pending.json"
+    },
+    {
+      "name": "desktop-add-rejection-result",
+      "date": "2026-11-17T18:19:19.394Z",
+      "file": "observations/desktop-add-rejection-result.json"
+    },
+    {
+      "name": "desktop-add-review-committed",
+      "date": "2026-11-17T18:19:21.908Z",
+      "file": "observations/desktop-add-review-committed.json"
+    },
+    {
+      "name": "desktop-detail-loading",
+      "date": "2026-11-17T18:19:31.896Z",
+      "file": "observations/desktop-detail-loading.json"
+    },
+    {
+      "name": "desktop-detail-loaded",
+      "date": "2026-11-17T18:19:41.055Z",
+      "file": "observations/desktop-detail-loaded.json"
+    },
+    {
+      "name": "desktop-detail-back",
+      "date": "2026-11-17T18:19:41.437Z",
+      "file": "observations/desktop-detail-back.json"
+    },
+    {
+      "name": "desktop-edit-loading",
+      "date": "2026-11-17T18:19:41.733Z",
+      "file": "observations/desktop-edit-loading.json"
+    },
+    {
+      "name": "desktop-edit-malformed-pending",
+      "date": "2026-11-17T18:19:43.524Z",
+      "file": "observations/desktop-edit-malformed-pending.json"
+    },
+    {
+      "name": "desktop-edit-malformed-escape-pending",
+      "date": "2026-11-17T18:19:43.645Z",
+      "file": "observations/desktop-edit-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-edit-malformed-result",
+      "date": "2026-11-17T18:19:45.201Z",
+      "file": "observations/desktop-edit-malformed-result.json"
+    },
+    {
+      "name": "desktop-edit-mixed-pending",
+      "date": "2026-11-17T18:19:45.600Z",
+      "file": "observations/desktop-edit-mixed-pending.json"
+    },
+    {
+      "name": "desktop-edit-mixed-result",
+      "date": "2026-11-17T18:19:47.206Z",
+      "file": "observations/desktop-edit-mixed-result.json"
+    },
+    {
+      "name": "desktop-edit-summary",
+      "date": "2026-11-17T18:19:57.564Z",
+      "file": "observations/desktop-edit-summary.json"
+    },
+    {
+      "name": "desktop-edit-rejection-pending",
+      "date": "2026-11-17T18:19:57.906Z",
+      "file": "observations/desktop-edit-rejection-pending.json"
+    },
+    {
+      "name": "desktop-edit-rejection-result",
+      "date": "2026-11-17T18:19:59.635Z",
+      "file": "observations/desktop-edit-rejection-result.json"
+    },
+    {
+      "name": "desktop-edit-committed",
+      "date": "2026-11-17T18:20:01.985Z",
+      "file": "observations/desktop-edit-committed.json"
+    },
+    {
+      "name": "mobile-add-required",
+      "date": "2026-11-17T18:20:28.933Z",
+      "file": "observations/mobile-add-required.json"
+    },
+    {
+      "name": "mobile-add-missing-status-pending",
+      "date": "2026-11-17T18:20:31.487Z",
+      "file": "observations/mobile-add-missing-status-pending.json"
+    },
+    {
+      "name": "mobile-add-missing-status-escape-pending",
+      "date": "2026-11-17T18:20:31.597Z",
+      "file": "observations/mobile-add-missing-status-escape-pending.json"
+    },
+    {
+      "name": "mobile-add-missing-status-result",
+      "date": "2026-11-17T18:20:33.166Z",
+      "file": "observations/mobile-add-missing-status-result.json"
+    },
+    {
+      "name": "mobile-add-invalid-status-pending",
+      "date": "2026-11-17T18:20:33.551Z",
+      "file": "observations/mobile-add-invalid-status-pending.json"
+    },
+    {
+      "name": "mobile-add-invalid-status-result",
+      "date": "2026-11-17T18:20:35.301Z",
+      "file": "observations/mobile-add-invalid-status-result.json"
+    },
+    {
+      "name": "mobile-add-mixed-pending",
+      "date": "2026-11-17T18:20:35.707Z",
+      "file": "observations/mobile-add-mixed-pending.json"
+    },
+    {
+      "name": "mobile-add-mixed-result",
+      "date": "2026-11-17T18:20:37.538Z",
+      "file": "observations/mobile-add-mixed-result.json"
+    },
+    {
+      "name": "mobile-add-summary",
+      "date": "2026-11-17T18:20:49.708Z",
+      "file": "observations/mobile-add-summary.json"
+    },
+    {
+      "name": "mobile-add-rejection-pending",
+      "date": "2026-11-17T18:20:50.101Z",
+      "file": "observations/mobile-add-rejection-pending.json"
+    },
+    {
+      "name": "mobile-add-rejection-result",
+      "date": "2026-11-17T18:20:51.983Z",
+      "file": "observations/mobile-add-rejection-result.json"
+    },
+    {
+      "name": "mobile-add-wait-committed",
+      "date": "2026-11-17T18:20:54.556Z",
+      "file": "observations/mobile-add-wait-committed.json"
+    },
+    {
+      "name": "mobile-edit-loading",
+      "date": "2026-11-17T18:20:55.363Z",
+      "file": "observations/mobile-edit-loading.json"
+    },
+    {
+      "name": "mobile-edit-malformed-pending",
+      "date": "2026-11-17T18:20:56.889Z",
+      "file": "observations/mobile-edit-malformed-pending.json"
+    },
+    {
+      "name": "mobile-edit-malformed-escape-pending",
+      "date": "2026-11-17T18:20:56.988Z",
+      "file": "observations/mobile-edit-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-edit-malformed-result",
+      "date": "2026-11-17T18:20:58.596Z",
+      "file": "observations/mobile-edit-malformed-result.json"
+    },
+    {
+      "name": "mobile-edit-mixed-pending",
+      "date": "2026-11-17T18:20:59.001Z",
+      "file": "observations/mobile-edit-mixed-pending.json"
+    },
+    {
+      "name": "mobile-edit-mixed-result",
+      "date": "2026-11-17T18:21:00.656Z",
+      "file": "observations/mobile-edit-mixed-result.json"
+    },
+    {
+      "name": "mobile-edit-summary",
+      "date": "2026-11-17T18:21:26.356Z",
+      "file": "observations/mobile-edit-summary.json"
+    },
+    {
+      "name": "mobile-edit-rejection-pending",
+      "date": "2026-11-17T18:21:26.678Z",
+      "file": "observations/mobile-edit-rejection-pending.json"
+    },
+    {
+      "name": "mobile-edit-rejection-result",
+      "date": "2026-11-17T18:21:28.395Z",
+      "file": "observations/mobile-edit-rejection-result.json"
+    },
+    {
+      "name": "mobile-edit-committed",
+      "date": "2026-11-17T18:21:30.544Z",
+      "file": "observations/mobile-edit-committed.json"
+    },
+    {
+      "name": "mobile-assign-step",
+      "date": "2026-11-17T18:21:31.374Z",
+      "file": "observations/mobile-assign-step.json"
+    },
+    {
+      "name": "mobile-assign-malformed-pending",
+      "date": "2026-11-17T18:21:31.725Z",
+      "file": "observations/mobile-assign-malformed-pending.json"
+    },
+    {
+      "name": "mobile-assign-malformed-escape-pending",
+      "date": "2026-11-17T18:21:31.871Z",
+      "file": "observations/mobile-assign-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-assign-malformed-result",
+      "date": "2026-11-17T18:21:33.441Z",
+      "file": "observations/mobile-assign-malformed-result.json"
+    },
+    {
+      "name": "mobile-assign-mixed-pending",
+      "date": "2026-11-17T18:21:33.837Z",
+      "file": "observations/mobile-assign-mixed-pending.json"
+    },
+    {
+      "name": "mobile-assign-mixed-result",
+      "date": "2026-11-17T18:21:35.596Z",
+      "file": "observations/mobile-assign-mixed-result.json"
+    },
+    {
+      "name": "mobile-assign-rejection-pending",
+      "date": "2026-11-17T18:21:36.087Z",
+      "file": "observations/mobile-assign-rejection-pending.json"
+    },
+    {
+      "name": "mobile-assign-rejection-result",
+      "date": "2026-11-17T18:21:37.763Z",
+      "file": "observations/mobile-assign-rejection-result.json"
+    },
+    {
+      "name": "mobile-assign-committed",
+      "date": "2026-11-17T18:21:40.186Z",
+      "file": "observations/mobile-assign-committed.json"
+    },
+    {
+      "name": "mobile-unassign-step",
+      "date": "2026-11-17T18:21:41.037Z",
+      "file": "observations/mobile-unassign-step.json"
+    },
+    {
+      "name": "mobile-unassign-malformed-pending",
+      "date": "2026-11-17T18:21:41.432Z",
+      "file": "observations/mobile-unassign-malformed-pending.json"
+    },
+    {
+      "name": "mobile-unassign-malformed-escape-pending",
+      "date": "2026-11-17T18:21:41.540Z",
+      "file": "observations/mobile-unassign-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-unassign-malformed-result",
+      "date": "2026-11-17T18:21:43.016Z",
+      "file": "observations/mobile-unassign-malformed-result.json"
+    },
+    {
+      "name": "mobile-unassign-mixed-pending",
+      "date": "2026-11-17T18:21:43.426Z",
+      "file": "observations/mobile-unassign-mixed-pending.json"
+    },
+    {
+      "name": "mobile-unassign-mixed-result",
+      "date": "2026-11-17T18:21:45.043Z",
+      "file": "observations/mobile-unassign-mixed-result.json"
+    },
+    {
+      "name": "mobile-unassign-rejection-pending",
+      "date": "2026-11-17T18:21:45.447Z",
+      "file": "observations/mobile-unassign-rejection-pending.json"
+    },
+    {
+      "name": "mobile-unassign-rejection-result",
+      "date": "2026-11-17T18:21:47.065Z",
+      "file": "observations/mobile-unassign-rejection-result.json"
+    },
+    {
+      "name": "mobile-unassign-committed",
+      "date": "2026-11-17T18:21:49.239Z",
+      "file": "observations/mobile-unassign-committed.json"
+    },
+    {
+      "name": "mobile-confirm-step",
+      "date": "2026-11-17T18:21:59.940Z",
+      "file": "observations/mobile-confirm-step.json"
+    },
+    {
+      "name": "mobile-confirm-malformed-pending",
+      "date": "2026-11-17T18:22:00.293Z",
+      "file": "observations/mobile-confirm-malformed-pending.json"
+    },
+    {
+      "name": "mobile-confirm-malformed-escape-pending",
+      "date": "2026-11-17T18:22:00.396Z",
+      "file": "observations/mobile-confirm-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-confirm-malformed-result",
+      "date": "2026-11-17T18:22:01.958Z",
+      "file": "observations/mobile-confirm-malformed-result.json"
+    },
+    {
+      "name": "mobile-confirm-mixed-pending",
+      "date": "2026-11-17T18:22:02.353Z",
+      "file": "observations/mobile-confirm-mixed-pending.json"
+    },
+    {
+      "name": "mobile-confirm-mixed-result",
+      "date": "2026-11-17T18:22:04.059Z",
+      "file": "observations/mobile-confirm-mixed-result.json"
+    },
+    {
+      "name": "mobile-confirm-rejection-pending",
+      "date": "2026-11-17T18:22:04.441Z",
+      "file": "observations/mobile-confirm-rejection-pending.json"
+    },
+    {
+      "name": "mobile-confirm-rejection-result",
+      "date": "2026-11-17T18:22:06.132Z",
+      "file": "observations/mobile-confirm-rejection-result.json"
+    },
+    {
+      "name": "mobile-confirm-committed",
+      "date": "2026-11-17T18:22:08.309Z",
+      "file": "observations/mobile-confirm-committed.json"
+    },
+    {
+      "name": "mobile-wait-step",
+      "date": "2026-11-17T18:22:08.996Z",
+      "file": "observations/mobile-wait-step.json"
+    },
+    {
+      "name": "mobile-wait-required",
+      "date": "2026-11-17T18:22:09.357Z",
+      "file": "observations/mobile-wait-required.json"
+    },
+    {
+      "name": "mobile-wait-malformed-pending",
+      "date": "2026-11-17T18:22:09.703Z",
+      "file": "observations/mobile-wait-malformed-pending.json"
+    },
+    {
+      "name": "mobile-wait-malformed-escape-pending",
+      "date": "2026-11-17T18:22:09.853Z",
+      "file": "observations/mobile-wait-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-wait-malformed-result",
+      "date": "2026-11-17T18:22:11.309Z",
+      "file": "observations/mobile-wait-malformed-result.json"
+    },
+    {
+      "name": "mobile-wait-mixed-pending",
+      "date": "2026-11-17T18:22:11.664Z",
+      "file": "observations/mobile-wait-mixed-pending.json"
+    },
+    {
+      "name": "mobile-wait-mixed-result",
+      "date": "2026-11-17T18:22:13.391Z",
+      "file": "observations/mobile-wait-mixed-result.json"
+    },
+    {
+      "name": "mobile-wait-rejection-pending",
+      "date": "2026-11-17T18:22:13.817Z",
+      "file": "observations/mobile-wait-rejection-pending.json"
+    },
+    {
+      "name": "mobile-wait-rejection-result",
+      "date": "2026-11-17T18:22:15.445Z",
+      "file": "observations/mobile-wait-rejection-result.json"
+    },
+    {
+      "name": "mobile-wait-committed",
+      "date": "2026-11-17T18:22:17.646Z",
+      "file": "observations/mobile-wait-committed.json"
+    },
+    {
+      "name": "mobile-reject-step",
+      "date": "2026-11-17T18:22:18.443Z",
+      "file": "observations/mobile-reject-step.json"
+    },
+    {
+      "name": "mobile-reject-required",
+      "date": "2026-11-17T18:22:18.812Z",
+      "file": "observations/mobile-reject-required.json"
+    },
+    {
+      "name": "mobile-reject-malformed-pending",
+      "date": "2026-11-17T18:22:19.147Z",
+      "file": "observations/mobile-reject-malformed-pending.json"
+    },
+    {
+      "name": "mobile-reject-malformed-escape-pending",
+      "date": "2026-11-17T18:22:19.229Z",
+      "file": "observations/mobile-reject-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-reject-malformed-result",
+      "date": "2026-11-17T18:22:20.817Z",
+      "file": "observations/mobile-reject-malformed-result.json"
+    },
+    {
+      "name": "mobile-reject-mixed-pending",
+      "date": "2026-11-17T18:22:21.191Z",
+      "file": "observations/mobile-reject-mixed-pending.json"
+    },
+    {
+      "name": "mobile-reject-mixed-result",
+      "date": "2026-11-17T18:22:22.924Z",
+      "file": "observations/mobile-reject-mixed-result.json"
+    },
+    {
+      "name": "mobile-reject-rejection-pending",
+      "date": "2026-11-17T18:22:23.288Z",
+      "file": "observations/mobile-reject-rejection-pending.json"
+    },
+    {
+      "name": "mobile-reject-rejection-result",
+      "date": "2026-11-17T18:22:24.892Z",
+      "file": "observations/mobile-reject-rejection-result.json"
+    },
+    {
+      "name": "mobile-reject-committed",
+      "date": "2026-11-17T18:22:27.092Z",
+      "file": "observations/mobile-reject-committed.json"
+    },
+    {
+      "name": "mobile-cancel-step",
+      "date": "2026-11-17T18:22:35.561Z",
+      "file": "observations/mobile-cancel-step.json"
+    },
+    {
+      "name": "mobile-cancel-required",
+      "date": "2026-11-17T18:22:35.923Z",
+      "file": "observations/mobile-cancel-required.json"
+    },
+    {
+      "name": "mobile-cancel-malformed-pending",
+      "date": "2026-11-17T18:22:36.262Z",
+      "file": "observations/mobile-cancel-malformed-pending.json"
+    },
+    {
+      "name": "mobile-cancel-malformed-escape-pending",
+      "date": "2026-11-17T18:22:36.346Z",
+      "file": "observations/mobile-cancel-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-cancel-malformed-result",
+      "date": "2026-11-17T18:22:38.097Z",
+      "file": "observations/mobile-cancel-malformed-result.json"
+    },
+    {
+      "name": "mobile-cancel-mixed-pending",
+      "date": "2026-11-17T18:22:38.512Z",
+      "file": "observations/mobile-cancel-mixed-pending.json"
+    },
+    {
+      "name": "mobile-cancel-mixed-result",
+      "date": "2026-11-17T18:22:40.237Z",
+      "file": "observations/mobile-cancel-mixed-result.json"
+    },
+    {
+      "name": "mobile-cancel-rejection-pending",
+      "date": "2026-11-17T18:22:40.642Z",
+      "file": "observations/mobile-cancel-rejection-pending.json"
+    },
+    {
+      "name": "mobile-cancel-rejection-result",
+      "date": "2026-11-17T18:22:42.404Z",
+      "file": "observations/mobile-cancel-rejection-result.json"
+    },
+    {
+      "name": "mobile-cancel-committed",
+      "date": "2026-11-17T18:22:44.702Z",
+      "file": "observations/mobile-cancel-committed.json"
+    },
+    {
+      "name": "mobile-reconfirm-step",
+      "date": "2026-11-17T18:22:45.483Z",
+      "file": "observations/mobile-reconfirm-step.json"
+    },
+    {
+      "name": "mobile-reconfirm-malformed-pending",
+      "date": "2026-11-17T18:22:45.839Z",
+      "file": "observations/mobile-reconfirm-malformed-pending.json"
+    },
+    {
+      "name": "mobile-reconfirm-malformed-escape-pending",
+      "date": "2026-11-17T18:22:45.925Z",
+      "file": "observations/mobile-reconfirm-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-reconfirm-malformed-result",
+      "date": "2026-11-17T18:22:47.486Z",
+      "file": "observations/mobile-reconfirm-malformed-result.json"
+    },
+    {
+      "name": "mobile-reconfirm-mixed-pending",
+      "date": "2026-11-17T18:22:47.845Z",
+      "file": "observations/mobile-reconfirm-mixed-pending.json"
+    },
+    {
+      "name": "mobile-reconfirm-mixed-result",
+      "date": "2026-11-17T18:22:49.560Z",
+      "file": "observations/mobile-reconfirm-mixed-result.json"
+    },
+    {
+      "name": "mobile-reconfirm-rejection-pending",
+      "date": "2026-11-17T18:22:49.925Z",
+      "file": "observations/mobile-reconfirm-rejection-pending.json"
+    },
+    {
+      "name": "mobile-reconfirm-rejection-result",
+      "date": "2026-11-17T18:22:51.541Z",
+      "file": "observations/mobile-reconfirm-rejection-result.json"
+    },
+    {
+      "name": "mobile-reconfirm-full-conflict",
+      "date": "2026-11-17T18:23:37.486Z",
+      "file": "observations/mobile-reconfirm-full-conflict.json"
+    },
+    {
+      "name": "mobile-recover-step",
+      "date": "2026-11-17T18:23:38.368Z",
+      "file": "observations/mobile-recover-step.json"
+    },
+    {
+      "name": "mobile-recover-required",
+      "date": "2026-11-17T18:23:38.807Z",
+      "file": "observations/mobile-recover-required.json"
+    },
+    {
+      "name": "mobile-recover-malformed-pending",
+      "date": "2026-11-17T18:23:39.231Z",
+      "file": "observations/mobile-recover-malformed-pending.json"
+    },
+    {
+      "name": "mobile-recover-malformed-escape-pending",
+      "date": "2026-11-17T18:23:39.498Z",
+      "file": "observations/mobile-recover-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-recover-malformed-result",
+      "date": "2026-11-17T18:23:41.189Z",
+      "file": "observations/mobile-recover-malformed-result.json"
+    },
+    {
+      "name": "mobile-recover-mixed-pending",
+      "date": "2026-11-17T18:23:41.570Z",
+      "file": "observations/mobile-recover-mixed-pending.json"
+    },
+    {
+      "name": "mobile-recover-mixed-result",
+      "date": "2026-11-17T18:23:43.302Z",
+      "file": "observations/mobile-recover-mixed-result.json"
+    },
+    {
+      "name": "mobile-recover-rejection-pending",
+      "date": "2026-11-17T18:23:43.669Z",
+      "file": "observations/mobile-recover-rejection-pending.json"
+    },
+    {
+      "name": "mobile-recover-rejection-result",
+      "date": "2026-11-17T18:23:45.393Z",
+      "file": "observations/mobile-recover-rejection-result.json"
+    },
+    {
+      "name": "mobile-recover-committed",
+      "date": "2026-11-17T18:23:47.627Z",
+      "file": "observations/mobile-recover-committed.json"
+    },
+    {
+      "name": "desktop-assign-step",
+      "date": "2026-11-17T18:26:00.980Z",
+      "file": "observations/desktop-assign-step.json"
+    },
+    {
+      "name": "desktop-assign-malformed-pending",
+      "date": "2026-11-17T18:26:01.561Z",
+      "file": "observations/desktop-assign-malformed-pending.json"
+    },
+    {
+      "name": "desktop-assign-malformed-escape-pending",
+      "date": "2026-11-17T18:26:01.759Z",
+      "file": "observations/desktop-assign-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-assign-malformed-result",
+      "date": "2026-11-17T18:26:03.309Z",
+      "file": "observations/desktop-assign-malformed-result.json"
+    },
+    {
+      "name": "desktop-assign-mixed-pending",
+      "date": "2026-11-17T18:26:03.709Z",
+      "file": "observations/desktop-assign-mixed-pending.json"
+    },
+    {
+      "name": "desktop-assign-mixed-result",
+      "date": "2026-11-17T18:26:05.317Z",
+      "file": "observations/desktop-assign-mixed-result.json"
+    },
+    {
+      "name": "desktop-assign-rejection-pending",
+      "date": "2026-11-17T18:26:05.796Z",
+      "file": "observations/desktop-assign-rejection-pending.json"
+    },
+    {
+      "name": "desktop-assign-rejection-result",
+      "date": "2026-11-17T18:26:07.602Z",
+      "file": "observations/desktop-assign-rejection-result.json"
+    },
+    {
+      "name": "desktop-assign-committed",
+      "date": "2026-11-17T18:26:10.946Z",
+      "file": "observations/desktop-assign-committed.json"
+    },
+    {
+      "name": "desktop-unassign-step",
+      "date": "2026-11-17T18:26:11.774Z",
+      "file": "observations/desktop-unassign-step.json"
+    },
+    {
+      "name": "desktop-unassign-malformed-pending",
+      "date": "2026-11-17T18:26:12.193Z",
+      "file": "observations/desktop-unassign-malformed-pending.json"
+    },
+    {
+      "name": "desktop-unassign-malformed-escape-pending",
+      "date": "2026-11-17T18:26:12.317Z",
+      "file": "observations/desktop-unassign-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-unassign-malformed-result",
+      "date": "2026-11-17T18:26:13.891Z",
+      "file": "observations/desktop-unassign-malformed-result.json"
+    },
+    {
+      "name": "desktop-unassign-mixed-pending",
+      "date": "2026-11-17T18:26:14.307Z",
+      "file": "observations/desktop-unassign-mixed-pending.json"
+    },
+    {
+      "name": "desktop-unassign-mixed-result",
+      "date": "2026-11-17T18:26:16.057Z",
+      "file": "observations/desktop-unassign-mixed-result.json"
+    },
+    {
+      "name": "desktop-unassign-rejection-pending",
+      "date": "2026-11-17T18:26:16.441Z",
+      "file": "observations/desktop-unassign-rejection-pending.json"
+    },
+    {
+      "name": "desktop-unassign-rejection-result",
+      "date": "2026-11-17T18:26:18.211Z",
+      "file": "observations/desktop-unassign-rejection-result.json"
+    },
+    {
+      "name": "desktop-unassign-committed",
+      "date": "2026-11-17T18:26:20.579Z",
+      "file": "observations/desktop-unassign-committed.json"
+    },
+    {
+      "name": "desktop-confirm-step",
+      "date": "2026-11-17T18:26:21.375Z",
+      "file": "observations/desktop-confirm-step.json"
+    },
+    {
+      "name": "desktop-confirm-malformed-pending",
+      "date": "2026-11-17T18:26:21.787Z",
+      "file": "observations/desktop-confirm-malformed-pending.json"
+    },
+    {
+      "name": "desktop-confirm-malformed-escape-pending",
+      "date": "2026-11-17T18:26:21.921Z",
+      "file": "observations/desktop-confirm-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-confirm-malformed-result",
+      "date": "2026-11-17T18:26:23.391Z",
+      "file": "observations/desktop-confirm-malformed-result.json"
+    },
+    {
+      "name": "desktop-confirm-mixed-pending",
+      "date": "2026-11-17T18:26:23.789Z",
+      "file": "observations/desktop-confirm-mixed-pending.json"
+    },
+    {
+      "name": "desktop-confirm-mixed-result",
+      "date": "2026-11-17T18:26:25.407Z",
+      "file": "observations/desktop-confirm-mixed-result.json"
+    },
+    {
+      "name": "desktop-confirm-rejection-pending",
+      "date": "2026-11-17T18:26:25.786Z",
+      "file": "observations/desktop-confirm-rejection-pending.json"
+    },
+    {
+      "name": "desktop-confirm-rejection-result",
+      "date": "2026-11-17T18:26:27.532Z",
+      "file": "observations/desktop-confirm-rejection-result.json"
+    },
+    {
+      "name": "desktop-confirm-committed",
+      "date": "2026-11-17T18:26:29.783Z",
+      "file": "observations/desktop-confirm-committed.json"
+    },
+    {
+      "name": "desktop-wait-step",
+      "date": "2026-11-17T18:26:43.187Z",
+      "file": "observations/desktop-wait-step.json"
+    },
+    {
+      "name": "desktop-wait-required",
+      "date": "2026-11-17T18:26:43.630Z",
+      "file": "observations/desktop-wait-required.json"
+    },
+    {
+      "name": "desktop-wait-malformed-pending",
+      "date": "2026-11-17T18:26:43.997Z",
+      "file": "observations/desktop-wait-malformed-pending.json"
+    },
+    {
+      "name": "desktop-wait-malformed-escape-pending",
+      "date": "2026-11-17T18:26:44.093Z",
+      "file": "observations/desktop-wait-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-wait-malformed-result",
+      "date": "2026-11-17T18:26:45.731Z",
+      "file": "observations/desktop-wait-malformed-result.json"
+    },
+    {
+      "name": "desktop-wait-mixed-pending",
+      "date": "2026-11-17T18:26:46.101Z",
+      "file": "observations/desktop-wait-mixed-pending.json"
+    },
+    {
+      "name": "desktop-wait-mixed-result",
+      "date": "2026-11-17T18:26:47.736Z",
+      "file": "observations/desktop-wait-mixed-result.json"
+    },
+    {
+      "name": "desktop-wait-rejection-pending",
+      "date": "2026-11-17T18:26:48.122Z",
+      "file": "observations/desktop-wait-rejection-pending.json"
+    },
+    {
+      "name": "desktop-wait-rejection-result",
+      "date": "2026-11-17T18:26:49.739Z",
+      "file": "observations/desktop-wait-rejection-result.json"
+    },
+    {
+      "name": "desktop-wait-committed",
+      "date": "2026-11-17T18:26:51.966Z",
+      "file": "observations/desktop-wait-committed.json"
+    },
+    {
+      "name": "desktop-reject-step",
+      "date": "2026-11-17T18:26:52.740Z",
+      "file": "observations/desktop-reject-step.json"
+    },
+    {
+      "name": "desktop-reject-required",
+      "date": "2026-11-17T18:26:53.102Z",
+      "file": "observations/desktop-reject-required.json"
+    },
+    {
+      "name": "desktop-reject-malformed-pending",
+      "date": "2026-11-17T18:26:53.428Z",
+      "file": "observations/desktop-reject-malformed-pending.json"
+    },
+    {
+      "name": "desktop-reject-malformed-escape-pending",
+      "date": "2026-11-17T18:26:53.517Z",
+      "file": "observations/desktop-reject-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-reject-malformed-result",
+      "date": "2026-11-17T18:26:55.089Z",
+      "file": "observations/desktop-reject-malformed-result.json"
+    },
+    {
+      "name": "desktop-reject-mixed-pending",
+      "date": "2026-11-17T18:26:55.462Z",
+      "file": "observations/desktop-reject-mixed-pending.json"
+    },
+    {
+      "name": "desktop-reject-mixed-result",
+      "date": "2026-11-17T18:26:57.198Z",
+      "file": "observations/desktop-reject-mixed-result.json"
+    },
+    {
+      "name": "desktop-reject-rejection-pending",
+      "date": "2026-11-17T18:26:57.590Z",
+      "file": "observations/desktop-reject-rejection-pending.json"
+    },
+    {
+      "name": "desktop-reject-rejection-result",
+      "date": "2026-11-17T18:26:59.218Z",
+      "file": "observations/desktop-reject-rejection-result.json"
+    },
+    {
+      "name": "desktop-reject-committed",
+      "date": "2026-11-17T18:27:01.498Z",
+      "file": "observations/desktop-reject-committed.json"
+    },
+    {
+      "name": "desktop-cancel-step",
+      "date": "2026-11-17T18:27:02.289Z",
+      "file": "observations/desktop-cancel-step.json"
+    },
+    {
+      "name": "desktop-cancel-required",
+      "date": "2026-11-17T18:27:02.663Z",
+      "file": "observations/desktop-cancel-required.json"
+    },
+    {
+      "name": "desktop-cancel-malformed-pending",
+      "date": "2026-11-17T18:27:03.002Z",
+      "file": "observations/desktop-cancel-malformed-pending.json"
+    },
+    {
+      "name": "desktop-cancel-malformed-escape-pending",
+      "date": "2026-11-17T18:27:03.100Z",
+      "file": "observations/desktop-cancel-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-cancel-malformed-result",
+      "date": "2026-11-17T18:27:04.667Z",
+      "file": "observations/desktop-cancel-malformed-result.json"
+    },
+    {
+      "name": "desktop-cancel-mixed-pending",
+      "date": "2026-11-17T18:27:05.054Z",
+      "file": "observations/desktop-cancel-mixed-pending.json"
+    },
+    {
+      "name": "desktop-cancel-mixed-result",
+      "date": "2026-11-17T18:27:06.677Z",
+      "file": "observations/desktop-cancel-mixed-result.json"
+    },
+    {
+      "name": "desktop-cancel-rejection-pending",
+      "date": "2026-11-17T18:27:07.053Z",
+      "file": "observations/desktop-cancel-rejection-pending.json"
+    },
+    {
+      "name": "desktop-cancel-rejection-result",
+      "date": "2026-11-17T18:27:08.690Z",
+      "file": "observations/desktop-cancel-rejection-result.json"
+    },
+    {
+      "name": "desktop-cancel-committed",
+      "date": "2026-11-17T18:27:10.848Z",
+      "file": "observations/desktop-cancel-committed.json"
+    },
+    {
+      "name": "desktop-reconfirm-committed",
+      "date": "2026-11-17T18:27:24.462Z",
+      "file": "observations/desktop-reconfirm-committed.json"
+    },
+    {
+      "name": "desktop-recover-step",
+      "date": "2026-11-17T18:27:25.159Z",
+      "file": "observations/desktop-recover-step.json"
+    },
+    {
+      "name": "desktop-recover-required",
+      "date": "2026-11-17T18:27:25.569Z",
+      "file": "observations/desktop-recover-required.json"
+    },
+    {
+      "name": "desktop-recover-malformed-pending",
+      "date": "2026-11-17T18:27:25.912Z",
+      "file": "observations/desktop-recover-malformed-pending.json"
+    },
+    {
+      "name": "desktop-recover-malformed-escape-pending",
+      "date": "2026-11-17T18:27:26.029Z",
+      "file": "observations/desktop-recover-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-recover-malformed-result",
+      "date": "2026-11-17T18:27:27.595Z",
+      "file": "observations/desktop-recover-malformed-result.json"
+    },
+    {
+      "name": "desktop-recover-mixed-pending",
+      "date": "2026-11-17T18:27:27.972Z",
+      "file": "observations/desktop-recover-mixed-pending.json"
+    },
+    {
+      "name": "desktop-recover-mixed-result",
+      "date": "2026-11-17T18:27:29.615Z",
+      "file": "observations/desktop-recover-mixed-result.json"
+    },
+    {
+      "name": "desktop-recover-rejection-pending",
+      "date": "2026-11-17T18:27:30.010Z",
+      "file": "observations/desktop-recover-rejection-pending.json"
+    },
+    {
+      "name": "desktop-recover-rejection-result",
+      "date": "2026-11-17T18:27:31.728Z",
+      "file": "observations/desktop-recover-rejection-result.json"
+    },
+    {
+      "name": "desktop-recover-committed",
+      "date": "2026-11-17T18:27:33.955Z",
+      "file": "observations/desktop-recover-committed.json"
+    },
+    {
+      "name": "desktop-split-open",
+      "date": "2026-11-17T18:27:52.614Z",
+      "file": "observations/desktop-split-open.json"
+    },
+    {
+      "name": "desktop-split-missing-destination-pending",
+      "date": "2026-11-17T18:27:53.275Z",
+      "file": "observations/desktop-split-missing-destination-pending.json"
+    },
+    {
+      "name": "desktop-split-false-close-reproduced",
+      "date": "2026-11-17T18:28:00.795Z",
+      "file": "observations/desktop-split-false-close-reproduced.json"
+    },
+    {
+      "name": "desktop-split-required",
+      "date": "2026-11-17T18:45:57.741Z",
+      "file": "observations/desktop-split-required.json"
+    },
+    {
+      "name": "desktop-split-no-destination-fixed-pending",
+      "date": "2026-11-17T18:45:58.199Z",
+      "file": "observations/desktop-split-no-destination-fixed-pending.json"
+    },
+    {
+      "name": "desktop-split-no-destination-fixed-escape-pending",
+      "date": "2026-11-17T18:45:58.354Z",
+      "file": "observations/desktop-split-no-destination-fixed-escape-pending.json"
+    },
+    {
+      "name": "desktop-split-no-destination-fixed-result",
+      "date": "2026-11-17T18:45:59.923Z",
+      "file": "observations/desktop-split-no-destination-fixed-result.json"
+    },
+    {
+      "name": "desktop-split-mixed-pending",
+      "date": "2026-11-17T18:46:09.520Z",
+      "file": "observations/desktop-split-mixed-pending.json"
+    },
+    {
+      "name": "desktop-split-mixed-result",
+      "date": "2026-11-17T18:46:11.706Z",
+      "file": "observations/desktop-split-mixed-result.json"
+    },
+    {
+      "name": "desktop-split-rejection-pending",
+      "date": "2026-11-17T18:46:12.224Z",
+      "file": "observations/desktop-split-rejection-pending.json"
+    },
+    {
+      "name": "desktop-split-rejection-result",
+      "date": "2026-11-17T18:46:14.115Z",
+      "file": "observations/desktop-split-rejection-result.json"
+    },
+    {
+      "name": "desktop-split-committed",
+      "date": "2026-11-17T18:46:47.032Z",
+      "file": "observations/desktop-split-committed.json"
+    },
+    {
+      "name": "desktop-split-new-detail",
+      "date": "2026-11-17T18:46:48.268Z",
+      "file": "observations/desktop-split-new-detail.json"
+    },
+    {
+      "name": "mobile-split-no-destination-fixed-pending",
+      "date": "2026-11-17T18:47:13.890Z",
+      "file": "observations/mobile-split-no-destination-fixed-pending.json"
+    },
+    {
+      "name": "mobile-split-no-destination-fixed-escape-pending",
+      "date": "2026-11-17T18:47:14.064Z",
+      "file": "observations/mobile-split-no-destination-fixed-escape-pending.json"
+    },
+    {
+      "name": "mobile-split-no-destination-fixed-result",
+      "date": "2026-11-17T18:47:15.727Z",
+      "file": "observations/mobile-split-no-destination-fixed-result.json"
+    },
+    {
+      "name": "mobile-split-mixed-pending",
+      "date": "2026-11-17T18:47:16.129Z",
+      "file": "observations/mobile-split-mixed-pending.json"
+    },
+    {
+      "name": "mobile-split-mixed-result",
+      "date": "2026-11-17T18:47:17.850Z",
+      "file": "observations/mobile-split-mixed-result.json"
+    },
+    {
+      "name": "mobile-split-rejection-pending",
+      "date": "2026-11-17T18:47:18.246Z",
+      "file": "observations/mobile-split-rejection-pending.json"
+    },
+    {
+      "name": "mobile-split-rejection-result",
+      "date": "2026-11-17T18:47:19.944Z",
+      "file": "observations/mobile-split-rejection-result.json"
+    },
+    {
+      "name": "mobile-split-committed",
+      "date": "2026-11-17T18:47:22.339Z",
+      "file": "observations/mobile-split-committed.json"
+    },
+    {
+      "name": "mobile-invitation-required",
+      "date": "2026-11-17T18:47:41.686Z",
+      "file": "observations/mobile-invitation-required.json"
+    },
+    {
+      "name": "mobile-invitation-missing-link-pending",
+      "date": "2026-11-17T18:47:42.176Z",
+      "file": "observations/mobile-invitation-missing-link-pending.json"
+    },
+    {
+      "name": "mobile-invitation-missing-link-result",
+      "date": "2026-11-17T18:47:44.669Z",
+      "file": "observations/mobile-invitation-missing-link-result.json"
+    },
+    {
+      "name": "mobile-invitation-mixed-pending",
+      "date": "2026-11-17T18:47:45.122Z",
+      "file": "observations/mobile-invitation-mixed-pending.json"
+    },
+    {
+      "name": "mobile-invitation-mixed-result",
+      "date": "2026-11-17T18:47:46.886Z",
+      "file": "observations/mobile-invitation-mixed-result.json"
+    },
+    {
+      "name": "mobile-invitation-rejection-pending",
+      "date": "2026-11-17T18:47:47.307Z",
+      "file": "observations/mobile-invitation-rejection-pending.json"
+    },
+    {
+      "name": "mobile-invitation-rejection-result",
+      "date": "2026-11-17T18:47:49.070Z",
+      "file": "observations/mobile-invitation-rejection-result.json"
+    },
+    {
+      "name": "mobile-invitation-committed",
+      "date": "2026-11-17T18:47:51.344Z",
+      "file": "observations/mobile-invitation-committed.json"
+    },
+    {
+      "name": "mobile-invitation-copy",
+      "date": "2026-11-17T18:47:51.754Z",
+      "file": "observations/mobile-invitation-copy.json"
+    },
+    {
+      "name": "desktop-invitation-required",
+      "date": "2026-11-17T18:48:07.363Z",
+      "file": "observations/desktop-invitation-required.json"
+    },
+    {
+      "name": "desktop-invitation-missing-link-pending",
+      "date": "2026-11-17T18:48:07.844Z",
+      "file": "observations/desktop-invitation-missing-link-pending.json"
+    },
+    {
+      "name": "desktop-invitation-missing-link-result",
+      "date": "2026-11-17T18:48:09.704Z",
+      "file": "observations/desktop-invitation-missing-link-result.json"
+    },
+    {
+      "name": "desktop-invitation-mixed-pending",
+      "date": "2026-11-17T18:48:10.127Z",
+      "file": "observations/desktop-invitation-mixed-pending.json"
+    },
+    {
+      "name": "desktop-invitation-mixed-result",
+      "date": "2026-11-17T18:48:11.909Z",
+      "file": "observations/desktop-invitation-mixed-result.json"
+    },
+    {
+      "name": "desktop-invitation-rejection-pending",
+      "date": "2026-11-17T18:48:12.322Z",
+      "file": "observations/desktop-invitation-rejection-pending.json"
+    },
+    {
+      "name": "desktop-invitation-rejection-result",
+      "date": "2026-11-17T18:48:14.090Z",
+      "file": "observations/desktop-invitation-rejection-result.json"
+    },
+    {
+      "name": "desktop-invitation-committed",
+      "date": "2026-11-17T18:48:16.253Z",
+      "file": "observations/desktop-invitation-committed.json"
+    },
+    {
+      "name": "desktop-brief-required",
+      "date": "2026-11-17T18:48:42.527Z",
+      "file": "observations/desktop-brief-required.json"
+    },
+    {
+      "name": "desktop-brief-missing-link-pending",
+      "date": "2026-11-17T18:48:43.027Z",
+      "file": "observations/desktop-brief-missing-link-pending.json"
+    },
+    {
+      "name": "desktop-brief-missing-link-result",
+      "date": "2026-11-17T18:48:44.800Z",
+      "file": "observations/desktop-brief-missing-link-result.json"
+    },
+    {
+      "name": "desktop-brief-mixed-pending",
+      "date": "2026-11-17T18:48:45.276Z",
+      "file": "observations/desktop-brief-mixed-pending.json"
+    },
+    {
+      "name": "desktop-brief-mixed-result",
+      "date": "2026-11-17T18:48:46.961Z",
+      "file": "observations/desktop-brief-mixed-result.json"
+    },
+    {
+      "name": "desktop-brief-rejection-pending",
+      "date": "2026-11-17T18:48:47.460Z",
+      "file": "observations/desktop-brief-rejection-pending.json"
+    },
+    {
+      "name": "desktop-brief-rejection-result",
+      "date": "2026-11-17T18:48:49.216Z",
+      "file": "observations/desktop-brief-rejection-result.json"
+    },
+    {
+      "name": "desktop-brief-committed",
+      "date": "2026-11-17T18:48:51.865Z",
+      "file": "observations/desktop-brief-committed.json"
+    },
+    {
+      "name": "desktop-revoke-malformed-pending",
+      "date": "2026-11-17T18:49:07.856Z",
+      "file": "observations/desktop-revoke-malformed-pending.json"
+    },
+    {
+      "name": "desktop-revoke-malformed-result",
+      "date": "2026-11-17T18:49:09.631Z",
+      "file": "observations/desktop-revoke-malformed-result.json"
+    },
+    {
+      "name": "desktop-revoke-general-pending",
+      "date": "2026-11-17T18:49:10.039Z",
+      "file": "observations/desktop-revoke-general-pending.json"
+    },
+    {
+      "name": "desktop-revoke-general-result",
+      "date": "2026-11-17T18:49:11.793Z",
+      "file": "observations/desktop-revoke-general-result.json"
+    },
+    {
+      "name": "desktop-revoke-rejection-pending",
+      "date": "2026-11-17T18:49:12.194Z",
+      "file": "observations/desktop-revoke-rejection-pending.json"
+    },
+    {
+      "name": "desktop-revoke-rejection-result",
+      "date": "2026-11-17T18:49:13.919Z",
+      "file": "observations/desktop-revoke-rejection-result.json"
+    },
+    {
+      "name": "desktop-revoke-committed",
+      "date": "2026-11-17T18:49:16.361Z",
+      "file": "observations/desktop-revoke-committed.json"
+    },
+    {
+      "name": "desktop-revoked-access-denied",
+      "date": "2026-11-17T18:49:18.030Z",
+      "file": "observations/desktop-revoked-access-denied.json"
+    },
+    {
+      "name": "mobile-brief-required",
+      "date": "2026-11-17T18:49:33.679Z",
+      "file": "observations/mobile-brief-required.json"
+    },
+    {
+      "name": "mobile-brief-missing-link-pending",
+      "date": "2026-11-17T18:49:34.219Z",
+      "file": "observations/mobile-brief-missing-link-pending.json"
+    },
+    {
+      "name": "mobile-brief-missing-link-result",
+      "date": "2026-11-17T18:49:36.142Z",
+      "file": "observations/mobile-brief-missing-link-result.json"
+    },
+    {
+      "name": "mobile-brief-mixed-pending",
+      "date": "2026-11-17T18:49:36.596Z",
+      "file": "observations/mobile-brief-mixed-pending.json"
+    },
+    {
+      "name": "mobile-brief-mixed-result",
+      "date": "2026-11-17T18:49:38.292Z",
+      "file": "observations/mobile-brief-mixed-result.json"
+    },
+    {
+      "name": "mobile-brief-rejection-pending",
+      "date": "2026-11-17T18:49:38.759Z",
+      "file": "observations/mobile-brief-rejection-pending.json"
+    },
+    {
+      "name": "mobile-brief-rejection-result",
+      "date": "2026-11-17T18:49:40.534Z",
+      "file": "observations/mobile-brief-rejection-result.json"
+    },
+    {
+      "name": "mobile-brief-committed",
+      "date": "2026-11-17T18:49:43.069Z",
+      "file": "observations/mobile-brief-committed.json"
+    },
+    {
+      "name": "mobile-revoke-malformed-pending",
+      "date": "2026-11-17T18:49:43.508Z",
+      "file": "observations/mobile-revoke-malformed-pending.json"
+    },
+    {
+      "name": "mobile-revoke-malformed-result",
+      "date": "2026-11-17T18:49:45.140Z",
+      "file": "observations/mobile-revoke-malformed-result.json"
+    },
+    {
+      "name": "mobile-revoke-general-pending",
+      "date": "2026-11-17T18:49:45.555Z",
+      "file": "observations/mobile-revoke-general-pending.json"
+    },
+    {
+      "name": "mobile-revoke-general-result",
+      "date": "2026-11-17T18:49:47.273Z",
+      "file": "observations/mobile-revoke-general-result.json"
+    },
+    {
+      "name": "mobile-revoke-rejection-pending",
+      "date": "2026-11-17T18:49:47.685Z",
+      "file": "observations/mobile-revoke-rejection-pending.json"
+    },
+    {
+      "name": "mobile-revoke-rejection-result",
+      "date": "2026-11-17T18:49:49.371Z",
+      "file": "observations/mobile-revoke-rejection-result.json"
+    },
+    {
+      "name": "mobile-revoke-committed",
+      "date": "2026-11-17T18:49:51.682Z",
+      "file": "observations/mobile-revoke-committed.json"
+    },
+    {
+      "name": "mobile-reminder-preview",
+      "date": "2026-11-17T18:50:14.812Z",
+      "file": "observations/mobile-reminder-preview.json"
+    },
+    {
+      "name": "mobile-reminder-malformed-pending",
+      "date": "2026-11-17T18:50:15.189Z",
+      "file": "observations/mobile-reminder-malformed-pending.json"
+    },
+    {
+      "name": "mobile-reminder-malformed-escape-pending",
+      "date": "2026-11-17T18:50:15.294Z",
+      "file": "observations/mobile-reminder-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-reminder-malformed-result",
+      "date": "2026-11-17T18:50:16.830Z",
+      "file": "observations/mobile-reminder-malformed-result.json"
+    },
+    {
+      "name": "mobile-reminder-general-pending",
+      "date": "2026-11-17T18:50:17.285Z",
+      "file": "observations/mobile-reminder-general-pending.json"
+    },
+    {
+      "name": "mobile-reminder-general-result",
+      "date": "2026-11-17T18:50:18.870Z",
+      "file": "observations/mobile-reminder-general-result.json"
+    },
+    {
+      "name": "mobile-reminder-rejection-pending",
+      "date": "2026-11-17T18:50:19.256Z",
+      "file": "observations/mobile-reminder-rejection-pending.json"
+    },
+    {
+      "name": "mobile-reminder-rejection-result",
+      "date": "2026-11-17T18:50:20.987Z",
+      "file": "observations/mobile-reminder-rejection-result.json"
+    },
+    {
+      "name": "mobile-reminder-committed",
+      "date": "2026-11-17T18:50:23.303Z",
+      "file": "observations/mobile-reminder-committed.json"
+    },
+    {
+      "name": "mobile-reminder-active-link-preview",
+      "date": "2026-11-17T18:50:38.065Z",
+      "file": "observations/mobile-reminder-active-link-preview.json"
+    },
+    {
+      "name": "mobile-reminder-return-focus",
+      "date": "2026-11-17T18:50:38.260Z",
+      "file": "observations/mobile-reminder-return-focus.json"
+    },
+    {
+      "name": "desktop-summary-reminder-preview",
+      "date": "2026-11-17T18:50:54.946Z",
+      "file": "observations/desktop-summary-reminder-preview.json"
+    },
+    {
+      "name": "desktop-summary-reminder-malformed-pending",
+      "date": "2026-11-17T18:51:10.903Z",
+      "file": "observations/desktop-summary-reminder-malformed-pending.json"
+    },
+    {
+      "name": "desktop-summary-reminder-malformed-escape-pending",
+      "date": "2026-11-17T18:51:11.040Z",
+      "file": "observations/desktop-summary-reminder-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-summary-reminder-malformed-result",
+      "date": "2026-11-17T18:51:12.930Z",
+      "file": "observations/desktop-summary-reminder-malformed-result.json"
+    },
+    {
+      "name": "desktop-summary-reminder-general-pending",
+      "date": "2026-11-17T18:51:13.332Z",
+      "file": "observations/desktop-summary-reminder-general-pending.json"
+    },
+    {
+      "name": "desktop-summary-reminder-general-result",
+      "date": "2026-11-17T18:51:15.030Z",
+      "file": "observations/desktop-summary-reminder-general-result.json"
+    },
+    {
+      "name": "desktop-summary-reminder-rejection-pending",
+      "date": "2026-11-17T18:51:15.441Z",
+      "file": "observations/desktop-summary-reminder-rejection-pending.json"
+    },
+    {
+      "name": "desktop-summary-reminder-rejection-result",
+      "date": "2026-11-17T18:51:17.137Z",
+      "file": "observations/desktop-summary-reminder-rejection-result.json"
+    },
+    {
+      "name": "desktop-summary-reminder-committed",
+      "date": "2026-11-17T18:51:19.627Z",
+      "file": "observations/desktop-summary-reminder-committed.json"
+    },
+    {
+      "name": "desktop-70-brief",
+      "date": "2026-11-17T18:51:42.999Z",
+      "file": "observations/desktop-70-brief.json"
+    },
+    {
+      "name": "desktop-draft-missing-destination-pending",
+      "date": "2026-11-17T18:52:04.874Z",
+      "file": "observations/desktop-draft-missing-destination-pending.json"
+    },
+    {
+      "name": "desktop-draft-missing-destination-result",
+      "date": "2026-11-17T18:52:06.762Z",
+      "file": "observations/desktop-draft-missing-destination-result.json"
+    },
+    {
+      "name": "desktop-draft-mixed-pending",
+      "date": "2026-11-17T18:52:07.163Z",
+      "file": "observations/desktop-draft-mixed-pending.json"
+    },
+    {
+      "name": "desktop-draft-mixed-result",
+      "date": "2026-11-17T18:52:09.018Z",
+      "file": "observations/desktop-draft-mixed-result.json"
+    },
+    {
+      "name": "desktop-draft-summary-reveal",
+      "date": "2026-11-17T18:52:19.553Z",
+      "file": "observations/desktop-draft-summary-reveal.json"
+    },
+    {
+      "name": "desktop-draft-rejection-pending",
+      "date": "2026-11-17T18:52:19.976Z",
+      "file": "observations/desktop-draft-rejection-pending.json"
+    },
+    {
+      "name": "desktop-draft-rejection-result",
+      "date": "2026-11-17T18:52:21.726Z",
+      "file": "observations/desktop-draft-rejection-result.json"
+    },
+    {
+      "name": "desktop-draft-committed",
+      "date": "2026-11-17T18:52:24.403Z",
+      "file": "observations/desktop-draft-committed.json"
+    },
+    {
+      "name": "desktop-draft-reloaded",
+      "date": "2026-11-17T18:52:25.002Z",
+      "file": "observations/desktop-draft-reloaded.json"
+    },
+    {
+      "name": "desktop-final-required",
+      "date": "2026-11-17T19:00:02.557Z",
+      "file": "observations/desktop-final-required.json"
+    },
+    {
+      "name": "desktop-report-labour-reveal",
+      "date": "2026-11-17T19:00:21.658Z",
+      "file": "observations/desktop-report-labour-reveal.json"
+    },
+    {
+      "name": "desktop-report-attendance-reveal",
+      "date": "2026-11-17T19:00:22.460Z",
+      "file": "observations/desktop-report-attendance-reveal.json"
+    },
+    {
+      "name": "desktop-final-missing-destination-pending",
+      "date": "2026-11-17T19:00:23.744Z",
+      "file": "observations/desktop-final-missing-destination-pending.json"
+    },
+    {
+      "name": "desktop-final-missing-destination-result",
+      "date": "2026-11-17T19:00:26.582Z",
+      "file": "observations/desktop-final-missing-destination-result.json"
+    },
+    {
+      "name": "desktop-final-mixed-pending",
+      "date": "2026-11-17T19:00:27.030Z",
+      "file": "observations/desktop-final-mixed-pending.json"
+    },
+    {
+      "name": "desktop-final-mixed-result",
+      "date": "2026-11-17T19:00:28.798Z",
+      "file": "observations/desktop-final-mixed-result.json"
+    },
+    {
+      "name": "desktop-final-rejection-pending",
+      "date": "2026-11-17T19:00:44.604Z",
+      "file": "observations/desktop-final-rejection-pending.json"
+    },
+    {
+      "name": "desktop-final-rejection-result",
+      "date": "2026-11-17T19:00:47.588Z",
+      "file": "observations/desktop-final-rejection-result.json"
+    },
+    {
+      "name": "desktop-final-response-inspect",
+      "date": "2026-11-17T19:00:57.616Z",
+      "file": "observations/desktop-final-response-inspect.json"
+    },
+    {
+      "name": "desktop-final-committed",
+      "date": "2026-11-17T19:01:11.597Z",
+      "file": "observations/desktop-final-committed.json"
+    },
+    {
+      "name": "desktop-final-locked-reload",
+      "date": "2026-11-17T19:01:15.772Z",
+      "file": "observations/desktop-final-locked-reload.json"
+    },
+    {
+      "name": "mobile-70-brief",
+      "date": "2026-11-17T19:01:19.338Z",
+      "file": "observations/mobile-70-brief.json"
+    },
+    {
+      "name": "mobile-draft-missing-destination-pending",
+      "date": "2026-11-17T19:01:43.888Z",
+      "file": "observations/mobile-draft-missing-destination-pending.json"
+    },
+    {
+      "name": "mobile-draft-missing-destination-result",
+      "date": "2026-11-17T19:01:45.723Z",
+      "file": "observations/mobile-draft-missing-destination-result.json"
+    },
+    {
+      "name": "mobile-draft-mixed-pending",
+      "date": "2026-11-17T19:01:46.113Z",
+      "file": "observations/mobile-draft-mixed-pending.json"
+    },
+    {
+      "name": "mobile-draft-mixed-result",
+      "date": "2026-11-17T19:01:48.556Z",
+      "file": "observations/mobile-draft-mixed-result.json"
+    },
+    {
+      "name": "mobile-draft-summary-reveal",
+      "date": "2026-11-17T19:01:48.929Z",
+      "file": "observations/mobile-draft-summary-reveal.json"
+    },
+    {
+      "name": "mobile-draft-rejection-pending",
+      "date": "2026-11-17T19:01:49.313Z",
+      "file": "observations/mobile-draft-rejection-pending.json"
+    },
+    {
+      "name": "mobile-draft-rejection-result",
+      "date": "2026-11-17T19:01:51.280Z",
+      "file": "observations/mobile-draft-rejection-result.json"
+    },
+    {
+      "name": "mobile-draft-committed",
+      "date": "2026-11-17T19:02:01.954Z",
+      "file": "observations/mobile-draft-committed.json"
+    },
+    {
+      "name": "mobile-draft-reloaded",
+      "date": "2026-11-17T19:02:02.759Z",
+      "file": "observations/mobile-draft-reloaded.json"
+    },
+    {
+      "name": "mobile-final-required",
+      "date": "2026-11-17T19:03:26.423Z",
+      "file": "observations/mobile-final-required.json"
+    },
+    {
+      "name": "mobile-report-labour-reveal",
+      "date": "2026-11-17T19:03:26.981Z",
+      "file": "observations/mobile-report-labour-reveal.json"
+    },
+    {
+      "name": "mobile-report-attendance-reveal",
+      "date": "2026-11-17T19:03:27.765Z",
+      "file": "observations/mobile-report-attendance-reveal.json"
+    },
+    {
+      "name": "mobile-final-missing-destination-pending",
+      "date": "2026-11-17T19:03:28.974Z",
+      "file": "observations/mobile-final-missing-destination-pending.json"
+    },
+    {
+      "name": "mobile-final-missing-destination-result",
+      "date": "2026-11-17T19:03:31.002Z",
+      "file": "observations/mobile-final-missing-destination-result.json"
+    },
+    {
+      "name": "mobile-final-mixed-pending",
+      "date": "2026-11-17T19:03:31.384Z",
+      "file": "observations/mobile-final-mixed-pending.json"
+    },
+    {
+      "name": "mobile-final-mixed-result",
+      "date": "2026-11-17T19:03:33.137Z",
+      "file": "observations/mobile-final-mixed-result.json"
+    },
+    {
+      "name": "mobile-final-rejection-pending",
+      "date": "2026-11-17T19:03:33.551Z",
+      "file": "observations/mobile-final-rejection-pending.json"
+    },
+    {
+      "name": "mobile-final-rejection-result",
+      "date": "2026-11-17T19:03:35.274Z",
+      "file": "observations/mobile-final-rejection-result.json"
+    },
+    {
+      "name": "mobile-final-committed",
+      "date": "2026-11-17T19:04:08.174Z",
+      "file": "observations/mobile-final-committed.json"
+    },
+    {
+      "name": "mobile-final-locked-reload",
+      "date": "2026-11-17T19:04:09.493Z",
+      "file": "observations/mobile-final-locked-reload.json"
+    },
+    {
+      "name": "mobile-summary-origin",
+      "date": "2026-11-17T19:04:15.554Z",
+      "file": "observations/mobile-summary-origin.json"
+    },
+    {
+      "name": "mobile-transport-open",
+      "date": "2026-11-17T19:04:29.437Z",
+      "file": "observations/mobile-transport-open.json"
+    },
+    {
+      "name": "mobile-transport-person",
+      "date": "2026-11-17T19:04:54.480Z",
+      "file": "observations/mobile-transport-person.json"
+    },
+    {
+      "name": "mobile-transport-return",
+      "date": "2026-11-17T19:04:55.813Z",
+      "file": "observations/mobile-transport-return.json"
+    },
+    {
+      "name": "mobile-food-open",
+      "date": "2026-11-17T19:04:56.365Z",
+      "file": "observations/mobile-food-open.json"
+    },
+    {
+      "name": "mobile-food-person",
+      "date": "2026-11-17T19:04:57.010Z",
+      "file": "observations/mobile-food-person.json"
+    },
+    {
+      "name": "mobile-food-return",
+      "date": "2026-11-17T19:04:58.352Z",
+      "file": "observations/mobile-food-return.json"
+    },
+    {
+      "name": "mobile-summary-return",
+      "date": "2026-11-17T19:04:58.989Z",
+      "file": "observations/mobile-summary-return.json"
+    },
+    {
+      "name": "desktop-transport-open",
+      "date": "2026-11-17T19:05:19.170Z",
+      "file": "observations/desktop-transport-open.json"
+    },
+    {
+      "name": "desktop-transport-person",
+      "date": "2026-11-17T19:05:19.801Z",
+      "file": "observations/desktop-transport-person.json"
+    },
+    {
+      "name": "desktop-transport-return",
+      "date": "2026-11-17T19:05:20.709Z",
+      "file": "observations/desktop-transport-return.json"
+    },
+    {
+      "name": "desktop-food-return",
+      "date": "2026-11-17T19:05:21.556Z",
+      "file": "observations/desktop-food-return.json"
+    },
+    {
+      "name": "desktop-summary-return",
+      "date": "2026-11-17T19:05:22.248Z",
+      "file": "observations/desktop-summary-return.json"
+    },
+    {
+      "name": "mobile-add-review-committed",
+      "date": "2026-11-17T19:06:20.106Z",
+      "file": "observations/mobile-add-review-committed.json"
+    },
+    {
+      "name": "desktop-add-wait-committed",
+      "date": "2026-11-17T19:06:26.170Z",
+      "file": "observations/desktop-add-wait-committed.json"
+    },
+    {
+      "name": "desktop-summary-manage-malformed-pending",
+      "date": "2026-11-17T19:07:19.304Z",
+      "file": "observations/desktop-summary-manage-malformed-pending.json"
+    },
+    {
+      "name": "desktop-summary-manage-malformed-escape-pending",
+      "date": "2026-11-17T19:07:19.407Z",
+      "file": "observations/desktop-summary-manage-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-summary-manage-malformed-result",
+      "date": "2026-11-17T19:07:20.771Z",
+      "file": "observations/desktop-summary-manage-malformed-result.json"
+    },
+    {
+      "name": "desktop-summary-manage-general-pending",
+      "date": "2026-11-17T19:07:21.161Z",
+      "file": "observations/desktop-summary-manage-general-pending.json"
+    },
+    {
+      "name": "desktop-summary-manage-general-result",
+      "date": "2026-11-17T19:07:22.858Z",
+      "file": "observations/desktop-summary-manage-general-result.json"
+    },
+    {
+      "name": "desktop-summary-manage-rejection-pending",
+      "date": "2026-11-17T19:07:23.218Z",
+      "file": "observations/desktop-summary-manage-rejection-pending.json"
+    },
+    {
+      "name": "desktop-summary-manage-rejection-result",
+      "date": "2026-11-17T19:07:24.939Z",
+      "file": "observations/desktop-summary-manage-rejection-result.json"
+    },
+    {
+      "name": "desktop-summary-manage-committed",
+      "date": "2026-11-17T19:07:27.308Z",
+      "file": "observations/desktop-summary-manage-committed.json"
+    },
+    {
+      "name": "mobile-summary-manage-malformed-pending",
+      "date": "2026-11-17T19:07:29.650Z",
+      "file": "observations/mobile-summary-manage-malformed-pending.json"
+    },
+    {
+      "name": "mobile-summary-manage-malformed-escape-pending",
+      "date": "2026-11-17T19:07:29.760Z",
+      "file": "observations/mobile-summary-manage-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-summary-manage-malformed-result",
+      "date": "2026-11-17T19:07:31.109Z",
+      "file": "observations/mobile-summary-manage-malformed-result.json"
+    },
+    {
+      "name": "mobile-summary-manage-general-pending",
+      "date": "2026-11-17T19:07:31.476Z",
+      "file": "observations/mobile-summary-manage-general-pending.json"
+    },
+    {
+      "name": "mobile-summary-manage-general-result",
+      "date": "2026-11-17T19:07:33.202Z",
+      "file": "observations/mobile-summary-manage-general-result.json"
+    },
+    {
+      "name": "mobile-summary-manage-rejection-pending",
+      "date": "2026-11-17T19:07:33.555Z",
+      "file": "observations/mobile-summary-manage-rejection-pending.json"
+    },
+    {
+      "name": "mobile-summary-manage-rejection-result",
+      "date": "2026-11-17T19:07:35.247Z",
+      "file": "observations/mobile-summary-manage-rejection-result.json"
+    },
+    {
+      "name": "mobile-summary-manage-committed",
+      "date": "2026-11-17T19:07:37.629Z",
+      "file": "observations/mobile-summary-manage-committed.json"
+    },
+    {
+      "name": "mobile-summary-manage-stable",
+      "date": "2026-11-17T19:07:48.383Z",
+      "file": "observations/mobile-summary-manage-stable.json"
+    },
+    {
+      "name": "mobile-summary-double-focus-reproduced",
+      "date": "2026-11-17T19:09:14.635Z",
+      "file": "observations/mobile-summary-double-focus-reproduced.json"
+    },
+    {
+      "name": "mobile-summary-double-focus-after-fix",
+      "date": "2026-11-17T19:10:40.184Z",
+      "file": "observations/mobile-summary-double-focus-after-fix.json"
+    },
+    {
+      "name": "desktop-summary-double-focus-after-fix",
+      "date": "2026-11-17T19:11:07.341Z",
+      "file": "observations/desktop-summary-double-focus-after-fix.json"
+    },
+    {
+      "name": "desktop-requests-detail-loading",
+      "date": "2026-11-17T19:13:54.087Z",
+      "file": "observations/desktop-requests-detail-loading.json"
+    },
+    {
+      "name": "desktop-requests-malformed-pending",
+      "date": "2026-11-17T19:13:58.040Z",
+      "file": "observations/desktop-requests-malformed-pending.json"
+    },
+    {
+      "name": "desktop-requests-malformed-escape-pending",
+      "date": "2026-11-17T19:13:59.056Z",
+      "file": "observations/desktop-requests-malformed-escape-pending.json"
+    },
+    {
+      "name": "desktop-requests-malformed-result",
+      "date": "2026-11-17T19:13:59.816Z",
+      "file": "observations/desktop-requests-malformed-result.json"
+    },
+    {
+      "name": "desktop-requests-mixed-pending",
+      "date": "2026-11-17T19:14:00.274Z",
+      "file": "observations/desktop-requests-mixed-pending.json"
+    },
+    {
+      "name": "desktop-requests-mixed-result",
+      "date": "2026-11-17T19:14:02.090Z",
+      "file": "observations/desktop-requests-mixed-result.json"
+    },
+    {
+      "name": "desktop-requests-rejection-pending",
+      "date": "2026-11-17T19:14:03.190Z",
+      "file": "observations/desktop-requests-rejection-pending.json"
+    },
+    {
+      "name": "desktop-requests-rejection-result",
+      "date": "2026-11-17T19:14:05.045Z",
+      "file": "observations/desktop-requests-rejection-result.json"
+    },
+    {
+      "name": "desktop-requests-committed",
+      "date": "2026-11-17T19:14:08.044Z",
+      "file": "observations/desktop-requests-committed.json"
+    },
+    {
+      "name": "mobile-requests-edit-loading",
+      "date": "2026-11-17T19:14:38.178Z",
+      "file": "observations/mobile-requests-edit-loading.json"
+    },
+    {
+      "name": "mobile-requests-edit-client-errors",
+      "date": "2026-11-17T19:14:39.633Z",
+      "file": "observations/mobile-requests-edit-client-errors.json"
+    },
+    {
+      "name": "mobile-requests-edit-malformed-pending",
+      "date": "2026-11-17T19:14:40.289Z",
+      "file": "observations/mobile-requests-edit-malformed-pending.json"
+    },
+    {
+      "name": "mobile-requests-edit-malformed-escape-pending",
+      "date": "2026-11-17T19:14:40.424Z",
+      "file": "observations/mobile-requests-edit-malformed-escape-pending.json"
+    },
+    {
+      "name": "mobile-requests-edit-malformed-result",
+      "date": "2026-11-17T19:14:41.919Z",
+      "file": "observations/mobile-requests-edit-malformed-result.json"
+    },
+    {
+      "name": "mobile-requests-edit-mixed-pending",
+      "date": "2026-11-17T19:14:42.388Z",
+      "file": "observations/mobile-requests-edit-mixed-pending.json"
+    },
+    {
+      "name": "mobile-requests-edit-mixed-result",
+      "date": "2026-11-17T19:14:44.056Z",
+      "file": "observations/mobile-requests-edit-mixed-result.json"
+    },
+    {
+      "name": "mobile-requests-edit-rejection-pending",
+      "date": "2026-11-17T19:14:44.489Z",
+      "file": "observations/mobile-requests-edit-rejection-pending.json"
+    },
+    {
+      "name": "mobile-requests-edit-rejection-result",
+      "date": "2026-11-17T19:14:47.265Z",
+      "file": "observations/mobile-requests-edit-rejection-result.json"
+    },
+    {
+      "name": "mobile-requests-edit-committed",
+      "date": "2026-11-17T19:14:49.932Z",
+      "file": "observations/mobile-requests-edit-committed.json"
+    },
+    {
+      "name": "mobile-keyboard-manage-open",
+      "date": "2026-11-17T19:21:21.266Z",
+      "file": "observations/mobile-keyboard-manage-open.json"
+    },
+    {
+      "name": "mobile-keyboard-detail-loading",
+      "date": "2026-11-17T19:21:21.511Z",
+      "file": "observations/mobile-keyboard-detail-loading.json"
+    },
+    {
+      "name": "mobile-keyboard-back-menu",
+      "date": "2026-11-17T19:21:39.626Z",
+      "file": "observations/mobile-keyboard-back-menu.json"
+    },
+    {
+      "name": "mobile-keyboard-edit-handoff",
+      "date": "2026-11-17T19:21:41.442Z",
+      "file": "observations/mobile-keyboard-edit-handoff.json"
+    },
+    {
+      "name": "mobile-keyboard-edit-return",
+      "date": "2026-11-17T19:21:41.664Z",
+      "file": "observations/mobile-keyboard-edit-return.json"
+    },
+    {
+      "name": "desktop-keyboard-manage-open",
+      "date": "2026-11-17T19:21:52.760Z",
+      "file": "observations/desktop-keyboard-manage-open.json"
+    },
+    {
+      "name": "desktop-keyboard-detail-loading",
+      "date": "2026-11-17T19:21:53.788Z",
+      "file": "observations/desktop-keyboard-detail-loading.json"
+    },
+    {
+      "name": "desktop-keyboard-back-menu",
+      "date": "2026-11-17T19:21:53.958Z",
+      "file": "observations/desktop-keyboard-back-menu.json"
+    },
+    {
+      "name": "desktop-keyboard-edit-handoff",
+      "date": "2026-11-17T19:22:16.972Z",
+      "file": "observations/desktop-keyboard-edit-handoff.json"
+    },
+    {
+      "name": "desktop-keyboard-edit-return",
+      "date": "2026-11-17T19:22:17.242Z",
+      "file": "observations/desktop-keyboard-edit-return.json"
+    },
+    {
+      "name": "desktop-pdp-reminder-keyboard-preview",
+      "date": "2026-11-17T19:22:49.644Z",
+      "file": "observations/desktop-pdp-reminder-keyboard-preview.json"
+    },
+    {
+      "name": "desktop-pdp-reminder-keyboard-return",
+      "date": "2026-11-17T19:22:49.899Z",
+      "file": "observations/desktop-pdp-reminder-keyboard-return.json"
+    },
+    {
+      "name": "mobile-summary-reminder-keyboard-preview",
+      "date": "2026-11-17T19:22:59.120Z",
+      "file": "observations/mobile-summary-reminder-keyboard-preview.json"
+    },
+    {
+      "name": "mobile-summary-reminder-keyboard-return",
+      "date": "2026-11-17T19:22:59.333Z",
+      "file": "observations/mobile-summary-reminder-keyboard-return.json"
+    },
+    {
+      "name": "mobile-logistics-final-proof",
+      "date": "2026-11-17T19:23:00.146Z",
+      "file": "observations/mobile-logistics-final-proof.json"
+    }
+  ]
+}

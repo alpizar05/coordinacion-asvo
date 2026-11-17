@@ -1,0 +1,117 @@
+{
+  "name": "mobile-invitation-required",
+  "date": "2026-11-17T18:47:41.686Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 79-92, 110-112\n~1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones\n~\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#contenido\n+\t\t\t\t110 container\n+\t\t\t\t\t111 link Description: Agrupacion Mobile, Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001006\n~\t\t\t\t\t15 text 20–22 nov. 2026\n~\t\t\t18 link Description: Inscripciones: 1/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#inscripciones\n+\t\t\t112 text Convocatoria en serie\n+\t\t\t113 link Description: Agrupacion Mobile , Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001006\n+\t\t\t\t114 container\n+\t\t\t\t\t115 container\n+\t\t\t\t\t\t116 text Revisá  1 campo  para  guardar .\n+\t\t\t\t\t117 content list\n+\t\t\t\t\t\t118 container\n+\t\t\t\t\t\t\t119 AXListMarker • \n+\t\t\t\t\t\t\t120 button Identificación de la persona voluntaria: Ingresá una identificación válida del registro.\n+\t\t\t\t\t\t\t\t121 text Identificación de la persona voluntaria\n+\t\t\t\t\t\t\t\t122 text : \n+\t\t\t\t\t\t\t\t123 text Ingresá una identificación válida del registro.\n+\t\t\t\t\t124 text Ingresá una identificación válida del registro.\n+\t\t\t\t125 link Description: Abrir la nueva salida, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529\n+\t126 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n+\t\t127 image\n+\t128 text Agrupacion Mobile\nThe focused UI element is 72 text field (settable) Identificación de la persona voluntaria",
+  "dom": {
+    "active": {
+      "name": "identification",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Identificación de la persona voluntaria: Ingresá una identificación válida del registro."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "[FICTITIOUS-LONG-VALUE]-error",
+        "linked": true,
+        "name": "identification"
+      }
+    ],
+    "overflow": false,
+    "scroll": 1825.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?grupoCreado=a405cba4-6dba-45a8-a08d-f351e7f3f529&pestana=herramientas#agrupaciones",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Mobile · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

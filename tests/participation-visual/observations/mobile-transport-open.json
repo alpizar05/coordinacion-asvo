@@ -1,0 +1,77 @@
+{
+  "name": "mobile-transport-open",
+  "date": "2026-11-17T19:04:29.437Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=28298456-4a7e-48b9-b99d-4864e4afa7d8&pestana=logistica&desglose=transporte\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=28298456-4a7e-48b9-b99d-4864e4afa7d8&pestana=logistica&desglose=transporte\n\t2 container Ver transporte\n\t\t3 container\n\t\t\t4 heading Ver transporte, Value: 2\n\t\t\t\t5 text Ver transporte\n\t\t\t6 button Cerrar ver transporte\n\t\t7 heading Transporte ofrecido, Value: 4\n\t\t\t8 text Transporte ofrecido\n\t\t9 container Detalle de transporte ofrecido\n\t\t\t10 table\n\t\t\t\t11 row [FICTITIOUS-LONG-VALUE]8011\n\t\t\t\t\t12 cell\n\t\t\t\t\t\t13 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=81c5bae1-afb9-4fca-b1d7-be34da8bc069\n\t\t\t\t\t14 cell\n\t\t\t\t\t\t15 text Confirmada\n\t\t\t\t\t16 cell\n\t\t\t\t\t\t17 text Espacios ofrecidos\n\t\t\t\t\t\t18 text 2\n\t\t19 container\n\t\t\t20 text Los  2  espacios corresponden a personas confirmadas. No representan traslados asignados.\n\nThe focused UI element is 6 button Cerrar ver transporte",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "×"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver transporte"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar ver transporte",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver restricciones"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Ver transporte×Transporte ofrecidoPersona voluntariaInscripciónPersonas que puede llevarKai ResponsableConfirmada2Los 2 espacios corresponden a personas confirmadas. No representan traslados asignados.",
+        "top": 250.6015625,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 971.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=28298456-4a7e-48b9-b99d-4864e4afa7d8&pestana=logistica&desglose=transporte",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

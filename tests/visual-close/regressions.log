@@ -1,0 +1,20 @@
+✔ split consumer requires destination without interpreting missing payload as success (37.091917ms)
+✔ second pointerdown inside submitted form preserves restoration after confirmed save (1.589709ms)
+✔ restoration still yields to outside pointer (0.719083ms)
+✔ restoration still yields to errors (0.137041ms)
+✔ restoration still yields to history (0.150375ms)
+✔ restoration still yields to keyboard (0.13275ms)
+✔ restoration still yields to wheel (0.107666ms)
+✔ blocked Escape preserves pending submission from its form (0.188042ms)
+✔ blocked Escape preserves pending submission from its dialog heading (0.156125ms)
+✔ Escape still yields to nonpending Escape (0.197833ms)
+✔ Escape still yields to unrelated dialog (0.1285ms)
+✔ Escape still yields to error then Escape (0.112875ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317.821083

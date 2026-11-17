@@ -1,0 +1,51 @@
+{
+  "name": "mobile-brief-missing-link-pending",
+  "date": "2026-11-17T18:49:34.219Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 21-30, 37\n~\t\t\t\t33 pop up button (disabled, collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand\n~\t\t\t\t\t\t35 Seleccioná una persona\n~\t\t\t\t\t\t36 (selected) Kai Responsable\n~\t\t\t\t38 button (disabled) Generando…\n~\t\t\t39 button (disabled) Revocar enlaces del resumen\nThe focused UI element is 7 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "CoordinaciónCerrar sesiónResumenPendientes y próximas salidas.Convocatorias de salidaCreá y gestioná las salidas.Informe"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generando…"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 135,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000008011"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

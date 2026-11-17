@@ -1,0 +1,128 @@
+{
+  "name": "mobile-edit-commit-pending",
+  "date": "2026-11-17T21:28:46.328Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button (disabled) Cerrar\n\t\t11 container\n\t\t\t50 text No se pudo guardar. Los datos se conservan para reintentar.\n\t\t\t27 text Hugo Nuevo\n\t\t\t28 text Llegada\n\t\t\t29 date field (disabled, settable) Llegada, Value: 2026-11-20\n\t\t\t36 text Regreso\n\t\t\t37 date field (disabled, settable) Regreso, Value: 2026-11-22\n\t\t\t44 checkbox (disabled, settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t45 text Restricciones alimentarias\n\t\t\t46 text entry area (disabled) Restricciones alimentarias, Value: Dato ficticio conservado\n\t\t\t47 checkbox (disabled, settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t48 text Otras observaciones\n\t\t\t49 text entry area (disabled) Otras observaciones, Value: Observación móvil FICTICIA\n\t\t8 container\n\t\t\t9 button (disabled) Cancelar\n\t\t\t10 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Editar inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": true,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": true,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "name": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×No se pudo guardar. Los datos se conservan para reintentar.Hugo NuevoLlegadaRegreso Tiene transporte propioPersonas que puede llevarRestricciones alimentariasDato ficticio conservado Tiene interés en s",
+        "title": "_r_3_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 556.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "type": "textarea",
+        "value": "Dato ficticio conservado"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "type": "textarea",
+        "value": "Observación móvil FICTICIA"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

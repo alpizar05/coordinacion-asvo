@@ -1,0 +1,111 @@
+{
+  "name": "desktop-logistics-person",
+  "date": "2026-11-17T22:04:15.193Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=3379d3ed-6c7b-4b7a-8196-17796a2deaba\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=3379d3ed-6c7b-4b7a-8196-17796a2deaba\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=3379d3ed-6c7b-4b7a-8196-17796a2deaba#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t171 text Portal de voluntariado\n\t\t172 container Navegación principal\n\t\t\t173 content list\n\t\t\t\t174 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t175 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t7 container contenido\n\t\t176 container\n\t\t\t177 text COORDINACIÓN\n\t\t\t178 button Cerrar sesión\n\t\t179 container Menú de Coordinación\n\t\t\t180 content list\n\t\t\t\t181 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t182 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t183 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t184 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t185 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t186 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t187 link Description: ‹ Volver a logística de la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?pestana=logistica&desglose=alimentacion&navContext=a802da11-0e4a-485b-af9f-d1ca52c18f33\n\t\t188 container Ubicación en Coordinación\n\t\t\t189 content list\n\t\t\t\t190 text Coordinación\n\t\t\t\t191 container\n\t\t\t\t\t192 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t193 container\n\t\t\t\t\t194 text Ana Confirmada\n\t\t195 container\n\t\t\t196 heading Ana Confirmada, Value: 1\n\t\t\t\t197 text Ana Confirmada\n\t\t\t198 text Identificación \n\t\t\t199 text 800100001\n\t\t\t200 content list Unidades de voluntariado\n\t\t\t\t201 container\n\t\t\t\t\t202 text Voluntariado General  · Obligatorio\n\t\t203 container Secciones\n\t\t\t204 button Información personal\n\t\t\t205 button Participaciones\n\t\t\t206 button Unidades\n\t\t\t207 button Pólizas\n\t\t\t208 button Incidentes\n\t\t209 container Información personal\n\t\t\t210 container\n\t\t\t\t211 heading Contacto y datos personales, Value: 2\n\t\t\t\t\t212 text Contacto y datos personales\n\t\t\t\t213 definition list\n\t\t\t\t\t214 container Correo\n\t\t\t\t\t\t215 text Correo\n\t\t\t\t\t216 text persona1@example.test\n\t\t\t\t\t217 container WhatsApp\n\t\t\t\t\t\t218 text WhatsApp\n\t\t\t\t\t219 text 80000000\n\t\t\t\t\t220 container Fecha de nacimiento\n\t\t\t\t\t\t221 text Fecha de nacimiento\n\t\t\t\t\t222 text Pendiente\n\t\t\t\t\t223 container Ubicación\n\t\t\t\t\t\t224 text Ubicación\n\t\t\t\t\t225 text Pendiente\n\t\t\t\t\t226 container Voluntariado desde\n\t\t\t\t\t\t227 text Voluntariado desde\n\t\t\t\t\t228 text Año pendiente\n\t\t\t\t\t229 container Persona asociada\n\t\t\t\t\t\t230 text Persona asociada\n\t\t\t\t\t231 text Por confirmar\n\t\t\t232 container\n\t\t\t\t233 heading Emergencias y salud, Value: 2\n\t\t\t\t\t234 text Emergencias y salud\n\t\t\t\t235 definition list\n\t\t\t\t\t236 container Contacto de emergencia\n\t\t\t\t\t\t237 text Contacto de emergencia\n\t\t\t\t\t238 text Pendiente\n\t\t\t\t\t239 container Teléfono de emergencia\n\t\t\t\t\t\t240 text Teléfono de emergencia\n\t\t\t\t\t241 text Pendiente\n\t\t\t\t\t242 container Parentesco\n\t\t\t\t\t\t243 text Parentesco\n\t\t\t\t\t244 text Pendiente\n\t\t\t\t\t245 container Condición médica\n\t\t\t\t\t\t246 text Condición médica\n\t\t\t\t\t247 text Pendiente\n\t165 container\n\t\t166 text Conservación, educación y acción.\n\t\t167 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t168 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t169 image\n\t170 text Ana Confirmada\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=3379d3ed-6c7b-4b7a-8196-17796a2deaba",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(83, 105, 66)",
+        "disabled": false,
+        "name": null,
+        "text": "1Información personal"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "2Participaciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "3Unidades"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "4Pólizas"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "5Incidentes"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 231,
+    "url": "http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=3379d3ed-6c7b-4b7a-8196-17796a2deaba",
+    "values": [],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "1Información personal"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "2Participaciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "3Unidades"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "4Pólizas"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "5Incidentes"
+      }
+    ]
+  }
+}

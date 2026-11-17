@@ -1,0 +1,20 @@
+'use client';
+import {useState} from 'react';
+import {ActionModal} from '../coordinacion/action-modal';
+import {CoordinationModal} from '../coordinacion/coordination-modal';
+import {PhotoDialog} from '../coordinacion/photo-dialog';
+import {TableFilters} from '../coordinacion/table-filters';
+import {RowActionPanel} from '../coordinacion/row-action-panel';
+import {MobileDisclosure} from '../coordinacion/mobile-disclosure';
+import {FormField} from '../form-feedback/form-feedback';
+import {ConfirmationProvider} from '../status-ribbon';
+import '../coordinacion/coordination.css';
+export default function Page(){const[long,setLong]=useState(false),[mode,setMode]=useState('error'),[calls,setCalls]=useState(0),[step,setStep]=useState(false);
+async function action(){setCalls(n=>n+1);if(mode==='pending')await new Promise(r=>setTimeout(r,5000));return mode==='success'?{saved:true}:{error:'Conflicto ficticio: los datos se conservan.',fieldErrors:{detail:['Revisá el detalle.']}};}
+async function photo(){setCalls(n=>n+1);if(mode==='pending')await new Promise(r=>setTimeout(r,5000));return mode==='success'?{saved:true}:{error:'No se pudo guardar la foto ficticia.',fieldErrors:{credit:'Revisá el crédito ficticio.'}};}
+return <ConfirmationProvider><div className="coordination-content"><h1>Auditoría UI/UX de Coordinación</h1><p>Harness sin base ni proveedores. <output aria-label="Invocaciones ficticias">{calls}</output></p><section className="card"><h2>Referencia de acciones</h2><div className="actions"><button type="button" className="coord-button-primary">Principal de referencia</button><button type="button">Secundaria de referencia</button><button type="button" className="coord-button-danger">Destructiva de referencia</button></div><label>Respuesta simulada<select value={mode} onChange={e=>setMode(e.target.value)}><option value="error">Error</option><option value="pending">Demorada</option><option value="success">Éxito</option></select></label></section>
+<section className="card"><h2>Contenedores reales</h2><div className="actions"><ActionModal title="Modal de formulario" action={action} validate={()=>({})} successMessage="Guardado ficticio confirmado."><FormField name="detail" label="Detalle"><textarea name="detail" defaultValue="Datos ficticios conservados"/></FormField><label>Archivo de prueba<input type="file" name="attachment"/></label></ActionModal><PhotoDialog operation="persist" onSave={photo}/><button type="button" onClick={()=>setLong(true)}>Abrir formulario largo</button></div></section>
+<section className="card"><h2>Filtros y desglose</h2><TableFilters title="Filtrar auditoría"><label>Estado de prueba<select defaultValue="revision"><option value="revision">En revisión</option><option value="all">Todos</option></select></label></TableFilters><MobileDisclosure title="Desglose de logística"><p>Contenido ficticio del desglose.</p><button type="button">Consultar detalle ficticio</button></MobileDisclosure></section>
+<section className="card"><h2>Acciones de fila</h2><RowActionPanel title="Gestionar inscripción ficticia" subtitle="Persona de prueba" expanded={step}>{close=><>{step?<><button type="button" className="registration-sheet-back" onClick={()=>setStep(false)}>Volver a gestionar</button><label>Motivo ficticio<textarea defaultValue="Dato de prueba"/></label><div className="actions"><button type="button" className="coord-button-danger" onClick={close}>Cancelar inscripción ficticia</button></div></>:<ul className="registration-sheet-actions"><li><button type="button" onClick={()=>setStep(true)}>Cancelar inscripción</button></li><li><button type="button" onClick={close}>Consultar inscripción</button></li></ul>}</>}</RowActionPanel></section>
+<CoordinationModal title="Formulario largo de referencia" open={long} onClose={()=>setLong(false)} footer={<button type="button" className="coord-button-primary" onClick={()=>setLong(false)}>Guardar referencia</button>}><p>Se evalúa el contenedor compartido, no una operación de negocio.</p>{Array.from({length:16},(_,i)=><label key={i}>Campo ficticio {i+1}<input defaultValue={`Dato ${i+1}`}/></label>)}</CoordinationModal>
+</div></ConfirmationProvider>}

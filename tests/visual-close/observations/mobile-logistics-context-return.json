@@ -1,0 +1,144 @@
+{
+  "name": "mobile-logistics-context-return",
+  "date": "2026-11-17T22:03:08.523Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?pestana=logistica&desglose=transporte&navContext=16f5a867-adf6-4fa1-b6c6-ce9337cc015b\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?pestana=logistica&desglose=transporte&navContext=16f5a867-adf6-4fa1-b6c6-ce9337cc015b\n\t2 container Ver transporte\n\t\t3 container\n\t\t\t4 heading Ver transporte, Value: 2\n\t\t\t\t5 text Ver transporte\n\t\t\t6 button Cerrar ver transporte\n\t\t7 heading Transporte ofrecido, Value: 4\n\t\t\t8 text Transporte ofrecido\n\t\t9 container Detalle de transporte ofrecido\n\t\t\t10 table\n\t\t\t\t11 row transporte-22222222-2222-4222-8222-000000002001\n\t\t\t\t\t12 cell\n\t\t\t\t\t\t13 link Description: Ana Confirmada, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=81f65644-8fe8-4f6f-9126-5c19d4210706\n\t\t\t\t\t14 cell\n\t\t\t\t\t\t15 text Confirmada\n\t\t\t\t\t16 cell\n\t\t\t\t\t\t17 text Espacios ofrecidos\n\t\t\t\t\t\t18 text 2\n\t\t\t\t19 row transporte-22222222-2222-4222-8222-000000002002\n\t\t\t\t\t20 cell\n\t\t\t\t\t\t21 link Description: Bruno Revision, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000002?navContext=808ac13b-698e-43f8-b484-72310b30347f\n\t\t\t\t\t22 cell\n\t\t\t\t\t\t23 text Confirmada\n\t\t\t\t\t24 cell\n\t\t\t\t\t\t25 text Espacios ofrecidos\n\t\t\t\t\t\t26 text 1\n\t\t27 container\n\t\t\t28 text Los  3  espacios corresponden a personas confirmadas. No representan traslados asignados.\n\nThe focused UI element is 13 link Description: Ana Confirmada, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000001?navContext=81f65644-8fe8-4f6f-9126-5c19d4210706",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "A",
+      "text": "Ana Confirmada"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(111, 113, 109)",
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(82, 106, 61)",
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(111, 113, 109)",
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(111, 113, 109)",
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Ver transporte"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Cerrar ver transporte",
+        "text": "×"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Ver restricciones"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Ver transporte×Transporte ofrecidoPersona voluntariaInscripciónPersonas que puede llevarAna ConfirmadaConfirmada2Bruno RevisionConfirmada1Los 3 espacios corresponden a personas confirmadas. No representan traslados asign",
+        "title": "_r_4g_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 961.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?pestana=logistica&desglose=transporte&navContext=16f5a867-adf6-4fa1-b6c6-ce9337cc015b",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Ver transporte"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "×"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Ver restricciones"
+      }
+    ]
+  }
+}

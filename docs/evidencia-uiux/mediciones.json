@@ -1,0 +1,2693 @@
+{
+  "date": "2026-11-16",
+  "sourceCommit": "3e0a187332414203201a53092acada85723abee3",
+  "providers": false,
+  "database": false,
+  "componentsReal": true,
+  "dataSimulated": true,
+  "cases": [
+    {
+      "case": "photo-desktop-initial",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "Cerrar",
+        "rect": {
+          "h": 573.71875,
+          "top": 163.140625,
+          "w": 832
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 572,
+          "scrollHeight": 572
+        },
+        "title": "_r_0_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "photo-desktop-errors",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Descripción de la foto: Indicá una descripción de hasta 240 caracteres.",
+            "w": 502.515625
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Archivo · JPG, PNG o WebP, hasta 3 MB: Elegí un archivo JPG, PNG o WebP válido.",
+            "w": 605.3046875
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "La foto está autorizada para publicación.: Confirmá la autorización para publicar esta foto.",
+            "w": 636.8203125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-photo-error",
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-alt-error",
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(8, 9, 7)",
+            "describedby": "_R_1a6atperlbH1_-field-permission-error",
+            "name": "permission"
+          }
+        ],
+        "focus": "photo",
+        "rect": {
+          "h": 852,
+          "top": 24,
+          "w": 832
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 850,
+          "scrollHeight": 876
+        },
+        "title": "_r_0_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "action-desktop-initial",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "Cerrar",
+        "rect": {
+          "h": 383.375,
+          "top": 258.3125,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 381,
+          "scrollHeight": 381
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "action-desktop-errors",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Detalle: Revisá el detalle.",
+            "w": 180.5390625
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_q6atperlb_-field-detail-error",
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 574.5390625,
+          "top": 162.7265625,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 573,
+          "scrollHeight": 573
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "action-desktop-pending",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "0.5",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "0.5",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "0.5",
+            "text": "Guardando…",
+            "w": 127.3359375
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "DIALOG",
+        "rect": {
+          "h": 452.96875,
+          "top": 223.515625,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 451,
+          "scrollHeight": 451
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      },
+      "calls": "2"
+    },
+    {
+      "case": "action-desktop-retry-ready",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Detalle: Revisá el detalle.",
+            "w": 180.5390625
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_q6atperlb_-field-detail-error",
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "detail",
+        "rect": {
+          "h": 574.5390625,
+          "top": 162.7265625,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 573,
+          "scrollHeight": 573
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      },
+      "detail": "detail",
+      "calls": "2"
+    },
+    {
+      "case": "action-desktop-discard",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(243, 245, 239)",
+            "border": "rgb(101, 128, 72)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Seguir editando",
+            "w": 146.8984375
+          },
+          {
+            "background": "rgb(251, 239, 236)",
+            "border": "rgb(217, 179, 172)",
+            "className": "coord-button-danger",
+            "color": "rgb(133, 47, 36)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Descartar cambios",
+            "w": 169.1875
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Detalle: Revisá el detalle.",
+            "w": 180.5390625
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_q6atperlb_-field-detail-error",
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "DIV",
+        "rect": {
+          "h": 727.3203125,
+          "top": 86.3359375,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 725,
+          "scrollHeight": 725
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "photo-desktop-pending",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(8, 9, 7)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(235, 229, 68)",
+            "disabled": true,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardando…",
+            "w": 127.3359375
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "DIALOG",
+        "rect": {
+          "h": 655.3125,
+          "top": 122.34375,
+          "w": 832
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 653,
+          "scrollHeight": 653
+        },
+        "title": "_r_1_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      },
+      "calls": "3"
+    },
+    {
+      "case": "photo-desktop-server-error",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-credit-error",
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "credit",
+        "rect": {
+          "h": 846.4765625,
+          "top": 26.7578125,
+          "w": 832
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 844,
+          "scrollHeight": 844
+        },
+        "title": "_r_1_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      },
+      "retained": {
+        "alt": "Foto de prueba para auditoría",
+        "credit": "ASVO · prueba ficticia",
+        "file": "C:\\fakepath\\foto-ficticia.png",
+        "hover": []
+      },
+      "calls": "3"
+    },
+    {
+      "case": "photo-desktop-discard",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(8, 9, 7)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(235, 229, 68)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Seguir editando",
+            "w": 146.8984375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-danger",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Descartar cambios",
+            "w": 169.1875
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-credit-error",
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "DIV",
+        "rect": {
+          "h": 852,
+          "top": 24,
+          "w": 832
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 850,
+          "scrollHeight": 997
+        },
+        "title": "_r_1_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "row-desktop-menu",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 37.1875,
+            "opacity": "1",
+            "text": "Cancelar inscripción",
+            "w": 281.203125
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 37.1875,
+            "opacity": "1",
+            "text": "Consultar inscripción",
+            "w": 281.203125
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 155.1640625,
+          "top": 520.578125,
+          "w": 304
+        },
+        "root": "SECTION",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 153,
+          "scrollHeight": 153
+        },
+        "title": "_R_b6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "row-desktop-expanded",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "registration-sheet-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "registration-sheet-back",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Volver a gestionar",
+            "w": 163.53125
+          },
+          {
+            "background": "rgb(251, 239, 236)",
+            "border": "rgb(217, 179, 172)",
+            "className": "coord-button-danger",
+            "color": "rgb(133, 47, 36)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar inscripción ficticia",
+            "w": 238.5234375
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "BODY",
+        "rect": {
+          "h": 900,
+          "top": 0,
+          "w": 480
+        },
+        "root": "SECTION",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 900,
+          "scrollHeight": 900
+        },
+        "title": "_R_b6atperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "long-desktop-initial",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar referencia",
+            "w": 169.1796875
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "Cerrar",
+        "rect": {
+          "h": 852,
+          "top": 24,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 850,
+          "scrollHeight": 1417
+        },
+        "title": "_R_3matperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      }
+    },
+    {
+      "case": "long-desktop-last-focus",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar referencia",
+            "w": 169.1796875
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "INPUT",
+        "rect": {
+          "h": 852,
+          "top": 24,
+          "w": 576
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 850,
+          "scrollHeight": 1417
+        },
+        "title": "_R_3matperlb_",
+        "viewport": {
+          "h": 900,
+          "w": 1440
+        }
+      },
+      "visibility": {
+        "field": {
+          "bottom": 764.59375,
+          "height": 44,
+          "left": 457,
+          "right": 983,
+          "top": 720.59375,
+          "width": 526,
+          "x": 457,
+          "y": 720.59375
+        },
+        "footer": {
+          "bottom": 850.78125,
+          "height": 66.1875,
+          "left": 457,
+          "right": 983,
+          "top": 784.59375,
+          "width": 526,
+          "x": 457,
+          "y": 784.59375
+        },
+        "header": {
+          "bottom": 93,
+          "height": 44,
+          "left": 457,
+          "right": 983,
+          "top": 49,
+          "width": 526,
+          "x": 457,
+          "y": 49
+        }
+      }
+    },
+    {
+      "case": "photo-mobile-initial",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "Cerrar",
+        "rect": {
+          "h": 593.6875,
+          "top": 125.15625,
+          "w": 358
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 592,
+          "scrollHeight": 592
+        },
+        "title": "_r_2_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "photo-mobile-errors",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 60.78125,
+            "opacity": "1",
+            "text": "Descripción de la foto: Indicá una descripción de hasta 240 caracteres.",
+            "w": 266.6171875
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 86.375,
+            "opacity": "1",
+            "text": "Archivo · JPG, PNG o WebP, hasta 3 MB: Elegí un archivo JPG, PNG o WebP válido.",
+            "w": 266.6171875
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 86.375,
+            "opacity": "1",
+            "text": "La foto está autorizada para publicación.: Confirmá la autorización para publicar esta foto.",
+            "w": 266.6171875
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-photo-error",
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_1a6atperlbH1_-field-alt-error",
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(8, 9, 7)",
+            "describedby": "_R_1a6atperlbH1_-field-permission-error",
+            "name": "permission"
+          }
+        ],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 812,
+          "top": 16,
+          "w": 358
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 810,
+          "scrollHeight": 1042
+        },
+        "title": "_r_2_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "focusBox": {
+        "active": {
+          "bottom": 445.859375,
+          "height": 48,
+          "left": 49.59375,
+          "right": 340.40625,
+          "top": 397.859375,
+          "width": 290.8125,
+          "x": 49.59375,
+          "y": 397.859375
+        },
+        "footer": {
+          "bottom": 809.40625,
+          "height": 66.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 743.21875,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 743.21875
+        }
+      }
+    },
+    {
+      "case": "photo-mobile-keyboard-boundary",
+      "state": {
+        "inside": true,
+        "tag": "DIALOG"
+      }
+    },
+    {
+      "case": "photo-mobile-closed",
+      "focus": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×ConvocatoriasCoordinaciónAuditoría UI/UX de CoordinaciónHarness sin base ni proveedores. 3Referencia de accionesPrincipal de referenciaSecundaria de referenciaDestructiva de referenciaRespuesta simuladaErrorDemoradaÉxitoContenedores realesModal de formularioModal de formulario×Tenés cambios sin guardar. ¿Querés descartarlos?Seguir editandoDescartar cambiosConflicto ficticio: los datos se conservan.Revisá 1 campo para guardar.Detalle: Revisá el detalle.DetalleDatos ficticios conservadosRevisá el detalle.Archivo de pruebaCancelarGuardar cambiosAgregar fotoAbrir formulario largoFiltros y desgloseFiltrar auditoría×Estado de pruebaEn revisiónTodosVer resultadosDesglose de logísticaDesglose de logística×Contenido ficticio del desglose.Consultar detalle ficticioAcciones de filaGestionar ⌄Gestionar inscripción ficticiaPersona de prueba×Cancelar inscripciónConsultar inscripciónFormulario largo de referencia×Se evalúa el contenedor compartido, no una operación de negocio.Campo ficticio 1Campo ficticio 2Campo ficticio 3Campo ficticio 4Campo ficticio 5Campo ficticio 6Campo ficticio 7Campo ficticio 8Campo ficticio 9Campo ficticio 10Campo ficticio 11Campo ficticio 12Campo ficticio 13Campo ficticio 14Campo ficticio 15Campo ficticio 16CancelarGuardar referenciaConservación, educación y acción.Asociación de Voluntarios para el Servicio en las Áreas ProtegidasCosta Ricaself.__next_r=\"XUeT7YU4h9X-1TMgrOLcX\"(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"8:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js\\\"\\n9:\\\"app-pages-internals\\\"\\na:\\\"static/chunks/app-pages-internals.js\\\"\\nb:I[\\\"$8\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"SegmentViewNode\\\"]\\nd:\\\"$Sreact.fragment\\\"\\n28:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/app-dir/link.js\\\"\\n29:\\\"static/chunks/app/layout.js\\\"\\n2a:I[\\\"$28\\\",[\\\"app/layout\\\",\\\"$29\\\"],\\\"\\\"]\\n2c:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/image-component.js\\\"\\n2d:I[\\\"$2c\\\",[\\\"app/layout\\\",\\\"$29\\\"],\\\"Image\\\"]\\n43:\\\"(app-pages-browser)/./app/drawer.tsx\\\"\\n44:I[\\\"$43\\\",[\\\"app/layout\\\",\\\"$29\\\"],\\\"Drawer\\\"]\\n49:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/components/layout-router.js\\\"\\n4a:I[\\\"$49\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"\\\"]\\n4c:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/components/render-from-template-context.js\\\"\\n4d:I[\\\"$4c\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"\\\"]\\n6d:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/components/client-page.js\\\"\\n6e:I[\\\"$6d\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"ClientPageRoot\\\"]\\n6f:\\\"(app-pages-browser)/./app/uiux-audit/page.jsx\\\"\\n70:\\\"app/uiux-audit/page\\\"\\n71:\\\"static/chunks/app/uiux-audit/page.js\\\"\\n72:I[\\\"$6f\\\",[\\\"$70\\\",\\\"$71\\\"],\\\"default\\\"]\\n7a:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/lib/framework/boundary-components.js\\\"\\n7b:I[\\\"$7a\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"OutletBoundary\\\"]\\n7d:\\\"$Sreact.suspense\\\"\\n8a:\\\"ViewportBoundary\\\"\\n8b:I[\\\"$7a\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"$8a\\\"]\\n94:\\\"MetadataBoundary\\\"\\n95:I[\\\"$7a\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"$94\\\"]\\na0:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/client/components/builtin/global-error.js\\\"\\na1:I[\\\"$a0\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/css/app/layout.css?v=1794889218744\\\",\\\"style\\\"]\\n:HL[\\\"/_next/static/css/app/uiux-audit/page.css?v=1794889218744\\\",\\\"style\\\"]\\n1:D\\\"$5\\\"\\n1:D\\\"$2\\\"\\n1:D\\\"$6\\\"\\n1:null\\nf:D\\\"$19\\\"\\nf:D\\\"$10\\\"\\nf:D\\\"$1b\\\"\\n20:D\\\"$25\\\"\\n20:D\\\"$21\\\"\\n20:D\\\"$27\\\"\\n20:[\\\"$\\\",\\\"$L2a\\\",null,{\\\"href\\\":\\\"/\\\",\\\"className\\\":\\\"brand\\\",\\\"aria-label\\\":\\\"ASVO, inicio\\\",\\\"children\\\":[\\\"$\\\",\\\"$L2d\\\",null,{\\\"src\\\":{\\\"src\\\":\\\"/_next/static/media/logo-asvo.d5d74ac5.png\\\",\\\"height\\\":724,\\\"width\\\":2172,\\\"blurDataURL\\\":\\\"/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-asvo.d5d74ac5.png\\u0026w=8\\u0026q=70\\\",\\\"blurWidth\\\":8,\\\"blurHeight\\\":3},\\\"alt\\\":\\\"ASVO\\\",\\\"sizes\\\":\\\"(max-width: 580px) 132px, 176px\\\",\\\"preload\\\":true},\\\"$10\\\",\\\"$2b\\\",1]},\\\"$21\\\",\\\"$26\\\",1]\\n2f:D\\\"$31\\\"\\n2f:D\\\"$30\\\"\\n2f:D\\\"$32\\\"\\n36:D\\\"$38\\\"\\n36:D\\\"$37\\\"\\n36:D\\\"$3a\\\"\\n36:[\\\"$\\\",\\\"$L2a\\\",null,{\\\"className\\\":\\\"nav-link\\\",\\\"href\\\":\\\"/\\\",\\\"children\\\":\\\"Convocatorias\\\"},\\\"$37\\\",\\\"$39\\\",1]\\n3c:D\\\"$3e\\\"\\n3c:D\\\"$3d\\\"\\n3c:D\\\"$40\\\"\\n3c:[\\\"$\\\",\\\"$L2a\\\",null,{\\\"className\\\":\\\"nav-link\\\",\\\"href\\\":\\\"/coordinacion\\\",\\\"children\\\":\\\"Coordinación\\\"},\\\"$3d\\\",\\\"$3f\\\",1]\\n2f:[[\\\"$\\\",\\\"nav\\\",null,{\\\"className\\\":\\\"desktop-nav\\\",\\\"aria-label\\\":\\\"Navegación principal\\\",\\\"children\\\":[\\\"$\\\",\\\"ul\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"li\\\",\\\"/\\\",{\\\"children\\\":\\\"$36\\\"},\\\"$30\\\",\\\"$35\\\",0],[\\\"$\\\",\\\"li\\\",\\\"/coordinacion\\\",{\\\"children\\\":\\\"$3c\\\"},\\\"$30\\\",\\\"$3b\\\",0]]},\\\"$30\\\",\\\"$34\\\",1]},\\\"$30\\\",\\\"$33\\\",1],[\\\"$\\\",\\\"div\\\",null,{\\\"id\\\":\\\"coordination-mobile-menu-slot\\\",\\\"className\\\":\\\"mobile-menu-slot\\\"},\\\"$30\\\",\\\"$41\\\",1],[\\\"$\\\",\\\"$L44\\\",null,{\\\"label\\\":\\\"Menú\\\",\\\"title\\\":\\\"Menú\\\",\\\"className\\\":\\\"mobile-nav site-mobile-nav\\\",\\\"closeOnLink\\\":true,\\\"children\\\":[\\\"$\\\",\\\"nav\\\",null,{\\\"aria-label\\\":\\\"Navegación principal\\\",\\\"children\\\":[\\\"$\\\",\\\"ul\\\",null,{\\\"children\\\":\\\"$2f:0:props:children:props:children\\\"},\\\"$30\\\",\\\"$46\\\",1]},\\\"$30\\\",\\\"$45\\\",1]},\\\"$30\\\",\\\"$42\\\",1]]\\n4f:D\\\"$51\\\"\\n4f:D\\\"$50\\\"\\n4f:D\\\"$53\\\"\\n4f:D\\\"$52\\\"\\n4f:D\\\"$54\\\"\\n4f:[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"},\\\"$52\\\",\\\"$55\\\",1],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignIt\"])self.__next_f.push([1,\"ems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}},\\\"$52\\\",\\\"$58\\\",1],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404},\\\"$52\\\",\\\"$59\\\",1],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"},\\\"$52\\\",\\\"$5b\\\",1]},\\\"$52\\\",\\\"$5a\\\",1]]},\\\"$52\\\",\\\"$57\\\",1]},\\\"$52\\\",\\\"$56\\\",1]]\\n\"])self.__next_f.push([1,\"f:[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"es-CR\\\",\\\"children\\\":[\\\"$\\\",\\\"body\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"a\\\",null,{\\\"className\\\":\\\"skip-link\\\",\\\"href\\\":\\\"#contenido\\\",\\\"children\\\":\\\"Saltar al contenido principal\\\"},\\\"$10\\\",\\\"$1d\\\",1],[\\\"$\\\",\\\"header\\\",null,{\\\"className\\\":\\\"site-header\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"header-inner\\\",\\\"children\\\":[\\\"$20\\\",[\\\"$\\\",\\\"span\\\",null,{\\\"className\\\":\\\"site-label\\\",\\\"children\\\":\\\"Portal de voluntariado\\\"},\\\"$10\\\",\\\"$2e\\\",1],\\\"$2f\\\"]},\\\"$10\\\",\\\"$1f\\\",1]},\\\"$10\\\",\\\"$1e\\\",1],[\\\"$\\\",\\\"main\\\",null,{\\\"id\\\":\\\"contenido\\\",\\\"tabIndex\\\":-1,\\\"children\\\":[\\\"$\\\",\\\"$L4a\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L4d\\\",null,{},null,\\\"$4b\\\",1],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[\\\"$\\\",\\\"$Lb\\\",\\\"c-not-found\\\",{\\\"type\\\":\\\"not-found\\\",\\\"pagePath\\\":\\\"__next_builtin__not-found.js\\\",\\\"children\\\":[\\\"$4f\\\",[]]},null,\\\"$4e\\\",0],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\",\\\"segmentViewBoundaries\\\":[[\\\"$\\\",\\\"$Lb\\\",null,{\\\"type\\\":\\\"boundary:not-found\\\",\\\"pagePath\\\":\\\"__next_builtin__not-found.js@boundary\\\"},null,\\\"$5c\\\",1],\\\"$undefined\\\",\\\"$undefined\\\",[\\\"$\\\",\\\"$Lb\\\",null,{\\\"type\\\":\\\"boundary:global-error\\\",\\\"pagePath\\\":\\\"__next_builtin__global-error.js\\\"},null,\\\"$5d\\\",1]]},null,\\\"$48\\\",1]},\\\"$10\\\",\\\"$47\\\",1],[\\\"$\\\",\\\"footer\\\",null,{\\\"className\\\":\\\"site-footer\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L2d\\\",null,{\\\"src\\\":\\\"$20:props:children:props:src\\\",\\\"alt\\\":\\\"\\\",\\\"sizes\\\":\\\"112px\\\"},\\\"$10\\\",\\\"$5f\\\",1],[\\\"$\\\",\\\"p\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"strong\\\",null,{\\\"children\\\":\\\"Conservación, educación y acción.\\\"},\\\"$10\\\",\\\"$61\\\",1],[\\\"$\\\",\\\"br\\\",null,{},\\\"$10\\\",\\\"$62\\\",1],\\\"Asociación de Voluntarios para el Servicio en las Áreas Protegidas\\\"]},\\\"$10\\\",\\\"$60\\\",1],[\\\"$\\\",\\\"span\\\",null,{\\\"children\\\":\\\"Costa Rica\\\"},\\\"$10\\\",\\\"$63\\\",1]]},\\\"$10\\\",\\\"$5e\\\",1]]},\\\"$10\\\",\\\"$1c\\\",1]},\\\"$10\\\",\\\"$1a\\\",1]\\n\"])self.__next_f.push([1,\"68:X\\n74:D\\\"$77\\\"\\n74:D\\\"$75\\\"\\n74:D\\\"$79\\\"\\n74:[\\\"$\\\",\\\"$L7b\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$7d\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@7e\\\"},\\\"$75\\\",\\\"$7c\\\",1]},\\\"$75\\\",\\\"$78\\\",1]\\n69:[[\\\"children\\\",{\\\"s\\\":\\\"__PAGE__\\\",\\\"d\\\":{\\\"r\\\":[\\\"$\\\",\\\"$d\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$Lb\\\",\\\"c-page\\\",{\\\"type\\\":\\\"page\\\",\\\"pagePath\\\":\\\"uiux-audit/page.jsx\\\",\\\"children\\\":[\\\"$\\\",\\\"$L6e\\\",null,{\\\"Component\\\":\\\"$72\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":null}},null,\\\"$6c\\\",1]},null,\\\"$6b\\\",1],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/app/uiux-audit/page.css?v=1794889218744\\\",\\\"precedence\\\":\\\"next_static/css/app/uiux-audit/page.css\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"},null,\\\"$73\\\",0]],\\\"$74\\\"]},null,\\\"$6a\\\",0],\\\"p\\\":false,\\\"v\\\":null}}]]\\n64:[[\\\"children\\\",{\\\"s\\\":\\\"uiux-audit\\\",\\\"d\\\":{\\\"r\\\":[\\\"$\\\",\\\"$d\\\",\\\"c\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$L4a\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L4d\\\",null,{},null,\\\"$67\\\",1],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":\\\"$undefined\\\",\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\",\\\"segmentViewBoundaries\\\":[\\\"$undefined\\\",\\\"$undefined\\\",\\\"$undefined\\\",\\\"$undefined\\\"]},null,\\\"$66\\\",1]]},null,\\\"$65\\\",0],\\\"p\\\":false,\\\"v\\\":\\\"$68\\\"},\\\"c\\\":\\\"$Q69\\\"}]]\\n80:D\\\"$83\\\"\\n80:D\\\"$81\\\"\\n80:D\\\"$84\\\"\\n80:null\\n85:D\\\"$87\\\"\\n85:D\\\"$86\\\"\\n85:D\\\"$89\\\"\\n8c:D\\\"$8e\\\"\\n8c:D\\\"$8d\\\"\\n85:[\\\"$\\\",\\\"$L8b\\\",null,{\\\"children\\\":\\\"$L8c\\\"},\\\"$86\\\",\\\"$88\\\",1]\\n8f:D\\\"$91\\\"\\n8f:D\\\"$90\\\"\\n8f:D\\\"$93\\\"\\n98:D\\\"$9a\\\"\\n98:D\\\"$99\\\"\\n9b:D\\\"$9d\\\"\\n9b:D\\\"$9c\\\"\\n9b:D\\\"$9e\\\"\\n9b:null\\n8f:[\\\"$\\\",\\\"$L95\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$7d\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$L98\\\"},\\\"$90\\\",\\\"$97\\\",1]},\\\"$90\\\",\\\"$96\\\",1],\\\"$9b\\\"]},\\\"$90\\\",\\\"$92\\\",1]\\n9f:[]\\n0:{\\\"P\\\":\\\"$1\\\",\\\"c\\\":[\\\"\\\",\\\"uiux-audit\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":true,\\\"t\\\":{\\\"t\\\":{\\\"s\\\":\\\"\\\",\\\"h\\\":16,\\\"d\\\":{\\\"r\\\":[\\\"$\\\",\\\"$Lb\\\",\\\"layout\\\",{\\\"type\\\":\\\"layout\\\",\\\"pagePath\\\":\\\"layout.tsx\\\",\\\"children\\\":[\\\"$\\\",\\\"$d\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/app/layout.css?v=1794889218744\\\",\\\"precedence\\\":\\\"next_static/css/app/layout.css\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"},null,\\\"$e\\\",0]],\\\"$f\\\"]},null,\\\"$c\\\",1]},null,\\\"$7\\\",0],\\\"p\\\":false,\\\"v\\\":null},\\\"c\\\":\\\"$Q64\\\"},\\\"h\\\":{\\\"r\\\":[\\\"$\\\",\\\"$d\\\",\\\"h\\\",{\\\"children\\\":[\\\"$80\\\",\\\"$85\\\",\\\"$8f\\\",null]},null,\\\"$7f\\\",0],\\\"p\\\":false,\\\"v\\\":null}},\\\"m\\\":\\\"$W9f\\\",\\\"G\\\":[\\\"$a1\\\",[\\\"$\\\",\\\"$Lb\\\",\\\"ge-svn\\\",{\\\"type\\\":\\\"global-error\\\",\\\"pagePath\\\":\\\"__next_builtin__global-error.js\\\",\\\"children\\\":[]},null,\\\"$a2\\\",0]],\\\"S\\\":false,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"development\\\"}\\n\"])self.__next_f.push([1,\"68:C\\n8c:D\\\"$a3\\\"\\n8c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"},\\\"$75\\\",\\\"$a4\\\",0],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"},\\\"$75\\\",\\\"$a5\\\",0]]\\n\"])self.__next_f.push([1,\"ac:\\\"(app-pages-browser)/../../../Users/alvaroalpizar/Documents/ChatGPT/ASVO_ Coordinacion/coordinacion-asvo/node_modules/next/dist/lib/metadata/generate/icon-mark.js\\\"\\nad:I[\\\"$ac\\\",[\\\"$9\\\",\\\"$a\\\"],\\\"IconMark\\\"]\\n7e:D\\\"$a6\\\"\\n7e:null\\n98:D\\\"$a7\\\"\\n98:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Coordinación de Voluntariado | ASVO\\\"},\\\"$75\\\",\\\"$a8\\\",0],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Convocatorias de voluntariado de ASVO\\\"},\\\"$75\\\",\\\"$a9\\\",0],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/favicon.ico?2afcc1ba0ecc7207\\\",\\\"type\\\":\\\"image/x-icon\\\",\\\"sizes\\\":\\\"16x16\\\"},\\\"$75\\\",\\\"$aa\\\",0],[\\\"$\\\",\\\"$Lad\\\",\\\"3\\\",{},\\\"$75\\\",\\\"$ab\\\",0]]\\n\"])"
+    },
+    {
+      "case": "filters-mobile",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(8, 9, 7)",
+            "className": "table-filter-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Ver resultados",
+            "w": 316
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "Cerrar filtros",
+        "rect": {
+          "h": 257.78125,
+          "top": 293.109375,
+          "w": 358
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 256,
+          "scrollHeight": 256
+        },
+        "title": "_R_amatperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "disclosure-mobile",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(8, 9, 7)",
+            "className": "table-filter-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Consultar detalle ficticio",
+            "w": 211.8125
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar desglose de logística",
+        "rect": {
+          "h": 188.78125,
+          "top": 327.609375,
+          "w": 358
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 187,
+          "scrollHeight": 187
+        },
+        "title": "_R_ematperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "row-mobile-menu",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "registration-sheet-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar inscripción",
+            "w": 358
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Consultar inscripción",
+            "w": 358
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar panel",
+        "rect": {
+          "h": 200.765625,
+          "top": 643.234375,
+          "w": 390
+        },
+        "root": "SECTION",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 201,
+          "scrollHeight": 201
+        },
+        "title": "_R_b6atperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "row-mobile-expanded",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "registration-sheet-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "className": "registration-sheet-back",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Volver a gestionar",
+            "w": 163.53125
+          },
+          {
+            "background": "rgb(251, 239, 236)",
+            "border": "rgb(217, 179, 172)",
+            "className": "coord-button-danger",
+            "color": "rgb(133, 47, 36)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar inscripción ficticia",
+            "w": 238.5234375
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "BODY",
+        "rect": {
+          "h": 301.359375,
+          "top": 542.640625,
+          "w": 390
+        },
+        "root": "SECTION",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 301,
+          "scrollHeight": 301
+        },
+        "title": "_R_b6atperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "long-mobile-last-focus",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(82, 106, 61)",
+            "border": "rgb(82, 106, 61)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar referencia",
+            "w": 169.1796875
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": ""
+          }
+        ],
+        "focus": "INPUT",
+        "rect": {
+          "h": 812,
+          "top": 16,
+          "w": 358
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 810,
+          "scrollHeight": 1457
+        },
+        "title": "_R_3matperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "visibility": {
+        "field": {
+          "bottom": 723.28125,
+          "height": 45.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 678.09375,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 678.09375
+        },
+        "footer": {
+          "bottom": 809.40625,
+          "height": 66.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 743.21875,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 743.21875
+        },
+        "header": {
+          "bottom": 86.59375,
+          "height": 52,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 34.59375,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 34.59375
+        }
+      }
+    },
+    {
+      "case": "action-mobile-success",
+      "status": [
+        "Guardado ficticio confirmado."
+      ],
+      "open": 0
+    },
+    {
+      "case": "action-mobile-errors",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 44,
+            "opacity": "1",
+            "text": "×",
+            "w": 44
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(84, 35, 27)",
+            "className": "",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "400",
+            "h": 44,
+            "opacity": "1",
+            "text": "Detalle: Revisá el detalle.",
+            "w": 180.5390625
+          },
+          {
+            "background": "rgb(254, 254, 254)",
+            "border": "rgb(212, 216, 208)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(64, 85, 46)",
+            "border": "rgb(64, 85, 46)",
+            "className": "coord-button-primary",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "600",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": "true",
+            "border": "rgb(133, 47, 36)",
+            "describedby": "_R_q6atperlb_-field-detail-error",
+            "name": "detail"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(212, 216, 208)",
+            "describedby": null,
+            "name": "attachment"
+          }
+        ],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 588.5078125,
+          "top": 127.7421875,
+          "w": 358
+        },
+        "root": "DIV",
+        "scope": true,
+        "scroll": {
+          "clientHeight": 587,
+          "scrollHeight": 587
+        },
+        "title": "_R_eq6atperlb_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "photo-mobile-gallery-selected",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(8, 9, 7)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(235, 229, 68)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(8, 9, 7)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": ""
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          }
+        ],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 717.265625,
+          "top": 63.3671875,
+          "w": 358
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 715,
+          "scrollHeight": 715
+        },
+        "title": "_r_3_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "hover": [
+        {
+          "bg": "rgb(8, 9, 7)",
+          "color": "rgb(235, 229, 68)",
+          "text": "Galería"
+        }
+      ]
+    },
+    {
+      "case": "photo-mobile-upload-selected",
+      "observed": {
+        "buttons": [
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coordination-modal-close",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "background": "rgb(8, 9, 7)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(235, 229, 68)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "background": "rgb(235, 229, 68)",
+            "border": "rgb(8, 9, 7)",
+            "className": "coord-button-primary",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "focusOutline": "3px",
+            "font": "700",
+            "h": 45.1875,
+            "opacity": "1",
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "fields": [
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "photo"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "alt"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(101, 128, 72)",
+            "describedby": null,
+            "name": "credit"
+          },
+          {
+            "ariaInvalid": null,
+            "border": "rgb(8, 9, 7)",
+            "describedby": null,
+            "name": "permission"
+          }
+        ],
+        "focus": "BUTTON",
+        "rect": {
+          "h": 593.6875,
+          "top": 125.15625,
+          "w": 358
+        },
+        "root": "BODY",
+        "scope": false,
+        "scroll": {
+          "clientHeight": 592,
+          "scrollHeight": 592
+        },
+        "title": "_r_3_",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    }
+  ]
+}

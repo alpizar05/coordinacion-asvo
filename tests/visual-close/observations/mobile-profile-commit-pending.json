@@ -1,0 +1,69 @@
+{
+  "name": "mobile-profile-commit-pending",
+  "date": "2026-11-17T21:55:25.671Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry\n\t2 link Description: Saltar al contenido principal, Value: localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3044/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Voluntariado, Value: localhost:3044/coordinacion/registro\n\t\t\t\t14 container\n\t\t\t\t\t15 text Persona Ficticia\n\t\t16 container\n\t\t\t17 heading PersonaFicticia, Value: 1\n\t\t\t\t18 text Persona Ficticia\n\t\t\t19 text Identificación \n\t\t\t20 text 800000101\n\t\t\t21 content list Unidades de voluntariado\n\t\t\t\t22 container\n\t\t\t\t\t23 text Voluntariado General  · Obligatorio\n\t\t24 pop up button Sección: Información personal\n\t\t25 container Información personal\n\t\t\t26 container\n\t\t\t\t27 heading Contacto y datos personales, Value: 2\n\t\t\t\t\t28 text Contacto y datos personales\n\t\t\t\t29 definition list\n\t\t\t\t\t30 container Correo\n\t\t\t\t\t\t31 text Correo\n\t\t\t\t\t32 text persona@example.test\n\t\t\t\t\t33 container WhatsApp\n\t\t\t\t\t\t34 text WhatsApp\n\t\t\t\t\t35 text Pendiente\n\t\t\t\t\t36 container Fecha de nacimiento\n\t\t\t\t\t\t37 text Fecha de nacimiento\n\t\t\t\t\t38 text Pendiente\n\t\t\t\t\t39 container Ubicación\n\t\t\t\t\t\t40 text Ubicación\n\t\t\t\t\t41 text Pendiente\n\t\t\t\t\t42 container Voluntariado desde\n\t\t\t\t\t\t43 text Voluntariado desde\n\t\t\t\t\t44 text Año pendiente\n\t\t\t\t\t45 container Persona asociada\n\t\t\t\t\t\t46 text Persona asociada\n\t\t\t\t\t47 text Por confirmar\n\t\t\t\t48 pop up button Corregir ficha\n\t\t\t49 container\n\t\t\t\t50 heading Emergencias y salud, Value: 2\n\t\t\t\t\t51 text Emergencias y salud\n\t\t\t\t52 definition list\n\t\t\t\t\t53 container Contacto de emergencia\n\t\t\t\t\t\t54 text Contacto de emergencia\n\t\t\t\t\t55 text Pendiente\n\t\t\t\t\t56 container Teléfono de emergencia\n\t\t\t\t\t\t57 text Teléfono de emergencia\n\t\t\t\t\t58 text Pendiente\n\t\t\t\t\t59 container Parentesco\n\t\t\t\t\t\t60 text Parentesco\n\t\t\t\t\t61 text Pendiente\n\t\t\t\t\t62 container Condición médica\n\t\t\t\t\t\t63 text Condición médica\n\t\t\t\t\t64 text Pendiente\n\t65 container\n\t\t66 text Conservación, educación y acción.\n\t\t67 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t68 button Open Next.js Dev Tools\n\t\t69 container\n\t\t\t70 text Rendering . . .\n\nThe focused UI element is 48 pop up button Corregir ficha",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Corregir ficha"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Información personal⌄"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Corregir ficha"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 230.5,
+    "url": "http://localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Información personal⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Corregir ficha"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "name": "mobile-requests-edit-loading",
+  "date": "2026-11-17T19:14:38.178Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Editar inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×Cargando inscripción…CancelarGuardar cambios",
+        "top": 318.7578125,
+        "width": 358
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 46,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

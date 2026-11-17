@@ -1,0 +1,170 @@
+{
+  "name": "mobile-photo-summary-credit",
+  "date": "2026-11-17T21:30:50.565Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 88 text field (settable) Crédito de la foto, Value: Equipo DEMO",
+  "dom": {
+    "active": {
+      "name": "credit",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Fotos ⌄"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Descripción de la foto: Revisá la descripción. Otro detalle ficticio."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Crédito de la foto: Revisá el crédito."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Galería"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Subir nueva"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar foto×Preparación simulada no confirmada.Revisá 2 campos para guardar.Descripción de la foto: Revisá la descripción. Otro detalle ficticio.Crédito de la foto: Revisá el crédito.GaleríaSubir nuevaSelección de galer",
+        "title": "_r_1_"
+      }
+    ],
+    "invalid": [
+      {
+        "described": "_R_ad9d9bn5ritrj9erlbH1_-field-alt-error",
+        "id": "_R_ad9d9bn5ritrj9erlbH1_-field-alt",
+        "linked": true,
+        "name": "alt"
+      },
+      {
+        "described": "_R_ad9d9bn5ritrj9erlbH1_-field-credit-error",
+        "id": "_R_ad9d9bn5ritrj9erlbH1_-field-credit",
+        "linked": true,
+        "name": "credit"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 370,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "photo",
+        "type": "file",
+        "value": "C:\\fakepath\\fictitious.png"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "alt",
+        "type": "text",
+        "value": "Foto FICTICIA cierre móvil"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "credit",
+        "type": "text",
+        "value": "Equipo DEMO"
+      },
+      {
+        "checked": true,
+        "disabled": false,
+        "name": "permission",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "node": "v26.13.1",
+  "results": [
+    {
+      "name": "staff-registration-results",
+      "code": 0
+    },
+    {
+      "name": "staff-forms",
+      "code": 0
+    },
+    {
+      "name": "workflow-transitions",
+      "code": 0
+    },
+    {
+      "name": "functional-actions",
+      "code": 0
+    },
+    {
+      "name": "brief-contracts",
+      "code": 0
+    },
+    {
+      "name": "authorization",
+      "code": 0
+    }
+  ]
+}

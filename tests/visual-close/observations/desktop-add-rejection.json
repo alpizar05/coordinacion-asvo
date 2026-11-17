@@ -1,0 +1,130 @@
+{
+  "name": "desktop-add-rejection",
+  "date": "2026-11-17T21:17:07.004Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Agregar persona a la salida\n\t\t3 container\n\t\t\t4 heading Agregar persona a la salida, Value: 2\n\t\t\t\t5 text Agregar persona a la salida\n\t\t\t6 button Cerrar\n\t\t24 container\n\t\t\t25 text No se pudo agregar la inscripción. Los datos se conservan para reintentar.\n\t\t\t26 text Hugo Nuevo\n\t\t\t27 container\n\t\t\t\t28 text Identificación:  800100008\n\t\t\t29 text Persona seleccionada\n\t\t\t30 button Persona seleccionada\n\t\t\t31 text Llegada\n\t\t\t32 date field (settable) Llegada, Value: 2026-11-20\n\t\t\t\t33 container\n\t\t\t\t\t34 stepper\n\t\t\t\t\t35 stepper\n\t\t\t\t\t36 stepper\n\t\t\t\t37 pop up button Show date picker Show date picker\n\t\t\t38 text Regreso\n\t\t\t39 date field (settable) Regreso, Value: 2026-11-22\n\t\t\t\t40 container\n\t\t\t\t\t41 stepper\n\t\t\t\t\t42 stepper\n\t\t\t\t\t43 stepper\n\t\t\t\t44 pop up button Show date picker Show date picker\n\t\t\t45 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t46 text Restricciones alimentarias\n\t\t\t47 text entry area (settable) Restricciones alimentarias, Value: Dato ficticio conservado\n\t\t\t48 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t49 text Otras observaciones\n\t\t\t50 text entry area (settable) Otras observaciones\n\t\t\t51 text Podés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.\n\t\t\t52 text La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.\n\t\t21 container\n\t\t\t22 button Cancelar\n\t\t\t23 button Agregar inscripción\n\nThe focused UI element is 53 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo agregar la inscripción. Los datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cambiar persona"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar inscripción"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar persona a la salida×No se pudo agregar la inscripción. Los datos se conservan para reintentar.Hugo NuevoIdentificación: 800100008Persona seleccionadaCambiar personaLlegadaRegreso Tiene transporte propioPersonas q",
+        "title": "_R_eojd9bn5ritrj9erlb_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 194,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "type": "textarea",
+        "value": "Dato ficticio conservado"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "type": "textarea",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "",
+        "type": "select-one",
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

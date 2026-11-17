@@ -1,0 +1,13 @@
+{
+  "node": "v26.13.1",
+  "results": [
+    {
+      "name": "registration-decision-contracts",
+      "code": 0
+    },
+    {
+      "name": "summary",
+      "code": 0
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+✔ keeps the modal-restored trigger while still restoring scroll (1.077666ms)
+✔ focus outside the origin row falls back to its first link (0.678833ms)
+✔ a deleted origin still falls back to the next available row (0.183375ms)
+✔ a hidden trigger is not retained (0.13925ms)
+✔ a disabled trigger is not retained (0.143334ms)
+✔ an inert trigger is not retained (0.116125ms)
+✔ scroll-only restoration never changes focus (0.125584ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.714

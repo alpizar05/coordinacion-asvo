@@ -1,0 +1,83 @@
+{
+  "name": "desktop-detail-loading",
+  "date": "2026-11-17T21:23:24.142Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Detalle de inscripción\n\t\t3 container\n\t\t\t4 heading Detalle de inscripción, Value: 2\n\t\t\t\t5 text Detalle de inscripción\n\t\t\t6 text Hugo Nuevo\n\t\t\t7 button Cerrar panel\n\t\t8 button Volver a gestionar\n\t\t9 text Cargando inscripción e historial…\n\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Detalle de inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar panel",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Volver a gestionar"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Detalle de inscripciónHugo Nuevo×Volver a gestionarCargando inscripción e historial…",
+        "title": "_r_4_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 214.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "",
+        "type": "select-one",
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

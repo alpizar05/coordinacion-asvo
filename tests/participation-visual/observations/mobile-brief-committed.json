@@ -1,0 +1,62 @@
+{
+  "name": "mobile-brief-committed",
+  "date": "2026-11-17T18:49:43.069Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t\t125 text Enlace privado\n+\t\t\t126 text field Enlace privado, Value: http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n+\t\t\t127 link Description: Abrir resumen, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n+\t\t\t128 button Copiar enlace\n+\t\t\t129 link Description: Compartir por WhatsApp, Value: wa.me/?text=Resumen%20privado%20de%20la%20salida%20para%20el%2070%3A%20http%3A%2F%2Flocalhost%3A3046%2Fresumen-salida%[FICTITIOUS-LONG-VALUE]G4\n+\t\t130 text Enlace privado para el 70 generado.\nThe focused UI element is 7 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "CoordinaciónCerrar sesiónResumenPendientes y próximas salidas.Convocatorias de salidaCreá y gestioná las salidas.Informe"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar enlace privado"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar enlace"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 248.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000008011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

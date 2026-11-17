@@ -1,0 +1,29 @@
+{
+  "name": "mobile-final-committed",
+  "date": "2026-11-17T19:04:08.174Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1\".\n1 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t9 heading Informe de salida, Value: 1\n\t\t\t10 text Informe de salida\n\t\t11 text Informe Mobile\n\t\t49 container\n\t\t\t50 heading Informe finalizado, Value: 2\n\t\t\t\t51 text Informe finalizado\n\t\t\t52 text Este informe es definitivo y ya no se puede editar.\n\t\t\t53 definition list\n\t\t\t\t54 container Persona responsable (70)\n\t\t\t\t\t55 text Persona responsable (70)\n\t\t\t\t56 text Kai Responsable\n\t\t\t\t57 container Correo electrónico\n\t\t\t\t\t58 text Correo electrónico\n\t\t\t\t59 text persona11@example.test\n\t\t\t\t60 container Estado\n\t\t\t\t\t61 text Estado\n\t\t\t\t62 text Finalizado\n\t\t\t\t63 container Finalizado\n\t\t\t\t\t64 text Finalizado\n\t\t\t\t65 text 17 nov 2026, 1:03 p. m.\n\t\t\t\t66 container Última actualización\n\t\t\t\t\t67 text Última actualización\n\t\t\t\t68 text 17 nov 2026, 1:03 p. m.\n\t\t\t\t69 container Tipo de labor realizada\n\t\t\t\t\t70 text Tipo de labor realizada\n\t\t\t\t71 text Mantenimiento y otros\n\t\t\t\t72 container Lugar visitado\n\t\t\t\t\t73 text Lugar visitado\n\t\t\t\t74 text Lugar Ficticio\n\t\t\t\t75 container Tipo de gira\n\t\t\t\t\t76 text Tipo de gira\n\t\t\t\t77 text Salida general (mantenimiento, colaboración en oficinas, ferias)\n\t\t\t\t78 container Fechas reales\n\t\t\t\t\t79 text Fechas reales\n\t\t\t\t80 container\n\t\t\t\t\t81 text 10/11/2026  al  12/11/2026\n\t\t\t\t82 container Persona funcionaria o responsable de la actividad\n\t\t\t\t\t83 text Persona funcionaria o responsable de la actividad\n\t\t\t\t84 text Responsable FICTICIO Mobile\n\t\t\t85 heading Acciones realizadas, Value: 3\n\t\t\t\t86 text Acciones realizadas\n\t\t\t87 text Acciones FICTICIAS Mobile\n\t\t\t88 heading Observaciones y recomendaciones, Value: 3\n\t\t\t\t89 text Observaciones y recomendaciones\n\t\t\t90 text Nota FICTICIA Mobile\n\t\t\t91 heading Asistencia confirmada por el 70, Value: 3\n\t\t\t\t92 text Asistencia confirmada por el 70\n\t\t\t93 container\n\t\t\t\t94 text 1  de  2  personas  participaron .\n\t\t\t95 content list\n\t\t\t\t96 container\n\t\t\t\t\t97 text Kai Responsable  ·  Participó\n\t\t\t\t98 container\n\t\t\t\t\t99 text Lia Participante  ·  No participó\n\t46 container\n\t\t47 text Conservación, educación y acción.\n\t\t48 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t100 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t101 image\n\t102 text Informe de salida\n\nThe focused UI element is 7 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme MobileInforme finalizadoEste informe es definitivo y ya no se p"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe?enviado=1",
+    "values": [],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "mobile-brief-required",
+  "date": "2026-11-17T18:49:33.679Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\".\n1 AXWebArea Resumen para el 70 | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Recordatorio Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108\n\t\t\t\t14 container\n\t\t\t\t\t15 text Resumen para el 70\n\t\t16 link Description: Volver a la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?pestana=herramientas\n\t\t17 container\n\t\t\t18 heading Compartir con el 70, Value: 2\n\t\t\t\t19 text Compartir con el 70\n\t\t\t20 text El enlace permite consultar este resumen y presentar el informe de salida durante siete días. Mostrará la información actualizada y dejará de funcionar si se retira la asignación de 70. Compartilo únicamente con la persona asignada.\n\t\t\t21 container\n\t\t\t\t22 container\n\t\t\t\t\t23 text Revisá  1 campo  para  guardar .\n\t\t\t\t24 content list\n\t\t\t\t\t25 container\n\t\t\t\t\t\t26 AXListMarker • \n\t\t\t\t\t\t27 button Persona asignada como 70: Seleccioná una persona asignada como 70.\n\t\t\t\t\t\t\t28 text Persona asignada como 70\n\t\t\t\t\t\t\t29 text : \n\t\t\t\t\t\t\t30 text Seleccioná una persona asignada como 70.\n\t\t\t31 container\n\t\t\t\t32 text Persona asignada como 70\n\t\t\t\t33 pop up button (collapsed, settable) Persona asignada como 70, Value: Seleccioná una persona, Secondary Actions: Expand\n\t\t\t\t\t34 menu\n\t\t\t\t\t\t35 (selected) Seleccioná una persona\n\t\t\t\t\t\t36 Kai Responsable\n\t\t\t\t37 text Seleccioná una persona asignada como 70.\n\t\t\t\t38 button Generar enlace privado\n\t\t\t39 button Revocar enlaces del resumen\n\t\t40 container informes\n\t\t\t41 heading Informes de salida del 70, Value: 2\n\t\t\t\t42 text Informes de salida del 70\n\t\t\t43 text Todavía no se ha presentado un informe para esta salida.\n\t\t44 container\n\t\t\t45 container\n\t\t\t\t46 text TU GUÍA DE SALIDA · 70\n\t\t\t47 heading Recordatorio Mobile, Value: 1\n\t\t\t\t48 text Recordatorio Mobile\n\t\t\t49 text Lugar Ficticio\n\t\t\t50 container\n\t\t\t\t51 text 10/11/2026  al  12/11/2026  ·  Voluntariado General\n\t\t\t52 container\n\t\t\t\t53 text Fechas flexibles  ·  completada\n\t\t\t54 container\n\t\t\t\t55 text 70 asignado: Kai Responsable\n\t\t\t56 container Resumen de preparación\n\t\t\t\t57 link Description: 2 participantes confirmados, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-participantes\n\t\t\t\t58 link Description: 2 espacios de transporte ofrecidos, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-transporte\n\t\t\t\t59 link Description: 1 persona con restricciones indicadas, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-alimentacion\n\t\t\t60 container\n\t\t\t\t61 text Actualizado:  17/11/26, 12:49 p. m.  · Costa Rica\n\t\t\t62 button Actualizar\n\t\t\t63 container Secciones de la guía de salida\n\t\t\t\t64 link Description: Participantes, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-participantes\n\t\t\t\t65 link Description: Transporte, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-transporte\n\t\t\t\t66 link Description: Alimentación, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-alimentacion\n\t\t\t\t67 link Description: Indicaciones, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen#brief-indicaciones\n\t\t\t68 container Participantes confirmados, ID: brief-participantes\n\t\t\t\t69 heading Participantes confirmados, Value: 2, ID: brief-participantes-title\n\t\t\t\t\t70 text Participantes confirmados\n\t\t\t\t71 text La lista refleja inscripciones confirmadas. La asistencia real se confirma en el informe.\n\t\t\t\t72 container Participantes y fechas de participación\n\t\t\t\t\t73 table\n\t\t\t\t\t\t74 row\n\t\t\t\t\t\t\t75 cell\n\t\t\t\t\t\t\t\t76 text Kai Responsable 70\n\t\t\t\t\t\t\t77 cell\n\t\t\t\t\t\t\t\t78 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t\t79 cell\n\t\t\t\t\t\t\t\t80 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t\t\t\t\t81 row\n\t\t\t\t\t\t\t82 cell\n\t\t\t\t\t\t\t\t83 text Lia Participante\n\t\t\t\t\t\t\t84 cell\n\t\t\t\t\t\t\t\t85 text 10/11/2026  al  12/11/2026\n\t\t\t\t\t\t\t86 cell\n\t\t\t\t\t\t\t\t87 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t\t88 container Transporte, ID: brief-transporte\n\t\t\t\t89 heading Transporte, Value: 2, ID: brief-transporte-title\n\t\t\t\t\t90 text Transporte\n\t\t\t\t91 text Punto de encuentro ficticio\n\t\t\t\t92 container\n\t\t\t\t\t93 text 2  espacios ofrecidos  ·  1 persona con transporte propio\n\t\t\t\t94 content list\n\t\t\t\t\t95 container\n\t\t\t\t\t\t96 text Kai Responsable Puede llevar 2 personas Participa del  10/11/2026  al  12/11/2026\n\t\t\t\t\t\t97 link Description: WhatsApp · 80000000, Value: wa.me/50680000000\n\t\t\t\t98 text Los espacios son ofrecimientos; todavía no representan una distribución de pasajeros acordada. Las ofertas sin cantidad no se suman al total.\n\t\t\t99 container Alimentación, ID: brief-alimentacion\n\t\t\t\t100 heading Alimentación, Value: 2, ID: brief-alimentacion-title\n\t\t\t\t\t101 text Alimentación\n\t\t\t\t102 text Alimentación ficticia\n\t\t\t\t103 heading Restricciones indicadas por participantes, Value: 3\n\t\t\t\t\t104 text Restricciones indicadas por participantes\n\t\t\t\t105 content list\n\t\t\t\t\t106 container\n\t\t\t\t\t\t107 text Lia Participante Preferencia FICTICIA\n\t\t\t108 container Indicaciones y logística, ID: brief-indicaciones\n\t\t\t\t109 heading Indicaciones y logística, Value: 2, ID: brief-indicaciones-title\n\t\t\t\t\t110 text Indicaciones y logística\n\t\t\t\t111 heading Requisitos, Value: 3\n\t\t\t\t\t112 text Requisitos\n\t\t\t\t113 text Sin requisitos registrados. Consultá a Coordinación.\n\t\t\t\t114 definition list\n\t\t\t\t\t115 container Hospedaje\n\t\t\t\t\t\t116 text Hospedaje\n\t\t\t\t\t117 text Hospedaje ficticio\n\t\t\t\t118 heading Otras indicaciones, Value: 3\n\t\t\t\t\t119 text Otras indicaciones\n\t\t\t\t120 text Sin otras indicaciones registradas.\n\t\t\t121 text Uso exclusivo para coordinar esta salida. El enlace es personal y permite consultar datos de participantes. No lo compartás fuera del equipo responsable.\n\t122 container\n\t\t123 text Conservación, educación y acción.\n\t\t124 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t125 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t126 image\n\nThe focused UI element is 33 pop up button (collapsed, settable) Persona asignada como 70, Value: Seleccioná una persona, Secondary Actions: Expand",
+  "dom": {
+    "active": {
+      "name": "lead",
+      "tag": "SELECT",
+      "text": "Seleccioná una personaKai Responsable"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona asignada como 70: Seleccioná una persona asignada como 70."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar enlace privado"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_sinebn5ritrj9erlb_-field-lead-error",
+        "linked": true,
+        "name": "lead"
+      }
+    ],
+    "overflow": false,
+    "scroll": 264.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

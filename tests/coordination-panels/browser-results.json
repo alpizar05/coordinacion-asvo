@@ -1,0 +1,507 @@
+{
+  "date": "2026-11-16",
+  "note": "First four baseline DOM observations are valid. Later shared-helper DOM observations were discarded after discovering a stale tab capture. Independent file/ARIA/rect readings and screenshots remain; corrected measurements include AX in verified-results.json.",
+  "cases": [
+    {
+      "case": "before-desktop-menu",
+      "observed": {
+        "dialog": {
+          "buttons": [
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Ver inscripción"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Editar inscripción"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Asignar como 70"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Pasar a lista de espera"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(133, 47, 36)",
+              "disabled": false,
+              "text": "Rechazar solicitud"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(133, 47, 36)",
+              "disabled": false,
+              "text": "Cancelar inscripción"
+            }
+          ],
+          "fieldset": null,
+          "rect": {
+            "bottom": 748.90625,
+            "height": 307.9140625,
+            "left": 8,
+            "right": 312,
+            "top": 440.9921875,
+            "width": 304,
+            "x": 8,
+            "y": 440.9921875
+          }
+        },
+        "focus": "BUTTON:Ver inscripción"
+      }
+    },
+    {
+      "case": "before-desktop-step",
+      "observed": {
+        "dialog": {
+          "buttons": [
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Volver"
+            },
+            {
+              "bg": "rgb(133, 47, 36)",
+              "color": "rgb(254, 254, 254)",
+              "disabled": false,
+              "text": "Cancelar inscripción"
+            }
+          ],
+          "fieldset": {
+            "border": "1px",
+            "padding": "16px"
+          },
+          "rect": {
+            "bottom": 787.9296875,
+            "height": 346.9375,
+            "left": 8,
+            "right": 312,
+            "top": 440.9921875,
+            "width": 304,
+            "x": 8,
+            "y": 440.9921875
+          }
+        },
+        "focus": "BODY:Saltar al contenido principalPortal de voluntariadoConvocato"
+      }
+    },
+    {
+      "case": "before-mobile-menu",
+      "observed": {
+        "dialog": {
+          "buttons": [
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "×"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Ver inscripción"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Editar inscripción"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Asignar como 70"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Pasar a lista de espera"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(133, 47, 36)",
+              "disabled": false,
+              "text": "Rechazar solicitud"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(133, 47, 36)",
+              "disabled": false,
+              "text": "Cancelar inscripción"
+            }
+          ],
+          "fieldset": null,
+          "rect": {
+            "bottom": 844,
+            "height": 385.515625,
+            "left": 0,
+            "right": 390,
+            "top": 458.484375,
+            "width": 390,
+            "x": 0,
+            "y": 458.484375
+          }
+        },
+        "focus": "BUTTON:×"
+      }
+    },
+    {
+      "case": "before-mobile-step",
+      "observed": {
+        "dialog": {
+          "buttons": [
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "×"
+            },
+            {
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(8, 9, 7)",
+              "disabled": false,
+              "text": "Volver"
+            },
+            {
+              "bg": "rgb(133, 47, 36)",
+              "color": "rgb(254, 254, 254)",
+              "disabled": false,
+              "text": "Cancelar inscripción"
+            }
+          ],
+          "fieldset": {
+            "border": "1px",
+            "padding": "16px"
+          },
+          "rect": {
+            "bottom": 844,
+            "height": 321.7578125,
+            "left": 0,
+            "right": 390,
+            "top": 522.2421875,
+            "width": 390,
+            "x": 0,
+            "y": 522.2421875
+          }
+        },
+        "focus": "BODY:Saltar al contenido principalPortal de voluntariadoConvocato"
+      }
+    },
+    {
+      "case": "after-mobile-menu",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "after-mobile-step",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-row-error",
+      "aria": "_r_0_-field-reason-error",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-row-pending",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-row-success",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-row-detail",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-row-back",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-series",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-filters",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-disclosure",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-view-selector",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-registry",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-discard",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-continue-focus",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-form-errors-file",
+      "values": [
+        {
+          "describedby": "_R_1j6atperlb_-field-detail-error",
+          "invalid": "true",
+          "name": "detail",
+          "value": "Dato para conservar"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "attachment",
+          "value": "C:\\fakepath\\fixture.txt"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": null,
+          "invalid": null,
+          "name": "",
+          "value": "Sin datos reales"
+        },
+        {
+          "describedby": "_R_1j6atperlb_-field-extra-error",
+          "invalid": "true",
+          "name": "extra",
+          "value": "Conservado"
+        }
+      ],
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-hidden-field-focus",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-discard-pending",
+      "calls": "1",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-pending-recovered",
+      "calls": "1",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-hidden-field-rerun",
+      "rect": {
+        "focus": {
+          "bottom": 695.1015625,
+          "height": 45.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 649.9140625,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 649.9140625
+        },
+        "footer": {
+          "bottom": 809.28125,
+          "height": 66.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 743.09375,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 743.09375
+        },
+        "open": true
+      },
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "after-desktop-step",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-row-success",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-form-success",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-series",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-disclosure",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-errors",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-hidden-focus",
+      "rect": {
+        "focus": {
+          "bottom": 736.9453125,
+          "height": 45.1875,
+          "left": 457,
+          "right": 983,
+          "top": 691.7578125,
+          "width": 526,
+          "x": 457,
+          "y": 691.7578125
+        },
+        "footer": {
+          "bottom": 851,
+          "height": 66.1875,
+          "left": 457,
+          "right": 983,
+          "top": 784.8125,
+          "width": 526,
+          "x": 457,
+          "y": 784.8125
+        }
+      },
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "public-after-desktop",
+      "observed": {
+        "bg": "rgb(235, 229, 68)",
+        "border": "rgb(8, 9, 7)",
+        "color": "rgb(8, 9, 7)"
+      }
+    },
+    {
+      "case": "public-before-desktop",
+      "observed": {
+        "bg": "rgb(235, 229, 68)",
+        "border": "rgb(8, 9, 7)",
+        "color": "rgb(8, 9, 7)"
+      }
+    },
+    {
+      "case": "reference-after-desktop",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-rejection",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-real-units",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-policy-errors",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "desktop-real-reminder-preview",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-real-units",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-real-reminder-preview",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-policy-errors",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-file-final",
+      "file": "C:\\fakepath\\fixture.txt",
+      "fields": [
+        {
+          "linked": true,
+          "name": "detail"
+        },
+        {
+          "linked": true,
+          "name": "extra"
+        }
+      ],
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-continue-final",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    },
+    {
+      "case": "mobile-keyboard",
+      "measurement": "Discarded: captured the comparison tab; use verified-results.json and screenshots instead."
+    }
+  ]
+}

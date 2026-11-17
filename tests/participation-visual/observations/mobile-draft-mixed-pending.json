@@ -1,0 +1,129 @@
+{
+  "name": "mobile-draft-mixed-pending",
+  "date": "2026-11-17T19:01:46.113Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\n0 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\n\t1 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe#contenido\n\t2 container\n\t\t3 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t4 pop up button Menú\n\t\t\t5 text Menú\n\t6 container contenido\n\t\t7 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t8 heading Informe de salida, Value: 1\n\t\t\t9 text Informe de salida\n\t\t10 text Informe Mobile\n\t\t11 container\n\t\t\t52 text No se pudo confirmar el guardado del informe. Tus datos se conservan para reintentar.\n\t\t\t12 text Informe de salida\n\t\t\t13 text Guardando…\n\t\t\t14 button (disabled) Guardar borrador\n\t\t\t15 button (disabled) Finalizar informe\n\t\t\t16 pop up button (disabled) Sección: Observaciones\n\t\t\t45 container Observaciones\n\t\t\t\t46 container\n\t\t\t\t\t47 heading Observaciones y recomendaciones, Value: 2\n\t\t\t\t\t\t48 text Observaciones y recomendaciones\n\t\t\t\t\t49 text Observaciones o recomendaciones (opcional)\n\t\t\t\t\t50 text entry area (disabled) Observaciones o recomendaciones (opcional), Value: Nota FICTICIA Mobile\n\t40 container\n\t\t41 text Conservación, educación y acción.\n\t\t42 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t53 button Open Next.js Dev Tools\n\t\t54 container\n\t\t\t55 text Rendering . . .\n\nThe focused UI element is 6 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme MobileNo se pudo confirmar el guardado del informe. Tus datos s"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Sección: Observaciones⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 5.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

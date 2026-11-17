@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-17",
+  "applicationRemoved": true,
+  "clusterRemoved": true,
+  "activeFileRemoved": true,
+  "note": "Comprobado por ausencia del directorio registrado y active.json y mensaje de finally del fixture; runtime/CSV temporales retirados al cerrar."
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":1}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":1}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":2}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":3}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":4}"
+  },
+  {
+    "family": "participation",
+    "event": "  15 |  const result=await real();const info=result&&typeof result==='object'?result:{};console.log('[visual-result]',JSON.stringify({case:run,kind,operation,saved:'saved'in info&&info.saved===true,status:'status'in info?info.status:unde..."
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"n\":5}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-desktop\",\"kind\":\"add\",\"operation\":\"\",\"saved\":true,\"status\":\"revisión\"}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"edit\",\"operation\":\"\",\"n\":1}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"edit\",\"operation\":\"\",\"n\":2}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"edit\",\"operation\":\"\",\"n\":3}"
+  },
+  {
+    "family": "participation",
+    "event": "  15 |  const result=await real();const info=result&&typeof result==='object'?result:{};console.log('[visual-result]',JSON.stringify({case:run,kind,operation,saved:'saved'in info&&info.saved===true,status:'status'in info?info.status:unde..."
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-desktop\",\"kind\":\"edit\",\"operation\":\"\",\"n\":4}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-desktop\",\"kind\":\"edit\",\"operation\":\"\",\"saved\":true}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"n\":1}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"saved\":true}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"n\":2}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"saved\":true}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"n\":1}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"saved\":true}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"n\":2}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-result] {\"case\":\"close-summary\",\"kind\":\"manage\",\"operation\":\"confirmar\",\"saved\":true}"
+  },
+  {
+    "family": "participation",
+    "event": "[visual-attempt] {\"case\":\"close-report\",\"kind\":\"report\",\"operation\":\"borrador\",\"n\":1}"
+  },
+  {
+    "family": "outings",
+    "event": "[visual-attempt] {\"run\":\"5489acf9-6823-4ae7-8c07-499685114ca6\",\"kind\":\"edit\",\"n\":1}"
+  },
+  {
+    "family": "registry",
+    "event": "[visual-attempt] {\"kind\":\"profile\",\"n\":1}"
+  },
+  {
+    "family": "registry",
+    "event": "[visual-attempt] {\"kind\":\"profile\",\"n\":2}"
+  },
+  {
+    "family": "registry",
+    "event": "   7 |  const run=(await cookies()).get('audit-run')?.value||'none',key=run+kind,n=(attempts.get(key)||0)+1;attempts.set(key,n);console.log('[visual-attempt]',JSON.stringify({kind,n}));await new Promise(r=>setTimeout(r,6000));"
+  },
+  {
+    "family": "registry",
+    "event": "  10 |  const result=await real();console.log('[visual-real-result]',JSON.stringify({kind,saved:result.saved===true,error:!!result.error,fields:Object.keys(result.fieldErrors||{})}));return result;"
+  },
+  {
+    "family": "registry",
+    "event": "[visual-attempt] {\"kind\":\"profile\",\"n\":3}"
+  },
+  {
+    "family": "registry",
+    "event": "[visual-real-result] {\"kind\":\"profile\",\"saved\":true,\"error\":false,\"fields\":[]}"
+  }
+]

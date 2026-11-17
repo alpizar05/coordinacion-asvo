@@ -1,0 +1,79 @@
+{
+  "name": "desktop-transport-person",
+  "date": "2026-11-17T19:05:19.801Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=b92ecdba-2dcf-4191-8a52-8299f91e6a70\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=b92ecdba-2dcf-4191-8a52-8299f91e6a70\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=b92ecdba-2dcf-4191-8a52-8299f91e6a70#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t164 text Portal de voluntariado\n\t\t165 container Navegación principal\n\t\t\t166 content list\n\t\t\t\t167 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t168 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t7 container contenido\n\t\t169 container\n\t\t\t170 text COORDINACIÓN\n\t\t\t171 button Cerrar sesión\n\t\t172 container Menú de Coordinación\n\t\t\t173 content list\n\t\t\t\t174 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t175 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t176 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t177 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t178 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t179 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t180 link Description: ‹ Volver a logística de la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=transporte&navContext=dc970e63-ed67-41f0-9030-11ab29135fea\n\t\t181 container Ubicación en Coordinación\n\t\t\t182 content list\n\t\t\t\t183 text Coordinación\n\t\t\t\t184 container\n\t\t\t\t\t185 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t186 container\n\t\t\t\t\t187 text Kai Responsable\n\t\t188 container\n\t\t\t189 heading Kai Responsable, Value: 1\n\t\t\t\t190 text Kai Responsable\n\t\t\t191 text Identificación \n\t\t\t192 text 800100011\n\t\t\t193 content list Unidades de voluntariado\n\t\t\t\t194 container\n\t\t\t\t\t195 text Voluntariado General  · Obligatorio\n\t\t196 container Secciones\n\t\t\t197 button Información personal\n\t\t\t198 button Participaciones\n\t\t\t199 button Unidades\n\t\t\t200 button Pólizas\n\t\t\t201 button Incidentes\n\t\t202 container Información personal\n\t\t\t203 container\n\t\t\t\t204 heading Contacto y datos personales, Value: 2\n\t\t\t\t\t205 text Contacto y datos personales\n\t\t\t\t206 definition list\n\t\t\t\t\t207 container Correo\n\t\t\t\t\t\t208 text Correo\n\t\t\t\t\t209 text persona11@example.test\n\t\t\t\t\t210 container WhatsApp\n\t\t\t\t\t\t211 text WhatsApp\n\t\t\t\t\t212 text 80000000\n\t\t\t\t\t213 container Fecha de nacimiento\n\t\t\t\t\t\t214 text Fecha de nacimiento\n\t\t\t\t\t215 text Pendiente\n\t\t\t\t\t216 container Ubicación\n\t\t\t\t\t\t217 text Ubicación\n\t\t\t\t\t218 text Pendiente\n\t\t\t\t\t219 container Voluntariado desde\n\t\t\t\t\t\t220 text Voluntariado desde\n\t\t\t\t\t221 text Año pendiente\n\t\t\t\t\t222 container Persona asociada\n\t\t\t\t\t\t223 text Persona asociada\n\t\t\t\t\t224 text Por confirmar\n\t\t\t225 container\n\t\t\t\t226 heading Emergencias y salud, Value: 2\n\t\t\t\t\t227 text Emergencias y salud\n\t\t\t\t228 definition list\n\t\t\t\t\t229 container Contacto de emergencia\n\t\t\t\t\t\t230 text Contacto de emergencia\n\t\t\t\t\t231 text Pendiente\n\t\t\t\t\t232 container Teléfono de emergencia\n\t\t\t\t\t\t233 text Teléfono de emergencia\n\t\t\t\t\t234 text Pendiente\n\t\t\t\t\t235 container Parentesco\n\t\t\t\t\t\t236 text Parentesco\n\t\t\t\t\t237 text Pendiente\n\t\t\t\t\t238 container Condición médica\n\t\t\t\t\t\t239 text Condición médica\n\t\t\t\t\t240 text Pendiente\n\t158 container\n\t\t159 text Conservación, educación y acción.\n\t\t160 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t241 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t242 image\n\t163 text Kai Responsable\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=b92ecdba-2dcf-4191-8a52-8299f91e6a70",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "1Información personal"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "2Participaciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "3Unidades"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "4Pólizas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "5Incidentes"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 231,
+    "url": "http://localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=b92ecdba-2dcf-4191-8a52-8299f91e6a70",
+    "values": [
+      {
+        "checked": true,
+        "disabled": true,
+        "name": null,
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "Control y Protección/COVIRENA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "units",
+        "value": "UEA"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

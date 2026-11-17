@@ -1,0 +1,5 @@
+Integración: authorization (base local desechable).
+(node:80998) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: acciones y Route Handler reales, sin sesión/otra unidad/admin sin coordinación; acceso permitido, perfiles, unidades obligatorias, fotos, enlaces vencidos/revocados/usados y aislamiento entre peticiones.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

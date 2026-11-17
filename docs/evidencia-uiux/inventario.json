@@ -1,0 +1,235 @@
+{
+  "source": "3e0a187",
+  "files": 125,
+  "method": "JSX references to named imports; wrappers and route reachability reviewed separately",
+  "results": [
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/action-modal.tsx",
+      "line": 40,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/add-registration.tsx",
+      "line": 44,
+      "title": "Agregar persona a la salida"
+    },
+    {
+      "component": "RegistryModal",
+      "file": "app/coordinacion/attendance-reconciliation.tsx",
+      "line": 21,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/colecciones/nueva/collection-form.tsx",
+      "line": 47,
+      "title": "Buscar salidas"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/collections-table.tsx",
+      "line": 39,
+      "title": "Filtrar convocatorias en serie"
+    },
+    {
+      "component": "RowActionPanel",
+      "file": "app/coordinacion/collections-table.tsx",
+      "line": 68,
+      "title": "Acciones de la convocatoria en serie"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/edit-registration.tsx",
+      "line": 36,
+      "title": "Editar inscripción"
+    },
+    {
+      "component": "MobileDisclosure",
+      "file": "app/coordinacion/food-summary.tsx",
+      "line": 20,
+      "title": "Ver restricciones"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/inscripciones/status-filter.tsx",
+      "line": 33,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/outings-table.tsx",
+      "line": 51,
+      "title": "Filtrar convocatorias"
+    },
+    {
+      "component": "ReportReminder",
+      "file": "app/coordinacion/page.tsx",
+      "line": 79,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/photo-dialog.tsx",
+      "line": 34,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "ReportReminder",
+      "file": "app/coordinacion/registration-actions.tsx",
+      "line": 64,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "RowActionPanel",
+      "file": "app/coordinacion/registration-actions.tsx",
+      "line": 67,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "RegistryModal",
+      "file": "app/coordinacion/registro/[id]/page.tsx",
+      "line": 93,
+      "title": "Verificar póliza"
+    },
+    {
+      "component": "ActionModal",
+      "file": "app/coordinacion/registro/profile-editor.tsx",
+      "line": 15,
+      "title": "Corregir ficha"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/registro/volunteer-filters.tsx",
+      "line": 42,
+      "title": "Buscar personas voluntarias"
+    },
+    {
+      "component": "ActionModal",
+      "file": "app/coordinacion/registro/volunteer-units.tsx",
+      "line": 10,
+      "title": "Actualizar unidades"
+    },
+    {
+      "component": "ActionModal",
+      "file": "app/coordinacion/registry-form.tsx",
+      "line": 10,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "ActionModal",
+      "file": "app/coordinacion/report-reminder.tsx",
+      "line": 11,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PhotoDialog",
+      "file": "app/coordinacion/salidas/[id]/attach-photos.tsx",
+      "line": 33,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PhotoDialog",
+      "file": "app/coordinacion/salidas/[id]/outing-editor.tsx",
+      "line": 100,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PhotoDialog",
+      "file": "app/coordinacion/salidas/[id]/outing-editor.tsx",
+      "line": 104,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/salidas/[id]/outing-editor.tsx",
+      "line": 115,
+      "title": "Sección del editor"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/salidas/[id]/outing-editor.tsx",
+      "line": 116,
+      "title": "Descartar cambios"
+    },
+    {
+      "component": "PrivateLinkForm",
+      "file": "app/coordinacion/salidas/[id]/outing-invitation.tsx",
+      "line": 15,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/salidas/[id]/registration-filter.tsx",
+      "line": 22,
+      "title": "Filtrar inscripciones"
+    },
+    {
+      "component": "MobileDisclosure",
+      "file": "app/coordinacion/salidas/[id]/resumen/page.tsx",
+      "line": 35,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PrivateLinkForm",
+      "file": "app/coordinacion/salidas/[id]/resumen/share-brief.tsx",
+      "line": 20,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PhotoDialog",
+      "file": "app/coordinacion/salidas/nueva/new-outing-form.tsx",
+      "line": 182,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "PhotoDialog",
+      "file": "app/coordinacion/salidas/nueva/new-outing-form.tsx",
+      "line": 202,
+      "title": "(dinámico/no aplica)"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/salidas/nueva/new-outing-form.tsx",
+      "line": 253,
+      "title": "Sección de nueva convocatoria"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/salidas/nueva/new-outing-form.tsx",
+      "line": 254,
+      "title": "Descartar convocatoria"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/section-workspace.tsx",
+      "line": 30,
+      "title": "Elegir sección"
+    },
+    {
+      "component": "CoordinationModal",
+      "file": "app/coordinacion/section-workspace.tsx",
+      "line": 31,
+      "title": "Descartar cambios"
+    },
+    {
+      "component": "ActionModal",
+      "file": "app/coordinacion/split-group-form.tsx",
+      "line": 9,
+      "title": "Crear salida para este grupo"
+    },
+    {
+      "component": "TableFilters",
+      "file": "app/coordinacion/summary-filters.tsx",
+      "line": 21,
+      "title": "Filtros de Resumen"
+    },
+    {
+      "component": "MobileDisclosure",
+      "file": "app/coordinacion/transport-summary.tsx",
+      "line": 28,
+      "title": "Ver transporte"
+    }
+  ]
+}

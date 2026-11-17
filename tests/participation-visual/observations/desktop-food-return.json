@@ -1,0 +1,56 @@
+{
+  "name": "desktop-food-return",
+  "date": "2026-11-17T19:05:21.556Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=alimentacion&navContext=443bfe61-c680-4676-9c77-8590f2e36b1d\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 308-334\n~1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=alimentacion&navContext=443bfe61-c680-4676-9c77-8590f2e36b1d\n~\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=alimentacion&navContext=443bfe61-c680-4676-9c77-8590f2e36b1d#contenido\n~\t\t\t253 link Description: Inscripciones: 2/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=alimentacion&navContext=443bfe61-c680-4676-9c77-8590f2e36b1d#inscripciones\n~\t\t\t\t\t306 button (collapsed) Ver transporte, Secondary Actions: Expand\n~\t\t\t\t\t\t307 text Ver transporte\n+\t\t\t\t308 container Resumen de alimentación\n+\t\t\t\t\t309 heading Alimentación · Personas confirmadas, Value: 3\n+\t\t\t\t\t\t310 text Alimentación · Personas confirmadas\n+\t\t\t\t\t311 container\n+\t\t\t\t\t\t312 text 1 persona indicó  restricciones alimentarias\n+\t\t\t\t\t313 container\n+\t\t\t\t\t\t314 button (expanded) Ocultar restricciones, Secondary Actions: Collapse\n+\t\t\t\t\t\t\t315 text Ocultar restricciones\n+\t\t\t\t\t\t316 heading Restricciones alimentarias indicadas, Value: 4\n+\t\t\t\t\t\t\t317 text Restricciones alimentarias indicadas\n+\t\t\t\t\t\t318 container Detalle de restricciones alimentarias\n+\t\t\t\t\t\t\t319 table\n+\t\t\t\t\t\t\t\t320 row\n+\t\t\t\t\t\t\t\t\t321 cell\n+\t\t\t\t\t\t\t\t\t\t322 text Persona voluntaria\n+\t\t\t\t\t\t\t\t\t323 cell\n+\t\t\t\t\t\t\t\t\t\t324 text Restricciones alimentarias\n+\t\t\t\t\t\t\t\t325 row [FICTITIOUS-LONG-VALUE]007012\n+\t\t\t\t\t\t\t\t\t326 cell\n+\t\t\t\t\t\t\t\t\t\t327 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=707e87eb-6b5e-4dd8-af9f-604a73a134a4\n+\t\t\t\t\t\t\t\t\t328 cell\n+\t\t\t\t\t\t\t\t\t\t329 text Preferencia FICTICIA\nThe focused UI element is 327 link Description: Lia Participante, URL: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=707e87eb-6b5e-4dd8-af9f-604a73a134a4",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "A",
+      "text": "Lia Participante"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 843,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?pestana=logistica&desglose=alimentacion&navContext=443bfe61-c680-4676-9c77-8590f2e36b1d",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "method": "WCAG sRGB relative luminance, opaque declared/computed pairs; not full-page certification",
+  "pairs": [
+    {
+      "foreground": "#526a3d",
+      "background": "#fefefe",
+      "ratio": 5.97,
+      "normalTextAA": true
+    },
+    {
+      "foreground": "#40552e",
+      "background": "#fefefe",
+      "ratio": 8.14,
+      "normalTextAA": true
+    },
+    {
+      "foreground": "#ebe544",
+      "background": "#080907",
+      "ratio": 15.03,
+      "normalTextAA": true
+    },
+    {
+      "foreground": "#658048",
+      "background": "#fefefe",
+      "ratio": 4.4,
+      "normalTextAA": false
+    },
+    {
+      "foreground": "#852f24",
+      "background": "#fbefec",
+      "ratio": 7.68,
+      "normalTextAA": true
+    },
+    {
+      "foreground": "#6f716d",
+      "background": "#fefefe",
+      "ratio": 4.89,
+      "normalTextAA": true
+    },
+    {
+      "foreground": "#d4d8d0",
+      "background": "#fefefe",
+      "ratio": 1.43,
+      "nonText3to1": false
+    }
+  ]
+}

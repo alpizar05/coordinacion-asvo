@@ -1,0 +1,123 @@
+{
+  "name": "desktop-summary-manage-malformed-result",
+  "date": "2026-11-17T19:07:20.771Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=revision\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=revision\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Hugo Nuevo\n\t\t7 container\n\t\t\t8 heading Confirmar cupo, Value: 3\n\t\t\t\t9 text Confirmar cupo\n\t\t\t12 text No se pudo confirmar el guardado. Tus datos se conservan para reintentar.\n\t\t\t10 button Volver\n\t\t\t11 button Confirmar cupo\n\nThe focused UI element is 13 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Volver"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Confirmar cupo"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripciónHugo Nuevo×Confirmar cupoNo se pudo confirmar el guardado. Tus datos se conservan para reintentar.VolverConfirmar cupo",
+        "top": 476.7421875,
+        "width": 304
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1628.5,
+    "url": "http://localhost:3046/coordinacion?unidad=Voluntariado+General&dias=14&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "14"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

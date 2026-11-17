@@ -1,0 +1,11 @@
+import {cookies} from 'next/headers';import {staff,allows} from './auth';import type {FormResult} from './form-result';
+const attempts=new Map<string,number>();
+const fields:Record<string,string[]>={profile:['email','whatsapp'],units:['units'],policy:['source','ends'],incident:['description','occurred_on'],attendance:['reason','decision'],grant:['subject','unit'],import:['selected','confirm'],policyImport:['selected','confirm']};
+const operations:Record<string,string>={profile:'volunteers.correct',units:'volunteers.units',policy:'policies.verify',incident:'volunteers.incident',attendance:'attendance.reconcile',grant:'permissions.manage',import:'volunteers.import',policyImport:'policies.import'};
+export async function decorate(kind:string,_form:FormData,real:()=>Promise<FormResult>):Promise<FormResult>{
+ const user=await staff();if(!allows(user,operations[kind],{unit:'Voluntariado General'}))return real();
+ const run=(await cookies()).get('audit-run')?.value||'none',key=run+kind,n=(attempts.get(key)||0)+1;attempts.set(key,n);console.log('[visual-attempt]',JSON.stringify({kind,n}));await new Promise(r=>setTimeout(r,1800));
+ if(n===1)return {error:'Fallo general simulado antes de persistir.',fieldErrors:Object.fromEntries(fields[kind].map(f=>[f,['Corrección simulada '+f,'Segundo mensaje '+f]]))};
+ if(n===2)throw Error('Rechazo de transporte simulado antes de persistir.');
+ const result=await real();console.log('[visual-real-result]',JSON.stringify({kind,saved:result.saved===true,error:!!result.error,fields:Object.keys(result.fieldErrors||{})}));return result;
+}

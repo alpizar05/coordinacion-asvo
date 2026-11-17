@@ -1,0 +1,150 @@
+{
+  "name": "mobile-draft-mixed-result",
+  "date": "2026-11-17T19:01:48.556Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\n0 AXWebArea Informe de salida del 70 | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\n\t1 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe#contenido\n\t2 container\n\t\t3 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t4 pop up button Menú\n\t\t\t5 text Menú\n\t6 container contenido\n\t\t7 link Description: ‹ Volver al resumen de la salida, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t\t8 heading Informe de salida, Value: 1\n\t\t\t9 text Informe de salida\n\t\t10 text Informe Mobile\n\t\t11 container\n\t\t\t52 text Fallo general ficticio antes de persistir.\n\t\t\t56 container\n\t\t\t\t57 text Revisá  2 campos  para  guardar .\n\t\t\t58 content list\n\t\t\t\t59 container\n\t\t\t\t\t60 AXListMarker • \n\t\t\t\t\t61 button Acciones realizadas: Revisá actions ficticio. Segundo mensaje actions.\n\t\t\t\t\t\t62 text Acciones realizadas\n\t\t\t\t\t\t63 text : \n\t\t\t\t\t\t64 text Revisá actions ficticio. Segundo mensaje actions.\n\t\t\t\t65 container\n\t\t\t\t\t66 AXListMarker • \n\t\t\t\t\t67 button Persona funcionaria del SINAC a cargo o responsable de la actividad: Revisá host ficticio. Segundo mensaje host.\n\t\t\t\t\t\t68 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t\t69 text : \n\t\t\t\t\t\t70 text Revisá host ficticio. Segundo mensaje host.\n\t\t\t12 text Informe de salida\n\t\t\t13 text Guardá un borrador o finalizá el informe\n\t\t\t14 button Guardar borrador\n\t\t\t15 button Finalizar informe\n\t\t\t16 pop up button Sección: Datos de la gira\n\t\t\t71 container Datos de la gira\n\t\t\t\t72 container\n\t\t\t\t\t73 heading Datos de la gira, Value: 2\n\t\t\t\t\t\t74 text Datos de la gira\n\t\t\t\t\t75 heading Persona responsable (70), Value: 3\n\t\t\t\t\t\t76 text Persona responsable (70)\n\t\t\t\t\t77 text Kai Responsable\n\t\t\t\t\t78 text persona11@example.test Los datos del 70 provienen de su ficha. Revisá los datos precargados de la gira.\n\t\t\t\t\t79 text Área silvestre protegida o lugar visitado\n\t\t\t\t\t80 text field (settable) Área silvestre protegida o lugar visitado, Value: Lugar Ficticio\n\t\t\t\t\t81 text Fecha de inicio real\n\t\t\t\t\t82 date field (settable) Fecha de inicio real, Value: 2026-11-10\n\t\t\t\t\t\t83 container\n\t\t\t\t\t\t\t84 stepper\n\t\t\t\t\t\t\t85 stepper\n\t\t\t\t\t\t\t86 stepper\n\t\t\t\t\t\t87 pop up button Show date picker Show date picker\n\t\t\t\t\t88 text Fecha de finalización real\n\t\t\t\t\t89 date field (settable) Fecha de finalización real, Value: 2026-11-12\n\t\t\t\t\t\t90 container\n\t\t\t\t\t\t\t91 stepper\n\t\t\t\t\t\t\t92 stepper\n\t\t\t\t\t\t\t93 stepper\n\t\t\t\t\t\t94 pop up button Show date picker Show date picker\n\t\t\t\t\t95 text Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t96 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad\n\t\t\t\t\t97 container\n\t\t\t\t\t\t98 text Revisá host ficticio. Segundo mensaje host.\n\t40 container\n\t\t41 text Conservación, educación y acción.\n\t\t42 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t53 button Open Next.js Dev Tools\n\t\t54 container\n\t\t\t55 text Rendering . . .\n\nThe focused UI element is 96 text field (settable) Persona funcionaria del SINAC a cargo o responsable de la actividad",
+  "dom": {
+    "active": {
+      "name": "host",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Acciones realizadas: Revisá actions ficticio. Segundo mensaje actions."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Revisá host ficticio. Segundo mensaje host."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Sección: Datos de la gira⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "description": "_R_39bn5ritperlb_-field-host-error",
+        "linked": true,
+        "name": "host"
+      },
+      {
+        "description": "_R_39bn5ritperlb_-field-actions-error",
+        "linked": true,
+        "name": "actions"
+      }
+    ],
+    "overflow": false,
+    "scroll": 793.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000011012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

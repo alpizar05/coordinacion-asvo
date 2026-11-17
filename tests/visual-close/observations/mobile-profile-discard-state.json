@@ -1,0 +1,424 @@
+{
+  "name": "mobile-profile-discard-state",
+  "date": "2026-11-17T21:56:15.246Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t139 container\n+\t\t\t140 text Tenés cambios sin guardar. ¿Querés descartarlos?\n+\t\t\t141 button Seguir editando\n+\t\t\t142 button Descartar cambios\nThe focused UI element is 139 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "Tenés cambios sin guardar. ¿Querés descartarlos?Seguir editandoDescartar cambios"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Información personal⌄"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Corregir ficha"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Seguir editando"
+      },
+      {
+        "background": "rgb(251, 239, 236)",
+        "color": "rgb(133, 47, 36)",
+        "disabled": false,
+        "name": null,
+        "text": "Descartar cambios"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Nombre: Ingresá el nombre."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Primer apellido: Ingresá el primer apellido."
+      },
+      {
+        "background": "rgb(243, 245, 239)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "background": "rgb(82, 106, 61)",
+        "color": "rgb(254, 254, 254)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar correcciones"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Corregir ficha×Tenés cambios sin guardar. ¿Querés descartarlos?Seguir editandoDescartar cambiosRevisá 2 campos para guardar.Nombre: Ingresá el nombre.Primer apellido: Ingresá el primer apellido.Identidad y contactoNombre",
+        "title": "_R_3thkm9bn5ritrj9erlb_"
+      }
+    ],
+    "invalid": [
+      {
+        "described": "_R_dhkm9bn5ritrj9erlb_-field-name-error",
+        "id": "_R_dhkm9bn5ritrj9erlb_-field-name",
+        "linked": true,
+        "name": "name"
+      },
+      {
+        "described": "_R_dhkm9bn5ritrj9erlb_-field-surname-error",
+        "id": "_R_dhkm9bn5ritrj9erlb_-field-surname",
+        "linked": true,
+        "name": "surname"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 423.5,
+    "url": "http://localhost:3044/coordinacion/registro/11111111-1111-4111-8111-000000000101?seccion=information&audit=registry",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "name",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "surname",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "second_surname",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "email",
+        "type": "email",
+        "value": "<redacted>"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "birth",
+        "type": "date",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "whatsapp",
+        "type": "tel",
+        "value": "<redacted>"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "province",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "canton",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "district",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "emergency_name",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "emergency_phone",
+        "type": "tel",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "emergency_relation",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "volunteer_year",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "member_year",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "medical",
+        "type": "select-one",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "member",
+        "type": "select-one",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "medical_detail",
+        "type": "textarea",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Información personal⌄"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Corregir ficha"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "×"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Seguir editando"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Descartar cambios"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Nombre: Ingresá el nombre."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Primer apellido: Ingresá el primer apellido."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "name",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "surname",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "second_surname",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "email",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "birth",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "whatsapp",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "province",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "canton",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "district",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "emergency_name",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "emergency_phone",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "emergency_relation",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "volunteer_year",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "member_year",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "medical",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "member",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "medical_detail",
+        "text": null
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Guardar correcciones"
+      }
+    ]
+  }
+}

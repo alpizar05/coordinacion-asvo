@@ -1,0 +1,23 @@
+{
+  "name": "desktop-revoked-access-denied",
+  "date": "2026-11-17T18:49:18.030Z",
+  "ax": "Browser tab: 21, Title: \"Resumen privado de salida | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\".\n1 AXWebArea Resumen privado de salida | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t10 container\n\t\t11 heading Resumen no disponible, Value: 1\n\t\t\t12 text Resumen no disponible\n\t\t13 text Este enlace venció, fue revocado o la asignación de 70 cambió. Pedile a Coordinación un enlace actualizado.\n\t14 container\n\t\t15 text Conservación, educación y acción.\n\t\t16 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\nThe focused UI element is 1 AXWebArea Resumen privado de salida | ASVO, URL: localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×ConvocatoriasCoordinaciónResu"
+    },
+    "buttons": [],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]",
+    "values": [],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

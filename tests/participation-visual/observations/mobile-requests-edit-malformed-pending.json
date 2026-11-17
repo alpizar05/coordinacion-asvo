@@ -1,0 +1,228 @@
+{
+  "name": "mobile-requests-edit-malformed-pending",
+  "date": "2026-11-17T19:14:40.289Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button (disabled) Cerrar\n\t\t11 container\n\t\t\t12 container\n\t\t\t\t13 text Revisá  2 campos  para  guardar .\n\t\t\t14 content list\n\t\t\t\t15 container\n\t\t\t\t\t16 AXListMarker • \n\t\t\t\t\t17 button Llegada: Indicá una fecha de llegada válida.\n\t\t\t\t\t\t18 text Llegada\n\t\t\t\t\t\t19 text : \n\t\t\t\t\t\t20 text Indicá una fecha de llegada válida.\n\t\t\t\t21 container\n\t\t\t\t\t22 AXListMarker • \n\t\t\t\t\t23 button Regreso: Indicá una fecha de regreso válida.\n\t\t\t\t\t\t24 text Regreso\n\t\t\t\t\t\t25 text : \n\t\t\t\t\t\t26 text Indicá una fecha de regreso válida.\n\t\t\t27 text Iris Nueva\n\t\t\t28 text Llegada\n\t\t\t29 date field (disabled, settable) Llegada, Value: 2026-11-20\n\t\t\t35 text Indicá una fecha de llegada válida.\n\t\t\t36 text Regreso\n\t\t\t37 date field (disabled, settable) Regreso, Value: 2026-11-22\n\t\t\t43 text Indicá una fecha de regreso válida.\n\t\t\t44 checkbox (disabled, settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t45 text Restricciones alimentarias\n\t\t\t46 text entry area (disabled) Restricciones alimentarias\n\t\t\t47 checkbox (disabled, settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t48 text Otras observaciones\n\t\t\t49 text entry area (disabled) Otras observaciones, Value: Dato FICTICIO actualizado desde solicitudes\n\t\t\t50 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button (disabled) Cancelar\n\t\t\t10 button (disabled) Guardando…\n\nThe focused UI element is 2 container Editar inscripción",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Editar inscripción×Revisá 2 campos para guardar.Llegada: Indicá una fecha de llegada válida.Regreso: Indicá una fecha de"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": true,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Llegada: Indicá una fecha de llegada válida."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Regreso: Indicá una fecha de regreso válida."
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×Revisá 2 campos para guardar.Llegada: Indicá una fecha de llegada válida.Regreso: Indicá una fecha de regreso válida.Iris NuevaLlegadaIndicá una fecha de llegada válida.RegresoIndicá una fecha de regreso válida. Tiene transporte propioPersonas que puede llevarRestricciones alimentarias Tiene interés en ser 70Otras observacionesSi cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.CancelarGuardando…",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [
+      {
+        "description": "_R_3s5nklritrj9erlb_-field-starts-error",
+        "linked": true,
+        "name": "starts"
+      },
+      {
+        "description": "_R_3s5nklritrj9erlb_-field-ends-error",
+        "linked": true,
+        "name": "ends"
+      }
+    ],
+    "overflow": false,
+    "scroll": 46,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "rides",
+        "value": "0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": "Dato FICTICIO actualizado desde solicitudes"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

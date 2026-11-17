@@ -1,0 +1,202 @@
+{
+  "name": "mobile-photo-open",
+  "date": "2026-11-17T21:30:04.671Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1\n\t2 container Agregar foto\n\t\t3 container\n\t\t\t4 heading Agregar foto, Value: 2\n\t\t\t\t5 text Agregar foto\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t8 container Origen de la foto\n\t\t\t\t9 checkbox Galería, Value: 1\n\t\t\t\t10 checkbox Subir nueva, Value: 0\n\t\t\t11 text Selección de galería\n\t\t\t12 button Selección de galería\n\t\t\t13 container\n\t\t\t\t14 text Buscar por lugar, convocatoria o descripción\n\t\t\t\t15 search text field (settable) Buscar por lugar, convocatoria o descripción\n\t\t\t16 content list\n\t\t\t\t17 container\n\t\t\t\t\t18 image Foto ficticia 12-1\n\t\t\t\t\t19 text Foto ficticia 12-1 Lugar Ficticio  ·  Fotos Desktop\n\t\t\t\t\t20 button Seleccionar foto\n\t\t\t\t21 container\n\t\t\t\t\t22 image Foto ficticia 11-1\n\t\t\t\t\t23 text Foto ficticia 11-1 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t24 button Seleccionar foto\n\t\t\t\t25 container\n\t\t\t\t\t26 image Foto ficticia 11-2\n\t\t\t\t\t27 text Foto ficticia 11-2 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t28 button Seleccionar foto\n\t\t\t\t29 container\n\t\t\t\t\t30 image Foto ficticia 11-3\n\t\t\t\t\t31 text Foto ficticia 11-3 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t32 button Seleccionar foto\n\t\t\t\t33 container\n\t\t\t\t\t34 image Foto ficticia 11-4\n\t\t\t\t\t35 text Foto ficticia 11-4 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t36 button Seleccionar foto\n\t\t\t\t37 container\n\t\t\t\t\t38 image Foto ficticia 11-5\n\t\t\t\t\t39 text Foto ficticia 11-5 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t40 button Seleccionar foto\n\t\t\t\t41 container\n\t\t\t\t\t42 image Foto ficticia 11-6\n\t\t\t\t\t43 text Foto ficticia 11-6 Lugar Ficticio  ·  Galería Completa\n\t\t\t\t\t44 button Seleccionar foto\n\t\t\t\t45 container\n\t\t\t\t\t46 image Foto ficticia 8-1\n\t\t\t\t\t47 text Foto ficticia 8-1 Lugar Ficticio  ·  Eliminar Mobile\n\t\t\t\t\t48 button Seleccionar foto\n\t\t\t\t49 container\n\t\t\t\t\t50 image Foto ficticia 7-1\n\t\t\t\t\t51 text Foto ficticia 7-1 Lugar Ficticio  ·  Eliminar Desktop\n\t\t\t\t\t52 button Seleccionar foto\n\t\t\t\t53 container\n\t\t\t\t\t54 image Foto ficticia 6-1\n\t\t\t\t\t55 text Foto ficticia 6-1 Lugar Ficticio  ·  Cancelar Mobile\n\t\t\t\t\t56 button Seleccionar foto\n\t\t\t\t57 container\n\t\t\t\t\t58 image Foto ficticia 5-1\n\t\t\t\t\t59 text Foto ficticia 5-1 Lugar Ficticio  ·  Cancelar Desktop\n\t\t\t\t\t60 button Seleccionar foto\n\t\t\t\t61 container\n\t\t\t\t\t62 image Foto ficticia 4-1\n\t\t\t\t\t63 text Foto ficticia 4-1 Lugar Ficticio  ·  Individual Mobile\n\t\t\t\t\t64 button Seleccionar foto\n\t\t\t\t65 container\n\t\t\t\t\t66 image Foto ficticia 3-1\n\t\t\t\t\t67 text Foto ficticia 3-1 Lugar Ficticio  ·  Bloque Personalizado\n\t\t\t\t\t68 button Seleccionar foto\n\t\t\t\t69 container\n\t\t\t\t\t70 image Foto ficticia 2-1\n\t\t\t\t\t71 text Foto ficticia 2-1 Lugar Ficticio  ·  Serie Ficticia\n\t\t\t\t\t72 button Seleccionar foto\n\t\t\t\t73 container\n\t\t\t\t\t74 image Foto ficticia 1-1\n\t\t\t\t\t75 text Foto ficticia 1-1 Lugar Ficticio  ·  Individual Desktop\n\t\t\t\t\t76 button Seleccionar foto\n\t\t\t\t77 container\n\t\t\t\t\t78 image Foto ficticia 9-1\n\t\t\t\t\t79 text Foto ficticia 9-1 Lugar Ficticio  ·  Completar Desktop\n\t\t\t\t\t80 button Seleccionar foto\n\t\t\t\t81 container\n\t\t\t\t\t82 image Foto ficticia 10-1\n\t\t\t\t\t83 text Foto ficticia 10-1 Lugar Ficticio  ·  Completar Mobile\n\t\t\t\t\t84 button Seleccionar foto\n\t\t\t85 text Descripción de la foto\n\t\t\t86 text field (settable) Descripción de la foto\n\t\t\t87 text Crédito de la foto\n\t\t\t88 text field (settable) Crédito de la foto\n\t\t89 container\n\t\t\t90 button Cancelar\n\t\t\t91 button Agregar foto\n\nThe focused UI element is 4 heading Agregar foto, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Agregar foto"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Descartar"
+      },
+      {
+        "disabled": true,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Sección: Fotos ⌄"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Editar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Quitar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Galería"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Subir nueva"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Elegir foto de la galería"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Seleccionar foto"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar foto"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar foto×GaleríaSubir nuevaSelección de galeríaElegir foto de la galeríaBuscar por lugar, convocatoria o descripciónFoto ficticia 12-1Lugar Ficticio · Fotos DesktopSeleccionar fotoFoto ficticia 11-1Lugar Ficticio · G",
+        "title": "_r_1_"
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 370,
+    "url": "http://localhost:3045/coordinacion/salidas/11111111-1111-4111-8111-000000000013?editar=1",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "",
+        "type": "search",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "alt",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "credit",
+        "type": "text",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

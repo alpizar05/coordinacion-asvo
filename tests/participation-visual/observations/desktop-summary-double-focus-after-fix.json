@@ -1,0 +1,77 @@
+{
+  "name": "desktop-summary-double-focus-after-fix",
+  "date": "2026-11-17T19:11:07.341Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?dias=7&pestana=revision\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 5-6, 8, 20, 24-27, 29-36, 45-52, 190, 194-196\n+\t\t194 text Portal de voluntariado\n+\t\t195 container Navegación principal\n+\t\t\t196 content list\n+\t\t\t\t197 link Description: Convocatorias, Value: localhost:3046/\n+\t\t\t\t198 link Description: Coordinación, Value: localhost:3046/coordinacion\n+\t\t199 container\n+\t\t\t200 text COORDINACIÓN\n+\t\t\t201 button Cerrar sesión\n+\t\t202 container Menú de Coordinación\n+\t\t\t203 content list\n+\t\t\t\t204 link Description: Resumen, Value: localhost:3046/coordinacion\n+\t\t\t\t205 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n+\t\t\t\t206 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n+\t\t\t\t207 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n+\t\t\t\t208 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n+\t\t\t\t209 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n~\t\t\t17 text Actualizado a las  01:11 p. m.  · Costa Rica\n+\t\t210 container\n+\t\t\t211 text Unidad\n+\t\t\t212 pop up button (collapsed, settable) Unidad, Value: Todas mis unidades, Secondary Actions: Expand\n+\t\t\t\t213 menu\n+\t\t\t\t\t214 (selected) Todas mis unidades\n+\t\t\t\t\t215 BRIF\n+\t\t\t\t\t216 Control y Protección/COVIRENA\n+\t\t\t\t\t217 UEA\n+\t\t\t\t\t218 Voluntariado General\n+\t\t\t219 text Próximas salidas\n+\t\t\t220 pop up button (collapsed, settable) Próximas salidas, Value: Próximos 7 días, Secondary Actions: Expand\n+\t\t\t\t221 menu\n+\t\t\t\t\t222 (selected) Próximos 7 días\n+\t\t\t\t\t223 Próximos 14 días\n+\t\t\t\t\t224 Próximos 30 días\n+\t\t\t225 container Pendientes de Coordinación\n+\t\t\t\t226 link Description: Inscripciones en revisión 6, Value: localhost:3046/coordinacion?unidad=&dias=7&pestana=revision\n+\t\t\t\t227 link Description: Sin 70 9, Value: localhost:3046/coordinacion?unidad=&dias=7&pestana=sin70\n+\t\t\t\t228 link Description: Informes pendientes 3, Value: localhost:3046/coordinacion?unidad=&dias=7&pestana=informes\n~\t\t\t\t\t107 text 2 personas confirmadas tienen transporte propio\n~\t\t\t\t\t117 text 2 personas confirmadas tienen transporte propio\n+\t\t229 text Inscripción confirmada.\n+\t230 button Open Next.js Dev Tools\n+\t\t231 container\n+\t\t\t232 text Rendering . . .\nThe focused UI element is 39 link Description: Inscripciones Desktop, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=be6a8585-5756-42b1-bbec-3d291021d26d",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "A",
+      "text": "Inscripciones Desktop"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 341,
+    "url": "http://localhost:3046/coordinacion?dias=7&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "7"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

@@ -20,7 +20,7 @@ export function ListPositionRestorer(){
   const latest=useRef(context);latest.current=context;
   const correction=useRef<string|null>(null),resetList=useRef<string|undefined>(undefined);
   const previous=useRef<string|null>(null),native=useRef<string|null>(null),reset=useRef<string|null>(null),generation=useRef(0);
-  const submitted=useRef<{frame:NavigationFrame;time:number}|null>(null);
+  const submitted=useRef<{frame:NavigationFrame;time:number;form:HTMLFormElement}|null>(null);
   const current=()=>navigationDestination(location.pathname+location.search);
   const invalidate=(clearReset=true)=>{generation.current++;if(latest.current)latest.current.pending.current=null;submitted.current=null;if(clearReset)reset.current=null;};
   function flush(consume=true){
@@ -45,7 +45,7 @@ export function ListPositionRestorer(){
       }
       if(!form.closest('.coordination-content')&&!(form.closest('dialog')&&document.querySelector('.coordination-content')))return;
       const frame=captureNavigationPosition(undefined,form);
-      if(frame)submitted.current={frame,time:Date.now()};
+      if(frame)submitted.current={frame,time:Date.now(),form};
     };
     const saved=()=>{
       const capture=submitted.current;submitted.current=null;
@@ -56,8 +56,19 @@ export function ListPositionRestorer(){
     const errors=()=>invalidate();
     const click=(event:MouseEvent)=>{if((event.target as Element)?.closest?.('a[href]'))invalidate();};
     const history=()=>{invalidate();native.current=current();};
-    const interact=(event:Event)=>invalidate(!(event.target instanceof Element&&event.target.closest('.table-filter-modal')));
-    const keyboard=(event:KeyboardEvent)=>{if(['Tab','PageUp','PageDown','Home','End','ArrowUp','ArrowDown','Escape'].includes(event.key))interact(event);};
+    const interact=(event:Event)=>{
+      // A second pointerdown can precede React disabling a submitted button.
+      // Keep that submission's position; errors or interaction elsewhere still invalidate it.
+      if(event.type==='pointerdown'&&event.target instanceof Element&&submitted.current?.form.contains(event.target))return;
+      invalidate(!(event.target instanceof Element&&event.target.closest('.table-filter-modal')));
+    };
+    const keyboard=(event:KeyboardEvent)=>{
+      const form=submitted.current?.form,target=event.target;
+      // Escape cannot close a pending action. Keep its origin even from the dialog heading.
+      if(event.key==='Escape'&&form?.querySelector('fieldset:disabled')&&target instanceof Element&&
+        (form.contains(target)||form.closest('dialog')?.contains(target)))return;
+      if(['Tab','PageUp','PageDown','Home','End','ArrowUp','ArrowDown','Escape'].includes(event.key))interact(event);
+    };
     const close=()=>{if(latest.current?.pending.current?.kind==='save')flush(false);else ready();};
     document.addEventListener('submit',submit,true);document.addEventListener('click',click,true);
     document.addEventListener('close',close,true);

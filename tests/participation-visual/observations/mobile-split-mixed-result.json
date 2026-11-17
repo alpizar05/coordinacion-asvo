@@ -1,0 +1,165 @@
+{
+  "name": "mobile-split-mixed-result",
+  "date": "2026-11-17T18:47:17.850Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas\n\t2 container Crear salida para este grupo\n\t\t3 container\n\t\t\t4 heading Crear salida para este grupo, Value: 2\n\t\t\t\t5 text Crear salida para este grupo\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t17 text Fallo general ficticio antes de persistir.\n\t\t\t18 container\n\t\t\t\t19 text Revisá  2 campos  para  guardar .\n\t\t\t20 content list\n\t\t\t\t21 container\n\t\t\t\t\t22 AXListMarker • \n\t\t\t\t\t23 button Título de la nueva salida: Revisá title ficticio. Segundo mensaje title.\n\t\t\t\t\t\t24 text Título de la nueva salida\n\t\t\t\t\t\t25 text : \n\t\t\t\t\t\t26 text Revisá title ficticio. Segundo mensaje title.\n\t\t\t\t27 container\n\t\t\t\t\t28 AXListMarker • \n\t\t\t\t\t29 button Cupos: Revisá capacity ficticio. Segundo mensaje capacity.\n\t\t\t\t\t\t30 text Cupos\n\t\t\t\t\t\t31 text : \n\t\t\t\t\t\t32 text Revisá capacity ficticio. Segundo mensaje capacity.\n\t\t\t8 text Título de la nueva salida\n\t\t\t9 text field (settable) Título de la nueva salida, Value: Grupo Ficticio Mobile\n\t\t\t33 container\n\t\t\t\t34 text Revisá title ficticio. Segundo mensaje title.\n\t\t\t10 text Cupos\n\t\t\t11 stepper (settable, integer) Cupos, Value: 2\n\t\t\t35 container\n\t\t\t\t36 text Revisá capacity ficticio. Segundo mensaje capacity.\n\t\t\t12 text Se crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.\n\t\t14 container\n\t\t\t15 button Cancelar\n\t\t\t16 button Crear salida y trasladar grupo\n\nThe focused UI element is 9 text field (settable) Título de la nueva salida, Value: Grupo Ficticio Mobile",
+  "dom": {
+    "active": {
+      "name": "title",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Título de la nueva salida: Revisá title ficticio. Segundo mensaje title."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cupos: Revisá capacity ficticio. Segundo mensaje capacity."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida y trasladar grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Crear salida para este grupo×Fallo general ficticio antes de persistir.Revisá 2 campos para guardar.Título de la nueva salida: Revisá title ficticio. Segundo mensaje title.Cupos: Revisá capacity ficticio. Segundo mensaje capacity.Título de la nueva salidaRevisá title ficticio.Segundo mensaje title.CuposRevisá capacity ficticio.Segundo mensaje capacity.Se crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.CancelarCrear salida y trasladar grupo",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [
+      {
+        "description": "_R_12rpd9bn5ritrj9erlb_-field-title-error",
+        "linked": true,
+        "name": "title"
+      },
+      {
+        "description": "[FICTITIOUS-LONG-VALUE]r",
+        "linked": true,
+        "name": "capacity"
+      }
+    ],
+    "overflow": false,
+    "scroll": 2102,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=herramientas",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000106"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Grupo Ficticio Mobile"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "2"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Mobile · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

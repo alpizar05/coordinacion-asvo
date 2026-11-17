@@ -1,0 +1,144 @@
+{
+  "name": "desktop-draft-missing-destination-pending",
+  "date": "2026-11-17T18:52:04.874Z",
+  "ax": "Browser tab: 21, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 52-53\n~\t\t\t17 text Guardando…\n~\t\t\t18 button (disabled) Guardar borrador\n~\t\t\t19 button (disabled) Finalizar informe\n~\t\t\t\t21 button (disabled) Datos de la gira\n~\t\t\t\t22 button (disabled) Labores y acciones\n~\t\t\t\t23 button (disabled) Asistencia\n~\t\t\t\t24 button (disabled) Observaciones\n~\t\t\t\t25 button (disabled) Revisión final\n~\t\t\t\t\t59 text entry area (disabled) Observaciones o recomendaciones (opcional), Value: Nota FICTICIA de borrador Desktop\n+\t60 button Open Next.js Dev Tools\n+\t\t61 container\n+\t\t\t62 text Rendering . . .\nThe focused UI element is 10 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme DesktopInforme de salidaGuardando…Guardar borradorFinalizar inf"
+    },
+    "buttons": [
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "3Asistencia"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "4Observaciones"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "5Revisión final"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "location",
+        "value": "Lugar Ficticio"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-10"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-12"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "host",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "BRIF"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UCP-COVIRENAS"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "UEA"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "labour",
+        "value": "Mantenimiento y otros"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "activity",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "actions",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000010011"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "attended",
+        "value": "22222222-2222-4222-8222-000000010012"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "observations",
+        "value": "Nota FICTICIA de borrador Desktop"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "accuracy",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

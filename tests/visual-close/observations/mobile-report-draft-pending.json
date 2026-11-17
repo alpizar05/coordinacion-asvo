@@ -1,0 +1,161 @@
+{
+  "name": "mobile-report-draft-pending",
+  "date": "2026-11-17T22:06:42.382Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t44 text Guardando…\n~\t\t\t45 button (disabled) Guardar borrador\n~\t\t\t46 button (disabled) Finalizar informe\n~\t\t\t88 pop up button (disabled) Sección: Revisión final\n~\t\t\t\t\t108 checkbox (disabled, settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 0\nThe focused UI element is 10 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "‹ Volver al resumen de la salidaInforme de salidaInforme DesktopRevisá 4 campos para guardar.Accione"
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 35, 27)",
+        "disabled": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": true,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": true,
+        "name": null,
+        "text": "Sección: Revisión final⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [
+      {
+        "described": "_r_0_-field-accuracy-error",
+        "id": "_r_0_-field-accuracy",
+        "linked": true,
+        "name": "accuracy"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 485,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "accuracy",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Acciones realizadas: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Persona funcionaria del SINAC a cargo o responsable de la actividad: Completá este campo."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmación de asistencia: Confirmá al menos una persona que participó realmente."
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "Confirmo que revisé la asistencia y que este informe refleja lo realizado.: Confirmá que revisaste la asistencia y la información del informe."
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": null,
+        "text": "Sección: Revisión final⌄"
+      },
+      {
+        "disabledEffective": true,
+        "disabledProperty": true,
+        "inert": false,
+        "name": "accuracy",
+        "text": null
+      }
+    ]
+  }
+}

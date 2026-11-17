@@ -1,0 +1,170 @@
+{
+  "name": "desktop-keyboard-back-menu",
+  "date": "2026-11-17T19:21:53.958Z",
+  "ax": "Browser tab: 22, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Iris Nueva\n\t\t7 content list\n\t\t\t8 button Ver inscripción\n\t\t\t9 button Editar inscripción\n\t\t\t10 button Pasar a lista de espera\n\t\t\t11 button Rechazar solicitud\n\t\t\t12 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Gestionar inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver inscripción"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Editar inscripción"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Pasar a lista de espera"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Rechazar solicitud"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar inscripción"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripciónIris Nueva×Ver inscripciónEditar inscripciónPasar a lista de esperaRechazar solicitudCancelar inscripción",
+        "top": 476.0078125,
+        "width": 304
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 195,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

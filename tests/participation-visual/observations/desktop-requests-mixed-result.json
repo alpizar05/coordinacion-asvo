@@ -1,0 +1,177 @@
+{
+  "name": "desktop-requests-mixed-result",
+  "date": "2026-11-17T19:14:02.090Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Hugo Nuevo\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t14 text Fallo general ficticio antes de persistir.\n\t\t\t15 container\n\t\t\t\t16 text Revisá  1 campo  para  guardar .\n\t\t\t17 content list\n\t\t\t\t18 container\n\t\t\t\t\t19 AXListMarker • \n\t\t\t\t\t20 button Motivo: Revisá reason ficticio. Segundo mensaje reason.\n\t\t\t\t\t\t21 text Motivo\n\t\t\t\t\t\t22 text : \n\t\t\t\t\t\t23 text Revisá reason ficticio. Segundo mensaje reason.\n\t\t\t10 text Motivo\n\t\t\t11 text field (settable) Motivo, Value: Cancelación FICTICIA desde solicitudes\n\t\t\t24 container\n\t\t\t\t25 text Revisá reason ficticio. Segundo mensaje reason.\n\t\t\t12 button Volver\n\t\t\t13 button Cancelar inscripción\n\nThe focused UI element is 11 text field (settable) Motivo, Value: Cancelación FICTICIA desde solicitudes",
+  "dom": {
+    "active": {
+      "name": "reason",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Motivo: Revisá reason ficticio. Segundo mensaje reason."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Volver"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar inscripción"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripciónHugo Nuevo×Cancelar inscripciónFallo general ficticio antes de persistir.Revisá 1 campo para guardar.Motivo: Revisá reason ficticio. Segundo mensaje reason.MotivoRevisá reason ficticio.Segundo mensaje reason.VolverCancelar inscripción",
+        "top": 475.9921875,
+        "width": 304
+      }
+    ],
+    "invalid": [
+      {
+        "description": "_r_1_-field-reason-error",
+        "linked": true,
+        "name": "reason"
+      }
+    ],
+    "overflow": false,
+    "scroll": 268,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": "Cancelación FICTICIA desde solicitudes"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

@@ -64,7 +64,7 @@ export function RegistrationActions({ entry, outing, personName, error, fromList
     {reportFollowup && !reportFollowup.finalized && reportFollowup.email && <ReportReminder open={reminding} onClose={() => setReminding(false)}
       outingId={reportFollowup.outingId} registrationId={entry.id} name={personName || 'Persona asignada como 70'} email={reportFollowup.email}
       title={reportFollowup.title} starts={reportFollowup.starts} ends={reportFollowup.ends} activeLink={reportFollowup.activeLink} demo={reportFollowup.demo} />}
-    <EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel pending={pending} title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
+    <EditRegistration id={entry.id} open={editing} onClose={() => setEditing(false)} /><RowActionPanel step={selected} pending={pending} title={viewing ? "Detalle de inscripción" : "Gestionar inscripción"} subtitle={personName} expanded={viewing}
     triggerLabel={personName ? `Gestionar inscripción de ${personName}` : undefined}
     openOnError={error} managed={managed} onClose={() => setSelected(null)}>
     {close => <>

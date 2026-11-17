@@ -1,0 +1,5 @@
+
+> coordinacion-asvo@1.0.0 lint
+> biome lint --error-on-warnings app lib scripts tests next.config.ts
+
+Checked 385 files in 91ms. No fixes applied.

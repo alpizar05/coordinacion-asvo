@@ -1,0 +1,4 @@
+Integración: staff-forms (base local desechable).
+OK: errores múltiples, permisos, aprobación, decisiones, recuperación, versiones obsoletas, agrupación modificada y guardados; rollback local sin correo real.
+OK: dos decisiones simultáneas con la misma versión producen un guardado y un conflicto; una auditoría y una notificación demo.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

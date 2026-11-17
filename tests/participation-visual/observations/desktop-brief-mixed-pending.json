@@ -1,0 +1,51 @@
+{
+  "name": "desktop-brief-mixed-pending",
+  "date": "2026-11-17T18:48:45.276Z",
+  "ax": "Browser tab: 21, Title: \"Resumen para el 70 | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107/resumen\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 145-149\n+\t\t\t145 text No se pudo confirmar la generación del enlace. Los datos se conservan para reintentar.\n~\t\t\t\t46 pop up button (disabled, collapsed, settable) Persona asignada como 70, Value: Kai Responsable, Secondary Actions: Expand\n~\t\t\t\t51 button (disabled) Generando…\n~\t\t\t52 button (disabled) Revocar enlaces del resumen\n+\t146 button Open Next.js Dev Tools\n+\t\t147 container\n+\t\t\t148 text Rendering . . .\nThe focused UI element is 10 container contenido",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "MAIN",
+      "text": "CoordinaciónCerrar sesiónResumenPendientes y próximas salidas.Convocatorias de salidaCreá y gestioná las salidas.Informe"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generando…"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Revocar enlaces del resumen"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 312.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107/resumen",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "22222222-2222-4222-8222-000000007011"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

@@ -8,7 +8,7 @@ La [guía de migración histórica 2026](docs/migracion-historica-2026.md) docum
 
 ## Manual de despliegue y configuración
 
-Las recomendaciones de producto y experiencia de uso están en la **[lista de mejoras pendientes](TODO.md)**, ordenadas por prioridad.
+Las recomendaciones de producto y experiencia de uso están en la **[lista de mejoras pendientes](TODO.md)**, ordenadas por prioridad. La [auditoría de estado del TODO](docs/auditoria-estado-todo.md) contrasta pendientes, implementación y evidencia al 17/11/2026; distingue trabajo técnico completado de verificación visual, remota y decisiones institucionales pendientes.
 
 Consultá el **[How to: desplegar y configurar la plataforma](docs/despliegue-y-configuracion.md)**. Incluye GitHub, Vercel, Neon, Entra ID, SharePoint, Microsoft Graph, Exchange Online, PowerShell, variables de entorno, permisos, diagnóstico de errores y el procedimiento futuro para dominio y remitente definitivo.
 
@@ -48,12 +48,12 @@ Ejecutá estos comandos desde la carpeta `coordinacion-asvo`. La validación loc
 
 ### Primera instalación en Mac con Apple Silicon
 
-Seleccioná primero Node 26.13.1 con tu gestor de versiones y npm 11.7.0. No es necesario modificar el Node global. Para reproducir la matriz exacta, usá PostgreSQL 18.7 desechable según la guía enlazada. La alternativa persistente anterior sigue disponible dentro del proyecto:
+El entorno persistente usa Node 26.13.1, npm 11.7.0 y PostgreSQL 18.7 instalados dentro del proyecto. En una instalación nueva, prepará esos runtimes según [la guía de entorno local](docs/entorno-local-versiones.md). No se modifica el Node global. En esta Mac, el hook de `~/.zshrc` activa el entorno al entrar al proyecto y restaura PATH al salir. En otra instalación, o para activarlo manualmente:
 
 ```sh
+source scripts/local-env.zsh
+node scripts/ci/check-runtime.mjs
 npm ci --ignore-scripts --no-audit --no-fund
-# Alternativa persistente de desarrollo (PostgreSQL 18.6, no reproduce la matriz CI 18.7):
-npm install --prefix .local-postgres/runtime --no-save --package-lock=false @embedded-postgres/darwin-arm64@18.6.0-beta.19
 ```
 
 Si todavía no existe `.env.local`, crealo:
@@ -77,7 +77,7 @@ npm run db:start
 npm run db:setup
 ```
 
-`db:start` inicializa la base en el primer uso y detecta si ya está activa. Los datos quedan en `.local-postgres/data/` y el registro del servidor en `.local-postgres/postgres.log`. Conservá esa carpeta entre sesiones. Una instalación en `/private/tmp` puede desaparecer después de reiniciar el equipo.
+`db:start` usa `.local-postgres/runtime-18.7`, inicializa la base en el primer uso y comprueba la versión y el directorio del servidor activo. No usa silenciosamente el runtime anterior 18.6. Los datos quedan en `.local-postgres/data/` y el registro del servidor en `.local-postgres/postgres.log`. Conservá esa carpeta entre sesiones. Una instalación en `/private/tmp` puede desaparecer después de reiniciar el equipo.
 
 ### Datos de prueba
 
@@ -123,7 +123,7 @@ El esquema y los ejemplos se conservan. Cuando una actualización agregue tablas
 Para detener Next.js, pulsá **Ctrl+C** en su terminal. Para detener también PostgreSQL:
 
 ```sh
-.local-postgres/runtime/node_modules/@embedded-postgres/darwin-arm64/native/bin/pg_ctl -D .local-postgres/data -m fast stop
+.local-postgres/runtime-18.7/bin/pg_ctl -D .local-postgres/data -m fast stop
 ```
 
 ### Alternativa con Docker u otro PostgreSQL
@@ -134,7 +134,7 @@ Si elegís Docker Desktop, iniciá Docker antes de ejecutar:
 docker compose up -d
 ```
 
-El archivo `docker-compose.yml` usa PostgreSQL en `127.0.0.1:5432`, usuario y contraseña `asvo`, base `asvo` y volumen persistente `asvo-data`. Configurá:
+El archivo `docker-compose.yml` usa PostgreSQL en `127.0.0.1:5432`, usuario y contraseña `asvo`, base `asvo` y PostgreSQL 18.7 y volumen persistente nuevo `asvo-data-pg18` montado en `/var/lib/postgresql`. El volumen antiguo `asvo-data` se conserva: sus datos de PostgreSQL 17 requieren migración explícita y no se montan directamente en 18. Docker no fue instalado ni ejecutado en esta actualización. Configurá:
 
 ```dotenv
 DATABASE_URL=postgres://asvo:asvo@127.0.0.1:5432/asvo
@@ -142,7 +142,7 @@ APP_URL=http://localhost:3031
 ASVO_DEMO=1
 ```
 
-Después ejecutá `npm run db:setup`, cargá los ejemplos necesarios y levantá Next.js. Si ya tenés PostgreSQL 17 o posterior, configurá `DATABASE_URL` con una base dedicada a pruebas y aplicá el mismo esquema. El comando `db:start` corresponde a la instalación integrada para Mac con Apple Silicon.
+Después ejecutá `npm run db:setup`, cargá los ejemplos necesarios y levantá Next.js. Si usás otro servidor, seleccioná PostgreSQL 18.7 para coincidir con el pin y configurá `DATABASE_URL` con una base dedicada a pruebas y aplicá el mismo esquema. El comando `db:start` corresponde a la instalación integrada para Mac con Apple Silicon.
 
 ### Problemas habituales
 
@@ -382,3 +382,25 @@ La [etapa 2 de superficie interna](docs/superficie-interna-formularios.md) retir
 La [etapa 3 de ActionModal](docs/feedback-action-modal.md) consume directamente los errores ya validados, sin cambiar contratos ni flujos de éxito. Verificada con 108 unitarias, tipos/contratos/calidad/build y CUA local/controlado desktop/móvil, incluidos archivo, reintento y posición en lista sintética; límites de accesibilidad y persistencia documentados. Sin publicación.
 
 Su auditoría posterior confirmó equivalencia exacta fuera de esa expresión, sin hallazgos funcionales adicionales. Repitió las comprobaciones y CUA con 75 observaciones nuevas, separadas de la evidencia anterior; mantiene explícitos los controles no ejecutados.
+
+La [auditoría UI/UX de Coordinación](docs/auditoria-uiux-coordinacion.md) reproduce los botones amarillos de PhotoDialog por pérdida del alcance visual en su portal. Incluye comparación con componentes actuales, marca, inventario, medidas, accesibilidad y plan acotado. La [actualización local del modal de fotos](docs/actualizacion-modal-fotos.md) implementa UX01/UX02 y documenta pruebas, capturas y límites; no completa la matriz de todos los consumidores.
+
+La [revisión de otros modales y paneles](docs/revision-modales-paneles.md) conserva las variantes vigentes, homologa los campos del panel y corrige foco y bloqueo del descarte; incluye inventario, capturas, pruebas y cobertura pendiente.
+
+La [reauditoría del bloqueo de fotos del 17/11/2026](docs/actualizacion-modal-fotos.md#reauditoría-del-bloqueo--17-de-noviembre-de-2026) confirma pending, conservación y reintentos con evidencia nueva, sin otra modificación funcional.
+
+La [evaluación de contraste de controles de Coordinación](docs/contraste-controles-coordinacion.md) confirma 1,43:1 antes y 4,89:1 después en campos sobre blanco; conserva bordes decorativos, errores, controles nativos y portal público, con criterios W3C y límites explícitos.
+
+La [auditoría de foco de Gestionar](docs/auditoria-foco-gestionar.md) verifica consumidores reales de inscripciones y series, edición y recordatorios. Corrige el reemplazo de un foco válido tras guardar, conservando posición, criterios y fallbacks; incluye evidencia CUA y pruebas separadas de restauración.
+
+La [matriz visual de consumidores de Coordinación](docs/matriz-visual-consumidores.md) organiza 43 recorridos y 86 combinaciones desktop/celular, con [celdas detalladas](docs/matriz-visual-consumidores.json), evidencia histórica por método y orden de ejecución por riesgo. Está en ejecución parcial por familias: no completa la matriz visual, lectores hablados, dispositivos físicos ni infraestructura.
+
+La [ejecución visual de registro, asistencia y Administración](docs/matriz-visual-registro-administracion.md) cubre ocho recorridos desktop/celular con rutas, autorización y persistencia locales reales, fallos externos simulados y evidencia por celda. Corrige CSV multipart y navegación de etapas; conserva pendientes explícitos de contexto extendido, teclado exhaustivo, PostgreSQL 18.7 y matrices externas. Sin publicación.
+
+La [ejecución visual de convocatorias, series y fotografías](docs/matriz-visual-convocatorias-series-fotos.md) incorpora 164 observaciones en rutas reales, 111 capturas, guardados PostgreSQL locales y Graph simulado. Verifica periodos, edición directa/herencia, alcance común, series manuales, fotos y acciones; distingue preparación de persistencia y corrige el inventario de AttachPhotos sin cambiar código funcional. Incluye pendientes por variante, teclado/contexto extendidos y PostgreSQL 18.7; no completa la matriz general ni lectores hablados/dispositivos físicos. Sin publicación.
+
+La [ejecución visual de inscripciones, comunicaciones y 70](docs/matriz-visual-inscripciones-comunicaciones-70.md) aporta 393 observaciones CUA en rutas reales, 323 capturas y persistencia local de altas/decisiones/agrupaciones/enlaces/recordatorios e informes. Corrige destino ausente al separar grupo y restauración tras doble clic; distingue borrador/finalización, respuestas UI y commit. Documenta ocho grupos SQL, regresiones, PostgreSQL 18.6 y variantes pendientes; sin beta, correo real ni publicación.
+
+La [auditoría de cierre de la matriz visual](docs/cierre-matriz-visual.md) revisa las 1032 celdas: 349 verificadas con alcance explícito, 478 pendientes, 204 no aplicables y una bloqueada. Conserva la evidencia histórica y suma 92 observaciones CUA/57 capturas sobre PostgreSQL 18.7, con commits ficticios y proveedores simulados. Corrige pérdida de origen al pulsar Escape durante pending; no declara completa la matriz ni accesibilidad global, lectores, dispositivos o infraestructura.
+
+La [auditoría del TODO](docs/auditoria-estado-todo.md) aclara que las referencias a PostgreSQL 18.6/18.7 de los informes por familia son históricas: el cierre posterior ya aporta integración 18.7 y algunos commits CUA, sin repetir ni completar todas sus variantes.

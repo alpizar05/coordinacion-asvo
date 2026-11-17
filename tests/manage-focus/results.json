@@ -1,0 +1,3802 @@
+{
+  "date": "2026-11-17",
+  "cases": [
+    {
+      "case": "desktop-list",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 0,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t\t\t\t55 link Description: Serie Ficticia, Value: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=07b2b1a3-d679-4b0a-8288-869367be0c2a\n+\t67 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n+\t\t68 image\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "desktop-menu-keyboard",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Ver inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Editar inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Recordar informe de salida"
+              },
+              {
+                "disabled": false,
+                "text": "Asignar como 70"
+              },
+              {
+                "disabled": false,
+                "text": "Pasar a lista de espera"
+              },
+              {
+                "disabled": false,
+                "text": "Rechazar solicitud"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 822.8203125,
+              "height": 346.1015625,
+              "left": 8,
+              "right": 312,
+              "top": 476.71875,
+              "width": 304,
+              "x": 8,
+              "y": 476.71875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 content list\n\t\t\t8 button Ver inscripción\n\t\t\t9 button Editar inscripción\n\t\t\t10 button Recordar informe de salida\n\t\t\t11 button Asignar como 70\n\t\t\t12 button Pasar a lista de espera\n\t\t\t13 button Rechazar solicitud\n\t\t\t14 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-detail-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver a gestionar"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 900,
+              "height": 900,
+              "left": 960,
+              "right": 1440,
+              "top": 0,
+              "width": 480,
+              "x": 960,
+              "y": 0
+            },
+            "title": "Detalle de inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Detalle de inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Detalle de inscripción"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Detalle de inscripción\n\t\t3 container\n\t\t\t4 heading Detalle de inscripción, Value: 2\n\t\t\t\t5 text Detalle de inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 button Volver a gestionar\n\t\t9 text Cargando inscripción e historial…\n\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-detail-loaded",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver a gestionar"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 900,
+              "height": 900,
+              "left": 960,
+              "right": 1440,
+              "top": 0,
+              "width": 480,
+              "x": 960,
+              "y": 0
+            },
+            "title": "Detalle de inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Detalle de inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Detalle de inscripción"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-back",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Ver inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Editar inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Recordar informe de salida"
+              },
+              {
+                "disabled": false,
+                "text": "Asignar como 70"
+              },
+              {
+                "disabled": false,
+                "text": "Pasar a lista de espera"
+              },
+              {
+                "disabled": false,
+                "text": "Rechazar solicitud"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 822.8203125,
+              "height": 346.1015625,
+              "left": 8,
+              "right": 312,
+              "top": 476.71875,
+              "width": 304,
+              "x": 8,
+              "y": 476.71875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 content list\n\t\t\t8 button Ver inscripción\n\t\t\t9 button Editar inscripción\n\t\t\t10 button Recordar informe de salida\n\t\t\t11 button Asignar como 70\n\t\t\t12 button Pasar a lista de espera\n\t\t\t13 button Rechazar solicitud\n\t\t\t14 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-edit-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 562.890625,
+              "height": 225.78125,
+              "left": 432,
+              "right": 1008,
+              "top": 337.109375,
+              "width": 576,
+              "x": 432,
+              "y": 337.109375
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-edit-loaded",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 856.859375,
+              "height": 813.71875,
+              "left": 432,
+              "right": 1008,
+              "top": 43.140625,
+              "width": 576,
+              "x": 432,
+              "y": 43.140625
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t12 text Persona Ficticia\n\t\t\t13 text Llegada\n\t\t\t14 date field (settable) Llegada, Value: 2035-01-10\n\t\t\t\t15 container\n\t\t\t\t\t16 stepper\n\t\t\t\t\t17 stepper\n\t\t\t\t\t18 stepper\n\t\t\t\t19 pop up button Show date picker Show date picker\n\t\t\t20 text Regreso\n\t\t\t21 date field (settable) Regreso, Value: 2035-01-12\n\t\t\t\t22 container\n\t\t\t\t\t23 stepper\n\t\t\t\t\t24 stepper\n\t\t\t\t\t25 stepper\n\t\t\t\t26 pop up button Show date picker Show date picker\n\t\t\t27 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t28 text Restricciones alimentarias\n\t\t\t29 text entry area (settable) Restricciones alimentarias, Value: fields\n\t\t\t30 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t31 text Otras observaciones\n\t\t\t32 text entry area (settable) Otras observaciones, Value: Observación conservada\n\t\t\t33 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-edit-fields",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": true,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 856.859375,
+              "height": 813.71875,
+              "left": 432,
+              "right": 1008,
+              "top": 43.140625,
+              "width": 576,
+              "x": 432,
+              "y": 43.140625
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button (disabled) Cerrar\n\t\t11 container\n\t\t\t12 text Persona Ficticia\n\t\t\t13 text Llegada\n\t\t\t14 date field (disabled, settable) Llegada, Value: 2035-01-10\n\t\t\t20 text Regreso\n\t\t\t21 date field (disabled, settable) Regreso, Value: 2035-01-12\n\t\t\t27 checkbox (disabled, settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t28 text Restricciones alimentarias\n\t\t\t29 text entry area (disabled) Restricciones alimentarias, Value: fields\n\t\t\t30 checkbox (disabled, settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t31 text Otras observaciones\n\t\t\t32 text entry area (disabled) Otras observaciones, Value: Observación conservada\n\t\t\t33 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button (disabled) Cancelar\n\t\t\t10 button (disabled) Guardando…\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "desktop-edit-general",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Observaciones: Revisá observaciones."
+              },
+              {
+                "disabled": true,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "general"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": "true",
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 876,
+              "height": 852,
+              "left": 432,
+              "right": 1008,
+              "top": 24,
+              "width": 576,
+              "x": 432,
+              "y": 24
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Guardando…"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t34 text Conflicto general ficticio.\n\t\t\t12 text Persona Ficticia\n\t\t\t13 text Llegada\n\t\t\t14 date field (settable) Llegada, Value: 2035-01-10\n\t\t\t\t35 container\n\t\t\t\t\t36 stepper\n\t\t\t\t\t37 stepper\n\t\t\t\t\t38 stepper\n\t\t\t\t39 pop up button Show date picker Show date picker\n\t\t\t20 text Regreso\n\t\t\t21 date field (settable) Regreso, Value: 2035-01-12\n\t\t\t\t40 container\n\t\t\t\t\t41 stepper\n\t\t\t\t\t42 stepper\n\t\t\t\t\t43 stepper\n\t\t\t\t44 pop up button Show date picker Show date picker\n\t\t\t27 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t28 text Restricciones alimentarias\n\t\t\t29 text entry area (settable) Restricciones alimentarias, Value: general\n\t\t\t30 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t31 text Otras observaciones\n\t\t\t32 text entry area (settable) Otras observaciones, Value: Observación conservada\n\t\t\t33 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "desktop-edit-pending-escape",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": true,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "delay"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 876,
+              "height": 852,
+              "left": 432,
+              "right": 1008,
+              "top": 24,
+              "width": 576,
+              "x": 432,
+              "y": 24
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button (disabled) Cerrar\n\t\t11 container\n\t\t\t34 text Conflicto general ficticio.\n\t\t\t12 text Persona Ficticia\n\t\t\t13 text Llegada\n\t\t\t14 date field (disabled, settable) Llegada, Value: 2035-01-10\n\t\t\t20 text Regreso\n\t\t\t21 date field (disabled, settable) Regreso, Value: 2035-01-12\n\t\t\t27 checkbox (disabled, settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t28 text Restricciones alimentarias\n\t\t\t29 text entry area (disabled) Restricciones alimentarias, Value: delay\n\t\t\t30 checkbox (disabled, settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t31 text Otras observaciones\n\t\t\t32 text entry area (disabled) Otras observaciones, Value: Observación conservada\n\t\t\t33 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button (disabled) Cancelar\n\t\t\t10 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-edit-recovered",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Restricciones alimentarias: Revisá restricciones."
+              },
+              {
+                "disabled": false,
+                "text": "Observaciones: Revisá observaciones."
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "food",
+                "value": "delay"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 876,
+              "height": 852,
+              "left": 432,
+              "right": 1008,
+              "top": 24,
+              "width": 576,
+              "x": 432,
+              "y": 24
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": "food",
+          "tag": "TEXTAREA",
+          "text": "fields"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 29 text entry area (settable) Restricciones alimentarias, Value: delay"
+    },
+    {
+      "case": "desktop-edit-close",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 448,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 18 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "desktop-action",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": ""
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 734.6484375,
+              "height": 258.15625,
+              "left": 8,
+              "right": 312,
+              "top": 476.4921875,
+              "width": 304,
+              "x": 8,
+              "y": 476.4921875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t10 text Motivo\n\t\t\t11 text field (settable) Motivo\n\t\t\t12 button Volver\n\t\t\t13 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-action-field-error",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "Volver"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "campos"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 734.6484375,
+              "height": 258.15625,
+              "left": 8,
+              "right": 312,
+              "top": 476.4921875,
+              "width": 304,
+              "x": 8,
+              "y": 476.4921875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t10 text Motivo\n\t\t\t11 text field (disabled) Motivo, Value: campos\n\t\t\t12 button (disabled) Volver\n\t\t\t13 button (disabled) Guardando…\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "desktop-action-general-error",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "general"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 822.6328125,
+              "height": 346.140625,
+              "left": 8,
+              "right": 312,
+              "top": 476.4921875,
+              "width": 304,
+              "x": 8,
+              "y": 476.4921875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "DIV",
+          "text": "Conflicto general ficticio."
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t14 text Conflicto general ficticio.\n\t\t\t10 text Motivo\n\t\t\t11 text field (settable) Motivo, Value: general\n\t\t\t12 button Volver\n\t\t\t13 button Cancelar inscripción\n\nThe focused UI element is 15 container"
+    },
+    {
+      "case": "desktop-action-pending",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "Volver"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "demora"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 822.6328125,
+              "height": 346.140625,
+              "left": 8,
+              "right": 312,
+              "top": 476.4921875,
+              "width": 304,
+              "x": 8,
+              "y": 476.4921875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t14 text Conflicto general ficticio.\n\t\t\t10 text Motivo\n\t\t\t11 text field (disabled) Motivo, Value: demora\n\t\t\t12 button (disabled) Volver\n\t\t\t13 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-action-recovered",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Motivo: Revisá el motivo ficticio."
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "reason",
+                "value": "demora"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 892,
+              "height": 415.5078125,
+              "left": 8,
+              "right": 312,
+              "top": 476.4921875,
+              "width": 304,
+              "x": 8,
+              "y": 476.4921875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": "reason",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t14 text Error general junto al campo.\n\t\t\t15 container\n\t\t\t\t16 text Revisá  1 campo  para  guardar .\n\t\t\t17 content list\n\t\t\t\t18 container\n\t\t\t\t\t19 AXListMarker • \n\t\t\t\t\t20 button Motivo: Revisá el motivo ficticio.\n\t\t\t\t\t\t21 text Motivo\n\t\t\t\t\t\t22 text : \n\t\t\t\t\t\t23 text Revisá el motivo ficticio.\n\t\t\t10 text Motivo\n\t\t\t11 text field (settable) Motivo, Value: demora\n\t\t\t24 text Revisá el motivo ficticio.\n\t\t\t12 button Volver\n\t\t\t13 button Cancelar inscripción\n\nThe focused UI element is 11 text field (settable) Motivo, Value: demora"
+    },
+    {
+      "case": "desktop-action-success",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "A",
+          "text": "Serie Ficticia"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 55 link Description: Serie Ficticia, URL: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=07b2b1a3-d679-4b0a-8288-869367be0c2a"
+    },
+    {
+      "case": "desktop-reminder-open",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Enviar recordatorio"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "email",
+                "value": "<redacted>"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 821.453125,
+              "height": 742.90625,
+              "left": 432,
+              "right": 1008,
+              "top": 78.546875,
+              "width": 576,
+              "x": 432,
+              "y": 78.546875
+            },
+            "title": "Enviar recordatorio"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Enviar recordatorio",
+          "name": null,
+          "tag": "H2",
+          "text": "Enviar recordatorio"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 4 heading Enviar recordatorio, Value: 2"
+    },
+    {
+      "case": "desktop-reminder-close",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 448.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 18 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "desktop-series-menu",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Copiar enlace"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 626.6953125,
+              "height": 150.6875,
+              "left": 943.1640625,
+              "right": 1247.1640625,
+              "top": 476.0078125,
+              "width": 304,
+              "x": 943.1640625,
+              "y": 476.0078125
+            },
+            "title": "Acciones de la convocatoria en serie"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Acciones de la convocatoria en serie",
+          "name": null,
+          "tag": "H2",
+          "text": "Acciones de la convocatoria en serie"
+        },
+        "scrollY": 791,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Acciones de la convocatoria en serie\n\t\t3 container\n\t\t\t4 heading Acciones de la convocatoria en serie, Value: 2\n\t\t\t\t5 text Acciones de la convocatoria en serie\n\t\t\t6 text Serie Ficticia\n\t\t7 content list\n\t\t\t8 link Description: Ver serie pública, Value: localhost:3043/colecciones/11111111-1111-4111-8111-000000000002\n\t\t\t9 button Copiar enlace\n\nThe focused UI element is 4 heading Acciones de la convocatoria en serie, Value: 2"
+    },
+    {
+      "case": "desktop-series-copy",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar convocatoria en serie Serie Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 791,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "clipboard": "http://localhost:3043/colecciones/11111111-1111-4111-8111-000000000002",
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t69 text Enlace de Serie Ficticia copiado.\nThe focused UI element is 63 pop up button Gestionar convocatoria en serie Serie Ficticia"
+    },
+    {
+      "case": "desktop-series-local-link",
+      "href": "/colecciones/11111111-1111-4111-8111-000000000002",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar convocatoria en serie Serie Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 791,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 63 pop up button Gestionar convocatoria en serie Serie Ficticia"
+    },
+    {
+      "case": "desktop-manual-series",
+      "href": "/colecciones/manuales/11111111-1111-4111-8111-000000000003",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Copiar enlace"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 626.7890625,
+              "height": 150.6875,
+              "left": 951.015625,
+              "right": 1255.015625,
+              "top": 476.1015625,
+              "width": 304,
+              "x": 951.015625,
+              "y": 476.1015625
+            },
+            "title": "Acciones de la convocatoria en serie"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Acciones de la convocatoria en serie",
+          "name": null,
+          "tag": "H2",
+          "text": "Acciones de la convocatoria en serie"
+        },
+        "scrollY": 861.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=&pestana=inscripciones\n\t2 container Acciones de la convocatoria en serie\n\t\t3 container\n\t\t\t4 heading Acciones de la convocatoria en serie, Value: 2\n\t\t\t\t5 text Acciones de la convocatoria en serie\n\t\t\t6 text Serie Manual Ficticia\n\t\t7 content list\n\t\t\t8 link Description: Ver serie pública, Value: localhost:3043/colecciones/manuales/11111111-1111-4111-8111-000000000003\n\t\t\t9 button Copiar enlace\n\nThe focused UI element is 4 heading Acciones de la convocatoria en serie, Value: 2"
+    },
+    {
+      "case": "mobile-menu",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Ver inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Editar inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Recordar informe de salida"
+              },
+              {
+                "disabled": false,
+                "text": "Asignar como 70"
+              },
+              {
+                "disabled": false,
+                "text": "Pasar a lista de espera"
+              },
+              {
+                "disabled": false,
+                "text": "Rechazar solicitud"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 431.703125,
+              "left": 0,
+              "right": 390,
+              "top": 412.296875,
+              "width": 390,
+              "x": 0,
+              "y": 412.296875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 content list\n\t\t\t9 button Ver inscripción\n\t\t\t10 button Editar inscripción\n\t\t\t11 button Recordar informe de salida\n\t\t\t12 button Asignar como 70\n\t\t\t13 button Pasar a lista de espera\n\t\t\t14 button Rechazar solicitud\n\t\t\t15 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-detail-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver a gestionar"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 204.171875,
+              "left": 0,
+              "right": 390,
+              "top": 639.828125,
+              "width": 390,
+              "x": 0,
+              "y": 639.828125
+            },
+            "title": "Detalle de inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Detalle de inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Detalle de inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Detalle de inscripción\n\t\t3 container\n\t\t\t4 heading Detalle de inscripción, Value: 2\n\t\t\t\t5 text Detalle de inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 button Volver a gestionar\n\t\t9 text Cargando inscripción e historial…\n\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-detail-loaded",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver a gestionar"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 717.3984375,
+              "left": 0,
+              "right": 390,
+              "top": 126.6015625,
+              "width": 390,
+              "x": 0,
+              "y": 126.6015625
+            },
+            "title": "Detalle de inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Detalle de inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Detalle de inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 4 heading Detalle de inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-back",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Ver inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Editar inscripción"
+              },
+              {
+                "disabled": false,
+                "text": "Recordar informe de salida"
+              },
+              {
+                "disabled": false,
+                "text": "Asignar como 70"
+              },
+              {
+                "disabled": false,
+                "text": "Pasar a lista de espera"
+              },
+              {
+                "disabled": false,
+                "text": "Rechazar solicitud"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 431.703125,
+              "left": 0,
+              "right": 390,
+              "top": 412.296875,
+              "width": 390,
+              "x": 0,
+              "y": 412.296875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 content list\n\t\t\t9 button Ver inscripción\n\t\t\t10 button Editar inscripción\n\t\t\t11 button Recordar informe de salida\n\t\t\t12 button Asignar como 70\n\t\t\t13 button Pasar a lista de espera\n\t\t\t14 button Rechazar solicitud\n\t\t\t15 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-edit-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 528.484375,
+              "height": 212.96875,
+              "left": 16,
+              "right": 374,
+              "top": 315.515625,
+              "width": 358,
+              "x": 16,
+              "y": 315.515625
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-edit-loaded",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 828,
+              "height": 812,
+              "left": 16,
+              "right": 374,
+              "top": 16,
+              "width": 358,
+              "x": 16,
+              "y": 16
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-edit-fields",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": true,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 828,
+              "height": 812,
+              "left": 16,
+              "right": 374,
+              "top": 16,
+              "width": 358,
+              "x": 16,
+              "y": 16
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "mobile-edit-success",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "A",
+          "text": "Serie Ficticia"
+        },
+        "scrollY": 864.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 29 link Description: Serie Ficticia, URL: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=f8eea5fe-dce3-4d55-9a51-c468e31621d5"
+    },
+    {
+      "case": "mobile-action",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": ""
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 287.7578125,
+              "left": 0,
+              "right": 390,
+              "top": 556.2421875,
+              "width": 390,
+              "x": 0,
+              "y": 556.2421875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 447,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t11 text Motivo\n\t\t\t12 text field (settable) Motivo\n\t\t\t13 button Volver\n\t\t\t14 button Cancelar inscripción\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-action-field-error",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Motivo: Revisá el motivo ficticio."
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "reason",
+                "value": "campos"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 478.921875,
+              "left": 0,
+              "right": 390,
+              "top": 365.078125,
+              "width": 390,
+              "x": 0,
+              "y": 365.078125
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 447,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t15 text Error general junto al campo.\n\t\t\t16 container\n\t\t\t\t17 text Revisá  1 campo  para  guardar .\n\t\t\t18 content list\n\t\t\t\t19 container\n\t\t\t\t\t20 AXListMarker • \n\t\t\t\t\t21 button Motivo: Revisá el motivo ficticio.\n\t\t\t\t\t\t22 text Motivo\n\t\t\t\t\t\t23 text : \n\t\t\t\t\t\t24 text Revisá el motivo ficticio.\n\t\t\t11 text Motivo\n\t\t\t12 text field (settable) Motivo, Value: campos\n\t\t\t25 text Revisá el motivo ficticio.\n\t\t\t13 button Volver\n\t\t\t14 button Cancelar inscripción\n\nThe focused UI element is 12 text field (settable) Motivo, Value: campos"
+    },
+    {
+      "case": "mobile-close-escape",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 447,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 15 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "mobile-row-aware-edit-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 526.6875,
+              "height": 209.3828125,
+              "left": 16,
+              "right": 374,
+              "top": 317.3046875,
+              "width": 358,
+              "x": 16,
+              "y": 317.3046875
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-row-aware-edit-success",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 link Description: Saltar al contenido principal, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3043/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 heading Auditoría local de Gestionar, Value: 1\n\t\t\t9 text Auditoría local de Gestionar\n\t\t10 text Solo datos ficticios, sin persistencia ni proveedores.\n\t\t11 text Motivo: campos / general / demora / exito. Edición: fields / general / delay / success en restricciones alimentarias.\n\t\t12 container Inscripciones\n\t\t\t13 heading Inscripciones, Value: 2\n\t\t\t\t14 text Inscripciones\n\t\t\t15 table\n\t\t\t\t16 row inscripcion-11111111-1111-4111-8111-000000000001\n\t\t\t\t\t17 cell\n\t\t\t\t\t\t18 link Description: Persona Ficticia, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#persona-ficticia\n\t\t\t\t\t19 cell\n\t\t\t\t\t\t20 pop up button Gestionar inscripción de Persona Ficticia\n\t\t21 container Series\n\t\t\t22 heading Convocatorias en serie, Value: 2\n\t\t\t\t23 text Convocatorias en serie\n\t\t\t24 pop up button Filtrar convocatorias en serie · filtros activos\n\t\t\t25 container\n\t\t\t\t26 text 1  de  2  convocatorias en serie\n\t\t\t27 container Filtros activos de convocatorias en serie\n\t\t\t\t28 button Quitar filtro Búsqueda: Búsqueda: Ficticia\n\t\t\t\t29 button Quitar filtro Tipo: Automáticas\n\t\t\t\t30 button Restablecer\n\t\t\t31 table Convocatorias en serie\n\t\t\t\t32 row serie-automaticas-11111111-1111-4111-8111-000000000002\n\t\t\t\t\t33 cell\n\t\t\t\t\t\t34 link Description: Serie Ficticia, Value: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=ff1f8d3c-8a9b-40c4-8e8d-4bb8338a19af\n\t\t\t\t\t35 cell\n\t\t\t\t\t\t36 text Automática\n\t\t\t\t\t37 cell\n\t\t\t\t\t\t38 container\n\t\t\t\t\t\t\t39 text Próxima salida:  10 ene. 2035\n\t\t\t\t\t40 cell\n\t\t\t\t\t\t41 text 2  de  2  en el catálogo\n\t\t\t\t\t42 cell\n\t\t\t\t\t\t43 pop up button Gestionar convocatoria en serie Serie Ficticia\n\t\t44 text Inscripción actualizada. Se notificará a la persona voluntaria por correo.\n\t45 container\n\t\t46 text Conservación, educación y acción.\n\t\t47 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t48 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t49 image\n\nThe focused UI element is 20 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "mobile-reminder-open",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Enviar recordatorio"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "email",
+                "value": "<redacted>"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 820.8515625,
+              "height": 797.703125,
+              "left": 16,
+              "right": 374,
+              "top": 23.1484375,
+              "width": 358,
+              "x": 16,
+              "y": 23.1484375
+            },
+            "title": "Enviar recordatorio"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Enviar recordatorio",
+          "name": null,
+          "tag": "H2",
+          "text": "Enviar recordatorio"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 4 heading Enviar recordatorio, Value: 2"
+    },
+    {
+      "case": "mobile-reminder-close",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 20 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "mobile-series-menu",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Copiar enlace"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 219.09375,
+              "left": 0,
+              "right": 390,
+              "top": 624.90625,
+              "width": 390,
+              "x": 0,
+              "y": 624.90625
+            },
+            "title": "Acciones de la convocatoria en serie"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Acciones de la convocatoria en serie",
+          "name": null,
+          "tag": "H2",
+          "text": "Acciones de la convocatoria en serie"
+        },
+        "scrollY": 809,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Acciones de la convocatoria en serie\n\t\t3 container\n\t\t\t4 heading Acciones de la convocatoria en serie, Value: 2\n\t\t\t\t5 text Acciones de la convocatoria en serie\n\t\t\t6 text Serie Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 content list\n\t\t\t9 link Description: Ver serie pública, Value: localhost:3043/colecciones/11111111-1111-4111-8111-000000000002\n\t\t\t10 button Copiar enlace\n\nThe focused UI element is 4 heading Acciones de la convocatoria en serie, Value: 2"
+    },
+    {
+      "case": "mobile-series-copy",
+      "clipboard": "http://localhost:3043/colecciones/11111111-1111-4111-8111-000000000002",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar convocatoria en serie Serie Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 809,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 44\n+\t\t50 text Enlace de Serie Ficticia copiado.\nThe focused UI element is 43 pop up button Gestionar convocatoria en serie Serie Ficticia"
+    },
+    {
+      "case": "mobile-action-general",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": true,
+                "text": "Volver"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "general"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 280.734375,
+              "left": 0,
+              "right": 390,
+              "top": 563.265625,
+              "width": 390,
+              "x": 0,
+              "y": 563.265625
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button (disabled) Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t11 text Motivo\n\t\t\t12 text field (disabled) Motivo, Value: general\n\t\t\t13 button (disabled) Volver\n\t\t\t14 button (disabled) Guardando…\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones"
+    },
+    {
+      "case": "mobile-action-pending-escape",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "×"
+              },
+              {
+                "disabled": true,
+                "text": "Volver"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "demora"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 366.3203125,
+              "left": 0,
+              "right": 390,
+              "top": 477.6796875,
+              "width": 390,
+              "x": 0,
+              "y": 477.6796875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Gestionar inscripción"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button (disabled) Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t15 text Conflicto general ficticio.\n\t\t\t11 text Motivo\n\t\t\t12 text field (disabled) Motivo, Value: demora\n\t\t\t13 button (disabled) Volver\n\t\t\t14 button (disabled) Guardando…\n\nThe focused UI element is 4 heading Gestionar inscripción, Value: 2"
+    },
+    {
+      "case": "mobile-action-recovered",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Motivo: Revisá el motivo ficticio."
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "reason",
+                "value": "demora"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 465,
+              "left": 0,
+              "right": 390,
+              "top": 379,
+              "width": 390,
+              "x": 0,
+              "y": 379
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": "reason",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t15 text Error general junto al campo.\n\t\t\t16 container\n\t\t\t\t17 text Revisá  1 campo  para  guardar .\n\t\t\t18 content list\n\t\t\t\t19 container\n\t\t\t\t\t20 AXListMarker • \n\t\t\t\t\t21 button Motivo: Revisá el motivo ficticio.\n\t\t\t\t\t\t22 text Motivo\n\t\t\t\t\t\t23 text : \n\t\t\t\t\t\t24 text Revisá el motivo ficticio.\n\t\t\t11 text Motivo\n\t\t\t12 text field (settable) Motivo, Value: demora\n\t\t\t25 text Revisá el motivo ficticio.\n\t\t\t13 button Volver\n\t\t\t14 button Cancelar inscripción\n\nThe focused UI element is 12 text field (settable) Motivo, Value: demora"
+    },
+    {
+      "case": "mobile-action-success",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "A",
+          "text": "Persona Ficticia"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 18 link Description: Persona Ficticia, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#persona-ficticia"
+    },
+    {
+      "case": "desktop-row-aware-edit-loading",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 561.09375,
+              "height": 222.1953125,
+              "left": 432,
+              "right": 1008,
+              "top": 338.8984375,
+              "width": 576,
+              "x": 432,
+              "y": 338.8984375
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "desktop-row-aware-edit-success",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 link Description: Saltar al contenido principal, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3043/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3043/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3043/coordinacion\n\t10 container contenido\n\t\t11 heading Auditoría local de Gestionar, Value: 1\n\t\t\t12 text Auditoría local de Gestionar\n\t\t13 text Solo datos ficticios, sin persistencia ni proveedores.\n\t\t14 text Motivo: campos / general / demora / exito. Edición: fields / general / delay / success en restricciones alimentarias.\n\t\t15 container Inscripciones\n\t\t\t16 heading Inscripciones, Value: 2\n\t\t\t\t17 text Inscripciones\n\t\t\t18 table\n\t\t\t\t19 row inscripcion-11111111-1111-4111-8111-000000000001\n\t\t\t\t\t20 cell\n\t\t\t\t\t\t21 link Description: Persona Ficticia, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#persona-ficticia\n\t\t\t\t\t22 cell\n\t\t\t\t\t\t23 pop up button Gestionar inscripción de Persona Ficticia\n\t\t24 container Series\n\t\t\t25 heading Convocatorias en serie, Value: 2\n\t\t\t\t26 text Convocatorias en serie\n\t\t\t27 container\n\t\t\t\t28 text Buscar por nombre\n\t\t\t\t29 search text field (settable) Buscar por nombre, Value: Ficticia\n\t\t\t30 container\n\t\t\t\t31 text Tipo\n\t\t\t\t32 pop up button (collapsed, settable) Tipo, Value: Automáticas, Secondary Actions: Expand\n\t\t\t\t\t33 menu\n\t\t\t\t\t\t34 Todos\n\t\t\t\t\t\t35 (selected) Automáticas\n\t\t\t\t\t\t36 Manuales\n\t\t\t37 container\n\t\t\t\t38 text Disponibilidad pública\n\t\t\t\t39 pop up button (collapsed, settable) Disponibilidad pública, Value: Todas, Secondary Actions: Expand\n\t\t\t\t\t40 menu\n\t\t\t\t\t\t41 (selected) Todas\n\t\t\t\t\t\t42 Con salidas en el catálogo\n\t\t\t\t\t\t43 Sin salidas en el catálogo\n\t\t\t44 container\n\t\t\t\t45 text 1  de  2  convocatorias en serie\n\t\t\t46 table Convocatorias en serie\n\t\t\t\t47 row\n\t\t\t\t\t48 cell\n\t\t\t\t\t\t49 text Convocatoria en serie\n\t\t\t\t\t50 cell\n\t\t\t\t\t\t51 text Tipo\n\t\t\t\t\t52 cell\n\t\t\t\t\t\t53 text Próximo inicio\n\t\t\t\t\t54 cell\n\t\t\t\t\t\t55 text Salidas\n\t\t\t\t\t56 cell\n\t\t\t\t\t\t57 text Acciones\n\t\t\t\t58 row serie-automaticas-11111111-1111-4111-8111-000000000002\n\t\t\t\t\t59 cell\n\t\t\t\t\t\t60 link Description: Serie Ficticia, Value: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=ff1f8d3c-8a9b-40c4-8e8d-4bb8338a19af\n\t\t\t\t\t61 cell\n\t\t\t\t\t\t62 text Automática\n\t\t\t\t\t63 cell\n\t\t\t\t\t\t64 text 10/01/2035\n\t\t\t\t\t65 cell\n\t\t\t\t\t\t66 text 2  de  2  en el catálogo\n\t\t\t\t\t67 cell\n\t\t\t\t\t\t68 pop up button Gestionar convocatoria en serie Serie Ficticia\n\t69 container\n\t\t70 text Conservación, educación y acción.\n\t\t71 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t72 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t73 image\n\nThe focused UI element is 23 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "desktop-close-escape",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 23 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "mobile-action-field-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Motivo: Revisá el motivo ficticio."
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "reason",
+                "value": "campos"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 465,
+              "left": 0,
+              "right": 390,
+              "top": 379,
+              "width": 390,
+              "x": 0,
+              "y": 379
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": "reason",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t11 text Error general junto al campo.\n\t\t\t12 container\n\t\t\t\t13 text Revisá  1 campo  para  guardar .\n\t\t\t14 content list\n\t\t\t\t15 container\n\t\t\t\t\t16 AXListMarker • \n\t\t\t\t\t17 button Motivo: Revisá el motivo ficticio.\n\t\t\t\t\t\t18 text Motivo\n\t\t\t\t\t\t19 text : \n\t\t\t\t\t\t20 text Revisá el motivo ficticio.\n\t\t\t21 text Motivo\n\t\t\t22 text field (settable) Motivo, Value: campos\n\t\t\t23 text Revisá el motivo ficticio.\n\t\t\t24 button Volver\n\t\t\t25 button Cancelar inscripción\n\nThe focused UI element is 22 text field (settable) Motivo, Value: campos"
+    },
+    {
+      "case": "mobile-action-general-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "general"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 844,
+              "height": 366.3203125,
+              "left": 0,
+              "right": 390,
+              "top": 477.6796875,
+              "width": 390,
+              "x": 0,
+              "y": 477.6796875
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "DIV",
+          "text": "Conflicto general ficticio."
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t\t7 button Cerrar panel\n\t\t8 container\n\t\t\t9 heading Cancelar inscripción, Value: 3\n\t\t\t\t10 text Cancelar inscripción\n\t\t\t11 text Conflicto general ficticio.\n\t\t\t21 text Motivo\n\t\t\t22 text field (settable) Motivo, Value: general\n\t\t\t24 button Volver\n\t\t\t25 button Cancelar inscripción\n\nThe focused UI element is 26 container"
+    },
+    {
+      "case": "mobile-edit-fields-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Restricciones alimentarias: Revisá restricciones."
+              },
+              {
+                "disabled": false,
+                "text": "Observaciones: Revisá observaciones."
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 828,
+              "height": 812,
+              "left": 16,
+              "right": 374,
+              "top": 16,
+              "width": 358,
+              "x": 16,
+              "y": 16
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": "food",
+          "tag": "TEXTAREA",
+          "text": "fields"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t12 text Error ficticio de edición.\n\t\t\t13 container\n\t\t\t\t14 text Revisá  2 campos  para  guardar .\n\t\t\t15 content list\n\t\t\t\t16 container\n\t\t\t\t\t17 AXListMarker • \n\t\t\t\t\t18 button Restricciones alimentarias: Revisá restricciones.\n\t\t\t\t\t\t19 text Restricciones alimentarias\n\t\t\t\t\t\t20 text : \n\t\t\t\t\t\t21 text Revisá restricciones.\n\t\t\t\t22 container\n\t\t\t\t\t23 AXListMarker • \n\t\t\t\t\t24 button Observaciones: Revisá observaciones.\n\t\t\t\t\t\t25 text Observaciones\n\t\t\t\t\t\t26 text : \n\t\t\t\t\t\t27 text Revisá observaciones.\n\t\t\t28 text Persona Ficticia\n\t\t\t29 text Llegada\n\t\t\t30 date field (settable) Llegada, Value: 2035-01-10\n\t\t\t\t31 container\n\t\t\t\t\t32 stepper\n\t\t\t\t\t33 stepper\n\t\t\t\t\t34 stepper\n\t\t\t\t35 pop up button Show date picker Show date picker\n\t\t\t36 text Regreso\n\t\t\t37 date field (settable) Regreso, Value: 2035-01-12\n\t\t\t\t38 container\n\t\t\t\t\t39 stepper\n\t\t\t\t\t40 stepper\n\t\t\t\t\t41 stepper\n\t\t\t\t42 pop up button Show date picker Show date picker\n\t\t\t43 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t44 text Restricciones alimentarias\n\t\t\t45 text entry area (settable) Restricciones alimentarias, Value: fields\n\t\t\t46 text Revisá restricciones.\n\t\t\t47 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t48 text Otras observaciones\n\t\t\t49 text entry area (settable) Otras observaciones, Value: Observación conservada\n\t\t\t50 text Revisá observaciones.\n\t\t\t51 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 45 text entry area (settable) Restricciones alimentarias, Value: fields"
+    },
+    {
+      "case": "mobile-edit-general-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "general"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 828,
+              "height": 812,
+              "left": 16,
+              "right": 374,
+              "top": 16,
+              "width": 358,
+              "x": 16,
+              "y": 16
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "DIV",
+          "text": "Conflicto general ficticio."
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 13-27, 46, 50\n~\t\t\t12 text Conflicto general ficticio.\n~\t\t\t45 text entry area (settable) Restricciones alimentarias, Value: general\nThe focused UI element is 52 container"
+    },
+    {
+      "case": "desktop-action-field-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Motivo: Revisá el motivo ficticio."
+              },
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "reason",
+                "value": "campos"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 892,
+              "height": 415.8984375,
+              "left": 570.6015625,
+              "right": 874.6015625,
+              "top": 476.1015625,
+              "width": 304,
+              "x": 570.6015625,
+              "y": 476.1015625
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": "reason",
+          "tag": "INPUT",
+          "text": ""
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t10 text Error general junto al campo.\n\t\t\t11 container\n\t\t\t\t12 text Revisá  1 campo  para  guardar .\n\t\t\t13 content list\n\t\t\t\t14 container\n\t\t\t\t\t15 AXListMarker • \n\t\t\t\t\t16 button Motivo: Revisá el motivo ficticio.\n\t\t\t\t\t\t17 text Motivo\n\t\t\t\t\t\t18 text : \n\t\t\t\t\t\t19 text Revisá el motivo ficticio.\n\t\t\t20 text Motivo\n\t\t\t21 text field (settable) Motivo, Value: campos\n\t\t\t22 text Revisá el motivo ficticio.\n\t\t\t23 button Volver\n\t\t\t24 button Cancelar inscripción\n\nThe focused UI element is 21 text field (settable) Motivo, Value: campos"
+    },
+    {
+      "case": "desktop-action-general-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "Volver"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar inscripción"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "general"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 813.1171875,
+              "height": 337.015625,
+              "left": 570.6015625,
+              "right": 874.6015625,
+              "top": 476.1015625,
+              "width": 304,
+              "x": 570.6015625,
+              "y": 476.1015625
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Gestionar inscripción",
+          "name": null,
+          "tag": "DIV",
+          "text": "Conflicto general ficticio."
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Gestionar inscripción\n\t\t3 container\n\t\t\t4 heading Gestionar inscripción, Value: 2\n\t\t\t\t5 text Gestionar inscripción\n\t\t\t6 text Persona Ficticia\n\t\t7 container\n\t\t\t8 heading Cancelar inscripción, Value: 3\n\t\t\t\t9 text Cancelar inscripción\n\t\t\t10 text Conflicto general ficticio.\n\t\t\t20 text Motivo\n\t\t\t21 text field (settable) Motivo, Value: general\n\t\t\t23 button Volver\n\t\t\t24 button Cancelar inscripción\n\nThe focused UI element is 25 container"
+    },
+    {
+      "case": "desktop-edit-fields-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Restricciones alimentarias: Revisá restricciones."
+              },
+              {
+                "disabled": false,
+                "text": "Observaciones: Revisá observaciones."
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 876,
+              "height": 852,
+              "left": 432,
+              "right": 1008,
+              "top": 24,
+              "width": 576,
+              "x": 432,
+              "y": 24
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": "food",
+          "tag": "TEXTAREA",
+          "text": "fields"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t8 text Error ficticio de edición.\n\t\t\t9 container\n\t\t\t\t10 text Revisá  2 campos  para  guardar .\n\t\t\t11 content list\n\t\t\t\t12 container\n\t\t\t\t\t13 AXListMarker • \n\t\t\t\t\t14 button Restricciones alimentarias: Revisá restricciones.\n\t\t\t\t\t\t15 text Restricciones alimentarias\n\t\t\t\t\t\t16 text : \n\t\t\t\t\t\t17 text Revisá restricciones.\n\t\t\t\t18 container\n\t\t\t\t\t19 AXListMarker • \n\t\t\t\t\t20 button Observaciones: Revisá observaciones.\n\t\t\t\t\t\t21 text Observaciones\n\t\t\t\t\t\t22 text : \n\t\t\t\t\t\t23 text Revisá observaciones.\n\t\t\t24 text Persona Ficticia\n\t\t\t25 text Llegada\n\t\t\t26 date field (settable) Llegada, Value: 2035-01-10\n\t\t\t\t27 container\n\t\t\t\t\t28 stepper\n\t\t\t\t\t29 stepper\n\t\t\t\t\t30 stepper\n\t\t\t\t31 pop up button Show date picker Show date picker\n\t\t\t32 text Regreso\n\t\t\t33 date field (settable) Regreso, Value: 2035-01-12\n\t\t\t\t34 container\n\t\t\t\t\t35 stepper\n\t\t\t\t\t36 stepper\n\t\t\t\t\t37 stepper\n\t\t\t\t38 pop up button Show date picker Show date picker\n\t\t\t39 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t40 text Restricciones alimentarias\n\t\t\t41 text entry area (settable) Restricciones alimentarias, Value: fields\n\t\t\t42 text Revisá restricciones.\n\t\t\t43 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t44 text Otras observaciones\n\t\t\t45 text entry area (settable) Otras observaciones, Value: Observación conservada\n\t\t\t46 text Revisá observaciones.\n\t\t\t47 text Si cambiás las fechas, la inscripción volverá a revisión y conservará su cupo reservado. Deberás confirmar las nuevas fechas.\n\t\t48 container\n\t\t\t49 button Cancelar\n\t\t\t50 button Guardar cambios\n\nThe focused UI element is 41 text entry area (settable) Restricciones alimentarias, Value: fields"
+    },
+    {
+      "case": "desktop-edit-general-stable",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "food",
+                "value": "general"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 876,
+              "height": 852,
+              "left": 432,
+              "right": 1008,
+              "top": 24,
+              "width": 576,
+              "x": 432,
+              "y": 24
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "DIV",
+          "text": "Conflicto general ficticio."
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 9-23, 42, 46\n~\t\t\t8 text Conflicto general ficticio.\n~\t\t\t41 text entry area (settable) Restricciones alimentarias, Value: general\nThe focused UI element is 51 container"
+    },
+    {
+      "case": "after-fix-desktop-action-success",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": true,
+                "text": "Volver"
+              },
+              {
+                "disabled": true,
+                "text": "Guardando…"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "schedule",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "action",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "reason",
+                "value": "exito"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 727.53125,
+              "height": 251.4296875,
+              "left": 570.6015625,
+              "right": 874.6015625,
+              "top": 476.1015625,
+              "width": 304,
+              "x": 570.6015625,
+              "y": 476.1015625
+            },
+            "title": "Gestionar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": null,
+          "name": null,
+          "tag": "BODY",
+          "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 link Description: Saltar al contenido principal, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3043/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3043/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3043/coordinacion\n\t10 container contenido\n\t\t11 heading Auditoría local de Gestionar, Value: 1\n\t\t\t12 text Auditoría local de Gestionar\n\t\t13 text Solo datos ficticios, sin persistencia ni proveedores.\n\t\t14 text Motivo: campos / general / demora / exito. Edición: fields / general / delay / success en restricciones alimentarias.\n\t\t15 container Inscripciones\n\t\t\t16 heading Inscripciones, Value: 2\n\t\t\t\t17 text Inscripciones\n\t\t\t18 table\n\t\t\t\t19 row inscripcion-11111111-1111-4111-8111-000000000001\n\t\t\t\t\t20 cell\n\t\t\t\t\t\t21 link Description: Persona Ficticia, Value: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones#persona-ficticia\n\t\t\t\t\t22 cell\n\t\t\t\t\t\t23 pop up button Gestionar inscripción de Persona Ficticia\n\t\t24 container Series\n\t\t\t25 heading Convocatorias en serie, Value: 2\n\t\t\t\t26 text Convocatorias en serie\n\t\t\t27 container\n\t\t\t\t28 text Buscar por nombre\n\t\t\t\t29 search text field (settable) Buscar por nombre, Value: Ficticia\n\t\t\t30 container\n\t\t\t\t31 text Tipo\n\t\t\t\t32 pop up button (collapsed, settable) Tipo, Value: Automáticas, Secondary Actions: Expand\n\t\t\t\t\t33 menu\n\t\t\t\t\t\t34 Todos\n\t\t\t\t\t\t35 (selected) Automáticas\n\t\t\t\t\t\t36 Manuales\n\t\t\t37 container\n\t\t\t\t38 text Disponibilidad pública\n\t\t\t\t39 pop up button (collapsed, settable) Disponibilidad pública, Value: Todas, Secondary Actions: Expand\n\t\t\t\t\t40 menu\n\t\t\t\t\t\t41 (selected) Todas\n\t\t\t\t\t\t42 Con salidas en el catálogo\n\t\t\t\t\t\t43 Sin salidas en el catálogo\n\t\t\t44 container\n\t\t\t\t45 text 1  de  2  convocatorias en serie\n\t\t\t46 table Convocatorias en serie\n\t\t\t\t47 row\n\t\t\t\t\t48 cell\n\t\t\t\t\t\t49 text Convocatoria en serie\n\t\t\t\t\t50 cell\n\t\t\t\t\t\t51 text Tipo\n\t\t\t\t\t52 cell\n\t\t\t\t\t\t53 text Próximo inicio\n\t\t\t\t\t54 cell\n\t\t\t\t\t\t55 text Salidas\n\t\t\t\t\t56 cell\n\t\t\t\t\t\t57 text Acciones\n\t\t\t\t58 row serie-automaticas-11111111-1111-4111-8111-000000000002\n\t\t\t\t\t59 cell\n\t\t\t\t\t\t60 link Description: Serie Ficticia, Value: localhost:3043/coordinacion/colecciones/automaticas/11111111-1111-4111-8111-000000000002?navContext=3c96710e-539f-4405-81cf-0f343db085ca\n\t\t\t\t\t61 cell\n\t\t\t\t\t\t62 text Automática\n\t\t\t\t\t63 cell\n\t\t\t\t\t\t64 text 10/01/2035\n\t\t\t\t\t65 cell\n\t\t\t\t\t\t66 text 2  de  2  en el catálogo\n\t\t\t\t\t67 cell\n\t\t\t\t\t\t68 pop up button Gestionar convocatoria en serie Serie Ficticia\n\t69 container\n\t\t70 text Conservación, educación y acción.\n\t\t71 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t72 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t73 image\n\nThe focused UI element is 23 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "after-fix-desktop-refreshed-focus",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 460.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          1440,
+          900
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 23 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "after-fix-mobile-refreshed-focus",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar inscripción de Persona Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 23 pop up button Gestionar inscripción de Persona Ficticia"
+    },
+    {
+      "case": "after-fix-mobile-handoff",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": true,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [],
+            "overflow": false,
+            "rect": {
+              "bottom": 526.6875,
+              "height": 209.3828125,
+              "left": 16,
+              "right": 374,
+              "top": 317.3046875,
+              "width": 358,
+              "x": 16,
+              "y": 317.3046875
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": null,
+          "tag": "H2",
+          "text": "Editar inscripción"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t7 text Cargando inscripción…\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button (disabled) Guardar cambios\n\nThe focused UI element is 4 heading Editar inscripción, Value: 2"
+    },
+    {
+      "case": "after-fix-mobile-error-priority",
+      "observed": {
+        "dialogs": [
+          {
+            "buttons": [
+              {
+                "disabled": false,
+                "text": "×"
+              },
+              {
+                "disabled": false,
+                "text": "Restricciones alimentarias: Revisá restricciones."
+              },
+              {
+                "disabled": false,
+                "text": "Observaciones: Revisá observaciones."
+              },
+              {
+                "disabled": false,
+                "text": "Cancelar"
+              },
+              {
+                "disabled": false,
+                "text": "Guardar cambios"
+              }
+            ],
+            "fields": [
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "version",
+                "value": "<redacted>"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "starts",
+                "value": "2035-01-10"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "ends",
+                "value": "2035-01-12"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "transport",
+                "value": "on"
+              },
+              {
+                "disabled": true,
+                "invalid": null,
+                "linked": true,
+                "name": "rides",
+                "value": "0"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "food",
+                "value": "fields"
+              },
+              {
+                "disabled": false,
+                "invalid": null,
+                "linked": true,
+                "name": "lead",
+                "value": "on"
+              },
+              {
+                "disabled": false,
+                "invalid": "true",
+                "linked": true,
+                "name": "other",
+                "value": "Observación conservada"
+              }
+            ],
+            "overflow": false,
+            "rect": {
+              "bottom": 828,
+              "height": 812,
+              "left": 16,
+              "right": 374,
+              "top": 16,
+              "width": 358,
+              "x": 16,
+              "y": 16
+            },
+            "title": "Editar inscripción"
+          }
+        ],
+        "focus": {
+          "aria": null,
+          "dialog": "Editar inscripción",
+          "name": "food",
+          "tag": "TEXTAREA",
+          "text": "fields"
+        },
+        "scrollY": 457.5,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 45 text entry area (settable) Restricciones alimentarias, Value: fields"
+    },
+    {
+      "case": "after-fix-mobile-series-copy",
+      "observed": {
+        "dialogs": [],
+        "focus": {
+          "aria": "Gestionar convocatoria en serie Serie Ficticia",
+          "dialog": null,
+          "name": null,
+          "tag": "BUTTON",
+          "text": "Gestionar ⌄"
+        },
+        "scrollY": 809,
+        "url": "http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones",
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "clipboard": "http://localhost:3043/colecciones/11111111-1111-4111-8111-000000000002",
+      "ax": "Browser tab: 18, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3043/coordinacion/convocatorias?serieBuscar=Ficticia&serieTipo=automaticas&pestana=inscripciones\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 43 pop up button Gestionar convocatoria en serie Serie Ficticia"
+    }
+  ],
+  "notes": [
+    "Only fictitious data and simulated action adapters; no persisted operations or provider calls.",
+    "The first fixture retained the original page.tsx: it stopped at local auth configuration validation. Removed that page only in the copy and restarted after manifest cache.",
+    "Initial fixture omitted the origin row: desktop-action-success/mobile-edit-success are not product restoration evidence; row-aware reruns corrected the fixture.",
+    "Immediate fields/field-error/general readings can be transient. Use *-stable cases for completed validation focus.",
+    "mobile-action-success is row-aware pre-fix evidence of focus being replaced by the first origin-row link. after-fix-* records are new verification of the restoration guard."
+  ]
+}

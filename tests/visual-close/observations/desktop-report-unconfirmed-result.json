@@ -1,0 +1,140 @@
+{
+  "name": "desktop-report-unconfirmed-result",
+  "date": "2026-11-17T22:07:45.178Z",
+  "ax": "Browser tab: 23, Title: \"Informe de salida del 70 | ASVO\", URL: \"http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 16-42, 109, 121-123\n+\t\t\t121 text No se pudo confirmar el guardado del informe. Tus datos se conservan para reintentar.\n~\t\t\t44 text Guardá un borrador o finalizá el informe\n~\t\t\t45 button Guardar borrador\n~\t\t\t46 button Finalizar informe\n~\t\t\t\t116 button Datos de la gira\n~\t\t\t\t117 button Labores y acciones\n~\t\t\t\t118 button Asistencia\n~\t\t\t\t119 button Observaciones\n~\t\t\t\t120 button Revisión final\n~\t\t\t\t\t108 checkbox (settable, integer) Description: Confirmo que revisé la asistencia y que este informe refleja lo realizado., Value: 0\n+\t\t\t\t\t122 text Guardar borrador permite continuar después y mantiene la tarea pendiente. Finalizar guarda el informe definitivo y bloquea la edición.\n+\t123 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n+\t\t124 image\nThe focused UI element is 125 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar el guardado del informe. Tus datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "background": "rgb(254, 254, 254)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "Guardar borrador"
+      },
+      {
+        "background": "rgb(83, 105, 66)",
+        "color": "rgb(255, 255, 255)",
+        "disabled": false,
+        "name": null,
+        "text": "Finalizar informe"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(8, 9, 7)",
+        "disabled": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "background": "rgb(237, 242, 230)",
+        "color": "rgb(83, 105, 66)",
+        "disabled": false,
+        "name": null,
+        "text": "5Revisión final"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 99.5,
+    "url": "http://localhost:3046/resumen-salida/[FICTITIOUS-REDACTED]/informe",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "accuracy",
+        "type": "checkbox",
+        "value": "on"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "effectiveControls": [
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Guardar borrador"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "intent",
+        "text": "Finalizar informe"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "1Datos de la gira"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "2Labores y acciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "3Asistencia"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "4Observaciones"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": null,
+        "text": "5Revisión final"
+      },
+      {
+        "disabledEffective": false,
+        "disabledProperty": false,
+        "inert": false,
+        "name": "accuracy",
+        "text": null
+      }
+    ]
+  }
+}

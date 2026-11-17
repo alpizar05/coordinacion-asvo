@@ -1,0 +1,144 @@
+{
+  "name": "desktop-split-no-destination-fixed-pending",
+  "date": "2026-11-17T18:45:58.199Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=herramientas\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=herramientas\n\t2 container Crear salida para este grupo\n\t\t3 container\n\t\t\t4 heading Crear salida para este grupo, Value: 2\n\t\t\t\t5 text Crear salida para este grupo\n\t\t\t6 button (disabled) Cerrar\n\t\t7 container\n\t\t\t23 text Título de la nueva salida\n\t\t\t24 text field (disabled) Título de la nueva salida, Value: Grupo Ficticio Desktop\n\t\t\t26 text Cupos\n\t\t\t27 stepper (disabled, settable, integer) Cupos, Value: 2\n\t\t\t29 text Se crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.\n\t\t\t33 text Guardando…\n\t\t30 container\n\t\t\t31 button (disabled) Cancelar\n\t\t\t32 button (disabled) Guardando…\n\nThe focused UI element is 2 container Crear salida para este grupo",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Crear salida para este grupo×Título de la nueva salidaCuposSe crea una salida privada y flexible para estas fechas. Se t"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": true,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": true,
+        "label": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Crear salida para este grupo×Título de la nueva salidaCuposSe crea una salida privada y flexible para estas fechas. Se trasladan las inscripciones de este grupo con sus estados y fechas. Las demás quedan en la salida original.Guardando…CancelarGuardando…",
+        "top": 223.328125,
+        "width": 576
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1572,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=herramientas",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000105"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Grupo Ficticio Desktop"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "2"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Desktop · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

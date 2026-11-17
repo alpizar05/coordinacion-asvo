@@ -1,0 +1,100 @@
+{
+  "name": "desktop-invitation-committed",
+  "date": "2026-11-17T18:48:16.253Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 115-116, 127-129\n+\t\t\t\t111 text Enlace de invitación\n+\t\t\t\t112 text field Enlace de invitación, Value: http://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000112?invitacion=[FICTITIOUS-REDACTED]\n+\t\t\t\t113 button Copiar enlace\n+\t\t114 text Invitación privada generada.\n+\t115 button Open Next.js Dev Tools\n+\t\t116 container\n+\t\t\t117 text Rendering . . .\nThe focused UI element is 60 container Herramientas",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "AsistenciaRevisá las diferencias entre informes finalizados. Las resoluciones no modifican los informes originales ni ca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar enlace"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1292.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=herramientas",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Invitacion Ficticia\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000112"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": "800100009"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "http://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000112?invitacion=[FICTITIOUS-REDACTED]"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

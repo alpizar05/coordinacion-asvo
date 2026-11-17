@@ -1,0 +1,5 @@
+Integración: brief-contracts (base local desechable).
+(node:94911) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: enlaces 70 tipados; inválidos/permisos/conflictos sin efectos, payload y vigencia, sustitución por persona, concurrencia, rollback de generación/revocación, reintentos y no-op auditado; sin red ni correo.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

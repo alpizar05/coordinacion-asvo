@@ -1,0 +1,30 @@
+{
+  "fixtures": [
+    {
+      "family": "participation-visual",
+      "temp": "/var/folders/98/3v5ydd551ll6hdfw56nhbc0m0000gn/T/asvo-participation-visual-Ja5oTg",
+      "pid": 19916,
+      "version": "18.7",
+      "active_absent": true,
+      "temp_absent": true
+    },
+    {
+      "family": "outing-visual",
+      "temp": "/var/folders/98/3v5ydd551ll6hdfw56nhbc0m0000gn/T/asvo-outing-visual-aHVGtF",
+      "pid": 20067,
+      "version": "18.7",
+      "active_absent": true,
+      "temp_absent": true
+    },
+    {
+      "family": "registry-visual",
+      "temp": "/var/folders/98/3v5ydd551ll6hdfw56nhbc0m0000gn/T/asvo-registry-visual-7UOoFp",
+      "pid": 20170,
+      "version": "18.7",
+      "active_absent": true,
+      "temp_absent": true
+    }
+  ],
+  "tab_closed": true,
+  "viewport_reset": true
+}

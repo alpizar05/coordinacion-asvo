@@ -32,7 +32,8 @@
 .coordination-modal .photo-admin-list li img { width: 100%; max-width: 100%; height: 120px; object-fit: cover; }
 .coordination-modal .photo-admin-list button { white-space: normal; }
 .photo-source-tabs { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
-.coordination-content .photo-source-tabs button[aria-pressed=true] { background: #526a3d; border-color: #526a3d; color: #fff; }
+.coordination-content .photo-source-tabs button[aria-pressed=true] { background: var(--coord-primary); border-color: var(--coord-primary); color: var(--paper); }
+.coordination-content .photo-source-tabs button[aria-pressed=true]:hover { background: var(--coord-primary-hover); border-color: var(--coord-primary-hover); color: var(--paper); }
 .coordination-modal .photo-permission { display: flex; align-items: center; gap: .65rem; }
 .coordination-modal .photo-permission input { width: auto; flex: 0 0 auto; }
 .coordination-modal input:not([type=checkbox]):not([type=radio]), .coordination-modal select, .coordination-modal textarea { box-sizing: border-box; min-width: 0; max-width: 100%; }
@@ -500,3 +501,14 @@ body:has(.coordination-modal[open]) { overflow: hidden; }
 .coordination-content #inscripciones, .coordination-content tr[id^="inscripcion-"] { scroll-margin-top: 6rem; }
 
 .coordination-content [data-navigation-item], .coordination-content tr[id^="transporte-"], .coordination-content tr[id^="alimentacion-"] { scroll-margin-top: 6rem; }
+
+/* Row forms reuse modal field spacing; compact desktop and bottom-sheet mobile remain distinct. */
+.coordination-content .registration-sheet .coordination-modal-form-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.coordination-content .registration-sheet .drawer-heading { flex-wrap: nowrap; align-items: flex-start; }
+.coordination-content .registration-sheet .drawer-heading > div { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.coordination-content .registration-sheet-close { flex: 0 0 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
+.coordination-content .registration-sheet :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { box-sizing: border-box; min-width: 0; max-width: 100%; }
+
+/* Control boundaries: scoped contrast correction (UX03). */
+.coordination-content { --coord-control-border: var(--gray); }
+.coordination-content :is(input, select, textarea):not([type=checkbox], [type=radio], [type=hidden], [type=range], [type=color], [aria-invalid=true], :disabled) { border-color: var(--coord-control-border); }

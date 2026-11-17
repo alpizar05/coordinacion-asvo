@@ -1,0 +1,11 @@
+
+> coordinacion-asvo@1.0.0 test:contracts
+> node scripts/test-contracts.mjs
+
+OK: 8 server-only boundaries; client imports respect server-action boundaries; no receipt retention deletion.
+OK: 8 módulos de acciones sin SQL inline; 10 servicios sin dependencias hacia app, sin ciclos nuevos; adaptadores solo delegan y no tienen consumidores JSX.
+OK: inventario de 73 acciones/handlers en 24 archivos; cada operación tiene política o capacidad declarada. La inspección estática no reemplaza pruebas de acceso.
+OK: error de Entra capturado, respuesta preservada, secretos y tokens omitidos.
+OK: destinatarios .test cancelados antes de Graph; worker rechaza transacciones no durables.
+OK: token malformado rechazado antes de sendMail; ningún secreto expuesto.
+OK: inventario de autorización y contratos Auth.js/correo con dobles; sin base, credenciales ni servicios reales.

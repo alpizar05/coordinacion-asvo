@@ -1,0 +1,96 @@
+{
+  "name": "desktop-add-review-committed",
+  "date": "2026-11-17T18:19:21.908Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t1 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103#contenido\n\t2 container\n\t\t3 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t4 text Portal de voluntariado\n\t\t5 container Navegación principal\n\t\t\t6 content list\n\t\t\t\t7 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t8 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t9 container contenido\n\t\t10 container\n\t\t\t11 text COORDINACIÓN\n\t\t\t12 button Cerrar sesión\n\t\t13 container Menú de Coordinación\n\t\t\t14 content list\n\t\t\t\t15 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t16 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t17 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t18 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t19 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t20 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t21 container Ubicación en Coordinación\n\t\t\t22 content list\n\t\t\t\t23 text Coordinación\n\t\t\t\t24 container\n\t\t\t\t\t25 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t26 container\n\t\t\t\t\t27 text Alta Revision Desktop\n\t\t28 container\n\t\t\t29 text Estado ·  abierta\n\t\t\t30 link Description: Inscripciones: 0/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103#inscripciones\n\t\t\t31 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?editar=1\n\t\t\t32 heading Alta Revision Desktop, Value: 1\n\t\t\t\t33 text Alta Revision Desktop\n\t\t\t34 definition list\n\t\t\t\t35 container Lugar\n\t\t\t\t\t36 text Lugar\n\t\t\t\t37 text Lugar Ficticio\n\t\t\t\t38 container Unidad\n\t\t\t\t\t39 text Unidad\n\t\t\t\t40 text Voluntariado General\n\t\t\t\t41 container Fechas\n\t\t\t\t\t42 text Fechas\n\t\t\t\t43 container\n\t\t\t\t\t44 text 20/11/2026  al  22/11/2026\n\t\t\t\t45 container Modalidad\n\t\t\t\t\t46 text Modalidad\n\t\t\t\t47 text Fechas flexibles\n\t\t\t\t48 container Visibilidad\n\t\t\t\t\t49 text Visibilidad\n\t\t\t\t50 text Privada por enlace\n\t\t\t\t51 container Fecha límite de inscripción\n\t\t\t\t\t52 text Fecha límite de inscripción\n\t\t\t\t53 text 20/11/2026\n\t\t54 tab group Contenido de la salida\n\t\t\t55 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t56 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t57 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t58 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t59 container Inscripciones\n\t\t\t60 container Inscripciones\n\t\t\t\t61 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t62 text Inscripciones\n\t\t\t\t63 pop up button Agregar persona\n\t\t\t\t64 container\n\t\t\t\t\t65 text Estado de inscripción\n\t\t\t\t\t66 pop up button (collapsed, settable) Estado de inscripción, Value: Todos, Secondary Actions: Expand\n\t\t\t\t\t\t67 menu\n\t\t\t\t\t\t\t68 (selected) Todos\n\t\t\t\t\t\t\t69 Solicitud anterior\n\t\t\t\t\t\t\t70 En revisión\n\t\t\t\t\t\t\t71 Lista de espera\n\t\t\t\t\t\t\t72 Confirmada\n\t\t\t\t\t\t\t73 Rechazada\n\t\t\t\t\t\t\t74 Cancelada por Coordinación\n\t\t\t\t\t\t\t75 Cancelada por voluntariado\n\t\t\t\t76 text 0 inscripciones\n\t\t\t\t77 container Inscripciones de la salida\n\t\t\t\t\t78 table\n\t\t\t\t\t\t79 row\n\t\t\t\t\t\t\t80 cell\n\t\t\t\t\t\t\t\t81 text Persona voluntaria\n\t\t\t\t\t\t\t82 cell\n\t\t\t\t\t\t\t\t83 text Estado\n\t\t\t\t\t\t\t84 cell\n\t\t\t\t\t\t\t\t85 text Fechas solicitadas\n\t\t\t\t\t\t\t86 cell\n\t\t\t\t\t\t\t\t87 text Póliza\n\t\t\t\t\t\t\t88 cell\n\t\t\t\t\t\t\t\t89 text Recepción\n\t\t\t\t\t\t\t90 cell\n\t\t\t\t\t\t\t\t91 text Acciones\n\t\t\t\t\t\t92 row\n\t\t\t\t\t\t\t93 cell\n\t\t\t\t\t\t\t\t94 text Todavía no hay inscripciones para esta salida.\n\t\t95 text Hugo Nuevo: inscripción agregada en revisión. Se notificará por correo.\n\t96 container\n\t\t97 text Conservación, educación y acción.\n\t\t98 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t99 button Open Next.js Dev Tools\n\t\t100 container\n\t\t\t101 text Rendering . . .\n\nThe focused UI element is 63 pop up button Agregar persona",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Agregar persona"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 194,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Alta Revision Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000103"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Alta Revision Desktop · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

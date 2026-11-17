@@ -1,0 +1,112 @@
+{
+  "name": "desktop-detail-loaded",
+  "date": "2026-11-17T18:19:41.055Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n0 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t1 container Detalle de inscripción\n\t\t2 container\n\t\t\t3 heading Detalle de inscripción, Value: 2\n\t\t\t\t4 text Detalle de inscripción\n\t\t\t5 text Hugo Nuevo\n\t\t\t6 button Cerrar panel\n\t\t7 button Volver a gestionar\n\t\t8 text Hugo Nuevo\n\t\t9 container Participación\n\t\t\t10 heading Participación, Value: 3\n\t\t\t\t11 text Participación\n\t\t\t12 definition list\n\t\t\t\t13 container Identificación\n\t\t\t\t\t14 text Identificación\n\t\t\t\t15 text 800100008\n\t\t\t\t16 container Estado\n\t\t\t\t\t17 text Estado\n\t\t\t\t18 text En revisión\n\t\t\t\t19 container Recepción\n\t\t\t\t\t20 text Recepción\n\t\t\t\t21 text 17/11/26, 12:19 p. m.\n\t\t\t\t22 container Llegada\n\t\t\t\t\t23 text Llegada\n\t\t\t\t24 text 20/11/2026\n\t\t\t\t25 container Regreso\n\t\t\t\t\t26 text Regreso\n\t\t\t\t27 text 22/11/2026\n\t\t\t\t28 container Póliza para las fechas solicitadas\n\t\t\t\t\t29 text Póliza para las fechas solicitadas\n\t\t\t\t30 text Comprobada\n\t\t31 container Transporte\n\t\t\t32 heading Transporte, Value: 3\n\t\t\t\t33 text Transporte\n\t\t\t34 definition list\n\t\t\t\t35 container Transporte propio\n\t\t\t\t\t36 text Transporte propio\n\t\t\t\t37 text Sí\n\t\t\t\t38 container Personas que puede llevar\n\t\t\t\t\t39 text Personas que puede llevar\n\t\t\t\t40 text 2\n\t\t41 container Alimentación\n\t\t\t42 heading Restricciones alimentarias, Value: 3\n\t\t\t\t43 text Restricciones alimentarias\n\t\t\t44 text Preferencia FICTICIA alta\n\t\t45 container Responsabilidad de 70\n\t\t\t46 heading Responsabilidad de 70, Value: 3\n\t\t\t\t47 text Responsabilidad de 70\n\t\t\t48 definition list\n\t\t\t\t49 container Interés expresado\n\t\t\t\t\t50 text Interés expresado\n\t\t\t\t51 text No indicó interés\n\t\t\t\t52 container Asignación actual\n\t\t\t\t\t53 text Asignación actual\n\t\t\t\t54 text Sin asignación de 70\n\t\t55 container Observaciones\n\t\t\t56 heading Otro detalle para esta salida, Value: 3\n\t\t\t\t57 text Otro detalle para esta salida\n\t\t\t58 text No indicó observaciones.\n\t\t59 container Historial de la inscripción\n\t\t\t60 heading Historial de la inscripción, Value: 3\n\t\t\t\t61 text Historial de la inscripción\n\t\t\t62 text Hora de Costa Rica. Se muestra la evidencia registrada; algunos eventos antiguos no incluyen el detalle de los cambios o el nombre de quien los realizó.\n\t\t\t63 content list\n\t\t\t\t64 container\n\t\t\t\t\t65 text 17 nov 2026, 12:19 p. m. Recibió inscripción Coordinación de prueba revisión\n\t\t\t\t66 container\n\t\t\t\t\t67 text 17 nov 2026, 12:19 p. m. Agregó inscripción desde Coordinación Coordinación de prueba revisión\n\t\t\t68 heading Notificaciones relacionadas, Value: 3\n\t\t\t\t69 text Notificaciones relacionadas\n\t\t\t70 text El correo se muestra por separado de la acción que lo originó. «Enviado» indica que Microsoft aceptó el envío; no confirma lectura.\n\t\t\t71 content list\n\t\t\t\t72 container\n\t\t\t\t\t73 text ASVO · Alta Revision Desktop · En revisión · con cupo reservado Bandeja de prueba Destinatario:  persona8@example.test Registrado: 17 nov 2026, 12:19 p. m.\n\t\t\t74 text Los correos de prueba anteriores a este historial no tenían vínculo con la inscripción y pueden no aparecer aquí. No se muestran enlaces privados ni tokens.\n\nThe focused UI element is 3 heading Detalle de inscripción, Value: 2",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "H2",
+      "text": "Detalle de inscripción"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar panel",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Volver a gestionar"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Detalle de inscripciónHugo Nuevo×Volver a gestionarHugo NuevoParticipaciónIdentificación800100008EstadoEn revisiónRecepción17/11/26, 12:19 p. m.Llegada20/11/2026Regreso22/11/2026Póliza para las fechas solicitadasComprobadaTransporteTransporte propioSíPersonas que puede llevar2Restricciones alimentariasPreferencia FICTICIA altaResponsabilidad de 70Interés expresadoNo indicó interésAsignación actualSin asignación de 70Otro detalle para esta salidaNo indicó observaciones.Historial de la inscripciónHora de Costa Rica. Se muestra la evidencia registrada; algunos eventos antiguos no incluyen el detalle de los cambios o el nombre de quien los realizó.17 nov 2026, 12:19 p. m.Recibió inscripciónCoordinación de pruebarevisión17 nov 2026, 12:19 p. m.Agregó inscripción desde CoordinaciónCoordinación de pruebarevisiónNotificaciones relacionadasEl correo se muestra por separado de la acción que lo originó. «Enviado» indica que Microsoft aceptó el envío; no confirma lectura.ASVO · Alta Revision Desktop · En revisión · con cupo reservadoBandeja de pruebaDestinatario: persona8@example.testRegistrado: 17 nov 2026, 12:19 p. m.Los correos de prueba anteriores a este historial no tenían vínculo con la inscripción y pueden no aparecer aquí. No se muestran enlaces privados ni tokens.",
+        "top": 0,
+        "width": 480
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 214.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Alta Revision Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000103"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Alta Revision Desktop · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

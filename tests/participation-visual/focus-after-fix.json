@@ -1,0 +1,12 @@
+{
+  "mobile": {
+    "list": "summary-attention",
+    "row": "summary-review-22222222-2222-4222-8222-000000005015",
+    "scroll": 648
+  },
+  "desktop": {
+    "list": "summary-attention",
+    "row": "summary-review-22222222-2222-4222-8222-000000001003",
+    "scroll": 341
+  }
+}

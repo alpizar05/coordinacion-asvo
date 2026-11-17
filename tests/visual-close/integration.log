@@ -1,0 +1,92 @@
+PostgreSQL local/CI verificado: 18.7
+Integración: staff-registration-results (base local desechable).
+(node:20857) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: fallo posterior al commit conserva alta/edición, auditoría y aviso; reintentos son duplicado/versión obsoleta sin avisos extra.
+OK: alta revisión/espera, errores conjuntos, permisos, adaptadores, duplicado concurrente, edición/estados/versiones, rollback y reintento sin avisos duplicados; cero proveedores reales.
+Integración: security (base local desechable).
+(node:20862) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: revocación/alcance/vigencia/replay, retención sin borrado, autorización, límites concurrentes y redes compartidas, HMAC, demo host y configuración antes de red.
+Integración: manual-series-contracts (base local desechable).
+(node:20868) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: serie manual tipada, errores múltiples, permisos/selección actual, rollback y reintento, membresía sin repetidos, concurrencia y repetición histórica explícita; sin red ni correo.
+Integración: legacy-operation-contracts (base local desechable).
+(node:20873) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: contratos legacy explícitos, errores múltiples, redirects compatibles sin confirmaciones falsas, rollback/reintento, no-op, conflictos de unidad/serie, foto idempotente y terminales; sin red real.
+Integración: registration-decision-contracts (base local desechable).
+(node:20877) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: decisiones/70 explícitas, campos y conflictos generales, versión/concurrencia, rollback de cola y promoción FIFO vigente, FIFO, compatibilidad y reintento sin éxitos ni notificaciones falsas.
+Integración: homepage-feature-contracts (base local desechable).
+(node:20882) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: portada tipada, errores generales sin confirmación, permisos/estado/plazo, selección individual/serie, no-op, auditoría atómica, reintento, concurrencia y fallback de catálogo sin correo ni red.
+Integración: brief-contracts (base local desechable).
+(node:20887) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: enlaces 70 tipados; inválidos/permisos/conflictos sin efectos, payload y vigencia, sustitución por persona, concurrencia, rollback de generación/revocación, reintentos y no-op auditado; sin red ni correo.
+Integración: functional-actions (base local desechable).
+(node:20893) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: acciones canónicas/adaptadores, permisos, errores y efectos tras commit; creación/series/fotos, alta/edición/confirmación/70, invitaciones y enlaces, borrador/finalización/revocación, recordatorio demo y sesión. Sin red ni datos reales.
+Integración: mail-outcomes (base local desechable).
+[mail-outcome] {"mail":"1","attempt":"70efe693-5ee2-4d50-a2fc-2b3f8799d7f5","state":"accepted_pending_projection"}
+[mail-outcome] {"mail":"2","attempt":"37fa3b0b-5934-48d9-a7cf-0431fef96304","state":"uncertain"}
+[mail-outcome] {"mail":"3","attempt":"35ae8c28-ab2b-4620-9035-31f852d17a9e","state":"uncertain"}
+[mail-review] Intentos vencidos requieren revisión: 1
+[mail-outcome] {"mail":"4","attempt":"98c85d2f-8b4f-48a4-adc9-ca5acb323302","state":"uncertain"}
+[mail-outcome] {"mail":"6","attempt":"88947e01-efba-42a6-9d7f-9861564e72dd","state":"rejected"}
+[mail-outcome] {"mail":"7","attempt":"5a0864b2-2d43-4bbf-b0b3-1762caed708c","state":"uncertain"}
+[mail-outcome] {"mail":"8","attempt":"d9561b75-22b8-44b7-ad29-6c5b40c5cfb8","state":"rejected"}
+[mail-review] Intentos vencidos requieren revisión: 1
+OK: aceptación durable/proyección fallida, DB indisponible tras 202, timeout/503 inciertos sin reenvío, 429/auth retry, orden, dos workers sin bloqueos, revisión versionada e idempotente, .test y límites. Graph simulado; sin proveedores reales.
+Integración: photo-uploads (base local desechable).
+(node:20909) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[sharepoint][diagnostic] {"stage":"sharepoint-upload","status":500,"codes":[]}
+OK: Graph simulado sin bloqueos, autorización previa, revalidación, reintentos, tiempos de espera/cargas tardías, compensación durable, referencias compartidas/fencing, editor/herencia y creación por bloques. Cero proveedores reales.
+Integración: workflow-transitions (base local desechable).
+OK: transiciones, recuperación cancelada, promociones FIFO, decisiones/versiones simultáneas, outbox/auditoría atómicos ante fallos, informes borrador/finalizado y estados históricos intactos. Cero red/envíos reales.
+Integración: authorization (base local desechable).
+(node:20918) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+OK: acciones y Route Handler reales, sin sesión/otra unidad/admin sin coordinación; acceso permitido, perfiles, unidades obligatorias, fotos, enlaces vencidos/revocados/usados y aislamiento entre peticiones.
+Integración: registration (base local desechable).
+[mail-outcome] {"mail":"1","attempt":"fb177e12-92a5-47a1-81bd-1b90b9e3f6c7","state":"rejected"}
+OK: recepción concurrente, duplicados, confirmación, motivos, promociones, correos, enlace privado, cancelación, edición y reintentos de correo.
+Integración: public-registration (base local desechable).
+OK: errores múltiples, identificación/póliza distintas, cupos, espera, edición, cancelación, promoción y reintentos sin duplicados; rollback local, cero red real.
+Integración: staff-forms (base local desechable).
+OK: errores múltiples, permisos, aprobación, decisiones, recuperación, versiones obsoletas, agrupación modificada y guardados; rollback local sin correo real.
+OK: dos decisiones simultáneas con la misma versión producen un guardado y un conflicto; una auditoría y una notificación demo.
+Integración: registry-forms (base local desechable).
+OK: errores múltiples, ficha, unidades obligatorias, pólizas, incidentes, permisos ficticios, evidencia, CSV por fila/columna, preview sin escritura, confirmación, conflictos y reintentos sin duplicados; rollback local y cero red real.
+Integración: outing-forms (base local desechable).
+OK: errores conjuntos del editor, alcance explícito, edición directa/herencia, versiones obsoletas, borrador sin asistencia y finalización bloqueada. Rollback local; cero cargas o correos reales.
+Integración: form-audit (base local desechable).
+OK: decisiones con campo, permisos/conflictos generales, sin falsos éxitos, auditoría idempotente, completar/eliminar/cancelar y notificación demo única. Rollback local, cero red real.
+Integración: outing-editor (base local desechable).
+OK: guardado conjunto, fechas/cierre simultáneos, motivo de cupos, concurrencia, permisos y fallo de foto sin cambios parciales.
+Integración: volunteer-search (base local desechable).
+OK: búsqueda sin tildes, identificación, correo, unidad y paginación.
+Integración: volunteer-participation (base local desechable).
+OK: trayectoria, conciliación versionada, motivos, evidencia desactualizada y reapertura por informes contradictorios.
+Integración: summary (base local desechable).
+OK: Resumen filtra unidades, periodos, estados, 70, informes y cambios de inscripción.
+Integración: db-commands (base local desechable).
+OK: esquema repetible sin Graph, historial explícito/único sin comunicaciones, cola intacta, flags y destinos demo rechazados, ejemplos .test repetibles.
+Base aislada de pruebas eliminada. Sin cambios en la base de aplicación ni correo real.
+Integración: schema-migrations (base local desechable).
+OK: base vacía, estado/plan sin escrituras, registro/checksum/fecha y segunda ejecución.
+OK: adopción compatible, extensiones históricas, restricción validada y marcas/datos/cola/enlaces intactos.
+OK: migraciones de fotos/correo sobre baseline adoptada: contenido e historial intactos, intentos legados en revisión sin reenvío; segunda ejecución sin cambios.
+OK: adopción incompatible no escribe ni repara columnas/defaults/FK/índice/función/referencias.
+OK: checksum aplicado modificado detiene consulta y ejecución antes de escribir.
+OK: fallo intermedio revierte DDL/datos/marca de esa migración; reintento conserva pasos confirmados.
+OK: dos ejecutores simultáneos serializados; una aplicación y una marca por migración.
+OK: esquema de pruebas de importación usa el mismo ejecutor sin escribir en public.
+Bases y archivos temporales retirados; sin beta, mensajes ni proveedores reales.
+OK: 24 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

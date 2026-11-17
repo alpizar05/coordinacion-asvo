@@ -1,0 +1,93 @@
+{
+  "name": "desktop-summary-reminder-malformed-result",
+  "date": "2026-11-17T18:51:12.930Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?pestana=informes&dias=14\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion?pestana=informes&dias=14\n\t2 container Preparar enlace y recordar\n\t\t3 container\n\t\t\t4 heading Preparar enlace y recordar, Value: 2\n\t\t\t\t5 text Preparar enlace y recordar\n\t\t\t6 button Cerrar\n\t\t28 container\n\t\t\t46 text No se pudo confirmar el guardado. Tus datos se conservan para reintentar.\n\t\t\t29 container\n\t\t\t\t30 text Destinatario: Kai Responsable\n\t\t\t\t31 text persona11@example.test\n\t\t\t32 container\n\t\t\t\t33 text Asunto:  ASVO · Recordatorio de informe ·  Recordatorio Desktop\n\t\t\t34 container Vista previa del recordatorio\n\t\t\t\t35 container\n\t\t\t\t\t36 text ¡Hola,  Kai Responsable !\n\t\t\t\t37 container\n\t\t\t\t\t38 text Te recordamos presentar tu informe como 70 de la salida  Recordatorio Desktop , realizada del  10/11/2026  al  12/11/2026 .\n\t\t\t\t39 text Describí las labores realizadas y confirmá quiénes participaron realmente.\n\t\t\t\t40 container\n\t\t\t\t\t41 text Completar informe de salida  — botón con enlace privado.\n\t\t\t\t42 container\n\t\t\t\t\t43 text ¡Gracias por tu apoyo!\n\t\t\t\t\t44 text Coordinación de Voluntariado ASVO\n\t\t\t45 text El correo incluye un enlace vigente y personal. Si hace falta, se generará uno nuevo sin invalidar otros enlaces vigentes.\n\t\t25 container\n\t\t\t26 button Cancelar\n\t\t\t27 button Enviar recordatorio\n\nThe focused UI element is 47 container",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIV",
+      "text": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar."
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Restablecer"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Preparar enlace y recordar"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Enviar recordatorio"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Preparar enlace y recordar×No se pudo confirmar el guardado. Tus datos se conservan para reintentar.Destinatario: Kai Responsablepersona11@example.testAsunto: ASVO · Recordatorio de informe · Recordatorio Desktop¡Hola, Kai Responsable!Te recordamos presentar tu informe como 70 de la salida Recordatorio Desktop, realizada del 10/11/2026 al 12/11/2026.Describí las labores realizadas y confirmá quiénes participaron realmente.Completar informe de salida — botón con enlace privado.¡Gracias por tu apoyo!Coordinación de Voluntariado ASVOEl correo incluye un enlace vigente y personal. Si hace falta, se generará uno nuevo sin invalidar otros enlaces vigentes.CancelarEnviar recordatorio",
+        "top": 63.359375,
+        "width": 576
+      }
+    ],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 480.5,
+    "url": "http://localhost:3046/coordinacion?pestana=informes&dias=14",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "14"
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

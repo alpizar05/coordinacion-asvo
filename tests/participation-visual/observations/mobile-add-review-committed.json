@@ -1,0 +1,101 @@
+{
+  "name": "mobile-add-review-committed",
+  "date": "2026-11-17T19:06:20.106Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t14 container\n\t\t\t\t\t15 text Alta Revision Mobile\n\t\t16 container\n\t\t\t17 text Estado ·  abierta\n\t\t\t18 link Description: Inscripciones: 0/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104#inscripciones\n\t\t\t19 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?editar=1\n\t\t\t20 heading Alta Revision Mobile, Value: 1\n\t\t\t\t21 text Alta Revision Mobile\n\t\t\t22 definition list\n\t\t\t\t23 container Lugar\n\t\t\t\t\t24 text Lugar\n\t\t\t\t25 text Lugar Ficticio\n\t\t\t\t26 container Unidad\n\t\t\t\t\t27 text Unidad\n\t\t\t\t28 text Voluntariado General\n\t\t\t\t29 container Fechas\n\t\t\t\t\t30 text Fechas\n\t\t\t\t31 container\n\t\t\t\t\t32 text 20/11/2026  al  22/11/2026\n\t\t\t\t33 container Modalidad\n\t\t\t\t\t34 text Modalidad\n\t\t\t\t35 text Fechas flexibles\n\t\t\t\t36 container Visibilidad\n\t\t\t\t\t37 text Visibilidad\n\t\t\t\t38 text Privada por enlace\n\t\t\t\t39 container Fecha límite de inscripción\n\t\t\t\t\t40 text Fecha límite de inscripción\n\t\t\t\t41 text 20/11/2026\n\t\t42 tab group Contenido de la salida\n\t\t\t43 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t44 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t45 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t46 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t47 container Inscripciones\n\t\t\t48 container Inscripciones\n\t\t\t\t49 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t50 text Inscripciones\n\t\t\t\t51 pop up button Agregar persona\n\t\t\t\t52 pop up button Filtrar inscripciones\n\t\t\t\t53 text 0 inscripciones\n\t\t\t\t54 container Inscripciones de la salida\n\t\t\t\t\t55 table\n\t\t\t\t\t\t56 row\n\t\t\t\t\t\t\t57 cell\n\t\t\t\t\t\t\t\t58 text Persona voluntaria\n\t\t\t\t\t\t\t59 cell\n\t\t\t\t\t\t\t\t60 text Estado\n\t\t\t\t\t\t\t61 cell\n\t\t\t\t\t\t\t\t62 text Fechas solicitadas\n\t\t\t\t\t\t\t63 cell\n\t\t\t\t\t\t\t\t64 text Póliza\n\t\t\t\t\t\t\t65 cell\n\t\t\t\t\t\t\t\t66 text Recepción\n\t\t\t\t\t\t\t67 cell\n\t\t\t\t\t\t\t\t68 text Acciones\n\t\t\t\t\t\t69 row\n\t\t\t\t\t\t\t70 cell\n\t\t\t\t\t\t\t\t71 text Todavía no hay inscripciones para esta salida.\n\t\t72 text Iris Nueva: inscripción agregada en revisión. Se notificará por correo.\n\t73 container\n\t\t74 text Conservación, educación y acción.\n\t\t75 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t76 button Open Next.js Dev Tools\n\t\t77 container\n\t\t\t78 text Rendering . . .\n\nThe focused UI element is 51 pop up button Agregar persona",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Agregar persona"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 502.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Alta Revision Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000104"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Alta Revision Mobile · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+
+> coordinacion-asvo@1.0.0 format:check
+> prettier --check .github/workflows/ci.yml biome.json .prettierrc.json .secretlintrc.json package.json package-lock.json "scripts/ci/**/*.{mjs,json}" "tests/ci/**/*.mjs" docs/ci-y-equivalencia.md
+
+Checking formatting...
+All matched files use Prettier code style!

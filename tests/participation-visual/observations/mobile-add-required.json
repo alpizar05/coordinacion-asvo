@@ -1,0 +1,211 @@
+{
+  "name": "mobile-add-required",
+  "date": "2026-11-17T18:20:28.933Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102\n\t2 container Agregar persona a la salida\n\t\t3 container\n\t\t\t4 heading Agregar persona a la salida, Value: 2\n\t\t\t\t5 text Agregar persona a la salida\n\t\t\t6 button Cerrar\n\t\t7 container\n\t\t\t8 container\n\t\t\t\t9 text Revisá  1 campo  para  guardar .\n\t\t\t10 content list\n\t\t\t\t11 container\n\t\t\t\t\t12 AXListMarker • \n\t\t\t\t\t13 button Persona voluntaria: Seleccioná una persona del registro de voluntariado.\n\t\t\t\t\t\t14 text Persona voluntaria\n\t\t\t\t\t\t15 text : \n\t\t\t\t\t\t16 text Seleccioná una persona del registro de voluntariado.\n\t\t\t17 text Buscar persona voluntaria\n\t\t\t18 search text field (settable) Buscar persona voluntaria\n\t\t\t19 text Seleccioná una persona del registro de voluntariado.\n\t\t\t20 text Escribí al menos 2 caracteres.\n\t\t\t21 text Llegada\n\t\t\t22 date field (settable) Llegada, Value: 2026-11-20\n\t\t\t\t23 container\n\t\t\t\t\t24 stepper\n\t\t\t\t\t25 stepper\n\t\t\t\t\t26 stepper\n\t\t\t\t27 pop up button Show date picker Show date picker\n\t\t\t28 text Regreso\n\t\t\t29 date field (settable) Regreso, Value: 2026-11-22\n\t\t\t\t30 container\n\t\t\t\t\t31 stepper\n\t\t\t\t\t32 stepper\n\t\t\t\t\t33 stepper\n\t\t\t\t34 pop up button Show date picker Show date picker\n\t\t\t35 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t36 text Restricciones alimentarias\n\t\t\t37 text entry area (settable) Restricciones alimentarias\n\t\t\t38 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t39 text Otras observaciones\n\t\t\t40 text entry area (settable) Otras observaciones\n\t\t\t41 text Podés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.\n\t\t\t42 text La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.\n\t\t43 container\n\t\t\t44 button Cancelar\n\t\t\t45 button Agregar inscripción\n\nThe focused UI element is 18 search text field (settable) Buscar persona voluntaria",
+  "dom": {
+    "active": {
+      "name": "volunteer",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Persona voluntaria: Seleccioná una persona del registro de voluntariado."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar inscripción"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Agregar persona a la salida×Revisá 1 campo para guardar.Persona voluntaria: Seleccioná una persona del registro de voluntariado.Buscar persona voluntariaSeleccioná una persona del registro de voluntariado.Escribí al menos 2 caracteres.LlegadaRegreso Tiene transporte propioPersonas que puede llevarRestricciones alimentarias Tiene interés en ser 70Otras observacionesPodés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.La inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.CancelarAgregar inscripción",
+        "top": 16,
+        "width": 358
+      }
+    ],
+    "invalid": [
+      {
+        "description": "[FICTITIOUS-LONG-VALUE]",
+        "linked": true,
+        "name": "volunteer"
+      }
+    ],
+    "overflow": false,
+    "scroll": 508.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "volunteer",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "value": "2026-11-20"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "value": "2026-11-22"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": true,
+        "name": "rides",
+        "value": "0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Inscripciones Mobile\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000102"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Inscripciones Mobile · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "5"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

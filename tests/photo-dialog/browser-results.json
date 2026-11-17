@@ -1,0 +1,4450 @@
+{
+  "date": "2026-11-16",
+  "baseline": "3e0a187",
+  "realComponents": true,
+  "providers": false,
+  "persistenceSimulated": true,
+  "notes": [
+    "Public reference uses actual shared CSS and header/footer with fictitious content, not catalog DB routes.",
+    "Harness gained hydration readiness after an early select happened before hydration; success scenarios were rerun.",
+    "Counts restart at focus-fix-reloaded.",
+    "No file bytes inspected; fake image decoded locally.",
+    "Native keyboard boundaries and screen readers are not fully certified."
+  ],
+  "cases": [
+    {
+      "case": "public-before",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "public-after",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "photo-before-desktop",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 35.34375
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(8, 9, 7)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "photo-after-desktop",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "gallery-client-errors",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2amatperlbH1_-field-photoId-error",
+            "linked": true,
+            "name": "photoId"
+          },
+          {
+            "ids": "_R_2amatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          }
+        ],
+        "focus": "photoId",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Indicá una descripción de hasta 240 caracteres.",
+            "w": 502.515625
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Selección de galería: Seleccioná una foto válida de la galería.",
+            "w": 437.625
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(64, 85, 46)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "prepare-gallery-server-error",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2amatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2amatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "BUTTON",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 367.2734375
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Paisaje ficticio 8"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "independent-correction",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2amatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "alt",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción corregida"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "discard-desktop",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2amatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "DIV",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(243, 245, 239)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seguir editando",
+            "w": 146.8984375
+          },
+          {
+            "bg": "rgb(251, 239, 236)",
+            "color": "rgb(133, 47, 36)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descartar cambios",
+            "w": 169.1875
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción corregida"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "prepare-gallery-success",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "edit-initial",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción conservada"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito conservado"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "edit-success",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "persist-upload-error",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "alt",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 367.2734375
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": "C:\\fakepath\\foto.png"
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Imagen ficticia de prueba"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · prueba"
+          },
+          {
+            "checked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "upload-correction",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "alt",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 367.2734375
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 302.359375
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": "C:\\fakepath\\foto.png"
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción corregida"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · prueba"
+          },
+          {
+            "checked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "persist-upload-retry-success",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "pending-desktop",
+      "before": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Paisaje ficticio 1"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "5"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [],
+        "focus": "DIALOG",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 44,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(64, 85, 46)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Guardando…",
+            "w": 127.3359375
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Paisaje ficticio 1"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "phase": "visual change, before focus correction"
+    },
+    {
+      "case": "focus-fix-reloaded",
+      "note": "Counts restart after reload; styles and callback semantics unchanged.",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "edit-final-focus",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "1"
+          },
+          {
+            "name": "Preparadas",
+            "value": "1"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "focus": {
+        "label": null,
+        "text": "Editar foto"
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "prepare-final-focus",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "after-mobile-upload",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-multiple-errors",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-photo-error",
+            "linked": true,
+            "name": "photo"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-permission-error",
+            "linked": true,
+            "name": "permission"
+          }
+        ],
+        "focus": "photo",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Indicá una descripción de hasta 240 caracteres.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 86.375,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Archivo · JPG, PNG o WebP, hasta 3 MB: Elegí un archivo JPG, PNG o WebP válido.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 86.375,
+            "opacity": "1",
+            "pressed": null,
+            "text": "La foto está autorizada para publicación.: Confirmá la autorización para publicar esta foto.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-clean-escape",
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "pending-mobile",
+      "before": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "2"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Paisaje ficticio 1"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "DIALOG",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 44,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(64, 85, 46)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": true,
+            "h": 45.1875,
+            "opacity": "0.5",
+            "pressed": null,
+            "text": "Guardando…",
+            "w": 127.3359375
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Paisaje ficticio 1"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "ASVO · fixture"
+          }
+        ]
+      },
+      "effectiveDisabled": [
+        {
+          "disabled": true,
+          "pressed": "true",
+          "text": "Galería"
+        },
+        {
+          "disabled": true,
+          "pressed": "false",
+          "text": "Subir nueva"
+        }
+      ],
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "pending-mobile-success",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "3"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-upload-server-error",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "alt",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": "C:\\fakepath\\foto.png"
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Foto móvil de prueba"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito móvil"
+          },
+          {
+            "checked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-summary-focus",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          },
+          {
+            "ids": "_R_2cmatperlbH1_-field-credit-error",
+            "linked": true,
+            "name": "credit"
+          }
+        ],
+        "focus": "credit",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Crédito de la foto: Revisá el crédito ficticio.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(64, 85, 46)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": "C:\\fakepath\\foto.png"
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Foto móvil de prueba"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito móvil"
+          },
+          {
+            "checked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "visibility": {
+        "focus": {
+          "bottom": 647.0390625,
+          "height": 45.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 601.8515625,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 601.8515625
+        },
+        "footer": {
+          "bottom": 809.21875,
+          "height": 66.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 743.03125,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 743.03125
+        },
+        "header": {
+          "bottom": 78.59375,
+          "height": 44,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 34.59375,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 34.59375
+        }
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-correction",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "4"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "1"
+          }
+        ],
+        "fields": [
+          {
+            "ids": "_R_2cmatperlbH1_-field-alt-error",
+            "linked": true,
+            "name": "alt"
+          }
+        ],
+        "focus": "credit",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(84, 35, 27)",
+            "disabled": false,
+            "h": 60.78125,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descripción de la foto: Revisá la descripción ficticia.",
+            "w": 266.6171875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(64, 85, 46)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": "C:\\fakepath\\foto.png"
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Foto móvil de prueba"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito corregido móvil"
+          },
+          {
+            "checked": true,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "mobile-upload-retry-success",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "5"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "BUTTON",
+        "forms": 0,
+        "modal": [],
+        "nestedForm": false,
+        "open": false,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": false,
+        "values": []
+      },
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "edit-mobile-missing",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "6"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "DIV",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción conservada"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito conservado"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "edit-mobile-throw",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "DIV",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": "<redacted>"
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Descripción conservada"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito conservado"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "discard-mobile",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "DIV",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seguir editando",
+            "w": 146.8984375
+          },
+          {
+            "bg": "rgb(251, 239, 236)",
+            "color": "rgb(133, 47, 36)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Descartar cambios",
+            "w": 169.1875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Cambio sin guardar"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "continue-editing-mobile",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "BODY",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": "Cambio sin guardar"
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "permission",
+            "value": "on"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "discard-mobile-return-focus",
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "other-modal-before",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "0"
+          },
+          {
+            "name": "Preparadas",
+            "value": "0"
+          },
+          {
+            "name": "Guardadas",
+            "value": "0"
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "detail",
+            "value": "Conservado"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "other-modal-after",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "Cerrar",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Guardar cambios",
+            "w": 157.6015625
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "detail",
+            "value": "Conservado"
+          }
+        ]
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "long-gallery-focus-1440",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "credit",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito al final de galería"
+          }
+        ]
+      },
+      "visibility": {
+        "clientHeight": 850,
+        "focus": {
+          "bottom": 764.625,
+          "height": 45.1875,
+          "left": 329,
+          "right": 1111,
+          "top": 719.4375,
+          "width": 782,
+          "x": 329,
+          "y": 719.4375
+        },
+        "footer": {
+          "bottom": 850.8125,
+          "height": 66.1875,
+          "left": 329,
+          "right": 1111,
+          "top": 784.625,
+          "width": 782,
+          "x": 329,
+          "y": 784.625
+        },
+        "header": {
+          "bottom": 93,
+          "height": 44,
+          "left": 329,
+          "right": 1111,
+          "top": 49,
+          "width": 782,
+          "x": 329,
+          "y": 49
+        },
+        "scrollHeight": 1755
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "keyboard-1440",
+      "boundary": {
+        "inDialog": true,
+        "tag": "DIALOG"
+      },
+      "afterTab": {
+        "inDialog": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "return-focus-1440",
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "long-gallery-focus-390",
+      "observed": {
+        "counts": [
+          {
+            "name": "Invocaciones",
+            "value": "7"
+          },
+          {
+            "name": "Preparadas",
+            "value": "2"
+          },
+          {
+            "name": "Guardadas",
+            "value": "2"
+          }
+        ],
+        "fields": [],
+        "focus": "credit",
+        "forms": 1,
+        "modal": [
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 44,
+            "opacity": "1",
+            "pressed": null,
+            "text": "×",
+            "w": 44
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "true",
+            "text": "Galería",
+            "w": 80.2578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": "false",
+            "text": "Subir nueva",
+            "w": 117.578125
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Elegir foto de la galería",
+            "w": 202.046875
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Seleccionar foto",
+            "w": 150.4765625
+          },
+          {
+            "bg": "rgb(254, 254, 254)",
+            "color": "rgb(8, 9, 7)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Cancelar",
+            "w": 93.59375
+          },
+          {
+            "bg": "rgb(82, 106, 61)",
+            "color": "rgb(254, 254, 254)",
+            "disabled": false,
+            "h": 45.1875,
+            "opacity": "1",
+            "pressed": null,
+            "text": "Agregar foto",
+            "w": 122
+          }
+        ],
+        "nestedForm": false,
+        "open": true,
+        "overflow": false,
+        "public": [
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Acción pública",
+            "w": 139.796875
+          },
+          {
+            "bg": "rgb(235, 229, 68)",
+            "color": "rgb(8, 9, 7)",
+            "h": 45.1875,
+            "text": "Secundaria pública",
+            "w": 172.7109375
+          }
+        ],
+        "scope": true,
+        "values": [
+          {
+            "checked": false,
+            "name": "photoId",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "photo",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "alt",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "name": "credit",
+            "value": "Crédito al final de galería"
+          }
+        ]
+      },
+      "visibility": {
+        "clientHeight": 810,
+        "focus": {
+          "bottom": 723.40625,
+          "height": 45.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 678.21875,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 678.21875
+        },
+        "footer": {
+          "bottom": 809.40625,
+          "height": 66.1875,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 743.21875,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 743.21875
+        },
+        "header": {
+          "bottom": 78.59375,
+          "height": 44,
+          "left": 34.59375,
+          "right": 355.40625,
+          "top": 34.59375,
+          "width": 320.8125,
+          "x": 34.59375,
+          "y": 34.59375
+        },
+        "scrollHeight": 2937
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "keyboard-390",
+      "boundary": {
+        "inDialog": true,
+        "tag": "DIALOG"
+      },
+      "afterTab": {
+        "inDialog": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      },
+      "phase": "final implementation after focus correction"
+    },
+    {
+      "case": "return-focus-390",
+      "focus": "Agregar foto",
+      "phase": "final implementation after focus correction"
+    }
+  ]
+}

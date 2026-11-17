@@ -1,0 +1,45 @@
+{
+  "counts": {
+    "pendiente": 478,
+    "no aplicable": 204,
+    "verificada": 349,
+    "bloqueada": 1
+  },
+  "missingEvidence": [],
+  "missingMetadata": [],
+  "sourceDifferences": {
+    "fuentes": [
+      {
+        "file": "app/coordinacion/split-group-form.tsx",
+        "expected": "6f5e6d8cb2001f2563b8eeb8c5cd53e16aec321864056b6a33e13ad86d58fa59",
+        "actual": "4c09fd5b5ac01d45db5dd7e57cb4ca53c6c8c33c2a77fc8112c6c3bbdf0bc167"
+      }
+    ],
+    "fuentes_preparacion_20261117": [
+      {
+        "file": "app/coordinacion/split-group-form.tsx",
+        "expected": "6f5e6d8cb2001f2563b8eeb8c5cd53e16aec321864056b6a33e13ad86d58fa59",
+        "actual": "4c09fd5b5ac01d45db5dd7e57cb4ca53c6c8c33c2a77fc8112c6c3bbdf0bc167"
+      },
+      {
+        "file": "app/coordinacion/section-workspace.tsx",
+        "expected": "06ca0962daefc08870f5711d0fa1aac8e24c72e7230859dd0501aca0a1735af8",
+        "actual": "0b8349ba03e49693d5d4a3199008acc3eebf7ec23a203057bd320eb79ba6e2f3"
+      }
+    ],
+    "fuentes_convocatorias_20261117": [],
+    "fuentes_inscripciones_20261117": [
+      {
+        "file": "app/coordinacion/navigation-context.tsx",
+        "expected": "b3e6be12026e18aa8e3275456126df8cedbbf23daf38359dbbfc60d05e209750",
+        "actual": "cf980fec9e1cca1975c1a7807e1201ac469296aaefdd34198ee83503374d155e"
+      },
+      {
+        "file": "tests/participation-visual/fixture.mjs",
+        "expected": "7a7d3ff7a62db59ce2ccf342155e8df8277c14b9125ff18246c26cd51af344a8",
+        "actual": "a552226f1749106e0135264f752fd6471de63aca38a6dbe71d6f6c456b95ec9e"
+      }
+    ],
+    "fuentes_cierre_20261117": []
+  }
+}

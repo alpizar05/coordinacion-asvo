@@ -1,0 +1,92 @@
+{
+  "name": "mobile-summary-double-focus-after-fix",
+  "date": "2026-11-17T19:10:40.184Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion?dias=7&pestana=revision\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t17 text Actualizado a las  01:10 p. m.  · Costa Rica\n~\t\t\t\t\t31 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=f47a2d23-4013-41b4-bf95-dee076bebd8f\n~\t\t\t\t\t39 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=be6a8585-5756-42b1-bbec-3d291021d26d\n~\t\t\t\t\t47 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=0cfa9d28-061d-4c16-8cc7-79f9d1bc6fdb\n~\t\t\t\t\t55 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?navContext=4a719106-d104-4ea1-ad1a-d1361a8ddb44\n~\t\t\t\t\t63 link Description: Agrupacion Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?navContext=a5f060de-e74d-4bd0-90dc-8792c78fbf17\n~\t\t\t\t\t71 link Description: Grupo Ficticio Mobile, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?navContext=3dde97c8-7cb2-415b-b6e1-bebd7d86d1ac\n~\t\t\t\t\t79 link Description: Agrupacion Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?navContext=dc3b4c57-4503-445e-9e61-ee90e5ab15d8\n~\t\t\t\t\t87 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=e8cf5c9b-01b4-493d-b777-20fbd2c91f78\n~\t\t\t\t\t100 link Description: Inscripciones Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?navContext=631132cb-6f40-4c36-8de7-fb69e2f528be\n~\t\t\t\t\t108 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101?pestana=logistica&navContext=196d36f9-7768-49ee-a4bf-0388f047f027\n~\t\t\t\t\t110 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=85f20485-1bf0-40b4-8cb8-eb783bea908f\n~\t\t\t\t\t118 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?pestana=logistica&navContext=f588e061-5425-459c-9ad9-deff23aaee67\n~\t\t\t\t\t120 link Description: Alta Revision Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?navContext=b1078bc7-d109-4501-b194-97266a48c621\n~\t\t\t\t\t128 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103?pestana=logistica&navContext=f9881bda-30dd-406b-84a0-da16e76c5979\n~\t\t\t\t\t130 link Description: Alta Revision Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?navContext=6f8bf1c5-23e6-47b1-9730-f145ebdbc648\n~\t\t\t\t\t138 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?pestana=logistica&navContext=fd661f55-e5aa-4afc-a5d2-6f6e2e753dfb\n~\t\t\t\t\t140 link Description: Agrupacion Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?navContext=9c0e4762-aa28-4569-af01-32fd5e979cad\n~\t\t\t\t\t148 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=logistica&navContext=1975decd-0d7d-4fe2-b22b-1fab709f36c6\n~\t\t\t\t\t150 link Description: Agrupacion Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?navContext=21abc1d1-4e22-4dda-bd9f-285c5ba13e8f\n~\t\t\t\t\t158 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000106?pestana=logistica&navContext=03545bbf-daf0-4778-8415-7bcf51c030ea\n~\t\t\t\t\t160 link Description: Invitacion Ficticia, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?navContext=510978f3-c34d-4bee-9c0e-9ba58bdd7e1a\n~\t\t\t\t\t168 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000112?pestana=logistica&navContext=61d5224b-82e7-4211-82ba-af02329c8d35\n~\t\t\t\t\t170 link Description: Grupo Ficticio Mobile, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?navContext=0d3e3b37-be12-49d7-9bcc-4d8c26b429f6\n~\t\t\t\t\t178 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?pestana=logistica&navContext=b3863ffc-1f5f-4485-b344-dded8be443bc\n~\t\t\t\t\t180 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?navContext=f9838e6c-4e6b-4441-84c0-3b6b2687e8d9\n~\t\t\t\t\t188 link Description: Ver logística, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?pestana=logistica&navContext=6dbc87ed-1fd8-4e18-9e9f-35c4b8fb3676\n~\t\t\t189 link Description: Ver convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias?navContext=086de310-b7db-42fb-b567-0c529604a9b9\nThe focused UI element is 52 pop up button Gestionar inscripción de Ana Confirmada",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "A",
+      "text": "Grupo Ficticio Desktop"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Actualizar"
+      },
+      {
+        "disabled": false,
+        "label": "Filtros de Resumen",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Ver:Inscripciones en revisión7⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Paz Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 648,
+    "url": "http://localhost:3046/coordinacion?dias=7&pestana=revision",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "7"
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+Integración: workflow-transitions (base local desechable).
+OK: transiciones, recuperación cancelada, promociones FIFO, decisiones/versiones simultáneas, outbox/auditoría atómicos ante fallos, informes borrador/finalizado y estados históricos intactos. Cero red/envíos reales.
+OK: 1 grupos de integración; bases temporales retiradas, sin correos ni cargas reales.

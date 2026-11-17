@@ -1,0 +1,106 @@
+{
+  "name": "desktop-split-committed",
+  "date": "2026-11-17T18:46:47.032Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#agrupaciones\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#agrupaciones\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t10 container contenido\n\t\t11 container\n\t\t\t12 text COORDINACIÓN\n\t\t\t13 button Cerrar sesión\n\t\t14 container Menú de Coordinación\n\t\t\t15 content list\n\t\t\t\t16 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t17 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t18 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t19 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t20 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t21 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t22 container Ubicación en Coordinación\n\t\t\t23 content list\n\t\t\t\t24 text Coordinación\n\t\t\t\t25 container\n\t\t\t\t\t26 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t27 container\n\t\t\t\t\t28 link Description: Agrupacion Desktop, Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001005\n\t\t\t\t29 container\n\t\t\t\t\t30 text 20–22 nov. 2026\n\t\t31 container\n\t\t\t32 text Estado ·  abierta\n\t\t\t33 link Description: Inscripciones: 1/6, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#inscripciones\n\t\t\t34 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?editar=1&pestana=herramientas\n\t\t\t35 heading Agrupacion Desktop, Value: 1\n\t\t\t\t36 text Agrupacion Desktop\n\t\t\t37 text Convocatoria en serie\n\t\t\t38 link Description: Agrupacion Desktop , Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001005\n\t\t\t39 definition list\n\t\t\t\t40 container Lugar\n\t\t\t\t\t41 text Lugar\n\t\t\t\t42 text Lugar Ficticio\n\t\t\t\t43 container Unidad\n\t\t\t\t\t44 text Unidad\n\t\t\t\t45 text Voluntariado General\n\t\t\t\t46 container Fechas\n\t\t\t\t\t47 text Fechas\n\t\t\t\t48 container\n\t\t\t\t\t49 text 20/11/2026  al  22/11/2026\n\t\t\t\t50 container Modalidad\n\t\t\t\t\t51 text Modalidad\n\t\t\t\t52 text Fechas flexibles\n\t\t\t\t53 container Visibilidad\n\t\t\t\t\t54 text Visibilidad\n\t\t\t\t55 text Privada por enlace\n\t\t\t\t56 container Fecha límite de inscripción\n\t\t\t\t\t57 text Fecha límite de inscripción\n\t\t\t\t58 text 20/11/2026\n\t\t59 tab group Contenido de la salida\n\t\t\t60 tab (selectable, settable, boolean) Inscripciones, Value: 0\n\t\t\t61 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t62 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t63 tab (selected, settable, boolean) Herramientas, Value: 1\n\t\t64 container Herramientas\n\t\t\t65 container Asistencia, ID: asistencia\n\t\t\t\t66 heading Asistencia, Value: 2, ID: attendance-title\n\t\t\t\t\t67 text Asistencia\n\t\t\t\t68 text Revisá las diferencias entre informes finalizados. Las resoluciones no modifican los informes originales ni calculan días u horas trabajadas.\n\t\t\t\t69 text No hay diferencias de asistencia por conciliar en los informes registrados.\n\t\t\t70 container\n\t\t\t\t71 heading Resumen para el 70, Value: 2\n\t\t\t\t\t72 text Resumen para el 70\n\t\t\t\t73 text Consultá las personas confirmadas, sus fechas, contactos y logística. Generá un enlace privado para la persona asignada como 70.\n\t\t\t\t74 link Description: Ver resumen e informes de la salida, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105/resumen\n\t\t\t75 container\n\t\t\t\t76 heading Comunicado para WhatsApp, Value: 2\n\t\t\t\t\t77 text Comunicado para WhatsApp\n\t\t\t\t78 text Texto del comunicado\n\t\t\t\t79 text entry area (settable) Texto del comunicado, Value: Agrupacion Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000105\n\t\t\t\t80 button Copiar\n\t\t\t\t81 link Description: Compartir en WhatsApp, Value: wa.me/?text=Agrupacion%20Desktop%0ALugar%20Ficticio%0A20%2F11%2F2026%20al%2022%2F11%2F2026%0ATransporte%3A%20Punto%20de%20encuentro%20ficticio%0AAlimentaci%C3%B3n%3A%20Alimentaci%C3%B3n%20ficticia%0AHospedaje%3A%20Hospedaje%20ficticio%0Ahttp%3A%2F%2Flocalhost%3A3046%2Fconvocatorias%2F22222222-2222-4222-8222-000000000105\n\t\t\t\t82 link Description: Ver convocatoria pública, Value: localhost:3046/convocatorias/22222222-2222-4222-8222-000000000105\n\t\t\t83 container\n\t\t\t\t84 heading Invitación directa, Value: 2\n\t\t\t\t\t85 text Invitación directa\n\t\t\t\t86 text Generá un enlace para una persona del registro y compartilo directamente. El enlace dura siete días y admite un solo envío de inscripción.\n\t\t\t\t87 container\n\t\t\t\t\t88 text Identificación de la persona voluntaria\n\t\t\t\t\t89 text field (settable) Identificación de la persona voluntaria\n\t\t\t\t\t90 button Generar invitación\n\t\t\t91 container agrupaciones\n\t\t\t\t92 heading Agrupaciones sugeridas, Value: 2\n\t\t\t\t\t93 text Agrupaciones sugeridas\n\t\t\t\t94 container\n\t\t\t\t\t95 text Los días de llegada y regreso cuentan como días de participación. Capacidad total de la salida:  6 .  Cobertura de 70 pendiente de asignar.\n\t\t\t\t96 link Description: Abrir la nueva salida, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0\n\t\t\t\t97 heading 22/11/2026 al 22/11/2026, Value: 3\n\t\t\t\t\t98 text 22/11/2026  al  22/11/2026\n\t\t\t\t99 container\n\t\t\t\t\t100 text 1  personas ·  1  con cupo\n\t\t\t\t101 content list\n\t\t\t\t\t102 container\n\t\t\t\t\t\t103 AXListMarker • \n\t\t\t\t\t\t104 link Description: Paz Grupo, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?pestana=herramientas#[FICTITIOUS-LONG-VALUE]05016\n\t\t\t\t\t\t105 text  ·  22/11/2026  al  22/11/2026  ·  En revisión\n\t\t\t\t106 pop up button Crear salida para este grupo\n\t\t\t\t107 container\n\t\t\t\t\t108 text Decisión de coordinación\n\t\t\t\t\t109 text entry area (settable) Decisión de coordinación\n\t\t\t\t\t110 button Registrar decisión\n\t111 container\n\t\t112 text Conservación, educación y acción.\n\t\t113 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t114 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t115 image\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#agrupaciones",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Copiar"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Generar invitación"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Crear salida para este grupo"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Registrar decisión"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 1648,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000105?grupoCreado=b7e871b7-08e4-434c-9d79-6b56521d2ba0&pestana=herramientas#agrupaciones",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Agrupacion Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000105"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Agrupacion Desktop · 22/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

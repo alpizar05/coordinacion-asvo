@@ -1,0 +1,144 @@
+{
+  "name": "mobile-requests-edit-committed",
+  "date": "2026-11-17T19:14:49.932Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 pop up button Menú\n\t\t\t6 text Menú\n\t7 container contenido\n\t\t8 text COORDINACIÓN\n\t\t9 container Ubicación en Coordinación\n\t\t\t10 content list\n\t\t\t\t11 text Coordinación\n\t\t\t\t12 container\n\t\t\t\t\t13 text Solicitudes de inscripción\n\t\t14 heading Solicitudes de inscripción, Value: 1\n\t\t\t15 text Solicitudes de inscripción\n\t\t16 container\n\t\t\t17 pop up button Filtrar inscripciones · filtros activos\n\t\t\t18 text 17 solicitudes\n\t\t\t19 container Filtros activos de inscripciones\n\t\t\t\t20 link Description: Quitar filtro Estado: Confirmada, Value: localhost:3046/coordinacion/inscripciones?estado=todos&unidad=Voluntariado+General\n\t\t\t\t21 link Description: Quitar filtro Unidad: Voluntariado General, Value: localhost:3046/coordinacion/inscripciones?estado=confirmada\n\t\t\t\t22 link Description: Restablecer, Value: localhost:3046/coordinacion/inscripciones?estado=revisi%C3%B3n\n\t\t\t23 container Tabla de solicitudes de inscripción\n\t\t\t\t24 table\n\t\t\t\t\t25 row [FICTITIOUS-LONG-VALUE]f0cca\n\t\t\t\t\t\t26 cell\n\t\t\t\t\t\t\t27 link Description: Iris Nueva, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000009?navContext=39b3e6f7-5f40-4be0-897a-345a3f670467\n\t\t\t\t\t\t28 cell\n\t\t\t\t\t\t\t29 link Description: Alta Revision Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000104?navContext=d692520c-e2dd-4231-b80f-d21a5c68757c#[FICTITIOUS-LONG-VALUE]f0cca\n\t\t\t\t\t\t30 cell\n\t\t\t\t\t\t\t31 text Voluntariado General\n\t\t\t\t\t\t32 cell\n\t\t\t\t\t\t\t33 text 20–22 nov. 2026\n\t\t\t\t\t\t34 cell\n\t\t\t\t\t\t\t35 text Recibida  17/11/26, 1:06 p. m.\n\t\t\t\t\t\t36 cell\n\t\t\t\t\t\t\t37 text Confirmada\n\t\t\t\t\t\t38 cell\n\t\t\t\t\t\t\t39 pop up button Gestionar inscripción de Iris Nueva\n\t\t\t\t\t40 row [FICTITIOUS-LONG-VALUE]11012\n\t\t\t\t\t\t41 cell\n\t\t\t\t\t\t\t42 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=de7f81f2-37c4-4ac6-8708-6dc41c583e2e\n\t\t\t\t\t\t43 cell\n\t\t\t\t\t\t\t44 link Description: Informe Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000111?navContext=a10e47f5-24e4-4d34-853f-1704da468e0e#[FICTITIOUS-LONG-VALUE]11012\n\t\t\t\t\t\t45 cell\n\t\t\t\t\t\t\t46 text Voluntariado General\n\t\t\t\t\t\t47 cell\n\t\t\t\t\t\t\t48 text 10–12 nov. 2026\n\t\t\t\t\t\t49 cell\n\t\t\t\t\t\t\t50 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t51 cell\n\t\t\t\t\t\t\t52 text Confirmada\n\t\t\t\t\t\t53 cell\n\t\t\t\t\t\t\t54 pop up button Gestionar inscripción de Lia Participante\n\t\t\t\t\t55 row [FICTITIOUS-LONG-VALUE]11011\n\t\t\t\t\t\t56 cell\n\t\t\t\t\t\t\t57 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=92fda906-075a-45aa-9cb3-da6f7abf0876\n\t\t\t\t\t\t58 cell\n\t\t\t\t\t\t\t59 link Description: Informe Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000111?navContext=89983fc8-17ac-4172-93a4-376f943a5355#[FICTITIOUS-LONG-VALUE]11011\n\t\t\t\t\t\t60 cell\n\t\t\t\t\t\t\t61 text Voluntariado General\n\t\t\t\t\t\t62 cell\n\t\t\t\t\t\t\t63 text 10–12 nov. 2026\n\t\t\t\t\t\t64 cell\n\t\t\t\t\t\t\t65 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t66 cell\n\t\t\t\t\t\t\t67 text Confirmada\n\t\t\t\t\t\t68 cell\n\t\t\t\t\t\t\t69 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t70 row [FICTITIOUS-LONG-VALUE]10012\n\t\t\t\t\t\t71 cell\n\t\t\t\t\t\t\t72 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=bc8ce68b-ad56-48ba-8816-d9ba9233059a\n\t\t\t\t\t\t73 cell\n\t\t\t\t\t\t\t74 link Description: Informe Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000110?navContext=e6c68376-417e-49d0-a65a-a9016708ecca#[FICTITIOUS-LONG-VALUE]10012\n\t\t\t\t\t\t75 cell\n\t\t\t\t\t\t\t76 text Voluntariado General\n\t\t\t\t\t\t77 cell\n\t\t\t\t\t\t\t78 text 10–12 nov. 2026\n\t\t\t\t\t\t79 cell\n\t\t\t\t\t\t\t80 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t81 cell\n\t\t\t\t\t\t\t82 text Confirmada\n\t\t\t\t\t\t83 cell\n\t\t\t\t\t\t\t84 pop up button Gestionar inscripción de Lia Participante\n\t\t\t\t\t85 row [FICTITIOUS-LONG-VALUE]10011\n\t\t\t\t\t\t86 cell\n\t\t\t\t\t\t\t87 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=9840d98d-4c3a-44ad-8a82-477a44ebdcd8\n\t\t\t\t\t\t88 cell\n\t\t\t\t\t\t\t89 link Description: Informe Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000110?navContext=d819b8f9-7a5b-4c52-aa72-f3f0794f79da#[FICTITIOUS-LONG-VALUE]10011\n\t\t\t\t\t\t90 cell\n\t\t\t\t\t\t\t91 text Voluntariado General\n\t\t\t\t\t\t92 cell\n\t\t\t\t\t\t\t93 text 10–12 nov. 2026\n\t\t\t\t\t\t94 cell\n\t\t\t\t\t\t\t95 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t96 cell\n\t\t\t\t\t\t\t97 text Confirmada\n\t\t\t\t\t\t98 cell\n\t\t\t\t\t\t\t99 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t100 row [FICTITIOUS-LONG-VALUE]08012\n\t\t\t\t\t\t101 cell\n\t\t\t\t\t\t\t102 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=aa1d6356-9a57-474d-b3d1-f7a29614d8db\n\t\t\t\t\t\t103 cell\n\t\t\t\t\t\t\t104 link Description: Recordatorio Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=1692c9f5-36e6-4bd6-87fd-d58eb5587bde#[FICTITIOUS-LONG-VALUE]08012\n\t\t\t\t\t\t105 cell\n\t\t\t\t\t\t\t106 text Voluntariado General\n\t\t\t\t\t\t107 cell\n\t\t\t\t\t\t\t108 text 10–12 nov. 2026\n\t\t\t\t\t\t109 cell\n\t\t\t\t\t\t\t110 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t111 cell\n\t\t\t\t\t\t\t112 text Confirmada\n\t\t\t\t\t\t113 cell\n\t\t\t\t\t\t\t114 pop up button Gestionar inscripción de Lia Participante\n\t\t\t\t\t115 row [FICTITIOUS-LONG-VALUE]08011\n\t\t\t\t\t\t116 cell\n\t\t\t\t\t\t\t117 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=9a5efd6f-903e-4462-bd0b-1138f4f51a78\n\t\t\t\t\t\t118 cell\n\t\t\t\t\t\t\t119 link Description: Recordatorio Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000108?navContext=3b3219d2-4aad-4537-89fa-3495f2c1dd3c#[FICTITIOUS-LONG-VALUE]08011\n\t\t\t\t\t\t120 cell\n\t\t\t\t\t\t\t121 text Voluntariado General\n\t\t\t\t\t\t122 cell\n\t\t\t\t\t\t\t123 text 10–12 nov. 2026\n\t\t\t\t\t\t124 cell\n\t\t\t\t\t\t\t125 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t126 cell\n\t\t\t\t\t\t\t127 text Confirmada\n\t\t\t\t\t\t128 cell\n\t\t\t\t\t\t\t129 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t130 row [FICTITIOUS-LONG-VALUE]07012\n\t\t\t\t\t\t131 cell\n\t\t\t\t\t\t\t132 link Description: Lia Participante, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000012?navContext=ecb2592f-01e8-4898-b875-e68aa43efa57\n\t\t\t\t\t\t133 cell\n\t\t\t\t\t\t\t134 link Description: Recordatorio Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?navContext=3c35dcea-7478-47e1-8ea6-c867731b3be8#[FICTITIOUS-LONG-VALUE]07012\n\t\t\t\t\t\t135 cell\n\t\t\t\t\t\t\t136 text Voluntariado General\n\t\t\t\t\t\t137 cell\n\t\t\t\t\t\t\t138 text 10–12 nov. 2026\n\t\t\t\t\t\t139 cell\n\t\t\t\t\t\t\t140 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t141 cell\n\t\t\t\t\t\t\t142 text Confirmada\n\t\t\t\t\t\t143 cell\n\t\t\t\t\t\t\t144 pop up button Gestionar inscripción de Lia Participante\n\t\t\t\t\t145 row [FICTITIOUS-LONG-VALUE]07011\n\t\t\t\t\t\t146 cell\n\t\t\t\t\t\t\t147 link Description: Kai Responsable, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000011?navContext=559e47be-3b0b-4c31-92c7-dc9e5bec4d12\n\t\t\t\t\t\t148 cell\n\t\t\t\t\t\t\t149 link Description: Recordatorio Desktop, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000107?navContext=be2fd39c-8338-4150-bdf6-3fd45c1a4cf0#[FICTITIOUS-LONG-VALUE]07011\n\t\t\t\t\t\t150 cell\n\t\t\t\t\t\t\t151 text Voluntariado General\n\t\t\t\t\t\t152 cell\n\t\t\t\t\t\t\t153 text 10–12 nov. 2026\n\t\t\t\t\t\t154 cell\n\t\t\t\t\t\t\t155 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t156 cell\n\t\t\t\t\t\t\t157 text Confirmada\n\t\t\t\t\t\t158 cell\n\t\t\t\t\t\t\t159 pop up button Gestionar inscripción de Kai Responsable\n\t\t\t\t\t160 row [FICTITIOUS-LONG-VALUE]06010\n\t\t\t\t\t\t161 cell\n\t\t\t\t\t\t\t162 link Description: Julia Grupo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000010?navContext=6601e179-ef42-47e3-94f5-d4bab9b9fe80\n\t\t\t\t\t\t163 cell\n\t\t\t\t\t\t\t164 link Description: Grupo Ficticio Mobile, Value: localhost:3046/coordinacion/salidas/a405cba4-6dba-45a8-a08d-f351e7f3f529?navContext=2884057d-5897-41f3-8e26-e54bdb589225#[FICTITIOUS-LONG-VALUE]06010\n\t\t\t\t\t\t165 cell\n\t\t\t\t\t\t\t166 text Voluntariado General\n\t\t\t\t\t\t167 cell\n\t\t\t\t\t\t\t168 text 20 nov. 2026\n\t\t\t\t\t\t169 cell\n\t\t\t\t\t\t\t170 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t171 cell\n\t\t\t\t\t\t\t172 text Confirmada\n\t\t\t\t\t\t173 cell\n\t\t\t\t\t\t\t174 pop up button Gestionar inscripción de Julia Grupo\n\t\t\t\t\t175 row [FICTITIOUS-LONG-VALUE]05010\n\t\t\t\t\t\t176 cell\n\t\t\t\t\t\t\t177 link Description: Julia Grupo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000010?navContext=a36b812d-67e8-4fef-9e25-e759ec14baf9\n\t\t\t\t\t\t178 cell\n\t\t\t\t\t\t\t179 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?navContext=ee1575aa-fff7-422a-991d-7a77d572e6af#[FICTITIOUS-LONG-VALUE]05010\n\t\t\t\t\t\t180 cell\n\t\t\t\t\t\t\t181 text Voluntariado General\n\t\t\t\t\t\t182 cell\n\t\t\t\t\t\t\t183 text 20 nov. 2026\n\t\t\t\t\t\t184 cell\n\t\t\t\t\t\t\t185 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t186 cell\n\t\t\t\t\t\t\t187 text Confirmada\n\t\t\t\t\t\t188 cell\n\t\t\t\t\t\t\t189 pop up button Gestionar inscripción de Julia Grupo\n\t\t\t\t\t190 row [FICTITIOUS-LONG-VALUE]02003\n\t\t\t\t\t\t191 cell\n\t\t\t\t\t\t\t192 link Description: Carla Espera, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000003?navContext=72fe9ea4-1d59-47d3-ad70-3d633212462a\n\t\t\t\t\t\t193 cell\n\t\t\t\t\t\t\t194 link Description: Inscripciones Mobile, Value: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000102?navContext=c134bbc6-c30c-4274-bf92-fcf0ade89212#[FICTITIOUS-LONG-VALUE]02003\n\t\t\t\t\t\t195 cell\n\t\t\t\t\t\t\t196 text Voluntariado General\n\t\t\t\t\t\t197 cell\n\t\t\t\t\t\t\t198 text 20–22 nov. 2026\n\t\t\t\t\t\t199 cell\n\t\t\t\t\t\t\t200 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t201 cell\n\t\t\t\t\t\t\t202 text Confirmada\n\t\t\t\t\t\t203 cell\n\t\t\t\t\t\t\t204 pop up button Gestionar inscripción de Carla Espera\n\t\t\t\t\t205 row [FICTITIOUS-LONG-VALUE]02002\n\t\t\t\t\t\t206 cell\n\t\t\t\t\t\t\t207 link Description: Bruno Revision, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000002?navContext=b134db1f-d96c-45dd-86f7-1196f4275eb0\n\t\t\t\t\t\t208 cell\n\t\t\t\t\t\t\t209 link Description: Inscripciones Mobile, Value: …\n\t\t\t\t\t\t210 cell\n\t\t\t\t\t\t\t211 text Voluntariado General\n\t\t\t\t\t\t212 cell\n\t\t\t\t\t\t\t213 text 20–22 nov. 2026\n\t\t\t\t\t\t214 cell\n\t\t\t\t\t\t\t215 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t216 cell\n\t\t\t\t\t\t\t217 text Confirmada\n\t\t\t\t\t\t218 cell\n\t\t\t\t\t\t\t219 pop up button Gestionar inscripción de Bruno Revision\n\t\t\t\t\t220 row [FICTITIOUS-LONG-VALUE]02001\n\t\t\t\t\t\t221 cell\n\t\t\t\t\t\t\t222 link Description: Ana Confirmada, Value: …\n\t\t\t\t\t\t223 cell\n\t\t\t\t\t\t\t224 link Description: Inscripciones Mobile, Value: …\n\t\t\t\t\t\t225 cell\n\t\t\t\t\t\t\t226 text Voluntariado General\n\t\t\t\t\t\t227 cell\n\t\t\t\t\t\t\t228 text 20–22 nov. 2026\n\t\t\t\t\t\t229 cell\n\t\t\t\t\t\t\t230 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t231 cell\n\t\t\t\t\t\t\t232 text Confirmada\n\t\t\t\t\t\t233 cell\n\t\t\t\t\t\t\t234 pop up button Gestionar inscripción de Ana Confirmada\n\t\t\t\t\t235 row [FICTITIOUS-LONG-VALUE]01004\n\t\t\t\t\t\t236 cell\n\t\t\t\t\t\t\t237 link Description: Dario Cancelado, Value: …\n\t\t\t\t\t\t238 cell\n\t\t\t\t\t\t\t239 link Description: Inscripciones Desktop, Value: …\n\t\t\t\t\t\t240 cell\n\t\t\t\t\t\t\t241 text Voluntariado General\n\t\t\t\t\t\t242 cell\n\t\t\t\t\t\t\t243 text 20–22 nov. 2026\n\t\t\t\t\t\t244 cell\n\t\t\t\t\t\t\t245 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t246 cell\n\t\t\t\t\t\t\t247 text Confirmada\n\t\t\t\t\t\t248 cell\n\t\t\t\t\t\t\t249 pop up button Gestionar inscripción de Dario Cancelado\n\t\t\t\t\t250 row [FICTITIOUS-LONG-VALUE]01002\n\t\t\t\t\t\t251 cell\n\t\t\t\t\t\t\t252 link Description: Bruno Revision, Value: …\n\t\t\t\t\t\t253 cell\n\t\t\t\t\t\t\t254 link Description: Inscripciones Desktop, Value: …\n\t\t\t\t\t\t255 cell\n\t\t\t\t\t\t\t256 text Voluntariado General\n\t\t\t\t\t\t257 cell\n\t\t\t\t\t\t\t258 text 20–22 nov. 2026\n\t\t\t\t\t\t259 cell\n\t\t\t\t\t\t\t260 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t261 cell\n\t\t\t\t\t\t\t262 text Confirmada\n\t\t\t\t\t\t263 cell\n\t\t\t\t\t\t\t264 pop up button Gestionar inscripción de Bruno Revision\n\t\t\t\t\t265 row [FICTITIOUS-LONG-VALUE]01001\n\t\t\t\t\t\t266 cell\n\t\t\t\t\t\t\t267 link Description: Ana Confirmada, Value: …\n\t\t\t\t\t\t268 cell\n\t\t\t\t\t\t\t269 link Description: Inscripciones Desktop, Value: …\n\t\t\t\t\t\t270 cell\n\t\t\t\t\t\t\t271 text Voluntariado General\n\t\t\t\t\t\t272 cell\n\t\t\t\t\t\t\t273 text 20–22 nov. 2026\n\t\t\t\t\t\t274 cell\n\t\t\t\t\t\t\t275 text Recibida  17/11/26, 12:01 p. m.\n\t\t\t\t\t\t276 cell\n\t\t\t\t\t\t\t277 text Confirmada\n\t\t\t\t\t\t278 cell\n\t\t\t\t\t\t\t279 pop up button Gestionar inscripción de Ana Confirmada\n\t\t280 text Inscripción actualizada. Se notificará a la persona voluntaria por correo.\n\t281 container\n\t\t282 text Conservación, educación y acción.\n\t\t283 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t284 button Open Next.js Dev Tools\n\t\t285 container\n\t\t\t286 text Rendering . . .\n\nThe focused UI element is 39 pop up button Gestionar inscripción de Iris Nueva",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BUTTON",
+      "text": "Gestionar ⌄"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "label": "Filtrar inscripciones · filtros activos",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Iris Nueva",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Lia Participante",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Kai Responsable",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 46,
+    "url": "http://localhost:3046/coordinacion/inscripciones?estado=confirmada&unidad=Voluntariado+General",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "estado",
+        "value": "confirmada"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "unidad",
+        "value": "Voluntariado General"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "desde",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "hasta",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

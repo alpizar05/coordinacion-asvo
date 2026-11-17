@@ -1,0 +1,101 @@
+{
+  "name": "desktop-split-new-detail",
+  "date": "2026-11-17T18:46:48.268Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0\n\t2 link Description: Saltar al contenido principal, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0#contenido\n\t3 container\n\t\t4 link Description: ASVO, inicio, Value: localhost:3046/\n\t\t5 text Portal de voluntariado\n\t\t6 container Navegación principal\n\t\t\t7 content list\n\t\t\t\t8 link Description: Convocatorias, Value: localhost:3046/\n\t\t\t\t9 link Description: Coordinación, Value: localhost:3046/coordinacion\n\t10 container contenido\n\t\t11 container\n\t\t\t12 text COORDINACIÓN\n\t\t\t13 button Cerrar sesión\n\t\t14 container Menú de Coordinación\n\t\t\t15 content list\n\t\t\t\t16 link Description: Resumen, Value: localhost:3046/coordinacion\n\t\t\t\t17 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias\n\t\t\t\t18 link Description: Informes de salida, Value: localhost:3046/coordinacion/informes\n\t\t\t\t19 link Description: Solicitudes de inscripción, Value: localhost:3046/coordinacion/inscripciones\n\t\t\t\t20 link Description: Voluntariado, Value: localhost:3046/coordinacion/registro\n\t\t\t\t21 link Description: Bandeja de prueba · Demo, Value: localhost:3046/pruebas/correo\n\t\t116 container Ubicación en Coordinación\n\t\t\t117 content list\n\t\t\t\t118 text Coordinación\n\t\t\t\t119 container\n\t\t\t\t\t120 link Description: Convocatorias de salida, Value: localhost:3046/coordinacion/convocatorias#salidas\n\t\t\t\t121 container\n\t\t\t\t\t122 link Description: Grupo Ficticio Desktop, Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001005\n\t\t\t\t123 container\n\t\t\t\t\t124 text 20 nov. 2026\n\t\t125 container\n\t\t\t126 text Estado ·  abierta\n\t\t\t127 link Description: Inscripciones: 2/2, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0#inscripciones\n\t\t\t128 link Description: Editar salida, Value: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0?editar=1\n\t\t\t129 heading Grupo Ficticio Desktop, Value: 1\n\t\t\t\t130 text Grupo Ficticio Desktop\n\t\t\t131 text Convocatoria en serie\n\t\t\t132 link Description: Grupo Ficticio Desktop , Value: localhost:3046/coordinacion/colecciones/automaticas/22222222-2222-4222-8222-000000001005\n\t\t\t133 definition list\n\t\t\t\t134 container Lugar\n\t\t\t\t\t135 text Lugar\n\t\t\t\t136 text Lugar Ficticio\n\t\t\t\t137 container Unidad\n\t\t\t\t\t138 text Unidad\n\t\t\t\t139 text Voluntariado General\n\t\t\t\t140 container Fechas\n\t\t\t\t\t141 text Fechas\n\t\t\t\t142 container\n\t\t\t\t\t143 text 20/11/2026  al  20/11/2026\n\t\t\t\t144 container Modalidad\n\t\t\t\t\t145 text Modalidad\n\t\t\t\t146 text Fechas flexibles\n\t\t\t\t147 container Visibilidad\n\t\t\t\t\t148 text Visibilidad\n\t\t\t\t149 text Privada por enlace\n\t\t\t\t150 container Fecha límite de inscripción\n\t\t\t\t\t151 text Fecha límite de inscripción\n\t\t\t\t152 text 20/11/2026\n\t\t153 tab group Contenido de la salida\n\t\t\t154 tab (selected, settable, boolean) Inscripciones, Value: 1\n\t\t\t155 tab (selectable, settable, boolean) Logística, Value: 0\n\t\t\t156 tab (selectable, settable, boolean) Información, Value: 0\n\t\t\t157 tab (selectable, settable, boolean) Herramientas, Value: 0\n\t\t158 container Inscripciones\n\t\t\t159 container Inscripciones\n\t\t\t\t160 heading Inscripciones, Value: 2, ID: inscripciones\n\t\t\t\t\t161 text Inscripciones\n\t\t\t\t162 pop up button Agregar persona\n\t\t\t\t163 container\n\t\t\t\t\t164 text Estado de inscripción\n\t\t\t\t\t165 pop up button (collapsed, settable) Estado de inscripción, Value: Todos, Secondary Actions: Expand\n\t\t\t\t\t\t166 menu\n\t\t\t\t\t\t\t167 (selected) Todos\n\t\t\t\t\t\t\t168 Solicitud anterior\n\t\t\t\t\t\t\t169 En revisión\n\t\t\t\t\t\t\t170 Lista de espera\n\t\t\t\t\t\t\t171 Confirmada\n\t\t\t\t\t\t\t172 Rechazada\n\t\t\t\t\t\t\t173 Cancelada por Coordinación\n\t\t\t\t\t\t\t174 Cancelada por voluntariado\n\t\t\t\t175 text 2 inscripciones\n\t\t\t\t176 container Inscripciones de la salida\n\t\t\t\t\t177 table\n\t\t\t\t\t\t178 row\n\t\t\t\t\t\t\t179 cell\n\t\t\t\t\t\t\t\t180 text Persona voluntaria\n\t\t\t\t\t\t\t181 cell\n\t\t\t\t\t\t\t\t182 text Estado\n\t\t\t\t\t\t\t183 cell\n\t\t\t\t\t\t\t\t184 text Fechas solicitadas\n\t\t\t\t\t\t\t185 cell\n\t\t\t\t\t\t\t\t186 text Póliza\n\t\t\t\t\t\t\t187 cell\n\t\t\t\t\t\t\t\t188 text Recepción\n\t\t\t\t\t\t\t189 cell\n\t\t\t\t\t\t\t\t190 text Acciones\n\t\t\t\t\t\t191 row [FICTITIOUS-LONG-VALUE]05010\n\t\t\t\t\t\t\t192 cell\n\t\t\t\t\t\t\t\t193 link Description: Julia Grupo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000010?navContext=3a60e2a6-58cc-44dc-8143-b7ce3f3799c3\n\t\t\t\t\t\t\t194 cell\n\t\t\t\t\t\t\t\t195 text Confirmada\n\t\t\t\t\t\t\t196 cell\n\t\t\t\t\t\t\t\t197 text 20/11/2026  al  20/11/2026\n\t\t\t\t\t\t\t198 cell\n\t\t\t\t\t\t\t\t199 text Comprobada\n\t\t\t\t\t\t\t200 cell\n\t\t\t\t\t\t\t\t201 text 17/11/26, 12:01 p. m.\n\t\t\t\t\t\t\t202 cell\n\t\t\t\t\t\t\t\t203 pop up button Gestionar inscripción de Julia Grupo\n\t\t\t\t\t\t204 row [FICTITIOUS-LONG-VALUE]05015\n\t\t\t\t\t\t\t205 cell\n\t\t\t\t\t\t\t\t206 link Description: Omar Grupo, Value: localhost:3046/coordinacion/registro/22222222-2222-4222-8222-000000000015?navContext=8dbb2b91-a0ce-4e1d-b38a-5b37a8a723b7\n\t\t\t\t\t\t\t207 cell\n\t\t\t\t\t\t\t\t208 text En revisión\n\t\t\t\t\t\t\t209 cell\n\t\t\t\t\t\t\t\t210 text 20/11/2026  al  20/11/2026\n\t\t\t\t\t\t\t211 cell\n\t\t\t\t\t\t\t\t212 text Comprobada\n\t\t\t\t\t\t\t213 cell\n\t\t\t\t\t\t\t\t214 text 17/11/26, 12:01 p. m.\n\t\t\t\t\t\t\t215 cell\n\t\t\t\t\t\t\t\t216 pop up button Gestionar inscripción de Omar Grupo\n\t111 container\n\t\t112 text Conservación, educación y acción.\n\t\t113 text Asociación de Voluntarios para el Servicio en las Áreas Protegidas Costa Rica\n\t114 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand\n\t\t115 image\n\t217 text Grupo Ficticio Desktop\n\nThe focused UI element is 1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "BODY",
+      "text": "Saltar al contenido principalPortal de voluntariadoConvocatoriasCoordinaciónMenúMenúCerrar×Portal de voluntariadoConvoca"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Julia Grupo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Omar Grupo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [],
+    "invalid": [],
+    "overflow": false,
+    "scroll": 0,
+    "url": "http://localhost:3046/coordinacion/salidas/b7e871b7-08e4-434c-9d79-6b56521d2ba0",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Grupo Ficticio Desktop\nLugar Ficticio\n20/11/2026 al 20/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/b7e871b7-08e4-434c-9d79-6b56521d2ba0"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Grupo Ficticio Desktop · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "2"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "name": "desktop-recover-rejection-pending",
+  "date": "2026-11-17T18:27:30.010Z",
+  "ax": "Browser tab: 21, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101\n\t2 container Gestionar inscripción\n\t\t3 heading Gestionar inscripción, Value: 2\n\t\t\t4 text Gestionar inscripción\n\t\t5 container\n\t\t\t6 heading Recuperar inscripción anterior, Value: 3\n\t\t\t\t7 text Recuperar inscripción anterior\n\t\t\t12 text Fallo general ficticio antes de persistir.\n\t\t\t13 container\n\t\t\t\t14 text Revisá  1 campo  para  guardar .\n\t\t\t15 content list\n\t\t\t\t16 container\n\t\t\t\t\t17 AXListMarker • \n\t\t\t\t\t18 button Identificación para conciliar: Revisá identification ficticio. Segundo mensaje identification.\n\t\t\t\t\t\t19 text Identificación para conciliar\n\t\t\t\t\t\t20 text : \n\t\t\t\t\t\t21 text Revisá identification ficticio. Segundo mensaje identification.\n\t\t\t8 text Identificación para conciliar\n\t\t\t9 text field (disabled) Identificación para conciliar, Value: 800100005\n\t\t\t22 container\n\t\t\t\t23 text Revisá identification ficticio. Segundo mensaje identification.\n\t\t\t10 button (disabled) Volver\n\t\t\t11 button (disabled) Guardando…\n\nThe focused UI element is 2 container Gestionar inscripción",
+  "dom": {
+    "active": {
+      "name": null,
+      "tag": "DIALOG",
+      "text": "Gestionar inscripción×Recuperar inscripción anteriorFallo general ficticio antes de persistir.Revisá 1 campo para guarda"
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Cerrar sesión"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Ana Confirmada",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Bruno Revision",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Carla Espera",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Dario Cancelado",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Identificación para conciliar: Revisá identification ficticio. Segundo mensaje identification."
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Volver"
+      },
+      {
+        "disabled": false,
+        "label": null,
+        "text": "Guardando…"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Fabio Rechazo",
+        "text": "Gestionar ⌄"
+      },
+      {
+        "disabled": false,
+        "label": "Gestionar inscripción de Gina Cancelacion",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Gestionar inscripción×Recuperar inscripción anteriorFallo general ficticio antes de persistir.Revisá 1 campo para guardar.Identificación para conciliar: Revisá identification ficticio. Segundo mensaje identification.Identificación para conciliarRevisá identification ficticio.Segundo mensaje identification.VolverGuardando…",
+        "top": 573.96875,
+        "width": 304
+      }
+    ],
+    "invalid": [
+      {
+        "description": "_r_8_-field-identification-error",
+        "linked": true,
+        "name": "identification"
+      }
+    ],
+    "overflow": false,
+    "scroll": 638,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000101",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "todos"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": "800100005"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": null,
+        "value": "Inscripciones Desktop\nLugar Ficticio\n20/11/2026 al 22/11/2026\nTransporte: Punto de encuentro ficticio\nAlimentación: Alimentación ficticia\nHospedaje: Hospedaje ficticio\nhttp://localhost:3046/convocatorias/22222222-2222-4222-8222-000000000101"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "identification",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "title",
+        "value": "Inscripciones Desktop · 20/11/2026"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "capacity",
+        "value": "4"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "reason",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

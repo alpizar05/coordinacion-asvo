@@ -1,0 +1,151 @@
+{
+  "name": "mobile-edit-required",
+  "date": "2026-11-17T21:27:41.354Z",
+  "ax": "Browser tab: 23, Title: \"Coordinación de Voluntariado | ASVO\", URL: \"http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\".\n1 AXWebArea Coordinación de Voluntariado | ASVO, URL: localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103\n\t2 container Editar inscripción\n\t\t3 container\n\t\t\t4 heading Editar inscripción, Value: 2\n\t\t\t\t5 text Editar inscripción\n\t\t\t6 button Cerrar\n\t\t11 container\n\t\t\t12 container\n\t\t\t\t13 text Revisá  2 campos  para  guardar .\n\t\t\t14 content list\n\t\t\t\t15 container\n\t\t\t\t\t16 AXListMarker • \n\t\t\t\t\t17 button Llegada: Indicá una fecha de llegada válida.\n\t\t\t\t\t\t18 text Llegada\n\t\t\t\t\t\t19 text : \n\t\t\t\t\t\t20 text Indicá una fecha de llegada válida.\n\t\t\t\t21 container\n\t\t\t\t\t22 AXListMarker • \n\t\t\t\t\t23 button Regreso: Indicá una fecha de regreso válida.\n\t\t\t\t\t\t24 text Regreso\n\t\t\t\t\t\t25 text : \n\t\t\t\t\t\t26 text Indicá una fecha de regreso válida.\n\t\t\t27 text Hugo Nuevo\n\t\t\t28 text Llegada\n\t\t\t29 date field (settable) Llegada\n\t\t\t\t30 container\n\t\t\t\t\t31 stepper\n\t\t\t\t\t32 stepper\n\t\t\t\t\t33 stepper\n\t\t\t\t34 pop up button Show date picker Show date picker\n\t\t\t35 text Indicá una fecha de llegada válida.\n\t\t\t36 text Regreso\n\t\t\t37 date field (settable) Regreso\n\t\t\t\t38 container\n\t\t\t\t\t39 stepper\n\t\t\t\t\t40 stepper\n\t\t\t\t\t41 stepper\n\t\t\t\t42 pop up button Show date picker Show date picker\n\t\t\t43 text Indicá una fecha de regreso válida.\n\t\t\t44 checkbox (settable, integer) Description: Tiene transporte propio, Value: 0\n\t\t\t45 text Restricciones alimentarias\n\t\t\t46 text entry area (settable) Restricciones alimentarias, Value: Dato ficticio conservado\n\t\t\t47 checkbox (settable, integer) Description: Tiene interés en ser 70, Value: 0\n\t\t\t48 text Otras observaciones\n\t\t\t49 text entry area (settable) Otras observaciones\n\t\t8 container\n\t\t\t9 button Cancelar\n\t\t\t10 button Guardar cambios\n\nThe focused UI element is 31 stepper",
+  "dom": {
+    "active": {
+      "name": "starts",
+      "tag": "INPUT",
+      "text": ""
+    },
+    "buttons": [
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Menú"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Inscripciones"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Logística"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Información"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Herramientas"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Agregar persona"
+      },
+      {
+        "disabled": false,
+        "name": "Filtrar inscripciones",
+        "text": ""
+      },
+      {
+        "disabled": false,
+        "name": "Cerrar",
+        "text": "×"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Llegada: Indicá una fecha de llegada válida."
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Regreso: Indicá una fecha de regreso válida."
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Cancelar"
+      },
+      {
+        "disabled": false,
+        "name": null,
+        "text": "Guardar cambios"
+      },
+      {
+        "disabled": false,
+        "name": "Gestionar inscripción de Hugo Nuevo",
+        "text": "Gestionar ⌄"
+      }
+    ],
+    "dialogs": [
+      {
+        "text": "Editar inscripción×Revisá 2 campos para guardar.Llegada: Indicá una fecha de llegada válida.Regreso: Indicá una fecha de regreso válida.Hugo NuevoLlegadaIndicá una fecha de llegada válida.RegresoIndicá una fecha de regre",
+        "title": "_r_3_"
+      }
+    ],
+    "invalid": [
+      {
+        "described": "_r_1_-field-starts-error",
+        "id": "_r_1_-field-starts",
+        "linked": true,
+        "name": "starts"
+      },
+      {
+        "described": "_r_1_-field-ends-error",
+        "id": "_r_1_-field-ends",
+        "linked": true,
+        "name": "ends"
+      }
+    ],
+    "overflow": false,
+    "privateInput": false,
+    "scroll": 556.5,
+    "url": "http://localhost:3046/coordinacion/salidas/22222222-2222-4222-8222-000000000103",
+    "values": [
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "starts",
+        "type": "date",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "ends",
+        "type": "date",
+        "value": ""
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "transport",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "food",
+        "type": "textarea",
+        "value": "Dato ficticio conservado"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "lead",
+        "type": "checkbox",
+        "value": "on"
+      },
+      {
+        "checked": false,
+        "disabled": false,
+        "name": "other",
+        "type": "textarea",
+        "value": ""
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

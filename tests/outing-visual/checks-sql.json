@@ -1,0 +1,29 @@
+{
+  "node": "v26.13.1",
+  "results": [
+    {
+      "name": "outing-editor",
+      "code": 0
+    },
+    {
+      "name": "outing-forms",
+      "code": 0
+    },
+    {
+      "name": "photo-uploads",
+      "code": 0
+    },
+    {
+      "name": "manual-series-contracts",
+      "code": 0
+    },
+    {
+      "name": "legacy-operation-contracts",
+      "code": 0
+    },
+    {
+      "name": "homepage-feature-contracts",
+      "code": 0
+    }
+  ]
+}
