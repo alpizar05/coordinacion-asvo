@@ -20,6 +20,10 @@ try{
   ['app/coordinacion/private-link-form.tsx',"'../actions/communications'","'../modal-fixture/link-actions'"],
   ['app/coordinacion/salidas/[id]/resumen/share-brief.tsx',"'../../../../actions/communications'","'../../../../modal-fixture/link-actions'"],
  ]){const path=join(temp,file),source=await readFile(path,'utf8');if(!source.includes(from))throw Error('El consumidor cambió; revisá el doble de prueba.');await writeFile(path,source.replaceAll(from,to));}
+ // Optional audit route exercises the existing navigation restorer with a synthetic list.
+ const review=join(temp,'app/coordinacion/salidas/22222222-2222-4222-8222-222222222222');await mkdir(review,{recursive:true});
+ await writeFile(join(review,'page.jsx'),`import Fixture from '../../../modal-fixture/page';export default function Page(){return <Fixture navigationReview/>}`);
+ await writeFile(join(temp,'app/coordinacion/layout.tsx'),`'use client';import {NavigationContextProvider} from './navigation-context';export default function Layout({children}:{children:React.ReactNode}){return <NavigationContextProvider subject="fictitious-modal-stage3"><div className="coordination-content">{children}</div></NavigationContextProvider>}`);
  const env={...cleanTestEnvironment(),ASVO_DEMO:'0',APP_URL:'https://example.test',DATABASE_URL:'postgres://fictitious:fictitious@127.0.0.1:1/no_connection',NEXT_TELEMETRY_DISABLED:'1'};
  child=spawn(process.execPath,['--import',join(root,'tests/action-modal/no-network.mjs'),join(root,'node_modules/next/dist/bin/next'),'dev','--webpack','--hostname','127.0.0.1','--port','3034'],{cwd:temp,env,stdio:['ignore','pipe','pipe']});
  for(const stream of [child.stdout,child.stderr])stream.on('data',buffer=>{const text=buffer.toString();output+=text;process.stdout.write(text);});

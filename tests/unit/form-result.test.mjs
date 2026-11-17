@@ -40,3 +40,15 @@ test('opaque payloads, promise objects and preparation are never submitted-opera
   assert.deepEqual(Object.keys(checkedFormResult(response)).sort(),['destination','saved']);
   assert.equal(response.link,'/private-link');
 });
+
+test('validated failures always provide useful feedback, including blank general errors with valid fields',()=>{
+  for(const error of [undefined,'','  ','Conflicto',42]){
+    for(const fieldErrors of [undefined,{}, {first:undefined}, {first:['',' ']}, {first:'Corregí este campo'}, {first:[' ','Corregí este campo'],second:'Otra corrección'}, {first:[42]}]){
+      const result=checkedFormResult({saved:false,error,fieldErrors});
+      assert.notEqual(result.saved,true);
+      const general=typeof result.error==='string'&&result.error.trim().length>0;
+      const fields=Object.values(result.fieldErrors||{}).some(value=>(Array.isArray(value)?value:[value]).some(message=>typeof message==='string'&&message.trim().length>0));
+      assert.ok(general||fields,'No submitted failure may become silent feedback');
+    }
+  }
+});

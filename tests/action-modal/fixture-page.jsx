@@ -5,18 +5,23 @@ import {useEffect,useState} from 'react';
 import {ActionModal} from '../coordinacion/action-modal';
 import {RegistryModal,RegistryForm} from '../coordinacion/registry-form';
 import {FormField} from '../form-feedback/form-feedback';
+import {NavigationResults} from '../coordinacion/navigation-context';
 import {ConfirmationProvider} from '../status-ribbon';
 import {ShareBrief} from '../coordinacion/salidas/[id]/resumen/share-brief';
 import '../coordinacion/coordination.css';
 
-export default function Fixture(){
+export default function Fixture({navigationReview=false}){
  const [section,setSection]=useState('first'),[calls,setCalls]=useState(0),[open,setOpen]=useState(false);
- const [ready,setReady]=useState(false);useEffect(()=>setReady(true),[]);
- const select=<label>Respuesta ficticia<select name="fixtureMode" defaultValue="fields">{['fields','hidden','general','missing','legacy','truthy','contradictory','throw','delayed','saved'].map(value=><option key={value}>{value}</option>)}</select></label>;
+ const [ready,setReady]=useState(false),[saves,setSaves]=useState(0);useEffect(()=>{setReady(true);const saved=()=>setSaves(n=>n+1);window.addEventListener('asvo:navigation-saved',saved);return()=>window.removeEventListener('asvo:navigation-saved',saved);},[]);
+ const select=<label>Respuesta ficticia<select name="fixtureMode" defaultValue="fields">{['fields','both','hidden','general','missing','empty','null','malformed','legacy','truthy','contradictory','throw','delayed','saved'].map(value=><option key={value}>{value}</option>)}</select></label>;
  async function action(data){
   const mode=String(data.get('fixtureMode')||'fields');
   setCalls(n=>n+1);
   if(mode==='fields')return {fieldErrors:{first:['Primera corrección','Segunda corrección'],second:'Revisá el segundo dato'}};
+  if(mode==='both')return {error:'Conflicto general junto a campos',fieldErrors:{first:['Primera corrección','Segunda corrección'],second:'Revisá el segundo dato'}};
+  if(mode==='empty')return {};
+  if(mode==='null')return null;
+  if(mode==='malformed')return {fieldErrors:{first:[42]}};
   if(mode==='hidden')return {fieldErrors:{second:'Error en sección oculta'}};
   if(mode==='general')return {error:'Conflicto ficticio de versión. Tus datos se conservan.'};
   if(mode==='missing')return undefined;
@@ -32,7 +37,7 @@ export default function Fixture(){
   <div hidden={section!=='second'}><FormField name="second" label="Segundo dato"><textarea name="second" defaultValue="Segundo conservado"/></FormField></div>
   <label>Archivo preparado<input type="file" name="file"/></label>
  </>;
- return <ConfirmationProvider><section data-modal-fixture="true" data-fixture-ready={ready?'true':'false'} className="coordination-content card">
+ return <ConfirmationProvider><>{navigationReview&&<><NavigationResults revision={saves}/><output aria-label="Guardados confirmados">{saves}</output><ol data-navigation-list="inscripciones">{Array.from({length:16},(_,i)=><li key={i} data-navigation-item id={`inscripcion-fixture-${i}`} style={{minHeight:140}}>Fila ficticia {i}</li>)}</ol></>}<section data-modal-fixture="true" data-fixture-ready={ready?'true':'false'} className="coordination-content card">
   <h1>Prueba ficticia de contratos</h1><p>Sin persistencia, correo o proveedores. Llamadas: <output>{calls}</output></p>
   <ActionModal title="Modal local" action={action} validate={()=>({})} successMessage="Guardado ficticio confirmado." revealField={name=>setSection(name==='second'?'second':'first')}>{fields}</ActionModal>
   <button onClick={()=>setOpen(true)}>Abrir controlado</button>
@@ -47,5 +52,5 @@ export default function Fixture(){
    <FormField name="description" label="Descripción ficticia"><textarea name="description" defaultValue="Texto conservado"/></FormField><button>Guardar inline</button>
   </RegistryForm>
   <ShareBrief id="fictitious-outing" leads={['fields','missing','contradictory','throw','saved'].map(id=>({id,name:`Prueba ${id}`}))}/>
- </section></ConfirmationProvider>;
+ </section></></ConfirmationProvider>;
 }

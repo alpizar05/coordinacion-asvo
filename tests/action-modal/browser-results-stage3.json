@@ -1,0 +1,1092 @@
+{
+  "date": "2026-11-16",
+  "uiOnly": true,
+  "persistence": false,
+  "realActionModal": true,
+  "realNavigationProvider": true,
+  "syntheticList": true,
+  "limitations": [
+    "No physical devices or spoken screen reader",
+    "Native IAB dialog may put focus in browser chrome/BODY at keyboard boundaries; not a custom focus-trap certification",
+    "File input value retained; file bytes were not inspected",
+    "No SQL commits or external providers in this harness"
+  ],
+  "cases": [
+    {
+      "case": "local-desktop-both",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "first",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-summary-hidden",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-hidden",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-fields",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Revisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-general",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-missing",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-empty",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-null",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-malformed",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-legacy",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-truthy",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-contradictory",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-throw",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      }
+    },
+    {
+      "case": "local-desktop-pending",
+      "observed": {
+        "disabled": true,
+        "discard": true,
+        "open": true
+      }
+    },
+    {
+      "case": "local-desktop-delayed-complete",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      },
+      "calls": "13"
+    },
+    {
+      "case": "local-desktop-success",
+      "before": {
+        "dialogWidth": 576,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Retener desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "second": "Corregido segundo",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      },
+      "observed": {
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1995.5
+      },
+      "calls": "14"
+    },
+    {
+      "case": "controlled-desktop-both",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "first",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-summary-hidden",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "second",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-general",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-missing",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-empty",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-null",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-malformed",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-legacy",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-truthy",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-contradictory",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-throw",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-delayed-start",
+      "countBefore": "24",
+      "pending": {
+        "disabled": true
+      }
+    },
+    {
+      "case": "controlled-desktop-delayed-end",
+      "calls": "25",
+      "observed": {
+        "dialogWidth": 576,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-success",
+      "before": {
+        "dialogWidth": 576,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Controlado desktop",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "second": "Segundo conservado",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      },
+      "observed": {
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2183
+      }
+    },
+    {
+      "case": "local-mobile-both",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "first",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-summary-hidden",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "second",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-general",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-missing",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-malformed",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-contradictory",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-throw",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-delayed-start",
+      "countBefore": "32",
+      "disabled": ""
+    },
+    {
+      "case": "local-mobile-delayed-end",
+      "calls": "33",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-keyboard",
+      "observed": {
+        "inside": false,
+        "tag": "BODY"
+      }
+    },
+    {
+      "case": "local-mobile-keyboard-next",
+      "observed": {
+        "inside": true,
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "case": "local-mobile-success",
+      "before": {
+        "dialogWidth": 358,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "second": "Retener móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      },
+      "observed": {
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2085
+      }
+    },
+    {
+      "case": "controlled-mobile-both",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "first",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-hidden",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "second",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-general",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-missing",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-empty",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-null",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-malformed",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-legacy",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-truthy",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-contradictory",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-throw",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-delayed-start",
+      "countBefore": "44",
+      "disabled": ""
+    },
+    {
+      "case": "controlled-mobile-delayed-end",
+      "calls": "45",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-dirty-close",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "BODY",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-success",
+      "before": {
+        "dialogWidth": 358,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\preparado.txt",
+        "first": "Dato conservado",
+        "focus": "BODY",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "second": "Controlado móvil",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      },
+      "observed": {
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      },
+      "status": [
+        "Guardado controlado confirmado."
+      ]
+    },
+    {
+      "case": "controlled-mobile-keyboard",
+      "observed": {
+        "inside": false,
+        "tag": "BODY"
+      }
+    },
+    {
+      "case": "controlled-mobile-clean-close",
+      "observed": {
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "local-desktop-keyboard",
+      "observed": {
+        "inside": false,
+        "tag": "BODY"
+      }
+    },
+    {
+      "case": "controlled-desktop-keyboard",
+      "observed": {
+        "inside": false,
+        "tag": "BODY"
+      }
+    },
+    {
+      "case": "native-keyboard-return",
+      "observed": {
+        "inside": true,
+        "tag": "BUTTON"
+      }
+    }
+  ]
+}

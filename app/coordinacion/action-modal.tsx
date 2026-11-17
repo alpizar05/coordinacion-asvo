@@ -49,7 +49,7 @@ export function ActionModal({ title, action, children, wide = false, id, saveLab
         try {
           const result = checkedFormResult(await action(data));
           if (result.saved !== true) {
-            feedback.showErrors(result?.fieldErrors,result?.error || (Object.values(result?.fieldErrors || {}).some(value=>fieldErrorMessages(value).length) ? '' : 'No se pudo guardar. Revisá los datos e intentá de nuevo.'));
+            feedback.showErrors(result.fieldErrors,result.error);
           } else {
             navigationSaved();setDirty(false); setOpen(false);
             if (result.destination) router.push(preserveCurrentNavigation(result.destination),{scroll:false});

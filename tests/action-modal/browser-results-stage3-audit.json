@@ -1,0 +1,2338 @@
+{
+  "date": "2026-11-16",
+  "phase": "independent audit after implementation",
+  "uiOnly": true,
+  "persistence": false,
+  "newEvidence": true,
+  "realActionModal": true,
+  "realNavigationProvider": true,
+  "limitations": [
+    "Synthetic list and mock actions, no database commit or real provider",
+    "File input value retained, no file-byte inspection",
+    "IAB native keyboard boundary may focus BODY/chrome; no spoken screen reader, physical device or cross-browser certification",
+    "No new destination navigation tested"
+  ],
+  "cases": [
+    {
+      "case": "local-desktop-both",
+      "observed": {
+        "calls": "1",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-fields",
+      "observed": {
+        "calls": "2",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Revisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-hidden",
+      "observed": {
+        "calls": "3",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-general",
+      "observed": {
+        "calls": "4",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-missing",
+      "observed": {
+        "calls": "5",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-empty",
+      "observed": {
+        "calls": "6",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-null",
+      "observed": {
+        "calls": "7",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-malformed",
+      "observed": {
+        "calls": "8",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-legacy",
+      "observed": {
+        "calls": "9",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-truthy",
+      "observed": {
+        "calls": "10",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-contradictory",
+      "observed": {
+        "calls": "11",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-throw",
+      "observed": {
+        "calls": "12",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-summary-hidden",
+      "observed": {
+        "calls": "13",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Segundo conservado"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-correction",
+      "observed": {
+        "calls": "13",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 1 campo para guardar.Primer dato: Primera corrección Segunda corrección",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Corregido sin borrar primero"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-pending",
+      "before": {
+        "calls": "13",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 1 campo para guardar.Primer dato: Primera corrección Segunda corrección",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Corregido sin borrar primero"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      },
+      "observed": {
+        "calls": "14",
+        "dialogWidth": 576,
+        "disabled": true,
+        "error": "Conflicto general junto a camposRevisá 1 campo para guardar.Primer dato: Primera corrección Segunda corrección",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "DIALOG",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Corregido sin borrar primero"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-delayed-end",
+      "observed": {
+        "calls": "14",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Corregido sin borrar primero"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "local-desktop-success",
+      "before": {
+        "calls": "14",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "0",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Auditoría desktop local"
+          },
+          {
+            "name": "second",
+            "value": "Corregido sin borrar primero"
+          }
+        ],
+        "width": 1440,
+        "y": 2138
+      },
+      "observed": {
+        "calls": "15",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 1440,
+        "y": 2138
+      },
+      "status": [
+        "Guardado ficticio confirmado."
+      ]
+    },
+    {
+      "case": "controlled-desktop-both",
+      "observed": {
+        "calls": "16",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-fields",
+      "observed": {
+        "calls": "17",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Revisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-hidden",
+      "observed": {
+        "calls": "18",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-general",
+      "observed": {
+        "calls": "19",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-missing",
+      "observed": {
+        "calls": "20",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-empty",
+      "observed": {
+        "calls": "21",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-null",
+      "observed": {
+        "calls": "22",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-malformed",
+      "observed": {
+        "calls": "23",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-legacy",
+      "observed": {
+        "calls": "24",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-truthy",
+      "observed": {
+        "calls": "25",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-contradictory",
+      "observed": {
+        "calls": "26",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-throw",
+      "observed": {
+        "calls": "27",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-dirty-retained",
+      "observed": {
+        "calls": "27",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BODY",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-pending",
+      "before": {
+        "calls": "27",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BODY",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      },
+      "observed": {
+        "calls": "28",
+        "dialogWidth": 576,
+        "disabled": true,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "DIALOG",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-delayed-end",
+      "observed": {
+        "calls": "28",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      }
+    },
+    {
+      "case": "controlled-desktop-success",
+      "before": {
+        "calls": "28",
+        "dialogWidth": 576,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "1",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría desktop controlado"
+          }
+        ],
+        "width": 1440,
+        "y": 2183
+      },
+      "observed": {
+        "calls": "29",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 1440,
+        "y": 2183
+      },
+      "status": [
+        "Guardado controlado confirmado."
+      ]
+    },
+    {
+      "case": "local-mobile-both",
+      "observed": {
+        "calls": "30",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-fields",
+      "observed": {
+        "calls": "31",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-hidden",
+      "observed": {
+        "calls": "32",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-general",
+      "observed": {
+        "calls": "33",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-missing",
+      "observed": {
+        "calls": "34",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-empty",
+      "observed": {
+        "calls": "35",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-null",
+      "observed": {
+        "calls": "36",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-malformed",
+      "observed": {
+        "calls": "37",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-legacy",
+      "observed": {
+        "calls": "38",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-truthy",
+      "observed": {
+        "calls": "39",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-contradictory",
+      "observed": {
+        "calls": "40",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-throw",
+      "observed": {
+        "calls": "41",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-summary-hidden",
+      "observed": {
+        "calls": "42",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-keyboard",
+      "observed": {
+        "inside": true,
+        "tag": "SELECT"
+      }
+    },
+    {
+      "case": "local-mobile-pending",
+      "before": {
+        "calls": "42",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "fixtureMode",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      },
+      "observed": {
+        "calls": "43",
+        "dialogWidth": 358,
+        "disabled": true,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "DIALOG",
+        "invalid": [
+          {
+            "id": "_R_eclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_eclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-delayed-end",
+      "observed": {
+        "calls": "43",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "local-mobile-success",
+      "before": {
+        "calls": "43",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "2",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil local"
+          }
+        ],
+        "width": 390,
+        "y": 2085
+      },
+      "observed": {
+        "calls": "44",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 390,
+        "y": 2085
+      },
+      "status": [
+        "Guardado ficticio confirmado."
+      ]
+    },
+    {
+      "case": "controlled-mobile-both",
+      "observed": {
+        "calls": "45",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto general junto a camposRevisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "first",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-fields",
+      "observed": {
+        "calls": "46",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 2 campos para guardar.Primer dato: Primera corrección Segunda correcciónSegundo dato: Revisá el segundo dato",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-first",
+            "linked": true,
+            "name": "first"
+          },
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-hidden",
+      "observed": {
+        "calls": "47",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BUTTON",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-general",
+      "observed": {
+        "calls": "48",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Conflicto ficticio de versión. Tus datos se conservan.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-missing",
+      "observed": {
+        "calls": "49",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-empty",
+      "observed": {
+        "calls": "50",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-null",
+      "observed": {
+        "calls": "51",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-malformed",
+      "observed": {
+        "calls": "52",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-legacy",
+      "observed": {
+        "calls": "53",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-truthy",
+      "observed": {
+        "calls": "54",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-contradictory",
+      "observed": {
+        "calls": "55",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-throw",
+      "observed": {
+        "calls": "56",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "No se pudo guardar. Tus datos se conservan para reintentar.",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-hidden-focus",
+      "observed": {
+        "calls": "57",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "second",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-dirty-retained",
+      "observed": {
+        "calls": "57",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BODY",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-pending",
+      "before": {
+        "calls": "57",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "BODY",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      },
+      "observed": {
+        "calls": "58",
+        "dialogWidth": 358,
+        "disabled": true,
+        "error": "Revisá 1 campo para guardar.Segundo dato: Error en sección oculta",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "DIALOG",
+        "invalid": [
+          {
+            "id": "_R_mclritpet9erlb_-field-second",
+            "linked": true,
+            "name": "second"
+          }
+        ],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-delayed-end",
+      "observed": {
+        "calls": "58",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "controlled-mobile-success",
+      "before": {
+        "calls": "58",
+        "dialogWidth": 358,
+        "disabled": false,
+        "error": "Reintento ficticio disponible",
+        "file": "C:\\fakepath\\auditoria.txt",
+        "focus": "alert",
+        "invalid": [],
+        "open": true,
+        "overflow": false,
+        "saves": "3",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [
+          {
+            "name": "first",
+            "value": "Dato conservado"
+          },
+          {
+            "name": "second",
+            "value": "Auditoría móvil controlado"
+          }
+        ],
+        "width": 390,
+        "y": 2142.5
+      },
+      "observed": {
+        "calls": "59",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 390,
+        "y": 2142.5
+      },
+      "status": [
+        "Guardado controlado confirmado."
+      ]
+    },
+    {
+      "case": "keyboard-Modal local-390",
+      "boundary": {
+        "inside": false,
+        "tag": "BODY"
+      },
+      "returned": {
+        "inside": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "case": "clean-close-Modal local-390",
+      "observed": {
+        "calls": "59",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 390,
+        "y": 2085
+      }
+    },
+    {
+      "case": "keyboard-Modal controlado-390",
+      "boundary": {
+        "inside": false,
+        "tag": "BODY"
+      },
+      "returned": {
+        "inside": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "case": "clean-close-Modal controlado-390",
+      "observed": {
+        "calls": "59",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 390,
+        "y": 2142.5
+      }
+    },
+    {
+      "case": "keyboard-Modal local-1440",
+      "boundary": {
+        "inside": false,
+        "tag": "BODY"
+      },
+      "returned": {
+        "inside": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "case": "clean-close-Modal local-1440",
+      "observed": {
+        "calls": "59",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 1440,
+        "y": 2138
+      }
+    },
+    {
+      "case": "keyboard-Modal controlado-1440",
+      "boundary": {
+        "inside": false,
+        "tag": "BODY"
+      },
+      "returned": {
+        "inside": true,
+        "label": "Cerrar",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "case": "clean-close-Modal controlado-1440",
+      "observed": {
+        "calls": "59",
+        "focus": "BUTTON",
+        "invalid": [],
+        "open": false,
+        "overflow": false,
+        "saves": "4",
+        "url": "http://localhost:3034/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "values": [],
+        "width": 1440,
+        "y": 2183
+      }
+    }
+  ]
+}
