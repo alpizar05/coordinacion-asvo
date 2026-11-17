@@ -6,6 +6,7 @@ import {sql} from "../../lib/db";
 import {uuid} from "../../lib/registration";
 import {revalidatePath} from "next/cache";
 import {type FormResult} from "../../lib/form-result";
+import type {StaffRegistrationAddedResult} from '../../lib/staff-registration-result';
 import {manageStaffEntry} from "../../lib/staff-entry-management";
 import type {LegacyEntryResult} from '../../lib/legacy-operation-result';
 import {manageLegacyEntry} from "../../lib/legacy-entry-management";
@@ -27,11 +28,11 @@ export async function findRegistrationVolunteers(outingId: string, query: string
   return findStaffRegistrationVolunteers(sql,user,outingId,query);
 }
 
-export async function addRegistration(outingId: string, form: FormData): Promise<FormResult & {status?:string}> {
+export async function addRegistration(outingId: string, form: FormData): Promise<StaffRegistrationAddedResult> {
   const user = await staff();
   if (!uuid(outingId)) return {error:'La salida no está disponible.'};
   const result=await sql.begin(tx=>addRegistrationRecord(tx,outingId,form,user));
-  if (result.saved) {
+  if (result.saved === true) {
     await dispatchRegistrationUpdates();
     revalidatePath(`/coordinacion/salidas/${outingId}`);
     revalidatePath('/coordinacion/inscripciones');
@@ -50,7 +51,7 @@ export async function saveEditedRegistration(id: string, form: FormData): Promis
   const user = await staff();
   if (!uuid(id)) return { error: 'Inscripción inválida.' };
   const result=await sql.begin(tx=>editRegistrationRecord(tx,id,form,user));
-  if (result.saved) { await dispatchRegistrationUpdates(); revalidatePath('/coordinacion','layout'); revalidatePath('/'); }
+  if (result.saved === true) { await dispatchRegistrationUpdates(); revalidatePath('/coordinacion','layout'); revalidatePath('/'); }
   return result;
 }
 

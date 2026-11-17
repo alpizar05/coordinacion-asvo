@@ -1,6 +1,7 @@
 // No globs: audit which executable can receive a disposable database URL.
 export const contracts=['scripts/audit-security-boundaries.mjs','scripts/audit-functional-boundaries.mjs','scripts/audit-authorization.mjs','scripts/test-auth-diagnostics.mjs','scripts/test-mail-test-recipients.mjs'];
 export const integrationScripts=[
+ {name:'staff-registration-results',file:'scripts/test-staff-registration-results.mjs'},
  {name:'security',file:'scripts/test-security.mjs'},
  {name:'manual-series-contracts',file:'scripts/test-manual-series-contracts.mjs'},
  {name:'legacy-operation-contracts',file:'scripts/test-legacy-operation-contracts.mjs'},

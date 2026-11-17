@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-16",
+  "scope": "Real AddRegistration and EditRegistration consumers, synthetic server actions in a temporary copy; no DB/providers",
+  "viewports": [
+    "desktop default",
+    "390x844"
+  ],
+  "results": [
+    {
+      "form": "add",
+      "mode": "missing",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "add",
+      "mode": "truthy",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "add",
+      "mode": "contradictory",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "add",
+      "mode": "no-status",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "add",
+      "mode": "invalid-status",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "add",
+      "mode": "throw",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "edit",
+      "mode": "missing",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "edit",
+      "mode": "truthy",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "edit",
+      "mode": "contradictory",
+      "open": true,
+      "text": "Conservar observación"
+    },
+    {
+      "form": "edit",
+      "mode": "throw",
+      "open": true,
+      "text": "Conservar observación"
+    }
+  ],
+  "verified": [
+    "general and multiple field errors together",
+    "selected person and observations retained on add failure",
+    "add without valid received status never closes or confirms",
+    "add delayed double-click produces invocation 8, then wait retry 9; review separately confirmed",
+    "edit invalid response retains modal and observations",
+    "edit delayed double-click produces invocation 6, then successful retry 7",
+    "mobile error associations and focus; 358px dialog inside 390px; no horizontal overflow",
+    "query criteria retained in URL"
+  ],
+  "limitations": [
+    "not full multi-level navigation/restoration suite",
+    "no physical devices or real screen-reader speech",
+    "no file input in these forms; no photo workflow exercised"
+  ]
+}

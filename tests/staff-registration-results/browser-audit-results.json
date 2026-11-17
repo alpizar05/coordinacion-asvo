@@ -1,0 +1,410 @@
+{
+  "date": "2026-11-16",
+  "uiResponsesSimulated": true,
+  "persistenceTestedSeparately": true,
+  "realNavigationProvider": true,
+  "limitations": [
+    "Synthetic list and authorization layout; no real business query refresh",
+    "No physical device, spoken screen reader or cross-browser certification"
+  ],
+  "cases": [
+    {
+      "case": "add-desktop-fields",
+      "base": {
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "width": 1280,
+        "y": 1896
+      },
+      "observed": {
+        "focus": "starts",
+        "invalid": [
+          {
+            "ids": "_R_1jeinebn5rd9erlb_-field-starts-error",
+            "linked": true,
+            "name": "starts"
+          },
+          {
+            "ids": "_R_1jeinebn5rd9erlb_-field-other-error",
+            "linked": true,
+            "name": "other"
+          }
+        ],
+        "saved": "0",
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1896
+      }
+    },
+    {
+      "case": "add-desktop-missing",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-null",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-array",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-string",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-empty-errors",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-truthy",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-contradictory",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-no-status",
+      "error": "No se pudo confirmar el estado de la inscripción. Los datos se conservan. Revisá la lista antes de reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-invalid-status",
+      "error": "No se pudo confirmar el estado de la inscripción. Los datos se conservan. Revisá la lista antes de reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-throw",
+      "error": "No se pudo agregar la inscripción. Los datos se conservan para reintentar.",
+      "open": true,
+      "other": "Corregido",
+      "saved": "0"
+    },
+    {
+      "case": "add-desktop-delayed-double",
+      "text": "Agregar persona a la salida\n×\n\nRespuesta demorada ficticia. Invocación 12\n\nPersona Ficticia\n\nIdentificación: 800000001\n\nPersona seleccionada\nCambiar persona\nLlegada\nRegreso\nTiene transporte propio\nRestricciones alimentarias\nTiene interés en ser 70\nOtras observaciones\n\nPodés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.\n\nLa inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.\n\nCancelar\nAgregar inscripción"
+    },
+    {
+      "case": "add-desktop-wait-success",
+      "base": {
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "width": 1280,
+        "y": 1896
+      },
+      "observed": {
+        "focus": "Agregar persona",
+        "saved": "1",
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1896
+      }
+    },
+    {
+      "case": "edit-desktop-summary",
+      "observed": {
+        "focus": "other",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "starts"
+          },
+          {
+            "linked": true,
+            "name": "other"
+          }
+        ]
+      }
+    },
+    {
+      "case": "edit-desktop-missing",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-null",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-array",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-string",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-empty-errors",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-truthy",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-contradictory",
+      "error": "No se pudo confirmar el guardado. Tus datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-throw",
+      "error": "No se pudo guardar. Los datos se conservan para reintentar.",
+      "open": true,
+      "other": "Conservar edición",
+      "saved": "1"
+    },
+    {
+      "case": "edit-desktop-delayed-double",
+      "text": "Editar inscripción\n×\n\nRespuesta demorada ficticia. Invocación 10\n\nPersona Ficticia\n\nLlegada\nRegreso\nTiene transporte propio\nRestricciones alimentarias\nTiene interés en ser 70\nOtras observaciones\nCancelar\nGuardar cambios"
+    },
+    {
+      "case": "edit-desktop-success",
+      "base": {
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1896
+      },
+      "observed": {
+        "focus": "Abrir edición ficticia",
+        "saved": "2",
+        "status": [
+          "Inscripción actualizada. Se notificará a la persona voluntaria por correo."
+        ],
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1896
+      }
+    },
+    {
+      "case": "edit-mobile-fields",
+      "observed": {
+        "dialogWidth": 358,
+        "focus": "other",
+        "invalid": [
+          {
+            "describedby": "_R_3jeinebn5rd9erlb_-field-starts-error",
+            "id": "_R_3jeinebn5rd9erlb_-field-starts",
+            "linked": true,
+            "name": "starts"
+          },
+          {
+            "describedby": "_R_3jeinebn5rd9erlb_-field-other-error",
+            "id": "_R_3jeinebn5rd9erlb_-field-other",
+            "linked": true,
+            "name": "other"
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      }
+    },
+    {
+      "case": "edit-mobile-invalid",
+      "observed": {
+        "open": true,
+        "other": "Retener móvil",
+        "saved": "2"
+      }
+    },
+    {
+      "case": "edit-mobile-delayed-double",
+      "text": "Editar inscripción\n×\n\nRespuesta demorada ficticia. Invocación 14\n\nPersona Ficticia\n\nLlegada\nRegreso\nTiene transporte propio\nRestricciones alimentarias\nTiene interés en ser 70\nOtras observaciones\nCancelar\nGuardar cambios"
+    },
+    {
+      "case": "edit-mobile-success",
+      "base": {
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1907.5
+      },
+      "observed": {
+        "focus": "Abrir edición ficticia",
+        "saved": "3",
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1907.5
+      }
+    },
+    {
+      "case": "add-mobile-fields",
+      "observed": {
+        "dialogWidth": 358,
+        "error": "General ficticio junto a camposRevisá 2 campos para guardar.Llegada: Primera corrección Segunda correcciónObservaciones: Revisá la observación",
+        "focus": "starts",
+        "invalid": [
+          {
+            "linked": true,
+            "name": "starts"
+          },
+          {
+            "linked": true,
+            "name": "other"
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      }
+    },
+    {
+      "case": "add-mobile-no-status",
+      "observed": {
+        "open": true,
+        "other": "Corregido móvil",
+        "saved": "3"
+      }
+    },
+    {
+      "case": "add-mobile-delayed-double",
+      "text": "Agregar persona a la salida\n×\n\nRespuesta demorada ficticia. Invocación 16\n\nPersona Ficticia\n\nIdentificación: 800000001\n\nPersona seleccionada\nCambiar persona\nLlegada\nRegreso\nTiene transporte propio\nRestricciones alimentarias\nTiene interés en ser 70\nOtras observaciones\n\nPodés indicar menos días o ampliar la participación. Las fechas deben intersectar el periodo de la salida; se revisarán al confirmar.\n\nLa inscripción queda en revisión si hay cupo o en lista de espera si está completo. Se enviará un correo a la persona voluntaria.\n\nCancelar\nAgregar inscripción"
+    },
+    {
+      "case": "add-mobile-review-success",
+      "base": {
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1862.5
+      },
+      "observed": {
+        "focus": "Agregar persona",
+        "saved": "4",
+        "status": [
+          "Persona Ficticia: inscripción agregada en revisión. Se notificará por correo."
+        ],
+        "url": "http://localhost:3035/coordinacion/salidas/22222222-2222-4222-8222-222222222222?estado=revisi%C3%B3n&pestana=inscripciones",
+        "y": 1862.5
+      }
+    },
+    {
+      "case": "add-mobile-keyboard-wrap",
+      "observed": {
+        "focus": "BODY (browser chrome boundary)",
+        "inDialog": true
+      }
+    },
+    {
+      "case": "add-mobile-keyboard-forward",
+      "observed": {
+        "focus": null,
+        "inDialog": false
+      }
+    },
+    {
+      "case": "edit-mobile-keyboard-wrap",
+      "observed": {
+        "focus": "BODY (browser chrome boundary)",
+        "inDialog": false
+      }
+    },
+    {
+      "case": "edit-mobile-keyboard-forward",
+      "observed": {
+        "focus": null,
+        "inDialog": false
+      }
+    },
+    {
+      "case": "edit-mobile-dirty-close",
+      "observed": {
+        "open": true,
+        "other": "No descartar"
+      }
+    },
+    {
+      "case": "edit-desktop-keyboard",
+      "observed": {
+        "focus": "BODY (browser chrome boundary)",
+        "inside": false,
+        "overflow": false
+      }
+    },
+    {
+      "case": "add-desktop-keyboard",
+      "observed": {
+        "focus": "BODY (browser chrome boundary)",
+        "inside": true,
+        "overflow": false
+      }
+    },
+    {
+      "case": "add-desktop-dirty-close",
+      "observed": {
+        "open": true,
+        "other": "Conservar cierre"
+      }
+    },
+    {
+      "case": "add-pending-escape",
+      "observed": {
+        "discard": false,
+        "open": true,
+        "pending": true
+      }
+    },
+    {
+      "case": "add-transport-retained",
+      "observed": {
+        "lead": true,
+        "other": "Conservar cierre",
+        "rides": "2",
+        "transport": true
+      }
+    },
+    {
+      "case": "edit-pending-escape",
+      "observed": {
+        "discard": true,
+        "open": true,
+        "pending": false
+      }
+    },
+    {
+      "case": "edit-transport-retained",
+      "observed": {
+        "lead": true,
+        "other": "Conservar observación",
+        "rides": "3",
+        "transport": true
+      }
+    },
+    {
+      "case": "native-dialog-keyboard-limit",
+      "observation": "IAB may put focus in browser chrome/BODY at Tab boundary. Next Tab returned to native dialog; background controls remained absent from AX tree. Not a strict custom focus trap certification."
+    }
+  ]
+}

@@ -368,4 +368,11 @@ Esta revisión fue documental: solo repitió tres auditorías estáticas, sin DB
 
 La [revisión de consumidores compartidos](docs/consumidores-compartidos-resultados.md) documenta tipos, ocho productores activos, compatibilidad conservada y evidencia local del 16/11/2026.
 
+La [auditoría de utilidades y acciones de formularios](docs/auditoria-utilidades-formularios.md) evalúa abstracciones, usos indirectos y simplificaciones futuras. Recomienda conservar `updateFieldError`; las propuestas no modifican la implementación ni implican publicación.
+
+
 Auditoría E7: 104 unitarias, 23 grupos SQL protegidos, tipos/contratos, instalación reproducible, builds Turbopack/Webpack y CUA acotada desktop/móvil. El [informe final](docs/auditoria-final-contratos-heredados.md) separa evidencia, compatibilidad y pendientes antes de publicar.
+
+Se implementó localmente la [frontera de Agregar/Editar inscripción](docs/contratos-agregar-editar-inscripcion.md): alta con estado requerido, resultados validados y errores conjuntos, con pruebas SQL y CUA acotadas. Las otras propuestas de la auditoría de utilidades permanecen pendientes.
+
+La [auditoría de comportamiento de Agregar/Editar](docs/auditoria-agregar-editar-inscripcion.md) amplía la evidencia con fallos posteriores al commit, doble clic, foco y posición desktop/móvil. No encontró otro defecto funcional confirmado; conserva pendientes la matriz de listados reales, lectores/dispositivos y CI remota. Una respuesta rechazada no garantiza que el guardado no haya ocurrido.

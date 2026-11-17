@@ -8,7 +8,7 @@ import { StatusRibbon } from '../status-ribbon';
 import { StaffParticipationFields } from './staff-participation-fields';
 import { FormFeedbackProvider,FormErrorSummary,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
-import { fieldErrorMessages } from '../../lib/form-result';
+import { checkedFormResult,fieldErrorMessages } from '../../lib/form-result';
 import { loadEditableRegistration, saveEditedRegistration } from '../actions/registrations';
 
 type Data = NonNullable<Awaited<ReturnType<typeof loadEditableRegistration>>['data']>;
@@ -44,8 +44,8 @@ export function EditRegistration({ id, open, onClose }: { id: string; open: bool
         if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
         inFlight.current=true;setPending(true);setError('');
         try {
-          const result = await saveEditedRegistration(id,form);
-          if (!result.saved) { feedback.showErrors(result.fieldErrors,result.error); }
+          const result = checkedFormResult(await saveEditedRegistration(id,form));
+          if (result.saved !== true) { feedback.showErrors(result.fieldErrors,result.error); }
           else { navigationSaved();setDirty(false); onClose(); setSuccess('Inscripción actualizada. Se notificará a la persona voluntaria por correo.'); router.refresh(); }
         } catch { feedback.showErrors({},'No se pudo guardar. Los datos se conservan para reintentar.'); }
         finally { inFlight.current=false;setPending(false); }

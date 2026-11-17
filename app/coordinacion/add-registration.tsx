@@ -9,6 +9,7 @@ import { StaffParticipationFields } from './staff-participation-fields';
 import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from '../form-feedback/form-feedback';
 import { validateStaffParticipation,staffRegistrationLabels } from '../../lib/staff-registration-validation';
 import { fieldErrorMessages } from '../../lib/form-result';
+import {checkedStaffRegistrationAddedResult} from '../../lib/staff-registration-result';
 import { addRegistration, findRegistrationVolunteers } from '../actions/registrations';
 
 type Person = { id: string; name: string; identification: string };
@@ -49,8 +50,8 @@ export function AddRegistration({ outing }: { outing: { id: string; starts: stri
         if(Object.values(errors).some(value=>fieldErrorMessages(value).length)){feedback.showErrors(errors);return;}
         inFlight.current=true;setPending(true);
         try {
-          const result = await addRegistration(outing.id,data);
-          if (!result.saved) { feedback.showErrors(result.fieldErrors,result.fieldErrors?undefined:result.error); }
+          const result = checkedStaffRegistrationAddedResult(await addRegistration(outing.id,data));
+          if (result.saved !== true) { feedback.showErrors(result.fieldErrors,result.error); }
           else {
             navigationSaved();setDirty(false); setOpen(false);
             setSuccess(`${selected?.name}: inscripción agregada ${result.status === 'espera' ? 'a lista de espera' : 'en revisión'}. Se notificará por correo.`);
