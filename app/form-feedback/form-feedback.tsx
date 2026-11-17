@@ -15,7 +15,7 @@ function revealForm(form:HTMLFormElement){
 }
 
 /** Reveal controlled sections before focus; never unmount or recreate a form to handle an error. */
-export async function focusFormField(form: HTMLFormElement | null, name: string, reveal?: RevealField) {
+async function focusFormField(form: HTMLFormElement | null, name: string, reveal?: RevealField) {
   if (!form) return false;
   revealForm(form);
   await reveal?.(name);
@@ -83,7 +83,7 @@ function useFeedback() {
   if (!feedback) throw new Error('FormField necesita FormFeedbackProvider.');
   return feedback;
 }
-export function FieldError({ name }: {name:string}) {
+function FieldError({ name }: {name:string}) {
   const feedback=useFeedback(),messages=fieldErrorMessages(feedback.fieldErrors[name]);
   return messages.length ? <span id={feedback.errorId(name)} className="form-field-error">{messages.map((message,index)=><span className="form-field-error-message" key={index}>{message}</span>)}</span> : null;
 }

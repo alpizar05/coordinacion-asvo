@@ -182,3 +182,9 @@ Lista de los 103 exports del subconjunto central del análisis. Incluye funcione
 ## Seguimiento de etapa 1 — 16/11/2026
 
 Agregar/Editar inscripción se implementaron después de este análisis: [contratos, pruebas y límites](contratos-agregar-editar-inscripcion.md). Ambos consumidores validan su respuesta; el alta exige revisión/espera y conserva errores generales junto a los de campo. La observación previa sobre esos dos formularios y status opcional es histórica. Siguen pendientes OutingDecisionForm, ImportWizard y público/privado, además de las etapas de exports y simplificación de ActionModal. La implementación no cambia la recomendación de conservar updateFieldError ni autoriza publicar.
+
+## Seguimiento de etapa 2 — 16/11/2026
+
+Implementada localmente la [reducción de superficie interna](superficie-interna-formularios.md): import ActionModal sin uso retirado; focusFormField y FieldError ahora internos, con implementación/composición intactas. Los cinco tipos se evaluaron individualmente y se conservan exportados por su participación en contratos públicos; no se convierten automáticamente en deuda pendiente. updateFieldError, PhotoDialogProps y las nueve rutas de compatibilidad permanecen. Inventario actualizado de 339 archivos, tipos, 107 unitarias, contratos, lint/formato y build aislado aprobados. No se ejecutó CUA nueva porque no cambió la composición. La propuesta de exports de la auditoría inicial es histórica; etapa 3, otras fronteras y retiro de compatibilidad siguen separados. Sin publicación.
+
+La auditoría posterior de la etapa 2 repitió esas comprobaciones y confirmó equivalencia exacta salvo los dos modificadores y el import, nueve módulos de compatibilidad y pruebas intactos, sin nuevos casts/contratos/dependencias ni hallazgos funcionales. Evidencia y límites en el mismo documento; no completa pendientes visuales o de infraestructura.

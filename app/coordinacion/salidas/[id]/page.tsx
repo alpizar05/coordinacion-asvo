@@ -9,7 +9,6 @@ import { OutingLogistics } from '../../../outing-logistics';
 import { outingLogisticsFields, outingLogisticsMessage } from '../../../../lib/outing-logistics';
 import { AddRegistration } from '../../add-registration';
 import { compactParticipationDates } from '../../../../lib/participation-dates';
-import { ActionModal } from '../../action-modal';
 import { OutingTabs } from './outing-tabs';
 import { FoodSummary } from '../../food-summary';
 import { TransportSummary } from '../../transport-summary';

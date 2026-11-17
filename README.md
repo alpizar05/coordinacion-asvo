@@ -373,6 +373,8 @@ La [auditoría de utilidades y acciones de formularios](docs/auditoria-utilidade
 
 Auditoría E7: 104 unitarias, 23 grupos SQL protegidos, tipos/contratos, instalación reproducible, builds Turbopack/Webpack y CUA acotada desktop/móvil. El [informe final](docs/auditoria-final-contratos-heredados.md) separa evidencia, compatibilidad y pendientes antes de publicar.
 
-Se implementó localmente la [frontera de Agregar/Editar inscripción](docs/contratos-agregar-editar-inscripcion.md): alta con estado requerido, resultados validados y errores conjuntos, con pruebas SQL y CUA acotadas. Las otras propuestas de la auditoría de utilidades permanecen pendientes.
+Se implementó localmente la [frontera de Agregar/Editar inscripción](docs/contratos-agregar-editar-inscripcion.md): alta con estado requerido, resultados validados y errores conjuntos, con pruebas SQL y CUA acotadas. Las restantes propuestas se siguen por etapa en TODO; la reducción de superficie interna se documenta debajo.
 
 La [auditoría de comportamiento de Agregar/Editar](docs/auditoria-agregar-editar-inscripcion.md) amplía la evidencia con fallos posteriores al commit, doble clic, foco y posición desktop/móvil. No encontró otro defecto funcional confirmado; conserva pendientes la matriz de listados reales, lectores/dispositivos y CI remota. Una respuesta rechazada no garantiza que el guardado no haya ocurrido.
+
+La [etapa 2 de superficie interna](docs/superficie-interna-formularios.md) retira un import sin uso y hace internas focusFormField/FieldError, conservando su implementación, los contratos de tipos y la compatibilidad. La auditoría posterior confirmó equivalencia, referencias y nueve módulos intactos; repitió tipos, 107 unitarias, contratos, calidad y build aislado sin hallazgos funcionales. Sin nueva prueba visual (composición intacta) ni publicación.
