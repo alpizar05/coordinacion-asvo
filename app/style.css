@@ -891,3 +891,9 @@ body:has(.outing-brief) { --content-max-width: 90rem; }
 
 .registration-form-fields { display: grid; gap: 1rem; border: 0; margin: 0; padding: 0; min-width: 0; }
 .registration-form-fields > [hidden] { display: none; }
+
+.registration-identity-found { color: #526a3d; font-weight: 600; overflow-wrap: anywhere; }
+
+/* Keep identity feedback close to its field, outside the spacing between form sections. */
+.registration-identity-field { display: grid; gap: .35rem; min-width: 0; }
+.registration-identity-field > p { margin: 0; overflow-wrap: anywhere; }

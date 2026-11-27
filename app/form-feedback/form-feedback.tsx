@@ -89,13 +89,13 @@ function FieldError({ name }: {name:string}) {
 }
 
 type ControlProps = { type?:string; id?:string; 'aria-invalid'?:boolean | 'true' | 'false'; 'aria-describedby'?:string };
-export function FormField({ name,label,children }: {name:string;label:string;children:ReactElement<ControlProps>}) {
+export function FormField({ name,label,children,invalid=false }: {name:string;label:string;children:ReactElement<ControlProps>;invalid?:boolean}) {
   const feedback=useFeedback();
   feedback.register(name,label);
   const child=Children.toArray(children)[0] as ReactElement<ControlProps>;
   const error=fieldErrorMessages(feedback.fieldErrors[name]).length > 0;
   const describedBy=[child.props['aria-describedby'],error?feedback.errorId(name):''].filter(Boolean).join(' ') || undefined;
-  const control=cloneElement(child,{id:feedback.fieldId(name),'aria-invalid':error?true:undefined,'aria-describedby':describedBy});
+  const control=cloneElement(child,{id:feedback.fieldId(name),'aria-invalid':error||invalid?true:undefined,'aria-describedby':describedBy});
   return <div className="form-feedback-field">{child.props.type==='checkbox'
     ? <label htmlFor={feedback.fieldId(name)}>{control} {label}</label>
     : <><label htmlFor={feedback.fieldId(name)}>{label}</label>{control}</>}

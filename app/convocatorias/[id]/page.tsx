@@ -12,7 +12,7 @@ import { displayDate, uuid } from '../../../lib/registration';
 import { Drawer } from '../../drawer';
 import { RegistrationFields } from '../../fields';
 import { PhotoGallery } from '../../photo-gallery';
-import { register } from '../../public-actions';
+import { register,lookupRegistrationIdentity } from '../../public-actions';
 
 export const dynamic = 'force-dynamic';
 
@@ -119,7 +119,7 @@ export default async function Page({ params, searchParams }: {
             <CapacitySummary capacity={outing.capacity} occupied={outing.occupied} detail />
             <p>Coordinación debe confirmar tu participación{outing.occupied >= outing.capacity ? '. Los cupos están cubiertos; tu inscripción se recibirá en lista de espera.' : '.'}</p>
             <p>{participation}</p>
-            <RememberRegistrationForm schedule={{flexible:outing.flexible,starts:outing.starts,ends:outing.ends}} outingId={id} action={register.bind(null, id, schedule, token)}>
+            <RememberRegistrationForm lookupIdentity={lookupRegistrationIdentity.bind(null,id,token)} schedule={{flexible:outing.flexible,starts:outing.starts,ends:outing.ends}} outingId={id} action={register.bind(null, id, schedule, token)}>
               <RegistrationFields flexible={outing.flexible} general={outing.unit === 'Voluntariado General'}
                 starts={outing.starts} ends={outing.ends} />
             </RememberRegistrationForm>

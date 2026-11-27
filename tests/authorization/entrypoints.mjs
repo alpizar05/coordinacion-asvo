@@ -14,7 +14,7 @@ export const entrypoints={
   createOutingCollection:'series.create',createOutingInvitation:'invitations.generate',updateAutomaticCollection:'series.common-edit',saveAutomaticCollection:'series.common-edit',setHomepageFeature:'series.feature',
  },
  'app/photo-actions.ts':{managePhoto:'photos.manage',attachOutingPhoto:'photos.manage'},
- 'app/public-actions.ts':{register:'public.registration',submitPrivateRegistration:'private.registration',privateAction:'private.registration'},
+ 'app/public-actions.ts':{lookupRegistrationIdentity:'public.registration',register:'public.registration',submitPrivateRegistration:'private.registration',privateAction:'private.registration'},
  'app/coordinacion/add-registration-actions.ts':{findRegistrationVolunteers:'registrations.add',addRegistration:'registrations.add'},
  'app/coordinacion/edit-registration-actions.ts':{loadEditableRegistration:'registrations.manage',saveEditedRegistration:'registrations.manage'},
  'app/coordinacion/manage-registration-actions.ts':{manageRegistration:'registrations.manage'},

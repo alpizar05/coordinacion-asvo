@@ -11,6 +11,7 @@ import { uuid } from '../lib/registration';
 import { dispatchRegistrationUpdates } from '../lib/registration-workflow';
 import { createRegistrationReceipt,receiptCookie } from '../lib/registration-receipt';
 import { receivePublicRegistration,changePrivateRegistration } from '../lib/public-registration';
+import {readRegistrationIdentity,type RegistrationIdentityResult} from '../lib/registration-identity';
 import type { RegistrationActionResult } from '../lib/registration-validation';
 
 export async function register(outingId:string,schedule:string,token:string,form:FormData):Promise<RegistrationActionResult>{
@@ -45,4 +46,11 @@ export async function submitPrivateRegistration(token:string,form:FormData):Prom
 export async function privateAction(token:string,form:FormData):Promise<never>{
   const result=await submitPrivateRegistration(token,form);
   redirect(`/privado/${validPrivateToken(token)?token:'invalido'}?${result.saved === true?'actualizada=1':'error=1'}`);
+}
+
+export async function lookupRegistrationIdentity(outingId:string,token:string,identification:string):Promise<RegistrationIdentityResult>{
+ try{
+  const h=await headers();
+  return await sql.begin(tx=>readRegistrationIdentity(tx,outingId,identification,token,trustedClientAddress(process.env,h.get('x-vercel-forwarded-for'))));
+ }catch{return {kind:'error',message:'No pudimos consultar la identificación. Podés reintentar al corregir el número o enviar el formulario para verificarlo.'};}
 }

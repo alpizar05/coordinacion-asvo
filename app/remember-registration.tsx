@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { FormFeedbackProvider,FormErrorSummary,FormField,useFormFeedback } from './form-feedback/form-feedback';
 import { RegistrationResultModal } from './registration-result-modal';
 import { validateParticipation,registrationFieldLabels,type RegistrationActionResult,type RegistrationSchedule } from '../lib/registration-validation';
+import type { RegistrationIdentityResult } from '../lib/registration-identity';
 import { fieldErrorMessages } from '../lib/form-result';
 
 const savedKey = 'asvo-registration-preferences-v1';
@@ -18,12 +19,26 @@ function valid(value: unknown): value is Preferences {
     typeof p.food === 'string' && p.food.length <= 500 && typeof p.transport === 'boolean' && Number.isSafeInteger(p.rides) && p.rides >= 0;
 }
 
-export function RememberRegistrationForm({ action, outingId, schedule, children }: {
+export function RememberRegistrationForm({ action, outingId, schedule, children,lookupIdentity }: {
+  lookupIdentity: (identification:string)=>Promise<RegistrationIdentityResult>;
   action: (data: FormData) => Promise<RegistrationActionResult>; outingId: string; schedule: RegistrationSchedule; children: ReactNode;
 }) {
   const form = useRef<HTMLFormElement>(null);
   const router=useRouter();
-  const helpId=useId();
+  const helpId=useId(),identityId=useId();
+  const [identification,setIdentification]=useState('');
+  const [identity,setIdentity]=useState<{identification:string;result:RegistrationIdentityResult}|null>(null);
+  const [checking,setChecking]=useState(false);
+  useEffect(()=>{
+    let current=true;
+    if(!/^\d{9}$/.test(identification)){setChecking(false);return;}
+    setChecking(true);
+    const timer=setTimeout(()=>{void lookupIdentity(identification).then(result=>{
+      if(current)setIdentity({identification,result});
+    }).catch(()=>{if(current)setIdentity({identification,result:{kind:'error',message:'No pudimos consultar la identificación. Intentá nuevamente o enviá el formulario para verificarla.'}});}).finally(()=>{if(current)setChecking(false);});},250);
+    return()=>{current=false;clearTimeout(timer);};
+  },[identification,lookupIdentity]);
+  const identityResult=identity?.identification===identification?identity.result:null;
   const [pending,setPending]=useState(false);
   const inFlight=useRef(false);
   const [issue,setIssue]=useState<(NonNullable<RegistrationActionResult['issue']>&{id:number})|null>(null);
@@ -49,6 +64,7 @@ export function RememberRegistrationForm({ action, outingId, schedule, children 
         }
       }
       form.current?.querySelector('[name=transport]')?.dispatchEvent(new Event('change', { bubbles: true }));
+      setIdentification(saved.data.identification);
       setRemember(true);
     } catch { setAvailable(false); }
   }, []);
@@ -83,7 +99,7 @@ export function RememberRegistrationForm({ action, outingId, schedule, children 
         input.setSelectionRange(Math.min(position,9),Math.min(position,9));
       }
     }
-    if(input instanceof HTMLInputElement && input.name==='identification')feedback.changed('identification');
+    if(input instanceof HTMLInputElement && input.name==='identification'){if(input.value!==identification)setIdentity(null);setIdentification(input.value);feedback.changed('identification');}
   }} onSubmit={async event => {
     event.preventDefault();
     if(inFlight.current)return;
@@ -109,8 +125,13 @@ export function RememberRegistrationForm({ action, outingId, schedule, children 
   }}>
     <FormErrorSummary />
     <fieldset disabled={pending} className="registration-form-fields">
-    <FormField name="identification" label="Número de identificación"><input name="identification" type="text" inputMode="numeric" required minLength={9} maxLength={9} pattern="[0-9]{9}" placeholder="102340567" aria-describedby={helpId} autoComplete="off" /></FormField>
+    <div className="registration-identity-field">
+    <FormField name="identification" label="Número de identificación" invalid={!checking&&identityResult?.kind==='not-found'}><input name="identification" type="text" inputMode="numeric" required minLength={9} maxLength={9} pattern="[0-9]{9}" placeholder="102340567" aria-describedby={`${helpId} ${identityId}`} autoComplete="off" /></FormField>
     <p id={helpId} className="muted">9 dígitos, sin espacios ni guiones. Ejemplo: 102340567.</p>
+    <p id={identityId} role="status" aria-live="polite" aria-atomic="true" className={identityResult?.kind==='not-found'?'form-field-error':identityResult?.kind==='found'?'registration-identity-found':'muted'}>
+      {checking?'Buscando identificación…':identityResult?.kind==='found'?<> <span aria-hidden="true">✓ </span>{identityResult.name}</>:identityResult?.kind==='not-found'?'No encontramos esta identificación en el registro de personas voluntarias. Revisá los 9 dígitos.':identityResult?.kind==='error'?identityResult.message:''}
+    </p>
+    </div>
     {children}
     <div className="remember-registration">
       <label><input type="checkbox" checked={remember} disabled={!available} onChange={event => {

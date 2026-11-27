@@ -192,3 +192,8 @@ Auditoría visual local: [UI/UX de Coordinación](docs/auditoria-uiux-coordinaci
 
 - [ ] **Definir y verificar una UI de revocación de capacidades privadas, si se aprueba ese alcance.** Los controles/casos internos existen y están verificados; no incluyen interfaz. Definir qué capacidades, roles y confirmación se exponen antes de implementarla. Se hace explícito el pendiente del apartado de seguridad; no ampliar permisos por analogía.
 - [ ] **Verificar la alternativa Docker local PostgreSQL 18.7.** Compose está actualizado, pero no fue ejecutado. Probar arranque, versión, volumen nuevo y preservación del volumen antiguo cuando Docker esté disponible, sin usar datos beta. No confundir la verificación nativa 18.7 ya completada con este entorno.
+
+## Inscripción pública — consulta de identificación (26/11/2026)
+
+- [x] **Implementar y verificar localmente la consulta del nombre al completar nueve dígitos.** Nombre/error debajo del campo, búsqueda demorada 250 ms, cancelación de respuestas antiguas, pegado numérico y datos recordados; servicio mínimo con presupuestos propios y acceso por convocatoria/invitación. Consumidor simulado, integración real desechable 18.7, tipos/lint/contratos/build y HTTP local correctos. [Evidencia y límites](docs/consulta-identificacion-inscripcion.md). No incluye verificación visual ni publicación.
+- [ ] **Verificar la consulta de identificación en navegador desktop y celular.** CUA no inició por fallo de sesión. Probar teclado/pegado reales, nombre largo, carga, inexistente, corrección rápida, errores de red y asociaciones accesibles en formulario real. Mantener lectores hablados y dispositivos físicos separados; no extrapolar el harness o HTTP a esa verificación.

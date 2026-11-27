@@ -404,3 +404,7 @@ La [ejecución visual de inscripciones, comunicaciones y 70](docs/matriz-visual-
 La [auditoría de cierre de la matriz visual](docs/cierre-matriz-visual.md) revisa las 1032 celdas: 349 verificadas con alcance explícito, 478 pendientes, 204 no aplicables y una bloqueada. Conserva la evidencia histórica y suma 92 observaciones CUA/57 capturas sobre PostgreSQL 18.7, con commits ficticios y proveedores simulados. Corrige pérdida de origen al pulsar Escape durante pending; no declara completa la matriz ni accesibilidad global, lectores, dispositivos o infraestructura.
 
 La [auditoría del TODO](docs/auditoria-estado-todo.md) aclara que las referencias a PostgreSQL 18.6/18.7 de los informes por familia son históricas: el cierre posterior ya aporta integración 18.7 y algunos commits CUA, sin repetir ni completar todas sus variantes.
+
+### Verificación inmediata de identificación en inscripción pública
+
+Al completar los nueve dígitos, el formulario consulta el registro y muestra el nombre debajo del campo o un mensaje si no se encuentra. Las respuestas antiguas se descartan al corregir la cédula. Esta consulta solo verifica identidad: póliza, unidad y cupos se validan al enviar como antes. [Implementación local, controles de consulta y pruebas](docs/consulta-identificacion-inscripcion.md). Pendiente verificación visual desktop/celular por indisponibilidad de CUA; sin publicación.
